@@ -51,7 +51,7 @@
     "gatsby-transformer-sharp": "^2.5.14",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
-    "markdownlint": "^0.20.4",
+    "markdownlint-cli": "^0.23.2",
     "stylelint": "^13.7.0",
     "stylelint-config-recess-order": "^2.1.0",
     "stylelint-config-recommended-scss": "^4.2.0",
