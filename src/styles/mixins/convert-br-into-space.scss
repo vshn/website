@@ -1,0 +1,9 @@
+@mixin convert-br-into-space {
+  br {
+    content: '';
+
+    &:after {
+      content: ' ';
+    }
+  }
+}
