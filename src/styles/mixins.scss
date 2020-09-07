@@ -1,6 +1,3 @@
-@import 'bulma/sass/utilities/_all.sass';
-@import 'bulma/sass/utilities/mixins.sass';
-
 @mixin lg-down {
   // 1219.98 - 1024
   @media only screen and (max-width: $breakpoint-lg-down) {
