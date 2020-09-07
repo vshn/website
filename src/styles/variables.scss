@@ -1,39 +1,35 @@
 // Colors
-$color-primary: '';
-$color-secondary: '';
-$color-tertiary: '';
+$color-primary: #08112b;
+$color-secondary: #73798c;
+$color-tertiary: #fff;
+$color-quaternary: #afb7cf;
 
-$color-accent-primary: '';
-$color-accent-secondary: '';
-
-$color-primary-hover: '';
-$color-accent-primary-hover: '';
-$color-accent-secondary-hover: '';
+$color-accent-primary: #4cc3ff;
+$color-accent-secondary: #ffbf00;
 
 // Fonts
-$font-family-primary: '';
-$font-family-secondary: '';
+$font-family-primary: 'Montserrat', sans-serif;
 
-$font-size-base: '';
-$line-height-base: '';
+$font-size-xxl: 70px;
+$line-height-xxl: 1.2;
 
-$font-size-xxl: '';
-$line-height-xxl: '';
+$font-size-xl: 50px;
+$line-height-xl: 1.2;
 
-$font-size-xl: '';
-$line-height-xl: '';
+$font-size-lg: 26px;
+$line-height-lg: 1.2;
 
-$font-size-lg: '';
-$line-height-lg: '';
+$font-size-md: 20px;
+$line-height-md: 1.4;
 
-$font-size-md: '';
-$line-height-md: '';
+$font-size-sm: 16px;
+$line-height-sm: 1.4;
 
-$font-size-sm: '';
-$line-height-sm: '';
+$font-size-xs: 14px;
+$line-height-xs: 1.4;
 
-$font-size-xs: '';
-$line-height-xs: '';
+$font-size-base: $font-size-sm;
+$line-height-base: $line-height-sm;
 
 // Breakpoints
 // We minus 0.02px from our breakpoints because these breakpoints are for mobile-first but we use desktop-first approach
