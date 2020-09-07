@@ -12,3 +12,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.container {
+  position: relative;
+  max-width: 1290px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include lg-down {
+    max-width: 940px; // TODO: Once we have adaptive versions of at least one page, check if the width of the container is correct
+  }
+
+  @include md-down {
+    max-width: 700px; // TODO: Once we have adaptive versions of at least one page, check if the width of the container is correct
+  }
+
+  @include sm-down {
+    max-width: 100%;
+  }
+}
+
+.section {
+  @include sm-down {
+    // TODO: Once we have adaptive versions of at least one page, check if paddings are correct
+    padding-right: calc(constant(safe-area-inset-right) + 15px);
+    padding-right: calc(env(safe-area-inset-right) + 15px);
+    padding-left: calc(constant(safe-area-inset-left) + 15px);
+    padding-left: calc(env(safe-area-inset-left) + 15px);
+  }
+}
