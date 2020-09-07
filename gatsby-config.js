@@ -2,15 +2,9 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    siteTitle: 'Pixel Point Gatsby Starter', // <title>
-    siteDescription: 'Site Description',
-    // pathPrefix: "",
-    siteImage: '/images/sample-image.png',
+    siteTitle: 'VSHN AG',
+    siteDescription: 'VSHN AG is the leading Swiss partner for DevOps, Docker, Kubernetes, OpenShift and 24/7 Cloud Operations. VSHN helps software developers run their apps.',
     siteLanguage: 'en',
-    siteUrl: process.env.GATSBY_DEFAULT_SITE_URL,
-    /* author */
-    authorName: 'pixel point',
-    authorTwitterAccount: '@',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -31,13 +25,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'VSHN AG',
+        short_name: 'VSHN AG',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#4cc3ff',
+        theme_color: '#4cc3ff',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        // icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
     {
