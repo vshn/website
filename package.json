@@ -10,9 +10,14 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "format": "prettier --write .",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "npm run lint:js & npm run lint:styles & npm run lint:md",
+    "lint:fix": "npm run lint:js:fix & npm run lint:styles:fix & npm run lint:md:fix",
+    "lint:js": "eslint . --ignore-path .gitignore",
+    "lint:js:fix": "eslint . --cache --fix --ignore-path .gitignore",
+    "lint:styles": "stylelint '{**/*,*}.{css,sass,scss,md,html}' --ignore-path .gitignore",
+    "lint:styles:fix": "stylelint '{**/*,*}.{css,sass,scss,md,html}' --cache --fix --ignore-path .gitignore",
+    "lint:md": "markdownlint --ignore-path .gitignore .",
+    "lint:md:fix": "markdownlint --fix --ignore-path .gitignore ."
   },
   "dependencies": {
     "@svgr/webpack": "^5.4.0",
@@ -48,7 +53,13 @@
     "gatsby-transformer-sharp": "^2.5.14",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
-    "prettier": "^2.1.1"
+    "markdownlint": "^0.20.4",
+    "stylelint": "^13.7.0",
+    "stylelint-config-recess-order": "^2.1.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   },
   "keywords": [
     "gatsby"
