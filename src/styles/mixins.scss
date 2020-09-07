@@ -13,22 +13,15 @@
 }
 
 @mixin sm-down {
-  // 767.98 - 576
+  // 767.98 - 414
   @media only screen and (max-width: $breakpoint-sm-down) {
     @content;
   }
 }
 
 @mixin xs-down {
-  // 575.98 - 414
+  // 414.98 - 320
   @media only screen and (max-width: $breakpoint-xs-down) {
-    @content;
-  }
-}
-
-@mixin xxs-down {
-  // 413.98px - 320
-  @media only screen and (max-width: $breakpoint-xxs-down) {
     @content;
   }
 }
