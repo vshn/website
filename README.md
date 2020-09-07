@@ -11,7 +11,6 @@
 - [Project Structure](#project-structure)
 - [Code Style](#code-style)
   - [ESLint](#eslint)
-  - [Prettier](#prettier)
   - [VS Code](#vs-code)
 - [Style Variables](#style-variables)
 
@@ -136,38 +135,21 @@ npm run lint:fix
 
 Run it to fix all possible issues.
 
-### Prettier
-
-[Prettier](https://prettier.io/) helps to format code based on defined rules. [Difference between Prettier and ESLint](https://prettier.io/docs/en/comparison.html).
-
-Additional commands:
-
-```bash
-npm run format
-```
-
-Run it to format all files across the project.
-
 ### VS Code
 
 Following extensions required to simplify the process of keeping the same code style across the project:
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 After installation enable "ESLint on save" by adding to your VS Code settings.json the following line:
 
 ```json
 "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+  "source.fixAll.eslint": true
 }
 ```
 
 You can navigate to settings.json by using Command Pallete (CMD+Shift+P) and then type "Open settings.json".
-
-To enable Prettier go to Preferences -> Settings -> type "Format". Then check that you have esbenp.prettier-vscode as default formatter, and also enable "Format On Save".
-
-Reload VS Code and auto-format will work for you.
 
 ## Style Variables
 
