@@ -153,4 +153,4 @@ You can navigate to settings.json by using Command Pallete (CMD+Shift+P) and the
 
 ## Style Variables
 
-All style variables that being used across the whole application are stored in [src/styles/variables.scss](/src/styles/variables.scss).
+All style variables that being used across the whole website are stored in [src/styles/variables.scss](/src/styles/variables.scss).
