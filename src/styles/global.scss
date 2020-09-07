@@ -16,8 +16,8 @@ body {
 .container {
   position: relative;
   max-width: 1290px;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 
   @include lg-down {
     max-width: 940px; // TODO: Once we have adaptive versions of at least one page, check if the width of the container is correct

@@ -16,19 +16,19 @@
 
 ## Getting Started
 
-1. Clone this repository
+1. **Clone this repository**
 
-```bash
-git clone git@github.com:pixel-point/vshn-gatsby.git
-```
+    ```bash
+    git clone git@github.com:pixel-point/vshn-gatsby.git
+    ```
 
-2. Install dependencies
+1. **Install dependencies**
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-3. Copy .env.example and rename it into .env
+1. **Copy .env.example and rename it into .env**
 
 ## Usage
 
