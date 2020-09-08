@@ -17,12 +17,6 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/jsx-filename-extension': [
-      2,
-      {
-        extensions: ['.js'],
-      },
-    ],
     'react/no-array-index-key': 0,
     'react/jsx-props-no-spreading': 0,
     'react/no-danger': 0,
@@ -32,6 +26,7 @@ module.exports = {
         devDependencies: [
           '.storybook/**',
           'src/components/**/*.stories.js',
+          'src/components/**/*.stories.jsx',
           'gatsby-config.js',
           'gatsby-node.js',
           'gatsby-ssr.js',
