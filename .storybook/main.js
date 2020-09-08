@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/components/**/*.stories.js'],
+  stories: ['../src/components/**/*.stories.(js|jsx)'],
   addons: ['@storybook/addon-knobs', '@storybook/addon-actions'],
   webpackFinal: async (config) => {
     // Remove svg from existing rule
@@ -22,7 +22,7 @@ module.exports = {
     const javascriptSVGRule = {
       test: /\.inline.svg$/,
       issuer: {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(js|jsx)$/,
       },
       loader: '@svgr/webpack',
       options: {
