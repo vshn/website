@@ -1,0 +1,65 @@
+.wrapper {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 900;
+
+  &_size {
+    &_xxl {
+      font-size: $font-size-xxl;
+      line-height: $line-height-xxl;
+    }
+
+    &_xl {
+      font-size: $font-size-xl;
+      line-height: $line-height-xl;
+    }
+
+    &_lg {
+      font-size: $font-size-lg;
+      line-height: $line-height-lg;
+    }
+
+    &_md {
+      font-size: $font-size-md;
+      line-height: $line-height-md;
+    }
+
+    &_sm {
+      font-size: $font-size-sm;
+      font-weight: 700;
+      line-height: $line-height-sm;
+    }
+  }
+
+  &_color {
+    &_primary {
+      color: $color-primary;
+    }
+
+    &_secondary {
+      color: $color-secondary;
+    }
+
+    &_tertiary {
+      color: $color-tertiary;
+    }
+
+    &_quaternary {
+      color: $color-quaternary;
+    }
+  }
+
+  &_highlighted-words-color {
+    &_primary {
+      strong {
+        color: $color-accent-primary;
+      }
+    }
+
+    &_secondary {
+      strong {
+        color: $color-accent-secondary;
+      }
+    }
+  }
+}
