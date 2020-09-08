@@ -12,13 +12,13 @@ const MainLayout = ({ seo, children }) => (
   </>
 );
 
-MainLayout.defaultProps = {
-  seo: {},
-};
-
 MainLayout.propTypes = {
   seo: PropTypes.objectOf(PropTypes.any),
   children: PropTypes.node.isRequired,
+};
+
+MainLayout.defaultProps = {
+  seo: {},
 };
 
 export default MainLayout;
