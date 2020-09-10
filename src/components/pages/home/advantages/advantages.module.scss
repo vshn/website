@@ -1,0 +1,112 @@
+.wrapper {
+  margin-bottom: 160px;
+}
+
+.title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.description {
+  max-width: 860px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 60px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.items-wrapper {
+  display: flex;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.item {
+  position: relative;
+  flex-basis: 1px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-right: 30px;
+  text-align: center;
+  background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+  transition: $transition-base;
+
+  &:hover {
+    background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
+
+    .item-read-more {
+      color: $color-accent-primary;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.item-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: $font-size-lg;
+  font-weight: 900;
+  line-height: $line-height-lg;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 30px;
+}
+
+.item-icon {
+  margin-bottom: 15px;
+}
+
+.item-title {
+  margin-bottom: 15px;
+}
+
+.item-description {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 45px;
+  color: $color-secondary;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    left: 0;
+    height: 1px;
+    content: '';
+    background: linear-gradient(rgba(#dfe2ec, 0) 0%, #dfe2ec 50%, rgba(#dfe2ec, 0) 100%);
+  }
+}
+
+.item-read-more {
+  margin-top: auto;
+  font-weight: 700;
+  transition: $transition-base;
+}

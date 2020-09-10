@@ -52,12 +52,14 @@
   &_highlighted-words-color {
     &_primary {
       strong {
+        font-weight: inherit;
         color: $color-accent-primary;
       }
     }
 
     &_secondary {
       strong {
+        font-weight: inherit;
         color: $color-accent-secondary;
       }
     }
