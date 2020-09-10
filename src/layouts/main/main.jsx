@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 import SEO from 'components/shared/seo';
 import Header from 'components/shared/header';
+import Footer from 'components/shared/footer';
 
 const MainLayout = ({ seo, children }) => (
   <>
     <SEO {...seo} />
     <Header />
     <main>{children}</main>
+    <Footer />
   </>
 );
 
