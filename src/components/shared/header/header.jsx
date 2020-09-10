@@ -27,7 +27,7 @@ const Header = ({ menuItems, buttonText, buttonUrl }) => (
         </ul>
         {
           buttonText && buttonUrl && (
-            <Button to={buttonUrl}>{buttonText}</Button>
+            <Button to={buttonUrl} size="sm">{buttonText}</Button>
           )
         }
       </nav>

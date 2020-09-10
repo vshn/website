@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+  padding-top: 180px;
+  padding-bottom: 358px;
+  margin-bottom: 120px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 960px;
+    height: 940px;
+    content: '';
+    background-image: url(./images/shape-1.svg);
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -380px;
+    left: 0;
+    z-index: -1;
+    width: 835px;
+    height: 700px;
+    content: '';
+    background-image: url(./images/shape-2.svg);
+  }
+}
+
+.title {
+  max-width: 480px;
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 480px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-secondary;
+}
+
+.illustration {
+  position: absolute;
+  top: -70px;
+  right: -215px;
+  width: 830px;
+}
