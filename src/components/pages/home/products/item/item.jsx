@@ -8,9 +8,7 @@ import { ITEM_CHANGE_INTERVAL } from '..';
 
 const cx = classNames.bind(styles);
 
-const Item = ({
-  name, number, isActive, isAnimationStarted, onClick,
-}) => (
+const Item = ({ name, number, isActive, isAnimationStarted, onClick }) => (
   <div
     className={cx('wrapper', { active: isActive, animationStarted: isAnimationStarted })}
     role="button"

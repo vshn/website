@@ -65,7 +65,7 @@ const Partners = ({ title, items }) => {
 
   useEffect(() => {
     if (isAnimationStarted) startAnimation();
-  }, [isAnimationStarted]);
+  }, [startAnimation, isAnimationStarted]);
 
   const photos = [
     michaelSchmid,

@@ -1,0 +1,136 @@
+.wrapper {
+  position: relative;
+  text-align: center;
+  background-color: $color-primary;
+}
+
+.inner {
+  z-index: 1;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.description {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-quaternary;
+}
+
+.background-image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rectangle {
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+}
+
+.rectangle-1 {
+  top: 160px;
+  left: -115px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-quaternary;
+  border-top-right-radius: 40px;
+}
+
+.rectangle-2 {
+  top: 290px;
+  left: 75px;
+  width: 60px;
+  height: 40px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 30px;
+}
+
+.rectangle-3 {
+  top: -30px;
+  left: 165px;
+  width: 70px;
+  height: 70px;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 50px;
+}
+
+.rectangle-4 {
+  top: 350px;
+  left: 335px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-tertiary;
+  border-top-right-radius: 40px;
+}
+
+.rectangle-5 {
+  top: 40px;
+  left: 515px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-accent-primary;
+  border-bottom-right-radius: 40px;
+}
+
+.rectangle-6 {
+  bottom: -15px;
+  left: 565px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-quaternary;
+  border-top-left-radius: 40px;
+}
+
+.rectangle-7 {
+  top: -15px;
+  right: 335px;
+  width: 60px;
+  height: 60px;
+  background-color: $color-quaternary;
+  border-bottom-right-radius: 60px;
+}
+
+.rectangle-8 {
+  top: 320px;
+  right: 295px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-tertiary;
+  border-bottom-right-radius: 40px;
+}
+
+.rectangle-9 {
+  right: 115px;
+  bottom: -30px;
+  width: 105px;
+  height: 70px;
+  background-color: $color-accent-primary;
+  border-bottom-right-radius: 50px;
+}
+
+.rectangle-10 {
+  top: 130px;
+  right: 45px;
+  width: 50px;
+  height: 50px;
+  background-color: $color-accent-secondary;
+  border-top-right-radius: 40px;
+}
+
+.rectangle-11 {
+  top: 290px;
+  right: -115px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-quaternary;
+  border-bottom-left-radius: 40px;
+}

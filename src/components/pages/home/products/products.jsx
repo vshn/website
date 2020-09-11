@@ -29,7 +29,7 @@ const Products = ({ title, description, items }) => {
 
   useEffect(() => {
     if (isAnimationStarted) startAnimation();
-  }, [isAnimationStarted]);
+  }, [startAnimation, isAnimationStarted]);
 
   return (
     <section className={cx('wrapper')}>

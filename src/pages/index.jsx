@@ -6,6 +6,7 @@ import Advantages from 'components/pages/home/advantages';
 import Products from 'components/pages/home/products';
 import Awards from 'components/pages/home/awards';
 import Partners from 'components/pages/home/partners';
+import Jobs from 'components/pages/home/jobs';
 
 const hero = {
   title: 'We run your <strong>application</strong>',
@@ -109,6 +110,13 @@ const partners = {
   ],
 };
 
+const jobs = {
+  title: 'We\'re looking for <strong>talents</strong>',
+  description: 'We\'re a growing company and are currently looking for new team members',
+  buttonText: 'Jobs With Us',
+  buttonUrl: '/',
+};
+
 export default () => (
   <MainLayout>
     <Hero {...hero} />
@@ -116,5 +124,6 @@ export default () => (
     <Products {...products} />
     <Awards {...awards} />
     <Partners {...partners} />
+    <Jobs {...jobs} />
   </MainLayout>
 );
