@@ -41,7 +41,7 @@ const Heading = (props) => {
 
 Heading.propTypes = {
   className: PropTypes.string,
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'strong', 'span']),
+  tag: PropTypes.string,
   size: PropTypes.oneOf(['xxl', 'xl', 'lg', 'md', 'sm']),
   color: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'quaternary']),
   highlightedWordsColor: PropTypes.oneOf(['primary', 'secondary']),
