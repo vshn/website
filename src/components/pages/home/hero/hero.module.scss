@@ -31,7 +31,7 @@
   top: 60px;
   right: 0;
   z-index: -1;
-  width: calc(645px + $container-side-gap);
+  width: calc(645px + #{$container-side-gap});
   height: 940px;
 }
 
@@ -40,6 +40,6 @@
   bottom: -380px;
   left: 0;
   z-index: -1;
-  width: calc(520px + $container-side-gap);
+  width: calc(520px + #{$container-side-gap});
   height: 700px;
 }

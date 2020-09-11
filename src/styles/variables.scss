@@ -35,7 +35,7 @@ $line-height-base: $line-height-sm;
 
 // Additional
 $container-width: 1290px;
-$container-side-gap: calc((100vw - $container-width) / 2);
+$container-side-gap: calc((100vw - #{$container-width}) / 2);
 
 $header-height: 140px;
 
