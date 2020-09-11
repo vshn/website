@@ -12,25 +12,46 @@ const cx = classNames.bind(styles);
 
 const Header = ({ menuItems, buttonText, buttonUrl }) => (
   <header className={cx('wrapper')}>
-    <div className={cx('container', 'inner')}>
-      <Link className={cx('logo')} to="/">
-        <Logo />
-      </Link>
-
-      <nav className={cx('nav')}>
-        <ul className={cx('menu')}>
-          {menuItems.map(({ label, path }, index) => (
-            <li className={cx('menu-item')} key={index}>
-              <Link className={cx('link')} to={path}>{label}</Link>
-            </li>
-          ))}
+    <div className="container">
+      <div className={cx('section')}>
+        <ul className={cx('list')}>
+          <li>
+            Vision - the DevOps company
+          </li>
+          <li>
+            <address>Neugasse 10, CH-8005 Zürich</address>
+          </li>
         </ul>
-        {
+
+        <ul className={cx('list')}>
+          <li>
+            <Link to="/" activeClassName={cx('active')}>English</Link>
+          </li>
+          <li>
+            <Link to="/de" activeClassName={cx('active')}>Deutsch</Link>
+          </li>
+        </ul>
+      </div>
+      <div className={cx('section')}>
+        <Link className={cx('logo')} to="/">
+          <Logo />
+        </Link>
+
+        <nav className={cx('nav')}>
+          <ul className={cx('menu')}>
+            {menuItems.map(({ label, path }, index) => (
+              <li className={cx('menu-item')} key={index}>
+                <Link className={cx('link')} to={path}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+          {
           buttonText && buttonUrl && (
             <Button to={buttonUrl} size="sm">{buttonText}</Button>
           )
         }
-      </nav>
+        </nav>
+      </div>
     </div>
   </header>
 );
