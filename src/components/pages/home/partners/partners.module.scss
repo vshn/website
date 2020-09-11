@@ -106,7 +106,12 @@
     &::after {
       visibility: visible;
       opacity: 1;
-      animation-name: loading;
+    }
+
+    &.animation-started {
+      &::after {
+        animation-name: loading;
+      }
     }
   }
 
