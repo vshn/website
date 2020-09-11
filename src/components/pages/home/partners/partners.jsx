@@ -105,12 +105,10 @@ const Partners = ({ title, items }) => {
                 return (
                   <Heading
                     className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
-                    tag="span"
+                    tag="button"
                     size="lg"
-                    role="button"
                     color="quaternary"
-                    tabIndex="0"
-                    onKeyPress={handleClick}
+                    type="button"
                     onClick={handleClick}
                     key={index}
                   >
