@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['airbnb'],
+  extends: ['airbnb', 'airbnb/hooks', 'airbnb/whitespace'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
