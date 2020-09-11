@@ -109,7 +109,7 @@ const partners = {
   ],
 };
 
-const HomePage = () => (
+export default () => (
   <MainLayout>
     <Hero {...hero} />
     <Advantages {...advantages} />
@@ -118,5 +118,3 @@ const HomePage = () => (
     <Partners {...partners} />
   </MainLayout>
 );
-
-export default HomePage;
