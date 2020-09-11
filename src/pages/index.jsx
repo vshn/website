@@ -4,6 +4,7 @@ import MainLayout from 'layouts/main';
 import Hero from 'components/pages/home/hero';
 import Advantages from 'components/pages/home/advantages';
 import Products from 'components/pages/home/products';
+import Awards from 'components/pages/home/awards';
 
 const hero = {
   title: 'We run your <strong>application</strong>',
@@ -61,11 +62,34 @@ const products = {
   ],
 };
 
+const awards = {
+  title: 'Awards',
+  description: '<strong>Our experience</strong> is highly appreciated by others',
+  items: [
+    {
+      title: 'Vshn wins gold at the Digital Economy Award',
+      description: 'VSHN wins Gold at Swiss Digital Economy Award 2019 in the category Highest Digital Quality.',
+      url: '/',
+    },
+    {
+      title: 'Vshn is the first swiss KCSP',
+      description: 'VSHN is the first Kubernetes Certified Service Provider (KCSP) in Switzerland',
+      url: '/',
+    },
+    {
+      title: 'Vshn is rising star Switzerland',
+      description: 'VSHN is Rising Star Switzerland of ISG Provider Lens in Cloud Transformation / Operation Services & XaaS',
+      url: '/',
+    },
+  ],
+};
+
 const HomePage = () => (
   <MainLayout>
     <Hero {...hero} />
     <Advantages {...advantages} />
     <Products {...products} />
+    <Awards {...awards} />
   </MainLayout>
 );
 

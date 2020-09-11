@@ -1,5 +1,7 @@
 .wrapper {
-  margin-bottom: 160px;
+  padding-top: 170px;
+  padding-bottom: 150px;
+  background-color: $color-primary;
 }
 
 .title {
@@ -9,7 +11,6 @@
 
 .description {
   max-width: 860px;
-  margin-top: 0;
   margin-right: auto;
   margin-bottom: 60px;
   margin-left: auto;
@@ -25,21 +26,15 @@
 }
 
 .item {
-  position: relative;
   flex-basis: 1px;
   flex-grow: 1;
-  flex-shrink: 1;
+  flex-shrink: 0;
   margin-right: 30px;
   text-align: center;
-  background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  background: #040816;
   border-radius: 8px;
-  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
-  transition: $transition-base;
 
   &:hover {
-    background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
-    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
-
     .item-read-more {
       color: $color-accent-primary;
     }
@@ -55,7 +50,6 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
-  padding-top: 30px;
   padding-right: 30px;
   padding-bottom: 20px;
   padding-left: 30px;
@@ -63,25 +57,8 @@
   text-decoration: none;
 }
 
-.item-number {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  font-size: $font-size-lg;
-  font-weight: 900;
-  line-height: $line-height-lg;
-  background-color: $color-accent-secondary;
-  border-top-left-radius: 8px;
-  border-bottom-right-radius: 30px;
-}
-
 .item-icon {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .item-title {
@@ -99,6 +76,7 @@
   width: 100%;
   margin-top: auto;
   font-weight: 700;
+  color: $color-tertiary;
   transition: $transition-base;
 
   &::before {
@@ -108,6 +86,7 @@
     left: 0;
     height: 1px;
     content: '';
-    background: linear-gradient(90deg, rgba(#dfe2ec, 0) 0%, #dfe2ec 50%, rgba(#dfe2ec, 0) 100%);
+    background: linear-gradient(90deg, rgba($color-tertiary, 0) 0%, $color-tertiary 50%, rgba($color-tertiary, 0) 100%);
+    opacity: 0.15;
   }
 }

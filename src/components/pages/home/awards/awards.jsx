@@ -8,7 +8,7 @@ import ItemIcon1 from './images/item-icon-1.inline.svg';
 import ItemIcon2 from './images/item-icon-2.inline.svg';
 import ItemIcon3 from './images/item-icon-3.inline.svg';
 
-import styles from './advantages.module.scss';
+import styles from './awards.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -18,20 +18,26 @@ const itemIcons = [
   <ItemIcon3 className={cx('item-icon')} aria-hidden />,
 ];
 
-const Advantages = ({ title, description, items }) => (
+const Awards = ({ title, description, items }) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
-      <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
+      <Heading className={cx('title')} tag="h2" size="sm" color="quaternary">{title}</Heading>
+      <Heading
+        className={cx('description')}
+        tag="p"
+        size="xl"
+        color="tertiary"
+        highlightedWordsColor="secondary"
+        innerHTML={description}
+      />
 
       <ul className={cx('items-wrapper')}>
         {
           items.map(({ title, description, url }, index) => (
             <li className={cx('item')} key={index}>
               <a className={cx('item-inner')} href={url}>
-                <span className={cx('item-number')} aria-hidden>{index + 1}</span>
                 {itemIcons[index]}
-                <Heading className={cx('item-title')} tag="h3" size="lg">{title}</Heading>
+                <Heading className={cx('item-title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
                 <p className={cx('item-description')}>{description}</p>
                 <span className={cx('item-read-more')}>Read more</span>
               </a>
@@ -43,7 +49,7 @@ const Advantages = ({ title, description, items }) => (
   </section>
 );
 
-Advantages.propTypes = {
+Awards.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
@@ -55,4 +61,4 @@ Advantages.propTypes = {
   ).isRequired,
 };
 
-export default Advantages;
+export default Awards;

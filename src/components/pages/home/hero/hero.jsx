@@ -18,7 +18,7 @@ const Hero = ({
       <Heading className={cx('title')} innerHTML={title} />
       <p className={cx('description')}>{description}</p>
       <Button to={buttonUrl}>{buttonText}</Button>
-      <img className={cx('illustration')} src={illustration} alt="Illustration" />
+      <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
     </div>
   </section>
 );
