@@ -5,6 +5,7 @@ import Hero from 'components/pages/home/hero';
 import Advantages from 'components/pages/home/advantages';
 import Products from 'components/pages/home/products';
 import Awards from 'components/pages/home/awards';
+import Partners from 'components/pages/home/partners';
 
 const hero = {
   title: 'We run your <strong>application</strong>',
@@ -84,12 +85,37 @@ const awards = {
   ],
 };
 
+const partners = {
+  title: 'Partners',
+  items: [
+    {
+      name: 'Michael Schmid',
+      position: 'Group CTO, Amazee Labs',
+      text: 'We experience a trustful and <strong>successful collaboration</strong> with VSHN...',
+      buttonUrl: '/',
+    },
+    {
+      name: 'Silvan Mühlemann',
+      position: 'CTO, Sobrado',
+      text: 'I appreciate VSHN as my <strong>solution-oriented and dependable</strong> partner without finger pointing...',
+      buttonUrl: '/',
+    },
+    {
+      name: 'Mathias Brenner',
+      position: 'CTO, Sherpany',
+      text: 'Sherpany <strong>trusts</strong> VSHN as a competent partner...',
+      buttonUrl: '/',
+    },
+  ],
+};
+
 const HomePage = () => (
   <MainLayout>
     <Hero {...hero} />
     <Advantages {...advantages} />
     <Products {...products} />
     <Awards {...awards} />
+    <Partners {...partners} />
   </MainLayout>
 );
 

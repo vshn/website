@@ -5,8 +5,10 @@
   color: $color-primary;
   text-decoration: none;
   vertical-align: top;
+  cursor: pointer;
   background-color: $color-accent-secondary;
   border: 0;
+  outline: none;
 
   &_size_md {
     padding-top: 16px;

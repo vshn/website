@@ -15,6 +15,7 @@ const Heading = (props) => {
     highlightedWordsColor,
     innerHTML,
     children,
+    ...otherProps
   } = props;
 
   const className = cx(
@@ -27,12 +28,12 @@ const Heading = (props) => {
 
   if (innerHTML) {
     return (
-      <Tag className={className} dangerouslySetInnerHTML={{ __html: innerHTML }} />
+      <Tag className={className} dangerouslySetInnerHTML={{ __html: innerHTML }} {...otherProps} />
     );
   }
 
   return (
-    <Tag className={className}>
+    <Tag className={className} {...otherProps}>
       {children}
     </Tag>
   );
@@ -40,7 +41,7 @@ const Heading = (props) => {
 
 Heading.propTypes = {
   className: PropTypes.string,
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'strong']),
+  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'strong', 'span']),
   size: PropTypes.oneOf(['xxl', 'xl', 'lg', 'md', 'sm']),
   color: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'quaternary']),
   highlightedWordsColor: PropTypes.oneOf(['primary', 'secondary']),
