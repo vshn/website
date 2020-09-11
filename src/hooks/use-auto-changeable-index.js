@@ -26,6 +26,8 @@ export default function useAutoChangeableIndex(numberOfItems, options = {}) {
   const clearTimeoutAnimationId = () => clearTimeout(animationTimeoutId.current);
 
   const start = (indexToStart = 0) => {
+    // Return if loop is already started
+    if (animationTimeoutId.current) return;
     setNextIndexLooped(indexToStart);
   };
 
