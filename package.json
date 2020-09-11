@@ -31,7 +31,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-intersection-observer": "^8.28.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",

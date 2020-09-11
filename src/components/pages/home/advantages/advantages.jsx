@@ -13,9 +13,9 @@ import styles from './advantages.module.scss';
 const cx = classNames.bind(styles);
 
 const icons = [
-  <ItemIcon1 />,
-  <ItemIcon2 />,
-  <ItemIcon3 />,
+  <ItemIcon1 className={cx('item-icon')} />,
+  <ItemIcon2 className={cx('item-icon')} />,
+  <ItemIcon3 className={cx('item-icon')} />,
 ];
 
 const Advantages = ({ title, description, items }) => (

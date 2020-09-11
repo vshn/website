@@ -1,0 +1,29 @@
+.wrapper {
+  padding-top: 190px;
+  background-color: $color-background-primary;
+}
+
+.inner {
+  margin-bottom: 71px;
+}
+
+.content {
+  max-width: 520px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 400px;
+  margin-bottom: 60px;
+}
+
+.illustration {
+  position: relative;
+  left: 50%;
+  display: block;
+  width: 1788px;
+  transform: translateY(19px) translateX(-50%);
+}
