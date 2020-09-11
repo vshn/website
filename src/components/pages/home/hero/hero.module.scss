@@ -3,28 +3,6 @@
   padding-top: 180px;
   padding-bottom: 358px;
   margin-bottom: 120px;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    width: 960px;
-    height: 940px;
-    content: '';
-    background-image: url(./images/shape-1.svg);
-  }
-
-  &::after {
-    position: absolute;
-    bottom: -380px;
-    left: 0;
-    z-index: -1;
-    width: 835px;
-    height: 700px;
-    content: '';
-    background-image: url(./images/shape-2.svg);
-  }
 }
 
 .title {
@@ -46,4 +24,18 @@
   top: -70px;
   right: -215px;
   width: 830px;
+}
+
+.shape-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.shape-2 {
+  position: absolute;
+  bottom: -380px;
+  left: 0;
+  z-index: -1;
 }
