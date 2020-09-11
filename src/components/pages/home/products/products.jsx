@@ -11,6 +11,7 @@ import Details from './details';
 
 import illustration from './images/illustration.svg';
 
+import shape from './images/shape.svg';
 import styles from './products.module.scss';
 
 const cx = classNames.bind(styles);
@@ -71,6 +72,7 @@ const Products = ({ title, description, items }) => {
         })}
       </div>
 
+      <img className={cx('shape')} src={shape} aria-hidden alt="" />
       <img className={cx('illustration')} src={illustration} aria-hidden alt="" />
     </section>
   );
