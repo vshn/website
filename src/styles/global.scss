@@ -17,7 +17,7 @@ body {
 
 .container {
   position: relative;
-  max-width: 1290px;
+  max-width: $container-width;
   margin-right: auto;
   margin-left: auto;
 
