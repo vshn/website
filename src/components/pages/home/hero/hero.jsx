@@ -15,15 +15,16 @@ const cx = classNames.bind(styles);
 
 const Hero = ({ title, description, buttonText, buttonUrl }) => (
   <section className={cx('wrapper')}>
-    <div className="container">
+    <div className={cx('container', 'inner')}>
       <Heading className={cx('title')} innerHTML={title} />
       <p className={cx('description')}>{description}</p>
       <Button to={buttonUrl}>{buttonText}</Button>
+
+      <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
+      <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
+
       <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
     </div>
-
-    <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
-    <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
   </section>
 );
 
