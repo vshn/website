@@ -19,7 +19,7 @@ const Header = ({ menuItems, buttonText, buttonUrl }) => (
             Vision - the DevOps company
           </li>
           <li>
-            <address>Neugasse 10, CH-8005 Zürich</address>
+            Neugasse 10, CH-8005 Zürich
           </li>
         </ul>
 
@@ -33,14 +33,14 @@ const Header = ({ menuItems, buttonText, buttonUrl }) => (
         </ul>
       </div>
       <div className={cx('section')}>
-        <Link className={cx('logo')} to="/">
-          <Logo />
+        <Link to="/">
+          <Logo className={cx('logo')} />
         </Link>
 
         <nav className={cx('nav')}>
           <ul className={cx('menu')}>
             {menuItems.map(({ label, path }, index) => (
-              <li className={cx('menu-item')} key={index}>
+              <li key={index}>
                 <Link className={cx('link')} to={path}>{label}</Link>
               </li>
             ))}

@@ -3,7 +3,6 @@
   align-items: center;
   height: 70px;
   padding-right: 30px;
-  margin-bottom: 30px;
   overflow: hidden;
   cursor: pointer;
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
@@ -17,10 +16,6 @@
     .name {
       color: $color-accent-primary;
     }
-  }
-
-  &:last-child {
-    margin-bottom: 0;
   }
 
   &.active {

@@ -17,7 +17,9 @@
 }
 
 .items-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: $column-gap;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -26,10 +28,6 @@
 
 .item {
   position: relative;
-  flex-basis: 1px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  margin-right: 30px;
   text-align: center;
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;
@@ -43,10 +41,6 @@
     .item-read-more {
       color: $color-accent-primary;
     }
-  }
-
-  &:last-child {
-    margin-right: 0;
   }
 }
 
