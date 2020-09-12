@@ -22,7 +22,6 @@
 
 .list {
   display: flex;
-  column-gap: 34px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -30,26 +29,36 @@
 
   li {
     position: relative;
+    margin-right: 34px;
     font-size: $font-size-xs;
     line-height: $line-height-xs;
     color: $color-quaternary;
 
-    &:not(:last-child) {
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -19px;
+      width: 4px;
+      height: 4px;
+      content: '';
+      background-color: #dfe2ec;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:last-child {
+      margin-right: 0;
+
       &::after {
-        position: absolute;
-        top: 50%;
-        right: -19px;
-        width: 4px;
-        height: 4px;
-        content: '';
-        background-color: #dfe2ec;
-        border-radius: 50%;
-        transform: translateY(-50%);
+        display: none;
       }
     }
 
+    address {
+      font-style: normal;
+    }
+
     a {
-      display: block;
       color: inherit;
       text-decoration: none;
       transition: $transition-base;
@@ -66,18 +75,17 @@
   }
 }
 
-.logo {
-  display: block;
-}
-
 .nav {
   display: flex;
   align-items: center;
 }
 
+.logo {
+  font-size: 0; // This was added to fix a bug of inline elements: without it .logo's height will be larger than svg's
+}
+
 .menu {
   display: flex;
-  column-gap: $column-gap;
   padding-left: 0;
   margin-top: 0;
   margin-right: 60px;
@@ -85,12 +93,22 @@
   list-style-type: none;
 }
 
+.menu-item {
+  margin-right: 30px;
+  font-size: 0; // This was added to fix a bug of inline elements: without it .menu-item's height will be larger than .link's
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
 .link {
-  display: block;
+  display: inline-block;
   font-size: $font-size-xs;
   line-height: $line-height-xs;
   color: $color-primary;
   text-decoration: none;
+  vertical-align: top;
   transition: $transition-base;
 
   &:hover {

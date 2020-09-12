@@ -34,24 +34,24 @@ const Footer = (props) => {
       <div className="container">
         <div className={cx('section')}>
           <div className={cx('other-links')}>
-            <Link to="/">
-              <Logo className={cx('logo')} />
+            <Link className={cx('logo')} to="/">
+              <Logo />
             </Link>
 
             <ul className={cx('social-menu')}>
-              <li>
+              <li className={cx('social-menu-item')}>
                 <Link className={cx('social-menu-link', 'social-menu-link_twitter')} to={twitterUrl}><Twitter /></Link>
               </li>
-              <li>
+              <li className={cx('social-menu-item')}>
                 <Link className={cx('social-menu-link', 'social-menu-link_facebook')} to={facebookUrl}><Facebook /></Link>
               </li>
-              <li>
+              <li className={cx('social-menu-item')}>
                 <Link className={cx('social-menu-link', 'social-menu-link_linkedin')} to={linkedinUrl}><LinkedIn /></Link>
               </li>
-              <li>
+              <li className={cx('social-menu-item')}>
                 <Link className={cx('social-menu-link', 'social-menu-link_github')} to={githubUrl}><GitHub /></Link>
               </li>
-              <li>
+              <li className={cx('social-menu-item')}>
                 <Link className={cx('social-menu-link', 'social-menu-link_instagram')} to={instagramUrl}><Instagram /></Link>
               </li>
             </ul>
@@ -60,11 +60,11 @@ const Footer = (props) => {
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
               {menuItems.map(({ label, childItems }, index) => (
-                <li key={index}>
+                <li className={cx('menu-item')} key={index}>
                   <Heading className={cx('heading')} tag="h3" size="md" color="quaternary">{label}</Heading>
                   <ul className={cx('sub-menu')}>
                     {childItems.map(({ label, path }, index) => (
-                      <li key={index}>
+                      <li className={cx('sub-menu-item')} key={index}>
                         <Link className={cx('sub-menu-link')} to={path}>{label}</Link>
                       </li>
                     ))}

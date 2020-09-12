@@ -1,13 +1,14 @@
 .wrapper {
-  padding-top: 90px;
-  padding-bottom: 30px;
+  padding-top: 45px;
+  padding-bottom: 60px;
 }
 
 .section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  column-gap: $column-gap;
   margin-bottom: 60px;
+
+  @include grid-gap;
 
   &:last-child {
     margin-bottom: 0;
@@ -23,16 +24,23 @@
 }
 
 .logo {
-  display: block;
+  font-size: 0; // This was added to fix a bug of inline elements: without it .logo's height will be larger than svg's
 }
 
 .social-menu {
   display: flex;
-  column-gap: 15px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+}
+
+.social-menu-item {
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .social-menu-link {
@@ -91,11 +99,18 @@
 
 .menu {
   display: flex;
-  column-gap: 86px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+}
+
+.menu-item {
+  margin-right: 86px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .heading {
@@ -103,21 +118,28 @@
 }
 
 .sub-menu {
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
 }
 
+.sub-menu-item {
+  margin-bottom: 15px;
+  font-size: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .sub-menu-link {
-  display: block;
+  display: inline-block;
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $color-primary;
   text-decoration: none;
+  vertical-align: top;
   transition: $transition-base;
 
   &:hover {

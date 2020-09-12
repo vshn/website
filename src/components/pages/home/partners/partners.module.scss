@@ -9,7 +9,7 @@
 
 .details {
   flex-shrink: 0;
-  padding-top: 110px;
+  padding-top: 112px;
   margin-right: 140px;
   text-align: center;
 }
@@ -77,13 +77,13 @@
 
 .tabs-wrapper {
   display: flex;
-  column-gap: $column-gap;
 }
 
 .tab {
   position: relative;
   width: 80px;
   padding-bottom: 18px;
+  margin-right: 30px;
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -93,6 +93,10 @@
   &:hover:not(.active),
   &:focus:not(.active) {
     color: $color-accent-primary;
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 
   &.active {
