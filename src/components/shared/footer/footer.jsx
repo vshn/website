@@ -34,8 +34,8 @@ const Footer = (props) => {
       <div className="container">
         <div className={cx('section')}>
           <div className={cx('other-links')}>
-            <Link className={cx('logo')} to="/">
-              <Logo />
+            <Link to="/">
+              <Logo className={cx('logo')} />
             </Link>
 
             <ul className={cx('social-menu')}>

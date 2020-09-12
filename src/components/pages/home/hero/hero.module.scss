@@ -1,11 +1,8 @@
 .wrapper {
   position: relative;
-  margin-bottom: 120px;
-}
-
-.inner {
   padding-top: 240px;
   padding-bottom: 358px;
+  margin-bottom: 120px;
 }
 
 .title {
@@ -24,7 +21,7 @@
 
 .shape-1 {
   position: absolute;
-  top: 60px;
+  top: -180px;
   left: 645px;
   z-index: -1;
   width: calc(645px + #{$container-side-gap});
@@ -34,17 +31,14 @@
 
 .shape-2 {
   position: absolute;
-  right: 770px;
   bottom: -380px;
+  left: 0;
   z-index: -1;
-  width: calc(520px + #{$container-side-gap});
-  min-width: 835px;
-  height: 700px;
 }
 
 .illustration {
   position: absolute;
-  top: 170px;
+  top: -70px;
   right: -215px;
   width: 830px;
 }

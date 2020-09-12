@@ -49,7 +49,7 @@ const Header = (props) => {
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
               {menuItems.map(({ label, path }, index) => (
-                <li key={index}>
+                <li className={cx('menu-item')} key={index}>
                   <Link className={cx('link')} to={path}>{label}</Link>
                 </li>
               ))}
