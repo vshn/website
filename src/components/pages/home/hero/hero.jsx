@@ -21,11 +21,10 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => (
       <Button to={buttonUrl}>{buttonText}</Button>
 
       <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
+      <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
 
       <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
     </div>
-
-    <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
   </section>
 );
 

@@ -31,9 +31,12 @@
 
 .shape-2 {
   position: absolute;
-  bottom: -380px;
-  left: 0;
+  right: 770px;
+  bottom: -735px;
   z-index: -1;
+  width: calc(520px + #{$container-side-gap});
+  min-width: 835px;
+  height: 700px;
 }
 
 .illustration {
