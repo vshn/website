@@ -156,8 +156,11 @@
 
 .shape {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  bottom: -200px;
+  left: 1025px;
+  width: calc(265px + #{$container-side-gap});
+  min-width: 580px;
+  height: 530px;
 }
 
 @keyframes loading {

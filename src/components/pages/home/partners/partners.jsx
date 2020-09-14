@@ -126,9 +126,9 @@ const Partners = ({ title, items }) => {
           <Heading className={cx('text')} tag="blockquote" size="xl" innerHTML={activeText} />
           <Button to={activeButtonUrl}>Continue</Button>
         </div>
-      </div>
 
-      <img className={cx('shape')} src={shape} alt="" aria-hidden />
+        <img className={cx('shape')} src={shape} alt="" aria-hidden />
+      </div>
     </section>
   );
 };
