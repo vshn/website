@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
 
 import ItemIcon1 from './images/item-icon-1.inline.svg';
 import ItemIcon2 from './images/item-icon-2.inline.svg';
@@ -28,13 +29,13 @@ const Advantages = ({ title, description, items }) => (
         {
           items.map(({ title, description, url }, index) => (
             <li className={cx('item')} key={index}>
-              <a className={cx('item-inner')} href={url}>
+              <Link className={cx('item-inner')} to={url}>
                 <span className={cx('item-number')} aria-hidden>{index + 1}</span>
                 {itemIcons[index]}
                 <Heading className={cx('item-title')} tag="h3" size="lg">{title}</Heading>
                 <p className={cx('item-description')}>{description}</p>
                 <span className={cx('item-read-more')}>Read more</span>
-              </a>
+              </Link>
             </li>
           ))
         }

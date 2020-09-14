@@ -1,0 +1,16 @@
+.wrapper {
+  position: relative;
+  padding-top: 130px;
+  padding-bottom: 64px;
+  margin-bottom: 150px;
+  background-color: $color-additional-1;
+}
+
+.shape {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  min-width: 1920px;
+  transform: translateX(-50%);
+}

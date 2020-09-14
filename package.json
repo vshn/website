@@ -32,7 +32,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-intersection-observer": "^8.28.5"
+    "react-intersection-observer": "^8.28.5",
+    "swiper": "^6.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -63,6 +64,7 @@
     "markdownlint-cli": "^0.23.2",
     "resolve-url-loader": "^3.1.1",
     "stylelint": "^13.7.1",
+    "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-recess-order": "^2.1.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",

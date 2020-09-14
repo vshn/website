@@ -7,6 +7,7 @@ import Products from 'components/pages/home/products';
 import Awards from 'components/pages/home/awards';
 import Partners from 'components/pages/home/partners';
 import Jobs from 'components/pages/home/jobs';
+import News from 'components/pages/home/news';
 
 const hero = {
   title: 'We run your <strong>application</strong>',
@@ -117,6 +118,66 @@ const jobs = {
   buttonUrl: '/',
 };
 
+const news = {
+  title: 'Check <strong>latest news</strong>',
+  items: [
+    {
+      tags: ['Technical', 'Project Syn'],
+      title: 'Second Beta Release of Project Syn Tools',
+      text: 'Without further ado, we’re announcing the release 0.2 of the Project Syn tools. Since the first public release mid-March this year (read more about it in First...',
+      url: '/',
+    },
+    {
+      tags: ['General', 'VSHNinternal'],
+      title: 'VSHN’s Corporate Governance 2020',
+      text: 'How time flies! Almost six years ago we founded VSHN. In the beginning, eight of us sat in an open-plan office. Decisions could be made quickly and easily in...',
+      url: '/',
+    },
+    {
+      tags: ['General', 'Press releases'],
+      title: 'Partnership VSHN & Rancher',
+      text: 'VSHN enters into a partnership with Rancher. VSHN has been working with Rancher since 2018 and is now an official Rancher Partner. With Managed Rancher...',
+      url: '/',
+    },
+    {
+      tags: ['Technical', 'Project Syn'],
+      title: 'Second Beta Release of Project Syn Tools',
+      text: 'Without further ado, we’re announcing the release 0.2 of the Project Syn tools. Since the first public release mid-March this year (read more about it in First...',
+      url: '/',
+    },
+    {
+      tags: ['General', 'VSHNinternal'],
+      title: 'VSHN’s Corporate Governance 2020',
+      text: 'How time flies! Almost six years ago we founded VSHN. In the beginning, eight of us sat in an open-plan office. Decisions could be made quickly and easily in...',
+      url: '/',
+    },
+    {
+      tags: ['General', 'Press releases'],
+      title: 'Partnership VSHN & Rancher',
+      text: 'VSHN enters into a partnership with Rancher. VSHN has been working with Rancher since 2018 and is now an official Rancher Partner. With Managed Rancher...',
+      url: '/',
+    },
+    {
+      tags: ['Technical', 'Project Syn'],
+      title: 'Second Beta Release of Project Syn Tools',
+      text: 'Without further ado, we’re announcing the release 0.2 of the Project Syn tools. Since the first public release mid-March this year (read more about it in First...',
+      url: '/',
+    },
+    {
+      tags: ['General', 'VSHNinternal'],
+      title: 'VSHN’s Corporate Governance 2020',
+      text: 'How time flies! Almost six years ago we founded VSHN. In the beginning, eight of us sat in an open-plan office. Decisions could be made quickly and easily in...',
+      url: '/',
+    },
+    {
+      tags: ['General', 'Press releases'],
+      title: 'Partnership VSHN & Rancher',
+      text: 'VSHN enters into a partnership with Rancher. VSHN has been working with Rancher since 2018 and is now an official Rancher Partner. With Managed Rancher...',
+      url: '/',
+    },
+  ],
+};
+
 export default () => (
   <MainLayout>
     <Hero {...hero} />
@@ -125,5 +186,6 @@ export default () => (
     <Awards {...awards} />
     <Partners {...partners} />
     <Jobs {...jobs} />
+    <News {...news} />
   </MainLayout>
 );
