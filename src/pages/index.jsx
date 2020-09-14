@@ -8,6 +8,7 @@ import Awards from 'components/pages/home/awards';
 import Partners from 'components/pages/home/partners';
 import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
+import Report from 'components/pages/home/report';
 
 const hero = {
   title: 'We run your <strong>application</strong>',
@@ -178,6 +179,14 @@ const news = {
   ],
 };
 
+const report = {
+  title: 'Report',
+  description: '<strong>Report DevOps</strong> in Switzerland 2020',
+  text: 'Download the report of our DevOps in Switzerland study 2020.',
+  buttonText: 'Read More',
+  buttonUrl: '/',
+};
+
 export default () => (
   <MainLayout>
     <Hero {...hero} />
@@ -187,5 +196,6 @@ export default () => (
     <Partners {...partners} />
     <Jobs {...jobs} />
     <News {...news} />
+    <Report {...report} />
   </MainLayout>
 );

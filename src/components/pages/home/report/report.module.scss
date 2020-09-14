@@ -1,0 +1,95 @@
+.wrapper {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 240px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $column-gap;
+}
+
+.illustration {
+  position: relative;
+  grid-column-start: 2;
+  grid-column-end: 6;
+}
+
+.rectangle {
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+}
+
+.rectangle-1 {
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 420px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 100px;
+}
+
+.rectangle-2 {
+  top: -30px;
+  left: 30px;
+  width: 250px;
+  height: 690px;
+  background-color: $color-accent-secondary;
+  border-bottom-right-radius: 120px;
+}
+
+.rectangle-3 {
+  bottom: -30px;
+  left: -30px;
+  width: 135px;
+  height: 370px;
+  background-color: $color-primary;
+  border-top-right-radius: 120px;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.content {
+  grid-column-start: 7;
+  grid-column-end: 13;
+  padding-top: 70px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 430px;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.text {
+  max-width: 410px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-secondary;
+}
+
+.shape {
+  position: absolute;
+  top: -210px;
+  left: 1240px;
+  width: calc(50px + #{$container-side-gap});
+  min-width: 365px;
+  height: 760px;
+}

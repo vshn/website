@@ -15,10 +15,10 @@ const Details = ({ title, content }) => (
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
     </div>
 
-    <span className={cx('rectangle-1')} aria-hidden />
-    <span className={cx('rectangle-2')} aria-hidden />
-    <span className={cx('rectangle-3')} aria-hidden />
-    <span className={cx('rectangle-4')} aria-hidden />
+    <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
+    <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
+    <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
+    <span className={cx('rectangle', 'rectangle-4')} aria-hidden />
   </div>
 );
 
