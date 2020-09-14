@@ -7,7 +7,6 @@
   ],
   "rules": {
     "no-descending-specificity": null,
-    // Details about rules below can be found here — https://github.com/pascalduez/stylelint-config-css-modules/issues/6#issuecomment-640194712
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": [
       true,
