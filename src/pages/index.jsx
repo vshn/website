@@ -5,6 +5,7 @@ import Hero from 'components/pages/home/hero';
 import Advantages from 'components/pages/home/advantages';
 import Products from 'components/pages/home/products';
 import Awards from 'components/pages/home/awards';
+import Technologies from 'components/pages/home/technologies';
 import Partners from 'components/pages/home/partners';
 import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
@@ -46,22 +47,22 @@ const products = {
     {
       name: 'Appuio',
       detailsTitle: 'Swiss container platform',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand devopment and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
+      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
     },
     {
       name: 'Openshift',
       detailsTitle: 'Swiss container platform 2',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand devopment and operations platform</li></ul>',
+      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li></ul>',
     },
     {
       name: 'Rancher',
       detailsTitle: 'Swiss container platform 3',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand devopment and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
+      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
     },
     {
       name: 'VSHN Managed Services',
       detailsTitle: 'Swiss container platform 4',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand devopment and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
+      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
     },
   ],
 };
@@ -71,21 +72,29 @@ const awards = {
   description: '<strong>Our experience</strong> is highly appreciated by others',
   items: [
     {
-      title: 'Vshn wins gold at the Digital Economy Award',
+      title: 'VSHN wins gold at the Digital Economy Award',
       description: 'VSHN wins Gold at Swiss Digital Economy Award 2019 in the category Highest Digital Quality.',
       url: '/',
     },
     {
-      title: 'Vshn is the first swiss KCSP',
+      title: 'VSHN is the first swiss KCSP',
       description: 'VSHN is the first Kubernetes Certified Service Provider (KCSP) in Switzerland',
       url: '/',
     },
     {
-      title: 'Vshn is rising star Switzerland',
+      title: 'VSHN is rising star Switzerland',
       description: 'VSHN is Rising Star Switzerland of ISG Provider Lens in Cloud Transformation / Operation Services & XaaS',
       url: '/',
     },
   ],
+};
+
+const technologies = {
+  title: 'Technologies',
+  description: 'We use <strong>trending technologies</strong>',
+  text: 'We can offer these tools as readily available managed services. We have the necessary soft-skills for consulting, collaborative implementation and continuous improvement',
+  buttonText: 'See More',
+  buttonUrl: '/',
 };
 
 const partners = {
@@ -193,6 +202,7 @@ export default () => (
     <Advantages {...advantages} />
     <Products {...products} />
     <Awards {...awards} />
+    <Technologies {...technologies} />
     <Partners {...partners} />
     <Jobs {...jobs} />
     <News {...news} />
