@@ -1,0 +1,13 @@
+@mixin section-paddings {
+  @include sm-down {
+    // padding without calc() is for browsers that do not support calc()
+    padding-right: 15px;
+    // constant() is for older versions of Safari
+    padding-right: calc(constant(safe-area-inset-right) + 15px);
+    // env() for all other cases
+    padding-right: calc(env(safe-area-inset-right) + 15px);
+    padding-left: 15px;
+    padding-left: calc(constant(safe-area-inset-left) + 15px);
+    padding-left: calc(env(safe-area-inset-left) + 15px);
+  }
+}
