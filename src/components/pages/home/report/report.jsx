@@ -7,7 +7,6 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
 
-import icon from './images/icon.svg';
 import shape from './images/shape.svg';
 import styles from './report.module.scss';
 
@@ -38,7 +37,6 @@ const Report = ({ title, description, text, buttonText, buttonUrl }) => {
           <span className={cx('rectangle', 'rectangle-2')} />
           <span className={cx('rectangle', 'rectangle-3')} />
           <GatsbyImage className={cx('image')} fluid={image} />
-          <img className={cx('icon')} src={icon} alt="" />
         </div>
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
