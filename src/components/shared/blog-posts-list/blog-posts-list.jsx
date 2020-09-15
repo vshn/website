@@ -36,6 +36,7 @@ const BlogPostsList = ({ className, title, items, shape }) => (
       <Swiper
         className={cx('items-wrapper')}
         slidesPerView={3}
+        slidesPerGroup={3}
         spaceBetween={30}
         navigation={{
           prevEl: '#button-previous',
