@@ -26,11 +26,11 @@ body {
   margin-left: auto;
 
   @include lg-down {
-    max-width: 940px; // TODO: Once we have adaptive versions of at least one page, check if the width of the container is correct
+    max-width: $container-side-gap-lg;
   }
 
   @include md-down {
-    max-width: 700px; // TODO: Once we have adaptive versions of at least one page, check if the width of the container is correct
+    max-width: $container-side-gap-md;
   }
 
   @include sm-down {

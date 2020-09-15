@@ -33,13 +33,22 @@ $line-height-xs: 1.4;
 $font-size-base: $font-size-sm;
 $line-height-base: $line-height-sm;
 
-// Additional
+// Container
 $container-width: 1290px;
 $container-side-gap: calc((100vw - #{$container-width}) / 2);
 
+$container-width-lg: 930px;
+$container-side-gap-lg: calc((100vw - #{$container-width-lg}) / 2);
+
+$container-width-md: 700px;
+$container-side-gap-md: calc((100vw - #{$container-width-md}) / 2);
+
+// Additional
 $header-height: 140px;
 
 $column-gap: 30px;
+
+$section-padding: 15px;
 
 $transition-base: 0.2s;
 
