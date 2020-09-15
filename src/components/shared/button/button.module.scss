@@ -9,6 +9,13 @@
   background-color: $color-accent-secondary;
   border: 0;
   outline: none;
+  transition-timing-function: cubic-bezier(0.44, 0, 0.56, 1);
+  transition-duration: 0.5s;
+
+  &:hover {
+    background-color: lighten($color-accent-secondary, 5.5%);
+    transform: translateY(-5px);
+  }
 
   &_size_md {
     padding-top: 16px;
@@ -18,6 +25,10 @@
     font-size: $font-size-md;
     line-height: $line-height-md;
     border-radius: 30px 4px;
+
+    &:hover {
+      border-radius: 4px 30px;
+    }
   }
 
   &_size_sm {
@@ -28,5 +39,9 @@
     font-size: $font-size-xs;
     line-height: $line-height-xs;
     border-radius: 15px 2px;
+
+    &:hover {
+      border-radius: 2px 15px;
+    }
   }
 }
