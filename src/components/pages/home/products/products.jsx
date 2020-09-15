@@ -36,7 +36,7 @@ const Products = ({ title, description, items }) => {
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
         <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h2" size="sm" color="quaternary">{title}</Heading>
+          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
           <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
 
           <div className={cx('items-wrapper')}>

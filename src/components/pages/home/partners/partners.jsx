@@ -86,9 +86,9 @@ const Partners = ({ title, items }) => {
           <div className={cx('photo-wrapper')}>
             <GatsbyImage className={cx('photo')} fluid={activePhoto} />
 
-            <span className={cx('rectangle-1')} aria-hidden />
-            <span className={cx('rectangle-2')} aria-hidden />
-            <span className={cx('rectangle-3')} aria-hidden />
+            <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
+            <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
+            <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
           </div>
 
           <Heading className={cx('name')} tag="h3" size="lg">{activeName}</Heading>
