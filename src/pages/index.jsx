@@ -1,6 +1,8 @@
 import React from 'react';
 import MainLayout from 'layouts/main';
 
+import Contact from 'components/shared/contact';
+
 import Hero from 'components/pages/home/hero';
 import Advantages from 'components/pages/home/advantages';
 import Products from 'components/pages/home/products';
@@ -207,5 +209,6 @@ export default () => (
     <Jobs {...jobs} />
     <News {...news} />
     <Report {...report} />
+    <Contact />
   </MainLayout>
 );

@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 180px;
+  text-align: center;
+  background-color: $color-additional-1;
+}
+
+.inner {
+  z-index: 1;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.description {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-secondary;
+}
+
+.illustration {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
