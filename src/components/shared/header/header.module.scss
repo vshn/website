@@ -58,7 +58,7 @@
 
     a {
       display: block;
-      color: inherit;
+      color: $color-primary;
       text-decoration: none;
       transition: $transition-base;
 
@@ -67,7 +67,7 @@
       }
 
       &.active {
-        color: $color-primary;
+        color: inherit;
         pointer-events: none;
       }
     }
