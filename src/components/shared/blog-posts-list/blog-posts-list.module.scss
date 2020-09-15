@@ -91,16 +91,16 @@
 
   &:nth-of-type(2),
   &:nth-of-type(4n + 6) {
-    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
   }
 
   &:nth-of-type(3),
   &:nth-of-type(4n + 7) {
-    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 
   &:nth-of-type(4),
   &:nth-of-type(4n + 8) {
-    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
   }
 }
