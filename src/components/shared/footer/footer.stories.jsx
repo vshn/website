@@ -5,9 +5,4 @@ export const Default = () => <Footer />;
 
 export default {
   title: 'Shared / Footer',
-  parameters: {
-    knobs: {
-      escapeHTML: false,
-    },
-  },
 };
