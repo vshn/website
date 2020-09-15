@@ -126,7 +126,7 @@
 
   circle {
     stroke: $color-accent-primary;
-    stroke-dasharray: 95.04;
+    stroke-dasharray: 91;
     stroke-linecap: round;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
@@ -135,6 +135,6 @@
 }
 
 @keyframes loading {
-  from { stroke-dashoffset: 95.04; }
+  from { stroke-dashoffset: 91; }
   to { stroke-dashoffset: 0; }
 }

@@ -26,7 +26,7 @@ const Item = ({ name, number, isActive, isAnimationStarted, onClick }) => (
           r="14.5"
           cx="16"
           cy="16"
-          strokeWidth="2px"
+          strokeWidth="2.5px"
           fill="transparent"
           style={{ animationDuration: `${ITEM_CHANGE_INTERVAL}ms` }}
         />
