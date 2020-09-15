@@ -9,6 +9,8 @@ import ItemIcon1 from './images/item-icon-1.inline.svg';
 import ItemIcon2 from './images/item-icon-2.inline.svg';
 import ItemIcon3 from './images/item-icon-3.inline.svg';
 
+import stripes from './images/stripes.svg';
+
 import styles from './awards.module.scss';
 
 const cx = classNames.bind(styles);
@@ -21,7 +23,7 @@ const itemIcons = [
 
 const Awards = ({ title, description, items }) => (
   <section className={cx('wrapper')}>
-    <div className="container">
+    <div className={cx('container', 'inner')}>
       <Heading className={cx('title')} tag="h2" size="sm" color="quaternary">{title}</Heading>
       <Heading
         className={cx('description')}
@@ -47,6 +49,8 @@ const Awards = ({ title, description, items }) => (
         }
       </ul>
     </div>
+
+    <img className={cx('stripes')} src={stripes} alt="" aria-hidden />
   </section>
 );
 
