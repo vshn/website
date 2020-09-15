@@ -4,6 +4,8 @@
   padding-bottom: 180px;
   text-align: center;
   background-color: $color-additional-1;
+
+  @include section-paddings;
 }
 
 .inner {

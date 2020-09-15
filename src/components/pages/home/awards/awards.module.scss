@@ -3,6 +3,8 @@
   padding-bottom: 150px;
   margin-bottom: 160px;
   background-color: $color-primary;
+
+  @include section-paddings;
 }
 
 .title {

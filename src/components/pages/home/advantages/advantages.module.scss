@@ -1,5 +1,7 @@
 .wrapper {
   margin-bottom: 160px;
+
+  @include section-paddings;
 }
 
 .title {

@@ -2,6 +2,8 @@
   position: relative;
   padding-top: 190px;
   background-color: $color-additional-1;
+
+  @include section-paddings;
 }
 
 .inner {

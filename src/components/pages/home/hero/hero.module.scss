@@ -3,6 +3,8 @@
   padding-top: 240px;
   padding-bottom: 358px;
   margin-bottom: 120px;
+
+  @include section-paddings;
 }
 
 .title {

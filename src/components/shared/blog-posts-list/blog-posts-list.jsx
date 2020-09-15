@@ -18,7 +18,7 @@ const cx = classNames.bind(styles);
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 const BlogPostsList = ({ className, title, items, shape }) => (
-  <section className={className}>
+  <section className={cx('wrapper', className)}>
     <div className="container">
       <div className={cx('header')}>
         <Heading tag="h2" size="xl" innerHTML={title} />

@@ -1,3 +1,7 @@
+.wrapper {
+  @include section-paddings;
+}
+
 .header {
   display: flex;
   align-items: center;
