@@ -169,7 +169,7 @@ Footer.defaultProps = {
         },
         {
           label: '+41 44 545 53 00',
-          path: 'tel:+41 44 545 53 00',
+          path: 'tel:+41445455300',
         },
       ],
     },
