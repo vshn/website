@@ -1,0 +1,119 @@
+.wrapper {
+  position: relative;
+  margin-top: 230px;
+  margin-bottom: 100px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px;
+  padding: 0 110px;
+  background-color: $color-primary;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 26, 102, 0.25);
+}
+
+.title {
+  max-width: 515px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 410px;
+  color: $color-tertiary;
+}
+
+.date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 78px;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  line-height: $line-height-lg;
+  color: $color-primary;
+  text-align: center;
+  background-color: $color-tertiary;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 30px;
+
+  span {
+    display: block;
+  }
+
+  span:first-of-type {
+    font-size: $font-size-lg;
+    font-weight: 900;
+  }
+}
+
+.rectangle {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+}
+
+.rectangle-1 {
+  top: -15px;
+  left: 470px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-quaternary;
+  border-top-right-radius: 30px;
+}
+
+.rectangle-2 {
+  top: -30px;
+  left: 1148px;
+  width: 40px;
+  height: 60px;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 40px;
+}
+
+.rectangle-3 {
+  top: 75px;
+  right: -12px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-quaternary;
+  border-bottom-right-radius: 30px;
+}
+
+.rectangle-4 {
+  top: 200px;
+  right: 33px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-accent-primary;
+  border-bottom-right-radius: 30px;
+}
+
+.rectangle-5 {
+  top: 220px;
+  right: 222px;
+  width: 50px;
+  height: 50px;
+  background-color: $color-tertiary;
+  border-top-right-radius: 40px;
+}
+
+.rectangle-6 {
+  bottom: -30px;
+  left: 628px;
+  width: 60px;
+  height: 60px;
+  background-color: #4cc3ff;
+  border-top-left-radius: 55px;
+}
