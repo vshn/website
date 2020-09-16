@@ -7,7 +7,7 @@ export default function useAutoChangeableIndex(numberOfItems, options = {}) {
   } = options;
 
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
-  const animationTimeoutId = useRef(null);
+  const timeoutId = useRef(null);
 
   const setNextIndex = (indexToSet) => {
     setCurrentIndex((currentIndex) => {
@@ -20,23 +20,27 @@ export default function useAutoChangeableIndex(numberOfItems, options = {}) {
 
   const setNextIndexLooped = (indexToSet) => {
     setNextIndex(indexToSet);
-    animationTimeoutId.current = setTimeout(setNextIndexLooped, interval);
+    timeoutId.current = setTimeout(setNextIndexLooped, interval);
   };
 
-  const clearTimeoutAnimationId = () => clearTimeout(animationTimeoutId.current);
+  const resetTimeout = () => {
+    clearTimeout(timeoutId.current);
+    timeoutId.current = null;
+  };
 
   const start = (indexToStart = 0) => {
     // Return if loop is already started
-    if (animationTimeoutId.current) return;
+    if (timeoutId.current) return;
+
     setNextIndexLooped(indexToStart);
   };
 
   const restart = (indexToStart = 0) => {
-    clearTimeoutAnimationId();
+    resetTimeout();
     setNextIndexLooped(indexToStart);
   };
 
-  useEffect(() => clearTimeoutAnimationId, []);
+  useEffect(() => resetTimeout, []);
 
   return [currentIndex, start, restart];
 }
