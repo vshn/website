@@ -35,64 +35,6 @@
   list-style-type: none;
 }
 
-.item {
-  text-align: center;
-  background: #040816;
-  border-radius: 8px;
-
-  &:hover {
-    .item-read-more {
-      color: $color-accent-primary;
-    }
-  }
-}
-
-.item-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  padding-right: 30px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.item-icon {
-  margin-bottom: 30px;
-}
-
-.item-title {
-  margin-bottom: 15px;
-}
-
-.item-description {
-  margin-top: 0;
-  margin-bottom: 45px;
-  color: $color-quaternary;
-}
-
-.item-read-more {
-  position: relative;
-  width: 100%;
-  margin-top: auto;
-  font-weight: 700;
-  color: $color-tertiary;
-  transition: $transition-base;
-
-  &::before {
-    position: absolute;
-    top: -15px;
-    right: 0;
-    left: 0;
-    height: 1px;
-    content: '';
-    background: linear-gradient(90deg, rgba($color-tertiary, 0) 0%, $color-tertiary 50%, rgba($color-tertiary, 0) 100%);
-    opacity: 0.15;
-  }
-}
-
 .stripes {
   position: absolute;
   top: 0;

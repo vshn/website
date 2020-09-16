@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
-import Link from 'components/shared/link';
+import Item from './item';
 
 import ItemIcon1 from './images/item-icon-1.inline.svg';
 import ItemIcon2 from './images/item-icon-2.inline.svg';
@@ -16,9 +16,9 @@ import styles from './awards.module.scss';
 const cx = classNames.bind(styles);
 
 const itemIcons = [
-  <ItemIcon1 className={cx('item-icon')} aria-hidden />,
-  <ItemIcon2 className={cx('item-icon')} aria-hidden />,
-  <ItemIcon3 className={cx('item-icon')} aria-hidden />,
+  ItemIcon1,
+  ItemIcon2,
+  ItemIcon3,
 ];
 
 const Awards = ({ title, description, items }) => (
@@ -35,18 +35,7 @@ const Awards = ({ title, description, items }) => (
       />
 
       <ul className={cx('items-wrapper')}>
-        {
-          items.map(({ title, description, url }, index) => (
-            <li className={cx('item')} key={index}>
-              <Link className={cx('item-inner')} to={url}>
-                {itemIcons[index]}
-                <Heading className={cx('item-title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
-                <p className={cx('item-description')}>{description}</p>
-                <span className={cx('item-read-more')}>Read more</span>
-              </Link>
-            </li>
-          ))
-        }
+        {items.map((item, index) => <Item icon={itemIcons[index]} {...item} key={index} />)}
       </ul>
     </div>
 
