@@ -9,8 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 300px;
-  padding: 0 110px;
+  padding: 60px 110px;
   color: $color-additional-2;
   background-color: $color-primary;
   border-radius: 8px;
@@ -75,60 +74,15 @@
 }
 
 .rectangle-1 {
-  top: -15px;
-  left: 470px;
-  width: 30px;
-  height: 30px;
-  background-color: $color-quaternary;
-  border-top-right-radius: 50px;
-}
-
-.rectangle-2 {
-  top: -30px;
-  left: 1150px;
-  width: 40px;
-  height: 60px;
-  background-color: $color-accent-secondary;
-  border-top-left-radius: 60px;
-}
-
-.rectangle-3 {
-  top: 75px;
-  right: -15px;
-  width: 30px;
-  height: 30px;
-  background-color: $color-quaternary;
-  border-bottom-right-radius: 45px;
-}
-
-.rectangle-4 {
-  top: 200px;
-  right: 30px;
+  bottom: 90px;
+  left: -15px;
   width: 40px;
   height: 40px;
-  background-color: $color-accent-primary;
-  border-bottom-right-radius: 50px;
-}
-
-.rectangle-5 {
-  top: 220px;
-  right: 220px;
-  width: 50px;
-  height: 50px;
-  background-color: $color-tertiary;
-  border-radius: 5px 40px 5px 5px;
-}
-
-.rectangle-6 {
-  bottom: -30px;
-  left: 630px;
-  width: 60px;
-  height: 60px;
   background-color: $color-accent-primary;
   border-top-left-radius: 55px;
 }
 
-.rectangle-7 {
+.rectangle-2 {
   bottom: -15px;
   left: 220px;
   width: 40px;
@@ -137,13 +91,58 @@
   border-bottom-right-radius: 55px;
 }
 
-.rectangle-8 {
-  top: 170px;
-  left: -15px;
+.rectangle-3 {
+  top: -15px;
+  left: 470px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-quaternary;
+  border-top-right-radius: 50px;
+}
+
+.rectangle-4 {
+  bottom: -30px;
+  left: 630px;
+  width: 60px;
+  height: 60px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 55px;
+}
+
+.rectangle-5 {
+  right: 220px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: $color-tertiary;
+  border-radius: 5px 40px 5px 5px;
+}
+
+.rectangle-6 {
+  top: -30px;
+  right: 100px;
+  width: 40px;
+  height: 60px;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 60px;
+}
+
+.rectangle-7 {
+  right: 30px;
+  bottom: 60px;
   width: 40px;
   height: 40px;
   background-color: $color-accent-primary;
-  border-top-left-radius: 55px;
+  border-bottom-right-radius: 70px;
+}
+
+.rectangle-8 {
+  top: 75px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-quaternary;
+  border-bottom-right-radius: 45px;
 }
 
 .ellipse {
@@ -153,57 +152,57 @@
 }
 
 .ellipse-1 {
+  bottom: 40px;
+  left: 70px;
+  width: 6px;
+  height: 6px;
+}
+
+.ellipse-2 {
   top: 40px;
   left: 160px;
   width: 6px;
   height: 6px;
 }
 
-.ellipse-2 {
+.ellipse-3 {
   top: 20px;
   left: 310px;
   width: 9px;
   height: 10px;
 }
 
-.ellipse-3 {
-  top: 35px;
-  left: 730px;
-  width: 6px;
-  height: 6px;
-}
-
 .ellipse-4 {
-  top: 30px;
-  left: 944px;
-  width: 8px;
-  height: 8px;
-}
-
-.ellipse-5 {
   top: 125px;
   left: 675px;
   width: 6px;
   height: 6px;
 }
 
-.ellipse-6 {
-  top: 190px;
-  right: 130px;
-  width: 6px;
-  height: 6px;
-}
-
-.ellipse-7 {
+.ellipse-5 {
   top: 220px;
   left: 695px;
   width: 8px;
   height: 8px;
 }
 
+.ellipse-6 {
+  top: 35px;
+  left: 730px;
+  width: 6px;
+  height: 6px;
+}
+
+.ellipse-7 {
+  top: 30px;
+  left: 944px;
+  width: 8px;
+  height: 8px;
+}
+
 .ellipse-8 {
-  bottom: 40px;
-  left: 70px;
+  top: 190px;
+  right: 130px;
   width: 6px;
   height: 6px;
 }
