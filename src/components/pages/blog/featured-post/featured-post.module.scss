@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  margin-top: 230px;
+  margin-top: 229px;
   margin-bottom: 100px;
 }
 
@@ -26,7 +26,12 @@
   align-items: flex-start;
   justify-content: space-between;
   max-width: 410px;
+  min-height: 180px;
   color: $color-tertiary;
+}
+
+.text {
+  margin-top: 0;
 }
 
 .date {
@@ -53,9 +58,20 @@
   }
 
   span:first-of-type {
+    margin-top: -6px;
+    margin-bottom: 1px;
+    margin-left: 2px;
     font-size: $font-size-lg;
     font-weight: 900;
   }
+}
+
+.background-image {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  z-index: -1;
+  transform: translateX(-50%);
 }
 
 .rectangle {
@@ -70,50 +86,130 @@
   width: 30px;
   height: 30px;
   background-color: $color-quaternary;
-  border-top-right-radius: 30px;
+  border-top-right-radius: 50px;
 }
 
 .rectangle-2 {
   top: -30px;
-  left: 1148px;
+  left: 1150px;
   width: 40px;
   height: 60px;
   background-color: $color-accent-secondary;
-  border-top-left-radius: 40px;
+  border-top-left-radius: 60px;
 }
 
 .rectangle-3 {
   top: 75px;
-  right: -12px;
+  right: -15px;
   width: 30px;
   height: 30px;
   background-color: $color-quaternary;
-  border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 45px;
 }
 
 .rectangle-4 {
   top: 200px;
-  right: 33px;
+  right: 30px;
   width: 40px;
   height: 40px;
   background-color: $color-accent-primary;
-  border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 50px;
 }
 
 .rectangle-5 {
   top: 220px;
-  right: 222px;
+  right: 220px;
   width: 50px;
   height: 50px;
   background-color: $color-tertiary;
-  border-top-right-radius: 40px;
+  border-radius: 5px 40px 5px 5px;
 }
 
 .rectangle-6 {
   bottom: -30px;
-  left: 628px;
+  left: 630px;
   width: 60px;
   height: 60px;
-  background-color: #4cc3ff;
+  background-color: $color-accent-primary;
   border-top-left-radius: 55px;
+}
+
+.rectangle-7 {
+  bottom: -15px;
+  left: 220px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-accent-secondary;
+  border-bottom-right-radius: 55px;
+}
+
+.rectangle-8 {
+  top: 170px;
+  left: -15px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 55px;
+}
+
+.ellipse {
+  position: absolute;
+  background-color: $color-tertiary;
+  border-radius: 50%;
+}
+
+.ellipse-1 {
+  top: 40px;
+  left: 160px;
+  width: 6px;
+  height: 6px;
+}
+
+.ellipse-2 {
+  top: 20px;
+  left: 310px;
+  width: 9px;
+  height: 10px;
+}
+
+.ellipse-3 {
+  top: 35px;
+  left: 730px;
+  width: 6px;
+  height: 6px;
+}
+
+.ellipse-4 {
+  top: 30px;
+  left: 944px;
+  width: 8px;
+  height: 8px;
+}
+
+.ellipse-5 {
+  top: 125px;
+  left: 675px;
+  width: 6px;
+  height: 6px;
+}
+
+.ellipse-6 {
+  top: 190px;
+  right: 130px;
+  width: 6px;
+  height: 6px;
+}
+
+.ellipse-7 {
+  top: 220px;
+  left: 695px;
+  width: 8px;
+  height: 8px;
+}
+
+.ellipse-8 {
+  bottom: 40px;
+  left: 70px;
+  width: 6px;
+  height: 6px;
 }
