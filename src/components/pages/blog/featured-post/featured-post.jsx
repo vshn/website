@@ -20,7 +20,7 @@ const FeaturedPost = ({ title, text, buttonText, buttonUrl, day, month }) => (
         <Button size="sm" to={buttonUrl}>{buttonText}</Button>
 
         <div className={cx('date')} aria-hidden>
-          <span>{day}</span>
+          <span className={cx('day')}>{day}</span>
           <span>{month}</span>
         </div>
       </div>

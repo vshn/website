@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  margin-top: 229px;
+  margin-top: 230px;
   margin-bottom: 100px;
 }
 
@@ -11,6 +11,7 @@
   justify-content: space-between;
   min-height: 300px;
   padding: 0 110px;
+  color: $color-additional-2;
   background-color: $color-primary;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 26, 102, 0.25);
@@ -21,32 +22,21 @@
 }
 
 .description {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
   max-width: 410px;
-  min-height: 180px;
-  color: $color-tertiary;
 }
 
 .text {
   margin-top: 0;
+  margin-bottom: 30px;
 }
 
 .date {
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 70px;
-  height: 78px;
-  font-size: $font-size-sm;
+  padding: 12px 0;
   font-weight: 700;
-  line-height: $line-height-lg;
   color: $color-primary;
   text-align: center;
   background-color: $color-tertiary;
@@ -56,14 +46,14 @@
   span {
     display: block;
   }
+}
 
-  span:first-of-type {
-    margin-top: -6px;
-    margin-bottom: 1px;
-    margin-left: 2px;
-    font-size: $font-size-lg;
-    font-weight: 900;
-  }
+.day {
+  margin-top: -6px;
+  margin-bottom: 1px;
+  margin-left: 2px;
+  font-size: $font-size-lg;
+  font-weight: 900;
 }
 
 .background-image {
