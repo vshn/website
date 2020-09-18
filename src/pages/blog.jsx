@@ -3,6 +3,7 @@ import MainLayout from 'layouts/main';
 
 import FeaturedPost from '../components/pages/blog/featured-post';
 import Contact from '../components/shared/contact';
+import Categories from '../components/pages/blog/categories';
 
 const featuredPost = {
   title: 'August 2020 Cloud Native Computing Meetup Recap',
@@ -15,7 +16,7 @@ const featuredPost = {
 export default () => (
   <MainLayout>
     <FeaturedPost {...featuredPost} />
-
+    <Categories />
     <Contact />
   </MainLayout>
 );
