@@ -13,10 +13,41 @@ const featuredPost = {
   date: new Date('2020-09-01'),
 };
 
+const items = [
+  {
+    name: 'All posts',
+    slug: '/',
+  },
+  {
+    name: 'General',
+    slug: '/general',
+  },
+  {
+    name: 'Technical',
+    slug: '/technical',
+  },
+  {
+    name: 'VSHNinternal',
+    slug: '/vshninternal',
+  },
+  {
+    name: 'VSHN.timer',
+    slug: '/vshn.timer',
+  },
+  {
+    name: 'Press releases',
+    slug: '/press-releases',
+  },
+  {
+    name: 'Project Syn',
+    slug: '/project-syn',
+  },
+];
+
 export default () => (
   <MainLayout>
     <FeaturedPost {...featuredPost} />
-    <Categories />
+    <Categories items={items} activeItemSlug="/" />
     <Contact />
   </MainLayout>
 );

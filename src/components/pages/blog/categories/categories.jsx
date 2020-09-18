@@ -8,24 +8,32 @@ import styles from './categories.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Categories = ({ activeCategoryId }) => (
+const Categories = ({ activeItemSlug, items }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('items-wrapper')}>
-        <Link className={cx('item', { active: !activeCategoryId })} to="/">
-          All posts
-        </Link>
+        {items.map(({ name, slug }) => (
+          <Link key={slug} className={cx('item', { active: activeItemSlug === slug })} to={slug}>
+            {name}
+          </Link>
+        ))}
       </div>
     </div>
   </div>
 );
 
 Categories.propTypes = {
-  activeCategoryId: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  activeItemSlug: PropTypes.string,
 };
 
 Categories.defaultProps = {
-  activeCategoryId: null,
+  activeItemSlug: '/',
 };
 
 export default Categories;
