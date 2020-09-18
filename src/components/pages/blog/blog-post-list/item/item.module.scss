@@ -1,0 +1,48 @@
+.item {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 30px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid $color-additional-2;
+
+  &:last-of-type {
+    padding-bottom: 40px;
+  }
+}
+
+.date {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 70px;
+  height: 78px;
+  padding: 12px 0;
+  font-weight: 700;
+  color: $color-primary;
+  text-align: center;
+  background-color: $color-additional-1;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 30px;
+
+  span {
+    display: block;
+  }
+}
+
+.day {
+  margin-top: -5px;
+  margin-bottom: -1px;
+  margin-left: 2px;
+  font-size: $font-size-lg;
+  font-weight: 900;
+}
+
+.content {
+  grid-column-start: 2;
+  grid-column-end: 9;
+}
+
+.text {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
