@@ -25,7 +25,7 @@ const FeaturedPost = ({ title, text, buttonText, buttonUrl, date }) => {
 
           <time className={cx('date')}>
             <span className={cx('day')}>{day}</span>
-            <span>{month}</span>
+            {month}
           </time>
         </div>
 
