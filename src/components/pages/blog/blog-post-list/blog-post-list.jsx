@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 
 import styles from './blog-post-list.module.scss';
 import Item from './item/item';
+import Pagination from '../pagination';
 
 const cx = classNames.bind(styles);
 
@@ -12,6 +13,7 @@ const BlogPostList = ({ items }) => (
     <div className={cx('container', 'inner')}>
       <div className={cx('items-wrapper')}>
         {items.map((item, index) => <Item {...item} key={index} />)}
+        <Pagination />
       </div>
     </div>
   </section>
