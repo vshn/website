@@ -1,10 +1,11 @@
-.item {
+.wrapper {
   position: relative;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   column-gap: 30px;
   padding-top: 60px;
   padding-bottom: 60px;
+  color: $color-secondary;
 
   &::after {
     position: absolute;
@@ -31,7 +32,7 @@
   color: $color-primary;
   text-align: center;
   background-color: $color-additional-1;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   border-bottom-right-radius: 30px;
 
   span {
@@ -52,7 +53,14 @@
   grid-column-end: 9;
 }
 
+.title {
+  margin-bottom: 15px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .text {
-  margin-top: 15px;
   margin-bottom: 30px;
 }

@@ -8,7 +8,7 @@
 }
 
 .items-wrapper {
-  margin: 15px 0;
+  display: flex;
 }
 
 .item {
@@ -20,7 +20,7 @@
   line-height: $line-height-sm;
   color: $color-primary;
   text-decoration: none;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &:last-child {
     margin-right: 0;
