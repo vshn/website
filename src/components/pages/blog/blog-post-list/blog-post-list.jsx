@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import classNames from 'classnames/bind';
 
 import GatsbyImage from 'gatsby-image';
+import shape from './images/shape.svg';
 
 import styles from './blog-post-list.module.scss';
 import Item from './item';
@@ -38,6 +39,7 @@ const BlogPostList = ({ items }) => {
           <span className={cx('rectangle', 'rectangle-3')} />
           <GatsbyImage className={cx('image')} fluid={image} />
         </div>
+        <img className={cx('shape')} src={shape} alt="" aria-hidden />
       </div>
     </section>
   );

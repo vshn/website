@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -50,4 +54,14 @@
   width: 180px;
   height: 370px;
   background-color: $color-primary;
+}
+
+.shape {
+  position: absolute;
+  top: 755px;
+  left: 1175px;
+  z-index: -1;
+  width: calc(115px + #{$container-side-gap});
+  min-width: 430px;
+  height: 700px;
 }
