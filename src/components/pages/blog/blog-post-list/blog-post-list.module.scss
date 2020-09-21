@@ -8,3 +8,46 @@
   grid-column-start: 1;
   grid-column-end: 9;
 }
+
+.illustration {
+  position: relative;
+  grid-column-start: 10;
+  grid-column-end: 13;
+  padding-top: 45px;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.rectangle {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba($color-primary, 0.15);
+}
+
+.rectangle-1 {
+  top: 0;
+  left: -31px;
+  width: 200px;
+  height: 350px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 60px;
+}
+
+.rectangle-2 {
+  top: 15px;
+  right: -30px;
+  width: 220px;
+  height: 560px;
+  background-color: $color-accent-secondary;
+  border-bottom-right-radius: 60px;
+}
+
+.rectangle-3 {
+  top: 190px;
+  left: -15px;
+  width: 180px;
+  height: 370px;
+  background-color: $color-primary;
+}
