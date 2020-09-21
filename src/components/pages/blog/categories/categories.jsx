@@ -12,8 +12,8 @@ const Categories = ({ activeItemSlug, items }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('items-wrapper')}>
-        {items.map(({ name, slug }) => (
-          <Link key={slug} className={cx('item', { active: activeItemSlug === slug })} to={slug}>
+        {items.map(({ name, slug }, index) => (
+          <Link className={cx('item', { active: activeItemSlug === slug })} to={slug} key={index}>
             {name}
           </Link>
         ))}
@@ -29,11 +29,7 @@ Categories.propTypes = {
       slug: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  activeItemSlug: PropTypes.string,
-};
-
-Categories.defaultProps = {
-  activeItemSlug: '/',
+  activeItemSlug: PropTypes.string.isRequired,
 };
 
 export default Categories;

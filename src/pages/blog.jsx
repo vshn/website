@@ -85,12 +85,20 @@ const blogPostList = {
     },
   ],
 };
+
+const pagination = {
+  previousText: 'Older posts',
+  nextText: 'Newer posts',
+  previousUrl: '/',
+  nextUrl: '/',
+};
+
 export default () => (
   <MainLayout>
     <FeaturedPost {...featuredPost} />
     <Categories items={categories} activeItemSlug="/" />
     <BlogPostList {...blogPostList} />
-    <Pagination />
+    <Pagination {...pagination} />
     <Contact />
   </MainLayout>
 );
