@@ -1,11 +1,7 @@
-.wrapper {
-  margin-bottom: 150px;
-}
-
 .inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  column-gap: 30px;
+  column-gap: $column-gap;
 }
 
 .items-wrapper {

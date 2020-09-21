@@ -1,16 +1,32 @@
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 150px;
 }
 
-.link {
+.inner {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $column-gap;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-start: 1;
+  grid-column-end: 9;
+  column-gap: $column-gap;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.item {
   font-weight: 700;
   color: $color-primary;
   text-decoration: none;
 
   &.previous {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
     svg {
       transform: rotate(180deg);
     }
@@ -21,6 +37,10 @@
   }
 
   &.next {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    justify-self: flex-end;
+
     span {
       padding-right: 12px;
     }

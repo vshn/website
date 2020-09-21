@@ -4,6 +4,7 @@ import MainLayout from 'layouts/main';
 import FeaturedPost from '../components/pages/blog/featured-post';
 import Categories from '../components/pages/blog/categories';
 import BlogPostList from '../components/pages/blog/blog-post-list';
+import Pagination from '../components/pages/blog/pagination';
 import Contact from '../components/shared/contact';
 
 const featuredPost = {
@@ -84,6 +85,7 @@ export default () => (
     <FeaturedPost {...featuredPost} />
     <Categories items={items} activeItemSlug="/" />
     <BlogPostList {...blogPostList} />
+    <Pagination />
     <Contact />
   </MainLayout>
 );

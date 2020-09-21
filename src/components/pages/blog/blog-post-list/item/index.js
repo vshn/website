@@ -1,1 +1,1 @@
-export { default } from './item.module.scss';
+export { default } from './item';
