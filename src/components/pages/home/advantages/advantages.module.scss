@@ -105,6 +105,6 @@
     left: 0;
     height: 1px;
     content: '';
-    background: linear-gradient(90deg, rgba(#dfe2ec, 0) 0%, #dfe2ec 50%, rgba(#dfe2ec, 0) 100%);
+    background: linear-gradient(90deg, rgba($color-additional-2, 0) 0%, $color-additional-2 50%, rgba($color-additional-2, 0) 100%);
   }
 }
