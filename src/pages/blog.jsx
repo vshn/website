@@ -15,7 +15,7 @@ const featuredPost = {
   date: new Date('2020-09-01'),
 };
 
-const items = [
+const categories = [
   {
     name: 'All posts',
     slug: '/',
@@ -88,7 +88,7 @@ const blogPostList = {
 export default () => (
   <MainLayout>
     <FeaturedPost {...featuredPost} />
-    <Categories items={items} activeItemSlug="/" />
+    <Categories items={categories} activeItemSlug="/" />
     <BlogPostList {...blogPostList} />
     <Pagination />
     <Contact />

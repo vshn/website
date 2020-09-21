@@ -1,5 +1,5 @@
 .wrapper {
-  margin-bottom: 150px;
+  margin-bottom: 180px;
 }
 
 .inner {
@@ -14,14 +14,24 @@
   grid-column-start: 1;
   grid-column-end: 9;
   column-gap: $column-gap;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 .item {
   font-weight: 700;
   color: $color-primary;
   text-decoration: none;
+
+  svg {
+    transition: $transition-base;
+  }
+
+  &:hover {
+    color: $color-accent-primary;
+
+    path {
+      stroke: $color-accent-primary;
+    }
+  }
 
   &.previous {
     grid-column-start: 1;
