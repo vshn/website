@@ -28,6 +28,7 @@ BlogPostList.propTypes = {
       text: PropTypes.string.isRequired,
       buttonText: PropTypes.string.isRequired,
       buttonUrl: PropTypes.string.isRequired,
+      date: PropTypes.instanceOf(Date).isRequired,
     }),
   ).isRequired,
 };

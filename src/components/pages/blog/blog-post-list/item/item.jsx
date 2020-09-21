@@ -8,12 +8,12 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ title, text, buttonUrl, date }) => {
+const Item = ({ title, text, buttonUrl, buttonText, date }) => {
   const day = date.getDate();
   const month = date.toLocaleString('en-US', { month: 'short' });
 
   return (
-    <article className={cx('item')}>
+    <article className={cx('wrapper')}>
       <time className={cx('date')}>
         <span className={cx('day')}>{day}</span>
         {month}
@@ -21,7 +21,7 @@ const Item = ({ title, text, buttonUrl, date }) => {
       <div className={cx('content')}>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
         <p className={cx('text')}>{text}</p>
-        <Button size="sm" to={buttonUrl}>Read more</Button>
+        <Button size="sm" to={buttonUrl}>{buttonText}</Button>
       </div>
     </article>
   );
@@ -31,6 +31,7 @@ Item.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   buttonUrl: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
 };
 
