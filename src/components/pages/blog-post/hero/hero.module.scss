@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   padding-top: 140px;
-  margin-bottom: 200px;
+  margin-bottom: 75px;
 }
 
 .inner {
@@ -45,6 +45,7 @@
 
 .date {
   margin-bottom: 30px;
+  color: $color-secondary;
 }
 
 .rectangle {

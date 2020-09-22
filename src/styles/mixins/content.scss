@@ -1,0 +1,152 @@
+@mixin content {
+  font-size: 18px;
+  line-height: 1.6;
+  color: $color-primary;
+
+  > * {
+    padding-right: 110px;
+    padding-left: 110px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+    margin-left: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    font-weight: 900;
+    line-height: $line-height-lg;
+  }
+
+  > h4,
+  > h5,
+  > h6 {
+    margin-top: 30px;
+  }
+
+  > h1,
+  > h2 {
+    margin-top: 60px;
+    margin-bottom: 15px;
+  }
+
+  > h1 {
+    font-size: $font-size-xl;
+  }
+
+  > h2 {
+    font-size: 40px;
+  }
+
+  > h3 {
+    font-size: $font-size-lg;
+  }
+
+  > ul,
+  > ol {
+    li {
+      margin-bottom: 11px;
+      list-style: none;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  > ol {
+    padding-left: 110px;
+    margin-top: 16px;
+  }
+
+  > ul {
+    padding-left: 140px;
+    margin-top: 30px;
+    margin-bottom: 35px;
+
+    li {
+      position: relative;
+      padding-left: 16px;
+      list-style: none;
+
+      &::before {
+        position: absolute;
+        top: 9px;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        content: '';
+        background-color: $color-accent-primary;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  > blockquote {
+    position: relative;
+    padding-top: 50px;
+    padding-right: 0;
+    padding-bottom: 35px;
+    padding-left: 0;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.6;
+    border-bottom: 4px solid $color-primary;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 990px;
+      height: 4px;
+      content: '';
+      background-color: $color-primary;
+    }
+
+    &::after {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 50px;
+      height: 40px;
+      content: '';
+      background-image: url(./images/quote.svg);
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    cite {
+      font-size: 18px;
+      font-style: normal;
+      color: $color-secondary;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,7 @@
+.content {
+  padding-right: 110px;
+  padding-left: 110px;
+  margin-bottom: 120px;
+
+  @include content;
+}
