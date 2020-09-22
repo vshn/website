@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import classNames from 'classnames/bind';
 import GatsbyImage from 'gatsby-image';
 
-import Heading from 'components/shared/heading';
 import Item from './item';
 
 import shape from './images/shape.svg';
@@ -13,7 +12,7 @@ import styles from './blog-posts-list.module.scss';
 
 const cx = classNames.bind(styles);
 
-const BlogPostList = ({ items, illustrationText }) => {
+const BlogPostList = ({ items }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -42,9 +41,6 @@ const BlogPostList = ({ items, illustrationText }) => {
           <span className={cx('rectangle', 'rectangle-2')} />
           <span className={cx('rectangle', 'rectangle-3')} />
           <GatsbyImage className={cx('image')} fluid={image} />
-          <Heading className={cx('illustration-text')} tag="span" size="lg" color="tertiary">
-            {illustrationText}
-          </Heading>
         </div>
 
         <img className={cx('shape')} src={shape} alt="" aria-hidden />
@@ -63,7 +59,6 @@ BlogPostList.propTypes = {
       buttonUrl: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  illustrationText: PropTypes.string.isRequired,
 };
 
 export default BlogPostList;
