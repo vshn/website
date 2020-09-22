@@ -19,7 +19,7 @@ const Item = ({ title, text, date, buttonUrl, buttonText }) => {
         <span className={cx('day')}>{day}</span>
         <span className={cx('month')}>{month}</span>
       </div>
-      <div className={cx('content')}>
+      <div>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
         <p className={cx('text')}>{text}</p>
         <Button to={buttonUrl} size="sm">{buttonText}</Button>
