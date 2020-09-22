@@ -26,11 +26,11 @@ body {
   margin-left: auto;
 
   @include lg-down {
-    max-width: $container-side-gap-lg;
+    max-width: $container-width-lg;
   }
 
   @include md-down {
-    max-width: $container-side-gap-md;
+    max-width: $container-width-md;
   }
 
   @include sm-down {
