@@ -14,10 +14,10 @@ const Item = ({ title, text, buttonUrl, buttonText, date }) => {
 
   return (
     <article className={cx('wrapper')}>
-      <time className={cx('date')}>
+      <div className={cx('date')}>
         <span className={cx('day')}>{day}</span>
         <span className={cx('month')}>{month}</span>
-      </time>
+      </div>
       <div className={cx('content')}>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
         <p className={cx('text')}>{text}</p>
