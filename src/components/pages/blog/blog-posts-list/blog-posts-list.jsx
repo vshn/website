@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import GatsbyImage from 'gatsby-image';
 import shape from './images/shape.svg';
 
-import styles from './blog-post-list.module.scss';
+import styles from './blog-posts-list.module.scss';
 import Item from './item';
 
 const cx = classNames.bind(styles);
