@@ -1,0 +1,139 @@
+.wrapper {
+  position: relative;
+  padding-top: 140px;
+  margin-bottom: 200px;
+}
+
+.inner {
+  padding-top: 63px;
+  padding-right: 160px;
+  padding-bottom: 60px;
+  padding-left: 160px;
+  text-align: center;
+}
+
+.categories {
+  margin-bottom: 20px;
+
+  span {
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    margin-right: 15px;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    line-height: $line-height-xs;
+    background-color: $color-additional-3;
+    border-radius: 2px;
+    border-bottom-right-radius: 20px;
+
+    &:first-of-type {
+      border-radius: 2px;
+      border-top-right-radius: 20px;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.date {
+  margin-bottom: 30px;
+}
+
+.rectangle {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+}
+
+.rectangle-1 {
+  top: 160px;
+  left: -65px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 60px;
+}
+
+.rectangle-2 {
+  bottom: 83px;
+  left: 125px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-quaternary;
+  border-bottom-left-radius: 45px;
+}
+
+.rectangle-3 {
+  top: 30px;
+  left: 195px;
+  width: 50px;
+  height: 50px;
+  background-color: $color-tertiary;
+  border-top-right-radius: 50px;
+}
+
+.rectangle-4 {
+  bottom: -15px;
+  left: 355px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-accent-secondary;
+  border-bottom-right-radius: 55px;
+}
+
+.rectangle-5 {
+  top: 110px;
+  right: 145px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-tertiary;
+  border-radius: 40px 5px 5px 5px;
+}
+
+.rectangle-6 {
+  right: 125px;
+  bottom: -15px;
+  width: 60px;
+  height: 60px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 60px;
+}
+
+.rectangle-7 {
+  right: -15px;
+  bottom: 100px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-quaternary;
+  border-top-right-radius: 70px;
+}
+
+.rectangle-8 {
+  top: 60px;
+  right: -75px;
+  width: 40px;
+  height: 60px;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 60px;
+}
+
+.background-image {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  z-index: -1;
+  width: 100%;
+  height: 350px;
+  background-color: $color-additional-1;
+  object-fit: cover;
+  object-position: center center;
+  transform: translateX(-50%);
+}
