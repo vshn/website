@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import Link from 'components/shared/link';
+import Arrow from './images/arrow.inline.svg';
+
 import styles from './pagination.module.scss';
-import Arrow from './svg/arrow.inline.svg';
 
 const cx = classNames.bind(styles);
 
-const Pagination = ({ previousText, nextText, previousUrl, nextUrl }) => (
+const Pagination = ({ previousText, previousUrl, nextText, nextUrl }) => (
   <div className={cx('wrapper')}>
-    <div className={cx('container', 'inner')}>
-      <div className={cx('links')}>
+    <div className="container">
+      <div className={cx('items-wrapper')}>
         {previousUrl && (
           <Link className={cx('item', 'previous')} to={previousUrl}>
             <Arrow />
@@ -31,8 +32,8 @@ const Pagination = ({ previousText, nextText, previousUrl, nextUrl }) => (
 
 Pagination.propTypes = {
   previousText: PropTypes.string.isRequired,
-  nextText: PropTypes.string.isRequired,
   previousUrl: PropTypes.string.isRequired,
+  nextText: PropTypes.string.isRequired,
   nextUrl: PropTypes.string.isRequired,
 };
 
