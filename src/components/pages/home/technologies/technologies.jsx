@@ -63,19 +63,19 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => (
         <Button to={buttonUrl}>{buttonText}</Button>
       </div>
 
-      <ul className={cx('items-wrapper')}>
-        {
-          items.map(({ name, logo }, index) => (
+      <div className={cx('items-wrapper')}>
+        <ul className={cx('items-inner')}>
+          {items.map(({ name, logo }, index) => (
             <li className={cx('item', `item_${name.toLocaleLowerCase()}`)} key={index}>
               <span className={cx('item-name')}>{name}</span>
               <div className={cx('item-logo-wrapper')}>
                 <img className={cx('item-logo')} src={logo} alt={`${name} logo`} />
               </div>
             </li>
-          ))
-        }
+          ))}
+        </ul>
         <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
-      </ul>
+      </div>
 
       <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
     </div>

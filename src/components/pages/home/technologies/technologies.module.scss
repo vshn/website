@@ -39,10 +39,13 @@
 
 .items-wrapper {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
   grid-column-start: 7;
   grid-column-end: 12;
+}
+
+.items-inner {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 20px;
   padding-left: 0;
   margin-top: 0;
