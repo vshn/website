@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
 
@@ -64,12 +65,14 @@ const Products = ({ title, description, items }) => {
           </div>
         </div>
 
-        {items.map(({ detailsTitle, detailsContent }, index) => {
-          const isActive = index === activeItemIndex;
-          if (!isActive) return null;
+        <AnimatePresence exitBeforeEnter>
+          {items.map(({ detailsTitle, detailsContent }, index) => {
+            const isActive = index === activeItemIndex;
+            if (!isActive) return null;
 
-          return <Details title={detailsTitle} content={detailsContent} key={index} />;
-        })}
+            return <Details title={detailsTitle} content={detailsContent} key={index} />;
+          })}
+        </AnimatePresence>
       </div>
 
       <img className={cx('shape')} src={shape} aria-hidden alt="" />

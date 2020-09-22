@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import GatsbyImage from 'gatsby-image';
 import classNames from 'classnames/bind';
@@ -9,6 +10,7 @@ import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
 import Quote from 'icons/quote.inline.svg';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
+import motionFadeAnimation from 'constants/motion-fade-animation';
 
 import shape from './images/shape.svg';
 import styles from './partners.module.scss';
@@ -73,58 +75,83 @@ const Partners = ({ title, items }) => {
     mathiasBrenner,
   ];
 
-  const activePhoto = photos[activeItemIndex];
-  const activeName = items[activeItemIndex].name;
-  const activePosition = items[activeItemIndex].position;
-  const activeText = items[activeItemIndex].text;
-  const activeButtonUrl = items[activeItemIndex].buttonUrl;
-
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
         <div className={cx('details')}>
           <div className={cx('photo-wrapper')}>
-            <GatsbyImage className={cx('photo')} fluid={activePhoto} />
+            <AnimatePresence exitBeforeEnter>
+              {items.map((item, index) => {
+                const isActive = index === activeItemIndex;
+                if (!isActive) return null;
+
+                return (
+                  <motion.div {...motionFadeAnimation} key={index}>
+                    <GatsbyImage className={cx('photo')} fluid={photos[index]} />
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
 
             <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
             <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
             <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
           </div>
 
-          <Heading className={cx('name')} tag="h3" size="lg">{activeName}</Heading>
-          <span className={cx('position')}>{activePosition}</span>
+          <AnimatePresence exitBeforeEnter>
+            {items.map(({ name, position }, index) => {
+              const isActive = index === activeItemIndex;
+              if (!isActive) return null;
+
+              return (
+                <motion.div {...motionFadeAnimation} key={index}>
+                  <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
+                  <span className={cx('position')}>{position}</span>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
 
           <div className={cx('tabs-wrapper')}>
-            {
-              items.map((item, index) => {
-                const number = index + 1;
-                const isActive = index === activeItemIndex;
+            {items.map((item, index) => {
+              const number = index + 1;
+              const isActive = index === activeItemIndex;
 
-                const handleClick = () => restartAnimation(index);
+              const handleClick = () => restartAnimation(index);
 
-                return (
-                  <Heading
-                    className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
-                    tag="button"
-                    size="lg"
-                    color="quaternary"
-                    type="button"
-                    onClick={handleClick}
-                    key={index}
-                  >
-                    {number}
-                  </Heading>
-                );
-              })
-            }
+              return (
+                <Heading
+                  className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
+                  tag="button"
+                  size="lg"
+                  color="quaternary"
+                  type="button"
+                  onClick={handleClick}
+                  key={index}
+                >
+                  {number}
+                </Heading>
+              );
+            })}
           </div>
         </div>
 
         <div>
           <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
           <Quote className={cx('quote-icon')} aria-hidden />
-          <Heading className={cx('text')} tag="blockquote" size="xl" innerHTML={activeText} />
-          <Button to={activeButtonUrl}>Continue</Button>
+          <AnimatePresence exitBeforeEnter>
+            {items.map(({ text, buttonUrl }, index) => {
+              const isActive = index === activeItemIndex;
+              if (!isActive) return null;
+
+              return (
+                <motion.div {...motionFadeAnimation} key={index}>
+                  <Heading className={cx('text')} tag="blockquote" size="xl" innerHTML={text} />
+                  <Button to={buttonUrl}>Continue</Button>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
 
         <img className={cx('shape')} src={shape} alt="" aria-hidden />
