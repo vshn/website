@@ -87,6 +87,7 @@ const blogPostsList = {
       buttonText: 'Read more',
     },
   ],
+  illustrationText: 'Report DevOps in Switzerland 2020',
 };
 
 const pagination = {

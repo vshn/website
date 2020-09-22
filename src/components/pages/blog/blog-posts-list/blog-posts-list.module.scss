@@ -1,27 +1,17 @@
 .wrapper {
   position: relative;
-}
-
-.inner {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  column-gap: $column-gap;
+  margin-bottom: 30px;
 }
 
 .items-wrapper {
-  grid-column-start: 1;
-  grid-column-end: 9;
+  max-width: 850px;
 }
 
 .illustration {
-  position: relative;
-  grid-column-start: 10;
-  grid-column-end: 13;
-  padding-top: 45px;
-}
-
-.image {
-  border-radius: 8px;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 300px;
 }
 
 .rectangle {
@@ -31,8 +21,8 @@
 }
 
 .rectangle-1 {
-  top: 0;
-  left: -31px;
+  top: -45px;
+  left: -30px;
   width: 200px;
   height: 350px;
   background-color: $color-accent-primary;
@@ -40,7 +30,7 @@
 }
 
 .rectangle-2 {
-  top: 15px;
+  top: -30px;
   right: -30px;
   width: 220px;
   height: 560px;
@@ -49,11 +39,24 @@
 }
 
 .rectangle-3 {
-  top: 190px;
+  bottom: -15px;
   left: -15px;
   width: 180px;
   height: 370px;
   background-color: $color-primary;
+  border-top-right-radius: 120px;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.illustration-text {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  font-size: 30px;
 }
 
 .shape {
