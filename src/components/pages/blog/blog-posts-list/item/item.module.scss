@@ -54,11 +54,11 @@
 }
 
 .title {
+  display: -webkit-box;
   margin-bottom: 15px;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .text {
