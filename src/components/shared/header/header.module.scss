@@ -60,7 +60,7 @@
       display: block;
       color: $color-primary;
       text-decoration: none;
-      transition: $transition-base;
+      transition: color $transition-base;
 
       &:hover {
         color: $color-accent-primary;
@@ -107,7 +107,7 @@
   line-height: $line-height-xs;
   color: $color-primary;
   text-decoration: none;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &:hover {
     color: $color-accent-primary;

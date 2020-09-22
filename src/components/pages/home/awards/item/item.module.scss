@@ -48,7 +48,7 @@
   margin-top: auto;
   font-weight: 700;
   color: $color-tertiary;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &::before {
     position: absolute;
@@ -67,7 +67,7 @@
   visibility: hidden;
   background-color: $color-accent-primary;
   opacity: 0;
-  transition: $transition-base;
+  transition: opacity $transition-base;
 
   &.circle {
     border-radius: 50%;

@@ -52,7 +52,7 @@
   height: 40px;
   background: $color-quaternary;
   border-radius: 100px;
-  transition: $transition-base;
+  transition: background-color $transition-base;
 
   &:hover {
     background-color: $color-accent-primary;
@@ -140,7 +140,7 @@
   line-height: $line-height-base;
   color: $color-primary;
   text-decoration: none;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &:hover {
     color: $color-accent-primary;
@@ -156,7 +156,7 @@
   a {
     color: $color-primary;
     text-decoration: none;
-    transition: $transition-base;
+    transition: color $transition-base;
 
     &:hover {
       color: $color-accent-primary;

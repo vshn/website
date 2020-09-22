@@ -11,7 +11,7 @@
   font-weight: 700;
   color: $color-primary;
   text-decoration: none;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &:hover {
     color: $color-accent-primary;
@@ -22,7 +22,7 @@
   }
 
   path {
-    transition: $transition-base;
+    transition: stroke $transition-base;
   }
 
   &.previous {

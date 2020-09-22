@@ -85,7 +85,7 @@
   background-color: transparent;
   border: none;
   outline: none;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &:hover:not(.active),
   &:focus:not(.active) {
@@ -116,7 +116,7 @@
     height: 3px;
     content: '';
     border-radius: 10px;
-    transition: $transition-base;
+    transition: opacity $transition-base;
   }
 
   &::before {
