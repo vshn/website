@@ -109,22 +109,22 @@
 
     &::before {
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 990px;
-      height: 4px;
-      content: '';
-      background-color: $color-primary;
-    }
-
-    &::after {
-      position: absolute;
       top: -20px;
       left: 0;
       width: 50px;
       height: 40px;
       content: '';
       background-image: url(./images/quote.svg);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 990px;
+      height: 4px;
+      content: '';
+      background-color: $color-primary;
     }
 
     p {
@@ -148,5 +148,22 @@
     max-width: 100%;
     overflow: hidden;
     border-radius: 4px;
+  }
+
+  :global {
+    .wp-block-image {
+      .gatsby-image-wrapper {
+        padding-right: 0;
+        padding-left: 0;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      figcaption {
+        font-size: $font-size-sm;
+        line-height: $font-size-sm;
+        text-align: center;
+      }
+    }
   }
 }
