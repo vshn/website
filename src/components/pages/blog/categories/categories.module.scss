@@ -3,7 +3,6 @@
 }
 
 .inner {
-  display: flex;
   border-bottom: 1px solid $color-additional-2;
 }
 
@@ -22,12 +21,12 @@
   text-decoration: none;
   transition: color $transition-base;
 
-  &:last-child {
-    margin-right: 0;
-  }
-
   &:hover {
     color: $color-accent-primary;
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 
   &.active {
@@ -37,7 +36,7 @@
 
     &::after {
       position: absolute;
-      bottom: -3px;
+      bottom: -1px;
       left: 0;
       width: 100%;
       height: 2px;

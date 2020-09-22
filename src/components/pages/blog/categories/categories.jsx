@@ -8,7 +8,7 @@ import styles from './categories.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Categories = ({ activeItemSlug, items }) => (
+const Categories = ({ items, activeItemSlug }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('items-wrapper')}>
