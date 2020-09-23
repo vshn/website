@@ -20,7 +20,7 @@ const Author = ({ name, email, phone, description }) => {
     {
       image: file(relativePath: { eq: "pages/blog-post/author/markus-speth.png" }) {
         childImageSharp {
-          fluid(maxWidth: 100) {
+          fluid(maxWidth: 120) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -29,7 +29,7 @@ const Author = ({ name, email, phone, description }) => {
   `);
 
   return (
-    <article className={cx('wrapper')}>
+    <section className={cx('wrapper')}>
       <div className="container">
         <div className={cx('items-wrapper')}>
           <GatsbyImage className={cx('image')} fluid={image} />
@@ -44,7 +44,7 @@ const Author = ({ name, email, phone, description }) => {
           </div>
         </div>
       </div>
-    </article>
+    </section>
   );
 };
 Author.propTypes = {
