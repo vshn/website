@@ -28,15 +28,6 @@ const Hero = ({ title, categories, date }) => {
           <span>. </span>
           <span>{monthYear}</span>
         </div>
-
-        <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-4')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-5')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-6')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-7')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-8')} aria-hidden />
       </div>
       <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
     </section>
