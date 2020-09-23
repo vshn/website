@@ -101,7 +101,7 @@
   > blockquote {
     position: relative;
     padding-top: 50px;
-    padding-bottom: 35px;
+    padding-bottom: 30px;
     margin-top: 50px;
     margin-right: -110px;
     margin-bottom: 60px;
@@ -170,6 +170,30 @@
         line-height: $font-size-sm;
         color: $color-secondary;
         text-align: center;
+      }
+    }
+
+    .wp-block-columns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      margin-right: -110px;
+      margin-bottom: 85px;
+    }
+
+    .wp-block-column {
+      &:first-child {
+        margin-right: 80px;
+      }
+
+      .wp-block-image {
+        width: 300px;
+        margin: 0;
+      }
+
+      .gatsby-image-wrapper {
+        margin: 0;
+        margin-bottom: 10px;
       }
     }
   }
