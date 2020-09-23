@@ -4,8 +4,6 @@
   color: $color-primary;
 
   > * {
-    padding-right: 110px;
-    padding-left: 110px;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 15px;
@@ -37,7 +35,8 @@
   }
 
   > h1,
-  > h2 {
+  > h2,
+  > h3 {
     margin-top: 60px;
     margin-bottom: 15px;
   }
@@ -67,12 +66,12 @@
   }
 
   > ol {
-    padding-left: 110px;
+    padding-left: 0;
     margin-top: 16px;
   }
 
   > ul {
-    padding-left: 140px;
+    padding-left: 15px;
     margin-top: 30px;
     margin-bottom: 35px;
 
@@ -94,14 +93,19 @@
     }
   }
 
+  a {
+    color: $color-accent-primary;
+    text-decoration: none;
+  }
+
   > blockquote {
     position: relative;
     padding-top: 50px;
-    padding-right: 0;
     padding-bottom: 35px;
-    padding-left: 0;
     margin-top: 50px;
+    margin-right: -110px;
     margin-bottom: 60px;
+    margin-left: -110px;
     font-size: 22px;
     font-style: italic;
     line-height: 1.6;
@@ -152,16 +156,19 @@
 
   :global {
     .wp-block-image {
+      margin-bottom: 35px;
+
       .gatsby-image-wrapper {
-        padding-right: 0;
-        padding-left: 0;
         margin-top: 30px;
-        margin-bottom: 30px;
+        margin-right: -110px;
+        margin-bottom: 15px;
+        margin-left: -110px;
       }
 
       figcaption {
         font-size: $font-size-sm;
         line-height: $font-size-sm;
+        color: $color-secondary;
         text-align: center;
       }
     }
