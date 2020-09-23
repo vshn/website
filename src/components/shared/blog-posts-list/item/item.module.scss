@@ -59,6 +59,10 @@
   background-color: #dfe2ec;
   border-radius: 2px;
 
+  @include lg-down {
+    font-size: 13px;
+  }
+
   &:nth-of-type(odd) {
     border-top-right-radius: 20px;
   }
@@ -77,6 +81,10 @@
   margin-top: 0;
   margin-bottom: 75px;
   color: $color-secondary;
+
+  @include lg-down {
+    margin-bottom: 45px;
+  }
 }
 
 .read-more {

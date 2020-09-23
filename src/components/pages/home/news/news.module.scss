@@ -4,6 +4,11 @@
   padding-bottom: 72px;
   margin-bottom: 150px;
   background-color: $color-additional-1;
+
+  @include lg-down {
+    padding-top: 100px;
+    margin-bottom: 120px;
+  }
 }
 
 .shape {

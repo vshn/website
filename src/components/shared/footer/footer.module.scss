@@ -3,16 +3,22 @@
   padding-bottom: 30px;
 
   @include section-paddings;
+
+  @include lg-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
-.section {
+.top-section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
   margin-bottom: 60px;
 
-  &:last-child {
-    margin-bottom: 0;
+  @include lg-down {
+    display: block;
+    margin-bottom: 50px;
   }
 }
 
@@ -22,6 +28,12 @@
   grid-column: span 5;
   align-items: flex-start;
   justify-content: space-between;
+
+  @include lg-down {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
 }
 
 .logo {
@@ -54,6 +66,11 @@
   border-radius: 100px;
   transition: $transition-base;
 
+  @include lg-down {
+    width: 34px;
+    height: 34px;
+  }
+
   &:hover {
     background-color: $color-accent-primary;
   }
@@ -61,31 +78,51 @@
   &_facebook {
     svg {
       width: 12px;
+
+      @include lg-down {
+        width: 10px;
+      }
     }
   }
 
   &_github {
     svg {
       width: 26px;
+
+      @include lg-down {
+        width: 22px;
+      }
     }
   }
 
   &_instagram {
     svg {
       width: 20px;
+
+      @include lg-down {
+        width: 17px;
+      }
     }
   }
 
   &_linkedin {
     svg {
       width: 19px;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+
+      @include lg-down {
+        width: 16px;
+      }
     }
   }
 
   &_twitter {
     svg {
       width: 22px;
+
+      @include lg-down {
+        width: 19px;
+      }
     }
   }
 
@@ -104,10 +141,20 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include lg-down {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: $column-gap;
+  }
 }
 
 .menu-item {
   margin-right: 86px;
+
+  @include lg-down {
+    margin-right: 0;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -144,6 +191,18 @@
 
   &:hover {
     color: $color-accent-primary;
+  }
+}
+
+.bottom-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $column-gap;
+
+  @include lg-down {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 

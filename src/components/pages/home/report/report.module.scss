@@ -5,6 +5,10 @@
   margin-bottom: 240px;
 
   @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 180px;
+  }
 }
 
 .inner {
@@ -17,6 +21,10 @@
   position: relative;
   grid-column-start: 2;
   grid-column-end: 6;
+
+  @include lg-down {
+    grid-column-start: 1;
+  }
 }
 
 .rectangle {
@@ -41,6 +49,10 @@
   height: 690px;
   background-color: $color-accent-secondary;
   border-bottom-right-radius: 120px;
+
+  @include lg-down {
+    height: 632px;
+  }
 }
 
 .rectangle-3 {
@@ -50,6 +62,11 @@
   height: 370px;
   background-color: $color-primary;
   border-top-right-radius: 120px;
+
+  @include lg-down {
+    width: 140px;
+    height: 312px;
+  }
 }
 
 .image {
@@ -60,6 +77,11 @@
   grid-column-start: 7;
   grid-column-end: 13;
   padding-top: 100px;
+
+  @include lg-down {
+    grid-column-end: 12;
+    padding-top: 90px;
+  }
 }
 
 .title {
@@ -79,6 +101,10 @@
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-secondary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
 }
 
 .shape {

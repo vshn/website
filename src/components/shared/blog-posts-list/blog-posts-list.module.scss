@@ -7,6 +7,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+
+  @include lg-down {
+    margin-bottom: 10px;
+  }
 }
 
 .buttons-wrapper {
@@ -25,6 +29,11 @@
   border: none;
   border-radius: 50%;
   outline: none;
+
+  @include lg-down {
+    width: 40px;
+    height: 40px;
+  }
 
   &:last-child {
     margin-right: 0;

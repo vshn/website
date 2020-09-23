@@ -1,10 +1,16 @@
 .wrapper {
   position: relative;
   padding-top: 240px;
-  padding-bottom: 358px;
+  padding-bottom: 360px;
   margin-bottom: 120px;
 
   @include section-paddings;
+
+  @include lg-down {
+    padding-top: 220px;
+    padding-bottom: 260px;
+    margin-bottom: 125px;
+  }
 }
 
 .title {
@@ -19,6 +25,10 @@
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-secondary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
 }
 
 .shape-1 {
@@ -29,6 +39,15 @@
   width: calc(645px + #{$container-side-gap});
   min-width: 960px;
   height: 940px;
+
+  @include lg-down {
+    top: -160px;
+    right: calc(#{$container-side-gap-lg} / -1 - 300px);
+    left: auto;
+    width: 800px;
+    min-width: initial;
+    height: initial;
+  }
 }
 
 .shape-2 {
@@ -39,6 +58,15 @@
   width: calc(520px + #{$container-side-gap});
   min-width: 835px;
   height: 700px;
+
+  @include lg-down {
+    right: auto;
+    bottom: -615px;
+    left: calc(#{$container-side-gap-lg} / -1 - 235px);
+    width: 696px;
+    min-width: initial;
+    height: initial;
+  }
 }
 
 .illustration {
@@ -46,4 +74,10 @@
   top: -70px;
   right: -205px;
   width: 830px;
+
+  @include lg-down {
+    top: -70px;
+    right: -265px;
+    width: 692px;
+  }
 }

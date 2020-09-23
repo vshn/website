@@ -2,6 +2,10 @@
   margin-bottom: 160px;
 
   @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 120px;
+  }
 }
 
 .title {
@@ -16,6 +20,10 @@
   margin-bottom: 60px;
   margin-left: auto;
   text-align: center;
+
+  @include lg-down {
+    margin-bottom: 50px;
+  }
 }
 
 .items-wrapper {
@@ -69,9 +77,6 @@
   justify-content: center;
   width: 60px;
   height: 60px;
-  font-size: $font-size-lg;
-  font-weight: 900;
-  line-height: $line-height-lg;
   background-color: $color-accent-secondary;
   border-top-left-radius: 8px;
   border-bottom-right-radius: 30px;

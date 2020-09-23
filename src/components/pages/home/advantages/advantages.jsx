@@ -30,7 +30,7 @@ const Advantages = ({ title, description, items }) => (
           items.map(({ title, description, url }, index) => (
             <li className={cx('item')} key={index}>
               <Link className={cx('item-inner')} to={url}>
-                <span className={cx('item-number')} aria-hidden>{index + 1}</span>
+                <Heading className={cx('item-number')} tag="span" size="lg" aria-hidden>{index + 1}</Heading>
                 {itemIcons[index]}
                 <Heading className={cx('item-title')} tag="h3" size="lg">{title}</Heading>
                 <p className={cx('item-description')}>{description}</p>

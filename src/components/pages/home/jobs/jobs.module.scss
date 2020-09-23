@@ -10,6 +10,11 @@
   z-index: 1;
   padding-top: 150px;
   padding-bottom: 150px;
+
+  @include lg-down {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
 }
 
 .title {
@@ -45,6 +50,10 @@
   height: 40px;
   background-color: $color-quaternary;
   border-top-right-radius: 40px;
+
+  @include lg-down {
+    display: none;
+  }
 }
 
 .rectangle-2 {
@@ -54,6 +63,11 @@
   height: 40px;
   background-color: $color-accent-primary;
   border-top-left-radius: 30px;
+
+  @include lg-down {
+    bottom: 120px;
+    left: 0;
+  }
 }
 
 .rectangle-3 {
@@ -63,6 +77,10 @@
   height: 70px;
   background-color: $color-accent-secondary;
   border-top-left-radius: 50px;
+
+  @include lg-down {
+    left: 90px;
+  }
 }
 
 .rectangle-4 {
@@ -72,6 +90,11 @@
   height: 40px;
   background-color: $color-tertiary;
   border-top-right-radius: 40px;
+
+  @include lg-down {
+    bottom: 45px;
+    left: 215px;
+  }
 }
 
 .rectangle-5 {
@@ -81,6 +104,10 @@
   height: 40px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 40px;
+
+  @include lg-down {
+    left: 385px;
+  }
 }
 
 .rectangle-6 {
@@ -90,6 +117,10 @@
   height: 40px;
   background-color: $color-quaternary;
   border-top-left-radius: 40px;
+
+  @include lg-down {
+    left: 385px;
+  }
 }
 
 .rectangle-7 {
@@ -99,6 +130,10 @@
   height: 60px;
   background-color: $color-quaternary;
   border-bottom-right-radius: 60px;
+
+  @include lg-down {
+    right: 50px;
+  }
 }
 
 .rectangle-8 {
@@ -108,6 +143,11 @@
   height: 40px;
   background-color: $color-tertiary;
   border-bottom-right-radius: 40px;
+
+  @include lg-down {
+    right: 195px;
+    bottom: 80px;
+  }
 }
 
 .rectangle-9 {
@@ -117,6 +157,10 @@
   height: 70px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 50px;
+
+  @include lg-down {
+    right: 0;
+  }
 }
 
 .rectangle-10 {
@@ -126,6 +170,10 @@
   height: 50px;
   background-color: $color-accent-secondary;
   border-top-right-radius: 40px;
+
+  @include lg-down {
+    display: none;
+  }
 }
 
 .rectangle-11 {
@@ -135,4 +183,8 @@
   height: 40px;
   background-color: $color-quaternary;
   border-bottom-left-radius: 40px;
+
+  @include lg-down {
+    display: none;
+  }
 }

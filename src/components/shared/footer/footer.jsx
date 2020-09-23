@@ -32,7 +32,7 @@ const Footer = (props) => {
   return (
     <footer className={cx('wrapper')}>
       <div className="container">
-        <div className={cx('section')}>
+        <div className={cx('top-section')}>
           <div className={cx('other-links')}>
             <Link to="/">
               <Logo className={cx('logo')} />
@@ -75,7 +75,7 @@ const Footer = (props) => {
           </nav>
         </div>
 
-        <div className={cx('section')}>
+        <div className={cx('bottom-section')}>
           <p className={cx('design')} dangerouslySetInnerHTML={{ __html: design }} />
           <address className={cx('address')}>{address}</address>
           <span className={cx('copyright')}>{copyright}</span>

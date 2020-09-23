@@ -28,8 +28,12 @@
   text-decoration: none;
 }
 
-.icon {
+.image {
   margin-bottom: 30px;
+
+  @include lg-down {
+    width: 135px;
+  }
 }
 
 .title {
@@ -68,6 +72,10 @@
   background-color: $color-accent-primary;
   opacity: 0;
   transition: $transition-base;
+
+  @include lg-down {
+    display: none;
+  }
 
   &.circle {
     border-radius: 50%;

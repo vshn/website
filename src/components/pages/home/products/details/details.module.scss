@@ -6,6 +6,11 @@
   max-width: 470px;
   border-radius: 8px;
   transform: translateY(-50%);
+
+  @include lg-down {
+    right: 0;
+    max-width: 400px;
+  }
 }
 
 .inner {
@@ -65,6 +70,12 @@
   height: 310px;
   background-color: $color-accent-secondary;
   border-top-left-radius: 120px;
+
+  @include lg-down {
+    top: -100px;
+    left: 50px;
+    width: 230px;
+  }
 }
 
 .rectangle-2 {
@@ -74,6 +85,10 @@
   height: 176px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 120px;
+
+  @include lg-down {
+    display: none;
+  }
 }
 
 .rectangle-3 {
@@ -83,6 +98,13 @@
   height: 478px;
   background-color: $color-primary;
   border-bottom-right-radius: 120px;
+
+  @include lg-down {
+    top: -50px;
+    right: -50px;
+    width: 290px;
+    height: 446px;
+  }
 }
 
 .rectangle-4 {
@@ -92,4 +114,10 @@
   height: 300px;
   background-color: $color-accent-primary;
   border-bottom-left-radius: 120px;
+
+  @include lg-down {
+    bottom: -50px;
+    left: 50px;
+    width: 300px;
+  }
 }

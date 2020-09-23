@@ -68,6 +68,10 @@
   line-height: $line-height-md;
   transition: $transition-base;
 
+  @include lg-down {
+    font-size: 18px;
+  }
+
   &::before {
     position: absolute;
     top: 0;
@@ -105,6 +109,10 @@
   font-weight: 500;
   line-height: $line-height-md;
   transition: color $transition-base;
+
+  @include lg-down {
+    font-size: 18px;
+  }
 }
 
 .progress-circle {

@@ -7,21 +7,37 @@
     &_xxl {
       font-size: $font-size-xxl;
       line-height: $line-height-xxl;
+
+      @include lg-down {
+        font-size: 60px;
+      }
     }
 
     &_xl {
       font-size: $font-size-xl;
       line-height: $line-height-xl;
+
+      @include lg-down {
+        font-size: 40px;
+      }
     }
 
     &_lg {
       font-size: $font-size-lg;
       line-height: $line-height-lg;
+
+      @include lg-down {
+        font-size: 24px;
+      }
     }
 
     &_md {
       font-size: $font-size-md;
       line-height: $line-height-md;
+
+      @include lg-down {
+        font-size: 18px;
+      }
     }
 
     &_sm {

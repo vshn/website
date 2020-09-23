@@ -5,15 +5,27 @@
   background-color: $color-additional-1;
 
   @include section-paddings;
+
+  @include lg-down {
+    padding-top: 150px;
+  }
 }
 
 .inner {
   z-index: 1;
-  margin-bottom: 71px;
+  margin-bottom: 70px;
+
+  @include lg-down {
+    margin-bottom: 65px;
+  }
 }
 
 .content {
   max-width: 520px;
+
+  @include lg-down {
+    max-width: 450px;
+  }
 }
 
 .title {
@@ -23,6 +35,11 @@
 .description {
   max-width: 400px;
   margin-bottom: 60px;
+
+  @include lg-down {
+    max-width: 350px;
+    margin-bottom: 50px;
+  }
 }
 
 .shape {
@@ -32,6 +49,13 @@
   width: 100%;
   min-width: 1920px;
   transform: translateX(-50%);
+
+  @include lg-down {
+    left: -235px;
+    width: 1660px;
+    min-width: initial;
+    transform: none;
+  }
 }
 
 .illustration {
@@ -40,4 +64,9 @@
   display: block;
   width: 1788px;
   transform: translateY(19px) translateX(-50%);
+
+  @include lg-down {
+    width: 1200px;
+    transform: translateY(13px) translateX(-50%);
+  }
 }

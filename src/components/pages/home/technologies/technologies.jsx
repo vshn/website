@@ -5,6 +5,8 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
 
+import Item from './item';
+
 import rancher from './images/rancher.svg';
 import kubernates from './images/kubernates.svg';
 import ansible from './images/ansible.svg';
@@ -65,14 +67,7 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => (
 
       <div className={cx('items-wrapper')}>
         <ul className={cx('items-inner')}>
-          {items.map(({ name, logo }, index) => (
-            <li className={cx('item', `item_${name.toLocaleLowerCase()}`)} key={index}>
-              <span className={cx('item-name')}>{name}</span>
-              <div className={cx('item-logo-wrapper')}>
-                <img className={cx('item-logo')} src={logo} alt={`${name} logo`} />
-              </div>
-            </li>
-          ))}
+          {items.map((item, index) => <Item {...item} key={index} />)}
         </ul>
         <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
       </div>
