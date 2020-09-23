@@ -5,6 +5,7 @@ import Hero from '../components/pages/blog-post/hero';
 import Content from '../components/pages/blog-post/content';
 import Author from '../components/pages/blog-post/author';
 import News from '../components/pages/blog-post/news';
+import Contact from '../components/shared/contact';
 
 const hero = {
   title: 'VSHN announces Red Hat OpenShift 4 services',
@@ -88,5 +89,6 @@ export default () => (
     <Content />
     <Author {...author} />
     <News {...news} />
+    <Contact />
   </MainLayout>
 );
