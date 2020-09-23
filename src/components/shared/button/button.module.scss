@@ -25,6 +25,14 @@
     line-height: $line-height-md;
     border-radius: 30px 4px;
 
+    @include md-down {
+      padding-top: 13px;
+      padding-right: 30px;
+      padding-bottom: 13px;
+      padding-left: 30px;
+      font-size: 18px;
+    }
+
     &:hover {
       border-radius: 4px 30px;
     }

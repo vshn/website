@@ -11,6 +11,15 @@
     right: 0;
     max-width: 400px;
   }
+
+  @include md-down {
+    position: relative;
+    top: 0;
+    max-width: 460px;
+    margin-right: auto;
+    margin-left: auto;
+    transform: none;
+  }
 }
 
 .inner {
@@ -76,18 +85,28 @@
     left: 50px;
     width: 230px;
   }
+
+  @include md-down {
+    left: -100px;
+    width: 310px;
+  }
 }
 
 .rectangle-2 {
   top: 0;
   right: -120px;
   width: 260px;
-  height: 176px;
+  height: 175px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 120px;
 
   @include lg-down {
     display: none;
+  }
+
+  @include md-down {
+    right: -100px;
+    display: block;
   }
 }
 
@@ -95,7 +114,7 @@
   top: -60px;
   right: -60px;
   width: 430px;
-  height: 478px;
+  height: 480px;
   background-color: $color-primary;
   border-bottom-right-radius: 120px;
 
@@ -103,7 +122,12 @@
     top: -50px;
     right: -50px;
     width: 290px;
-    height: 446px;
+    height: 445px;
+  }
+
+  @include md-down {
+    width: 430px;
+    height: 445px;
   }
 }
 
@@ -119,5 +143,11 @@
     bottom: -50px;
     left: 50px;
     width: 300px;
+  }
+
+  @include md-down {
+    left: -50px;
+    width: 390px;
+    height: 290px;
   }
 }

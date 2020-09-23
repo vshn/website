@@ -1,13 +1,20 @@
 .wrapper {
   position: relative;
   padding-top: 120px;
-  padding-bottom: 72px;
+  padding-bottom: 70px;
   margin-bottom: 150px;
   background-color: $color-additional-1;
 
   @include lg-down {
     padding-top: 100px;
+    padding-bottom: 75px;
     margin-bottom: 120px;
+  }
+
+  @include md-down {
+    padding-top: 90px;
+    padding-bottom: 60px;
+    margin-bottom: 90px;
   }
 }
 
@@ -18,4 +25,9 @@
   width: 100%;
   min-width: 1920px;
   transform: translateX(-50%);
+
+  @include md-down {
+    width: 1550px;
+    min-width: initial;
+  }
 }

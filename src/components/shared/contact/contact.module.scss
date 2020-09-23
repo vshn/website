@@ -11,6 +11,11 @@
     padding-top: 90px;
     padding-bottom: 120px;
   }
+
+  @include md-down {
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
 }
 
 .inner {
@@ -30,6 +35,11 @@
 
   @include lg-down {
     font-size: 18px;
+  }
+
+  @include md-down {
+    margin-bottom: 25px;
+    font-size: 16px;
   }
 }
 

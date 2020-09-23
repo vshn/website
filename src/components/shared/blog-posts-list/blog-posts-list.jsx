@@ -35,9 +35,6 @@ const BlogPostsList = ({ className, title, items, shape }) => (
 
       <Swiper
         className={cx('items-wrapper')}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        spaceBetween={30}
         navigation={{
           prevEl: '#button-previous',
           nextEl: '#button-next',
@@ -46,6 +43,18 @@ const BlogPostsList = ({ className, title, items, shape }) => (
           bulletClass: cx('bullet'),
           bulletActiveClass: cx('active'),
           clickable: true,
+        }}
+        breakpoints={{
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 30,
+          },
         }}
         loop
         watchSlidesVisibility

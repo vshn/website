@@ -11,6 +11,12 @@
     padding-bottom: 50px;
     margin-bottom: 170px;
   }
+
+  @include md-down {
+    padding-top: 25px;
+    padding-bottom: 0;
+    margin-bottom: 150px;
+  }
 }
 
 .inner {
@@ -27,14 +33,26 @@
   @include lg-down {
     padding-top: 60px;
   }
+
+  @include md-down {
+    padding-top: 0;
+  }
 }
 
 .title {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .description {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .text {
@@ -50,6 +68,11 @@
     max-width: initial;
     font-size: 18px;
   }
+
+  @include md-down {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .items-wrapper {
@@ -59,6 +82,10 @@
 
   @include lg-down {
     grid-column-end: 13;
+  }
+
+  @include md-down {
+    padding-top: 40px;
   }
 }
 
@@ -74,6 +101,10 @@
   @include lg-down {
     column-gap: 15px;
   }
+
+  @include md-down {
+    column-gap: 10px;
+  }
 }
 
 .shape-1 {
@@ -86,6 +117,13 @@
 
   @include lg-down {
     width: 710px;
+  }
+
+  @include md-down {
+    top: -30px;
+    width: 535px;
+    margin-left: 50px;
+    transform: translateX(-50%);
   }
 }
 
@@ -105,5 +143,11 @@
     width: 300px;
     min-width: initial;
     height: initial;
+  }
+
+  @include md-down {
+    bottom: -230px;
+    left: calc(#{$container-side-gap-md} / -1 - 80px);
+    width: 175px;
   }
 }

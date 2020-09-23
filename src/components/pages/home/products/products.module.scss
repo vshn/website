@@ -9,6 +9,10 @@
   @include lg-down {
     padding-top: 150px;
   }
+
+  @include md-down {
+    padding-top: 70px;
+  }
 }
 
 .inner {
@@ -18,6 +22,10 @@
   @include lg-down {
     margin-bottom: 65px;
   }
+
+  @include md-down {
+    margin-bottom: 180px;
+  }
 }
 
 .content {
@@ -26,10 +34,20 @@
   @include lg-down {
     max-width: 450px;
   }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 190px;
+  }
 }
 
 .title {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+    text-align: center;
+  }
 }
 
 .description {
@@ -39,6 +57,12 @@
   @include lg-down {
     max-width: 350px;
     margin-bottom: 50px;
+  }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 40px;
+    text-align: center;
   }
 }
 
@@ -56,6 +80,10 @@
     min-width: initial;
     transform: none;
   }
+
+  @include md-down {
+    left: -65px;
+  }
 }
 
 .illustration {
@@ -66,7 +94,9 @@
   transform: translateY(19px) translateX(-50%);
 
   @include lg-down {
+    left: 0;
     width: 1200px;
-    transform: translateY(13px) translateX(-50%);
+    margin-left: -10px;
+    transform: translateY(13px);
   }
 }

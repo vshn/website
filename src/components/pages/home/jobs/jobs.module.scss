@@ -15,6 +15,11 @@
     padding-top: 120px;
     padding-bottom: 120px;
   }
+
+  @include md-down {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
 }
 
 .title {
@@ -27,6 +32,15 @@
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-quaternary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include lg-down {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .background-image {
@@ -68,6 +82,10 @@
     bottom: 120px;
     left: 0;
   }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle-3 {
@@ -80,6 +98,11 @@
 
   @include lg-down {
     left: 90px;
+  }
+
+  @include md-down {
+    top: -25px;
+    left: 25px;
   }
 }
 
@@ -95,6 +118,11 @@
     bottom: 45px;
     left: 215px;
   }
+
+  @include md-down {
+    bottom: 50px;
+    left: 95px;
+  }
 }
 
 .rectangle-5 {
@@ -107,6 +135,11 @@
 
   @include lg-down {
     left: 385px;
+  }
+
+  @include md-down {
+    top: 25px;
+    left: 285px;
   }
 }
 
@@ -121,6 +154,10 @@
   @include lg-down {
     left: 385px;
   }
+
+  @include md-down {
+    left: 270px;
+  }
 }
 
 .rectangle-7 {
@@ -133,6 +170,11 @@
 
   @include lg-down {
     right: 50px;
+  }
+
+  @include md-down {
+    top: -10px;
+    right: 145px;
   }
 }
 
@@ -148,6 +190,11 @@
     right: 195px;
     bottom: 80px;
   }
+
+  @include md-down {
+    right: 125px;
+    bottom: 70px;
+  }
 }
 
 .rectangle-9 {
@@ -160,6 +207,10 @@
 
   @include lg-down {
     right: 0;
+  }
+
+  @include md-down {
+    bottom: -25px;
   }
 }
 

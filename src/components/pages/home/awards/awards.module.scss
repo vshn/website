@@ -12,6 +12,11 @@
     padding-bottom: 120px;
     margin-bottom: 120px;
   }
+
+  @include md-down {
+    padding-top: 120px;
+    margin-bottom: 90px;
+  }
 }
 
 .inner {
@@ -21,6 +26,10 @@
 .title {
   margin-bottom: 30px;
   text-align: center;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .description {
@@ -34,6 +43,10 @@
     max-width: 610px;
     margin-bottom: 50px;
   }
+
+  @include md-down {
+    margin-bottom: 40px;
+  }
 }
 
 .items-wrapper {
@@ -44,6 +57,10 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include md-down {
+    display: block;
+  }
 }
 
 .stripes {
@@ -52,4 +69,14 @@
   left: 50%;
   height: 100%;
   transform: translateX(-50%);
+
+  @include lg-down {
+    width: 1700px;
+  }
+
+  @include md-down {
+    left: -770px;
+    width: 1930px;
+    transform: none;
+  }
 }

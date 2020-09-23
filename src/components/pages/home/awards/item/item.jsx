@@ -47,9 +47,11 @@ const Item = ({ image, title, description, url }) => (
   <li className={cx('wrapper')}>
     <Link className={cx('inner')} to={url}>
       <img className={cx('image')} src={image} alt="" aria-hidden />
-      <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
-      <p className={cx('description')}>{description}</p>
-      <span className={cx('read-more')}>Read more</span>
+      <div>
+        <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
+        <p className={cx('description')}>{description}</p>
+        <span className={cx('read-more')}>Read more</span>
+      </div>
     </Link>
 
     {confetti.map((confettoClasses, index) => (

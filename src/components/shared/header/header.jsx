@@ -26,7 +26,7 @@ const Header = (props) => {
   return (
     <header className={cx('wrapper')}>
       <div className="container">
-        <div className={cx('section')}>
+        <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
             <li>{topLineText1}</li>
             <li>{topLineText2}</li>
@@ -55,7 +55,7 @@ const Header = (props) => {
               ))}
             </ul>
             {buttonText && buttonUrl && (
-              <Button to={buttonUrl} size="sm">{buttonText}</Button>
+              <Button className={cx('button')} to={buttonUrl} size="sm">{buttonText}</Button>
             )}
           </nav>
         </div>

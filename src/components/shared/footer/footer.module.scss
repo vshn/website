@@ -8,6 +8,11 @@
     padding-top: 50px;
     padding-bottom: 50px;
   }
+
+  @include md-down {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 .top-section {
@@ -20,6 +25,10 @@
     display: block;
     margin-bottom: 50px;
   }
+
+  @include md-down {
+    margin-bottom: 40px;
+  }
 }
 
 .other-links {
@@ -31,6 +40,7 @@
 
   @include lg-down {
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
   }
@@ -38,6 +48,11 @@
 
 .logo {
   display: block;
+
+  @include md-down {
+    width: 89px;
+    height: 24px;
+  }
 }
 
 .social-menu {
@@ -163,6 +178,10 @@
 
 .heading {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .sub-menu {
@@ -189,6 +208,10 @@
   text-decoration: none;
   transition: $transition-base;
 
+  @include md-down {
+    font-size: 14px;
+  }
+
   &:hover {
     color: $color-accent-primary;
   }
@@ -204,6 +227,10 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  @include md-down {
+    display: block;
+  }
 }
 
 .design {
@@ -211,6 +238,10 @@
   margin-top: 0;
   margin-bottom: 0;
   color: $color-quaternary;
+
+  @include md-down {
+    margin-bottom: 10px;
+  }
 
   a {
     color: $color-primary;
@@ -227,6 +258,10 @@
   grid-column: span 5;
   font-style: normal;
   color: $color-quaternary;
+
+  @include md-down {
+    margin-bottom: 10px;
+  }
 }
 
 .copyright {

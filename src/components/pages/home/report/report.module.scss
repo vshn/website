@@ -9,12 +9,23 @@
   @include lg-down {
     margin-bottom: 180px;
   }
+
+  @include md-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 120px;
+  }
 }
 
 .inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
+  align-items: flex-start;
+
+  @include md-down {
+    column-gap: $column-gap-md;
+  }
 }
 
 .illustration {
@@ -40,6 +51,13 @@
   height: 420px;
   background-color: $color-accent-primary;
   border-top-left-radius: 100px;
+
+  @include md-down {
+    top: -50px;
+    left: -45px;
+    width: 150px;
+    height: 325px;
+  }
 }
 
 .rectangle-2 {
@@ -51,7 +69,14 @@
   border-bottom-right-radius: 120px;
 
   @include lg-down {
-    height: 632px;
+    height: 630px;
+  }
+
+  @include md-down {
+    top: -25px;
+    left: 25px;
+    width: 190px;
+    height: 485px;
   }
 }
 
@@ -65,7 +90,14 @@
 
   @include lg-down {
     width: 140px;
-    height: 312px;
+    height: 310px;
+  }
+
+  @include md-down {
+    bottom: -25px;
+    left: -25px;
+    width: 110px;
+    height: 240px;
   }
 }
 
@@ -82,16 +114,30 @@
     grid-column-end: 12;
     padding-top: 90px;
   }
+
+  @include md-down {
+    grid-column-end: 13;
+    padding-top: 50px;
+  }
 }
 
 .title {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .description {
   max-width: 430px;
   margin-top: 0;
   margin-bottom: 30px;
+
+  @include md-down {
+    max-width: 310px;
+    margin-bottom: 25px;
+  }
 }
 
 .text {
@@ -105,6 +151,12 @@
   @include lg-down {
     font-size: 18px;
   }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .shape {
@@ -114,4 +166,8 @@
   width: calc(50px + #{$container-side-gap});
   min-width: 365px;
   height: 760px;
+
+  @include lg-down {
+    display: none;
+  }
 }

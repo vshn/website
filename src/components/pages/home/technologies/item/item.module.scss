@@ -10,9 +10,17 @@
     height: 390px;
   }
 
+  @include md-down {
+    height: 295px;
+  }
+
   &:nth-of-type(1) {
     margin-top: 70px;
     border-top-left-radius: 30px;
+
+    @include md-down {
+      margin-top: 50px;
+    }
 
     .logo-wrapper::before {
       border-top-right-radius: 20px;
@@ -31,6 +39,10 @@
     margin-top: 70px;
     border-top-right-radius: 30px;
 
+    @include md-down {
+      margin-top: 50px;
+    }
+
     .logo-wrapper::before {
       border-top-left-radius: 20px;
     }
@@ -40,6 +52,10 @@
     margin-top: 140px;
     border-top-left-radius: 30px;
 
+    @include md-down {
+      margin-top: 100px;
+    }
+
     .logo-wrapper::before {
       border-top-right-radius: 20px;
     }
@@ -48,6 +64,10 @@
   &:nth-of-type(5) {
     margin-top: 70px;
     border-top-left-radius: 30px;
+
+    @include md-down {
+      margin-top: 50px;
+    }
 
     .logo-wrapper::before {
       border-top-right-radius: 20px;
@@ -70,6 +90,12 @@
         background-color: $color-primary;
       }
     }
+
+    .logo {
+      @include md-down {
+        width: 30px;
+      }
+    }
   }
 
   &_kubernates {
@@ -78,6 +104,12 @@
     .logo-wrapper {
       &::before {
         background-color: $color-primary;
+      }
+    }
+
+    .logo {
+      @include md-down {
+        width: 30px;
       }
     }
   }
@@ -90,14 +122,32 @@
         background-color: $color-tertiary;
       }
     }
+
+    .logo {
+      @include md-down {
+        width: 20px;
+      }
+    }
   }
 
   &_openshift {
     background-color: #df2030;
+
+    .logo {
+      @include md-down {
+        width: 28px;
+      }
+    }
   }
 
   &_docker {
     background-color: $color-accent-primary;
+
+    .logo {
+      @include md-down {
+        width: 32px;
+      }
+    }
   }
 
   &_puppet {
@@ -113,6 +163,12 @@
         opacity: 0.25;
       }
     }
+
+    .logo {
+      @include md-down {
+        width: 20px;
+      }
+    }
   }
 }
 
@@ -125,6 +181,14 @@
   line-height: $line-height-md;
   color: $color-tertiary;
   transform: translate(-50%, -50%) rotate(-90deg);
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include md-down {
+    font-size: 16px;
+  }
 }
 
 .logo-wrapper {

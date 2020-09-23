@@ -98,46 +98,49 @@ const Partners = ({ title, items }) => {
             <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
           </div>
 
-          <AnimatePresence exitBeforeEnter>
-            {items.map(({ name, position }, index) => {
-              const isActive = index === activeItemIndex;
-              if (!isActive) return null;
+          <div>
+            <Heading className={cx('title', 'md-visible')} tag="h2" size="sm" color="secondary">{title}</Heading>
+            <AnimatePresence exitBeforeEnter>
+              {items.map(({ name, position }, index) => {
+                const isActive = index === activeItemIndex;
+                if (!isActive) return null;
 
-              return (
-                <motion.div {...motionFadeAnimation} key={index}>
-                  <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
-                  <span className={cx('position')}>{position}</span>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
+                return (
+                  <motion.div {...motionFadeAnimation} key={index}>
+                    <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
+                    <span className={cx('position')}>{position}</span>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
 
-          <div className={cx('tabs-wrapper')}>
-            {items.map((item, index) => {
-              const number = index + 1;
-              const isActive = index === activeItemIndex;
+            <div className={cx('tabs-wrapper')}>
+              {items.map((item, index) => {
+                const number = index + 1;
+                const isActive = index === activeItemIndex;
 
-              const handleClick = () => restartAnimation(index);
+                const handleClick = () => restartAnimation(index);
 
-              return (
-                <Heading
-                  className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
-                  tag="button"
-                  size="lg"
-                  color="quaternary"
-                  type="button"
-                  onClick={handleClick}
-                  key={index}
-                >
-                  {number}
-                </Heading>
-              );
-            })}
+                return (
+                  <Heading
+                    className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
+                    tag="button"
+                    size="lg"
+                    color="quaternary"
+                    type="button"
+                    onClick={handleClick}
+                    key={index}
+                  >
+                    {number}
+                  </Heading>
+                );
+              })}
+            </div>
           </div>
         </div>
 
         <div>
-          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+          <Heading className={cx('title', 'md-hidden')} tag="h2" size="sm" color="secondary">{title}</Heading>
           <Quote className={cx('quote-icon')} aria-hidden />
           <AnimatePresence exitBeforeEnter>
             {items.map(({ text, buttonUrl }, index) => {
