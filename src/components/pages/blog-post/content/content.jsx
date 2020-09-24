@@ -4,7 +4,6 @@ import GatsbyImage from 'gatsby-image';
 import classNames from 'classnames/bind';
 
 import styles from './content.module.scss';
-import Heading from '../../../shared/heading';
 
 const cx = classNames.bind(styles);
 
@@ -13,21 +12,11 @@ const Content = () => {
     featuredImage: {
       childImageSharp: { fluid: featuredImage },
     },
-    image: {
-      childImageSharp: { fluid: image },
-    },
   } = useStaticQuery(graphql`
     {
       featuredImage: file(relativePath: { eq: "pages/blog-post/content/image.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1070) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      },
-      image: file(relativePath: { eq: "pages/blog-post/content/rectangle.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -54,19 +43,18 @@ const Content = () => {
             customers. We are fully committed on the strategic importance of our Red Hat partnership
             and OpenShift as a main pillar of APPUiO and VSHN services.
           </p>
-          <Heading className={cx('title')} tag="h3" size="lg" color="primary">
+          <h3>
             OpenShift 4 on APPUiO beta program
-          </Heading>
+          </h3>
           <p>
             To celebrate this milestone we’re happy to provide the community with time-limited
             OpenShift 4 test accounts, at no charge except for one thing: your feedback. If you are
             interested in testing OpenShift 4 on APPUiO, please sign up here for our beta
             program:
           </p>
-          <Heading className={cx('title')} tag="h2" size="xl" color="primary">History of OpenShift & VSHN</Heading>
+          <h2>History of OpenShift & VSHN</h2>
           <p>
-            Why did we choose OpenShift? A couple of arguments why OpenShift is our “way to
-            go”:
+            Why did we choose OpenShift? A couple of arguments why OpenShift is our “way to go”:
           </p>
           <ul>
             <li>Unifying operations & delivery platform onprem/cloud/hybrid</li>
@@ -85,21 +73,18 @@ const Content = () => {
             In 2020, we are still open & transparent and are embracing Open Source & partnerships,
             are still owner-run and managed and are ISO27001 certified and ISAE3402 audited. VSHN is
             the first Swiss Kubernetes Certified Service Provider (KCSP) and VSHN is Red Hat
-            Advanced
-            Business Partner (CCSP).
+            Advanced Business Partner (CCSP).
           </p>
           <p>
             So after using OpenShift since 3.0 beta 1, today we are operating 50 clusters in 16
             countries. From Zurich to Sydney, the USA and China, numerous happy customers trust us
-            in
-            the banking, financial services, insurance brokering, medical insurance, medical,
+            in the banking, financial services, insurance brokering, medical insurance, medical,
             governmental, and many other online business fields.
           </p>
           <ol>
             <li>
               1. The question is very simple: who will maintain the Linux Kernel in the future?
-              How
-              do you get both passionate developers and sponsors to finance and make technically
+              How do you get both passionate developers and sponsors to finance and make technically
               possible the evolution of this critical piece of our world? Linux Torvalds spoke about
               this issue at the Open Source Summit a few weeks ago.
             </li>
@@ -136,7 +121,7 @@ const Content = () => {
               you can imagine this is not something that is easily figured out in a few hours. At
               least for me it was a process lasting several months.
             </p>
-            <footer><cite>– André</cite></footer>
+            <cite>– André</cite>
           </blockquote>
           <p>
             The new board and management structure will have a strong focus on PeopleOps, OrgDev
@@ -147,23 +132,6 @@ const Content = () => {
             beyond his daily job and contributed with constructive ideas and concepts to the success
             of VSHN.
           </p>
-          <div className="wp-block-columns">
-            <div className="wp-block-column">
-              The new board and management structure will have a strong focus on PeopleOps, OrgDev
-              and the refining of the strategy set by the board. André is happy to handover his
-              position in the management to Marco Fretz who has been supporting the management in an
-              advisory capacity for some time. Marco started early 2016 as a system engineer at
-              VSHN. From the beginning he became more and more interested in organizational topics
-              far beyond his daily job and contributed with constructive ideas and concepts to the
-              success of VSHN.
-            </div>
-            <div className="wp-block-column">
-              <figure className="wp-block-image">
-                <GatsbyImage className={cx('image')} fluid={image} />
-                <figcaption>Working with ModSecurity rules</figcaption>
-              </figure>
-            </div>
-          </div>
           <blockquote>
             <p>
               Being an “old” VSHNeer, knowing all the good and bad stories and having an open mind
@@ -171,7 +139,7 @@ const Content = () => {
               Together, we can improve things for us as VSHNeers and our customers likewise – and
               maintain our great family-like culture we value that much.
             </p>
-            <footer><cite>– Marco</cite></footer>
+            <cite>– Marco</cite>
           </blockquote>
           <p>
             As an open source company we’re used to collaborating over company borders, so much

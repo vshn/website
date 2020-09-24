@@ -38,7 +38,6 @@
   > h2,
   > h3 {
     margin-top: 60px;
-    margin-bottom: 15px;
   }
 
   > h1 {
@@ -55,8 +54,9 @@
 
   > ul,
   > ol {
+    margin-bottom: 30px;
+
     li {
-      margin-bottom: 10px;
       list-style: none;
 
       &:last-child {
@@ -67,17 +67,21 @@
 
   > ol {
     padding-left: 0;
-    margin-top: 16px;
+    margin-top: 15px;
+
+    li {
+      margin-bottom: 18px;
+    }
   }
 
   > ul {
     padding-left: 30px;
     margin-top: 30px;
-    margin-bottom: 30px;
 
     li {
       position: relative;
       padding-left: 16px;
+      margin-bottom: 10px;
       list-style: none;
 
       &::before {
@@ -108,7 +112,6 @@
     margin-left: -110px;
     font-size: 22px;
     font-style: italic;
-    line-height: 1.6;
     border-bottom: 4px solid $color-primary;
 
     &::before {
@@ -170,30 +173,6 @@
         line-height: $font-size-sm;
         color: $color-secondary;
         text-align: center;
-      }
-    }
-
-    .wp-block-columns {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      margin-right: -110px;
-      margin-bottom: 85px;
-    }
-
-    .wp-block-column {
-      &:first-child {
-        margin-right: 80px;
-      }
-
-      .wp-block-image {
-        width: 300px;
-        margin: 0;
-      }
-
-      .gatsby-image-wrapper {
-        margin: 0;
-        margin-bottom: 10px;
       }
     }
   }

@@ -1,7 +1,8 @@
 .content {
-  padding-right: 220px;
-  padding-left: 220px;
+  max-width: 850px;
+  margin-right: auto;
   margin-bottom: 60px;
+  margin-left: auto;
 
   @include content;
 }
