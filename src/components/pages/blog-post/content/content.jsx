@@ -81,35 +81,33 @@ const Content = () => {
             in the banking, financial services, insurance brokering, medical insurance, medical,
             governmental, and many other online business fields.
           </p>
-          <ol>
-            <li>
-              1. The question is very simple: who will maintain the Linux Kernel in the future?
-              How do you get both passionate developers and sponsors to finance and make technically
-              possible the evolution of this critical piece of our world? Linux Torvalds spoke about
-              this issue at the Open Source Summit a few weeks ago.
-            </li>
-            <li>
-              <a href="#">
-                https://www.theregister.com/2020/06/30/hard_to_find_linux_maintainers_says_torvalds/
-              </a>
-            </li>
-            <li>
-              2. Speaking about the evolution of the Linux Kernel, last week we heard about the
-              announcement of version 5.8. Among the new features, there’s one that will make
-              MacBook users rejoice: “Ability to swap fn and ctrl keys on Apple keyboards.”
-            </li>
-            <li>
-              <a href="#">
-                https://www.theregister.com/2020/06/30/hard_to_find_linux_maintainers_says_torvalds/
-              </a>
-            </li>
-            <li>
-              3. One of the most controversial things in Linux, generating discussions hotter than
-              those between Torvalds and Andrew Tanenbaum in the 90s, was the introduction of
-              systemd. Dave McKay wrote an article on Howtogeek providing an interesting account of
-              its advantages, drawbacks, and why it will survive the test of time after all.
-            </li>
-          </ol>
+          <p>
+            1. The question is very simple: who will maintain the Linux Kernel in the future?
+            How do you get both passionate developers and sponsors to finance and make technically
+            possible the evolution of this critical piece of our world? Linux Torvalds spoke about
+            this issue at the Open Source Summit a few weeks ago.
+          </p>
+          <p>
+            <a href="#">
+              https://www.theregister.com/2020/06/30/hard_to_find_linux_maintainers_says_torvalds/
+            </a>
+          </p>
+          <p>
+            2. Speaking about the evolution of the Linux Kernel, last week we heard about the
+            announcement of version 5.8. Among the new features, there’s one that will make
+            MacBook users rejoice: “Ability to swap fn and ctrl keys on Apple keyboards.”
+          </p>
+          <p>
+            <a href="#">
+              https://www.theregister.com/2020/06/30/hard_to_find_linux_maintainers_says_torvalds/
+            </a>
+          </p>
+          <p>
+            3. One of the most controversial things in Linux, generating discussions hotter than
+            those between Torvalds and Andrew Tanenbaum in the 90s, was the introduction of
+            systemd. Dave McKay wrote an article on Howtogeek providing an interesting account of
+            its advantages, drawbacks, and why it will survive the test of time after all.
+          </p>
           <blockquote>
             <p>
               In fall 2018, the management team went to Malta for a week-long retreat,
