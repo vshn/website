@@ -1,14 +1,15 @@
 .wrapper {
   position: relative;
   padding-top: 140px;
-  margin-bottom: 75px;
+  margin-bottom: 105px;
 }
 
 .inner {
-  padding-top: 63px;
-  padding-right: 160px;
+  max-width: 850px;
+  padding-top: 60px;
   padding-bottom: 60px;
-  padding-left: 160px;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 
@@ -24,13 +25,15 @@
     font-size: $font-size-xs;
     font-weight: 700;
     line-height: $line-height-xs;
-    background-color: $color-additional-3;
+    background-color: $color-additional-2;
     border-radius: 2px;
-    border-bottom-right-radius: 20px;
 
-    &:first-of-type {
-      border-radius: 2px;
+    &:nth-of-type(odd) {
       border-top-right-radius: 20px;
+    }
+
+    &:nth-of-type(even) {
+      border-bottom-right-radius: 20px;
     }
 
     &:last-of-type {
@@ -44,7 +47,6 @@
 }
 
 .date {
-  margin-bottom: 30px;
   color: $color-secondary;
 }
 

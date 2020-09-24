@@ -24,9 +24,12 @@ const Hero = ({ title, categories, date }) => {
         </div>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
         <div className={cx('date')}>
-          <span>{day}</span>
-          <span>. </span>
-          <span>{monthYear}</span>
+          <span>
+            {day}
+            .
+            {' '}
+            {monthYear}
+          </span>
         </div>
       </div>
       <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
