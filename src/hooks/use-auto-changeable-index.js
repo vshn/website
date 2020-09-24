@@ -40,7 +40,21 @@ export default function useAutoChangeableIndex(numberOfItems, options = {}) {
     setNextIndexLooped(indexToStart);
   };
 
+  const previous = () => {
+    resetTimeout();
+
+    const newIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : numberOfItems - 1;
+    setNextIndexLooped(newIndex);
+  };
+
+  const next = () => {
+    resetTimeout();
+
+    const newIndex = currentIndex + 1 > numberOfItems - 1 ? 0 : currentIndex + 1;
+    setNextIndexLooped(newIndex);
+  };
+
   useEffect(() => resetTimeout, []);
 
-  return [currentIndex, start, restart];
+  return [currentIndex, start, restart, next, previous];
 }
