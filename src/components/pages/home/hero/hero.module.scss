@@ -17,6 +17,13 @@
     padding-bottom: 175px;
     margin-bottom: 110px;
   }
+
+  @include sm-down {
+    padding-top: calc(#{$header-height-md} + 40px);
+    padding-bottom: 0;
+    margin-bottom: 100px;
+    text-align: center;
+  }
 }
 
 .title {
@@ -26,6 +33,10 @@
   @include md-down {
     max-width: 340px;
     margin-bottom: 25px;
+  }
+
+  @include sm-down {
+    max-width: initial;
   }
 }
 
@@ -45,6 +56,16 @@
     max-width: 340px;
     margin-bottom: 25px;
     font-size: 16px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+  }
+}
+
+.button {
+  @include md-down {
+    margin-bottom: 55px;
   }
 }
 
@@ -71,6 +92,10 @@
     right: calc(#{$container-side-gap-md} / -1 - 305px);
     width: 640px;
   }
+
+  @include sm-down {
+    display: none;
+  }
 }
 
 .shape-2 {
@@ -96,9 +121,15 @@
     left: calc(#{$container-side-gap-md} / -1 - 215px);
     width: 590px;
   }
+
+  @include sm-down {
+    bottom: -245px;
+    left: calc(#{$section-padding} / -1 - 225px);
+    width: 360px;
+  }
 }
 
-.illustration {
+.illustration-wrapper {
   position: absolute;
   top: -70px;
   right: -205px;
@@ -114,5 +145,27 @@
     top: -50px;
     right: calc(#{$container-side-gap-md} / -1 - 240px);
     width: 554px;
+  }
+
+  @include sm-down {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 425px;
+    margin-right: calc(#{$section-padding} / -1 - 40px);
+    margin-left: auto;
+  }
+}
+
+.illustration-shape {
+  display: none;
+
+  @include sm-down {
+    position: absolute;
+    top: -55px;
+    right: -50px;
+    z-index: -1;
+    display: block;
+    width: 490px;
   }
 }

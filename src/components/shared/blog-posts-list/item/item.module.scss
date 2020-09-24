@@ -94,16 +94,26 @@
 }
 
 .text {
+  display: -webkit-box;
   margin-top: 0;
   margin-bottom: 75px;
+  overflow: hidden;
   color: $color-secondary;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 
   @include lg-down {
+    -webkit-line-clamp: 6;
     margin-bottom: 45px;
   }
 
   @include md-down {
+    -webkit-line-clamp: 5;
     margin-bottom: 40px;
+  }
+
+  @include sm-down {
+    -webkit-line-clamp: 4;
   }
 }
 

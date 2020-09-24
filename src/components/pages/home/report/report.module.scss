@@ -15,6 +15,10 @@
     padding-bottom: 50px;
     margin-bottom: 120px;
   }
+
+  @include sm-down {
+    padding-top: 0;
+  }
 }
 
 .inner {
@@ -26,15 +30,90 @@
   @include md-down {
     column-gap: $column-gap-md;
   }
+
+  @include sm-down {
+    display: block;
+  }
+}
+
+.content {
+  grid-column-start: 7;
+  grid-column-end: 13;
+  padding-top: 100px;
+
+  @include lg-down {
+    grid-column-end: 12;
+    padding-top: 90px;
+  }
+
+  @include md-down {
+    grid-column-end: 13;
+    padding-top: 50px;
+  }
+
+  @include sm-down {
+    padding-top: 0;
+    margin-bottom: 110px;
+    text-align: center;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
+}
+
+.description {
+  max-width: 430px;
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  @include md-down {
+    max-width: 310px;
+    margin-bottom: 25px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+  }
+}
+
+.text {
+  max-width: 410px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-secondary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .illustration {
   position: relative;
   grid-column-start: 2;
   grid-column-end: 6;
+  order: -1;
 
   @include lg-down {
     grid-column-start: 1;
+  }
+
+  @include sm-down {
+    max-width: 280px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -103,60 +182,6 @@
 
 .image {
   border-radius: 8px;
-}
-
-.content {
-  grid-column-start: 7;
-  grid-column-end: 13;
-  padding-top: 100px;
-
-  @include lg-down {
-    grid-column-end: 12;
-    padding-top: 90px;
-  }
-
-  @include md-down {
-    grid-column-end: 13;
-    padding-top: 50px;
-  }
-}
-
-.title {
-  margin-bottom: 30px;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.description {
-  max-width: 430px;
-  margin-top: 0;
-  margin-bottom: 30px;
-
-  @include md-down {
-    max-width: 310px;
-    margin-bottom: 25px;
-  }
-}
-
-.text {
-  max-width: 410px;
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-size: $font-size-md;
-  line-height: $line-height-md;
-  color: $color-secondary;
-
-  @include lg-down {
-    font-size: 18px;
-  }
-
-  @include md-down {
-    max-width: initial;
-    margin-bottom: 25px;
-    font-size: 16px;
-  }
 }
 
 .shape {

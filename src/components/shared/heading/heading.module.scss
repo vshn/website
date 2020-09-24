@@ -15,6 +15,10 @@
       @include md-down {
         font-size: 50px;
       }
+
+      @include sm-down {
+        font-size: 45px;
+      }
     }
 
     &_xl {
@@ -27,6 +31,10 @@
 
       @include md-down {
         font-size: 35px;
+      }
+
+      @include sm-down {
+        font-size: 30px;
       }
     }
 

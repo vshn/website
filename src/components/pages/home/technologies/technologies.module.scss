@@ -17,12 +17,22 @@
     padding-bottom: 0;
     margin-bottom: 150px;
   }
+
+  @include sm-down {
+    padding-top: 0;
+    margin-bottom: 120px;
+    text-align: center;
+  }
 }
 
 .inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
+
+  @include sm-down {
+    display: block;
+  }
 }
 
 .content {
@@ -36,6 +46,10 @@
 
   @include md-down {
     padding-top: 0;
+  }
+
+  @include sm-down {
+    margin-bottom: 70px;
   }
 }
 
@@ -87,6 +101,13 @@
   @include md-down {
     padding-top: 40px;
   }
+
+  @include sm-down {
+    max-width: 340px;
+    padding-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .items-inner {
@@ -125,6 +146,10 @@
     margin-left: 50px;
     transform: translateX(-50%);
   }
+
+  @include sm-down {
+    top: -70px;
+  }
 }
 
 .shape-2 {
@@ -149,5 +174,10 @@
     bottom: -230px;
     left: calc(#{$container-side-gap-md} / -1 - 80px);
     width: 175px;
+  }
+
+  @include sm-down {
+    bottom: -260px;
+    left: calc(#{$section-padding} / -1 - 80px);
   }
 }

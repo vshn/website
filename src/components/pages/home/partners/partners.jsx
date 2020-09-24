@@ -69,6 +69,37 @@ const Partners = ({ title, items }) => {
     if (isAnimationStarted) startAnimation();
   }, [startAnimation, isAnimationStarted]);
 
+  // eslint-disable-next-line react/prop-types
+  const Title = ({ className }) => (
+    <Heading className={cx('title', className)} tag="h2" size="sm" color="secondary">{title}</Heading>
+  );
+
+  // eslint-disable-next-line react/prop-types
+  const Tabs = ({ className }) => (
+    <div className={cx('tabs-wrapper', className)}>
+      {items.map((item, index) => {
+        const number = index + 1;
+        const isActive = index === activeItemIndex;
+
+        const handleClick = () => restartAnimation(index);
+
+        return (
+          <Heading
+            className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
+            tag="button"
+            size="lg"
+            color="quaternary"
+            type="button"
+            onClick={handleClick}
+            key={index}
+          >
+            {number}
+          </Heading>
+        );
+      })}
+    </div>
+  );
+
   const photos = [
     michaelSchmid,
     silvanMuhlemann,
@@ -78,6 +109,8 @@ const Partners = ({ title, items }) => {
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
+        <Title className={cx('sm-visible')} />
+
         <div className={cx('details')}>
           <div className={cx('photo-wrapper')}>
             <AnimatePresence exitBeforeEnter>
@@ -99,7 +132,7 @@ const Partners = ({ title, items }) => {
           </div>
 
           <div>
-            <Heading className={cx('title', 'md-visible')} tag="h2" size="sm" color="secondary">{title}</Heading>
+            <Title className={cx('md-visible', 'sm-hidden')} />
             <AnimatePresence exitBeforeEnter>
               {items.map(({ name, position }, index) => {
                 const isActive = index === activeItemIndex;
@@ -114,33 +147,12 @@ const Partners = ({ title, items }) => {
               })}
             </AnimatePresence>
 
-            <div className={cx('tabs-wrapper')}>
-              {items.map((item, index) => {
-                const number = index + 1;
-                const isActive = index === activeItemIndex;
-
-                const handleClick = () => restartAnimation(index);
-
-                return (
-                  <Heading
-                    className={cx('tab', { active: isActive, animationStarted: isAnimationStarted })}
-                    tag="button"
-                    size="lg"
-                    color="quaternary"
-                    type="button"
-                    onClick={handleClick}
-                    key={index}
-                  >
-                    {number}
-                  </Heading>
-                );
-              })}
-            </div>
+            <Tabs className={cx('sm-hidden')} />
           </div>
         </div>
 
-        <div>
-          <Heading className={cx('title', 'md-hidden')} tag="h2" size="sm" color="secondary">{title}</Heading>
+        <div className={cx('content')}>
+          <Title className={cx('md-hidden')} />
           <Quote className={cx('quote-icon')} aria-hidden />
           <AnimatePresence exitBeforeEnter>
             {items.map(({ text, buttonUrl }, index) => {
@@ -156,6 +168,8 @@ const Partners = ({ title, items }) => {
             })}
           </AnimatePresence>
         </div>
+
+        <Tabs className={cx('sm-visible')} />
 
         <img className={cx('shape')} src={shape} alt="" aria-hidden />
       </div>

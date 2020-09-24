@@ -46,6 +46,16 @@
     padding-bottom: 25px;
     padding-left: 40px;
   }
+
+  @include sm-down {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    padding-right: 25px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    text-align: center;
+  }
 }
 
 .image {
@@ -57,9 +67,17 @@
 
   @include md-down {
     flex-shrink: 0;
-    width: 102px;
+    width: 105px;
     margin-top: -25px;
     margin-right: 45px;
+    margin-bottom: 0;
+  }
+
+  @include sm-down {
+    width: 110px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 25px;
   }
 }
 
@@ -74,6 +92,10 @@
 
   @include md-down {
     margin-bottom: 20px;
+  }
+
+  @include sm-down {
+    margin-bottom: 40px;
   }
 }
 
@@ -97,6 +119,10 @@
 
     @include md-down {
       display: none;
+    }
+
+    @include sm-down {
+      display: block;
     }
   }
 }

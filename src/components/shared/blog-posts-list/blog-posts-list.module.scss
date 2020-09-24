@@ -15,10 +15,19 @@
   @include md-down {
     margin-bottom: 0;
   }
+
+  @include sm-down {
+    display: block;
+    text-align: center;
+  }
 }
 
 .buttons-wrapper {
   display: flex;
+
+  @include sm-down {
+    display: none;
+  }
 }
 
 .button {

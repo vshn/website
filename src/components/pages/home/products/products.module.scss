@@ -13,6 +13,10 @@
   @include md-down {
     padding-top: 70px;
   }
+
+  @include sm-down {
+    padding-top: 60px;
+  }
 }
 
 .inner {
@@ -26,6 +30,10 @@
   @include md-down {
     margin-bottom: 180px;
   }
+
+  @include sm-down {
+    margin-bottom: 130px;
+  }
 }
 
 .content {
@@ -38,6 +46,10 @@
   @include md-down {
     max-width: initial;
     margin-bottom: 190px;
+  }
+
+  @include sm-down {
+    margin-bottom: 120px;
   }
 }
 
@@ -84,6 +96,11 @@
   @include md-down {
     left: -65px;
   }
+
+  @include sm-down {
+    left: -160px;
+    width: 1340px;
+  }
 }
 
 .illustration {
@@ -93,10 +110,14 @@
   width: 1788px;
   transform: translateY(19px) translateX(-50%);
 
-  @include lg-down {
+  @include md-down {
     left: 0;
     width: 1200px;
     margin-left: -10px;
     transform: translateY(13px);
+  }
+
+  @include sm-down {
+    margin-left: calc(#{$section-padding} / -1 - 180px);
   }
 }

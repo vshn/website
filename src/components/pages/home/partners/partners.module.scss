@@ -41,6 +41,12 @@
     margin-bottom: 55px;
     text-align: left;
   }
+
+  @include sm-down {
+    display: block;
+    margin-bottom: 45px;
+    text-align: center;
+  }
 }
 
 .photo-wrapper {
@@ -58,6 +64,11 @@
     width: 130px;
     margin-top: 40px;
     margin-bottom: 0;
+  }
+
+  @include sm-down {
+    margin-top: 0;
+    margin-bottom: 55px;
   }
 }
 
@@ -137,10 +148,32 @@
   @include md-down {
     margin-bottom: 60px;
   }
+
+  @include sm-down {
+    margin-bottom: 0;
+  }
 }
 
 .tabs-wrapper {
   display: flex;
+
+  @include sm-down {
+    justify-content: center;
+  }
+
+  &.sm-hidden {
+    @include sm-down {
+      display: none;
+    }
+  }
+
+  &.sm-visible {
+    display: none;
+
+    @include sm-down {
+      display: flex;
+    }
+  }
 }
 
 .tab {
@@ -209,11 +242,23 @@
   }
 }
 
+.content {
+  @include sm-down {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
 .title {
   margin-bottom: 30px;
 
   @include md-down {
     margin-bottom: 25px;
+  }
+
+  @include sm-down {
+    margin-bottom: 70px;
+    text-align: center;
   }
 
   &.md-hidden {
@@ -229,9 +274,24 @@
       display: block;
     }
   }
+
+  &.sm-hidden {
+    @include sm-down {
+      display: none;
+    }
+  }
+
+  &.sm-visible {
+    display: none;
+
+    @include sm-down {
+      display: block;
+    }
+  }
 }
 
 .quote-icon {
+  display: block;
   width: 50px;
   margin-bottom: 30px;
   fill: $color-accent-primary;
@@ -240,9 +300,14 @@
     width: 40px;
   }
 
-  @include md-down {
+  @include sm-down {
     width: 35px;
     margin-bottom: 25px;
+  }
+
+  @include sm-down {
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -278,6 +343,11 @@
     right: calc(#{$container-side-gap-md} / -1);
     bottom: -145px;
     width: 435px;
+  }
+
+  @include sm-down {
+    right: calc(#{$section-padding} / -1);
+    width: 220px;
   }
 }
 

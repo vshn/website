@@ -17,6 +17,11 @@
     padding-top: 120px;
     margin-bottom: 90px;
   }
+
+  @include sm-down {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
 }
 
 .inner {
@@ -46,6 +51,10 @@
 
   @include md-down {
     margin-bottom: 40px;
+  }
+
+  @include sm-down {
+    max-width: initial;
   }
 }
 

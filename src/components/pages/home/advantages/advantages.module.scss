@@ -36,6 +36,10 @@
   @include md-down {
     margin-bottom: 40px;
   }
+
+  @include sm-down {
+    max-width: initial;
+  }
 }
 
 .items-wrapper {
@@ -63,6 +67,10 @@
   @include md-down {
     margin-bottom: 20px;
     text-align: left;
+  }
+
+  @include sm-down {
+    text-align: center;
   }
 
   &:hover {
@@ -99,8 +107,15 @@
     align-items: flex-start;
     padding-top: 25px;
     padding-right: 60px;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     padding-left: 60px;
+  }
+
+  @include sm-down {
+    flex-direction: column;
+    align-items: center;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 }
 
@@ -133,6 +148,11 @@
     margin-right: 30px;
     margin-bottom: 0;
   }
+
+  @include sm-down {
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
 }
 
 .item-title {
@@ -146,6 +166,10 @@
 
   @include md-down {
     margin-bottom: 20px;
+  }
+
+  @include sm-down {
+    margin-bottom: 40px;
   }
 }
 
@@ -167,6 +191,10 @@
 
     @include md-down {
       display: none;
+    }
+
+    @include sm-down {
+      display: block;
     }
   }
 }
