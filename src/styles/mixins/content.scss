@@ -140,6 +140,16 @@
     }
   }
 
+  code {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-family: $font-family-primary;
+    color: #fb687f;
+    background-color: $color-additional-1;
+    border-radius: 3px;
+  }
+
   img {
     display: block;
     max-width: 100%;

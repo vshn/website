@@ -95,7 +95,16 @@ const Content = () => {
           <p>
             2. Speaking about the evolution of the Linux Kernel, last week we heard about the
             announcement of version 5.8. Among the new features, there’s one that will make
-            MacBook users rejoice: “Ability to swap fn and ctrl keys on Apple keyboards.”
+            MacBook users rejoice: “Ability to swap
+            {' '}
+            <code>fn</code>
+            {' '}
+            and
+            {' '}
+            <code>ctrl</code>
+            {' '}
+            keys on
+            Apple keyboards.”
           </p>
           <p>
             <a href="#">
@@ -104,9 +113,13 @@ const Content = () => {
           </p>
           <p>
             3. One of the most controversial things in Linux, generating discussions hotter than
-            those between Torvalds and Andrew Tanenbaum in the 90s, was the introduction of
-            systemd. Dave McKay wrote an article on Howtogeek providing an interesting account of
-            its advantages, drawbacks, and why it will survive the test of time after all.
+            those between Torvalds and Andrew Tanenbaum in the 90s, was the introduction
+            of
+            {' '}
+            <code>systemd</code>
+            . Dave McKay wrote an article on Howtogeek providing an
+            interesting account of its advantages, drawbacks, and why it will survive the test of
+            time after all.
           </p>
           <blockquote>
             <p>
