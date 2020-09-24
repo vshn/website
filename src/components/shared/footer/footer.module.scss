@@ -114,7 +114,7 @@
     height: 30px;
   }
 
-  &:hover {
+  @include hover {
     background-color: $color-accent-primary;
   }
 
@@ -273,7 +273,7 @@
     font-size: 14px;
   }
 
-  &:hover {
+  @include hover {
     color: $color-accent-primary;
   }
 }
@@ -333,7 +333,7 @@
     text-decoration: none;
     transition: $transition-base;
 
-    &:hover {
+    @include hover {
       color: $color-accent-primary;
     }
   }

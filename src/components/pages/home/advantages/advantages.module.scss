@@ -73,7 +73,7 @@
     text-align: center;
   }
 
-  &:hover {
+  @include hover {
     z-index: 1;
     background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
     box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);

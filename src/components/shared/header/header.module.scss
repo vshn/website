@@ -79,7 +79,7 @@
   text-decoration: none;
   transition: $transition-base;
 
-  &:hover {
+  @include hover {
     color: $color-accent-primary;
   }
 
@@ -133,7 +133,7 @@
   text-decoration: none;
   transition: $transition-base;
 
-  &:hover {
+  @include hover {
     color: $color-accent-primary;
   }
 }
@@ -163,7 +163,7 @@
     display: flex;
   }
 
-  &:hover {
+  @include hover {
     .burger-line {
       background-color: $color-accent-primary;
     }

@@ -9,7 +9,7 @@
     text-align: left;
   }
 
-  &:hover {
+  @include hover {
     .read-more {
       color: $color-accent-primary;
     }

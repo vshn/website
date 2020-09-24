@@ -191,8 +191,8 @@
     margin-right: 25px;
   }
 
-  &:hover:not(.active),
-  &:focus:not(.active) {
+  @include hover:not(.active),
+    &:focus:not(.active) {
     color: $color-accent-primary;
   }
 

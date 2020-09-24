@@ -78,10 +78,8 @@
   text-decoration: none;
   transition: color $transition-base;
 
-  @media screen and (hover: hover) {
-    &:hover {
-      color: $color-accent-primary;
-    }
+  @include hover {
+    color: $color-accent-primary;
   }
 
   &.active {
@@ -115,10 +113,8 @@
   text-decoration: none;
   transition: color $transition-base;
 
-  @media screen and (hover: hover) {
-    &:hover {
-      color: $color-accent-primary;
-    }
+  @include hover {
+    color: $color-accent-primary;
   }
 }
 
@@ -143,7 +139,7 @@
   border: none;
   outline: none;
 
-  &:hover {
+  @include hover {
     &::before,
     &::after {
       background-color: $color-accent-primary;

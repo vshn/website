@@ -7,7 +7,7 @@
   border-radius: 8px;
   transition: $transition-base;
 
-  &:hover {
+  @include hover {
     background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
 
     .read-more {

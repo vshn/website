@@ -14,7 +14,7 @@
   transition-duration: 0.5s;
   transition-property: border-radius background-color;
 
-  &:hover {
+  @include hover {
     background-color: lighten($color-accent-secondary, 5.5%);
   }
 
@@ -35,7 +35,7 @@
       font-size: 18px;
     }
 
-    &:hover {
+    @include hover {
       border-radius: 4px 30px;
     }
   }
@@ -49,7 +49,7 @@
     line-height: $line-height-xs;
     border-radius: 15px 2px;
 
-    &:hover {
+    @include hover {
       border-radius: 2px 15px;
     }
   }
