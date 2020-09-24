@@ -103,8 +103,7 @@ const Content = () => {
             {' '}
             <code>ctrl</code>
             {' '}
-            keys on
-            Apple keyboards.”
+            keys on Apple keyboards.”
           </p>
           <p>
             <a href="#">
@@ -113,8 +112,7 @@ const Content = () => {
           </p>
           <p>
             3. One of the most controversial things in Linux, generating discussions hotter than
-            those between Torvalds and Andrew Tanenbaum in the 90s, was the introduction
-            of
+            those between Torvalds and Andrew Tanenbaum in the 90s, was the introduction of
             {' '}
             <code>systemd</code>
             . Dave McKay wrote an article on Howtogeek providing an

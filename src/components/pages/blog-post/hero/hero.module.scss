@@ -1,16 +1,13 @@
 .wrapper {
   position: relative;
-  padding-top: 140px;
-  margin-bottom: 105px;
+  margin-top: 140px;
+  text-align: center;
 }
 
 .inner {
-  max-width: 850px;
+  z-index: 1;
   padding-top: 60px;
-  padding-bottom: 60px;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
+  padding-bottom: 90px;
 }
 
 .categories {
@@ -43,7 +40,10 @@
 }
 
 .title {
+  max-width: 850px;
+  margin-right: auto;
   margin-bottom: 15px;
+  margin-left: auto;
 }
 
 .date {
@@ -51,14 +51,12 @@
 }
 
 .background-image {
-  position: absolute;
-  top: 140px;
-  left: 50%;
-  z-index: -1;
+  position: absolute !important;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 350px;
+  height: 100%;
   background-color: $color-additional-1;
   object-fit: cover;
   object-position: center center;
-  transform: translateX(-50%);
 }
