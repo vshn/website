@@ -64,4 +64,8 @@
     bottom: -10px;
     margin-left: -375px;
   }
+
+  @include xs-down {
+    margin-left: -410px;
+  }
 }

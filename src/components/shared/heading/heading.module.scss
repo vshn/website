@@ -19,6 +19,10 @@
       @include sm-down {
         font-size: 45px;
       }
+
+      @include xs-down {
+        font-size: 40px;
+      }
     }
 
     &_xl {
@@ -36,6 +40,10 @@
       @include sm-down {
         font-size: 30px;
       }
+
+      @include xs-down {
+        font-size: 25px;
+      }
     }
 
     &_lg {
@@ -48,6 +56,10 @@
 
       @include md-down {
         font-size: 22px;
+      }
+
+      @include xs-down {
+        font-size: 20px;
       }
     }
 

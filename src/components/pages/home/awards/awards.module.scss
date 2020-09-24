@@ -80,12 +80,12 @@
   transform: translateX(-50%);
 
   @include lg-down {
-    width: 1700px;
+    min-width: 1700px;
   }
 
   @include md-down {
     left: -770px;
-    width: 1930px;
+    min-width: 1930px;
     transform: none;
   }
 }

@@ -96,6 +96,11 @@
     left: 15px;
     width: 290px;
   }
+
+  @include xs-down {
+    right: 80px;
+    left: auto;
+  }
 }
 
 .rectangle-2 {
@@ -145,6 +150,11 @@
     right: -115px;
     height: 415px;
   }
+
+  @include xs-down {
+    right: auto;
+    left: 70px;
+  }
 }
 
 .rectangle-4 {
@@ -171,5 +181,10 @@
     bottom: -40px;
     left: -80px;
     width: 400px;
+  }
+
+  @include xs-down {
+    right: 65px;
+    left: auto;
   }
 }
