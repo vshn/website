@@ -20,6 +20,10 @@
     margin-left: auto;
     transform: none;
   }
+
+  @include sm-down {
+    margin-bottom: 110px;
+  }
 }
 
 .inner {
@@ -30,6 +34,13 @@
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;
   box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+
+  @include xs-down {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
 }
 
 .title {
@@ -74,40 +85,38 @@
 
 .rectangle-1 {
   top: -120px;
+  right: 280px;
+  bottom: 110px;
   left: -120px;
-  width: 310px;
-  height: 310px;
   background-color: $color-accent-secondary;
   border-top-left-radius: 120px;
 
   @include lg-down {
     top: -100px;
+    right: 120px;
+    bottom: 85px;
     left: 50px;
-    width: 230px;
   }
 
   @include md-down {
+    right: 250px;
+    bottom: 85px;
     left: -100px;
-    width: 310px;
   }
 
   @include sm-down {
     top: -80px;
-    left: 15px;
-    width: 290px;
-  }
-
-  @include xs-down {
     right: 80px;
-    left: auto;
+    bottom: 65px;
+    left: 15px;
   }
 }
 
 .rectangle-2 {
   top: 0;
   right: -120px;
-  width: 260px;
-  height: 175px;
+  bottom: 120px;
+  left: 330px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 120px;
 
@@ -117,6 +126,7 @@
 
   @include md-down {
     right: -100px;
+    left: 300px;
     display: block;
   }
 
@@ -128,63 +138,54 @@
 .rectangle-3 {
   top: -60px;
   right: -60px;
-  width: 430px;
-  height: 480px;
+  bottom: -120px;
+  left: 100px;
   background-color: $color-primary;
   border-bottom-right-radius: 120px;
 
   @include lg-down {
     top: -50px;
     right: -50px;
-    width: 290px;
-    height: 445px;
+    bottom: -100px;
+    left: 160px;
   }
 
   @include md-down {
-    width: 430px;
-    height: 445px;
+    left: 80px;
   }
 
   @include sm-down {
     top: -40px;
-    right: -115px;
-    height: 415px;
-  }
-
-  @include xs-down {
-    right: auto;
-    left: 70px;
+    right: -50px;
+    bottom: -80px;
+    left: 65px;
   }
 }
 
 .rectangle-4 {
+  top: 60px;
+  right: 140px;
   bottom: -60px;
   left: -60px;
-  width: 390px;
-  height: 300px;
   background-color: $color-accent-primary;
   border-bottom-left-radius: 120px;
 
   @include lg-down {
+    top: 50px;
+    right: 50px;
     bottom: -50px;
     left: 50px;
-    width: 300px;
   }
 
   @include md-down {
+    right: 120px;
     left: -50px;
-    width: 390px;
-    height: 290px;
   }
 
   @include sm-down {
-    bottom: -40px;
-    left: -80px;
-    width: 400px;
-  }
-
-  @include xs-down {
+    top: 45px;
     right: 65px;
-    left: auto;
+    bottom: -40px;
+    left: -50px;
   }
 }

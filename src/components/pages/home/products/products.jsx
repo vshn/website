@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
+import Arrow from 'icons/arrow.inline.svg';
 
 import Item from './item';
 import Details from './details';
@@ -24,7 +25,13 @@ const Products = ({ title, description, items }) => {
     triggerOnce: true,
   });
 
-  const [activeItemIndex, startAnimation, restartAnimation] = useAutoChangeableIndex(
+  const [
+    activeItemIndex,
+    startAnimation,
+    restartAnimation,
+    nextItem,
+    previousItem,
+  ] = useAutoChangeableIndex(
     items.length,
     { interval: ITEM_CHANGE_INTERVAL },
   );
@@ -41,6 +48,10 @@ const Products = ({ title, description, items }) => {
           <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
 
           <div className={cx('items-wrapper')}>
+            <button className={cx('button')} type="button" aria-label="Previous product" onClick={previousItem}>
+              <Arrow className={cx('arrow', 'flipped')} />
+            </button>
+
             {
               items.map(({ name }, index) => {
                 const number = index + 1;
@@ -62,6 +73,10 @@ const Products = ({ title, description, items }) => {
                 );
               })
             }
+
+            <button className={cx('button')} type="button" aria-label="Next product" onClick={nextItem}>
+              <Arrow className={cx('arrow')} />
+            </button>
           </div>
         </div>
 
@@ -73,6 +88,26 @@ const Products = ({ title, description, items }) => {
             return <Details title={detailsTitle} content={detailsContent} key={index} />;
           })}
         </AnimatePresence>
+
+        <div className={cx('bullets-wrapper')}>
+          {Array.from({ length: items.length }).map((item, index) => {
+            const isActive = index === activeItemIndex;
+
+            const handleClick = () => restartAnimation(index);
+
+            return (
+              <span
+                className={cx('bullet', { active: isActive })}
+                tabIndex="0"
+                role="button"
+                aria-label={`Go to product ${index + 1}`}
+                onKeyPress={handleClick}
+                onClick={handleClick}
+                key={index}
+              />
+            );
+          })}
+        </div>
       </div>
 
       <img className={cx('shape')} src={shape} aria-hidden alt="" />
