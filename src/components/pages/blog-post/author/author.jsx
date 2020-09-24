@@ -18,9 +18,9 @@ const Author = ({ name, email, phone, description }) => {
     },
   } = useStaticQuery(graphql`
     {
-      image: file(relativePath: { eq: "pages/blog-post/author/markus-speth.png" }) {
+      image: file(relativePath: { eq: "pages/blog-post/author/markus-speth.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 120) {
+          fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -54,12 +54,8 @@ const Author = ({ name, email, phone, description }) => {
 Author.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  phone: PropTypes.number,
+  phone: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
-};
-
-Author.defaultProps = {
-  phone: '+41 44 545 53 00',
 };
 
 export default Author;
