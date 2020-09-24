@@ -9,12 +9,12 @@ const cx = classNames.bind(styles);
 
 const Content = () => {
   const {
-    featuredImage: {
-      childImageSharp: { fluid: featuredImage },
+    image: {
+      childImageSharp: { fluid: image },
     },
   } = useStaticQuery(graphql`
     {
-      featuredImage: file(relativePath: { eq: "pages/blog-post/content/image.jpg" }) {
+      image: file(relativePath: { eq: "pages/blog-post/content/image.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1070) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -35,7 +35,7 @@ const Content = () => {
             !
           </p>
           <figure className="wp-block-image">
-            <GatsbyImage className={cx('image')} fluid={featuredImage} />
+            <GatsbyImage className={cx('image')} fluid={image} />
             <figcaption>Working with ModSecurity rules</figcaption>
           </figure>
           <p>

@@ -144,7 +144,6 @@
     display: block;
     max-width: 100%;
     overflow: hidden;
-    border-radius: 4px;
   }
 
   :global {
@@ -156,6 +155,8 @@
         margin-right: -110px;
         margin-bottom: 15px;
         margin-left: -110px;
+        border: 1px solid $color-additional-2;
+        border-radius: 4px;
       }
 
       figcaption {
