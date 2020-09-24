@@ -43,49 +43,49 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+}
 
-  li {
-    position: relative;
-    margin-right: 34px;
-    font-size: $font-size-xs;
-    line-height: $line-height-xs;
-    color: $color-quaternary;
+.list-item {
+  position: relative;
+  margin-right: 34px;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+  color: $color-quaternary;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: -19px;
+    width: 4px;
+    height: 4px;
+    content: '';
+    background-color: #dfe2ec;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:last-child {
+    margin-right: 0;
 
     &::after {
-      position: absolute;
-      top: 50%;
-      right: -19px;
-      width: 4px;
-      height: 4px;
-      content: '';
-      background-color: #dfe2ec;
-      border-radius: 50%;
-      transform: translateY(-50%);
+      display: none;
     }
+  }
+}
 
-    &:last-child {
-      margin-right: 0;
+.list-link {
+  display: block;
+  color: $color-primary;
+  text-decoration: none;
+  transition: $transition-base;
 
-      &::after {
-        display: none;
-      }
-    }
+  &:hover {
+    color: $color-accent-primary;
+  }
 
-    a {
-      display: block;
-      color: $color-primary;
-      text-decoration: none;
-      transition: $transition-base;
-
-      &:hover {
-        color: $color-accent-primary;
-      }
-
-      &.active {
-        color: inherit;
-        pointer-events: none;
-      }
-    }
+  &.active {
+    color: inherit;
+    pointer-events: none;
   }
 }
 
@@ -141,5 +141,47 @@
 .button {
   @include md-down {
     display: none;
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 24px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  @include md-down {
+    display: flex;
+  }
+
+  &:hover {
+    .burger-line {
+      background-color: $color-accent-primary;
+    }
+  }
+}
+
+.burger-line {
+  width: 100%;
+  height: 4px;
+  background-color: $color-primary;
+  border-radius: 2px;
+  transition: $transition-base background-color;
+
+  &:nth-child(odd) {
+    width: 50%;
+  }
+
+  &:last-child {
+    margin-left: auto;
   }
 }

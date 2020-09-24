@@ -21,6 +21,7 @@ const Header = (props) => {
     menuItems,
     buttonText,
     buttonUrl,
+    onBurgerClick,
   } = props;
 
   return (
@@ -28,16 +29,16 @@ const Header = (props) => {
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
-            <li>{topLineText1}</li>
-            <li>{topLineText2}</li>
+            <li className={cx('list-item')}>{topLineText1}</li>
+            <li className={cx('list-item')}>{topLineText2}</li>
           </ul>
 
           <ul className={cx('list')}>
-            <li>
-              <Link to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
+            <li className={cx('list-item')}>
+              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
             </li>
-            <li>
-              <Link to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
+            <li className={cx('list-item')}>
+              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
             </li>
           </ul>
         </div>
@@ -58,6 +59,12 @@ const Header = (props) => {
               <Button className={cx('button')} to={buttonUrl} size="sm">{buttonText}</Button>
             )}
           </nav>
+
+          <button className={cx('burger')} type="button" aria-label="Open Mobile Menu" onClick={onBurgerClick}>
+            <span className={cx('burger-line')} />
+            <span className={cx('burger-line')} />
+            <span className={cx('burger-line')} />
+          </button>
         </div>
       </div>
     </header>
@@ -77,6 +84,7 @@ Header.propTypes = {
   })),
   buttonText: PropTypes.string,
   buttonUrl: PropTypes.string,
+  onBurgerClick: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {

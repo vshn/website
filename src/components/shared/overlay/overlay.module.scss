@@ -1,0 +1,19 @@
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  visibility: hidden;
+  background-color: rgba($color-primary, 0.3);
+  opacity: 0;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+}
