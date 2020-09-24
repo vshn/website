@@ -67,7 +67,8 @@
   visibility: hidden;
   background-color: $color-accent-primary;
   opacity: 0;
-  transition: opacity $transition-base;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
 
   &.circle {
     border-radius: 50%;

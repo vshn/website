@@ -116,7 +116,8 @@
     height: 3px;
     content: '';
     border-radius: 10px;
-    transition: opacity $transition-base;
+    transition-duration: $transition-base;
+    transition-property: opacity visibility;
   }
 
   &::before {

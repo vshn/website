@@ -117,6 +117,8 @@
   border: 1px solid $color-additional-2;
   border-radius: 50%;
   opacity: 0;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
 
   svg {
     position: absolute;
