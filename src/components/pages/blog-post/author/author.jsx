@@ -35,11 +35,15 @@ const Author = ({ name, email, phone, description }) => {
           <GatsbyImage className={cx('image')} fluid={image} />
           <div className={cx('content')}>
             <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
-            <div className={cx('info')}>
-              <Link to={email}>{email}</Link>
+            <ul className={cx('info')}>
+              <li>
+                <Link className={cx('link')} to={email}>{email}</Link>
+              </li>
               <span className={cx('circle')} />
-              <Link to={phone}>{phone}</Link>
-            </div>
+              <li>
+                <Link className={cx('link')} to={phone}>{phone}</Link>
+              </li>
+            </ul>
             <p className={cx('description')}>{description}</p>
           </div>
         </div>
