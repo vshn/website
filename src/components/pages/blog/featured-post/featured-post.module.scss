@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  padding-top: 230px;
+  padding-top: calc(#{$header-height} + 90px);
   margin-bottom: 105px;
 }
 

@@ -45,6 +45,10 @@
 }
 
 .text {
+  display: -webkit-box;
   margin-top: 0;
   margin-bottom: 30px;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
