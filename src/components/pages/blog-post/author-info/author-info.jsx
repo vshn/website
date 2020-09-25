@@ -11,7 +11,7 @@ import styles from './author-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const AuthorInfo = ({ name, email, phone, description }) => {
+const AuthorInfo = ({ name, links, description }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -35,13 +35,12 @@ const AuthorInfo = ({ name, email, phone, description }) => {
           <GatsbyImage className={cx('image')} fluid={image} />
           <div className={cx('content')}>
             <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
-            <ul className={cx('list')}>
-              <li className={cx('list-item')}>
-                <Link className={cx('list-link')} to={email}>{email}</Link>
-              </li>
-              <li className={cx('list-item')}>
-                <Link className={cx('list-link')} to={phone}>{phone}</Link>
-              </li>
+            <ul className={cx('links-wrapper')}>
+              {links.map(({ label, path }, index) => (
+                <li className={cx('link-wrapper')} key={index}>
+                  <Link className={cx('link')} to={path}>{label}</Link>
+                </li>
+              ))}
             </ul>
             <p className={cx('description')}>{description}</p>
           </div>
@@ -53,8 +52,10 @@ const AuthorInfo = ({ name, email, phone, description }) => {
 
 AuthorInfo.propTypes = {
   name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+  })).isRequired,
   description: PropTypes.string.isRequired,
 };
 

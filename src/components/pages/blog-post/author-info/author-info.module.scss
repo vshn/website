@@ -33,7 +33,7 @@
   margin-bottom: 15px;
 }
 
-.list {
+.links-wrapper {
   display: flex;
   padding-left: 0;
   margin-top: 0;
@@ -41,7 +41,7 @@
   list-style-type: none;
 }
 
-.list-item {
+.link-wrapper {
   position: relative;
   margin-right: 34px;
 
@@ -66,7 +66,7 @@
   }
 }
 
-.list-link {
+.link {
   color: $color-accent-primary;
   text-decoration: none;
   transition: color $transition-base;

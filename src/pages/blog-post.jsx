@@ -18,8 +18,16 @@ const hero = {
 
 const authorInfo = {
   name: 'Markus Speth',
-  email: 'markus.spethvshn@vshn.ch',
-  phone: '+41 44 545 53 00',
+  links: [
+    {
+      label: 'markus.spethvshn@vshn.ch ',
+      path: 'mailto:markus.spethvshn@vshn.ch ',
+    },
+    {
+      label: '+41 44 545 53 00',
+      path: 'tel:+41445455300',
+    },
+  ],
   description: 'Markus ist CMO bei der VSHN AG und kümmert sich um Marketingthemen und Partner.',
 };
 
