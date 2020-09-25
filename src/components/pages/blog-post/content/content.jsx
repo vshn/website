@@ -25,7 +25,7 @@ const Content = () => {
   `);
 
   return (
-    <article className={cx('wrapper')}>
+    <article>
       <div className="container">
         <div className={cx('content')}>
           <p>
@@ -53,6 +53,9 @@ const Content = () => {
             program:
           </p>
           <h2>History of OpenShift & VSHN</h2>
+          <p>OpenShift has been and continues to be the strategic Kubernetes platform for VSHN.</p>
+          <p>VSHN was founded in 2014 with the idea of not doing everything ourselves, but rather focus on what we do best: Specialize in operating and onboarding customers and don’t own hardware, servers or data centers is one of the main aspects of why we exist. This led to a strong focus on innovation & automation, PaaS & container technology with the belief of being cloud native & cloud neutral.</p>
+          <p>Shortly after in 2015, we created the brand APPUiO in cooperation with Puzzle ITC, and started deploying the first OpenShift 3 beta releases. In close collaboration with Puzzle ITC and Red Hat we launched APPUiO.ch container platform in production in 2016.</p>
           <p>
             Why did we choose OpenShift? A couple of arguments why OpenShift is our “way to go”:
           </p>
@@ -121,14 +124,7 @@ const Content = () => {
           </p>
           <blockquote>
             <p>
-              In fall 2018, the management team went to Malta for a week-long retreat,
-              where we focused on the challenges that came with our growth as well as the company
-              strategy for the upcoming years. Among other topics, part of these discussions were
-              the individual goals of the members of the management. This was when I first started
-              to really think about my own role in the company and what the things are that I enjoy
-              doing and I find interesting and what aspects of the job I would rather do without. As
-              you can imagine this is not something that is easily figured out in a few hours. At
-              least for me it was a process lasting several months.
+              In fall 2018, the management team went to Malta for a week-long retreat, where we focused on the challenges that came with our growth as well as the company strategy for the upcoming years. Among other topics, part of these discussions were the individual goals of the members of the management. This was when I first started to really think about my own role in the company and what the things are that I enjoy doing and I find interesting and what aspects of the job I would rather do without. As you can imagine this is not something that is easily figured out in a few hours. At least for me it was a process lasting several months.
             </p>
             <cite>– André</cite>
           </blockquote>
@@ -141,6 +137,15 @@ const Content = () => {
             beyond his daily job and contributed with constructive ideas and concepts to the success
             of VSHN.
           </p>
+          <ol>
+            <li>Unifying operations & delivery platform onprem/cloud/hybrid</li>
+            <li>Enabling DevSecOps through RBAC and other security-by-default</li>
+            <li>Enterprise supported Kubernetes</li>
+            <li>
+              Embracing open standards, enabling infrastructure/cloud abstraction and mobility,
+              enabling cloud-native (and not necessarily cloud-only)
+            </li>
+          </ol>
           <blockquote>
             <p>
               Being an “old” VSHNeer, knowing all the good and bad stories and having an open mind

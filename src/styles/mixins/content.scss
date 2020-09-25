@@ -1,7 +1,6 @@
 @mixin content {
   font-size: 18px;
   line-height: 1.6;
-  color: $color-primary;
 
   > * {
     margin-top: 0;
@@ -59,7 +58,7 @@
     margin-bottom: 30px;
 
     li {
-      list-style: none;
+      margin-bottom: 10px;
 
       &:last-child {
         margin-bottom: 0;
@@ -71,8 +70,7 @@
     li {
       position: relative;
       padding-left: 16px;
-      margin-bottom: 10px;
-      list-style: none;
+      list-style-type: none;
 
       &::before {
         position: absolute;
@@ -100,8 +98,6 @@
     margin-right: -110px;
     margin-bottom: 60px;
     margin-left: -110px;
-    font-size: 22px;
-    font-style: italic;
     border-bottom: 4px solid $color-primary;
 
     &::before {
@@ -127,6 +123,8 @@
     p {
       margin-top: 0;
       margin-bottom: 10px;
+      font-size: 22px;
+      font-style: italic;
 
       &:last-child {
         margin-bottom: 0;
@@ -134,7 +132,8 @@
     }
 
     cite {
-      font-size: 18px;
+      display: block;
+      margin-top: 15px;
       font-style: normal;
       color: $color-secondary;
     }
@@ -158,10 +157,10 @@
 
   :global {
     .wp-block-image {
-      margin-bottom: 35px;
+      margin-top: 30px;
+      margin-bottom: 30px;
 
       .gatsby-image-wrapper {
-        margin-top: 30px;
         margin-right: -110px;
         margin-bottom: 15px;
         margin-left: -110px;

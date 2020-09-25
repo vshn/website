@@ -7,18 +7,18 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import styles from './author.module.scss';
+import styles from './author-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Author = ({ name, email, phone, description }) => {
+const AuthorInfo = ({ name, email, phone, description }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
     },
   } = useStaticQuery(graphql`
     {
-      image: file(relativePath: { eq: "pages/blog-post/author/markus-speth.jpg" }) {
+      image: file(relativePath: { eq: "pages/blog-post/author-info/markus-speth.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -31,16 +31,16 @@ const Author = ({ name, email, phone, description }) => {
   return (
     <section className={cx('wrapper')}>
       <div className="container">
-        <div className={cx('items-wrapper')}>
+        <div className={cx('inner')}>
           <GatsbyImage className={cx('image')} fluid={image} />
           <div className={cx('content')}>
             <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
             <ul className={cx('list')}>
-              <li>
-                <Link className={cx('link')} to={email}>{email}</Link>
+              <li className={cx('list-item')}>
+                <Link className={cx('list-link')} to={email}>{email}</Link>
               </li>
-              <li>
-                <Link className={cx('link')} to={phone}>{phone}</Link>
+              <li className={cx('list-item')}>
+                <Link className={cx('list-link')} to={phone}>{phone}</Link>
               </li>
             </ul>
             <p className={cx('description')}>{description}</p>
@@ -50,11 +50,12 @@ const Author = ({ name, email, phone, description }) => {
     </section>
   );
 };
-Author.propTypes = {
+
+AuthorInfo.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
 };
 
-export default Author;
+export default AuthorInfo;

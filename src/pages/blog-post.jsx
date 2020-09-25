@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLayout from 'layouts/main';
 
-import Hero from '../components/pages/blog-post/hero';
-import Content from '../components/pages/blog-post/content';
-import Author from '../components/pages/blog-post/author';
-import News from '../components/pages/blog-post/news';
-import Contact from '../components/shared/contact';
+import Hero from 'components/pages/blog-post/hero';
+import Content from 'components/pages/blog-post/content';
+import AuthorInfo from 'components/pages/blog-post/author-info';
+import News from 'components/pages/blog-post/news';
+import Contact from 'components/shared/contact';
 
 const hero = {
   title: 'VSHN announces Red Hat OpenShift 4 services',
@@ -16,7 +16,7 @@ const hero = {
   date: new Date('2020-08-24'),
 };
 
-const author = {
+const authorInfo = {
   name: 'Markus Speth',
   email: 'markus.spethvshn@vshn.ch',
   phone: '+41 44 545 53 00',
@@ -87,7 +87,7 @@ export default () => (
   <MainLayout>
     <Hero {...hero} />
     <Content />
-    <Author {...author} />
+    <AuthorInfo {...authorInfo} />
     <News {...news} />
     <Contact />
   </MainLayout>

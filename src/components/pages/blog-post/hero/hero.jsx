@@ -11,39 +11,37 @@ const cx = classNames.bind(styles);
 
 const Hero = ({ title, categories, date }) => {
   const day = date.getDate();
-  const options = {
+  const monthYear = date.toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
-  };
-  const monthYear = date.toLocaleString('en-US', options);
+  });
+
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
-        <div className={cx('categories')}>
-          {categories.map((category) => <span>{category}</span>)}
+        <div className={cx('categories-wrapper')}>
+          {categories.map((category, index) => <span className={cx('category')} key={index}>{category}</span>)}
         </div>
+
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
         <div className={cx('date')}>
-          <span>
-            {day}
-            .
-            {' '}
-            {monthYear}
-          </span>
+          {day}
+          .
+          {' '}
+          {monthYear}
         </div>
       </div>
-      <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
+
+      <div className={cx('background-image-wrapper')} aria-hidden>
+        <img src={backgroundImage} alt="" />
+      </div>
     </section>
   );
 };
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      category: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
 };
 
