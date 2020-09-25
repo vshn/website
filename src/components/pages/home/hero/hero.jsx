@@ -22,7 +22,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
 
   const [isInitialAnimationFinished, setIsInitialAnimationFinished] = useState(false);
 
-  const [initialAnimation, initialAnimationRef] = useLottie(
+  const [initialAnimation, initialAnimationContainerRef] = useLottie(
     { animationData: initialAnimationData },
     {
       loaded_images() {
@@ -34,7 +34,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
     },
   );
 
-  const [loopedAnimation, loopedAnimationRef] = useLottie(
+  const [loopedAnimation, loopedAnimationContainerRef] = useLottie(
     {
       animationData: loopedAnimationData,
       loop: true,
@@ -79,11 +79,11 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
           <img className={cx('illustration-shape')} src={shape1} alt="" />
           <div
             className={cx('illustration', { visible: !isInitialAnimationFinished && isInitialAnimationReady })}
-            ref={initialAnimationRef}
+            ref={initialAnimationContainerRef}
           />
           <div
             className={cx('illustration', 'looped', { visible: isInitialAnimationFinished && isLoopAnimationReady })}
-            ref={loopedAnimationRef}
+            ref={loopedAnimationContainerRef}
           />
         </div>
       </div>

@@ -9,23 +9,23 @@ const defaultOptions = {
 
 export default function useLottie(options, events = {}) {
   const animationRef = useRef();
-  const [animation, setAnimation] = useState();
+  const animationContainerRef = useRef();
 
   useEffect(() => {
-    const lottieAnimation = lottie.loadAnimation({
-      container: animationRef.current,
-      ...defaultOptions,
-      ...options,
-    });
+    if (!animationRef.current) {
+      const lottieAnimation = lottie.loadAnimation({
+        container: animationContainerRef.current,
+        ...defaultOptions,
+        ...options,
+      });
 
-    Object.entries(events).forEach(([eventName, cb]) => {
-      lottieAnimation.addEventListener(eventName, cb.bind(lottieAnimation));
-    });
+      Object.entries(events).forEach(([eventName, cb]) => {
+        lottieAnimation.addEventListener(eventName, cb.bind(lottieAnimation));
+      });
 
-    setAnimation(lottieAnimation);
-
-    return () => lottieAnimation.destroy();
+      animationRef.current = lottieAnimation;
+    }
   }, [options, events]);
 
-  return [animation, animationRef];
+  return [animationRef.current, animationContainerRef];
 }
