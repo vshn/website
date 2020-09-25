@@ -54,7 +54,7 @@ const AuthorInfo = ({ name, email, phone, description }) => {
 AuthorInfo.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  phone: PropTypes.number.isRequired,
+  phone: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
