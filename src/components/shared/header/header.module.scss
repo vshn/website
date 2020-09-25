@@ -36,6 +36,8 @@
     line-height: $line-height-xs;
     color: $color-quaternary;
 
+    @include with-link-primary;
+
     &::after {
       position: absolute;
       top: 50%;
@@ -58,13 +60,6 @@
 
     a {
       display: block;
-      color: $color-primary;
-      text-decoration: none;
-      transition: color $transition-base;
-
-      &:hover {
-        color: $color-accent-primary;
-      }
 
       &.active {
         color: inherit;
@@ -94,7 +89,8 @@
 
 .menu-item {
   margin-right: 30px;
-  font-size: 0; // This was added to fix a bug of inline elements: without it .menu-item's height will be larger than .link's
+
+  @include with-link-primary;
 
   &:last-child {
     margin-right: 0;
@@ -105,11 +101,4 @@
   display: block;
   font-size: $font-size-xs;
   line-height: $line-height-xs;
-  color: $color-primary;
-  text-decoration: none;
-  transition: color $transition-base;
-
-  &:hover {
-    color: $color-accent-primary;
-  }
 }
