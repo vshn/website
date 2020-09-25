@@ -26,7 +26,7 @@ const Content = () => {
 
   return (
     <article>
-      <div className="container">
+      <div className={cx('container', 'inner')}>
         <div className={cx('content')}>
           <p>
             We’re very happy to announce Red Hat OpenShift 4 services on

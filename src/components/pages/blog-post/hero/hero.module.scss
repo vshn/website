@@ -3,17 +3,30 @@
   margin-top: $header-height;
   margin-bottom: 75px;
   text-align: center;
+
+  @include md-down {
+    margin-bottom: 85px;
+  }
 }
 
 .inner {
   padding-top: 60px;
   padding-bottom: 90px;
+
+  @include md-down {
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
 }
 
 .categories-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+
+  @include md-down {
+    margin-bottom: 15px;
+  }
 }
 
 .category {
@@ -39,6 +52,10 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @include md-down {
+    font-size: 13px;
+  }
 }
 
 .title {
@@ -46,6 +63,10 @@
   margin-right: auto;
   margin-bottom: 15px;
   margin-left: auto;
+
+  @include md-down {
+    font-size: 40px;
+  }
 }
 
 .date {
@@ -62,4 +83,8 @@
   text-align: center;
   background-color: $color-additional-1;
   transform: translateX(-50%);
+
+  img {
+    height: 100%;
+  }
 }

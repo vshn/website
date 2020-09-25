@@ -39,6 +39,10 @@
   > h2,
   > h3 {
     margin-top: 60px;
+
+    @include md-down {
+      margin-top: 50px;
+    }
   }
 
   > h1 {
@@ -47,10 +51,18 @@
 
   > h2 {
     font-size: 40px;
+
+    @include md-down {
+      font-size: 35px;
+    }
   }
 
   > h3 {
     font-size: $font-size-lg;
+
+    @include md-down {
+      font-size: 24px;
+    }
   }
 
   > ul,
@@ -97,6 +109,13 @@
     margin-left: -110px;
     border-bottom: 4px solid $color-primary;
 
+    @include md-down {
+      margin-top: 44px;
+      margin-right: -80px;
+      margin-bottom: 50px;
+      margin-left: -80px;
+    }
+
     &::before {
       position: absolute;
       top: -20px;
@@ -105,6 +124,13 @@
       height: 40px;
       content: '';
       background-image: url(./images/quote.svg);
+
+      @include md-down {
+        top: -15px;
+        width: 40px;
+        height: 32px;
+        background-size: contain;
+      }
     }
 
     &::after {
@@ -115,6 +141,10 @@
       height: 4px;
       content: '';
       background-color: $color-primary;
+
+      @include md-down {
+        width: 860px;
+      }
     }
 
     p {
@@ -167,6 +197,11 @@
         margin-left: -110px;
         border: 1px solid $color-additional-2;
         border-radius: 4px;
+
+        @include md-down {
+          margin-right: -79px;
+          margin-left: -79px;
+        }
       }
 
       figcaption {

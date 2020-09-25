@@ -3,6 +3,12 @@
 }
 
 .inner {
+  @include md-down {
+    max-width: 770px;
+  }
+}
+
+.items-wrapper {
   display: flex;
   align-items: flex-start;
   max-width: 850px;
@@ -31,6 +37,10 @@
 
 .name {
   margin-bottom: 15px;
+
+  @include md-down {
+    font-size: 24px;
+  }
 }
 
 .links-wrapper {

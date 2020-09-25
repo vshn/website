@@ -30,8 +30,8 @@ const AuthorInfo = ({ name, links, description }) => {
 
   return (
     <section className={cx('wrapper')}>
-      <div className="container">
-        <div className={cx('inner')}>
+      <div className={cx('container', 'inner')}>
+        <div className={cx('items-wrapper')}>
           <GatsbyImage className={cx('image')} fluid={image} />
           <div className={cx('content')}>
             <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>

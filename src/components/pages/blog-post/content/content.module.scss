@@ -1,3 +1,9 @@
+.inner {
+  @include md-down {
+    max-width: 770px;
+  }
+}
+
 .content {
   max-width: 850px;
   margin-right: auto;
@@ -5,4 +11,8 @@
   margin-left: auto;
 
   @include content;
+
+  @include md-down {
+    margin-bottom: 50px;
+  }
 }
