@@ -126,7 +126,7 @@ const Content = () => {
             <p>
               In fall 2018, the management team went to Malta for a week-long retreat, where we focused on the challenges that came with our growth as well as the company strategy for the upcoming years. Among other topics, part of these discussions were the individual goals of the members of the management. This was when I first started to really think about my own role in the company and what the things are that I enjoy doing and I find interesting and what aspects of the job I would rather do without. As you can imagine this is not something that is easily figured out in a few hours. At least for me it was a process lasting several months.
             </p>
-            <cite>– André</cite>
+            <cite>André</cite>
           </blockquote>
           <p>
             The new board and management structure will have a strong focus on PeopleOps, OrgDev
@@ -153,7 +153,7 @@ const Content = () => {
               Together, we can improve things for us as VSHNeers and our customers likewise – and
               maintain our great family-like culture we value that much.
             </p>
-            <cite>– Marco</cite>
+            <cite>Marco</cite>
           </blockquote>
           <p>
             As an open source company we’re used to collaborating over company borders, so much

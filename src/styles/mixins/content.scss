@@ -88,6 +88,11 @@
   a {
     color: $color-accent-primary;
     text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-quaternary;
+    }
   }
 
   > blockquote {
@@ -136,6 +141,10 @@
       margin-top: 15px;
       font-style: normal;
       color: $color-secondary;
+
+      &::before {
+        content: '– ';
+      }
     }
   }
 

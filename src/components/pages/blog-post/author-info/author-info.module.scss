@@ -69,6 +69,11 @@
 .list-link {
   color: $color-accent-primary;
   text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-quaternary;
+  }
 }
 
 .description {
