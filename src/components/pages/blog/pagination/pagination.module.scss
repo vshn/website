@@ -1,0 +1,47 @@
+.wrapper {
+  margin-bottom: 180px;
+}
+
+.items-wrapper {
+  display: flex;
+  max-width: 850px;
+}
+
+.item {
+  font-weight: 700;
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-accent-primary;
+
+    path {
+      stroke: $color-accent-primary;
+    }
+  }
+
+  path {
+    transition: stroke $transition-base;
+  }
+
+  &.previous {
+    margin-right: auto;
+
+    svg {
+      transform: rotate(180deg);
+    }
+
+    span {
+      padding-left: 12px;
+    }
+  }
+
+  &.next {
+    margin-left: auto;
+
+    span {
+      padding-right: 12px;
+    }
+  }
+}

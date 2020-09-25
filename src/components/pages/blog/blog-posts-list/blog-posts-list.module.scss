@@ -1,0 +1,62 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.items-wrapper {
+  max-width: 850px;
+}
+
+.illustration {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 300px;
+}
+
+.rectangle {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba($color-primary, 0.15);
+}
+
+.rectangle-1 {
+  top: -45px;
+  left: -30px;
+  width: 200px;
+  height: 350px;
+  background-color: $color-accent-primary;
+  border-top-left-radius: 60px;
+}
+
+.rectangle-2 {
+  top: -30px;
+  right: -30px;
+  width: 220px;
+  height: 560px;
+  background-color: $color-accent-secondary;
+  border-bottom-right-radius: 60px;
+}
+
+.rectangle-3 {
+  bottom: -15px;
+  left: -15px;
+  width: 180px;
+  height: 370px;
+  background-color: $color-primary;
+  border-top-right-radius: 120px;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.shape {
+  position: absolute;
+  top: 755px;
+  left: 1175px;
+  z-index: -1;
+  width: calc(115px + #{$container-side-gap});
+  min-width: 430px;
+  height: 700px;
+}

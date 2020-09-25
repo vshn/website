@@ -105,7 +105,7 @@
   margin-top: auto;
   font-weight: 700;
   color: $color-tertiary;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &::before {
     position: absolute;
@@ -132,7 +132,8 @@
   visibility: hidden;
   background-color: $color-accent-primary;
   opacity: 0;
-  transition: $transition-base;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
 
   @include lg-down {
     display: none;

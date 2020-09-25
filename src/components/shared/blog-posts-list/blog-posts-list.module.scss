@@ -104,7 +104,7 @@
   border: 2px solid $color-accent-primary;
   border-radius: 2px;
   outline: none;
-  transition: $transition-base;
+  transition: background-color $transition-base;
 
   &:last-child {
     margin-right: 0;

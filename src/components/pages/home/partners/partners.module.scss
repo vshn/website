@@ -185,7 +185,7 @@
   background-color: transparent;
   border: none;
   outline: none;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   @include lg-down {
     margin-right: 25px;
@@ -225,12 +225,13 @@
     height: 3px;
     content: '';
     border-radius: 10px;
-    transition: $transition-base;
+    transition-duration: $transition-base;
+    transition-property: opacity visibility;
   }
 
   &::before {
     width: 100%;
-    background-color: #dfe2ec;
+    background-color: $color-additional-2;
   }
 
   &::after {

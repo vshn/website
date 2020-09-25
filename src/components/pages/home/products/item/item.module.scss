@@ -10,7 +10,7 @@
   border-radius: 30px 4px;
   outline: none;
   box-shadow: 0 10px 20px 10px rgba($color-quaternary, 0.05);
-  transition: $transition-base;
+  transition: background-image $transition-base, box-shadow $transition-base;
 
   @include md-down {
     display: none;
@@ -45,7 +45,7 @@
 
   &.active {
     cursor: default;
-    background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
     box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
 
     @include md-down {
@@ -96,7 +96,15 @@
   font-size: $font-size-md;
   font-weight: 700;
   line-height: $line-height-md;
-  transition: $transition-base;
+  transition: color $transition-base, background-color $transition-base;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
 
   @include lg-down {
     font-size: 18px;
@@ -118,30 +126,15 @@
     left: 0;
     width: 70px;
     height: 50px;
-    content: '';
     background-color: $color-primary;
-    opacity: 0;
-    transition: $transition-base;
-
-    @include sm-down {
-      display: none;
-    }
   }
 
   &::after {
-    position: absolute;
     right: 0;
     bottom: 0;
     width: 20px;
     height: 20px;
-    content: '';
     background-color: $color-accent-secondary;
-    opacity: 0;
-    transition: $transition-base;
-
-    @include sm-down {
-      display: none;
-    }
   }
 
   span {
@@ -174,9 +167,11 @@
   height: 30px;
   margin-left: auto;
   visibility: hidden;
-  border: 1px solid #dfe2ec;
+  border: 1px solid $color-additional-2;
   border-radius: 50%;
   opacity: 0;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
 
   svg {
     position: absolute;

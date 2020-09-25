@@ -102,7 +102,7 @@
   height: 40px;
   background: $color-quaternary;
   border-radius: 100px;
-  transition: $transition-base;
+  transition: background-color $transition-base;
 
   @include lg-down {
     width: 34px;
@@ -254,7 +254,8 @@
 
 .sub-menu-item {
   margin-bottom: 15px;
-  font-size: 0;
+
+  @include with-link-primary;
 
   &:last-child {
     margin-bottom: 0;
@@ -263,18 +264,9 @@
 
 .sub-menu-link {
   display: block;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $color-primary;
-  text-decoration: none;
-  transition: $transition-base;
 
   @include md-down {
     font-size: 14px;
-  }
-
-  @include hover {
-    color: $color-accent-primary;
   }
 }
 
@@ -319,6 +311,8 @@
   margin-bottom: 0;
   color: $color-quaternary;
 
+  @include with-link-primary;
+
   @include lg-down {
     grid-column: span 6;
     order: initial;
@@ -326,16 +320,6 @@
 
   @include sm-down {
     margin-bottom: 15px;
-  }
-
-  a {
-    color: $color-primary;
-    text-decoration: none;
-    transition: $transition-base;
-
-    @include hover {
-      color: $color-accent-primary;
-    }
   }
 }
 
