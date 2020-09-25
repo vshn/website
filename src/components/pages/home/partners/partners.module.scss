@@ -328,6 +328,7 @@
   position: absolute;
   bottom: -200px;
   left: 1025px;
+  z-index: -1;
   width: calc(265px + #{$container-side-gap});
   min-width: 580px;
   height: 530px;
