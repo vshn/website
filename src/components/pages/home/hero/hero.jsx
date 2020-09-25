@@ -51,7 +51,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
 
   useEffect(
     () => {
-      if (initialAnimation && isInitialAnimationReady) {
+      if (initialAnimation && isInitialAnimationReady && isAnimationPlaying) {
         initialAnimation.play();
       }
 
