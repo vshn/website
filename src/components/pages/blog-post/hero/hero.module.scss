@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  padding-top: $header-height;
+  margin-top: $header-height;
   margin-bottom: 75px;
   text-align: center;
 }
@@ -54,10 +54,11 @@
 
 .background-image-wrapper {
   position: absolute;
-  top: $header-height;
+  bottom: 0;
   left: 50%;
   z-index: -1;
   width: 100%;
+  height: 100%;
   text-align: center;
   background-color: $color-additional-1;
   transform: translateX(-50%);
