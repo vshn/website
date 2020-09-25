@@ -31,10 +31,11 @@
     padding-left: 12.5px;
   }
 
-  @include hover:not(.active),
-    &:focus:not(.active) {
-    .name {
-      color: $color-accent-primary;
+  &:not(.active) {
+    @include hover {
+      .name {
+        color: $color-accent-primary;
+      }
     }
   }
 
