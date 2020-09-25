@@ -131,9 +131,9 @@
 
 .illustration-wrapper {
   position: absolute;
-  top: -70px;
-  right: -205px;
-  width: 830px;
+  top: -90px;
+  right: -85px;
+  width: 700px;
 
   @include lg-down {
     top: -70px;
@@ -167,5 +167,24 @@
     z-index: -1;
     display: block;
     width: 490px;
+  }
+}
+
+.illustration {
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.looped {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: none;
   }
 }
