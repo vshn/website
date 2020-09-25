@@ -4,7 +4,7 @@
     text-decoration: none;
     transition: color $transition-base;
 
-    &:hover {
+    @include hover {
       color: $color-accent-primary;
     }
   }
@@ -16,7 +16,7 @@
     text-decoration: none;
     transition: color $transition-base;
 
-    &:hover {
+    @include hover {
       color: $color-quaternary;
     }
   }
