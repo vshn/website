@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Arrow from 'icons/arrow.inline.svg';
+import motionFadeAnimation from 'constants/motion-fade-animation';
 
 import Item from './item';
-import Details from './details';
 
 import illustration from './images/illustration.svg';
 
@@ -52,8 +52,8 @@ const Products = ({ title, description, items }) => {
               <Arrow className={cx('arrow', 'flipped')} />
             </button>
 
-            {
-              items.map(({ name }, index) => {
+            <div className={cx('items-inner')}>
+              {items.map(({ name }, index) => {
                 const number = index + 1;
                 const formattedNumber = number < 10 ? `0${number}.` : `${number}.`;
 
@@ -71,8 +71,8 @@ const Products = ({ title, description, items }) => {
                     key={index}
                   />
                 );
-              })
-            }
+              })}
+            </div>
 
             <button className={cx('button')} type="button" aria-label="Next product" onClick={nextItem}>
               <Arrow className={cx('arrow')} />
@@ -80,14 +80,26 @@ const Products = ({ title, description, items }) => {
           </div>
         </div>
 
-        <AnimatePresence exitBeforeEnter>
-          {items.map(({ detailsTitle, detailsContent }, index) => {
-            const isActive = index === activeItemIndex;
-            if (!isActive) return null;
+        <div className={cx('details')}>
+          <AnimatePresence exitBeforeEnter>
+            {items.map(({ detailsTitle, detailsContent }, index) => {
+              const isActive = index === activeItemIndex;
+              if (!isActive) return null;
 
-            return <Details title={detailsTitle} content={detailsContent} key={index} />;
-          })}
-        </AnimatePresence>
+              return (
+                <motion.div className={cx('details-inner')} key={index} {...motionFadeAnimation}>
+                  <Heading className={cx('details-title')} size="lg">{detailsTitle}</Heading>
+                  <div className={cx('details-content')} dangerouslySetInnerHTML={{ __html: detailsContent }} />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+
+          <span className={cx('details-rectangle', 'details-rectangle-1')} aria-hidden />
+          <span className={cx('details-rectangle', 'details-rectangle-2')} aria-hidden />
+          <span className={cx('details-rectangle', 'details-rectangle-3')} aria-hidden />
+          <span className={cx('details-rectangle', 'details-rectangle-4')} aria-hidden />
+        </div>
 
         <div className={cx('bullets-wrapper')}>
           {Array.from({ length: items.length }).map((item, index) => {

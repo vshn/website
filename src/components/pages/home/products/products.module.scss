@@ -28,10 +28,6 @@
   }
 
   @include md-down {
-    margin-bottom: 180px;
-  }
-
-  @include sm-down {
     margin-bottom: 50px;
   }
 }
@@ -90,6 +86,13 @@
   }
 }
 
+.items-inner {
+  @include md-down {
+    width: 100%;
+    max-width: 460px;
+  }
+}
+
 .button {
   display: none;
   align-items: center;
@@ -122,12 +125,221 @@
   }
 }
 
+.details {
+  position: absolute;
+  top: 150px;
+  right: 80px;
+  max-width: 470px;
+  border-radius: 8px;
+
+  @include lg-down {
+    top: 135px;
+    right: 0;
+    max-width: 400px;
+  }
+
+  @include md-down {
+    position: relative;
+    top: 0;
+    max-width: 460px;
+    margin-right: auto;
+    margin-left: auto;
+    transform: none;
+  }
+
+  @include md-down {
+    margin-bottom: 130px;
+  }
+
+  @include sm-down {
+    margin-bottom: 110px;
+  }
+}
+
+.details-inner {
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+
+  @include xs-down {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+}
+
+.details-title {
+  margin-bottom: 30px;
+}
+
+.details-content {
+  ul {
+    padding-left: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+
+    li {
+      position: relative;
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        position: absolute;
+        top: 8px;
+        left: -16px;
+        width: 6px;
+        height: 6px;
+        content: '';
+        background-color: $color-quaternary;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.details-rectangle {
+  position: absolute;
+  z-index: -1;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+}
+
+.details-rectangle-1 {
+  top: -120px;
+  left: -120px;
+  width: 310px;
+  height: 310px;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 120px;
+
+  @include lg-down {
+    top: -100px;
+    left: 50px;
+    width: 230px;
+  }
+
+  @include md-down {
+    left: -100px;
+    width: 310px;
+  }
+
+  @include md-down {
+    right: 250px;
+    bottom: 85px;
+    left: -100px;
+    width: initial;
+    height: initial;
+  }
+
+  @include sm-down {
+    top: -80px;
+    right: 80px;
+    bottom: 65px;
+    left: 15px;
+  }
+}
+
+.details-rectangle-2 {
+  top: 0;
+  right: -120px;
+  width: 260px;
+  height: 175px;
+  background-color: $color-accent-primary;
+  border-bottom-right-radius: 120px;
+
+  @include lg-down {
+    display: none;
+  }
+
+  @include md-down {
+    right: -100px;
+    bottom: 120px;
+    left: 300px;
+    display: block;
+    width: initial;
+    height: initial;
+  }
+
+  @include sm-down {
+    display: none;
+  }
+}
+
+.details-rectangle-3 {
+  top: -60px;
+  right: -60px;
+  width: 430px;
+  height: 480px;
+  background-color: $color-primary;
+  border-bottom-right-radius: 120px;
+
+  @include lg-down {
+    top: -50px;
+    right: -50px;
+    width: 290px;
+    height: 445px;
+  }
+
+  @include md-down {
+    bottom: -100px;
+    left: 80px;
+    width: initial;
+    height: initial;
+  }
+
+  @include sm-down {
+    top: -40px;
+    right: -50px;
+    bottom: -80px;
+    left: 65px;
+  }
+}
+
+.details-rectangle-4 {
+  top: 60px;
+  left: -60px;
+  width: 390px;
+  height: 300px;
+  background-color: $color-accent-primary;
+  border-bottom-left-radius: 120px;
+
+  @include lg-down {
+    top: 45px;
+    left: 50px;
+    width: 300px;
+  }
+
+  @include md-down {
+    top: 55px;
+    right: 120px;
+    bottom: -50px;
+    left: -50px;
+    width: initial;
+    height: initial;
+  }
+
+  @include sm-down {
+    top: 45px;
+    right: 65px;
+    bottom: -40px;
+    left: -50px;
+  }
+}
+
 .bullets-wrapper {
-  display: flex;
   display: none;
   justify-content: center;
 
-  @include sm-down {
+  @include md-down {
     display: flex;
   }
 }
@@ -204,9 +416,13 @@
   width: 1788px;
   transform: translateY(19px) translateX(-50%);
 
+  @include lg-down {
+    width: 1200px;
+    transform: translateY(13px) translateX(-50%);
+  }
+
   @include md-down {
     left: 0;
-    width: 1200px;
     margin-left: -10px;
     transform: translateY(13px);
   }

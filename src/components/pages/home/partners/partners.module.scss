@@ -302,7 +302,7 @@
     width: 40px;
   }
 
-  @include sm-down {
+  @include md-down {
     width: 35px;
     margin-bottom: 25px;
   }

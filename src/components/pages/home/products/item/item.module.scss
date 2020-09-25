@@ -14,8 +14,6 @@
 
   @include md-down {
     display: none;
-    width: 100%;
-    max-width: 460px;
     margin-bottom: 0;
   }
 
@@ -104,6 +102,10 @@
     content: '';
     opacity: 0;
     transition: opacity $transition-base;
+
+    @include sm-down {
+      display: none;
+    }
   }
 
   @include lg-down {

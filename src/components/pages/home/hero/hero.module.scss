@@ -64,7 +64,7 @@
 }
 
 .button {
-  @include md-down {
+  @include sm-down {
     margin-bottom: 55px;
   }
 }
@@ -131,9 +131,9 @@
 
 .illustration-wrapper {
   position: absolute;
-  top: -90px;
-  right: -85px;
-  width: 700px;
+  top: -70px;
+  right: -205px;
+  width: 830px;
 
   @include lg-down {
     top: -70px;

@@ -81,6 +81,17 @@
   }
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+
+  @include md-down {
+    display: block;
+  }
+}
+
 .title {
   margin-bottom: 15px;
 }
