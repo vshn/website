@@ -38,7 +38,7 @@ const AuthorInfo = ({ name, links, description }) => {
             <ul className={cx('links-wrapper')}>
               {links.map(({ label, path }, index) => (
                 <li className={cx('link-wrapper')} key={index}>
-                  <Link className={cx('link')} to={path}>{label}</Link>
+                  <Link to={path}>{label}</Link>
                 </li>
               ))}
             </ul>

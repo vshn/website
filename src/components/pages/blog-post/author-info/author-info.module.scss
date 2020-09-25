@@ -45,6 +45,8 @@
   position: relative;
   margin-right: 34px;
 
+  @include with-link-secondary;
+
   &::after {
     position: absolute;
     top: 50%;
@@ -63,16 +65,6 @@
     &::after {
       display: none;
     }
-  }
-}
-
-.link {
-  color: $color-accent-primary;
-  text-decoration: none;
-  transition: color $transition-base;
-
-  &:hover {
-    color: $color-quaternary;
   }
 }
 

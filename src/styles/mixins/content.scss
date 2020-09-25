@@ -2,6 +2,8 @@
   font-size: 18px;
   line-height: 1.6;
 
+  @include with-link-secondary;
+
   > * {
     margin-top: 0;
     margin-right: 0;
@@ -82,16 +84,6 @@
         background-color: $color-accent-primary;
         border-radius: 50%;
       }
-    }
-  }
-
-  a {
-    color: $color-accent-primary;
-    text-decoration: none;
-    transition: color $transition-base;
-
-    &:hover {
-      color: $color-quaternary;
     }
   }
 

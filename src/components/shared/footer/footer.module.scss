@@ -127,7 +127,8 @@
 
 .sub-menu-item {
   margin-bottom: 15px;
-  font-size: 0;
+
+  @include with-link-primary;
 
   &:last-child {
     margin-bottom: 0;
@@ -136,15 +137,6 @@
 
 .sub-menu-link {
   display: block;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $color-primary;
-  text-decoration: none;
-  transition: $transition-base;
-
-  &:hover {
-    color: $color-accent-primary;
-  }
 }
 
 .design {
@@ -153,15 +145,7 @@
   margin-bottom: 0;
   color: $color-quaternary;
 
-  a {
-    color: $color-primary;
-    text-decoration: none;
-    transition: $transition-base;
-
-    &:hover {
-      color: $color-accent-primary;
-    }
-  }
+  @include with-link-primary;
 }
 
 .address {
