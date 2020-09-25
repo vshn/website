@@ -52,7 +52,7 @@
   height: 40px;
   background: $color-quaternary;
   border-radius: 100px;
-  transition: $transition-base;
+  transition: background-color $transition-base;
 
   &:hover {
     background-color: $color-accent-primary;

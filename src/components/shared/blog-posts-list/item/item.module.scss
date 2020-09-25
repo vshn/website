@@ -3,12 +3,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  background-image: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;
-  transition: $transition-base;
+  transition: background-image $transition-base;
 
   &:hover {
-    background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
 
     .read-more {
       color: $color-accent-primary;
@@ -56,7 +56,7 @@
   font-size: $font-size-xs;
   font-weight: 700;
   line-height: $line-height-xs;
-  background-color: #dfe2ec;
+  background-color: $color-additional-2;
   border-radius: 2px;
 
   &:nth-of-type(odd) {
@@ -84,7 +84,7 @@
   margin-top: auto;
   font-weight: 700;
   text-align: center;
-  transition: $transition-base;
+  transition: color $transition-base;
 
   &::before {
     position: absolute;
@@ -93,6 +93,6 @@
     left: 0;
     height: 1px;
     content: '';
-    background: linear-gradient(90deg, rgba(#dfe2ec, 0) 0%, #dfe2ec 50%, rgba(#dfe2ec, 0) 100%);
+    background: linear-gradient(90deg, rgba($color-additional-2, 0) 0%, $color-additional-2 50%, rgba($color-additional-2, 0) 100%);
   }
 }

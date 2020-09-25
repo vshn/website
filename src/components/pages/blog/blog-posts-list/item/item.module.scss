@@ -1,0 +1,54 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  color: $color-secondary;
+  border-bottom: 1px solid $color-additional-2;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.date {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: 70px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-right: 40px;
+  color: $color-primary;
+  text-align: center;
+  background-color: $color-additional-1;
+  border-radius: 5px;
+  border-bottom-right-radius: 30px;
+}
+
+.day {
+  display: block;
+  font-size: $font-size-lg;
+  font-weight: 900;
+  line-height: $line-height-lg;
+}
+
+.month {
+  font-weight: 700;
+}
+
+.title {
+  display: -webkit-box;
+  margin-bottom: 15px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text {
+  display: -webkit-box;
+  margin-top: 0;
+  margin-bottom: 30px;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
