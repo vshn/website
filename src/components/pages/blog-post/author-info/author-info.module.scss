@@ -6,6 +6,10 @@
   @include md-down {
     max-width: 770px;
   }
+
+  @include sm-down {
+    max-width: 700px;
+  }
 }
 
 .items-wrapper {
@@ -20,6 +24,14 @@
   margin-left: auto;
   background-color: $color-additional-1;
   border-radius: 8px;
+
+  @include sm-down {
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    margin-right: 0;
+  }
 }
 
 .image {
@@ -28,11 +40,19 @@
   margin-right: 30px;
   border-radius: 50%;
   box-shadow: 0 5px 10px rgba($color-primary, 0.25);
+
+  @include sm-down {
+    margin-right: 15px;
+  }
 }
 
 .content {
   font-size: 18px;
   line-height: 1.6;
+
+  @include sm-down {
+    font-size: $font-size-sm;
+  }
 }
 
 .name {
@@ -40,6 +60,10 @@
 
   @include md-down {
     font-size: 24px;
+  }
+
+  @include sm-down {
+    font-size: 22px;
   }
 }
 

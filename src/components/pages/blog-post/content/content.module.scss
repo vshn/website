@@ -2,6 +2,10 @@
   @include md-down {
     max-width: 770px;
   }
+
+  @include sm-down {
+    max-width: 700px;
+  }
 }
 
 .content {
@@ -14,5 +18,9 @@
 
   @include md-down {
     margin-bottom: 50px;
+  }
+
+  @include sm-down {
+    margin-bottom: 40px;
   }
 }

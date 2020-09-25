@@ -2,6 +2,10 @@
   font-size: 18px;
   line-height: 1.6;
 
+  @include sm-down {
+    font-size: $font-size-sm;
+  }
+
   @include with-link-secondary;
 
   > * {
@@ -43,6 +47,10 @@
     @include md-down {
       margin-top: 50px;
     }
+
+    @include sm-down {
+      margin-top: 40px;
+    }
   }
 
   > h1 {
@@ -55,6 +63,10 @@
     @include md-down {
       font-size: 35px;
     }
+
+    @include sm-down {
+      font-size: 30px;
+    }
   }
 
   > h3 {
@@ -63,6 +75,10 @@
     @include md-down {
       font-size: 24px;
     }
+
+    @include sm-down {
+      font-size: 22px;
+    }
   }
 
   > ul,
@@ -70,6 +86,11 @@
     padding-left: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
+
+    @include sm-down {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
 
     li {
       margin-bottom: 10px;
@@ -116,6 +137,15 @@
       margin-left: -80px;
     }
 
+    @include sm-down {
+      padding-top: 37px;
+      padding-bottom: 25px;
+      margin-top: 37px;
+      margin-right: 0;
+      margin-bottom: 40px;
+      margin-left: 0;
+    }
+
     &::before {
       position: absolute;
       top: -20px;
@@ -131,6 +161,11 @@
         height: 32px;
         background-size: contain;
       }
+
+      @include sm-down {
+        width: 35px;
+        height: 28px;
+      }
     }
 
     &::after {
@@ -145,6 +180,11 @@
       @include md-down {
         width: 860px;
       }
+
+      @include sm-down {
+        top: -4px;
+        width: 640px;
+      }
     }
 
     p {
@@ -152,6 +192,10 @@
       margin-bottom: 10px;
       font-size: 22px;
       font-style: italic;
+
+      @include sm-down {
+        font-size: $font-size-md;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -202,6 +246,12 @@
           margin-right: -79px;
           margin-left: -79px;
         }
+
+        @include sm-down {
+          margin-right: 0;
+          margin-bottom: 10px;
+          margin-left: 0;
+        }
       }
 
       figcaption {
@@ -209,6 +259,11 @@
         line-height: $font-size-sm;
         color: $color-secondary;
         text-align: center;
+
+        @include sm-down {
+          font-size: $font-size-xs;
+          line-height: $line-height-sm;
+        }
       }
     }
   }
