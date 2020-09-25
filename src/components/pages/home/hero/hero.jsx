@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
@@ -17,8 +18,10 @@ import styles from './hero.module.scss';
 const cx = classNames.bind(styles);
 
 const Hero = ({ title, description, buttonText, buttonUrl }) => {
-  const [isInitialAnimationReady, setInitialAnimationReady] = useState(false);
-  const [isLoopAnimationReady, setLoopAnimationReady] = useState(false);
+  const [animationPlayRef, isAnimationPlaying] = useInView();
+
+  const [isInitialAnimationReady, setIsInitialAnimationReady] = useState(false);
+  const [isLoopedAnimationReady, setIsLoopAnimationReady] = useState(false);
 
   const [isInitialAnimationFinished, setIsInitialAnimationFinished] = useState(false);
 
@@ -26,7 +29,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
     { animationData: initialAnimationData },
     {
       loaded_images() {
-        setInitialAnimationReady(true);
+        setIsInitialAnimationReady(true);
       },
       complete() {
         setIsInitialAnimationFinished(true);
@@ -41,7 +44,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
     },
     {
       loaded_images() {
-        setLoopAnimationReady(true);
+        setIsLoopAnimationReady(true);
       },
     },
   );
@@ -52,16 +55,21 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
         initialAnimation.play();
       }
 
-      if (loopedAnimation && isLoopAnimationReady && isInitialAnimationFinished) {
-        loopedAnimation.play();
+      if (loopedAnimation && isLoopedAnimationReady && isInitialAnimationFinished) {
+        if (isAnimationPlaying) {
+          loopedAnimation.play();
+        } else {
+          loopedAnimation.pause();
+        }
       }
     },
     [
       initialAnimation,
       isInitialAnimationReady,
       loopedAnimation,
-      isLoopAnimationReady,
+      isLoopedAnimationReady,
       isInitialAnimationFinished,
+      isAnimationPlaying,
     ],
   );
 
@@ -75,14 +83,14 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
         <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
         <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
 
-        <div className={cx('illustration-wrapper')} aria-hidden>
+        <div className={cx('illustration-wrapper')} aria-hidden ref={animationPlayRef}>
           <img className={cx('illustration-shape')} src={shape1} alt="" />
           <div
             className={cx('illustration', { visible: !isInitialAnimationFinished && isInitialAnimationReady })}
             ref={initialAnimationContainerRef}
           />
           <div
-            className={cx('illustration', 'looped', { visible: isInitialAnimationFinished && isLoopAnimationReady })}
+            className={cx('illustration', 'looped', { visible: isInitialAnimationFinished && isLoopedAnimationReady })}
             ref={loopedAnimationContainerRef}
           />
         </div>
