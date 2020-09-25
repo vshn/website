@@ -35,7 +35,7 @@ const Content = () => {
             !
           </p>
           <figure className="wp-block-image">
-            <GatsbyImage className={cx('image')} fluid={image} />
+            <GatsbyImage fluid={image} />
             <figcaption>Working with ModSecurity rules</figcaption>
           </figure>
           <p>
