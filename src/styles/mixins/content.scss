@@ -1,0 +1,180 @@
+@mixin content {
+  font-size: 18px;
+  line-height: 1.6;
+
+  @include with-link-secondary;
+
+  > * {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+    margin-left: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    font-weight: 900;
+    line-height: $line-height-lg;
+  }
+
+  > h4,
+  > h5,
+  > h6 {
+    margin-top: 30px;
+  }
+
+  > h1,
+  > h2,
+  > h3 {
+    margin-top: 60px;
+  }
+
+  > h1 {
+    font-size: $font-size-xl;
+  }
+
+  > h2 {
+    font-size: 40px;
+  }
+
+  > h3 {
+    font-size: $font-size-lg;
+  }
+
+  > ul,
+  > ol {
+    padding-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    li {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  > ul {
+    li {
+      position: relative;
+      padding-left: 16px;
+      list-style-type: none;
+
+      &::before {
+        position: absolute;
+        top: 9px;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        content: '';
+        background-color: $color-accent-primary;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  > blockquote {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin-top: 50px;
+    margin-right: -110px;
+    margin-bottom: 60px;
+    margin-left: -110px;
+    border-bottom: 4px solid $color-primary;
+
+    &::before {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 50px;
+      height: 40px;
+      content: '';
+      background-image: url(./images/quote.svg);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 990px;
+      height: 4px;
+      content: '';
+      background-color: $color-primary;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-style: italic;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    cite {
+      display: block;
+      margin-top: 15px;
+      font-style: normal;
+      color: $color-secondary;
+
+      &::before {
+        content: '– ';
+      }
+    }
+  }
+
+  code {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-family: $font-family-primary;
+    color: #fb687f;
+    background-color: $color-additional-1;
+    border-radius: 2px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  :global {
+    .wp-block-image {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      .gatsby-image-wrapper {
+        margin-right: -110px;
+        margin-bottom: 15px;
+        margin-left: -110px;
+        border: 1px solid $color-additional-2;
+        border-radius: 4px;
+      }
+
+      figcaption {
+        font-size: $font-size-sm;
+        line-height: $font-size-sm;
+        color: $color-secondary;
+        text-align: center;
+      }
+    }
+  }
+}

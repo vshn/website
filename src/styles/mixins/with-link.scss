@@ -1,0 +1,23 @@
+@mixin with-link-primary {
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-accent-primary;
+    }
+  }
+}
+
+@mixin with-link-secondary {
+  a {
+    color: $color-accent-primary;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-quaternary;
+    }
+  }
+}
