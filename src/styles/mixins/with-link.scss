@@ -14,6 +14,7 @@
   a {
     color: $color-accent-primary;
     text-decoration: none;
+    word-break: break-word;
     transition: color $transition-base;
 
     &:hover {

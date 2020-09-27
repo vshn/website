@@ -8,9 +8,9 @@ import Footer from 'components/shared/footer';
 const MainLayout = ({ seo, children }) => (
   <>
     <SEO {...seo} />
-    <Header />
+    {/* <Header /> */}
     <main>{children}</main>
-    <Footer />
+    {/* <Footer /> */}
   </>
 );
 

@@ -9,6 +9,13 @@
 
   @include sm-down {
     max-width: 700px;
+    margin-right: 34px;
+    margin-left: 34px;
+  }
+
+  @include xs-down {
+    margin-right: 15px;
+    margin-left: 15px;
   }
 }
 
@@ -32,6 +39,12 @@
     padding-left: 25px;
     margin-right: 0;
   }
+
+  @include xs-down {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .image {
@@ -43,6 +56,11 @@
 
   @include sm-down {
     margin-right: 15px;
+  }
+
+  @include xs-down {
+    margin-right: 0;
+    margin-bottom: 15px;
   }
 }
 
@@ -69,15 +87,25 @@
 
 .links-wrapper {
   display: flex;
+  flex-wrap: wrap;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 5px;
   list-style-type: none;
+
+  @include xs-down {
+    justify-content: center;
+  }
 }
 
 .link-wrapper {
   position: relative;
   margin-right: 34px;
+
+  @include xs-down {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 
   @include with-link-secondary;
 
@@ -91,6 +119,10 @@
     background-color: $color-quaternary;
     border-radius: 50%;
     transform: translateY(-50%);
+
+    @include xs-down {
+      display: none;
+    }
   }
 
   &:last-child {

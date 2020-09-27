@@ -12,6 +12,10 @@
     margin-top: 74px;
     margin-bottom: 70px;
   }
+
+  @include xs-down {
+    margin-bottom: 60px;
+  }
 }
 
 .inner {
@@ -26,6 +30,13 @@
   @include sm-down {
     padding-top: 40px;
     padding-bottom: 74px;
+  }
+
+  @include xs-down {
+    padding-top: 40px;
+    padding-right: 15px;
+    padding-bottom: 62px;
+    padding-left: 15px;
   }
 }
 
@@ -81,6 +92,10 @@
   @include sm-down {
     max-width: 580px;
     font-size: 35px;
+  }
+
+  @include xs-down {
+    font-size: 30px;
   }
 }
 

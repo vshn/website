@@ -67,6 +67,10 @@
     @include sm-down {
       font-size: 30px;
     }
+
+    @include xs-down {
+      font-size: 26px;
+    }
   }
 
   > h3 {
@@ -90,6 +94,10 @@
     @include sm-down {
       margin-top: 25px;
       margin-bottom: 25px;
+    }
+
+    @include xs-down {
+      padding-left: 20px;
     }
 
     li {
@@ -130,11 +138,14 @@
     margin-left: -110px;
     border-bottom: 4px solid $color-primary;
 
+    @include lg-down {
+      margin-right: -80px;
+      margin-left: -80px;
+    }
+
     @include md-down {
       margin-top: 44px;
-      margin-right: -80px;
       margin-bottom: 50px;
-      margin-left: -80px;
     }
 
     @include sm-down {
@@ -172,18 +183,22 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 990px;
+      width: calc(100% - 70px);
       height: 4px;
       content: '';
       background-color: $color-primary;
 
       @include md-down {
-        width: 860px;
+        width: calc(100% - 62px);
       }
 
       @include sm-down {
         top: -4px;
-        width: 640px;
+        width: calc(100% - 53px);
+      }
+
+      @include xs-down {
+        width: calc(100% - 50px);
       }
     }
 
@@ -234,6 +249,11 @@
     .wp-block-image {
       margin-top: 30px;
       margin-bottom: 30px;
+
+      @include sm-down {
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
 
       .gatsby-image-wrapper {
         margin-right: -110px;
