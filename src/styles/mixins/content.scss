@@ -2,11 +2,11 @@
   font-size: 18px;
   line-height: 1.6;
 
+  @include with-link-secondary;
+
   @include sm-down {
     font-size: $font-size-sm;
   }
-
-  @include with-link-secondary;
 
   > * {
     margin-top: 0;
