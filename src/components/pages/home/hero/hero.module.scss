@@ -129,7 +129,7 @@
   }
 }
 
-.illustration-wrapper {
+.animation-wrapper {
   position: absolute;
   top: -70px;
   right: -205px;
@@ -166,7 +166,7 @@
   }
 }
 
-.illustration-shape {
+.animation-shape {
   display: none;
 
   @include sm-down {
@@ -179,21 +179,6 @@
   }
 }
 
-.illustration {
-  visibility: hidden;
-  opacity: 0;
-  transition-duration: $transition-base;
-  transition-property: opacity visibility;
-
-  &.visible {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  &.looped {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: none;
-  }
+.hidden {
+  display: none;
 }
