@@ -7,6 +7,10 @@
   height: $header-height;
 
   @include section-paddings;
+
+  @include md-down {
+    height: $header-height-md;
+  }
 }
 
 .section {
@@ -17,8 +21,19 @@
   padding-top: 20px;
   padding-bottom: 20px;
 
+  @include md-down {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
   &:first-child {
     border-bottom: 1px solid $color-additional-1;
+  }
+}
+
+.top-section {
+  @include md-down {
+    display: none;
   }
 }
 
@@ -28,49 +43,54 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+}
 
-  li {
-    position: relative;
-    margin-right: 34px;
-    font-size: $font-size-xs;
-    line-height: $line-height-xs;
-    color: $color-quaternary;
+.list-item {
+  position: relative;
+  margin-right: 34px;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+  color: $color-quaternary;
 
-    @include with-link-primary;
+  @include with-link-primary;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: -19px;
+    width: 4px;
+    height: 4px;
+    content: '';
+    background-color: #dfe2ec;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:last-child {
+    margin-right: 0;
 
     &::after {
-      position: absolute;
-      top: 50%;
-      right: -19px;
-      width: 4px;
-      height: 4px;
-      content: '';
-      background-color: $color-additional-2;
-      border-radius: 50%;
-      transform: translateY(-50%);
+      display: none;
     }
+  }
+}
 
-    &:last-child {
-      margin-right: 0;
+.list-link {
+  display: block;
 
-      &::after {
-        display: none;
-      }
-    }
-
-    a {
-      display: block;
-
-      &.active {
-        color: inherit;
-        pointer-events: none;
-      }
-    }
+  &.active {
+    color: inherit;
+    pointer-events: none;
   }
 }
 
 .logo {
   display: block;
+
+  @include md-down {
+    width: 89px;
+    height: 24px;
+  }
 }
 
 .nav {
@@ -85,6 +105,10 @@
   margin-right: 60px;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .menu-item {
@@ -101,4 +125,55 @@
   display: block;
   font-size: $font-size-xs;
   line-height: $line-height-xs;
+}
+
+.button {
+  @include md-down {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 35px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  margin-top: -5px;
+  margin-right: -5px;
+  margin-bottom: -5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  @include md-down {
+    display: flex;
+  }
+
+  @include hover {
+    .burger-line {
+      background-color: $color-accent-primary;
+    }
+  }
+}
+
+.burger-line {
+  width: 25px;
+  height: 4px;
+  background-color: $color-primary;
+  border-radius: 2px;
+  transition: $transition-base background-color;
+
+  &:nth-child(odd) {
+    width: 12.5px;
+  }
+
+  &:last-child {
+    margin-left: auto;
+  }
 }

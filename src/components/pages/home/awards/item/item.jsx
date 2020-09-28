@@ -43,13 +43,15 @@ const confetti = [
   ['circle', 'xs'],
 ];
 
-const Item = ({ icon: Icon, title, description, url }) => (
+const Item = ({ image, title, description, url }) => (
   <li className={cx('wrapper')}>
     <Link className={cx('inner')} to={url}>
-      <Icon className={cx('icon')} aria-hidden />
-      <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
-      <p className={cx('description')}>{description}</p>
-      <span className={cx('read-more')}>Read more</span>
+      <img className={cx('image')} src={image} alt="" aria-hidden />
+      <div className={cx('content')}>
+        <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
+        <p className={cx('description')}>{description}</p>
+        <span className={cx('read-more')}>Read more</span>
+      </div>
     </Link>
 
     {confetti.map((confettoClasses, index) => (
@@ -59,7 +61,7 @@ const Item = ({ icon: Icon, title, description, url }) => (
 );
 
 Item.propTypes = {
-  icon: PropTypes.elementType.isRequired,
+  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,

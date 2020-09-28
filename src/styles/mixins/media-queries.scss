@@ -20,7 +20,7 @@
 }
 
 @mixin xs-down {
-  // 414.98 - 320
+  // 413.98 - 320
   @media only screen and (max-width: $breakpoint-xs-down) {
     @content;
   }
