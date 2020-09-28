@@ -104,10 +104,6 @@
       padding-left: 20px;
     }
 
-    @include xs-down {
-      padding-left: 0;
-    }
-
     li {
       margin-bottom: 10px;
 
@@ -118,6 +114,10 @@
   }
 
   > ul {
+    @include xs-down {
+      padding-left: 0;
+    }
+
     li {
       position: relative;
       padding-left: 16px;
@@ -133,6 +133,12 @@
         background-color: $color-accent-primary;
         border-radius: 50%;
       }
+    }
+  }
+
+  > ol {
+    @include xs-down {
+      padding-left: 15px;
     }
   }
 
