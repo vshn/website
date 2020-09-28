@@ -1,10 +1,15 @@
 .wrapper {
-  position: relative;
   display: flex;
   padding-bottom: 60px;
   margin-bottom: 60px;
   color: $color-secondary;
   border-bottom: 1px solid $color-additional-2;
+
+  @include lg-down {
+    flex-direction: column;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+  }
 
   &:last-of-type {
     margin-bottom: 0;
@@ -23,6 +28,13 @@
   background-color: $color-additional-1;
   border-radius: 5px;
   border-bottom-right-radius: 30px;
+
+  @include lg-down {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    background-color: $color-tertiary;
+  }
 }
 
 .day {
@@ -30,10 +42,19 @@
   font-size: $font-size-lg;
   font-weight: 900;
   line-height: $line-height-lg;
+
+  @include lg-down {
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .month {
   font-weight: 700;
+
+  @include lg-down {
+    font-size: 14px;
+  }
 }
 
 .title {

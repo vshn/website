@@ -1,5 +1,9 @@
 .wrapper {
   margin-bottom: 90px;
+
+  @include lg-down {
+    margin-bottom: 75px;
+  }
 }
 
 .inner {
@@ -20,6 +24,11 @@
   color: $color-primary;
   text-decoration: none;
   transition: color $transition-base;
+
+  @include lg-down {
+    margin-right: 48px;
+    overflow-x: auto;
+  }
 
   &:hover {
     color: $color-accent-primary;

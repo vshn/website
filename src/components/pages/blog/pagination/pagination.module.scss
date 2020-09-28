@@ -1,10 +1,18 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
 }
 
 .items-wrapper {
   display: flex;
   max-width: 850px;
+
+  @include lg-down {
+    max-width: 610px;
+  }
 }
 
 .item {
