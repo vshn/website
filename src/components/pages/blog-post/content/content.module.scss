@@ -1,16 +1,5 @@
-.inner {
-  @include lg-down {
-    max-width: 770px;
-  }
-
-  @include md-down {
-    max-width: 700px;
-  }
-
-  @include sm-down {
-    margin-right: 15px;
-    margin-left: 15px;
-  }
+.wrapper {
+  @include section-paddings;
 }
 
 .content {
@@ -22,10 +11,12 @@
   @include content;
 
   @include lg-down {
+    max-width: 770px;
     margin-bottom: 50px;
   }
 
   @include md-down {
+    max-width: 700px;
     margin-bottom: 40px;
   }
 }

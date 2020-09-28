@@ -1,6 +1,8 @@
 .wrapper {
   margin-bottom: 120px;
 
+  @include section-paddings;
+
   @include lg-down {
     margin-bottom: 90px;
   }
@@ -8,20 +10,9 @@
   @include md-down {
     margin-bottom: 75px;
   }
-}
-
-.inner {
-  @include lg-down {
-    max-width: 770px;
-  }
-
-  @include md-down {
-    max-width: 700px;
-  }
 
   @include sm-down {
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-bottom: 70px;
   }
 }
 
@@ -38,17 +29,21 @@
   background-color: $color-additional-1;
   border-radius: 8px;
 
+  @include lg-down {
+    max-width: 770px;
+  }
+
   @include md-down {
+    max-width: 700px;
     padding-top: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
     padding-left: 25px;
-    margin-right: 0;
   }
 
   @include sm-down {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 }
@@ -61,12 +56,13 @@
   box-shadow: 0 5px 10px rgba($color-primary, 0.25);
 
   @include md-down {
-    margin-right: 15px;
+    width: 90px;
+    margin-right: 25px;
   }
 
   @include sm-down {
     margin-right: 0;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 }
 

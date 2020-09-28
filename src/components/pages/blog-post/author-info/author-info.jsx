@@ -30,7 +30,7 @@ const AuthorInfo = ({ name, links, description }) => {
 
   return (
     <section className={cx('wrapper')}>
-      <div className={cx('container', 'inner')}>
+      <div className="container">
         <div className={cx('items-wrapper')}>
           <GatsbyImage className={cx('image')} fluid={image} />
           <div className={cx('content')}>
