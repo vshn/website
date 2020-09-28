@@ -1,17 +1,13 @@
 .inner {
-  @include md-down {
+  @include lg-down {
     max-width: 770px;
-    margin-right: 127px;
-    margin-left: 127px;
+  }
+
+  @include md-down {
+    max-width: 700px;
   }
 
   @include sm-down {
-    max-width: 700px;
-    margin-right: 34px;
-    margin-left: 34px;
-  }
-
-  @include xs-down {
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -25,11 +21,11 @@
 
   @include content;
 
-  @include md-down {
+  @include lg-down {
     margin-bottom: 50px;
   }
 
-  @include sm-down {
+  @include md-down {
     margin-bottom: 40px;
   }
 }

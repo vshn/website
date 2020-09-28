@@ -1,19 +1,25 @@
 .wrapper {
   margin-bottom: 120px;
+
+  @include lg-down {
+    margin-bottom: 90px;
+  }
+
+  @include md-down {
+    margin-bottom: 75px;
+  }
 }
 
 .inner {
-  @include md-down {
+  @include lg-down {
     max-width: 770px;
   }
 
-  @include sm-down {
+  @include md-down {
     max-width: 700px;
-    margin-right: 34px;
-    margin-left: 34px;
   }
 
-  @include xs-down {
+  @include sm-down {
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -32,7 +38,7 @@
   background-color: $color-additional-1;
   border-radius: 8px;
 
-  @include sm-down {
+  @include md-down {
     padding-top: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
@@ -40,7 +46,7 @@
     margin-right: 0;
   }
 
-  @include xs-down {
+  @include sm-down {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
@@ -54,11 +60,11 @@
   border-radius: 50%;
   box-shadow: 0 5px 10px rgba($color-primary, 0.25);
 
-  @include sm-down {
+  @include md-down {
     margin-right: 15px;
   }
 
-  @include xs-down {
+  @include sm-down {
     margin-right: 0;
     margin-bottom: 15px;
   }
@@ -68,7 +74,7 @@
   font-size: 18px;
   line-height: 1.6;
 
-  @include sm-down {
+  @include md-down {
     font-size: $font-size-sm;
   }
 }
@@ -76,11 +82,11 @@
 .name {
   margin-bottom: 15px;
 
-  @include md-down {
+  @include lg-down {
     font-size: 24px;
   }
 
-  @include sm-down {
+  @include md-down {
     font-size: 22px;
   }
 }
@@ -93,7 +99,7 @@
   margin-bottom: 5px;
   list-style-type: none;
 
-  @include xs-down {
+  @include sm-down {
     justify-content: center;
   }
 }
@@ -102,9 +108,13 @@
   position: relative;
   margin-right: 34px;
 
+  @include sm-down {
+    margin-right: 25px;
+    margin-bottom: 5px;
+  }
+
   @include xs-down {
     margin-right: 0;
-    margin-bottom: 5px;
   }
 
   @include with-link-secondary;
@@ -120,7 +130,7 @@
     border-radius: 50%;
     transform: translateY(-50%);
 
-    @include xs-down {
+    @include sm-down {
       display: none;
     }
   }

@@ -4,7 +4,7 @@
 
   @include with-link-secondary;
 
-  @include sm-down {
+  @include md-down {
     font-size: $font-size-sm;
   }
 
@@ -44,11 +44,11 @@
   > h3 {
     margin-top: 60px;
 
-    @include md-down {
+    @include lg-down {
       margin-top: 50px;
     }
 
-    @include sm-down {
+    @include md-down {
       margin-top: 40px;
     }
   }
@@ -60,15 +60,15 @@
   > h2 {
     font-size: 40px;
 
-    @include md-down {
+    @include lg-down {
       font-size: 35px;
     }
 
-    @include sm-down {
+    @include md-down {
       font-size: 30px;
     }
 
-    @include xs-down {
+    @include sm-down {
       font-size: 26px;
     }
   }
@@ -76,11 +76,11 @@
   > h3 {
     font-size: $font-size-lg;
 
-    @include md-down {
+    @include lg-down {
       font-size: 24px;
     }
 
-    @include sm-down {
+    @include md-down {
       font-size: 22px;
     }
   }
@@ -91,12 +91,12 @@
     margin-top: 30px;
     margin-bottom: 30px;
 
-    @include sm-down {
+    @include md-down {
       margin-top: 25px;
       margin-bottom: 25px;
     }
 
-    @include xs-down {
+    @include sm-down {
       padding-left: 20px;
     }
 
@@ -139,16 +139,13 @@
     border-bottom: 4px solid $color-primary;
 
     @include lg-down {
+      margin-top: 44px;
       margin-right: -80px;
+      margin-bottom: 50px;
       margin-left: -80px;
     }
 
     @include md-down {
-      margin-top: 44px;
-      margin-bottom: 50px;
-    }
-
-    @include sm-down {
       padding-top: 37px;
       padding-bottom: 25px;
       margin-top: 37px;
@@ -166,14 +163,14 @@
       content: '';
       background-image: url(./images/quote.svg);
 
-      @include md-down {
+      @include lg-down {
         top: -15px;
         width: 40px;
         height: 32px;
         background-size: contain;
       }
 
-      @include sm-down {
+      @include md-down {
         width: 35px;
         height: 28px;
       }
@@ -189,11 +186,11 @@
       background-color: $color-primary;
 
       @include md-down {
+        top: -4px;
         width: calc(100% - 62px);
       }
 
       @include sm-down {
-        top: -4px;
         width: calc(100% - 53px);
       }
 
@@ -208,7 +205,7 @@
       font-size: 22px;
       font-style: italic;
 
-      @include sm-down {
+      @include md-down {
         font-size: $font-size-md;
       }
 
@@ -250,7 +247,7 @@
       margin-top: 30px;
       margin-bottom: 30px;
 
-      @include sm-down {
+      @include md-down {
         margin-top: 25px;
         margin-bottom: 25px;
       }
@@ -262,12 +259,12 @@
         border: 1px solid $color-additional-2;
         border-radius: 4px;
 
-        @include md-down {
+        @include lg-down {
           margin-right: -79px;
           margin-left: -79px;
         }
 
-        @include sm-down {
+        @include md-down {
           margin-right: 0;
           margin-bottom: 10px;
           margin-left: 0;
@@ -280,7 +277,7 @@
         color: $color-secondary;
         text-align: center;
 
-        @include sm-down {
+        @include md-down {
           font-size: $font-size-xs;
           line-height: $line-height-sm;
         }
