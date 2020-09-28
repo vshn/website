@@ -44,11 +44,11 @@ const BlogPostsList = ({ className, title, items, shape }) => (
           bulletActiveClass: cx('active'),
           clickable: true,
         }}
+        spaceBetween={20}
         breakpoints={{
           768: {
             slidesPerView: 2,
             slidesPerGroup: 2,
-            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 3,
