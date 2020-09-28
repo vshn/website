@@ -134,6 +134,10 @@
   top: -70px;
   right: -205px;
   width: 830px;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 0.75s;
+  transition-property: opacity visibility;
 
   @include lg-down {
     top: -70px;
@@ -154,6 +158,11 @@
     width: 425px;
     margin-right: calc(#{$section-padding} / -1 - 40px);
     margin-left: auto;
+  }
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
