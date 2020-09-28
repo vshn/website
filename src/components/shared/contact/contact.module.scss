@@ -6,6 +6,20 @@
   background-color: $color-additional-1;
 
   @include section-paddings;
+
+  @include lg-down {
+    padding-top: 90px;
+    padding-bottom: 120px;
+  }
+
+  @include md-down {
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+
+  @include sm-down {
+    padding-top: 50px;
+  }
 }
 
 .inner {
@@ -22,6 +36,15 @@
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-secondary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include md-down {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .illustration {
@@ -30,4 +53,19 @@
   left: 50%;
   margin-left: -380px;
   transform: translateX(-50%);
+
+  @include lg-down {
+    bottom: -5px;
+    width: 2260px;
+    margin-left: -310px;
+  }
+
+  @include sm-down {
+    bottom: -10px;
+    margin-left: -375px;
+  }
+
+  @include xs-down {
+    margin-left: -410px;
+  }
 }

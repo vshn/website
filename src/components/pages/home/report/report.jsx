@@ -32,17 +32,18 @@ const Report = ({ title, description, text, buttonText, buttonUrl }) => {
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
-        <div className={cx('illustration')} aria-hidden>
-          <span className={cx('rectangle', 'rectangle-1')} />
-          <span className={cx('rectangle', 'rectangle-2')} />
-          <span className={cx('rectangle', 'rectangle-3')} />
-          <GatsbyImage className={cx('image')} fluid={image} />
-        </div>
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
           <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
           <p className={cx('text')}>{text}</p>
           <Button to={buttonUrl}>{buttonText}</Button>
+        </div>
+
+        <div className={cx('illustration')} aria-hidden>
+          <span className={cx('rectangle', 'rectangle-1')} />
+          <span className={cx('rectangle', 'rectangle-2')} />
+          <span className={cx('rectangle', 'rectangle-3')} />
+          <GatsbyImage className={cx('image')} fluid={image} />
         </div>
 
         <img className={cx('shape')} src={shape} alt="" aria-hidden />

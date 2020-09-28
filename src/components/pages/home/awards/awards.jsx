@@ -5,9 +5,9 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Item from './item';
 
-import ItemIcon1 from './images/item-icon-1.inline.svg';
-import ItemIcon2 from './images/item-icon-2.inline.svg';
-import ItemIcon3 from './images/item-icon-3.inline.svg';
+import itemImage1 from './images/item-image-1.svg';
+import itemImage2 from './images/item-image-2.svg';
+import itemImage3 from './images/item-image-3.svg';
 
 import stripes from './images/stripes.svg';
 
@@ -15,10 +15,10 @@ import styles from './awards.module.scss';
 
 const cx = classNames.bind(styles);
 
-const itemIcons = [
-  ItemIcon1,
-  ItemIcon2,
-  ItemIcon3,
+const itemImages = [
+  itemImage1,
+  itemImage2,
+  itemImage3,
 ];
 
 const Awards = ({ title, description, items }) => (
@@ -35,7 +35,7 @@ const Awards = ({ title, description, items }) => (
       />
 
       <ul className={cx('items-wrapper')}>
-        {items.map((item, index) => <Item icon={itemIcons[index]} {...item} key={index} />)}
+        {items.map((item, index) => <Item image={itemImages[index]} {...item} key={index} />)}
       </ul>
     </div>
 

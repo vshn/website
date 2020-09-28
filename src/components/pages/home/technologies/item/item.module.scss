@@ -1,0 +1,217 @@
+
+.wrapper {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 15px 30px rgba($color-primary, 0.15);
+
+  @include lg-down {
+    height: 390px;
+  }
+
+  @include md-down {
+    height: 295px;
+  }
+
+  &:nth-of-type(1) {
+    margin-top: 70px;
+    border-top-left-radius: 30px;
+
+    @include md-down {
+      margin-top: 50px;
+    }
+
+    .logo-wrapper::before {
+      border-top-right-radius: 20px;
+    }
+  }
+
+  &:nth-of-type(2) {
+    border-top-right-radius: 30px;
+
+    .logo-wrapper::before {
+      border-top-left-radius: 20px;
+    }
+  }
+
+  &:nth-of-type(3) {
+    margin-top: 70px;
+    border-top-right-radius: 30px;
+
+    @include md-down {
+      margin-top: 50px;
+    }
+
+    .logo-wrapper::before {
+      border-top-left-radius: 20px;
+    }
+  }
+
+  &:nth-of-type(4) {
+    margin-top: 140px;
+    border-top-left-radius: 30px;
+
+    @include md-down {
+      margin-top: 100px;
+    }
+
+    .logo-wrapper::before {
+      border-top-right-radius: 20px;
+    }
+  }
+
+  &:nth-of-type(5) {
+    margin-top: 70px;
+    border-top-left-radius: 30px;
+
+    @include md-down {
+      margin-top: 50px;
+    }
+
+    .logo-wrapper::before {
+      border-top-right-radius: 20px;
+    }
+  }
+
+  &:nth-of-type(6) {
+    border-top-right-radius: 30px;
+
+    .logo-wrapper::before {
+      border-top-left-radius: 20px;
+    }
+  }
+
+  &_rancher {
+    background-color: #08c;
+
+    .logo-wrapper {
+      &::before {
+        background-color: $color-primary;
+      }
+    }
+
+    .logo {
+      @include md-down {
+        width: 30px;
+      }
+    }
+  }
+
+  &_kubernates {
+    background-color: #0054ff;
+
+    .logo-wrapper {
+      &::before {
+        background-color: $color-primary;
+      }
+    }
+
+    .logo {
+      @include md-down {
+        width: 30px;
+      }
+    }
+  }
+
+  &_ansible {
+    background-color: $color-primary;
+
+    .logo-wrapper {
+      &::before {
+        background-color: $color-tertiary;
+      }
+    }
+
+    .logo {
+      @include md-down {
+        width: 20px;
+      }
+    }
+  }
+
+  &_openshift {
+    background-color: #df2030;
+
+    .logo {
+      @include md-down {
+        width: 28px;
+      }
+    }
+  }
+
+  &_docker {
+    background-color: $color-accent-primary;
+
+    .logo {
+      @include md-down {
+        width: 32px;
+      }
+    }
+  }
+
+  &_puppet {
+    background-color: #ffbf00;
+
+    .name {
+      color: $color-primary;
+    }
+
+    .logo-wrapper {
+      &::before {
+        background-color: $color-tertiary;
+        opacity: 0.25;
+      }
+    }
+
+    .logo {
+      @include md-down {
+        width: 20px;
+      }
+    }
+  }
+}
+
+.name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: $font-size-md;
+  font-weight: 700;
+  line-height: $line-height-md;
+  color: $color-tertiary;
+  transform: translate(-50%, -50%) rotate(-90deg);
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include md-down {
+    font-size: 16px;
+  }
+}
+
+.logo-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 100%;
+
+  &::before {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: $color-primary;
+    opacity: 0.1;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
