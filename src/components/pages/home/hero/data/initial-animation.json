@@ -2,17 +2,17 @@
   "v": "5.6.10",
   "fr": 30,
   "ip": 0,
-  "op": 360,
-  "w": 1400,
-  "h": 1680,
-  "nm": "vshn illustration-final_layer_ren",
+  "op": 361,
+  "w": 830,
+  "h": 800,
+  "nm": "vshn illustration-final_layer_ren_800x830",
   "ddd": 0,
   "assets": [
     {
       "id": "image_0",
       "w": 833,
       "h": 562,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_0.png",
       "e": 0
     },
@@ -20,7 +20,7 @@
       "id": "image_1",
       "w": 32,
       "h": 85,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_1.png",
       "e": 0
     },
@@ -28,7 +28,7 @@
       "id": "image_2",
       "w": 35,
       "h": 17,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_2.png",
       "e": 0
     },
@@ -36,7 +36,7 @@
       "id": "image_3",
       "w": 35,
       "h": 17,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_3.png",
       "e": 0
     },
@@ -44,7 +44,7 @@
       "id": "image_4",
       "w": 54,
       "h": 44,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_4.png",
       "e": 0
     },
@@ -52,7 +52,7 @@
       "id": "image_5",
       "w": 34,
       "h": 82,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_5.png",
       "e": 0
     },
@@ -60,7 +60,7 @@
       "id": "image_6",
       "w": 35,
       "h": 21,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_6.png",
       "e": 0
     },
@@ -68,7 +68,7 @@
       "id": "image_7",
       "w": 21,
       "h": 49,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_7.png",
       "e": 0
     },
@@ -76,7 +76,7 @@
       "id": "image_8",
       "w": 37,
       "h": 89,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_8.png",
       "e": 0
     },
@@ -84,7 +84,7 @@
       "id": "image_9",
       "w": 41,
       "h": 90,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_9.png",
       "e": 0
     },
@@ -92,7 +92,7 @@
       "id": "image_10",
       "w": 27,
       "h": 21,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_10.png",
       "e": 0
     },
@@ -100,7 +100,7 @@
       "id": "image_11",
       "w": 155,
       "h": 46,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_11.png",
       "e": 0
     },
@@ -108,7 +108,7 @@
       "id": "image_12",
       "w": 28,
       "h": 41,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_12.png",
       "e": 0
     },
@@ -116,7 +116,7 @@
       "id": "image_13",
       "w": 104,
       "h": 141,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_13.png",
       "e": 0
     },
@@ -124,7 +124,7 @@
       "id": "image_14",
       "w": 36,
       "h": 81,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_14.png",
       "e": 0
     },
@@ -132,7 +132,7 @@
       "id": "image_15",
       "w": 72,
       "h": 63,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_15.png",
       "e": 0
     },
@@ -140,7 +140,7 @@
       "id": "image_16",
       "w": 45,
       "h": 98,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_16.png",
       "e": 0
     },
@@ -148,7 +148,7 @@
       "id": "image_17",
       "w": 59,
       "h": 67,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_17.png",
       "e": 0
     },
@@ -156,7 +156,7 @@
       "id": "image_18",
       "w": 35,
       "h": 32,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_18.png",
       "e": 0
     },
@@ -164,7 +164,7 @@
       "id": "image_19",
       "w": 69,
       "h": 23,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_19.png",
       "e": 0
     },
@@ -172,7 +172,7 @@
       "id": "image_20",
       "w": 65,
       "h": 53,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_20.png",
       "e": 0
     },
@@ -180,7 +180,7 @@
       "id": "image_21",
       "w": 447,
       "h": 153,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_21.png",
       "e": 0
     },
@@ -188,7 +188,7 @@
       "id": "image_22",
       "w": 623,
       "h": 282,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_22.png",
       "e": 0
     },
@@ -196,16 +196,8 @@
       "id": "image_23",
       "w": 104,
       "h": 112,
-      "u": "animations/pages/home/hero/",
+      "u": "/animations/pages/home/hero/",
       "p": "img_23.png",
-      "e": 0
-    },
-    {
-      "id": "image_24",
-      "w": 623,
-      "h": 112,
-      "u": "animations/pages/home/hero/",
-      "p": "img_24.png",
       "e": 0
     },
     {
@@ -26386,17 +26378,60 @@
   "layers": [
     {
       "ddd": 0,
-      "ind": 1,
+      "ind": 2,
+      "ty": 3,
+      "nm": "NULL CONTROL",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 0,
+          "k": 0
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            171.713,
+            459.86,
+            0
+          ]
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            60,
+            60,
+            0
+          ]
+        },
+        "s": {
+          "a": 0,
+          "k": [
+            87.4,
+            87.4,
+            100
+          ]
+        }
+      },
+      "ao": 0,
+      "ip": 0,
+      "op": 4500,
+      "st": 0,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 3,
       "ty": 2,
       "nm": "Layer 40",
+      "parent": 2,
       "refId": "image_0",
       "sr": 1,
       "ks": {
         "p": {
           "a": 0,
           "k": [
-            810.485,
-            603.101,
+            338.421,
+            -145.681,
             0
           ]
         },
@@ -26411,8 +26446,8 @@
         "s": {
           "a": 0,
           "k": [
-            200,
-            200,
+            114.286,
+            114.286,
             100
           ]
         }
@@ -26488,16 +26523,16 @@
               ],
               "v": [
                 [
-                  486.98,
-                  -10.689
+                  815.355,
+                  -10.806
                 ],
                 [
-                  258.98,
-                  -16.689
+                  -65.391,
+                  -16.054
                 ],
                 [
-                  8.98,
-                  359.311
+                  -41.078,
+                  359.516
                 ],
                 [
                   47.48,
@@ -26512,8 +26547,8 @@
                   359.311
                 ],
                 [
-                  710.98,
-                  355.311
+                  844.606,
+                  709.926
                 ]
               ],
               "c": true
@@ -26537,10 +26572,10 @@
     },
     {
       "ddd": 0,
-      "ind": 3,
+      "ind": 5,
       "ty": 0,
       "nm": "Pre-comp 1",
-      "parent": 1,
+      "parent": 3,
       "refId": "comp_0",
       "sr": 1,
       "ks": {
@@ -26787,10 +26822,10 @@
     },
     {
       "ddd": 0,
-      "ind": 4,
+      "ind": 6,
       "ty": 4,
       "nm": "Shape Layer 2",
-      "parent": 1,
+      "parent": 3,
       "sr": 1,
       "ks": {
         "p": {
@@ -27385,10 +27420,10 @@
     },
     {
       "ddd": 0,
-      "ind": 5,
+      "ind": 7,
       "ty": 4,
       "nm": "Shape Layer 1",
-      "parent": 1,
+      "parent": 3,
       "sr": 1,
       "ks": {
         "p": {
@@ -27796,17 +27831,18 @@
     },
     {
       "ddd": 0,
-      "ind": 6,
+      "ind": 8,
       "ty": 2,
       "nm": "Layer 41",
+      "parent": 2,
       "refId": "image_0",
       "sr": 1,
       "ks": {
         "p": {
           "a": 0,
           "k": [
-            810.485,
-            603.101,
+            338.421,
+            -145.681,
             0
           ]
         },
@@ -27821,8 +27857,8 @@
         "s": {
           "a": 0,
           "k": [
-            200,
-            200,
+            114.286,
+            114.286,
             100
           ]
         }
@@ -27944,190 +27980,13 @@
       "op": 4500,
       "st": 0,
       "bm": 0
-    },
-    {
-      "ddd": 0,
-      "ind": 7,
-      "ty": 2,
-      "nm": "Layer 39",
-      "parent": 1,
-      "refId": "image_0",
-      "sr": 1,
-      "ks": {
-        "p": {
-          "a": 0,
-          "k": [
-            416.222,
-            280.861,
-            0
-          ]
-        },
-        "a": {
-          "a": 0,
-          "k": [
-            416.222,
-            280.861,
-            0
-          ]
-        }
-      },
-      "ao": 0,
-      "hasMask": true,
-      "masksProperties": [
-        {
-          "inv": false,
-          "mode": "a",
-          "pt": {
-            "a": 0,
-            "k": {
-              "i": [
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ]
-              ],
-              "o": [
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ],
-                [
-                  0,
-                  0
-                ]
-              ],
-              "v": [
-                [
-                  722.98,
-                  -26.689
-                ],
-                [
-                  -29.02,
-                  -18.689
-                ],
-                [
-                  -19.02,
-                  367.311
-                ],
-                [
-                  47.48,
-                  361.811
-                ],
-                [
-                  408.48,
-                  297.186
-                ],
-                [
-                  671.105,
-                  359.311
-                ],
-                [
-                  710.98,
-                  355.311
-                ]
-              ],
-              "c": true
-            }
-          },
-          "o": {
-            "a": 0,
-            "k": 100
-          },
-          "x": {
-            "a": 0,
-            "k": 0
-          },
-          "nm": "Mask 1"
-        }
-      ],
-      "ip": 0,
-      "op": 4500,
-      "st": 0,
-      "bm": 0
-    },
-    {
-      "ddd": 0,
-      "ind": 9,
-      "ty": 2,
-      "nm": "Layer 4",
-      "refId": "image_24",
-      "sr": 1,
-      "ks": {
-        "p": {
-          "a": 0,
-          "k": [
-            694.927,
-            734.688,
-            0
-          ]
-        },
-        "a": {
-          "a": 0,
-          "k": [
-            311.414,
-            55.919,
-            0
-          ]
-        },
-        "s": {
-          "a": 0,
-          "k": [
-            200,
-            200,
-            100
-          ]
-        }
-      },
-      "ao": 0,
-      "ip": 0,
-      "op": 4500,
-      "st": 0,
-      "bm": 0
     }
   ],
-  "markers": []
+  "markers": [
+    {
+      "tm": 360,
+      "cm": "1",
+      "dr": 0
+    }
+  ]
 }
