@@ -3,9 +3,15 @@
   padding-top: calc(#{$header-height} + 90px);
   margin-bottom: 105px;
 
+  @include section-paddings;
+
   @include lg-down {
     padding-top: calc(#{$header-height} + 70px);
     margin-bottom: 85px;
+  }
+
+  @include md-down {
+    padding-top: calc(#{$header-height-md} + 125px);
   }
 }
 
@@ -25,6 +31,10 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 50px 80px;
+  }
+
+  @include md-down {
+    padding: 40px 60px;
   }
 }
 
@@ -51,6 +61,10 @@
     text-align: left;
     background-color: $color-primary;
   }
+
+  @include md-down {
+    margin-bottom: 20px;
+  }
 }
 
 .day {
@@ -63,18 +77,26 @@
     display: inline-block;
     margin-right: 5px;
   }
+
+  @include md-down {
+    font-size: 22px;
+  }
 }
 
 .month {
   font-weight: 700;
+
+  @include md-down {
+    font-size: $font-size-xs;
+  }
 }
 
 .title {
   display: -webkit-box;
   max-width: 515px;
-  overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 
   @include lg-down {
     max-width: 610px;
@@ -91,8 +113,16 @@
 }
 
 .text {
+  display: -webkit-box;
   margin-top: 0;
   margin-bottom: 30px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .rectangle {
@@ -112,6 +142,10 @@
   @include lg-down {
     top: 140px;
   }
+
+  @include md-down {
+    top: 170px;
+  }
 }
 
 .rectangle-2 {
@@ -124,6 +158,10 @@
 
   @include lg-down {
     left: 290px;
+  }
+
+  @include md-down {
+    left: 255px;
   }
 }
 
@@ -147,6 +185,10 @@
   @include lg-down {
     left: 480px;
   }
+
+  @include md-down {
+    bottom: -25px;
+  }
 }
 
 .rectangle-5 {
@@ -160,6 +202,10 @@
   @include lg-down {
     right: 160px;
   }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle-6 {
@@ -169,6 +215,11 @@
   height: 60px;
   background-color: $color-accent-secondary;
   border-top-left-radius: 60px;
+
+  @include md-down {
+    top: -25px;
+    right: 40px;
+  }
 }
 
 .rectangle-7 {
@@ -183,6 +234,10 @@
     right: 40px;
     bottom: 90px;
   }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle-8 {
@@ -192,6 +247,10 @@
   height: 30px;
   background-color: $color-quaternary;
   border-bottom-right-radius: 45px;
+
+  @include md-down {
+    top: 80px;
+  }
 }
 
 .ellipse {
@@ -205,6 +264,16 @@
   left: 70px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    bottom: 130px;
+    left: 40px;
+  }
+
+  @include md-down {
+    bottom: 85px;
+    left: 20px;
+  }
 }
 
 .ellipse-2 {
@@ -212,6 +281,16 @@
   left: 160px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    top: 60px;
+    left: 240px;
+  }
+
+  @include md-down {
+    top: 40px;
+    left: 195px;
+  }
 }
 
 .ellipse-3 {
@@ -219,6 +298,16 @@
   left: 310px;
   width: 9px;
   height: 10px;
+
+  @include lg-down {
+    top: 40px;
+    left: 370px;
+  }
+
+  @include md-down {
+    top: 30px;
+    left: 320px;
+  }
 }
 
 .ellipse-4 {
@@ -226,6 +315,15 @@
   left: 675px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    top: 135px;
+    left: 725px;
+  }
+
+  @include md-down {
+    left: 635px;
+  }
 }
 
 .ellipse-5 {
@@ -233,6 +331,16 @@
   left: 695px;
   width: 8px;
   height: 8px;
+
+  @include lg-down {
+    bottom: 75px;
+    left: 635px;
+  }
+
+  @include md-down {
+    bottom: 65px;
+    left: 620px;
+  }
 }
 
 .ellipse-6 {
@@ -240,6 +348,11 @@
   left: 730px;
   width: 6px;
   height: 6px;
+
+  @include md-down {
+    top: 45px;
+    left: 555px;
+  }
 }
 
 .ellipse-7 {
@@ -247,6 +360,11 @@
   left: 944px;
   width: 8px;
   height: 8px;
+
+  @include lg-down {
+    top: 85px;
+    left: 850px;
+  }
 }
 
 .ellipse-8 {
@@ -254,6 +372,43 @@
   bottom: 105px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    right: 140px;
+    bottom: 170px;
+  }
+
+  @include md-down {
+    display: none;
+  }
+}
+
+.ellipse-9 {
+  @include lg-down {
+    bottom: 55px;
+    left: 435px;
+    width: 6px;
+    height: 6px;
+  }
+
+  @include md-down {
+    bottom: 70px;
+    left: 460px;
+  }
+}
+
+.ellipse-10 {
+  @include lg-down {
+    bottom: 85px;
+    left: 300px;
+    width: 6px;
+    height: 6px;
+  }
+
+  @include md-down {
+    bottom: 65px;
+    left: 305px;
+  }
 }
 
 .background-image-wrapper {

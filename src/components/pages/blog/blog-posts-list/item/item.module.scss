@@ -5,10 +5,17 @@
   color: $color-secondary;
   border-bottom: 1px solid $color-additional-2;
 
+  @include section-paddings;
+
   @include lg-down {
     flex-direction: column;
     padding-bottom: 50px;
     margin-bottom: 50px;
+  }
+
+  @include md-down {
+    padding-bottom: 40px;
+    margin-bottom: 45px;
   }
 
   &:last-of-type {
@@ -72,4 +79,8 @@
   overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }

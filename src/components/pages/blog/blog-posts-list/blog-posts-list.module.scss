@@ -1,6 +1,8 @@
 .wrapper {
   position: relative;
   margin-bottom: 30px;
+
+  @include section-paddings;
 }
 
 .items-wrapper {
@@ -8,6 +10,10 @@
 
   @include lg-down {
     max-width: 610px;
+  }
+
+  @include md-down {
+    max-width: 580px;
   }
 }
 
@@ -20,6 +26,10 @@
   @include lg-down {
     top: 25px;
     width: 210px;
+  }
+
+  @include md-down {
+    display: none;
   }
 }
 
