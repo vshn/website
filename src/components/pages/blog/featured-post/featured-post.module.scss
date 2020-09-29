@@ -471,6 +471,7 @@
   transform: translateX(-50%);
 
   @include lg-down {
+    width: auto;
     height: 350px;
   }
 }

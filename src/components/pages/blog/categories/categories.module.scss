@@ -25,6 +25,7 @@
       z-index: 1;
       width: 130px;
       height: 36px;
+      pointer-events: none;
       content: '';
       background: linear-gradient(270deg, $color-tertiary 0%, rgba($color-tertiary, 0) 100%);
     }
@@ -70,6 +71,19 @@
 
   &:last-child {
     margin-right: 0;
+
+    @include md-down {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: -70px;
+        display: block;
+        width: 100px;
+        height: 1px;
+        content: '';
+      }
+    }
   }
 
   &.active {
