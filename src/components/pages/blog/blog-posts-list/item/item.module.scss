@@ -35,6 +35,8 @@
   border-bottom-right-radius: 30px;
 
   @include lg-down {
+    display: flex;
+    align-items: flex-end;
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 15px;
@@ -49,8 +51,8 @@
   line-height: $line-height-lg;
 
   @include lg-down {
-    display: inline-block;
     margin-right: 5px;
+    font-size: 24px;
   }
 }
 
@@ -68,10 +70,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  @include sm-down {
-    font-size: 30px;
-  }
 }
 
 .text {

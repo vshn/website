@@ -50,9 +50,7 @@ const FeaturedPost = ({ title, text, buttonText, buttonUrl, date }) => {
         <span className={cx('ellipse', 'ellipse-10')} aria-hidden />
       </div>
 
-      <div className={cx('background-image-wrapper')} aria-hidden>
-        <img src={backgroundImage} alt="" />
-      </div>
+      <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
     </article>
   );
 };
