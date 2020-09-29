@@ -63,7 +63,7 @@ const BlogPostsList = ({ className, title, items, shape }) => (
           <SwiperSlide key={index}>
             {({ isVisible }) => <Item isVisible={isVisible} {...item} />}
           </SwiperSlide>
-        )) }
+        ))}
       </Swiper>
     </div>
     {shape}

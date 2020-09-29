@@ -1,3 +1,7 @@
+.wrapper {
+  @include section-paddings;
+}
+
 .content {
   max-width: 850px;
   margin-right: auto;
@@ -5,4 +9,14 @@
   margin-left: auto;
 
   @include content;
+
+  @include lg-down {
+    max-width: 770px;
+    margin-bottom: 50px;
+  }
+
+  @include md-down {
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
 }

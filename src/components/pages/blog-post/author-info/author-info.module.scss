@@ -1,8 +1,22 @@
 .wrapper {
   margin-bottom: 120px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 90px;
+  }
+
+  @include md-down {
+    margin-bottom: 75px;
+  }
+
+  @include sm-down {
+    margin-bottom: 70px;
+  }
 }
 
-.inner {
+.items-wrapper {
   display: flex;
   align-items: flex-start;
   max-width: 850px;
@@ -14,6 +28,24 @@
   margin-left: auto;
   background-color: $color-additional-1;
   border-radius: 8px;
+
+  @include lg-down {
+    max-width: 770px;
+  }
+
+  @include md-down {
+    max-width: 700px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+  }
+
+  @include sm-down {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .image {
@@ -22,28 +54,64 @@
   margin-right: 30px;
   border-radius: 50%;
   box-shadow: 0 5px 10px rgba($color-primary, 0.25);
+
+  @include md-down {
+    width: 90px;
+    margin-right: 25px;
+  }
+
+  @include sm-down {
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
 }
 
 .content {
   font-size: 18px;
   line-height: 1.6;
+
+  @include md-down {
+    font-size: $font-size-sm;
+  }
 }
 
 .name {
   margin-bottom: 15px;
+
+  @include lg-down {
+    font-size: 24px;
+  }
+
+  @include md-down {
+    font-size: 22px;
+  }
 }
 
 .links-wrapper {
   display: flex;
+  flex-wrap: wrap;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 5px;
   list-style-type: none;
+
+  @include sm-down {
+    justify-content: center;
+  }
 }
 
 .link-wrapper {
   position: relative;
   margin-right: 34px;
+
+  @include sm-down {
+    margin-right: 25px;
+    margin-bottom: 5px;
+  }
+
+  @include xs-down {
+    margin-right: 0;
+  }
 
   @include with-link-secondary;
 
@@ -57,6 +125,10 @@
     background-color: $color-quaternary;
     border-radius: 50%;
     transform: translateY(-50%);
+
+    @include sm-down {
+      display: none;
+    }
   }
 
   &:last-child {
