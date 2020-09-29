@@ -67,8 +67,8 @@
   @include lg-down {
     top: -20px;
     right: -20px;
-    width: 154px;
-    height: 393px;
+    width: 155px;
+    height: 395px;
     border-bottom-right-radius: 40px;
   }
 }
@@ -104,7 +104,7 @@
 
   @include lg-down {
     top: 1000px;
-    right: calc((100vw - 930px) / 2 / -1);
+    right: calc((100vw - #{$container-width-lg}) / 2 / -1);
     left: auto;
     width: 220px;
     min-width: 0;
