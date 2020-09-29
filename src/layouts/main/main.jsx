@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SEO from 'components/shared/seo';
-import Header from 'components/shared/header';
+// import Header from 'components/shared/header';
 import Footer from 'components/shared/footer';
 
 const MainLayout = ({ seo, children }) => (
   <>
     <SEO {...seo} />
-    <Header />
+    {/* <Header /> */}
     <main>{children}</main>
     <Footer />
   </>

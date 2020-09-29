@@ -5,8 +5,6 @@
   color: $color-secondary;
   border-bottom: 1px solid $color-additional-2;
 
-  @include section-paddings;
-
   @include lg-down {
     flex-direction: column;
     padding-bottom: 50px;
@@ -70,6 +68,10 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @include sm-down {
+    font-size: 30px;
+  }
 }
 
 .text {

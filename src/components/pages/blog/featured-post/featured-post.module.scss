@@ -13,6 +13,11 @@
   @include md-down {
     padding-top: calc(#{$header-height-md} + 125px);
   }
+
+  @include sm-down {
+    padding-top: calc(#{$header-height-md} + 120px);
+    margin-bottom: 65px;
+  }
 }
 
 .inner {
@@ -35,6 +40,10 @@
 
   @include md-down {
     padding: 40px 60px;
+  }
+
+  @include sm-down {
+    padding: 30px;
   }
 }
 
@@ -102,6 +111,10 @@
     max-width: 610px;
     margin-bottom: 15px;
   }
+
+  @include sm-down {
+    font-size: 30px;
+  }
 }
 
 .content {
@@ -146,6 +159,11 @@
   @include md-down {
     top: 170px;
   }
+
+  @include sm-down {
+    top: -20px;
+    left: 100px;
+  }
 }
 
 .rectangle-2 {
@@ -172,6 +190,10 @@
   height: 30px;
   background-color: $color-quaternary;
   border-top-right-radius: 50px;
+
+  @include sm-down {
+    display: none;
+  }
 }
 
 .rectangle-4 {
@@ -188,6 +210,10 @@
 
   @include md-down {
     bottom: -25px;
+  }
+
+  @include sm-down {
+    display: none;
   }
 }
 
@@ -220,6 +246,10 @@
     top: -25px;
     right: 40px;
   }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle-7 {
@@ -251,6 +281,10 @@
   @include md-down {
     top: 80px;
   }
+
+  @include xs-down {
+    display: none;
+  }
 }
 
 .ellipse {
@@ -274,6 +308,11 @@
     bottom: 85px;
     left: 20px;
   }
+
+  @include sm-down {
+    bottom: 60px;
+    left: 225px;
+  }
 }
 
 .ellipse-2 {
@@ -290,6 +329,11 @@
   @include md-down {
     top: 40px;
     left: 195px;
+  }
+
+  @include sm-down {
+    top: 35px;
+    left: 210px;
   }
 }
 
@@ -408,6 +452,11 @@
   @include md-down {
     bottom: 65px;
     left: 305px;
+  }
+
+  @include sm-down {
+    bottom: 30px;
+    left: 350px;
   }
 }
 
