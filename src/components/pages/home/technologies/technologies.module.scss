@@ -5,26 +5,68 @@
   margin-bottom: 210px;
 
   @include section-paddings;
+
+  @include lg-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 170px;
+  }
+
+  @include md-down {
+    padding-top: 25px;
+    padding-bottom: 0;
+    margin-bottom: 150px;
+  }
+
+  @include sm-down {
+    padding-top: 0;
+    margin-bottom: 120px;
+    text-align: center;
+  }
 }
 
 .inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
+
+  @include sm-down {
+    display: block;
+  }
 }
 
 .content {
   grid-column-start: 1;
   grid-column-end: 6;
   padding-top: 95px;
+
+  @include lg-down {
+    padding-top: 60px;
+  }
+
+  @include md-down {
+    padding-top: 0;
+  }
+
+  @include sm-down {
+    margin-bottom: 70px;
+  }
 }
 
 .title {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .description {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .text {
@@ -35,168 +77,55 @@
   font-weight: 500;
   line-height: $line-height-md;
   color: $color-secondary;
+
+  @include lg-down {
+    max-width: initial;
+    font-size: 18px;
+  }
+
+  @include md-down {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .items-wrapper {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
   grid-column-start: 7;
   grid-column-end: 12;
+
+  @include lg-down {
+    grid-column-end: 13;
+  }
+
+  @include md-down {
+    padding-top: 40px;
+  }
+
+  @include sm-down {
+    max-width: 340px;
+    padding-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.items-inner {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 20px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
-}
 
-.item {
-  position: relative;
-  height: 450px;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 15px 30px rgba($color-primary, 0.15);
-
-  &:nth-of-type(1) {
-    margin-top: 70px;
-    border-top-left-radius: 30px;
-
-    .item-logo-wrapper::before {
-      border-top-right-radius: 20px;
-    }
+  @include lg-down {
+    column-gap: 15px;
   }
 
-  &:nth-of-type(2) {
-    border-top-right-radius: 30px;
-
-    .item-logo-wrapper::before {
-      border-top-left-radius: 20px;
-    }
+  @include md-down {
+    column-gap: 10px;
   }
-
-  &:nth-of-type(3) {
-    margin-top: 70px;
-    border-top-right-radius: 30px;
-
-    .item-logo-wrapper::before {
-      border-top-left-radius: 20px;
-    }
-  }
-
-  &:nth-of-type(4) {
-    margin-top: 140px;
-    border-top-left-radius: 30px;
-
-    .item-logo-wrapper::before {
-      border-top-right-radius: 20px;
-    }
-  }
-
-  &:nth-of-type(5) {
-    margin-top: 70px;
-    border-top-left-radius: 30px;
-
-    .item-logo-wrapper::before {
-      border-top-right-radius: 20px;
-    }
-  }
-
-  &:nth-of-type(6) {
-    border-top-right-radius: 30px;
-
-    .item-logo-wrapper::before {
-      border-top-left-radius: 20px;
-    }
-  }
-
-  &_rancher {
-    background-color: #08c;
-
-    .item-logo-wrapper {
-      &::before {
-        background-color: $color-primary;
-      }
-    }
-  }
-
-  &_kubernates {
-    background-color: #0054ff;
-
-    .item-logo-wrapper {
-      &::before {
-        background-color: $color-primary;
-      }
-    }
-  }
-
-  &_ansible {
-    background-color: $color-primary;
-
-    .item-logo-wrapper {
-      &::before {
-        background-color: $color-tertiary;
-      }
-    }
-  }
-
-  &_openshift {
-    background-color: #df2030;
-  }
-
-  &_docker {
-    background-color: $color-accent-primary;
-  }
-
-  &_puppet {
-    background-color: #ffbf00;
-
-    .item-name {
-      color: $color-primary;
-    }
-
-    .item-logo-wrapper {
-      &::before {
-        background-color: $color-tertiary;
-        opacity: 0.25;
-      }
-    }
-  }
-}
-
-.item-name {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: $font-size-md;
-  font-weight: 700;
-  line-height: $line-height-md;
-  color: $color-tertiary;
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-.item-logo-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding-bottom: 100%;
-
-  &::before {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-color: $color-primary;
-    opacity: 0.1;
-  }
-}
-
-.item-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .shape-1 {
@@ -206,6 +135,21 @@
   z-index: -1;
   margin-left: 30px;
   transform: translate(-50%, -50%);
+
+  @include lg-down {
+    width: 710px;
+  }
+
+  @include md-down {
+    top: -30px;
+    width: 535px;
+    margin-left: 50px;
+    transform: translateX(-50%);
+  }
+
+  @include sm-down {
+    top: -70px;
+  }
 }
 
 .shape-2 {
@@ -216,4 +160,24 @@
   width: calc(115px + #{$container-side-gap});
   min-width: 430px;
   height: 700px;
+
+  @include lg-down {
+    right: auto;
+    bottom: -385px;
+    left: calc(#{$container-side-gap-lg} / -1 - 125px);
+    width: 300px;
+    min-width: initial;
+    height: initial;
+  }
+
+  @include md-down {
+    bottom: -230px;
+    left: calc(#{$container-side-gap-md} / -1 - 80px);
+    width: 175px;
+  }
+
+  @include sm-down {
+    bottom: -260px;
+    left: calc(#{$section-padding} / -1 - 80px);
+  }
 }

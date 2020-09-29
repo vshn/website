@@ -4,7 +4,7 @@
     text-decoration: none;
     transition: color $transition-base;
 
-    &:hover {
+    @include hover {
       color: $color-accent-primary;
     }
   }
@@ -14,9 +14,10 @@
   a {
     color: $color-accent-primary;
     text-decoration: none;
+    word-break: break-word;
     transition: color $transition-base;
 
-    &:hover {
+    @include hover {
       color: $color-quaternary;
     }
   }

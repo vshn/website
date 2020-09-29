@@ -5,18 +5,116 @@
   margin-bottom: 240px;
 
   @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 180px;
+  }
+
+  @include md-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 120px;
+  }
+
+  @include sm-down {
+    padding-top: 0;
+  }
 }
 
 .inner {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
+  align-items: flex-start;
+
+  @include md-down {
+    column-gap: $column-gap-md;
+  }
+
+  @include sm-down {
+    display: block;
+  }
+}
+
+.content {
+  grid-column-start: 7;
+  grid-column-end: 13;
+  padding-top: 100px;
+
+  @include lg-down {
+    grid-column-end: 12;
+    padding-top: 90px;
+  }
+
+  @include md-down {
+    grid-column-end: 13;
+    padding-top: 50px;
+  }
+
+  @include sm-down {
+    padding-top: 0;
+    margin-bottom: 110px;
+    text-align: center;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
+}
+
+.description {
+  max-width: 430px;
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  @include md-down {
+    max-width: 310px;
+    margin-bottom: 25px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+  }
+}
+
+.text {
+  max-width: 410px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-secondary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
 }
 
 .illustration {
   position: relative;
   grid-column-start: 2;
   grid-column-end: 6;
+  order: -1;
+
+  @include lg-down {
+    grid-column-start: 1;
+  }
+
+  @include sm-down {
+    max-width: 280px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .rectangle {
@@ -32,6 +130,13 @@
   height: 420px;
   background-color: $color-accent-primary;
   border-top-left-radius: 100px;
+
+  @include md-down {
+    top: -50px;
+    left: -45px;
+    width: 150px;
+    height: 325px;
+  }
 }
 
 .rectangle-2 {
@@ -41,6 +146,17 @@
   height: 690px;
   background-color: $color-accent-secondary;
   border-bottom-right-radius: 120px;
+
+  @include lg-down {
+    height: 630px;
+  }
+
+  @include md-down {
+    top: -25px;
+    left: 25px;
+    width: 190px;
+    height: 485px;
+  }
 }
 
 .rectangle-3 {
@@ -50,35 +166,22 @@
   height: 370px;
   background-color: $color-primary;
   border-top-right-radius: 120px;
+
+  @include lg-down {
+    width: 140px;
+    height: 310px;
+  }
+
+  @include md-down {
+    bottom: -25px;
+    left: -25px;
+    width: 110px;
+    height: 240px;
+  }
 }
 
 .image {
   border-radius: 8px;
-}
-
-.content {
-  grid-column-start: 7;
-  grid-column-end: 13;
-  padding-top: 100px;
-}
-
-.title {
-  margin-bottom: 30px;
-}
-
-.description {
-  max-width: 430px;
-  margin-top: 0;
-  margin-bottom: 30px;
-}
-
-.text {
-  max-width: 410px;
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-size: $font-size-md;
-  line-height: $line-height-md;
-  color: $color-secondary;
 }
 
 .shape {
@@ -88,4 +191,8 @@
   width: calc(50px + #{$container-side-gap});
   min-width: 365px;
   height: 760px;
+
+  @include lg-down {
+    display: none;
+  }
 }

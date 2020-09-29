@@ -59,7 +59,7 @@ const products = {
     {
       name: 'Rancher',
       detailsTitle: 'Swiss container platform 3',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
+      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>Swiss container platform based on OpenShift as a managed service</li><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
     },
     {
       name: 'VSHN Managed Services',

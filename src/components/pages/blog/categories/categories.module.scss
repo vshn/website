@@ -54,6 +54,10 @@
   white-space: nowrap;
   transition: color $transition-base;
 
+  @include hover {
+    color: $color-accent-primary;
+  }
+
   @include lg-down {
     margin-right: 48px;
   }
@@ -63,10 +67,6 @@
     margin-right: 15px;
     background-color: $color-additional-1;
     border-radius: 5px;
-  }
-
-  &:hover {
-    color: $color-accent-primary;
   }
 
   &:last-child {

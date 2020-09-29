@@ -35,9 +35,6 @@ const BlogPostsList = ({ className, title, items, shape }) => (
 
       <Swiper
         className={cx('items-wrapper')}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        spaceBetween={30}
         navigation={{
           prevEl: '#button-previous',
           nextEl: '#button-next',
@@ -47,6 +44,18 @@ const BlogPostsList = ({ className, title, items, shape }) => (
           bulletActiveClass: cx('active'),
           clickable: true,
         }}
+        spaceBetween={20}
+        breakpoints={{
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 30,
+          },
+        }}
         loop
         watchSlidesVisibility
       >
@@ -54,7 +63,7 @@ const BlogPostsList = ({ className, title, items, shape }) => (
           <SwiperSlide key={index}>
             {({ isVisible }) => <Item isVisible={isVisible} {...item} />}
           </SwiperSlide>
-        )) }
+        ))}
       </Swiper>
     </div>
     {shape}

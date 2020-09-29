@@ -25,7 +25,7 @@ const Content = () => {
   `);
 
   return (
-    <article>
+    <article className={cx('wrapper')}>
       <div className="container">
         <div className={cx('content')}>
           <p>

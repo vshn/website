@@ -4,6 +4,10 @@
 
   @include with-link-secondary;
 
+  @include md-down {
+    font-size: 16px;
+  }
+
   > * {
     margin-top: 0;
     margin-right: 0;
@@ -29,16 +33,28 @@
     line-height: $line-height-lg;
   }
 
-  > h4,
-  > h5,
-  > h6 {
-    margin-top: 30px;
-  }
-
   > h1,
   > h2,
   > h3 {
     margin-top: 60px;
+
+    @include lg-down {
+      margin-top: 50px;
+    }
+
+    @include md-down {
+      margin-top: 40px;
+    }
+  }
+
+  > h4,
+  > h5,
+  > h6 {
+    margin-top: 30px;
+
+    @include md-down {
+      margin-top: 20px;
+    }
   }
 
   > h1 {
@@ -47,10 +63,30 @@
 
   > h2 {
     font-size: 40px;
+
+    @include lg-down {
+      font-size: 35px;
+    }
+
+    @include md-down {
+      font-size: 30px;
+    }
+
+    @include sm-down {
+      font-size: 26px;
+    }
   }
 
   > h3 {
     font-size: $font-size-lg;
+
+    @include lg-down {
+      font-size: 24px;
+    }
+
+    @include md-down {
+      font-size: 22px;
+    }
   }
 
   > ul,
@@ -58,6 +94,15 @@
     padding-left: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
+
+    @include md-down {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    @include sm-down {
+      padding-left: 20px;
+    }
 
     li {
       margin-bottom: 10px;
@@ -69,6 +114,10 @@
   }
 
   > ul {
+    @include xs-down {
+      padding-left: 0;
+    }
+
     li {
       position: relative;
       padding-left: 16px;
@@ -87,6 +136,12 @@
     }
   }
 
+  > ol {
+    @include xs-down {
+      padding-left: 15px;
+    }
+  }
+
   > blockquote {
     position: relative;
     padding-top: 50px;
@@ -97,6 +152,22 @@
     margin-left: -110px;
     border-bottom: 4px solid $color-primary;
 
+    @include lg-down {
+      margin-top: 45px;
+      margin-right: -80px;
+      margin-bottom: 50px;
+      margin-left: -80px;
+    }
+
+    @include md-down {
+      padding-top: 40px;
+      padding-bottom: 25px;
+      margin-top: 40px;
+      margin-right: 0;
+      margin-bottom: 40px;
+      margin-left: 0;
+    }
+
     &::before {
       position: absolute;
       top: -20px;
@@ -105,16 +176,41 @@
       height: 40px;
       content: '';
       background-image: url(./images/quote.svg);
+
+      @include lg-down {
+        top: -15px;
+        width: 40px;
+        height: 32px;
+        background-size: contain;
+      }
+
+      @include md-down {
+        width: 35px;
+        height: 28px;
+      }
     }
 
     &::after {
       position: absolute;
       top: 0;
       right: 0;
-      width: 990px;
+      width: calc(100% - 80px);
       height: 4px;
       content: '';
       background-color: $color-primary;
+
+      @include lg-down {
+        width: calc(100% - 70px);
+      }
+
+      @include md-down {
+        top: -4px;
+        width: calc(100% - 60px);
+      }
+
+      @include sm-down {
+        width: calc(100% - 50px);
+      }
     }
 
     p {
@@ -122,6 +218,14 @@
       margin-bottom: 10px;
       font-size: 22px;
       font-style: italic;
+
+      @include md-down {
+        font-size: 20px;
+      }
+
+      @include xs-down {
+        font-size: 18px;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -161,12 +265,28 @@
       margin-top: 30px;
       margin-bottom: 30px;
 
+      @include md-down {
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
       .gatsby-image-wrapper {
         margin-right: -110px;
         margin-bottom: 15px;
         margin-left: -110px;
         border: 1px solid $color-additional-2;
         border-radius: 4px;
+
+        @include lg-down {
+          margin-right: -80px;
+          margin-left: -80px;
+        }
+
+        @include md-down {
+          margin-right: 0;
+          margin-bottom: 10px;
+          margin-left: 0;
+        }
       }
 
       figcaption {
@@ -174,6 +294,11 @@
         line-height: $font-size-sm;
         color: $color-secondary;
         text-align: center;
+
+        @include md-down {
+          font-size: $font-size-xs;
+          line-height: $line-height-sm;
+        }
       }
     }
   }

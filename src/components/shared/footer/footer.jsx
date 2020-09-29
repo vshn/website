@@ -29,32 +29,37 @@ const Footer = (props) => {
     copyright,
   } = props;
 
+  // eslint-disable-next-line react/prop-types
+  const SocialMenu = ({ className }) => (
+    <ul className={cx('social-menu', className)}>
+      <li className={cx('social-menu-item')}>
+        <Link className={cx('social-menu-link', 'social-menu-link_twitter')} to={twitterUrl}><Twitter /></Link>
+      </li>
+      <li className={cx('social-menu-item')}>
+        <Link className={cx('social-menu-link', 'social-menu-link_facebook')} to={facebookUrl}><Facebook /></Link>
+      </li>
+      <li className={cx('social-menu-item')}>
+        <Link className={cx('social-menu-link', 'social-menu-link_linkedin')} to={linkedinUrl}><LinkedIn /></Link>
+      </li>
+      <li className={cx('social-menu-item')}>
+        <Link className={cx('social-menu-link', 'social-menu-link_github')} to={githubUrl}><GitHub /></Link>
+      </li>
+      <li className={cx('social-menu-item')}>
+        <Link className={cx('social-menu-link', 'social-menu-link_instagram')} to={instagramUrl}><Instagram /></Link>
+      </li>
+    </ul>
+  );
+
   return (
     <footer className={cx('wrapper')}>
       <div className="container">
-        <div className={cx('section')}>
+        <div className={cx('top-section')}>
           <div className={cx('other-links')}>
             <Link to="/">
               <Logo className={cx('logo')} />
             </Link>
 
-            <ul className={cx('social-menu')}>
-              <li className={cx('social-menu-item')}>
-                <Link className={cx('social-menu-link', 'social-menu-link_twitter')} to={twitterUrl}><Twitter /></Link>
-              </li>
-              <li className={cx('social-menu-item')}>
-                <Link className={cx('social-menu-link', 'social-menu-link_facebook')} to={facebookUrl}><Facebook /></Link>
-              </li>
-              <li className={cx('social-menu-item')}>
-                <Link className={cx('social-menu-link', 'social-menu-link_linkedin')} to={linkedinUrl}><LinkedIn /></Link>
-              </li>
-              <li className={cx('social-menu-item')}>
-                <Link className={cx('social-menu-link', 'social-menu-link_github')} to={githubUrl}><GitHub /></Link>
-              </li>
-              <li className={cx('social-menu-item')}>
-                <Link className={cx('social-menu-link', 'social-menu-link_instagram')} to={instagramUrl}><Instagram /></Link>
-              </li>
-            </ul>
+            <SocialMenu className={cx('lg-hidden')} />
           </div>
 
           <nav className={cx('nav')}>
@@ -75,9 +80,10 @@ const Footer = (props) => {
           </nav>
         </div>
 
-        <div className={cx('section')}>
-          <p className={cx('design')} dangerouslySetInnerHTML={{ __html: design }} />
+        <div className={cx('bottom-section')}>
+          <SocialMenu className={cx('lg-visible')} />
           <address className={cx('address')}>{address}</address>
+          <p className={cx('design')} dangerouslySetInnerHTML={{ __html: design }} />
           <span className={cx('copyright')}>{copyright}</span>
         </div>
       </div>

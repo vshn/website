@@ -1,19 +1,41 @@
 .wrapper {
   position: relative;
-  padding-top: $header-height;
+  padding-top: 60px;
+  padding-bottom: 90px;
+  margin-top: $header-height;
   margin-bottom: 75px;
   text-align: center;
+  background-color: $color-additional-1;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    margin-bottom: 85px;
+  }
+
+  @include md-down {
+    padding-top: 40px;
+    padding-bottom: 75px;
+    margin-top: $header-height-md;
+    margin-bottom: 70px;
+  }
+
+  @include sm-down {
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+  }
 }
 
 .inner {
-  padding-top: 60px;
-  padding-bottom: 90px;
+  z-index: 1;
 }
 
 .categories-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .category {
@@ -27,6 +49,10 @@
   line-height: $line-height-xs;
   background-color: $color-additional-2;
   border-radius: 2px;
+
+  @include lg-down {
+    font-size: 13px;
+  }
 
   &:nth-of-type(odd) {
     border-top-right-radius: 20px;
@@ -46,19 +72,28 @@
   margin-right: auto;
   margin-bottom: 15px;
   margin-left: auto;
+
+  @include lg-down {
+    max-width: 620px;
+  }
+
+  @include md-down {
+    max-width: 580px;
+  }
+
+  @include sm-down {
+    max-width: 100%;
+  }
 }
 
 .date {
   color: $color-secondary;
 }
 
-.background-image-wrapper {
+.background-image {
   position: absolute;
-  top: $header-height;
+  bottom: 0;
   left: 50%;
-  z-index: -1;
-  width: 100%;
-  text-align: center;
-  background-color: $color-additional-1;
+  height: 100%;
   transform: translateX(-50%);
 }

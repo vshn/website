@@ -12,10 +12,28 @@
   box-shadow: 0 10px 20px 10px rgba($color-quaternary, 0.05);
   transition: background-image $transition-base, box-shadow $transition-base;
 
-  &:hover:not(.active),
-  &:focus:not(.active) {
-    .name {
-      color: $color-accent-primary;
+  @include md-down {
+    display: none;
+    margin-bottom: 0;
+  }
+
+  @include sm-down {
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include xs-down {
+    height: 60px;
+    padding-right: 12.5px;
+    padding-left: 12.5px;
+  }
+
+  &:not(.active) {
+    @include hover {
+      .name {
+        color: $color-accent-primary;
+      }
     }
   }
 
@@ -28,9 +46,18 @@
     background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
     box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
 
+    @include md-down {
+      display: flex;
+    }
+
     .number {
       color: $color-tertiary;
       background-color: $color-accent-primary;
+
+      @include sm-down {
+        color: inherit;
+        background-color: transparent;
+      }
 
       &::before,
       &::after {
@@ -58,6 +85,7 @@
 .number {
   position: relative;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 90px;
@@ -74,6 +102,24 @@
     content: '';
     opacity: 0;
     transition: opacity $transition-base;
+
+    @include sm-down {
+      display: none;
+    }
+  }
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include sm-down {
+    width: initial;
+    height: initial;
+    margin-right: 5px;
+  }
+
+  @include xs-down {
+    font-size: 15px;
   }
 
   &::before {
@@ -106,10 +152,19 @@
   font-weight: 500;
   line-height: $line-height-md;
   transition: color $transition-base;
+
+  @include lg-down {
+    font-size: 18px;
+  }
+
+  @include xs-down {
+    font-size: 15px;
+  }
 }
 
 .progress-circle {
   position: relative;
+  flex-shrink: 0;
   width: 30px;
   height: 30px;
   margin-left: auto;

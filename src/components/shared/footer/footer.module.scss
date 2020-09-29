@@ -3,16 +3,31 @@
   padding-bottom: 30px;
 
   @include section-paddings;
+
+  @include lg-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  @include md-down {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
-.section {
+.top-section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
   margin-bottom: 60px;
 
-  &:last-child {
-    margin-bottom: 0;
+  @include lg-down {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  @include md-down {
+    margin-bottom: 40px;
   }
 }
 
@@ -22,10 +37,23 @@
   grid-column: span 5;
   align-items: flex-start;
   justify-content: space-between;
+
+  @include lg-down {
+    margin-bottom: 50px;
+  }
+
+  @include md-down {
+    margin-bottom: 40px;
+  }
 }
 
 .logo {
   display: block;
+
+  @include md-down {
+    width: 89px;
+    height: 24px;
+  }
 }
 
 .social-menu {
@@ -34,6 +62,28 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include lg-down {
+    grid-column: span 6;
+  }
+
+  @include sm-down {
+    margin-bottom: 25px;
+  }
+
+  &.lg-hidden {
+    @include lg-down {
+      display: none;
+    }
+  }
+
+  &.lg-visible {
+    display: none;
+
+    @include lg-down {
+      display: flex;
+    }
+  }
 }
 
 .social-menu-item {
@@ -54,38 +104,88 @@
   border-radius: 100px;
   transition: background-color $transition-base;
 
-  &:hover {
+  @include lg-down {
+    width: 34px;
+    height: 34px;
+  }
+
+  @include md-down {
+    width: 30px;
+    height: 30px;
+  }
+
+  @include hover {
     background-color: $color-accent-primary;
   }
 
   &_facebook {
     svg {
       width: 12px;
+
+      @include lg-down {
+        width: 10px;
+      }
+
+      @include md-down {
+        width: 9px;
+      }
     }
   }
 
   &_github {
     svg {
       width: 26px;
+
+      @include lg-down {
+        width: 22px;
+      }
+
+      @include md-down {
+        width: 20px;
+      }
     }
   }
 
   &_instagram {
     svg {
       width: 20px;
+
+      @include lg-down {
+        width: 17px;
+      }
+
+      @include md-down {
+        width: 15px;
+      }
     }
   }
 
   &_linkedin {
     svg {
       width: 19px;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+
+      @include lg-down {
+        width: 16px;
+      }
+
+      @include md-down {
+        width: 14px;
+      }
     }
   }
 
   &_twitter {
     svg {
       width: 22px;
+
+      @include lg-down {
+        width: 19px;
+      }
+
+      @include md-down {
+        width: 16px;
+      }
     }
   }
 
@@ -104,10 +204,33 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include lg-down {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: $column-gap;
+  }
+
+  @include md-down {
+    column-gap: $column-gap-md;
+  }
+
+  @include sm-down {
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 40px;
+  }
 }
 
 .menu-item {
   margin-right: 86px;
+
+  @include lg-down {
+    margin-right: 0;
+  }
+
+  @include sm-down {
+    grid-column: span 3;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -116,6 +239,10 @@
 
 .heading {
   margin-bottom: 30px;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .sub-menu {
@@ -137,24 +264,69 @@
 
 .sub-menu-link {
   display: block;
+
+  @include md-down {
+    font-size: 14px;
+  }
 }
 
-.design {
-  grid-column: span 5;
-  margin-top: 0;
-  margin-bottom: 0;
+.bottom-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $column-gap;
   color: $color-quaternary;
 
-  @include with-link-primary;
+  @include lg-down {
+    row-gap: 30px;
+    align-items: center;
+  }
+
+  @include md-down {
+    column-gap: $column-gap-md;
+    font-size: 14px;
+  }
+
+  @include sm-down {
+    display: block;
+  }
 }
 
 .address {
   grid-column: span 5;
   font-style: normal;
+
+  @include lg-down {
+    grid-column: span 6;
+  }
+
+  @include sm-down {
+    margin-bottom: 15px;
+  }
+}
+
+.design {
+  grid-column: span 5;
+  order: -1;
+  margin-top: 0;
+  margin-bottom: 0;
   color: $color-quaternary;
+
+  @include with-link-primary;
+
+  @include lg-down {
+    grid-column: span 6;
+    order: initial;
+  }
+
+  @include sm-down {
+    margin-bottom: 15px;
+  }
 }
 
 .copyright {
   grid-column: span 2;
-  color: $color-quaternary;
+
+  @include lg-down {
+    grid-column: span 6;
+  }
 }

@@ -1,3 +1,11 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
 }
