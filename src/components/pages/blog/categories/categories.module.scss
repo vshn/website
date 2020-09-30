@@ -65,6 +65,10 @@
     margin-right: calc(#{$container-side-gap-md} / -1);
   }
 
+  @include sm-down {
+    margin-right: calc(#{$section-padding} / -1);
+  }
+
   &::-webkit-scrollbar {
     width: 0;
     height: 0;
