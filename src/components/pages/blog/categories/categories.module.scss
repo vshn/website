@@ -13,7 +13,7 @@
 }
 
 .inner {
-  &::after {
+  &::before {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -28,12 +28,42 @@
       display: none;
     }
   }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: calc(#{$container-side-gap-md} / -1);
+    z-index: 1;
+    display: none;
+    width: $container-side-gap-md;
+    height: 100%;
+    pointer-events: none;
+    content: '';
+    background: linear-gradient(270deg, $color-tertiary 0%, rgba($color-tertiary, 0) 100%);
+
+    @include md-down {
+      display: block;
+    }
+
+    @include sm-down {
+      right: calc(#{$section-padding} / -1);
+      width: $section-padding;
+    }
+  }
 }
 
 .items-wrapper {
   position: relative;
   display: flex;
   overflow-x: auto;
+
+  @include lg-down {
+    justify-content: space-between;
+  }
+
+  @include md-down {
+    margin-right: calc(#{$container-side-gap-md} / -1);
+  }
 
   &::-webkit-scrollbar {
     width: 0;
@@ -59,7 +89,7 @@
   }
 
   @include lg-down {
-    margin-right: 48px;
+    margin-right: 30px;
   }
 
   @include md-down {
@@ -71,6 +101,19 @@
 
   &:last-child {
     margin-right: 0;
+
+    @include md-down {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: calc(#{$container-side-gap-md} / -1);
+        display: block;
+        width: $container-side-gap-md;
+        height: 1px;
+        content: '';
+      }
+    }
   }
 
   &.active {
