@@ -42,10 +42,16 @@
   border: none;
   border-radius: 50%;
   outline: none;
+  transition-duration: $transition-base;
+  transition-property: opacity;
 
   @include lg-down {
     width: 40px;
     height: 40px;
+  }
+
+  &:hover {
+    opacity: 0.75;
   }
 
   &:last-child {
