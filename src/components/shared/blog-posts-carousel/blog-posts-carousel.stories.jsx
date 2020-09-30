@@ -1,6 +1,6 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs';
-import BlogPostsList from './blog-posts-list';
+import BlogPostsCarousel from './blog-posts-carousel';
 
 const items = [
   {
@@ -60,14 +60,14 @@ const items = [
 ];
 
 export const Default = () => (
-  <BlogPostsList
+  <BlogPostsCarousel
     title={text('title', 'Check <strong>latest news</strong>')}
     items={items}
   />
 );
 
 export default {
-  title: 'Shared / BlogPostsList',
+  title: 'Shared / BlogPostsCarousel',
   parameters: {
     knobs: {
       escapeHTML: false,
