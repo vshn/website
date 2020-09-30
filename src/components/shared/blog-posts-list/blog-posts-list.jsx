@@ -57,11 +57,10 @@ const BlogPostsList = ({ className, title, items, shape }) => (
           },
         }}
         loop
-        watchSlidesVisibility
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            {({ isVisible }) => <Item isVisible={isVisible} {...item} />}
+            <Item {...item} />
           </SwiperSlide>
         ))}
       </Swiper>

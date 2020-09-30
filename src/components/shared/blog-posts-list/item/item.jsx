@@ -9,8 +9,8 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ categories, title, text, url, isVisible }) => (
-  <article className={cx('wrapper', { withBoxShadow: isVisible })}>
+const Item = ({ categories, title, text, url }) => (
+  <article className={cx('wrapper')}>
     <Link className={cx('inner')} to={url}>
       <ul className={cx('categories-wrapper')}>
         {categories.map((category, index) => (
@@ -29,11 +29,6 @@ Item.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  isVisible: PropTypes.bool,
-};
-
-Item.defaultProps = {
-  isVisible: true,
 };
 
 export default Item;
