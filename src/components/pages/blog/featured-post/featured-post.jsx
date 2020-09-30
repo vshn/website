@@ -5,7 +5,8 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
 
-import backgroundImage from './images/background-image.svg';
+import backgroundImageLgUp from './images/background-image-lg-up.svg';
+import backgroundImageLgDown from './images/background-image-lg-down.svg';
 
 import styles from './featured-post.module.scss';
 
@@ -50,7 +51,8 @@ const FeaturedPost = ({ title, text, buttonText, buttonUrl, date }) => {
         <span className={cx('ellipse', 'ellipse-10')} aria-hidden />
       </div>
 
-      <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
+      <img className={cx('background-image', 'lg-hidden')} src={backgroundImageLgUp} alt="" aria-hidden />
+      <img className={cx('background-image', 'lg-visible')} src={backgroundImageLgDown} alt="" aria-hidden />
     </article>
   );
 };

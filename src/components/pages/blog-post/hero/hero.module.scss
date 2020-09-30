@@ -96,4 +96,18 @@
   left: 50%;
   height: 100%;
   transform: translateX(-50%);
+
+  &.lg-hidden {
+    @include lg-down {
+      display: none;
+    }
+  }
+
+  &.lg-visible {
+    display: none;
+
+    @include lg-down {
+      display: block;
+    }
+  }
 }
