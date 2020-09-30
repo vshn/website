@@ -14,14 +14,6 @@
       color: $color-accent-primary;
     }
   }
-
-  &.with-box-shadow {
-    box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
-
-    @include md-down {
-      box-shadow: 0 10px 15px 5px rgba($color-primary, 0.05);
-    }
-  }
 }
 
 .inner {

@@ -1,10 +1,20 @@
 .wrapper {
   position: relative;
   margin-bottom: 30px;
+
+  @include section-paddings;
 }
 
 .items-wrapper {
   max-width: 850px;
+
+  @include lg-down {
+    max-width: 610px;
+  }
+
+  @include md-down {
+    max-width: 580px;
+  }
 }
 
 .illustration {
@@ -12,6 +22,15 @@
   top: 45px;
   right: 0;
   width: 300px;
+
+  @include lg-down {
+    top: 25px;
+    width: 210px;
+  }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle {
@@ -27,6 +46,14 @@
   height: 350px;
   background-color: $color-accent-primary;
   border-top-left-radius: 60px;
+
+  @include lg-down {
+    top: -30px;
+    left: -20px;
+    width: 140px;
+    height: 245px;
+    border-top-left-radius: 45px;
+  }
 }
 
 .rectangle-2 {
@@ -36,6 +63,14 @@
   height: 560px;
   background-color: $color-accent-secondary;
   border-bottom-right-radius: 60px;
+
+  @include lg-down {
+    top: -20px;
+    right: -20px;
+    width: 155px;
+    height: 395px;
+    border-bottom-right-radius: 40px;
+  }
 }
 
 .rectangle-3 {
@@ -45,6 +80,13 @@
   height: 370px;
   background-color: $color-primary;
   border-top-right-radius: 120px;
+
+  @include lg-down {
+    bottom: -15px;
+    left: -10px;
+    width: 126px;
+    height: 260px;
+  }
 }
 
 .image {
@@ -59,4 +101,17 @@
   width: calc(115px + #{$container-side-gap});
   min-width: 430px;
   height: 700px;
+
+  @include lg-down {
+    top: 1000px;
+    right: calc((100vw - #{$container-width-lg}) / 2 / -1);
+    left: auto;
+    width: 220px;
+    min-width: 0;
+    height: auto;
+  }
+
+  @include md-down {
+    display: none;
+  }
 }

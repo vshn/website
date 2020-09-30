@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-import BlogPostsList from 'components/shared/blog-posts-list';
+import BlogPostsCarousel from 'components/shared/blog-posts-carousel';
 
 import styles from './news.module.scss';
 
 const cx = classNames.bind(styles);
 
 const News = ({ title, items }) => (
-  <BlogPostsList className={cx('wrapper')} title={title} items={items} />
+  <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} />
 );
 
 News.propTypes = {

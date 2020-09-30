@@ -1,13 +1,79 @@
 .wrapper {
   margin-bottom: 90px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 75px;
+  }
+
+  @include md-down {
+    margin-bottom: 60px;
+  }
 }
 
 .inner {
-  border-bottom: 1px solid $color-additional-2;
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background-color: $color-additional-2;
+
+    @include md-down {
+      display: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: calc(#{$container-side-gap-md} / -1);
+    z-index: 1;
+    display: none;
+    width: $container-side-gap-md;
+    height: 100%;
+    pointer-events: none;
+    content: '';
+    background: linear-gradient(270deg, $color-tertiary 0%, rgba($color-tertiary, 0) 100%);
+
+    @include md-down {
+      display: block;
+    }
+
+    @include sm-down {
+      right: calc(#{$section-padding} / -1);
+      width: $section-padding;
+    }
+  }
 }
 
 .items-wrapper {
+  position: relative;
   display: flex;
+  overflow-x: auto;
+
+  @include lg-down {
+    justify-content: space-between;
+  }
+
+  @include md-down {
+    margin-right: calc(#{$container-side-gap-md} / -1);
+  }
+
+  @include sm-down {
+    margin-right: calc(#{$section-padding} / -1);
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
 }
 
 .item {
@@ -19,14 +85,39 @@
   line-height: $line-height-sm;
   color: $color-primary;
   text-decoration: none;
+  white-space: nowrap;
   transition: color $transition-base;
 
   @include hover {
     color: $color-accent-primary;
   }
 
+  @include lg-down {
+    margin-right: 30px;
+  }
+
+  @include md-down {
+    padding: 5px 10px;
+    margin-right: 15px;
+    background-color: $color-additional-1;
+    border-radius: 5px;
+  }
+
   &:last-child {
     margin-right: 0;
+
+    @include md-down {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: calc(#{$container-side-gap-md} / -1);
+        display: block;
+        width: $container-side-gap-md;
+        height: 1px;
+        content: '';
+      }
+    }
   }
 
   &.active {
@@ -34,14 +125,23 @@
     color: $color-accent-primary;
     pointer-events: none;
 
+    @include md-down {
+      background-color: $color-tertiary;
+      border: 2px solid $color-accent-primary;
+    }
+
     &::after {
       position: absolute;
-      bottom: -1px;
+      bottom: 0;
       left: 0;
       width: 100%;
       height: 2px;
       content: '';
       background-color: $color-accent-primary;
+
+      @include md-down {
+        display: none;
+      }
     }
   }
 }

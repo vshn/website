@@ -11,13 +11,13 @@ import Heading from 'components/shared/heading';
 import Arrow from 'icons/arrow.inline.svg';
 import Item from './item';
 
-import styles from './blog-posts-list.module.scss';
+import styles from './blog-posts-carousel.module.scss';
 
 const cx = classNames.bind(styles);
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
-const BlogPostsList = ({ className, title, items, shape }) => (
+const BlogPostsCarousel = ({ className, title, items, shape }) => (
   <section className={cx('wrapper', className)}>
     <div className="container">
       <div className={cx('header')}>
@@ -61,7 +61,7 @@ const BlogPostsList = ({ className, title, items, shape }) => (
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            {({ isVisible }) => <Item isVisible={isVisible} {...item} />}
+            <Item {...item} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -70,7 +70,7 @@ const BlogPostsList = ({ className, title, items, shape }) => (
   </section>
 );
 
-BlogPostsList.propTypes = {
+BlogPostsCarousel.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -82,9 +82,9 @@ BlogPostsList.propTypes = {
   shape: PropTypes.element,
 };
 
-BlogPostsList.defaultProps = {
+BlogPostsCarousel.defaultProps = {
   className: null,
   shape: null,
 };
 
-export default BlogPostsList;
+export default BlogPostsCarousel;

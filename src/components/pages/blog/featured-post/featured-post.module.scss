@@ -1,11 +1,30 @@
 .wrapper {
   position: relative;
-  padding-top: calc(#{$header-height} + 90px);
-  margin-bottom: 105px;
+  padding-top: 50px;
+  margin-top: $header-height;
+  margin-bottom: 145px;
+  background-color: $color-additional-1;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: 0;
+    margin-bottom: 155px;
+  }
+
+  @include md-down {
+    margin-top: $header-height-md;
+    margin-bottom: 145px;
+  }
+
+  @include sm-down {
+    margin-bottom: 115px;
+  }
 }
 
 .inner {
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,6 +34,28 @@
   background-color: $color-primary;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba($color-primary, 0.25);
+  transform: translateY(40px);
+
+  @include lg-down {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 80px;
+    transform: translateY(70px);
+  }
+
+  @include md-down {
+    padding: 40px 60px;
+    transform: translateY(60px);
+  }
+
+  @include sm-down {
+    padding: 30px;
+    transform: translateY(50px);
+  }
+
+  @include xs-down {
+    padding: 25px;
+  }
 }
 
 .date {
@@ -30,6 +71,22 @@
   background-color: $color-tertiary;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 30px;
+
+  @include lg-down {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    color: $color-tertiary;
+    text-align: left;
+    background-color: $color-primary;
+  }
+
+  @include md-down {
+    margin-bottom: 20px;
+  }
 }
 
 .day {
@@ -37,27 +94,65 @@
   font-size: $font-size-lg;
   font-weight: 900;
   line-height: $line-height-lg;
+
+  @include lg-down {
+    margin-right: 5px;
+    font-size: 24px;
+  }
+
+  @include md-down {
+    font-size: 22px;
+  }
 }
 
 .month {
   font-weight: 700;
+
+  @include lg-down {
+    font-size: 14px;
+  }
 }
 
 .title {
   display: -webkit-box;
   max-width: 515px;
-  overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @include lg-down {
+    max-width: 610px;
+    margin-bottom: 15px;
+  }
+
+  @include sm-down {
+    font-size: 30px;
+  }
 }
 
 .content {
   max-width: 410px;
+
+  @include lg-down {
+    max-width: 610px;
+  }
 }
 
 .text {
+  display: -webkit-box;
   margin-top: 0;
   margin-bottom: 30px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @include lg-down {
+    -webkit-line-clamp: 3;
+  }
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .rectangle {
@@ -73,6 +168,19 @@
   height: 40px;
   background-color: $color-accent-primary;
   border-top-left-radius: 55px;
+
+  @include lg-down {
+    top: 140px;
+  }
+
+  @include md-down {
+    top: 170px;
+  }
+
+  @include sm-down {
+    top: -20px;
+    left: 100px;
+  }
 }
 
 .rectangle-2 {
@@ -82,6 +190,14 @@
   height: 40px;
   background-color: $color-accent-secondary;
   border-bottom-right-radius: 55px;
+
+  @include lg-down {
+    left: 290px;
+  }
+
+  @include md-down {
+    left: 255px;
+  }
 }
 
 .rectangle-3 {
@@ -91,6 +207,10 @@
   height: 30px;
   background-color: $color-quaternary;
   border-top-right-radius: 50px;
+
+  @include sm-down {
+    display: none;
+  }
 }
 
 .rectangle-4 {
@@ -100,6 +220,18 @@
   height: 60px;
   background-color: $color-accent-primary;
   border-top-left-radius: 55px;
+
+  @include lg-down {
+    left: 480px;
+  }
+
+  @include md-down {
+    bottom: -25px;
+  }
+
+  @include sm-down {
+    display: none;
+  }
 }
 
 .rectangle-5 {
@@ -109,6 +241,14 @@
   height: 50px;
   background-color: $color-tertiary;
   border-top-right-radius: 40px;
+
+  @include lg-down {
+    right: 160px;
+  }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle-6 {
@@ -118,6 +258,15 @@
   height: 60px;
   background-color: $color-accent-secondary;
   border-top-left-radius: 60px;
+
+  @include md-down {
+    top: -25px;
+    right: 40px;
+  }
+
+  @include sm-down {
+    display: none;
+  }
 }
 
 .rectangle-7 {
@@ -127,6 +276,15 @@
   height: 40px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 70px;
+
+  @include lg-down {
+    right: 40px;
+    bottom: 90px;
+  }
+
+  @include md-down {
+    display: none;
+  }
 }
 
 .rectangle-8 {
@@ -136,6 +294,14 @@
   height: 30px;
   background-color: $color-quaternary;
   border-bottom-right-radius: 45px;
+
+  @include md-down {
+    top: 80px;
+  }
+
+  @include xs-down {
+    display: none;
+  }
 }
 
 .ellipse {
@@ -149,6 +315,21 @@
   left: 70px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    bottom: 130px;
+    left: 40px;
+  }
+
+  @include md-down {
+    bottom: 85px;
+    left: 20px;
+  }
+
+  @include sm-down {
+    bottom: 60px;
+    left: 225px;
+  }
 }
 
 .ellipse-2 {
@@ -156,6 +337,21 @@
   left: 160px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    top: 60px;
+    left: 240px;
+  }
+
+  @include md-down {
+    top: 40px;
+    left: 195px;
+  }
+
+  @include sm-down {
+    top: 35px;
+    left: 210px;
+  }
 }
 
 .ellipse-3 {
@@ -163,6 +359,16 @@
   left: 310px;
   width: 9px;
   height: 10px;
+
+  @include lg-down {
+    top: 40px;
+    left: 370px;
+  }
+
+  @include md-down {
+    top: 30px;
+    left: 320px;
+  }
 }
 
 .ellipse-4 {
@@ -170,6 +376,15 @@
   left: 675px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    top: 135px;
+    left: 725px;
+  }
+
+  @include md-down {
+    left: 635px;
+  }
 }
 
 .ellipse-5 {
@@ -177,6 +392,16 @@
   left: 695px;
   width: 8px;
   height: 8px;
+
+  @include lg-down {
+    bottom: 75px;
+    left: 635px;
+  }
+
+  @include md-down {
+    bottom: 65px;
+    left: 620px;
+  }
 }
 
 .ellipse-6 {
@@ -184,6 +409,11 @@
   left: 730px;
   width: 6px;
   height: 6px;
+
+  @include md-down {
+    top: 45px;
+    left: 555px;
+  }
 }
 
 .ellipse-7 {
@@ -191,6 +421,11 @@
   left: 944px;
   width: 8px;
   height: 8px;
+
+  @include lg-down {
+    top: 85px;
+    left: 850px;
+  }
 }
 
 .ellipse-8 {
@@ -198,15 +433,68 @@
   bottom: 105px;
   width: 6px;
   height: 6px;
+
+  @include lg-down {
+    right: 140px;
+    bottom: 170px;
+  }
+
+  @include md-down {
+    display: none;
+  }
 }
 
-.background-image-wrapper {
+.ellipse-9 {
+  @include lg-down {
+    bottom: 55px;
+    left: 435px;
+    width: 6px;
+    height: 6px;
+  }
+
+  @include md-down {
+    bottom: 70px;
+    left: 460px;
+  }
+}
+
+.ellipse-10 {
+  @include lg-down {
+    bottom: 85px;
+    left: 300px;
+    width: 6px;
+    height: 6px;
+  }
+
+  @include md-down {
+    bottom: 65px;
+    left: 305px;
+  }
+
+  @include sm-down {
+    bottom: 30px;
+    left: 350px;
+  }
+}
+
+.background-image {
   position: absolute;
-  top: 140px;
+  bottom: 0;
   left: 50%;
-  z-index: -1;
-  width: 100%;
-  text-align: center;
-  background-color: $color-additional-1;
+  height: 100%;
   transform: translateX(-50%);
+
+  &.lg-hidden {
+    @include lg-down {
+      display: none;
+    }
+  }
+
+  &.lg-visible {
+    display: none;
+
+    @include lg-down {
+      display: block;
+    }
+  }
 }

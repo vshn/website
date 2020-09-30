@@ -42,10 +42,16 @@
   border: none;
   border-radius: 50%;
   outline: none;
+  transition-duration: $transition-base;
+  transition-property: opacity;
 
   @include lg-down {
     width: 40px;
     height: 40px;
+  }
+
+  &:hover {
+    opacity: 0.75;
   }
 
   &:last-child {
@@ -82,6 +88,15 @@
   :global {
     .swiper-slide {
       height: auto;
+
+      &.swiper-slide-visible {
+        border-radius: 8px;
+        box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+
+        @include md-down {
+          box-shadow: 0 10px 15px 5px rgba($color-primary, 0.05);
+        }
+      }
     }
 
     .swiper-pagination {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-import BlogPostsList from 'components/shared/blog-posts-list';
+import BlogPostsCarousel from 'components/shared/blog-posts-carousel';
 
 import shape from './images/shape.svg';
 import styles from './news.module.scss';
@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const News = ({ title, items }) => {
   const shapeElement = <img className={cx('shape')} src={shape} alt="" aria-hidden />;
-  return <BlogPostsList className={cx('wrapper')} title={title} items={items} shape={shapeElement} />;
+  return <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} shape={shapeElement} />;
 };
 
 News.propTypes = {
