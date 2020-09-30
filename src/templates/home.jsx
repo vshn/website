@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import MainLayout from 'layouts/main';
+import { graphql } from 'gatsby';
 
+import MainLayout from 'layouts/main';
 import Contact from 'components/shared/contact';
 
 import Hero from 'components/pages/home/hero';
@@ -12,13 +14,6 @@ import Partners from 'components/pages/home/partners';
 import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
-
-const hero = {
-  title: 'We run your <strong>application</strong>',
-  description: 'VSHN automates the operation of applications in the cloud or on-premise, so that software developers can focus on their business.',
-  buttonText: 'Show Me How',
-  buttonUrl: '/',
-};
 
 const advantages = {
   title: 'Advantages',
@@ -198,9 +193,14 @@ const report = {
   buttonUrl: '/',
 };
 
-export default () => (
-  <MainLayout>
-    <Hero {...hero} />
+export default ({ data: { wpPage: { seo, acf: data } } }) => (
+  <MainLayout seo={seo}>
+    <Hero
+      title={data.heroTitle}
+      description={data.heroDescription}
+      buttonText={data.heroButtonText}
+      buttonUrl={data.heroButtonLink.url}
+    />
     <Advantages {...advantages} />
     <Products {...products} />
     <Awards {...awards} />
@@ -212,3 +212,19 @@ export default () => (
     <Contact />
   </MainLayout>
 );
+
+export const query = graphql`
+  query($id: String!) {
+    wpPage(id: { eq: $id }) {
+      acf {
+        heroTitle
+        heroDescription
+        heroButtonText
+        heroButtonLink {
+          url
+        }
+      }
+      ...wpPageSeo
+    }
+  }
+`;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
 import SEO from 'components/shared/seo';
 import Header from 'components/shared/header';
@@ -47,5 +48,70 @@ MainLayout.propTypes = {
 MainLayout.defaultProps = {
   seo: {},
 };
+
+export const query = graphql`
+  fragment wpPageSeo on WpPage {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpPostSeo on WpPost {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default MainLayout;

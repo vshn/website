@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
 import useLottie from 'hooks/use-lottie';
+import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
@@ -76,7 +77,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
   return (
     <section className={cx('wrapper')}>
       <div className="container">
-        <Heading className={cx('title')} innerHTML={title} />
+        <Heading className={cx('title')} innerHTML={getTextWithoutParagraph(title)} />
         <p className={cx('description')}>{description}</p>
         <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
