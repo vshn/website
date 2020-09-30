@@ -4,6 +4,8 @@ import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import Item from './item';
 
@@ -48,34 +50,55 @@ const items = [
   },
 ];
 
-const Technologies = ({ title, description, text, buttonText, buttonUrl }) => (
-  <section className={cx('wrapper')}>
-    <div className={cx('container', 'inner')}>
-      <div className={cx('content')}>
-        <Heading className={cx('title')} tag="h2" size="sm" color="secondary">
-          {title}
-        </Heading>
-        <Heading
-          className={cx('description')}
-          tag="p"
-          size="xl"
-          innerHTML={description}
-        />
-        <p className={cx('text')}>{text}</p>
-        <Button to={buttonUrl}>{buttonText}</Button>
-      </div>
+const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
+  const [sectionRef, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+  const rectanglesContainerAnimationVariants = {
+    initial: {},
+    appear: {
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+  return (
+    <section ref={sectionRef} className={cx('wrapper')}>
+      <div className={cx('container', 'inner')}>
+        <div className={cx('content')}>
+          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">
+            {title}
+          </Heading>
+          <Heading
+            className={cx('description')}
+            tag="p"
+            size="xl"
+            innerHTML={description}
+          />
+          <p className={cx('text')}>{text}</p>
+          <Button to={buttonUrl}>{buttonText}</Button>
+        </div>
 
-      <div className={cx('items-wrapper')}>
-        <ul className={cx('items-inner')}>
-          {items.map((item, index) => <Item {...item} key={index} />)}
-        </ul>
-        <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
-      </div>
+        <div className={cx('items-wrapper')}>
+          <motion.ul
+            variants={rectanglesContainerAnimationVariants}
+            className={cx('items-inner')}
+            animate={inView ? 'appear' : 'initial'}
+          >
+            {items.map((item, index) => (
+              <Item {...item} key={index} animate={inView} />
+            ))}
+          </motion.ul>
+          <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
+        </div>
 
-      <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
-    </div>
-  </section>
-);
+        <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
+      </div>
+    </section>
+  );
+};
 
 Technologies.propTypes = {
   title: PropTypes.string.isRequired,
