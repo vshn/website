@@ -76,6 +76,18 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: '@silencerweb/gatsby-source-wordpress-experimental',
+      options: {
+        url: process.env.WP_GRAPHQL_URL,
+        auth: {
+          htaccess: {
+            username: process.env.WP_HTACESS_USERNAME,
+            password: process.env.WP_HTACESS_PASSWORD,
+          },
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
