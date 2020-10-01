@@ -46,7 +46,7 @@ MainLayout.propTypes = {
 };
 
 MainLayout.defaultProps = {
-  seo: {},
+  seo: null,
 };
 
 export const query = graphql`
