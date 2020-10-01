@@ -15,28 +15,6 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
-const advantages = {
-  title: 'Advantages',
-  description: '<strong>We are experts</strong> in Container, Kubernetes, Openshift',
-  items: [
-    {
-      title: 'Get Back Time',
-      description: 'Our automation accelerates development, deployment and operations processes',
-      url: '/',
-    },
-    {
-      title: 'Increase Security',
-      description: 'Our processes are ISO 27001 certified and we operate according to the Swiss banking standards',
-      url: '/',
-    },
-    {
-      title: 'Reduce Cost',
-      description: 'DevOps is the industrial revolution in the software industry',
-      url: '/',
-    },
-  ],
-};
-
 const products = {
   title: 'Products',
   description: '<strong>Technologies</strong> we work with',
@@ -201,7 +179,11 @@ export default ({ data: { wpPage: { seo, acf: data } } }) => (
       buttonText={data.heroButtonText}
       buttonUrl={data.heroButtonLink.url}
     />
-    <Advantages {...advantages} />
+    <Advantages
+      title={data.advantagesTitle}
+      subtitle={data.advantagesSubtitle}
+      items={data.advantagesItems}
+    />
     <Products {...products} />
     <Awards {...awards} />
     <Technologies {...technologies} />
@@ -222,6 +204,17 @@ export const query = graphql`
         heroButtonText
         heroButtonLink {
           url
+        }
+        advantagesTitle
+        advantagesSubtitle
+        advantagesItems {
+          title
+          description
+          footerText
+          link {
+            url
+          }
+          imageName
         }
       }
       ...wpPageSeo
