@@ -84,7 +84,7 @@ const Hero = ({ title, description, buttonText, buttonUrl }) => {
         <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
         <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
 
-        <div className={cx('animation-wrapper', { visible: isAnimationPlaying })} aria-hidden ref={animationPlayRef}>
+        <div className={cx('animation-wrapper', { visible: isInitialAnimationReady })} aria-hidden ref={animationPlayRef}>
           <img className={cx('animation-shape')} src={shape1} alt="" />
           <div
             className={cx('animation', { hidden: isInitialAnimationFinished })}
