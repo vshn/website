@@ -2,9 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    siteTitle: 'VSHN AG',
-    siteDescription: 'VSHN AG is the leading Swiss partner for DevOps, Docker, Kubernetes, OpenShift and 24/7 Cloud Operations. VSHN helps software developers run their apps.',
-    siteLanguage: 'en',
+    siteUrl: process.env.GATSBY_DEFAULT_SITE_URL,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
