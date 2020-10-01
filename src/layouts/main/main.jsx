@@ -30,7 +30,7 @@ const MainLayout = ({ seo, children }) => {
 
   return (
     <>
-      <SEO {...seo} />
+      {seo && <SEO {...seo} />}
       <Header onBurgerClick={handleHeaderBurgerClick} />
       <main>{children}</main>
       <Footer />
