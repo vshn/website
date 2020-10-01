@@ -1,64 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { useInView } from 'react-intersection-observer';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 import styles from './item.module.scss';
+import Confetti from '../confetti';
 
 const cx = classNames.bind(styles);
 
-const confetti = [
-  // Confetti on the left side
-  ['circle', 'xs'],
-  ['circle', 'md'],
-  ['circle', 'md', 'bordered'],
-  ['circle', 'xs'],
-  ['circle', 'xs'],
-  ['circle', 'md'],
-  ['circle', 'sm'],
-  ['rectangle'],
-  ['circle', 'xs'],
-  ['circle', 'md', 'bordered'],
-  ['circle', 'md'],
-  ['circle', 'sm'],
-  ['circle', 'sm'],
-  ['circle', 'xs'],
+const Item = ({ image, title, description, url }) => {
+  const [animationPlayRef, isAnimationStarted] = useInView({ threshold: 0.5, triggerOnce: true });
 
-  // Confetti on the right side
-  ['circle', 'xs'],
-  ['circle', 'md'],
-  ['circle', 'md', 'bordered'],
-  ['circle', 'xs'],
-  ['rectangle'],
-  ['circle', 'sm'],
-  ['circle', 'xs'],
-  ['circle', 'xs'],
-  ['circle', 'xs'],
-  ['circle', 'xs'],
-  ['circle', 'md'],
-  ['line'],
-  ['circle', 'md', 'bordered'],
-  ['circle', 'xs'],
-];
-
-const Item = ({ image, title, description, url }) => (
-  <li className={cx('wrapper')}>
-    <Link className={cx('inner')} to={url}>
-      <img className={cx('image')} src={image} alt="" aria-hidden />
-      <div className={cx('content')}>
-        <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
-        <p className={cx('description')}>{description}</p>
-        <span className={cx('read-more')}>Read more</span>
+  return (
+    <li className={cx('wrapper')}>
+      <Link className={cx('inner')} to={url}>
+        <img className={cx('image')} src={image} alt="" aria-hidden />
+        <div className={cx('content')}>
+          <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">{title}</Heading>
+          <p className={cx('description')}>{description}</p>
+          <span className={cx('read-more')}>Read more</span>
+        </div>
+      </Link>
+      <div className={cx('confetti')} ref={animationPlayRef}>
+        <Confetti showAnimate={isAnimationStarted} />
       </div>
-    </Link>
-
-    {confetti.map((confettoClasses, index) => (
-      <span className={cx('confetto', `confetto-${index + 1}`, confettoClasses)} aria-hidden key={index} />
-    ))}
-  </li>
-);
+    </li>
+  );
+};
 
 Item.propTypes = {
   image: PropTypes.string.isRequired,
