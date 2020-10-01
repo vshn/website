@@ -6,12 +6,13 @@ import { motion } from 'framer-motion';
 import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
-const rectanglesAnimationVariants = {
+
+const animationVariants = {
   initial: {
     opacity: 0,
     y: 85,
   },
-  appear: {
+  animate: {
     opacity: 1,
     y: 0,
     transition: {
@@ -23,8 +24,8 @@ const rectanglesAnimationVariants = {
 
 const Item = ({ name, logo }) => (
   <motion.li
-    variants={rectanglesAnimationVariants}
     className={cx('wrapper', `wrapper_${name.toLocaleLowerCase()}`)}
+    variants={animationVariants}
   >
     <span className={cx('name')}>{name}</span>
     <div className={cx('logo-wrapper')}>
@@ -33,8 +34,9 @@ const Item = ({ name, logo }) => (
   </motion.li>
 );
 
-Item.propTypes = {};
-
-Item.defaultProps = {};
+Item.propTypes = {
+  name: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+};
 
 export default Item;

@@ -51,21 +51,23 @@ const items = [
 ];
 
 const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
-  const [sectionRef, inView] = useInView({
+  const [animationPlayRef, isAnimationStarted] = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
-  const rectanglesContainerAnimationVariants = {
+
+  const itemsWrapperAnimationVariants = {
     initial: {},
-    appear: {
+    animate: {
       transition: {
         staggerChildren: 0.15,
         delayChildren: 0.2,
       },
     },
   };
+
   return (
-    <section ref={sectionRef} className={cx('wrapper')}>
+    <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h2" size="sm" color="secondary">
@@ -81,14 +83,14 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
           <Button to={buttonUrl}>{buttonText}</Button>
         </div>
 
-        <div className={cx('items-wrapper')}>
+        <div className={cx('items-wrapper')} ref={animationPlayRef}>
           <motion.ul
-            variants={rectanglesContainerAnimationVariants}
             className={cx('items-inner')}
-            animate={inView ? 'appear' : 'initial'}
+            variants={itemsWrapperAnimationVariants}
+            animate={isAnimationStarted ? 'animate' : 'initial'}
           >
             {items.map((item, index) => (
-              <Item {...item} key={index} animate={inView} />
+              <Item key={index} {...item} />
             ))}
           </motion.ul>
           <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
