@@ -12,7 +12,7 @@
     "build:storybook": "build-storybook -o ./public/storybook -s static",
     "serve:website": "gatsby serve",
     "serve:storybook": "npx http-server ./public/storybook -p 8001",
-    "clean:website": "gatsby clean",
+    "clean": "gatsby clean",
     "lint": "npm run lint:js & npm run lint:styles & npm run lint:md",
     "lint:fix": "npm run lint:js:fix & npm run lint:styles:fix & npm run lint:md:fix",
     "lint:js": "eslint . --ignore-path .gitignore",
