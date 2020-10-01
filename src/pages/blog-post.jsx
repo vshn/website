@@ -97,6 +97,6 @@ export default () => (
     <Content />
     <AuthorInfo {...authorInfo} />
     <News {...news} />
-    <Contact />
+    <Contact language="en" />
   </MainLayout>
 );

@@ -102,6 +102,6 @@ export default () => (
     <Categories {...categories} />
     <BlogPostsList {...blogPostsList} />
     <Pagination {...pagination} />
-    <Contact />
+    <Contact language="en" />
   </MainLayout>
 );
