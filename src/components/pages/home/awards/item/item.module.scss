@@ -28,6 +28,8 @@
 }
 
 .inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,5 +144,6 @@
   position: absolute;
   top: 20px;
   left: 50%;
+  z-index: 1;
   transform: translateX(-50%);
 }

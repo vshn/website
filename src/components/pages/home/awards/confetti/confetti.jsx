@@ -1,33 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
-const Confetti = ({ showAnimate }) => {
+const Confetti = ({ isHovered }) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isHovered) {
+      controls.start('appear');
+    } else {
+      const outAnimation = async () => {
+        await controls.start('out');
+        await controls.start('initial');
+      };
+      outAnimation();
+    }
+  // Don't understand why we should put controls in the array
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isHovered]);
+
   const animationVariants = {
     initial: {
       opacity: 0,
-      y: 100,
+      y: -100,
     },
     appear: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: [0.21, 0.49, 0.33, 1],
+        duration: 0.1,
+      },
+    },
+    out: {
+      opacity: 0,
+      y: 100,
+      transition: {
+        duration: 0.1,
       },
     },
   };
+
   const containerAnimationVariants = {
     initial: {},
     appear: {
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.02,
+      },
+    },
+    out: {
+      transition: {
+        staggerChildren: 0.01,
       },
     },
   };
+
   return (
-    <motion.svg variants={containerAnimationVariants} animate={showAnimate ? 'appear' : 'initial'} width="370" height="226" viewBox="0 0 370 226" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <motion.svg variants={containerAnimationVariants} animate={controls} width="370" height="226" viewBox="0 0 370 226" fill="none" xmlns="http://www.w3.org/2000/svg">
       <motion.circle initial="initial" variants={animationVariants} cx="41" cy="5" r="5" fill="#4CC3FF" />
       <motion.circle initial="initial" variants={animationVariants} cx="299" cy="112" r="3" fill="#4CC3FF" />
       <motion.circle initial="initial" variants={animationVariants} cx="105" cy="207" r="3" fill="#4CC3FF" />
@@ -64,13 +92,12 @@ const Confetti = ({ showAnimate }) => {
         d="M329.765 70C337.074 70 343 75.9256 343 83.2353C343 84.2099 342.21 85 341.235 85L330 85C328.895 85 328 84.1046 328 83L328 71.7647C328 70.7901 328.79 70 329.765 70Z"
         fill="#4CC3FF"
       />
-      <motion.rect initial="initial" variants={animationVariants} x="359" y="155" width="3" height="15" fill="#4CC3FF" />
     </motion.svg>
   );
 };
 
 Confetti.propTypes = {
-  showAnimate: PropTypes.bool.isRequired,
+  isHovered: PropTypes.bool.isRequired,
 };
 
 export default Confetti;
