@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 import Item from './item';
 
-import rancher from './images/rancher.svg';
-import kubernates from './images/kubernates.svg';
-import ansible from './images/ansible.svg';
-import openshift from './images/openshift.svg';
-import docker from './images/docker.svg';
-import puppet from './images/puppet.svg';
+import rancherLogo from './images/rancher.svg';
+import kubernatesLogo from './images/kubernates.svg';
+import ansibleLogo from './images/ansible.svg';
+import openshiftLogo from './images/openshift.svg';
+import dockerLogo from './images/docker.svg';
+import puppetLogo from './images/puppet.svg';
 
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
@@ -26,45 +26,44 @@ const cx = classNames.bind(styles);
 const items = [
   {
     name: 'Rancher',
-    logo: rancher,
+    logo: rancherLogo,
   },
   {
     name: 'Kubernates',
-    logo: kubernates,
+    logo: kubernatesLogo,
   },
   {
     name: 'Ansible',
-    logo: ansible,
+    logo: ansibleLogo,
   },
   {
     name: 'Openshift',
-    logo: openshift,
+    logo: openshiftLogo,
   },
   {
     name: 'Docker',
-    logo: docker,
+    logo: dockerLogo,
   },
   {
     name: 'Puppet',
-    logo: puppet,
+    logo: puppetLogo,
   },
 ];
 
+const itemsWrapperAnimationVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
 const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
-  const [animationPlayRef, isAnimationStarted] = useInView({
+  const [animationStartRef, isAnimationStarted] = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
-
-  const itemsWrapperAnimationVariants = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
 
   return (
     <section className={cx('wrapper')}>
@@ -83,7 +82,7 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
           <Button to={buttonUrl}>{buttonText}</Button>
         </div>
 
-        <div className={cx('items-wrapper')} ref={animationPlayRef}>
+        <div className={cx('items-wrapper')} ref={animationStartRef}>
           <motion.ul
             className={cx('items-inner')}
             variants={itemsWrapperAnimationVariants}
