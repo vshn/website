@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import Link from 'components/shared/link';
 import Button from 'components/shared/button';
 import Logo from 'images/logo.inline.svg';
+import SubMenu from 'components/shared/sub-menu';
 
 import styles from './header.module.scss';
 
@@ -19,6 +20,7 @@ const Header = (props) => {
     language2Text,
     language2Url,
     menuItems,
+    subMenuItems,
     buttonText,
     buttonUrl,
     onBurgerClick,
@@ -52,6 +54,9 @@ const Header = (props) => {
               {menuItems.map(({ label, path }, index) => (
                 <li className={cx('menu-item')} key={index}>
                   <Link className={cx('link')} to={path}>{label}</Link>
+                  <div className={cx('dropdown', `dropdown-item-${index + 1}`)}>
+                    <SubMenu items={subMenuItems} />
+                  </div>
                 </li>
               ))}
             </ul>
@@ -79,6 +84,10 @@ Header.propTypes = {
   language2Text: PropTypes.string,
   language2Url: PropTypes.string,
   menuItems: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+  })),
+  subMenuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
   })),
@@ -114,6 +123,40 @@ Header.defaultProps = {
     {
       label: 'About',
       path: '/about',
+    },
+  ],
+  subMenuItems: [
+    {
+      label: 'Events',
+      path: '/',
+    },
+    {
+      label: 'Partners',
+      path: '/',
+    },
+    {
+      label: 'Press review',
+      path: '/',
+    },
+    {
+      label: 'Engagement',
+      path: '/',
+    },
+    {
+      label: 'Technology Partners',
+      path: '/',
+    },
+    {
+      label: 'What others say',
+      path: '/',
+    },
+    {
+      label: 'Handbook',
+      path: '/',
+    },
+    {
+      label: 'Success Stories',
+      path: '/',
     },
   ],
   buttonText: 'Contact Us',
