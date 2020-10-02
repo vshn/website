@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import GatsbyImage from 'gatsby-image';
 import classNames from 'classnames/bind';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useStaticQuery, graphql } from 'gatsby';
+import GatsbyImage from 'gatsby-image';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
-import Quote from 'icons/quote.inline.svg';
-import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
+import Heading from 'components/shared/heading';
 import motionFadeAnimation from 'constants/motion-fade-animation';
+import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
+import Quote from 'icons/quote.inline.svg';
 
 import shape from './images/shape.svg';
 import styles from './partners.module.scss';
@@ -90,8 +90,8 @@ const Partners = ({ title, items }) => {
             size="lg"
             color="quaternary"
             type="button"
-            onClick={handleClick}
             key={index}
+            onClick={handleClick}
           >
             {number}
           </Heading>

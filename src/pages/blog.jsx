@@ -1,11 +1,11 @@
 import React from 'react';
-import MainLayout from 'layouts/main';
 
-import FeaturedPost from 'components/pages/blog/featured-post';
-import Categories from 'components/pages/blog/categories';
 import BlogPostsList from 'components/pages/blog/blog-posts-list';
+import Categories from 'components/pages/blog/categories';
+import FeaturedPost from 'components/pages/blog/featured-post';
 import Pagination from 'components/pages/blog/pagination';
 import Contact from 'components/shared/contact';
+import MainLayout from 'layouts/main';
 
 const featuredPost = {
   title: 'August 2020 Cloud Native Computing Meetup Recap',

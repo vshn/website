@@ -1,14 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, useStaticQuery } from 'gatsby';
 import classNames from 'classnames/bind';
+import { graphql, useStaticQuery } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-
-import Item from './item';
-
-import shape from './images/shape.svg';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import styles from './blog-posts-list.module.scss';
+import shape from './images/shape.svg';
+import Item from './item';
 
 const cx = classNames.bind(styles);
 
