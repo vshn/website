@@ -12,8 +12,8 @@ const cx = classNames.bind(styles);
 const SubMenu = ({ items }) => (
   <div className={cx('container', 'dropdown-wrapper')}>
     <Link className={cx('post')} to="/">
-      <Heading className={cx('post-title')} tag="h2" size="md" color="tertiary">Report DevOps in Switzerland 2020</Heading>
-      <span className={cx('post-link')}>Read more</span>
+      <Heading className={cx('title')} tag="h2" size="md" color="tertiary">Report DevOps in Switzerland 2020</Heading>
+      <span className={cx('read-more')}>Read more</span>
       <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
       <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
       <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
