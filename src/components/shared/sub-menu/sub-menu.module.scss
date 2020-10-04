@@ -7,8 +7,16 @@
   max-width: 300px;
   padding: 20px;
   margin-right: 100px;
-  color: $color-tertiary;
   background-color: $color-primary;
+}
+
+.post-title {
+  margin-bottom: 10px;
+}
+
+.post-link {
+  font-size: $font-size-xs;
+  color: $color-tertiary;
 }
 
 .title {
