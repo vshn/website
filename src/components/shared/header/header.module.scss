@@ -5,6 +5,8 @@
   left: 0;
   z-index: 1;
   height: $header-height;
+  background-color: transparent;
+  transition: background-color $transition-base;
 
   @include section-paddings;
 
@@ -151,10 +153,10 @@
   visibility: hidden;
   background-color: $color-additional-1;
   border-top: 1px solid $color-additional-2;
-  box-shadow: (0 5px 10px rgba($color-primary, 0.25));
+  box-shadow: (0 5px 5px rgba($color-primary, 0.25));
   opacity: 0;
   transition-duration: $transition-base;
-  transition-property: opacity visibility;
+  transition-property: opacity, visibility;
   transform: translateX(-50%) translateY(5px);
 
   &::before {
@@ -163,7 +165,7 @@
     left: 50%;
     width: 15px;
     height: 15px;
-    content: "";
+    content: '';
     background-color: $color-additional-1;
     border: 1px solid $color-additional-2;
     border-right: none;

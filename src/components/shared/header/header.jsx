@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import Link from 'components/shared/link';
 import Button from 'components/shared/button';
 import Logo from 'images/logo.inline.svg';
-import SubMenu from 'components/shared/sub-menu';
+import SubMenu from 'components/shared/header/sub-menu';
 
 import styles from './header.module.scss';
 
@@ -38,22 +38,10 @@ const Header = (props) => {
 
           <ul className={cx('list')}>
             <li className={cx('list-item')}>
-              <Link
-                className={cx('list-link')}
-                to={language1Url}
-                activeClassName={cx('active')}
-              >
-                {language1Text}
-              </Link>
+              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
             </li>
             <li className={cx('list-item')}>
-              <Link
-                className={cx('list-link')}
-                to={language2Url}
-                activeClassName={cx('active')}
-              >
-                {language2Text}
-              </Link>
+              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
             </li>
           </ul>
         </div>
@@ -64,11 +52,9 @@ const Header = (props) => {
 
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
-              {menuItems.map(({ label, path }, index) => (
+              {menuItems.map((menuItem, index) => (
                 <li className={cx('menu-item')} key={index} onMouseEnter={() => setIsMenuHovered(true)} onMouseLeave={() => setIsMenuHovered(false)}>
-                  <Link className={cx('link')} to={path}>
-                    {label}
-                  </Link>
+                  <Link className={cx('link')} to={menuItem.path}>{menuItem.label}</Link>
                   <div className={cx('dropdown', `dropdown-item-${index + 1}`)}>
                     <SubMenu items={subMenuItems} onHover={setIsMenuHovered} />
                   </div>
@@ -76,18 +62,11 @@ const Header = (props) => {
               ))}
             </ul>
             {buttonText && buttonUrl && (
-              <Button className={cx('button')} to={buttonUrl} size="sm">
-                {buttonText}
-              </Button>
+              <Button className={cx('button')} to={buttonUrl} size="sm">{buttonText}</Button>
             )}
           </nav>
 
-          <button
-            className={cx('burger')}
-            type="button"
-            aria-label="Open Mobile Menu"
-            onClick={onBurgerClick}
-          >
+          <button className={cx('burger')} type="button" aria-label="Open Mobile Menu" onClick={onBurgerClick}>
             <span className={cx('burger-line')} />
             <span className={cx('burger-line')} />
             <span className={cx('burger-line')} />
@@ -105,18 +84,14 @@ Header.propTypes = {
   language1Url: PropTypes.string,
   language2Text: PropTypes.string,
   language2Url: PropTypes.string,
-  menuItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-    }),
-  ),
-  subMenuItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-    }),
-  ),
+  menuItems: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+  })),
+  subMenuItems: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+  })),
   buttonText: PropTypes.string,
   buttonUrl: PropTypes.string,
   onBurgerClick: PropTypes.func.isRequired,
