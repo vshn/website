@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
@@ -25,9 +25,10 @@ const Header = (props) => {
     buttonUrl,
     onBurgerClick,
   } = props;
+  const [isMenuHovered, setIsMenuHovered] = useState(false);
 
   return (
-    <header className={cx('wrapper')}>
+    <header className={cx('wrapper', { 'hovered-color': isMenuHovered })}>
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
@@ -37,10 +38,22 @@ const Header = (props) => {
 
           <ul className={cx('list')}>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
+              <Link
+                className={cx('list-link')}
+                to={language1Url}
+                activeClassName={cx('active')}
+              >
+                {language1Text}
+              </Link>
             </li>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
+              <Link
+                className={cx('list-link')}
+                to={language2Url}
+                activeClassName={cx('active')}
+              >
+                {language2Text}
+              </Link>
             </li>
           </ul>
         </div>
@@ -52,20 +65,29 @@ const Header = (props) => {
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
               {menuItems.map(({ label, path }, index) => (
-                <li className={cx('menu-item')} key={index}>
-                  <Link className={cx('link')} to={path}>{label}</Link>
+                <li className={cx('menu-item')} key={index} onMouseEnter={() => setIsMenuHovered(true)} onMouseLeave={() => setIsMenuHovered(false)}>
+                  <Link className={cx('link')} to={path}>
+                    {label}
+                  </Link>
                   <div className={cx('dropdown', `dropdown-item-${index + 1}`)}>
-                    <SubMenu items={subMenuItems} />
+                    <SubMenu items={subMenuItems} onHover={setIsMenuHovered} />
                   </div>
                 </li>
               ))}
             </ul>
             {buttonText && buttonUrl && (
-              <Button className={cx('button')} to={buttonUrl} size="sm">{buttonText}</Button>
+              <Button className={cx('button')} to={buttonUrl} size="sm">
+                {buttonText}
+              </Button>
             )}
           </nav>
 
-          <button className={cx('burger')} type="button" aria-label="Open Mobile Menu" onClick={onBurgerClick}>
+          <button
+            className={cx('burger')}
+            type="button"
+            aria-label="Open Mobile Menu"
+            onClick={onBurgerClick}
+          >
             <span className={cx('burger-line')} />
             <span className={cx('burger-line')} />
             <span className={cx('burger-line')} />
@@ -83,14 +105,18 @@ Header.propTypes = {
   language1Url: PropTypes.string,
   language2Text: PropTypes.string,
   language2Url: PropTypes.string,
-  menuItems: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-  })),
-  subMenuItems: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-  })),
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    }),
+  ),
+  subMenuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    }),
+  ),
   buttonText: PropTypes.string,
   buttonUrl: PropTypes.string,
   onBurgerClick: PropTypes.func.isRequired,

@@ -11,6 +11,10 @@
   @include md-down {
     height: $header-height-md;
   }
+
+  &.hovered-color {
+    background-color: $color-additional-1;
+  }
 }
 
 .section {
@@ -145,11 +149,12 @@
   padding-top: 60px;
   padding-bottom: 60px;
   visibility: hidden;
-  background-color: $color-tertiary;
+  background-color: $color-additional-1;
   border-top: 1px solid $color-additional-2;
   box-shadow: (0 5px 10px rgba($color-primary, 0.25));
   opacity: 0;
-  transition: opacity, visibility $transition-base;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
   transform: translateX(-50%) translateY(5px);
 
   &::before {
@@ -159,7 +164,7 @@
     width: 15px;
     height: 15px;
     content: "";
-    background-color: $color-tertiary;
+    background-color: $color-additional-1;
     border: 1px solid $color-additional-2;
     border-right: none;
     border-bottom: none;
