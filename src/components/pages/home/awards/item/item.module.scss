@@ -126,8 +126,14 @@
     right: 0;
     left: 0;
     height: 1px;
-    content: '';
-    background: linear-gradient(90deg, rgba($color-tertiary, 0) 0%, $color-tertiary 50%, rgba($color-tertiary, 0) 100%);
+    content: "";
+    background:
+      linear-gradient(
+        90deg,
+        rgba($color-tertiary, 0) 0%,
+        $color-tertiary 50%,
+        rgba($color-tertiary, 0) 100%
+      );
     opacity: 0.15;
 
     @include md-down {
@@ -145,5 +151,20 @@
   top: 20px;
   left: 50%;
   z-index: 1;
+  width: 100%;
   transform: translateX(-50%);
+
+  @include lg-down {
+    top: -20px;
+  }
+
+  @include md-down {
+    display: none;
+  }
+
+  svg {
+    @include lg-down {
+      width: 90%;
+    }
+  }
 }
