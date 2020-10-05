@@ -11,9 +11,11 @@ async function createPages({ graphql, actions }) {
         nodes {
           id
           uri
+          locale {
+            id
+          }
           acf {
             template
-            language
           }
         }
       }
@@ -26,12 +28,12 @@ async function createPages({ graphql, actions }) {
 
   const pages = result.data.allWpPage.nodes;
 
-  pages.forEach(({ id, uri, acf: { template: templateName, language } }) => {
+  pages.forEach(({ id, uri, locale: { id: localeId }, acf: { template: templateName } }) => {
     const templatePath = path.resolve(`./src/templates/${templateName}.jsx`);
 
     const context = {
       id,
-      language,
+      localeId,
     };
 
     if (fs.existsSync(templatePath)) {

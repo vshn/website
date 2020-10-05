@@ -171,7 +171,7 @@ const report = {
   buttonUrl: '/',
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { language } }) => (
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { localeId } }) => (
   <MainLayout seo={seo}>
     <Hero
       title={data.heroTitle}
@@ -191,7 +191,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { language 
     <Jobs {...jobs} />
     <News {...news} />
     <Report {...report} />
-    <Contact language={language} />
+    <Contact localeId={localeId} />
   </MainLayout>
 );
 
