@@ -147,10 +147,9 @@
   visibility: hidden;
   background-color: $color-tertiary;
   border-top: 1px solid $color-additional-2;
-  border-radius: 8px;
   box-shadow: (0 5px 10px rgba($color-primary, 0.25));
   opacity: 0;
-  transition: $transition-base;
+  transition: opacity, visibility $transition-base;
   transform: translateX(-50%) translateY(5px);
 
   &::before {
