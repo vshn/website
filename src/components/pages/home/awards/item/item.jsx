@@ -4,22 +4,25 @@ import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import Confetti from './confetti';
 
 import styles from './item.module.scss';
-import Confetti from '../confetti';
 
 const cx = classNames.bind(styles);
 
 const Item = ({ image, title, description, url }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   return (
     <li className={cx('wrapper')}>
       <Link
         className={cx('inner')}
         to={url}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <img className={cx('image')} src={image} alt="" aria-hidden />
         <div className={cx('content')}>
@@ -30,9 +33,8 @@ const Item = ({ image, title, description, url }) => {
           <span className={cx('read-more')}>Read more</span>
         </div>
       </Link>
-      <div className={cx('confetti')}>
-        <Confetti isHovered={isHovered} />
-      </div>
+
+      <Confetti isHovered={isHovered} />
     </li>
   );
 };
