@@ -118,7 +118,7 @@ Header.defaultProps = {
   menuItems: [
     {
       label: 'Products',
-      path: '/products',
+      path: '#',
       childItems: {
         post: {
           url: '/',
@@ -142,7 +142,7 @@ Header.defaultProps = {
     },
     {
       label: 'Solutions',
-      path: '/solutions',
+      path: '#',
       childItems: {
         post: {
           url: '/',
@@ -154,32 +154,32 @@ Header.defaultProps = {
             path: '/events',
           },
           {
-            label: 'Partners',
-            path: '/partners',
-          },
-          {
-            label: 'Press review',
-            path: '/press-review',
-          },
-          {
             label: 'Engagement',
             path: '/engagement',
-          },
-          {
-            label: 'Technology Partners',
-            path: '/technology-partners',
-          },
-          {
-            label: 'What others say',
-            path: '/what-others-say',
           },
           {
             label: 'Handbook',
             path: '/handbook',
           },
           {
+            label: 'Partners',
+            path: '/partners',
+          },
+          {
+            label: 'Technology Partners',
+            path: '/technology-partners',
+          },
+          {
             label: 'Success Stories',
             path: '/success-stories',
+          },
+          {
+            label: 'Press review',
+            path: '/press-review',
+          },
+          {
+            label: 'What others say',
+            path: '/what-others-say',
           },
         ],
       },

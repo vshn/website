@@ -83,7 +83,8 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
   row-gap: 30px;
   padding-left: 0;
   list-style-type: none;
