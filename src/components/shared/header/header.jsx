@@ -20,6 +20,8 @@ const Header = (props) => {
     language2Text,
     language2Url,
     menuItems,
+    postTitle,
+    postUrl,
     subMenuItems,
     buttonText,
     buttonUrl,
@@ -56,7 +58,12 @@ const Header = (props) => {
                 <li className={cx('menu-item')} key={index} onMouseEnter={() => setIsMenuHovered(true)} onMouseLeave={() => setIsMenuHovered(false)}>
                   <Link className={cx('link')} to={menuItem.path}>{menuItem.label}</Link>
                   <div className={cx('dropdown', `dropdown-item-${index + 1}`)}>
-                    <SubMenu items={subMenuItems} onHover={setIsMenuHovered} />
+                    <SubMenu
+                      postUrl={postUrl}
+                      postTitle={postTitle}
+                      items={subMenuItems}
+                      onHover={setIsMenuHovered}
+                    />
                   </div>
                 </li>
               ))}
@@ -88,6 +95,8 @@ Header.propTypes = {
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
   })),
+  postUrl: PropTypes.string,
+  postTitle: PropTypes.string,
   subMenuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
@@ -126,6 +135,8 @@ Header.defaultProps = {
       path: '/about',
     },
   ],
+  postUrl: '/',
+  postTitle: 'Report DevOps in Switzerland 2020',
   subMenuItems: [
     {
       label: 'Events',
