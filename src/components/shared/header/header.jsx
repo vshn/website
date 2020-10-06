@@ -26,6 +26,9 @@ const Header = (props) => {
   } = props;
   const [isMenuHovered, setIsMenuHovered] = useState(false);
 
+  const handleMouseEnter = () => setIsMenuHovered(true);
+  const handleMouseLeave = () => setIsMenuHovered(false);
+
   return (
     <header className={cx('wrapper', { 'hovered-color': isMenuHovered })}>
       <div className="container">
@@ -57,8 +60,8 @@ const Header = (props) => {
                   <li
                     className={cx('menu-item')}
                     key={index}
-                    onMouseEnter={() => hasChildren && setIsMenuHovered(true)}
-                    onMouseLeave={() => hasChildren && setIsMenuHovered(false)}
+                    onMouseEnter={hasChildren ? handleMouseEnter : null}
+                    onMouseLeave={hasChildren ? handleMouseLeave : null}
                   >
                     <Link className={cx('link', { 'arrow-hover': hasChildren })} to={menuItem.path}>{menuItem.label}</Link>
                     {hasChildren && (
@@ -66,7 +69,6 @@ const Header = (props) => {
                         <SubMenu
                           post={menuItem.childItems.post}
                           items={menuItem.childItems.nodes}
-                          onHover={setIsMenuHovered}
                         />
                       </div>
                     )}
@@ -98,10 +100,18 @@ Header.propTypes = {
   language2Text: PropTypes.string,
   language2Url: PropTypes.string,
   menuItems: PropTypes.arrayOf(PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
+    childItems: PropTypes.shape({
+      post: PropTypes.shape({
+        url: PropTypes.string,
+        title: PropTypes.string,
+      }),
+      nodes: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string,
+        path: PropTypes.string,
+      })),
+    }),
   })),
   buttonText: PropTypes.string,
   buttonUrl: PropTypes.string,

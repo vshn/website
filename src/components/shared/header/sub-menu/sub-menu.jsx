@@ -32,12 +32,10 @@ const SubMenu = ({ post, items }) => (
 );
 
 SubMenu.propTypes = {
-  post: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  post: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
