@@ -9,10 +9,10 @@ import styles from './sub-menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SubMenu = ({ postUrl, postTitle, items }) => (
+const SubMenu = ({ post, items }) => (
   <div className={cx('container', 'dropdown-wrapper')}>
-    <Link className={cx('post')} to={postUrl}>
-      <Heading className={cx('title')} tag="h2" size="md" color="tertiary">{postTitle}</Heading>
+    <Link className={cx('post')} to={post.url}>
+      <Heading className={cx('title')} tag="h2" size="md" color="tertiary">{post.title}</Heading>
       <span className={cx('read-more')}>Read more</span>
       <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
       <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
@@ -32,8 +32,12 @@ const SubMenu = ({ postUrl, postTitle, items }) => (
 );
 
 SubMenu.propTypes = {
-  postUrl: PropTypes.string.isRequired,
-  postTitle: PropTypes.string.isRequired,
+  post: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

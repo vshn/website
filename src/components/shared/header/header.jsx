@@ -20,9 +20,6 @@ const Header = (props) => {
     language2Text,
     language2Url,
     menuItems,
-    postTitle,
-    postUrl,
-    subMenuItems,
     buttonText,
     buttonUrl,
     onBurgerClick,
@@ -54,19 +51,28 @@ const Header = (props) => {
 
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
-              {menuItems.map((menuItem, index) => (
-                <li className={cx('menu-item')} key={index} onMouseEnter={() => setIsMenuHovered(true)} onMouseLeave={() => setIsMenuHovered(false)}>
-                  <Link className={cx('link')} to={menuItem.path}>{menuItem.label}</Link>
-                  <div className={cx('dropdown', `dropdown-item-${index + 1}`)}>
-                    <SubMenu
-                      postUrl={postUrl}
-                      postTitle={postTitle}
-                      items={subMenuItems}
-                      onHover={setIsMenuHovered}
-                    />
-                  </div>
-                </li>
-              ))}
+              {menuItems.map((menuItem, index) => {
+                const hasChildren = menuItem.childItems && menuItem.childItems.nodes.length > 0;
+                return (
+                  <li
+                    className={cx('menu-item')}
+                    key={index}
+                    onMouseEnter={() => hasChildren && setIsMenuHovered(true)}
+                    onMouseLeave={() => hasChildren && setIsMenuHovered(false)}
+                  >
+                    <Link className={cx('link', { 'arrow-hover': hasChildren })} to={menuItem.path}>{menuItem.label}</Link>
+                    {hasChildren && (
+                      <div className={cx('dropdown')}>
+                        <SubMenu
+                          post={menuItem.childItems.post}
+                          items={menuItem.childItems.nodes}
+                          onHover={setIsMenuHovered}
+                        />
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
             {buttonText && buttonUrl && (
               <Button className={cx('button')} to={buttonUrl} size="sm">{buttonText}</Button>
@@ -92,12 +98,8 @@ Header.propTypes = {
   language2Text: PropTypes.string,
   language2Url: PropTypes.string,
   menuItems: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-  })),
-  postUrl: PropTypes.string,
-  postTitle: PropTypes.string,
-  subMenuItems: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
   })),
@@ -117,10 +119,70 @@ Header.defaultProps = {
     {
       label: 'Products',
       path: '/products',
+      childItems: {
+        post: {
+          url: '/',
+          title: 'Report DevOps in Switzerland 2020',
+        },
+        nodes: [
+          {
+            label: 'Events',
+            path: '/events',
+          },
+          {
+            label: 'Partners',
+            path: '/partners',
+          },
+          {
+            label: 'Press review',
+            path: '/press-review',
+          },
+        ],
+      },
     },
     {
       label: 'Solutions',
       path: '/solutions',
+      childItems: {
+        post: {
+          url: '/',
+          title: 'Report DevOps in Switzerland 2020',
+        },
+        nodes: [
+          {
+            label: 'Events',
+            path: '/events',
+          },
+          {
+            label: 'Partners',
+            path: '/partners',
+          },
+          {
+            label: 'Press review',
+            path: '/press-review',
+          },
+          {
+            label: 'Engagement',
+            path: '/engagement',
+          },
+          {
+            label: 'Technology Partners',
+            path: '/technology-partners',
+          },
+          {
+            label: 'What others say',
+            path: '/what-others-say',
+          },
+          {
+            label: 'Handbook',
+            path: '/handbook',
+          },
+          {
+            label: 'Success Stories',
+            path: '/success-stories',
+          },
+        ],
+      },
     },
     {
       label: 'Resources',
@@ -133,42 +195,6 @@ Header.defaultProps = {
     {
       label: 'About',
       path: '/about',
-    },
-  ],
-  postUrl: '/',
-  postTitle: 'Report DevOps in Switzerland 2020',
-  subMenuItems: [
-    {
-      label: 'Events',
-      path: '/',
-    },
-    {
-      label: 'Partners',
-      path: '/',
-    },
-    {
-      label: 'Press review',
-      path: '/',
-    },
-    {
-      label: 'Engagement',
-      path: '/',
-    },
-    {
-      label: 'Technology Partners',
-      path: '/',
-    },
-    {
-      label: 'What others say',
-      path: '/',
-    },
-    {
-      label: 'Handbook',
-      path: '/',
-    },
-    {
-      label: 'Success Stories',
-      path: '/',
     },
   ],
   buttonText: 'Contact Us',

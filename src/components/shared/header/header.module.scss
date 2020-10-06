@@ -148,7 +148,7 @@
   font-size: $font-size-xs;
   line-height: $line-height-xs;
 
-  &::before {
+  &.arrow-hover::before {
     position: absolute;
     top: 62px;
     left: 50%;
