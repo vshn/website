@@ -17,7 +17,11 @@
 }
 
 .title {
+  display: -webkit-box;
   margin-bottom: 10px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .read-more {

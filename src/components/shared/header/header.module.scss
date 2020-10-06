@@ -6,7 +6,6 @@
   z-index: 1;
   height: $header-height;
   background-color: transparent;
-  transition: background-color $transition-base;
 
   @include section-paddings;
 
@@ -118,7 +117,8 @@
 }
 
 .menu-item {
-  margin-right: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
 
   @include with-link-primary;
 
@@ -136,7 +136,12 @@
     }
   }
 
+  &:first-child {
+    padding-left: 0;
+  }
+
   &:last-child {
+    padding-right: 0;
     margin-right: 0;
   }
 }
@@ -162,8 +167,6 @@
     border-right: none;
     border-bottom: none;
     opacity: 0;
-    transition-duration: $transition-base;
-    transition-property: opacity, visibility;
     transform: translateX(-50%) translateY(-100%) rotate(45deg);
   }
 }
@@ -180,8 +183,6 @@
   border-top: 1px solid $color-additional-2;
   box-shadow: (0 5px 5px rgba($color-primary, 0.25));
   opacity: 0;
-  transition-duration: $transition-base;
-  transition-property: opacity, visibility;
   transform: translateX(-50%) translateY(5px);
 
   &::after {
@@ -190,7 +191,7 @@
     left: 0;
     width: 100%;
     height: 15px;
-    content: "";
+    content: '';
     background-color: transparent;
   }
 }
