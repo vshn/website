@@ -1,0 +1,63 @@
+.wrapper {
+  position: relative;
+  padding-top: calc(#{$header-height} + 80px);
+  padding-bottom: 200px;
+  margin-bottom: 170px;
+
+  @include section-paddings;
+}
+
+.category {
+  display: inline-block;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  background-color: $color-additional-2;
+  border-radius: 2px;
+  border-bottom-right-radius: 20px;
+}
+
+.title {
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: $color-secondary;
+}
+
+.illustration {
+  position: absolute;
+  top: 0;
+  right: 110px;
+  width: 510px;
+}
+
+.shape-1 {
+  position: absolute;
+  top: -60px;
+  left: 655px;
+  z-index: -1;
+  width: calc(645px + #{$container-side-gap});
+  min-width: 948px;
+  height: 1000px;
+}
+
+.shape-2 {
+  position: absolute;
+  right: 1100px;
+  bottom: -505px;
+  z-index: -1;
+  width: calc(520px + #{$container-side-gap});
+  min-width: 505px;
+  height: 400px;
+}

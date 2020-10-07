@@ -1,0 +1,41 @@
+.wrapper {
+  margin-bottom: 115px;
+}
+
+.title {
+  margin-bottom: 65px;
+}
+
+.items-wrapper {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 220px);
+  grid-auto-flow: column;
+  column-gap: 110px;
+  padding-left: 0;
+}
+
+.item {
+  position: relative;
+  width: 220px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  font-weight: 700;
+  line-height: $line-height-md;
+  list-style-type: none;
+  border-bottom: 1px solid $color-additional-2;
+
+  @include with-link-primary;
+}
+
+.star {
+  position: absolute;
+  right: 0;
+}
+
+.double-star {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
