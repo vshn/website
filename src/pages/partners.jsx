@@ -12,7 +12,7 @@ const hero = {
 };
 
 const content = {
-  title: 'Among our partners are:',
+  title: 'Our partners',
   items: [
     {
       url: '/',
