@@ -27,7 +27,7 @@
 
 .without-post {
   .inner {
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 120px;
 
     @include lg-down {
