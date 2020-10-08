@@ -12,10 +12,19 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ title, items }) => (
+const Content = ({ title, filters, items }) => (
   <div className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="xl" color="primary" innerHTML={title} />
+      <div className={cx('title-wrapper')}>
+        <Heading className={cx('title')} tag="h2" size="xl" color="primary" innerHTML={title} />
+        <div className={cx('filters')}>
+          {filters.map((filter, index) => (
+            <select className={cx('filter')}>
+              <option value={filter.name} key={index}>{filter.name}</option>
+            </select>
+          ))}
+        </div>
+      </div>
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
           <li className={cx('item')} key={index}>
@@ -35,6 +44,7 @@ const Content = ({ title, items }) => (
 
 Content.propTypes = {
   title: PropTypes.string.isRequired,
+  filters: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,

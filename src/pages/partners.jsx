@@ -15,6 +15,17 @@ const hero = {
 
 const content = {
   title: 'Our partners',
+  filters: [
+    {
+      name: 'Industry',
+    },
+    {
+      name: 'Provider',
+    },
+    {
+      name: 'Technology',
+    },
+  ],
   items: [
     {
       url: '/',
