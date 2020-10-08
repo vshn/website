@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import Link from 'components/shared/link';
-import Button from 'components/shared/button';
 import Logo from 'images/logo.inline.svg';
 import SubMenu from 'components/shared/header/sub-menu';
 

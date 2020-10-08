@@ -39,7 +39,7 @@
   align-self: center;
   max-width: 300px;
   padding: 20px;
-  margin-right: 123px;
+  margin-right: 100px;
   background-color: $color-primary;
 
   @include hover {
@@ -125,9 +125,8 @@
 
 .items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, max-content);
   row-gap: 30px;
-  column-gap: 120px;
   padding-left: 0;
   list-style-type: none;
 
@@ -140,4 +139,8 @@
     content: '';
     background-color: red;
   }
+}
+
+.item {
+  margin-right: 120px;
 }

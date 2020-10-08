@@ -29,7 +29,7 @@ const SubMenu = ({ className, post, items }) => (
 
       <ul className={cx('items')}>
         {items.map(({ label, path }, index) => (
-          <li key={index}>
+          <li className={cx('item')} key={index}>
             <Link to={path}>{label}</Link>
           </li>
         ))}
