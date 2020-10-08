@@ -9,40 +9,52 @@ import styles from './sub-menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SubMenu = ({ post, items }) => (
-  <div className={cx('container', 'dropdown-wrapper')}>
-    <Link className={cx('post')} to={post.url}>
-      <Heading className={cx('title')} tag="h2" size="md" color="tertiary">{post.title}</Heading>
-      <span className={cx('read-more')}>Read more</span>
-      <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
-      <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
-      <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
-      <span className={cx('ellipse', 'ellipse-1')} aria-hidden />
-      <span className={cx('ellipse', 'ellipse-2')} aria-hidden />
-      <span className={cx('ellipse', 'ellipse-3')} aria-hidden />
-    </Link>
-    <ul className={cx('list')}>
-      {items.map((item, index) => (
-        <li className={cx('item')} key={index}>
-          <Link className={cx('link')} to={item.path}>{item.label}</Link>
-        </li>
-      ))}
-    </ul>
+const SubMenu = ({ className, post, items }) => (
+  <div className={cx('wrapper', { withoutPost: !post }, className)}>
+    <div className={cx('container', 'inner')}>
+      {
+        post && (
+          <Link className={cx('post')} to={post.url}>
+            <Heading className={cx('post-title')} tag="h2" size="md" color="tertiary">{post.title}</Heading>
+            <span className={cx('post-footer-text')}>{post.footerText}</span>
+            <span className={cx('post-rectangle', 'post-rectangle-1')} aria-hidden />
+            <span className={cx('post-rectangle', 'post-rectangle-2')} aria-hidden />
+            <span className={cx('post-rectangle', 'post-rectangle-3')} aria-hidden />
+            <span className={cx('post-ellipse', 'post-ellipse-1')} aria-hidden />
+            <span className={cx('post-ellipse', 'post-ellipse-2')} aria-hidden />
+            <span className={cx('post-ellipse', 'post-ellipse-3')} aria-hidden />
+          </Link>
+        )
+      }
+
+      <ul className={cx('items')}>
+        {items.map(({ label, path }, index) => (
+          <li key={index}>
+            <Link to={path}>{label}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 );
 
 SubMenu.propTypes = {
+  className: PropTypes.string,
   post: PropTypes.shape({
-    url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    footerText: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
   }).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
-      description: PropTypes.string,
     }),
   ).isRequired,
+};
+
+SubMenu.defaultProps = {
+  className: null,
 };
 
 export default SubMenu;

@@ -20,17 +20,16 @@ const Header = (props) => {
     language2Text,
     language2Url,
     menuItems,
-    buttonText,
-    buttonUrl,
     onBurgerClick,
   } = props;
-  const [isMenuHovered, setIsMenuHovered] = useState(false);
 
-  const handleMouseEnter = () => setIsMenuHovered(true);
-  const handleMouseLeave = () => setIsMenuHovered(false);
+  const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
+
+  const handleMenuItemMouseEnter = () => setIsMenuItemHovered(true);
+  const handleMenuItemMouseLeave = () => setIsMenuItemHovered(false);
 
   return (
-    <header className={cx('wrapper', { 'hovered-color': isMenuHovered })}>
+    <header className={cx('wrapper', { menuItemIsHovered: isMenuItemHovered })}>
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
@@ -54,31 +53,30 @@ const Header = (props) => {
 
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
-              {menuItems.map((menuItem, index) => {
-                const hasChildren = menuItem.childItems && menuItem.childItems.nodes.length > 0;
+              {menuItems.map(({ label, path, childItems }, index) => {
+                const withSubMenu = childItems && childItems.nodes.length > 0;
+
                 return (
                   <li
-                    className={cx('menu-item')}
+                    className={cx('menu-item', { withSubMenu })}
+                    onMouseEnter={withSubMenu ? handleMenuItemMouseEnter : null}
+                    onMouseLeave={withSubMenu ? handleMenuItemMouseLeave : null}
                     key={index}
-                    onMouseEnter={hasChildren ? handleMouseEnter : null}
-                    onMouseLeave={hasChildren ? handleMouseLeave : null}
                   >
-                    <Link className={cx('link', { 'arrow-hover': hasChildren })} to={menuItem.path}>{menuItem.label}</Link>
-                    {hasChildren && (
-                      <div className={cx('dropdown')}>
-                        <SubMenu
-                          post={menuItem.childItems.post}
-                          items={menuItem.childItems.nodes}
-                        />
-                      </div>
+                    <Link className={cx('link')} to={path}>
+                      {label}
+                    </Link>
+                    {withSubMenu && (
+                      <SubMenu
+                        className={cx('sub-menu')}
+                        post={childItems.post}
+                        items={childItems.nodes}
+                      />
                     )}
                   </li>
                 );
               })}
             </ul>
-            {buttonText && buttonUrl && (
-              <Button className={cx('button')} to={buttonUrl} size="sm">{buttonText}</Button>
-            )}
           </nav>
 
           <button className={cx('burger')} type="button" aria-label="Open Mobile Menu" onClick={onBurgerClick}>
@@ -113,8 +111,6 @@ Header.propTypes = {
       })),
     }),
   })),
-  buttonText: PropTypes.string,
-  buttonUrl: PropTypes.string,
   onBurgerClick: PropTypes.func.isRequired,
 };
 
@@ -127,12 +123,13 @@ Header.defaultProps = {
   language2Url: '/de',
   menuItems: [
     {
-      label: 'Products',
+      label: 'Solutions',
       path: '#',
       childItems: {
         post: {
-          url: '/',
           title: 'Report DevOps in Switzerland 2020',
+          footerText: 'Read more',
+          url: '/',
         },
         nodes: [
           {
@@ -146,69 +143,95 @@ Header.defaultProps = {
           {
             label: 'Press review',
             path: '/press-review',
-          },
-        ],
-      },
-    },
-    {
-      label: 'Solutions',
-      path: '#',
-      childItems: {
-        post: {
-          url: '/',
-          title: 'Report DevOps in Switzerland 2020',
-        },
-        nodes: [
-          {
-            label: 'Events',
-            path: '/events',
           },
           {
             label: 'Engagement',
             path: '/engagement',
           },
           {
+            label: 'Technology Partners',
+            path: '/technology-partners',
+          },
+          {
+            label: 'What others say',
+            path: '/what-others-say',
+          },
+          {
             label: 'Handbook',
             path: '/handbook',
+          },
+          {
+            label: 'Success Stories',
+            path: '/success-stories',
+          },
+        ],
+      },
+    },
+    {
+      label: 'Products',
+      path: '/products',
+      childItems: {
+        nodes: [
+          {
+            label: 'Events',
+            path: '/events',
           },
           {
             label: 'Partners',
             path: '/partners',
           },
           {
-            label: 'Technology Partners',
-            path: '/technology-partners',
-          },
-          {
-            label: 'Success Stories',
-            path: '/success-stories',
-          },
-          {
             label: 'Press review',
             path: '/press-review',
+          },
+          {
+            label: 'Engagement',
+            path: '/engagement',
+          },
+          {
+            label: 'Technology Partners',
+            path: '/technology-partners',
           },
           {
             label: 'What others say',
             path: '/what-others-say',
           },
+          {
+            label: 'Handbook',
+            path: '/handbook',
+          },
+          {
+            label: 'Success Stories',
+            path: '/success-stories',
+          },
         ],
       },
     },
     {
-      label: 'Resources',
-      path: '/resources',
+      label: 'Technologies',
+      path: '/technologies',
     },
     {
-      label: 'References',
-      path: '/references',
+      label: 'VSHN',
+      path: '/vshn',
     },
     {
-      label: 'About',
-      path: '/about',
+      label: 'Jobs',
+      path: '/jobs',
+    },
+    {
+      label: 'Blog',
+      path: '/blog',
+    },
+    {
+      label: 'Contact',
+      path: '/contact',
+    },
+    {
+      label: 'Login',
+      path: '/login',
     },
   ],
-  buttonText: 'Contact Us',
-  buttonUrl: '/contact',
 };
 
 export default Header;
