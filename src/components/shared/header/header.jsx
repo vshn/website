@@ -168,7 +168,7 @@ Header.defaultProps = {
     },
     {
       label: 'Products',
-      path: '/products',
+      path: '#',
       childItems: {
         nodes: [
           {

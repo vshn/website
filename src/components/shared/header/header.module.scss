@@ -115,16 +115,28 @@
 .menu-item {
   margin-right: 50px;
 
+  @include lg-down {
+    margin-right: 30px;
+  }
+
   @include with-link-primary;
 
   // Pre-last child
   &:nth-last-child(2) {
     margin-right: 62px;
+
+    @include lg-down {
+      margin-right: 43px;
+    }
   }
 
   &:last-child {
     position: relative;
     margin-right: 20px;
+
+    @include lg-down {
+      margin-right: 0;
+    }
 
     &::before {
       position: absolute;
@@ -133,8 +145,12 @@
       width: 2px;
       height: 30px;
       content: '';
-      background-color: #dfe2ec;
+      background-color: $color-additional-2;
       transform: translateY(-50%);
+
+      @include lg-down {
+        left: -20px;
+      }
     }
   }
 
