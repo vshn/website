@@ -171,19 +171,10 @@ const report = {
   buttonUrl: '/',
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { localeId } }) => (
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale, defaultLocale } }) => (
   <MainLayout seo={seo}>
-    <Hero
-      title={data.heroTitle}
-      description={data.heroDescription}
-      buttonText={data.heroButtonText}
-      buttonUrl={data.heroButtonLink.url}
-    />
-    <Advantages
-      title={data.advantagesTitle}
-      subtitle={data.advantagesSubtitle}
-      items={data.advantagesItems}
-    />
+    <Hero {...data.hero} />
+    <Advantages {...data.advantages} />
     <Products {...products} />
     <Awards {...awards} />
     <Technologies {...technologies} />
@@ -191,7 +182,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { localeId 
     <Jobs {...jobs} />
     <News {...news} />
     <Report {...report} />
-    <Contact localeId={localeId} />
+    <Contact locale={locale} defaultLocale={defaultLocale} />
   </MainLayout>
 );
 
@@ -199,22 +190,26 @@ export const query = graphql`
   query($id: String!) {
     wpPage(id: { eq: $id }) {
       acf {
-        heroTitle
-        heroDescription
-        heroButtonText
-        heroButtonLink {
-          url
-        }
-        advantagesTitle
-        advantagesSubtitle
-        advantagesItems {
+        hero {
           title
           description
-          footerText
-          link {
+          buttonText
+          buttonLink {
             url
           }
-          imageName
+        }
+        advantages {
+          title
+          subtitle
+          items {
+            title
+            imageName
+            footerText
+            description
+            link {
+              url
+            }
+          }
         }
       }
       ...wpPageSeo

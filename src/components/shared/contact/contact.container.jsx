@@ -4,11 +4,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import View from './contact.view';
 
-const Contact = ({ localeId }) => {
+const Contact = ({ locale, defaultLocale }) => {
   const {
     wpSharedBlock: {
       acf: original,
-      translated: translations,
+      translations,
     },
   } = useStaticQuery(
     graphql`
@@ -22,9 +22,9 @@ const Contact = ({ localeId }) => {
               url
             }
           }
-          translated {
-            locale {
-              id
+          translations {
+            language {
+              locale
             }
             acf {
               title
@@ -40,7 +40,7 @@ const Contact = ({ localeId }) => {
     `,
   );
 
-  const data = localeId === 'de_DE' ? original : translations.find(({ locale: { id } }) => id === localeId).acf;
+  const data = locale === defaultLocale ? original : translations.find(({ language }) => language.locale === locale)?.acf;
 
   const { title, description, buttonText, buttonLink } = data;
 
@@ -55,7 +55,8 @@ const Contact = ({ localeId }) => {
 };
 
 Contact.propTypes = {
-  localeId: PropTypes.oneOf(['de_DE', 'en_US']).isRequired,
+  locale: PropTypes.oneOf(['de_DE', 'en_US']).isRequired,
+  defaultLocale: PropTypes.oneOf(['de_DE', 'en_US']).isRequired,
 };
 
 export default Contact;

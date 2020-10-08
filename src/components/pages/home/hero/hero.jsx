@@ -18,7 +18,7 @@ import styles from './hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ title, description, buttonText, buttonUrl }) => {
+const Hero = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }) => {
   const [animationPlayRef, isAnimationPlaying] = useInView();
 
   const [isInitialAnimationReady, setIsInitialAnimationReady] = useState(false);
@@ -104,7 +104,9 @@ Hero.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Hero;
