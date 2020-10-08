@@ -3,7 +3,7 @@
 }
 
 .title {
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
 
 .items-wrapper {
@@ -11,33 +11,66 @@
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(4, 220px);
   grid-auto-flow: column;
+  row-gap: 63px;
   column-gap: 110px;
   padding-left: 0;
 }
 
 .item {
-  position: relative;
-  margin-bottom: 60px;
-  font-size: $font-size-md;
+  font-size: 24px;
   font-weight: 700;
-  line-height: $line-height-md;
   list-style-type: none;
 
   @include with-link-primary;
 }
 
 .link {
+  position: relative;
+  padding-right: 15px;
   padding-bottom: 5px;
   border-bottom: 1px solid $color-additional-2;
 }
 
-.star {
+.icon-wrapper {
   position: absolute;
-  right: 0;
+  display: block;
+
+  &:hover::before,
+  &:hover::after {
+    position: absolute;
+    left: 50%;
+    background-color: $color-primary;
+  }
+
+  &:hover::before {
+    top: -20px;
+    width: 10px;
+    height: 10px;
+    content: '';
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  &:hover::after {
+    top: -50px;
+    z-index: 1;
+    width: 165px;
+    height: 35px;
+    padding: 10px 15px;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    line-height: $line-height-xs;
+    color: $color-additional-1;
+    content: attr(title);
+    transform: translateX(-50%);
+  }
 }
 
-.double-star {
-  position: absolute;
-  top: -15px;
-  right: -15px;
+.cup {
+  top: 0;
+  right: -45px;
+}
+
+.double-cup {
+  top: -10px;
+  right: -60px;
 }

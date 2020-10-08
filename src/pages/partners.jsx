@@ -6,9 +6,11 @@ import Content from 'components/pages/partners/content';
 import Contact from 'components/shared/contact';
 
 const hero = {
-  category: 'Partners',
-  title: 'We have turned our customers into <strong>satisfied partners</strong>',
-  description: 'Our understanding of successful business relationships based on partnership goes beyond a pure service provider/customer relationship. We therefore regard our customers as partners. Click on the respective link to learn more about our cooperation.',
+  title: 'Partners',
+  description: 'We have turned our customers into satisfied partners',
+  text: 'Our understanding of successful business relationships based on partnership goes beyond a pure service provider/customer relationship. We therefore regard our customers as partners. Click on the respective link to learn more about our cooperation.',
+  buttonUrl: '/',
+  buttonText: 'Learn more',
 };
 
 const content = {
@@ -93,6 +95,7 @@ const content = {
       url: '/',
       name: 'Sobrado',
       type: 'medium',
+      info: 'Read success story',
     },
     {
       url: '/',

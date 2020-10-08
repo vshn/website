@@ -1,45 +1,39 @@
 .wrapper {
   position: relative;
   padding-top: calc(#{$header-height} + 80px);
-  padding-bottom: 200px;
-  margin-bottom: 170px;
+  padding-bottom: 180px;
+  margin-bottom: 230px;
 
   @include section-paddings;
 }
 
-.category {
-  display: inline-block;
-  padding-top: 5px;
-  padding-right: 15px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  margin-right: 15px;
+.title {
   margin-bottom: 30px;
   font-size: $font-size-xs;
   font-weight: 700;
   line-height: $line-height-xs;
-  background-color: $color-additional-2;
-  border-radius: 2px;
-  border-bottom-right-radius: 20px;
-}
-
-.title {
-  max-width: 520px;
-  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .description {
   max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.text {
+  max-width: 520px;
+  margin-bottom: 30px;
   font-size: 18px;
   line-height: 1.6;
-  color: $color-secondary;
+  color: $color-additional-3;
 }
 
 .illustration {
   position: absolute;
-  top: 0;
+  top: 30px;
   right: 110px;
-  width: 510px;
+  width: 520px;
 }
 
 .shape-1 {

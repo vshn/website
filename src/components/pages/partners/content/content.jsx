@@ -5,8 +5,8 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import star from './images/star.svg';
-import doubleStar from './images/double-star.svg';
+import cup from './images/cup.svg';
+import doubleCup from './images/double-cup.svg';
 
 import styles from './content.module.scss';
 
@@ -22,10 +22,10 @@ const Content = ({ title, items }) => (
             <Link className={cx('link')} to={item.url}>
               {item.name}
               {item.type === 'medium' && (
-                <img className={cx('star')} src={star} data-title={item.info} alt="" aria-hidden />
+                <div className={cx('icon-wrapper', 'cup')} title={item.info}><img src={cup} alt="" aria-hidden /></div>
               )}
               {item.type === 'high' && (
-                <img className={cx('double-star')} src={doubleStar} data-title={item.info} alt="" aria-hidden />
+                <div className={cx('icon-wrapper', 'double-cup')} title={item.info}><img src={doubleCup} alt="" aria-hidden /></div>
               )}
             </Link>
           </li>
