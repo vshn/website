@@ -20,6 +20,7 @@ const content = {
       url: '/',
       name: 'Acrevis Bank',
       type: 'high',
+      storyUrl: '/',
       info: 'Read success story',
     },
     {
@@ -36,6 +37,7 @@ const content = {
       url: '/',
       name: 'Esurance',
       type: 'medium',
+      storyUrl: '/',
       info: 'Read success story',
     },
     {
@@ -52,6 +54,7 @@ const content = {
       url: '/',
       name: 'HRM Systems',
       type: 'medium',
+      storyUrl: '/',
       info: 'Read success story',
     },
     {
@@ -68,6 +71,7 @@ const content = {
       url: '/',
       name: 'Neon',
       type: 'medium',
+      storyUrl: '/',
       info: 'Read success story',
     },
     {
@@ -89,12 +93,14 @@ const content = {
       url: '/',
       name: 'Skribble',
       type: 'medium',
+      storyUrl: '/',
       info: 'Read success story',
     },
     {
       url: '/',
       name: 'Sobrado',
       type: 'medium',
+      storyUrl: '/',
       info: 'Read success story',
     },
     {

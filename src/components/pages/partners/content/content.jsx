@@ -19,15 +19,13 @@ const Content = ({ title, items }) => (
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
           <li className={cx('item')} key={index}>
-            <Link className={cx('link')} to={item.url}>
-              {item.name}
-              {item.type === 'medium' && (
-                <div className={cx('icon-wrapper', 'cup')} title={item.info}><img src={cup} alt="" aria-hidden /></div>
-              )}
-              {item.type === 'high' && (
-                <div className={cx('icon-wrapper', 'double-cup')} title={item.info}><img src={doubleCup} alt="" aria-hidden /></div>
-              )}
-            </Link>
+            <Link className={cx('link')} to={item.url}>{item.name}</Link>
+            {item.type === 'medium' && (
+              <Link className={cx('icon-wrapper', 'cup')} title={item.info} to={item.storyUrl}><img src={cup} alt="" aria-hidden /></Link>
+            )}
+            {item.type === 'high' && (
+              <Link className={cx('icon-wrapper', 'double-cup')} title={item.info} to={item.storyUrl}><img src={doubleCup} alt="" aria-hidden /></Link>
+            )}
           </li>
         ))}
       </ul>
@@ -42,6 +40,7 @@ Content.propTypes = {
       url: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
+      storyUrl: PropTypes.string.isRequired,
       info: PropTypes.string.isRequired,
     }),
   ).isRequired,
