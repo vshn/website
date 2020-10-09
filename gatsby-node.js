@@ -7,11 +7,6 @@ async function createPages({ graphql, actions }) {
 
   const result = await graphql(`
     {
-      wp {
-        defaultLanguage {
-          locale
-        }
-      }
       allWpPage {
         nodes {
           id
@@ -19,8 +14,8 @@ async function createPages({ graphql, actions }) {
           language {
             locale
           }
-          acf {
-            template
+          template {
+            templateName
           }
         }
       }
@@ -31,15 +26,13 @@ async function createPages({ graphql, actions }) {
     throw new Error(result.errors);
   }
 
-  const defaultLocale = result.data.wp.defaultLanguage.locale;
   const pages = result.data.allWpPage.nodes;
 
-  pages.forEach(({ id, uri, language: { locale }, acf: { template: templateName } }) => {
-    const templatePath = path.resolve(`./src/templates/${templateName}.jsx`);
+  pages.forEach(({ id, uri, language: { locale }, template: { templateName } }) => {
+    const templatePath = path.resolve(`./src/templates/${templateName.toLowerCase()}.jsx`);
 
     const context = {
       id,
-      defaultLocale,
       locale,
     };
 
