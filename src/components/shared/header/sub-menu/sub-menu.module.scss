@@ -28,7 +28,7 @@
 .without-post {
   .inner {
     justify-content: flex-end;
-    padding-right: 120px;
+    padding-right: 219px;
 
     @include lg-down {
       padding-right: 95px;
@@ -46,7 +46,7 @@
   align-self: center;
   max-width: 300px;
   padding: 20px;
-  margin-right: 100px;
+  margin-right: 123px;
   background-color: $color-primary;
 
   @include hover {
@@ -138,28 +138,11 @@
   display: grid;
   grid-template-columns: repeat(3, max-content);
   row-gap: 30px;
+  column-gap: 120px;
   padding-left: 0;
   list-style-type: none;
 
   @include lg-down {
     grid-template-columns: repeat(2, max-content);
-  }
-
-  // TODO: Remove before merge
-  &::before {
-    position: absolute;
-    top: -200px;
-    width: 1px;
-    height: 1000px;
-    content: '';
-    background-color: red;
-  }
-}
-
-.item {
-  margin-right: 120px;
-
-  @include lg-down {
-    margin-right: 60px;
   }
 }
