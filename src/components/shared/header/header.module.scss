@@ -132,11 +132,7 @@
 
   &:last-child {
     position: relative;
-    margin-right: 20px;
-
-    @include lg-down {
-      margin-right: 0;
-    }
+    margin-right: 0;
 
     &::before {
       position: absolute;
