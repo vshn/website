@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 80px;
+  margin-top: $header-height;
+  margin-bottom: 75px;
+  background-color: #f9fafb;
+}
+
+.category {
+  margin-bottom: 30px;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  line-height: $line-height-xxl;
+}
+
+.description {
+  max-width: 740px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-additional-3;
+}
