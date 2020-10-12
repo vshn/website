@@ -6,7 +6,6 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 import cup from './images/cup.svg';
-import doubleCup from './images/double-cup.svg';
 
 import styles from './content.module.scss';
 
@@ -19,8 +18,8 @@ const Content = ({ title, filters, items }) => (
         <Heading className={cx('title')} tag="h2" size="xl" color="primary" innerHTML={title} />
         <div className={cx('filters')}>
           {filters.map((filter, index) => (
-            <select className={cx('filter')}>
-              <option value={filter.name} key={index}>{filter.name}</option>
+            <select className={cx('filter')} key={index}>
+              <option value={filter.name}>{filter.name}</option>
             </select>
           ))}
         </div>
@@ -29,11 +28,8 @@ const Content = ({ title, filters, items }) => (
         {items.map((item, index) => (
           <li className={cx('item')} key={index}>
             <Link className={cx('link')} to={item.url}>{item.name}</Link>
-            {item.type === 'medium' && (
+            {item.type === 'featured' && (
               <Link className={cx('icon-wrapper', 'cup')} title={item.info} to={item.storyUrl}><img src={cup} alt="" aria-hidden /></Link>
-            )}
-            {item.type === 'high' && (
-              <Link className={cx('icon-wrapper', 'double-cup')} title={item.info} to={item.storyUrl}><img src={doubleCup} alt="" aria-hidden /></Link>
             )}
           </li>
         ))}
@@ -44,20 +40,20 @@ const Content = ({ title, filters, items }) => (
 
 Content.propTypes = {
   title: PropTypes.string.isRequired,
-  filters: PropTypes.string.isRequired,
+  filters: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      storyUrl: PropTypes.string.isRequired,
-      info: PropTypes.string.isRequired,
+      type: PropTypes.string,
+      storyUrl: PropTypes.string,
+      info: PropTypes.string,
     }),
   ).isRequired,
-};
-
-Content.defaultProps = {
-
 };
 
 export default Content;

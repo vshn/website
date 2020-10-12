@@ -30,31 +30,9 @@ const content = {
     {
       url: '/',
       name: 'Acrevis Bank',
-      type: 'high',
+      type: 'featured',
       storyUrl: '/',
       info: 'Read success story',
-    },
-    {
-      url: '/',
-      name: 'Amazee',
-      type: 'basic',
-    },
-    {
-      url: '/',
-      name: 'Cinerent',
-      type: 'basic',
-    },
-    {
-      url: '/',
-      name: 'Esurance',
-      type: 'medium',
-      storyUrl: '/',
-      info: 'Read success story',
-    },
-    {
-      url: '/',
-      name: 'Gbanga',
-      type: 'basic',
     },
     {
       url: '/',
@@ -63,71 +41,82 @@ const content = {
     },
     {
       url: '/',
-      name: 'HRM Systems',
-      type: 'medium',
-      storyUrl: '/',
-      info: 'Read success story',
-    },
-    {
-      url: '/',
-      name: 'Komed Health',
-      type: 'basic',
-    },
-    {
-      url: '/',
-      name: 'Migros',
-      type: 'basic',
-    },
-    {
-      url: '/',
-      name: 'Neon',
-      type: 'medium',
-      storyUrl: '/',
-      info: 'Read success story',
-    },
-    {
-      url: '/',
       name: 'Tyk',
-      type: 'basic',
+    },
+    {
+      url: '/',
+      name: 'Spryker',
+    },
+    {
+      url: '/',
+      name: 'Amazee',
+    },
+    {
+      url: '/',
+      name: 'HRM Systems',
+      type: 'featured',
+      storyUrl: '/',
+      info: 'Read success story',
     },
     {
       url: '/',
       name: 'Sherpany',
-      type: 'basic',
+    },
+    {
+      url: '/',
+      name: 'Starticket',
+    },
+    {
+      url: '/',
+      name: 'Cinerent',
+    },
+    {
+      url: '/',
+      name: 'Komed Health',
     },
     {
       url: '/',
       name: 'Six',
-      type: 'basic',
+    },
+    {
+      url: '/',
+      name: 'Younity / Wirz',
+    },
+    {
+      url: '/',
+      name: 'Esurance',
+      type: 'featured',
+      storyUrl: '/',
+      info: 'Read success story',
+    },
+    {
+      url: '/',
+      name: 'Migros',
     },
     {
       url: '/',
       name: 'Skribble',
-      type: 'medium',
+      type: 'featured',
+      storyUrl: '/',
+      info: 'Read success story',
+    },
+    {
+      url: '/',
+      name: 'Gbanga',
+    },
+    {
+      url: '/',
+      name: 'Neon',
+      type: 'featured',
       storyUrl: '/',
       info: 'Read success story',
     },
     {
       url: '/',
       name: 'Sobrado',
-      type: 'medium',
+      type: 'featured',
       storyUrl: '/',
       info: 'Read success story',
-    },
-    {
-      url: '/',
-      name: 'Spryker',
-      type: 'basic',
-    },
-    {
-      url: '/',
-      name: 'Starticket',
-      type: 'basic',
-    },
-    {
-      url: '/',
-      name: 'Younity / Wirz',
-      type: 'basic',
     },
   ],
 };

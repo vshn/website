@@ -1,5 +1,5 @@
 .wrapper {
-  margin-bottom: 115px;
+  margin-bottom: 195px;
 }
 
 .title-wrapper {
@@ -38,11 +38,9 @@ select::-ms-expand {
 
 .items-wrapper {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(4, 220px);
-  grid-auto-flow: column;
+  grid-template-columns: repeat(4, 1fr);
   row-gap: 63px;
-  column-gap: 110px;
+  column-gap: 30px;
   justify-items: start;
   padding-left: 0;
 }
