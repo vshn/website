@@ -23,15 +23,12 @@
     content: '';
     background-color: transparent;
   }
-}
 
-.without-post {
-  .inner {
-    justify-content: flex-end;
-    padding-right: 219px;
+  &.without-post {
+    padding-left: 472px;
 
     @include lg-down {
-      padding-right: 95px;
+      padding-left: 462px;
     }
   }
 }
