@@ -1,5 +1,5 @@
-.items-wrapper {
-  width: 410px;
+.wrapper {
+  margin-bottom: 45px;
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%), $color-tertiary;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba($color-primary, 0.25);
@@ -35,7 +35,7 @@
     margin-right: 15px;
     font-size: 40px;
     font-weight: 800;
-    color: $color-additional-4;
+    color: $color-additional-3;
   }
 
   &:last-child {

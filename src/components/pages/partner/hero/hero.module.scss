@@ -12,9 +12,12 @@
 }
 
 .category {
+  display: block;
   margin-bottom: 30px;
   font-size: $font-size-xs;
+  font-weight: 700;
   line-height: $line-height-xs;
+  color: $color-secondary;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -28,11 +31,12 @@
   max-width: 740px;
   font-size: $font-size-md;
   line-height: $line-height-md;
-  color: $color-additional-3;
+  color: $color-secondary;
 }
 
 .info {
   position: absolute;
   top: -30px;
   right: 0;
+  max-width: 410px;
 }

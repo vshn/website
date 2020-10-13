@@ -15,6 +15,13 @@ const hero = {
     { value: '3', text: 'years partnership' },
   ],
   url: 'acrevis.ch',
+  stories: {
+    category: 'Success stories',
+    title: 'Acrevis Bank & VSHN',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard',
+    footerUrl: '/',
+    footerText: 'Read more',
+  },
 };
 
 export default () => (

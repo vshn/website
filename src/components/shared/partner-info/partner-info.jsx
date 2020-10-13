@@ -10,7 +10,7 @@ import styles from './partner-info.module.scss';
 const cx = classNames.bind(styles);
 
 const PartnerInfo = ({ items, url }) => (
-  <div className={cx('items-wrapper')}>
+  <div className={cx('wrapper')}>
     <div className={cx('logo-wrapper')}><img src={logo} alt="" aria-hidden /></div>
     <ul className={cx('items')}>
       {items.map(({ value, text }, index) => (
