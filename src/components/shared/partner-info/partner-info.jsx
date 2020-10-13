@@ -20,7 +20,9 @@ const PartnerInfo = ({ items, url }) => (
         </li>
       ))}
     </ul>
-    <Link className={cx('link')} to={url}>{url}</Link>
+    <div className={cx('link-wrapper')}>
+      <Link className={cx('link')} to={url}>{url}</Link>
+    </div>
   </div>
 );
 

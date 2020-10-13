@@ -1,4 +1,5 @@
 .wrapper {
+  padding-bottom: 45px;
   margin-bottom: 45px;
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%), $color-tertiary;
   border-radius: 8px;
@@ -39,15 +40,18 @@
   }
 
   &:last-child {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
   }
 }
 
+.link-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .link {
-  display: block;
-  padding-bottom: 45px;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.6;
-  text-align: center;
+  border-bottom: 2px solid $color-additional-2;
 }
