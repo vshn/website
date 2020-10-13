@@ -2,34 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
+import Link from 'components/shared/link';
 import logo from './images/partner-logo.svg';
 
 import styles from './partner-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const PartnerInfo = ({ details, url }) => (
+const PartnerInfo = ({ items, url }) => (
   <div className={cx('items-wrapper')}>
-    <img className={cx('logo')} src={logo} alt="" aria-hidden />
-    <ul>
-      {details.map(({ value, text }, index) => (
+    <div className={cx('logo-wrapper')}><img src={logo} alt="" aria-hidden /></div>
+    <ul className={cx('items')}>
+      {items.map(({ value, text }, index) => (
         <li className={cx('item')} key={index}>
           <strong>{value}</strong>
           <span>{text}</span>
         </li>
       ))}
     </ul>
-    <span>{url}</span>
+    <Link className={cx('link')} to={url}>{url}</Link>
   </div>
 );
 
 PartnerInfo.propTypes = {
-  details: PropTypes.arrayOf(PropTypes.string).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   url: PropTypes.string.isRequired,
-};
-
-PartnerInfo.defaultProps = {
-
 };
 
 export default PartnerInfo;

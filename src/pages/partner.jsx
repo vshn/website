@@ -9,8 +9,8 @@ const hero = {
   category: 'Partners',
   title: 'Acrevis Bank',
   description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard',
-  details: [
-    { value: '99.9%', text: 'uptime' },
+  items: [
+    { value: '99,9%', text: 'uptime' },
     { value: '105', text: 'running servers' },
     { value: '3', text: 'years partnership' },
   ],

@@ -7,6 +7,10 @@
   background-color: #f9fafb;
 }
 
+.inner {
+  position: relative;
+}
+
 .category {
   margin-bottom: 30px;
   font-size: $font-size-xs;
@@ -25,4 +29,10 @@
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-additional-3;
+}
+
+.info {
+  position: absolute;
+  top: -30px;
+  right: 0;
 }
