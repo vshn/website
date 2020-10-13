@@ -1,0 +1,49 @@
+.wrapper {
+  padding-top: 60px;
+  padding-bottom: 55px;
+  margin-top: $header-height;
+  background-color: $color-primary;
+}
+
+.inner {
+  position: relative;
+}
+
+.category {
+  display: block;
+  margin-bottom: 30px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  color: $color-additional-1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  max-width: 525px;
+  margin-bottom: -5px;
+  font-size: $font-size-xxl;
+  line-height: $line-height-xxl;
+}
+
+.description {
+  max-width: 770px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-additional-1;
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  max-width: 410px;
+}
+
+.circles {
+  position: absolute;
+  top: -60px;
+  left: 180px;
+}
