@@ -13,12 +13,12 @@ import styles from './hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ title, description, text, buttonUrl, buttonText }) => (
+const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
   <div className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
-      <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
-      <p className={cx('text')}>{text}</p>
+      <Heading className={cx('category')} tag="p" size="sm" color="secondary">{category}</Heading>
+      <Heading className={cx('title')} tag="h2" size="xl" innerHTML={title} />
+      <p className={cx('description')}>{description}</p>
       <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
       <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
@@ -29,9 +29,9 @@ const Hero = ({ title, description, text, buttonUrl, buttonText }) => (
 );
 
 Hero.propTypes = {
+  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
   buttonUrl: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
 };

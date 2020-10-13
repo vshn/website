@@ -6,9 +6,9 @@ import Content from 'components/pages/partners/content';
 import Contact from 'components/shared/contact';
 
 const hero = {
-  title: 'Partners',
-  description: 'We have turned our customers into satisfied partners',
-  text: 'Our understanding of successful business relationships based on partnership goes beyond a pure service provider/customer relationship. We therefore regard our customers as partners. Click on the respective link to learn more about our cooperation.',
+  category: 'Partners',
+  title: 'We have turned our customers into satisfied partners',
+  description: 'Our understanding of successful business relationships based on partnership goes beyond a pure service provider/customer relationship. We therefore regard our customers as partners. Click on the respective link to learn more about our cooperation.',
   buttonUrl: '/',
   buttonText: 'Learn more',
 };

@@ -7,7 +7,7 @@
   @include section-paddings;
 }
 
-.title {
+.category {
   margin-bottom: 30px;
   font-size: $font-size-xs;
   font-weight: 700;
@@ -16,12 +16,12 @@
   letter-spacing: 0.05em;
 }
 
-.description {
+.title {
   max-width: 520px;
   margin-bottom: 30px;
 }
 
-.text {
+.description {
   max-width: 520px;
   margin-bottom: 30px;
   font-size: 18px;
