@@ -8,10 +8,12 @@
 }
 
 .category {
+  display: block;
   margin-bottom: 30px;
   font-size: $font-size-xs;
   font-weight: 700;
   line-height: $line-height-xs;
+  color: $color-secondary;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
