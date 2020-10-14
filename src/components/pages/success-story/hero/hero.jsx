@@ -6,18 +6,18 @@ import Heading from 'components/shared/heading/';
 import circles from './images/circles.svg';
 
 import styles from './hero.module.scss';
-import Facts from '../facts';
+import Facts from './facts';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ category, title, description, items }) => (
+const Hero = ({ category, title, description, facts }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <span className={cx('category')}>{category}</span>
       <Heading className={cx('title')} tag="h2" size="xxl" color="tertiary" innerHTML={title} />
       <p className={cx('description')}>{description}</p>
       <div className={cx('info')}>
-        <Facts items={items} />
+        <Facts facts={facts} />
       </div>
       <img className={cx('circles')} src={circles} alt="" aria-hidden />
     </div>
@@ -28,7 +28,10 @@ Hero.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf.isRequired,
+  facts: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf.isRequired,
+  }).isRequired,
 };
 
 Hero.defaultProps = {
