@@ -44,7 +44,7 @@ SubMenu.propTypes = {
     title: PropTypes.string.isRequired,
     footerText: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -55,6 +55,7 @@ SubMenu.propTypes = {
 
 SubMenu.defaultProps = {
   className: null,
+  post: null,
 };
 
 export default SubMenu;
