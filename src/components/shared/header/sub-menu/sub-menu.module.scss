@@ -25,10 +25,12 @@
   }
 
   &.without-post {
-    padding-left: 472px;
+    ul {
+      padding-left: 423px;
 
-    @include lg-down {
-      padding-left: 462px;
+      @include lg-down {
+        padding-left: 416px;
+      }
     }
   }
 }
@@ -46,14 +48,14 @@
   margin-right: 123px;
   background-color: $color-primary;
 
+  @include lg-down {
+    margin-right: 116px;
+  }
+
   @include hover {
     .post-footer-text {
       color: $color-accent-primary;
     }
-  }
-
-  @include lg-down {
-    margin-right: 115px;
   }
 }
 
