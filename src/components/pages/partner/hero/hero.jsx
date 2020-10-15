@@ -4,21 +4,21 @@ import classNames from 'classnames/bind';
 
 import Heading from 'components/shared/heading/';
 import PartnerInfo from 'components/shared/partner-info';
-import Stories from 'components/shared/stories';
+import SuccessStoriesCard from 'components/shared/success-stories-card';
 
 import styles from './hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ category, title, description, items, url, stories }) => (
+const Hero = ({ category, title, description, partnerInfo, story }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <span className={cx('category')}>{category}</span>
-      <Heading className={cx('title')} tag="h2" size="xl" innerHTML={title} />
+      <Heading className={cx('title')} tag="h1" size="xl" innerHTML={title} />
       <p className={cx('description')}>{description}</p>
       <div className={cx('info')}>
-        <PartnerInfo items={items} url={url} />
-        <Stories stories={stories} />
+        <PartnerInfo {...partnerInfo} />
+        <SuccessStoriesCard {...story} />
       </div>
     </div>
   </div>
@@ -28,14 +28,16 @@ Hero.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  url: PropTypes.string.isRequired,
-  stories: PropTypes.shape({
+  partnerInfo: PropTypes.shape({
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+      }),
+    ),
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+  story: PropTypes.shape({
     category: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
