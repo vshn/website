@@ -10,10 +10,7 @@
 .category {
   display: block;
   margin-bottom: 30px;
-  font-size: $font-size-xs;
   font-weight: 700;
-  line-height: $line-height-xs;
-  color: $color-secondary;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -28,7 +25,7 @@
   margin-bottom: 30px;
   font-size: 18px;
   line-height: 1.6;
-  color: $color-additional-3;
+  color: $color-secondary;
 }
 
 .illustration {

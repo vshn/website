@@ -17,22 +17,22 @@ const content = {
   title: 'Our partners',
   filters: [
     {
-      name: 'Industry',
+      label: 'Industry',
     },
     {
-      name: 'Provider',
+      label: 'Provider',
     },
     {
-      name: 'Technology',
+      label: 'Technology',
     },
   ],
   items: [
     {
       url: '/',
       name: 'Acrevis Bank',
-      type: 'featured',
-      storyUrl: '/',
-      info: 'Read success story',
+      type: 'isFeatured',
+      successStoryLabel: 'Read success story',
+      successStoryUrl: '/',
     },
     {
       url: '/',
@@ -54,9 +54,9 @@ const content = {
     {
       url: '/',
       name: 'HRM Systems',
-      type: 'featured',
-      storyUrl: '/',
-      info: 'Read success story',
+      type: 'isFeatured',
+      successStoryLabel: 'Read success story',
+      successStoryUrl: '/',
     },
     {
       url: '/',
@@ -85,9 +85,9 @@ const content = {
     {
       url: '/',
       name: 'Esurance',
-      type: 'featured',
-      storyUrl: '/',
-      info: 'Read success story',
+      type: 'isFeatured',
+      successStoryLabel: 'Read success story',
+      successStoryUrl: '/',
     },
     {
       url: '/',
@@ -96,9 +96,9 @@ const content = {
     {
       url: '/',
       name: 'Skribble',
-      type: 'featured',
-      storyUrl: '/',
-      info: 'Read success story',
+      type: 'isFeatured',
+      successStoryLabel: 'Read success story',
+      successStoryUrl: '/',
     },
     {
       url: '/',
@@ -107,16 +107,16 @@ const content = {
     {
       url: '/',
       name: 'Neon',
-      type: 'featured',
-      storyUrl: '/',
-      info: 'Read success story',
+      type: 'isFeatured',
+      successStoryLabel: 'Read success story',
+      successStoryUrl: '/',
     },
     {
       url: '/',
       name: 'Sobrado',
-      type: 'featured',
-      storyUrl: '/',
-      info: 'Read success story',
+      type: 'isFeatured',
+      successStoryLabel: 'Read success story',
+      successStoryUrl: '/',
     },
   ],
 };

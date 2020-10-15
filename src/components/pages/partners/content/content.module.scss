@@ -2,7 +2,7 @@
   margin-bottom: 195px;
 }
 
-.title-wrapper {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,13 +15,18 @@
   padding-right: 30px;
   padding-bottom: 10px;
   padding-left: 15px;
-  margin-left: 15px;
+  margin-right: 15px;
   font-size: $font-size-xs;
   font-weight: 700;
   line-height: $line-height-xs;
-  background-color: $color-additional-4;
+  background-color: $color-additional-1;
   border: none;
   border-radius: 4px;
+  outline: none;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 select {
@@ -39,29 +44,33 @@ select::-ms-expand {
 .items-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 63px;
-  column-gap: 30px;
+  row-gap: 60px;
+  column-gap: $column-gap;
   justify-items: start;
   padding-left: 0;
 }
 
 .item {
   position: relative;
-  font-size: 24px;
+  font-size: $font-size-lg;
   font-weight: 700;
+  line-height: $line-height-lg;
   list-style-type: none;
 
   @include with-link-primary;
 }
 
-.link {
+.item-link {
+  display: block;
   padding-right: 15px;
   padding-bottom: 5px;
-  border-bottom: 1px solid $color-additional-2;
+  border-bottom: 2px solid $color-additional-2;
 }
 
 .icon-wrapper {
   position: absolute;
+  top: 0;
+  right: -45px;
   display: block;
 
   &:hover::before,
@@ -94,14 +103,4 @@ select::-ms-expand {
     content: attr(title);
     background-color: rgba($color-primary, 0.9);
   }
-}
-
-.cup {
-  top: 0;
-  right: -45px;
-}
-
-.double-cup {
-  top: -10px;
-  right: -60px;
 }

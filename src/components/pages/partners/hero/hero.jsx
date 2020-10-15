@@ -16,8 +16,8 @@ const cx = classNames.bind(styles);
 const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
   <div className={cx('wrapper')}>
     <div className="container">
-      <span className={cx('category')}>{category}</span>
-      <Heading className={cx('title')} tag="h2" size="xl" innerHTML={title} />
+      <Heading className={cx('category')} tag="h1" size="xs" color="secondary">{category}</Heading>
+      <Heading className={cx('title')} tag="p" size="xl">{title}</Heading>
       <p className={cx('description')}>{description}</p>
       <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 

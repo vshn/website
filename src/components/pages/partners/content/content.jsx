@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import cup from './images/cup.svg';
+import Cup from 'icons/cup.inline.svg';
 
 import styles from './content.module.scss';
 
@@ -14,22 +14,22 @@ const cx = classNames.bind(styles);
 const Content = ({ title, filters, items }) => (
   <div className={cx('wrapper')}>
     <div className="container">
-      <div className={cx('title-wrapper')}>
-        <Heading className={cx('title')} tag="h2" size="xl" color="primary" innerHTML={title} />
-        <div className={cx('filters')}>
-          {filters.map((filter, index) => (
+      <div className={cx('header')}>
+        <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
+        <div>
+          {filters.map(({ label }, index) => (
             <select className={cx('filter')} key={index}>
-              <option value={filter.name}>{filter.name}</option>
+              <option value={label}>{label}</option>
             </select>
           ))}
         </div>
       </div>
       <ul className={cx('items-wrapper')}>
-        {items.map((item, index) => (
+        {items.map(({ url, name, type, successStoryLabel, successStoryUrl }, index) => (
           <li className={cx('item')} key={index}>
-            <Link className={cx('link')} to={item.url}>{item.name}</Link>
-            {item.type === 'featured' && (
-              <Link className={cx('icon-wrapper', 'cup')} title={item.info} to={item.storyUrl}><img src={cup} alt="" aria-hidden /></Link>
+            <Link className={cx('item-link')} to={url}>{name}</Link>
+            {type === 'isFeatured' && (
+              <Link className={cx('icon-wrapper')} title={successStoryLabel} to={successStoryUrl}><Cup /></Link>
             )}
           </li>
         ))}
@@ -42,7 +42,7 @@ Content.propTypes = {
   title: PropTypes.string.isRequired,
   filters: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
     }),
   ).isRequired,
   items: PropTypes.arrayOf(
@@ -50,8 +50,8 @@ Content.propTypes = {
       url: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       type: PropTypes.string,
-      storyUrl: PropTypes.string,
-      info: PropTypes.string,
+      successStoryLabel: PropTypes.string,
+      successStoryUrl: PropTypes.string,
     }),
   ).isRequired,
 };
