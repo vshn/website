@@ -1,0 +1,11 @@
+.wrapper {
+  margin-bottom: 180px;
+
+  @include section-paddings;
+}
+
+.content {
+  max-width: 770px;
+
+  @include content;
+}

@@ -16,8 +16,8 @@ const Hero = ({ category, title, description, facts }) => (
       <span className={cx('category')}>{category}</span>
       <Heading className={cx('title')} tag="h2" size="xxl" color="tertiary" innerHTML={title} />
       <p className={cx('description')}>{description}</p>
-      <div className={cx('info')}>
-        <Facts facts={facts} />
+      <div className={cx('info-wrapper')}>
+        <Facts {...facts} />
       </div>
       <img className={cx('circles')} src={circles} alt="" aria-hidden />
     </div>

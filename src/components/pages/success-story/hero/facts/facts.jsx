@@ -8,11 +8,11 @@ import styles from './facts.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Facts = ({ facts }) => (
+const Facts = ({ title, items }) => (
   <div className={cx('wrapper')}>
-    <Heading className={cx('title')} tag="h2" size="lg" color="secondary" innerHTML={facts.title} />
+    <Heading className={cx('title')} tag="h2" size="lg" color="secondary" innerHTML={title} />
     <ul className={cx('items-wrapper')}>
-      {facts.items.map((item, index) => (
+      {items.map((item, index) => (
         <li className={cx('item')} key={index}>
           <span className={cx('number')}>{index + 1}</span>
           {item}
@@ -23,10 +23,8 @@ const Facts = ({ facts }) => (
 );
 
 Facts.propTypes = {
-  facts: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf.isRequired,
-  }).isRequired,
+  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 Facts.defaultProps = {

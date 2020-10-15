@@ -1,0 +1,81 @@
+.interview {
+  padding-top: 95px;
+  padding-bottom: 60px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-top: 8px solid $color-additional-1;
+  border-bottom: 8px solid $color-additional-1;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-bottom: 90px;
+  }
+
+  &__avatar {
+    position: relative;
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    margin-right: 75px;
+    background-color: $color-additional-1;
+    border-radius: 5px;
+  }
+
+  &__rectangle {
+    position: absolute;
+    z-index: -1;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba($color-accent-secondary, 0.15);
+  }
+
+  &__rectangle_1 {
+    top: -30px;
+    left: -30px;
+    width: 130px;
+    height: 130px;
+    background-color: $color-accent-secondary;
+    border-top-left-radius: 55px;
+  }
+
+  &__rectangle_2 {
+    right: -30px;
+    bottom: -30px;
+    width: 165px;
+    height: 100px;
+    background-color: $color-primary;
+    border-bottom-right-radius: 50px;
+  }
+
+  &__rectangle_3 {
+    top: -15px;
+    right: -15px;
+    width: 100px;
+    height: 100px;
+    background-color: $color-accent-primary;
+    border-bottom-left-radius: 120px;
+  }
+
+  &__name {
+    font-size: 40px;
+  }
+
+  &__position {
+    font-size: $font-size-md;
+    font-weight: 700;
+    line-height: $line-height-md;
+    color: $color-secondary;
+  }
+
+  &__question {
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  &__answer {
+    margin-bottom: 45px;
+  }
+}
