@@ -5,7 +5,7 @@ import Heading from 'components/shared/heading';
 
 import './interview.scss';
 
-const Interview = ({ avatar, name, position, content }) => (
+const Interview = ({ avatar, name, position, byLine }) => (
   <section className="interview">
     <div className="interview__header">
       <div className="interview__avatar">
@@ -20,9 +20,9 @@ const Interview = ({ avatar, name, position, content }) => (
       </div>
     </div>
     <div className="interview__content">
-      <Heading className="interview__question" tag="h4">
+      <h4 className="interview__question">
         Hello Christian, can you briefly explain what you do at acrevis Bank and Finanz-Logistik?
-      </Heading>
+      </h4>
       <p className="interview__answer">
         Acrevis Bank is an independent bank with a broad shareholder base and operates between
         Lake Constance and Lake Zurich. It has 8.4 billion assets under management, total assets
@@ -31,15 +31,16 @@ const Interview = ({ avatar, name, position, content }) => (
         processing, accounting and credit processing. Finanz-Logistik has 75 employees and serves
         35 finnova banks.
       </p>
-      <Heading className="interview__question" tag="h4">
+      <h4 className="interview__question">
         What is your role at acrevis and Finanz-Logistik?
-      </Heading>
+      </h4>
       <p className="interview__answer">
         I am the managing director of Finanz-Logistik and responsible for the logistics area at
         the level of the management of acrevis Bank. In this role I am also allowed to be directly
         part of the digitalisation developments of acrevis Bank.
       </p>
     </div>
+    <p className="interview__by-line">{byLine}</p>
   </section>
 );
 
@@ -47,7 +48,7 @@ Interview.propTypes = {
   avatar: PropTypes.node.isRequired,
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  byLine: PropTypes.string.isRequired,
 };
 
 export default Interview;

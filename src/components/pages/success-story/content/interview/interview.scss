@@ -78,4 +78,11 @@
   &__answer {
     margin-bottom: 45px;
   }
+
+  &__by-line {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-style: italic;
+    color: $color-secondary;
+  }
 }
