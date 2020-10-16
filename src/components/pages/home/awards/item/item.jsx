@@ -43,7 +43,7 @@ const confetti = [
   ['circle', 'xs'],
 ];
 
-const Item = ({ image, title, description, url }) => (
+const Item = ({ image, title, description, link: { url } }) => (
   <li className={cx('wrapper')}>
     <Link className={cx('inner')} to={url}>
       <img className={cx('image')} src={image} alt="" aria-hidden />
@@ -64,7 +64,9 @@ Item.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  link: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Item;

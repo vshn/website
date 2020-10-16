@@ -15,28 +15,6 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
-const awards = {
-  title: 'Awards',
-  description: '<strong>Our experience</strong> is highly appreciated by others',
-  items: [
-    {
-      title: 'VSHN wins gold at the Digital Economy Award',
-      description: 'VSHN wins Gold at Swiss Digital Economy Award 2019 in the category Highest Digital Quality.',
-      url: '/',
-    },
-    {
-      title: 'VSHN is the first swiss KCSP',
-      description: 'VSHN is the first Kubernetes Certified Service Provider (KCSP) in Switzerland',
-      url: '/',
-    },
-    {
-      title: 'VSHN is rising star Switzerland',
-      description: 'VSHN is Rising Star Switzerland of ISG Provider Lens in Cloud Transformation / Operation Services & XaaS',
-      url: '/',
-    },
-  ],
-};
-
 const technologies = {
   title: 'Technologies',
   description: 'We use <strong>trending technologies</strong>',
@@ -144,23 +122,20 @@ const report = {
   buttonUrl: '/',
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => {
-  console.log(data);
-  return (
-    <MainLayout seo={seo}>
-      <Hero {...data.hero} />
-      <Advantages {...data.advantages} />
-      <Products {...data.products} />
-      <Awards {...awards} />
-      <Technologies {...technologies} />
-      <Partners {...partners} />
-      <Jobs {...jobs} />
-      <News {...news} />
-      <Report {...report} />
-      <Contact locale={locale} />
-    </MainLayout>
-  );
-};
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
+  <MainLayout seo={seo}>
+    <Hero {...data.hero} />
+    <Advantages {...data.advantages} />
+    <Products {...data.products} />
+    <Awards {...data.awards} />
+    <Technologies {...technologies} />
+    <Partners {...partners} />
+    <Jobs {...jobs} />
+    <News {...news} />
+    <Report {...report} />
+    <Contact locale={locale} />
+  </MainLayout>
+);
 
 export const query = graphql`
   query($id: String!) {
@@ -194,6 +169,17 @@ export const query = graphql`
             name
             detailsTitle
             detailsContent
+          }
+        }
+        awards {
+          title
+          subtitle
+          items {
+            title
+            description
+            link {
+              url
+            }
           }
         }
       }

@@ -21,17 +21,17 @@ const itemImages = [
   itemImage3,
 ];
 
-const Awards = ({ title, description, items }) => (
+const Awards = ({ title, subtitle, items }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <Heading className={cx('title')} tag="h2" size="sm" color="quaternary">{title}</Heading>
       <Heading
-        className={cx('description')}
+        className={cx('subtitle')}
         tag="p"
         size="xl"
         color="tertiary"
         highlightedWordsColor="secondary"
-        innerHTML={description}
+        innerHTML={subtitle}
       />
 
       <ul className={cx('items-wrapper')}>
@@ -45,12 +45,14 @@ const Awards = ({ title, description, items }) => (
 
 Awards.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      link: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+      }).isRequired,
     }),
   ).isRequired,
 };
