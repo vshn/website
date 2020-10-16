@@ -119,9 +119,6 @@
 .close-button {
   position: absolute;
   top: 25px;
-  right: 25px;
-  right: calc(constant(safe-area-inset-right) + 25px);
-  right: calc(env(safe-area-inset-right) + 25px);
   width: 30px;
   height: 30px;
   padding-top: 5px;
@@ -132,6 +129,8 @@
   background: transparent;
   border: none;
   outline: none;
+
+  @include safe-area(right, right, 25px);
 
   @include hover {
     &::before,
