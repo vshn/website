@@ -155,14 +155,14 @@ const Partners = ({ title, items }) => {
           <Title className={cx('md-hidden')} />
           <Quote className={cx('quote-icon')} aria-hidden />
           <AnimatePresence exitBeforeEnter>
-            {items.map(({ text, buttonUrl }, index) => {
+            {items.map(({ text, buttonUrl: { url } }, index) => {
               const isActive = index === activeItemIndex;
               if (!isActive) return null;
 
               return (
                 <motion.div {...motionFadeAnimation} key={index}>
                   <Heading className={cx('text')} tag="blockquote" size="xl" innerHTML={text} />
-                  <Button to={buttonUrl}>Continue</Button>
+                  <Button to={url}>Continue</Button>
                 </motion.div>
               );
             })}
@@ -184,7 +184,9 @@ Partners.propTypes = {
       name: PropTypes.string.isRequired,
       position: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
-      buttonUrl: PropTypes.string.isRequired,
+      buttonUrl: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+      }).isRequired,
     }),
   ).isRequired,
 };

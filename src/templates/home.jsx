@@ -15,30 +15,6 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
-const partners = {
-  title: 'Partners',
-  items: [
-    {
-      name: 'Michael Schmid',
-      position: 'Group CTO, Amazee Labs',
-      text: 'We experience a trustful and <strong>successful collaboration</strong> with VSHN...',
-      buttonUrl: '/',
-    },
-    {
-      name: 'Silvan Mühlemann',
-      position: 'CTO, Sobrado',
-      text: 'I appreciate VSHN as my <strong>solution-oriented and dependable</strong> partner without finger pointing...',
-      buttonUrl: '/',
-    },
-    {
-      name: 'Mathias Brenner',
-      position: 'CTO, Sherpany',
-      text: 'Sherpany <strong>trusts</strong> VSHN as a competent partner...',
-      buttonUrl: '/',
-    },
-  ],
-};
-
 const jobs = {
   title: 'We\'re looking for <strong>talents</strong>',
   description: 'We\'re a growing company and are currently looking for new team members',
@@ -121,7 +97,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
     <Products {...data.products} />
     <Awards {...data.awards} />
     <Technologies {...data.technologies} />
-    <Partners {...partners} />
+    <Partners {...data.partners} />
     <Jobs {...jobs} />
     <News {...news} />
     <Report {...report} />
@@ -181,6 +157,17 @@ export const query = graphql`
           buttonText
           buttonUrl {
             url
+          }
+        }
+        partners {
+          title
+          items {
+            name
+            position
+            text
+            buttonUrl {
+              url
+            }
           }
         }
       }
