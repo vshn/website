@@ -15,13 +15,6 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
-const jobs = {
-  title: 'We\'re looking for <strong>talents</strong>',
-  description: 'We\'re a growing company and are currently looking for new team members',
-  buttonText: 'Jobs With Us',
-  buttonUrl: '/',
-};
-
 const news = {
   title: 'Check <strong>latest news</strong>',
   items: [
@@ -98,7 +91,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
     <Awards {...data.awards} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
-    <Jobs {...jobs} />
+    <Jobs {...data.jobs} />
     <News {...news} />
     <Report {...report} />
     <Contact locale={locale} />
@@ -168,6 +161,14 @@ export const query = graphql`
             buttonUrl {
               url
             }
+          }
+        }
+        jobs {
+          title
+          description
+          buttonText
+          buttonUrl {
+            url
           }
         }
       }
