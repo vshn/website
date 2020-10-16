@@ -15,33 +15,6 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
-const products = {
-  title: 'Products',
-  description: '<strong>Technologies</strong> we work with',
-  items: [
-    {
-      name: 'Appuio',
-      detailsTitle: 'Swiss container platform',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
-    },
-    {
-      name: 'Openshift',
-      detailsTitle: 'Swiss container platform 2',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li></ul>',
-    },
-    {
-      name: 'Rancher',
-      detailsTitle: 'Swiss container platform 3',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>Swiss container platform based on OpenShift as a managed service</li><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
-    },
-    {
-      name: 'VSHN Managed Services',
-      detailsTitle: 'Swiss container platform 4',
-      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
-    },
-  ],
-};
-
 const awards = {
   title: 'Awards',
   description: '<strong>Our experience</strong> is highly appreciated by others',
@@ -171,20 +144,23 @@ const report = {
   buttonUrl: '/',
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
-  <MainLayout seo={seo}>
-    <Hero {...data.hero} />
-    <Advantages {...data.advantages} />
-    <Products {...products} />
-    <Awards {...awards} />
-    <Technologies {...technologies} />
-    <Partners {...partners} />
-    <Jobs {...jobs} />
-    <News {...news} />
-    <Report {...report} />
-    <Contact locale={locale} />
-  </MainLayout>
-);
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => {
+  console.log(data);
+  return (
+    <MainLayout seo={seo}>
+      <Hero {...data.hero} />
+      <Advantages {...data.advantages} />
+      <Products {...data.products} />
+      <Awards {...awards} />
+      <Technologies {...technologies} />
+      <Partners {...partners} />
+      <Jobs {...jobs} />
+      <News {...news} />
+      <Report {...report} />
+      <Contact locale={locale} />
+    </MainLayout>
+  );
+};
 
 export const query = graphql`
   query($id: String!) {
@@ -209,6 +185,15 @@ export const query = graphql`
             link {
               url
             }
+          }
+        }
+        products {
+          title
+          subtitle
+          items {
+            name
+            detailsTitle
+            detailsContent
           }
         }
       }
