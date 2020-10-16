@@ -1,0 +1,5 @@
+@mixin safe-area($property, $alignments, $value) {
+  #{$property}: #{$value};
+  #{$property}: calc(constant(safe-area-inset-#{$alignments}) + #{$value});
+  #{$property}: calc(env(safe-area-inset-#{$alignments}) + #{$value});
+}

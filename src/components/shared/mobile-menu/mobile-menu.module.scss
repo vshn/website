@@ -4,14 +4,13 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  width: 295px;
-  width: calc(constant(safe-area-inset-left) + 295px);
-  width: calc(env(safe-area-inset-left) + 295px);
   overflow-y: auto;
   visibility: hidden;
   transition-duration: $transition-base;
   transition-property: transform visibility;
   transform: translateX(100%);
+
+  @include safe-area(width, left, 295px);
 
   &.open {
     visibility: visible;
@@ -23,17 +22,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding-top: 30px;
-  padding-top: calc(constant(safe-area-inset-top) + 30px);
-  padding-top: calc(env(safe-area-inset-top) + 30px);
-  padding-right: 30px;
-  padding-right: calc(constant(safe-area-inset-right) + 30px);
-  padding-right: calc(env(safe-area-inset-right) + 30px);
-  padding-bottom: 30px;
-  padding-bottom: calc(constant(safe-area-inset-bottom) + 30px);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 30px);
   padding-left: 30px;
   background-color: $color-tertiary;
+
+  @include safe-area(padding-top, top, 30px);
+  @include safe-area(padding-right, right, 30px);
+  @include safe-area(padding-bottom, bottom, 30px);
 }
 
 .lang-menu {
