@@ -48,7 +48,7 @@ const items = [
   },
 ];
 
-const Technologies = ({ title, description, text, buttonText, buttonUrl }) => (
+const Technologies = ({ title, subtitle, text, buttonText, buttonUrl: { url } }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')}>
@@ -56,13 +56,13 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => (
           {title}
         </Heading>
         <Heading
-          className={cx('description')}
+          className={cx('subtitle')}
           tag="p"
           size="xl"
-          innerHTML={description}
+          innerHTML={subtitle}
         />
         <p className={cx('text')}>{text}</p>
-        <Button to={buttonUrl}>{buttonText}</Button>
+        <Button to={url}>{buttonText}</Button>
       </div>
 
       <div className={cx('items-wrapper')}>
@@ -79,10 +79,12 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => (
 
 Technologies.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonUrl: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Technologies;

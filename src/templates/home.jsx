@@ -15,14 +15,6 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
-const technologies = {
-  title: 'Technologies',
-  description: 'We use <strong>trending technologies</strong>',
-  text: 'We can offer these tools as readily available managed services. We have the necessary soft-skills for consulting, collaborative implementation and continuous improvement',
-  buttonText: 'See More',
-  buttonUrl: '/',
-};
-
 const partners = {
   title: 'Partners',
   items: [
@@ -128,7 +120,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
     <Advantages {...data.advantages} />
     <Products {...data.products} />
     <Awards {...data.awards} />
-    <Technologies {...technologies} />
+    <Technologies {...data.technologies} />
     <Partners {...partners} />
     <Jobs {...jobs} />
     <News {...news} />
@@ -180,6 +172,15 @@ export const query = graphql`
             link {
               url
             }
+          }
+        }
+        technologies {
+          title
+          subtitle
+          text
+          buttonText
+          buttonUrl {
+            url
           }
         }
       }
