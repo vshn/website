@@ -17,10 +17,19 @@ const News = ({ title, items }) => {
 News.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
-    categories: PropTypes.arrayOf(PropTypes.string).isRequired,
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    post: PropTypes.shape({
+      uri: PropTypes.string.isRequired,
+      categories: PropTypes.shape({
+        nodes: PropTypes.arrayOf(PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        })),
+      }).isRequired,
+      title: PropTypes.string.isRequired,
+      acf: PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        footerText: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
   })).isRequired,
 };
 
