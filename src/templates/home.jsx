@@ -75,14 +75,6 @@ const news = {
   ],
 };
 
-const report = {
-  title: 'Report',
-  description: '<strong>Report DevOps</strong> in Switzerland 2020',
-  text: 'Download the report of our DevOps in Switzerland study 2020.',
-  buttonText: 'Read More',
-  buttonUrl: '/',
-};
-
 export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
   <MainLayout seo={seo}>
     <Hero {...data.hero} />
@@ -93,7 +85,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
     <Partners {...data.partners} />
     <Jobs {...data.jobs} />
     <News {...news} />
-    <Report {...report} />
+    <Report {...data.report} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -166,6 +158,15 @@ export const query = graphql`
         jobs {
           title
           description
+          buttonText
+          buttonUrl {
+            url
+          }
+        }
+        report {
+          title
+          subtitle
+          text
           buttonText
           buttonUrl {
             url

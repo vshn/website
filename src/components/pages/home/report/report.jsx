@@ -12,7 +12,7 @@ import styles from './report.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Report = ({ title, description, text, buttonText, buttonUrl }) => {
+const Report = ({ title, subtitle, text, buttonText, buttonUrl: { url } }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -34,9 +34,9 @@ const Report = ({ title, description, text, buttonText, buttonUrl }) => {
       <div className={cx('container', 'inner')}>
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
-          <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
+          <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
           <p className={cx('text')}>{text}</p>
-          <Button to={buttonUrl}>{buttonText}</Button>
+          <Button to={url}>{buttonText}</Button>
         </div>
 
         <div className={cx('illustration')} aria-hidden>
@@ -54,10 +54,12 @@ const Report = ({ title, description, text, buttonText, buttonUrl }) => {
 
 Report.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonUrl: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Report;
