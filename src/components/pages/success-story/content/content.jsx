@@ -62,7 +62,7 @@ Content.propTypes = {
     avatar: PropTypes.node.isRequired,
     name: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
+    byLine: PropTypes.string.isRequired,
   }).isRequired,
 };
 
