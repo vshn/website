@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Link from 'components/shared/link';
 import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
 
 import styles from './sub-menu.module.scss';
 

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 import Link from 'components/shared/link';
 import Logo from 'images/logo.inline.svg';
-import SubMenu from 'components/shared/header/sub-menu';
 
 import styles from './header.module.scss';
+import SubMenu from './sub-menu';
 
 const cx = classNames.bind(styles);
 
@@ -58,9 +58,9 @@ const Header = (props) => {
                 return (
                   <li
                     className={cx('menu-item', { withSubMenu })}
+                    key={index}
                     onMouseEnter={withSubMenu ? handleMenuItemMouseEnter : null}
                     onMouseLeave={withSubMenu ? handleMenuItemMouseLeave : null}
-                    key={index}
                   >
                     <Link className={cx('link')} to={path}>
                       {label}

@@ -1,13 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-import backgroundImageLgUp from './images/background-image-lg-up.svg';
-import backgroundImageLgDown from './images/background-image-lg-down.svg';
-
 import styles from './hero.module.scss';
+import backgroundImageLgDown from './images/background-image-lg-down.svg';
+import backgroundImageLgUp from './images/background-image-lg-up.svg';
 
 const cx = classNames.bind(styles);
 
