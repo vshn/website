@@ -1,0 +1,8 @@
+@mixin safe-area($property, $side, $value) {
+  // padding without calc() is for browsers that do not support calc()
+  #{$property}: #{$value};
+  // constant() is for older versions of Safari
+  #{$property}: calc(constant(safe-area-inset-#{$side}) + #{$value});
+  // env() for all other cases
+  #{$property}: calc(env(safe-area-inset-#{$side}) + #{$value});
+}
