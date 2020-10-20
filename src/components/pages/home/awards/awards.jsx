@@ -1,17 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
-import Item from './item';
 
+import styles from './awards.module.scss';
 import itemImage1 from './images/item-image-1.svg';
 import itemImage2 from './images/item-image-2.svg';
 import itemImage3 from './images/item-image-3.svg';
-
 import stripes from './images/stripes.svg';
-
-import styles from './awards.module.scss';
+import Item from './item';
 
 const cx = classNames.bind(styles);
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import classNames from 'classnames/bind';
 import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-import classNames from 'classnames/bind';
+import React from 'react';
 
 import styles from './content.module.scss';
 

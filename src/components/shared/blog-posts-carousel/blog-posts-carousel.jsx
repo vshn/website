@@ -1,17 +1,17 @@
-import React from 'react';
+import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import React from 'react';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import classNames from 'classnames/bind';
 
 import 'swiper/swiper.scss';
 import 'swiper/components/a11y/a11y.scss';
 
 import Heading from 'components/shared/heading';
 import Arrow from 'icons/arrow.inline.svg';
-import Item from './item';
 
 import styles from './blog-posts-carousel.module.scss';
+import Item from './item';
 
 const cx = classNames.bind(styles);
 

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+
 const slash = require('slash');
 
 async function createPages({ graphql, actions }) {

@@ -1,0 +1,147 @@
+.wrapper {
+  position: absolute;
+  top: $header-height;
+  left: 50%;
+  width: 100vw;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  visibility: hidden;
+  background-color: $color-additional-1;
+  border-top: 1px solid $color-additional-2;
+  box-shadow: 0 5px 5px rgba($color-primary, 0.25);
+  opacity: 0;
+  transition-duration: $transition-base;
+  transition-property: opacity visibility;
+  transform: translateX(-50%);
+
+  &::after {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    content: '';
+    background-color: transparent;
+  }
+
+  &.without-post {
+    ul {
+      padding-left: 423px;
+
+      @include lg-down {
+        padding-left: 416px;
+      }
+    }
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.post {
+  position: relative;
+  align-self: center;
+  max-width: 300px;
+  padding: 20px;
+  margin-right: 123px;
+  background-color: $color-primary;
+
+  @include lg-down {
+    margin-right: 116px;
+  }
+
+  @include hover {
+    .post-footer-text {
+      color: $color-accent-primary;
+    }
+  }
+}
+
+.post-title {
+  display: -webkit-box;
+  margin-bottom: 10px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @include lg-down {
+    font-size: 20px;
+  }
+}
+
+.post-footer-text {
+  font-size: $font-size-xs;
+  color: $color-tertiary;
+  transition: color $transition-base;
+}
+
+.post-rectangle {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
+}
+
+.post-rectangle-1 {
+  bottom: -15px;
+  left: 130px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-accent-primary;
+  border-bottom-right-radius: 50px;
+}
+
+.post-rectangle-2 {
+  right: 20px;
+  bottom: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: $color-accent-secondary;
+  border-top-left-radius: 50px;
+}
+
+.post-rectangle-3 {
+  top: -15px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background-color: $color-tertiary;
+  border-top-right-radius: 50px;
+}
+
+.post-ellipse {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: $color-tertiary;
+  border-radius: 50%;
+}
+
+.post-ellipse-1 {
+  top: 10px;
+  left: 175px;
+}
+
+.post-ellipse-2 {
+  top: 45px;
+  right: 40px;
+}
+
+.post-ellipse-3 {
+  right: 90px;
+  bottom: 25px;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  row-gap: 30px;
+  column-gap: 120px;
+  padding-left: 0;
+  list-style-type: none;
+
+  @include lg-down {
+    grid-template-columns: repeat(2, max-content);
+  }
+}

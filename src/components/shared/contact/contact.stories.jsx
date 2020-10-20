@@ -1,5 +1,6 @@
-import React from 'react';
 import { text } from '@storybook/addon-knobs';
+import React from 'react';
+
 import Contact from './contact.view';
 
 export const Default = () => (

@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
 import lottie from 'lottie-web';
+import { useRef, useEffect } from 'react';
 
 const defaultOptions = {
   renderer: 'svg',

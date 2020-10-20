@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 import useLottie from 'hooks/use-lottie';
 import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
-import shape1 from './images/shape-1.svg';
-import shape2 from './images/shape-2.svg';
-
 import initialAnimationData from './data/initial-animation.json';
 import loopedAnimationData from './data/looped-animation.json';
-
 import styles from './hero.module.scss';
+import shape1 from './images/shape-1.svg';
+import shape2 from './images/shape-2.svg';
 
 const cx = classNames.bind(styles);
 
@@ -84,7 +82,7 @@ const Hero = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }
         <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
         <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
 
-        <div className={cx('animation-wrapper', { visible: isInitialAnimationReady })} aria-hidden ref={animationPlayRef}>
+        <div className={cx('animation-wrapper', { visible: isInitialAnimationReady })} ref={animationPlayRef} aria-hidden>
           <img className={cx('animation-shape')} src={shape1} alt="" />
           <div
             className={cx('animation', { hidden: isInitialAnimationFinished })}

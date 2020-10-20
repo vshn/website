@@ -1,5 +1,6 @@
-import React from 'react';
 import { text, select } from '@storybook/addon-knobs';
+import React from 'react';
+
 import Heading from './heading';
 
 export const Default = () => (

@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
-import illustration from './images/illustration.svg';
-
 import styles from './contact.module.scss';
+import illustration from './images/illustration.svg';
 
 const cx = classNames.bind(styles);
 

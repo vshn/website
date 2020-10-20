@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 
-import SEO from 'components/shared/seo';
-import Header from 'components/shared/header';
 import Footer from 'components/shared/footer';
-import Overlay from 'components/shared/overlay';
+import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
+import Overlay from 'components/shared/overlay';
+import SEO from 'components/shared/seo';
 
 const MainLayout = ({ seo, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

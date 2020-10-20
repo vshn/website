@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -8,7 +8,6 @@ import Link from 'components/shared/link';
 import GetBackTimeImage from './images/get-back-time.inline.svg';
 import IncreaseSecurityImage from './images/increase-security.inline.svg';
 import ReduceCostImage from './images/reduce-cost.inline.svg';
-
 import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);

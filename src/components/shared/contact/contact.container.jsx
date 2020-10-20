@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import View from './contact.view';
 
@@ -31,14 +31,14 @@ const Contact = ({ locale }) => {
 
   const data = nodes.find(({ language }) => language.locale === locale)?.acf;
 
-  const { title, description, buttonText, buttonLink } = data;
+  const { title, description, buttonText, buttonLink: { url: buttonUrl } } = data;
 
   return (
     <View
       title={title}
       description={description}
       buttonText={buttonText}
-      buttonUrl={buttonLink.url}
+      buttonUrl={buttonUrl}
     />
   );
 };

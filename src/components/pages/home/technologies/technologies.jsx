@@ -1,22 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
-import Item from './item';
-
-import rancher from './images/rancher.svg';
-import kubernates from './images/kubernates.svg';
-import ansible from './images/ansible.svg';
-import openshift from './images/openshift.svg';
-import docker from './images/docker.svg';
-import puppet from './images/puppet.svg';
-
+import ansibleLogo from './images/ansible.svg';
+import dockerLogo from './images/docker.svg';
+import kubernatesLogo from './images/kubernates.svg';
+import openshiftLogo from './images/openshift.svg';
+import puppetLogo from './images/puppet.svg';
+import rancherLogo from './images/rancher.svg';
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
-
+import Item from './item';
 import styles from './technologies.module.scss';
 
 const cx = classNames.bind(styles);
@@ -24,58 +23,80 @@ const cx = classNames.bind(styles);
 const items = [
   {
     name: 'Rancher',
-    logo: rancher,
+    logo: rancherLogo,
   },
   {
     name: 'Kubernates',
-    logo: kubernates,
+    logo: kubernatesLogo,
   },
   {
     name: 'Ansible',
-    logo: ansible,
+    logo: ansibleLogo,
   },
   {
     name: 'Openshift',
-    logo: openshift,
+    logo: openshiftLogo,
   },
   {
     name: 'Docker',
-    logo: docker,
+    logo: dockerLogo,
   },
   {
     name: 'Puppet',
-    logo: puppet,
+    logo: puppetLogo,
   },
 ];
 
-const Technologies = ({ title, subtitle, text, buttonText, buttonLink: { url: buttonUrl } }) => (
-  <section className={cx('wrapper')}>
-    <div className={cx('container', 'inner')}>
-      <div className={cx('content')}>
-        <Heading className={cx('title')} tag="h2" size="sm" color="secondary">
-          {title}
-        </Heading>
-        <Heading
-          className={cx('subtitle')}
-          tag="p"
-          size="xl"
-          innerHTML={subtitle}
-        />
-        <p className={cx('text')}>{text}</p>
-        <Button to={buttonUrl}>{buttonText}</Button>
-      </div>
+const itemsWrapperAnimationVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
 
-      <div className={cx('items-wrapper')}>
-        <ul className={cx('items-inner')}>
-          {items.map((item, index) => <Item {...item} key={index} />)}
-        </ul>
-        <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
-      </div>
+const Technologies = ({ title, subtitle, text, buttonText, buttonLink: { url: buttonUrl } }) => {
+  const [animationStartRef, isAnimationStarted] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
 
-      <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
-    </div>
-  </section>
-);
+  return (
+    <section className={cx('wrapper')}>
+      <div className={cx('container', 'inner')}>
+        <div className={cx('content')}>
+          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">
+            {title}
+          </Heading>
+          <Heading
+            className={cx('description')}
+            tag="p"
+            size="xl"
+            innerHTML={subtitle}
+          />
+          <p className={cx('text')}>{text}</p>
+          <Button to={buttonUrl}>{buttonText}</Button>
+        </div>
+
+        <div className={cx('items-wrapper')} ref={animationStartRef}>
+          <motion.ul
+            className={cx('items-inner')}
+            variants={itemsWrapperAnimationVariants}
+            animate={isAnimationStarted ? 'animate' : 'initial'}
+          >
+            {items.map((item, index) => (
+              <Item key={index} {...item} />
+            ))}
+          </motion.ul>
+          <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
+        </div>
+
+        <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
+      </div>
+    </section>
+  );
+};
 
 Technologies.propTypes = {
   title: PropTypes.string.isRequired,

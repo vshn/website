@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
-import Item from './item';
 
 import styles from './advantages.module.scss';
+import Item from './item';
 
 const cx = classNames.bind(styles);
 
