@@ -1,0 +1,17 @@
+
+.wrapper {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+
+  @include lg-down {
+    top: -20px;
+    width: 90%;
+  }
+
+  @include md-down {
+    display: none;
+  }
+}

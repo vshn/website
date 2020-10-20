@@ -77,6 +77,7 @@ const Partners = ({ title, items }) => {
   // eslint-disable-next-line react/prop-types
   const Tabs = ({ className }) => (
     <div className={cx('tabs-wrapper', className)}>
+      {/* eslint-disable-next-line react/prop-types */}
       {items.map((item, index) => {
         const number = index + 1;
         const isActive = index === activeItemIndex;
