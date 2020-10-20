@@ -11,7 +11,7 @@ import styles from './jobs.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Jobs = ({ title, description, buttonText, buttonUrl: { url } }) => {
+const Jobs = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -33,7 +33,7 @@ const Jobs = ({ title, description, buttonText, buttonUrl: { url } }) => {
       <div className={cx('container', 'inner')}>
         <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" highlightedWordsColor="secondary" innerHTML={title} />
         <p className={cx('description')}>{description}</p>
-        <Button to={url}>{buttonText}</Button>
+        <Button to={buttonUrl}>{buttonText}</Button>
 
         <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
         <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
@@ -56,7 +56,7 @@ Jobs.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.shape({
+  buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
 };

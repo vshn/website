@@ -12,7 +12,7 @@ import styles from './report.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Report = ({ title, subtitle, text, buttonText, buttonUrl: { url } }) => {
+const Report = ({ title, subtitle, text, buttonText, buttonLink: { url: buttonUrl } }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -36,7 +36,7 @@ const Report = ({ title, subtitle, text, buttonText, buttonUrl: { url } }) => {
           <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
           <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
           <p className={cx('text')}>{text}</p>
-          <Button to={url}>{buttonText}</Button>
+          <Button to={buttonUrl}>{buttonText}</Button>
         </div>
 
         <div className={cx('illustration')} aria-hidden>
@@ -57,7 +57,7 @@ Report.propTypes = {
   subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.shape({
+  buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
 };

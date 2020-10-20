@@ -75,23 +75,20 @@ import Report from 'components/pages/home/report';
 //   ],
 // };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => {
-  console.log(data);
-  return (
-    <MainLayout seo={seo}>
-      <Hero {...data.hero} />
-      <Advantages {...data.advantages} />
-      <Products {...data.products} />
-      <Awards {...data.awards} />
-      <Technologies {...data.technologies} />
-      <Partners {...data.partners} />
-      <Jobs {...data.jobs} />
-      <News {...data.news} />
-      <Report {...data.report} />
-      <Contact locale={locale} />
-    </MainLayout>
-  );
-};
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
+  <MainLayout seo={seo}>
+    <Hero {...data.hero} />
+    <Advantages {...data.advantages} />
+    <Products {...data.products} />
+    <Awards {...data.awards} />
+    <Technologies {...data.technologies} />
+    <Partners {...data.partners} />
+    <Jobs {...data.jobs} />
+    <News {...data.news} />
+    <Report {...data.report} />
+    <Contact locale={locale} />
+  </MainLayout>
+);
 
 export const query = graphql`
   query($id: String!) {
@@ -143,7 +140,7 @@ export const query = graphql`
           subtitle
           text
           buttonText
-          buttonUrl {
+          buttonLink {
             url
           }
         }
@@ -153,7 +150,7 @@ export const query = graphql`
             name
             position
             text
-            buttonUrl {
+            buttonLink {
               url
             }
           }
@@ -162,7 +159,7 @@ export const query = graphql`
           title
           description
           buttonText
-          buttonUrl {
+          buttonLink {
             url
           }
         }
@@ -191,7 +188,7 @@ export const query = graphql`
           subtitle
           text
           buttonText
-          buttonUrl {
+          buttonLink {
             url
           }
         }

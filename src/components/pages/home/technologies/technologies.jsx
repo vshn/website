@@ -48,7 +48,7 @@ const items = [
   },
 ];
 
-const Technologies = ({ title, subtitle, text, buttonText, buttonUrl: { url } }) => (
+const Technologies = ({ title, subtitle, text, buttonText, buttonLink: { url: buttonUrl } }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')}>
@@ -62,7 +62,7 @@ const Technologies = ({ title, subtitle, text, buttonText, buttonUrl: { url } })
           innerHTML={subtitle}
         />
         <p className={cx('text')}>{text}</p>
-        <Button to={url}>{buttonText}</Button>
+        <Button to={buttonUrl}>{buttonText}</Button>
       </div>
 
       <div className={cx('items-wrapper')}>
@@ -82,7 +82,7 @@ Technologies.propTypes = {
   subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.shape({
+  buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
 };
