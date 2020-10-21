@@ -48,7 +48,7 @@ Item.propTypes = {
     url: PropTypes.string.isRequired,
   }).isRequired,
   itemFooterText: PropTypes.string.isRequired,
-  itemImages: PropTypes.string.isRequired,
+  itemImages: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Item;
