@@ -67,12 +67,14 @@ export const query = graphql`
           title
           subtitle
           items {
+            imageName
             title
             description
             link {
               url
             }
           }
+          itemFooterText
         }
         technologies {
           title
