@@ -9,9 +9,9 @@ import styles from './news.module.scss';
 
 const cx = classNames.bind(styles);
 
-const News = ({ title, items }) => {
+const News = ({ title, items, itemFooterText }) => {
   const shapeElement = <img className={cx('shape')} src={shape} alt="" aria-hidden />;
-  return <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} shape={shapeElement} />;
+  return <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} shape={shapeElement} itemFooterText={itemFooterText} />;
 };
 
 News.propTypes = {
@@ -29,8 +29,8 @@ News.propTypes = {
         shortDescription: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
-    itemFooterText: PropTypes.string.isRequired,
   })).isRequired,
+  itemFooterText: PropTypes.string.isRequired,
 };
 
 export default News;

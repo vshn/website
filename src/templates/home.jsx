@@ -67,7 +67,7 @@ export const query = graphql`
           title
           subtitle
           items {
-            imageName
+ar            imageName
             title
             description
             link {
