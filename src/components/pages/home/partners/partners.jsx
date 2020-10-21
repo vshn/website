@@ -136,7 +136,7 @@ const Partners = ({ title, items }) => {
 };
 
 Partners.propTypes = {
-  photo: PropTypes.arrayOf.isRequired,
+  photo: PropTypes.objectOf(PropTypes.any).isRequired,
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({

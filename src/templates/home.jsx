@@ -144,6 +144,15 @@ export const query = graphql`
           buttonLink {
             url
           }
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 410) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
+          }
         }
       }
       ...wpPageSeo
