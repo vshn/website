@@ -122,7 +122,7 @@ export const query = graphql`
               date(formatString: "YYYY-MM-DD")
               uri
               acf {
-                text
+                shortDescription
               }
             }
           }

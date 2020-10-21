@@ -11,7 +11,7 @@ import backgroundImageLgUp from './images/background-image-lg-up.svg';
 
 const cx = classNames.bind(styles);
 
-const FeaturedPost = ({ post: { date, title, acf: { text }, uri }, itemFooterText }) => {
+const FeaturedPost = ({ post: { date, title, acf: { shortDescription }, uri }, itemFooterText }) => {
   const day = new Date(date).getDate();
   const month = new Date(date).toLocaleString('en-US', { month: 'short' });
 
@@ -26,7 +26,7 @@ const FeaturedPost = ({ post: { date, title, acf: { text }, uri }, itemFooterTex
         <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
 
         <div className={cx('content')}>
-          <p className={cx('text')}>{text}</p>
+          <p className={cx('text')}>{shortDescription}</p>
           <Button size="sm" to={uri}>{itemFooterText}</Button>
         </div>
 
@@ -61,7 +61,7 @@ FeaturedPost.propTypes = {
     date: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({
-      text: PropTypes.string.isRequired,
+      shortDescription: PropTypes.string.isRequired,
     }).isRequired,
     uri: PropTypes.string.isRequired,
   }).isRequired,
