@@ -56,7 +56,7 @@ const itemsWrapperAnimationVariants = {
   },
 };
 
-const Technologies = ({ title, subtitle, text, buttonText, buttonLink: { url: buttonUrl } }) => {
+const Technologies = ({ title, subtitle, description, buttonText, buttonLink: { url: buttonUrl } }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -75,7 +75,7 @@ const Technologies = ({ title, subtitle, text, buttonText, buttonLink: { url: bu
             size="xl"
             innerHTML={subtitle}
           />
-          <p className={cx('text')}>{text}</p>
+          <p className={cx('text')}>{description}</p>
           <Button to={buttonUrl}>{buttonText}</Button>
         </div>
 
@@ -101,7 +101,7 @@ const Technologies = ({ title, subtitle, text, buttonText, buttonLink: { url: bu
 Technologies.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,

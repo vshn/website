@@ -82,7 +82,7 @@ export const query = graphql`
         technologies {
           title
           subtitle
-          text
+          description
           buttonText
           buttonLink {
             url
@@ -139,7 +139,7 @@ export const query = graphql`
         report {
           title
           subtitle
-          text
+          description
           buttonText
           buttonLink {
             url
