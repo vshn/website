@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import BlogPostsList from 'components/pages/blog/blog-posts-list';
@@ -96,12 +98,37 @@ const pagination = {
   nextUrl: '/',
 };
 
-export default () => (
-  <MainLayout>
-    <FeaturedPost {...featuredPost} />
-    <Categories {...categories} />
-    <BlogPostsList {...blogPostsList} />
-    <Pagination {...pagination} />
-    <Contact language="en" />
-  </MainLayout>
-);
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => {
+  console.log(data);
+  return (
+    <MainLayout seo={seo}>
+      <FeaturedPost {...data.featuredPost} />
+      <Categories {...categories} />
+      <BlogPostsList {...blogPostsList} />
+      <Pagination {...pagination} />
+      <Contact locale={locale} />
+    </MainLayout>
+  );
+};
+
+export const query = graphql`
+  query($id: String!) {
+    wpPage(id: { eq: $id }) {
+      acf {
+        featuredPost {
+          post {
+            ... on WpPost {
+              title
+              date(formatString: "YYYY-MM-DD")
+              uri
+              acf {
+                text
+              }
+            }
+          }
+          itemFooterText
+        }
+      }
+    }  
+  }
+`;
