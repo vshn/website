@@ -26,10 +26,10 @@ News.propTypes = {
       }).isRequired,
       title: PropTypes.string.isRequired,
       acf: PropTypes.shape({
-        text: PropTypes.string.isRequired,
-        footerText: PropTypes.string.isRequired,
+        shortDescription: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+    itemFooterText: PropTypes.string.isRequired,
   })).isRequired,
 };
 

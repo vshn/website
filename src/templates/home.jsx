@@ -115,12 +115,12 @@ export const query = graphql`
                   }
                 }
                 acf {
-                  text
-                  footerText
+                  shortDescription
                 }
               }
             }
           }
+          itemFooterText
         }
         report {
           title

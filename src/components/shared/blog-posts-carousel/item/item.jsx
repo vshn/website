@@ -9,7 +9,7 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ post: { uri, categories, title, acf: { text, footerText } } }) => (
+const Item = ({ post: { uri, categories, title, acf: { shortDescription } }, itemFooterText }) => (
   <article className={cx('wrapper')}>
     <Link className={cx('inner')} to={uri}>
       <ul className={cx('categories-wrapper')}>
@@ -18,8 +18,8 @@ const Item = ({ post: { uri, categories, title, acf: { text, footerText } } }) =
         ))}
       </ul>
       <Heading className={cx('title')} tag="h2" size="lg">{title}</Heading>
-      <p className={cx('text')}>{text}</p>
-      <span className={cx('read-more')}>{footerText}</span>
+      <p className={cx('text')}>{shortDescription}</p>
+      <span className={cx('read-more')}>{itemFooterText}</span>
     </Link>
   </article>
 );
@@ -34,10 +34,10 @@ Item.propTypes = {
     }).isRequired,
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      footerText: PropTypes.string.isRequired,
+      shortDescription: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  itemFooterText: PropTypes.string.isRequired,
 };
 
 export default Item;
