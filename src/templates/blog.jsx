@@ -9,48 +9,6 @@ import Pagination from 'components/pages/blog/pagination';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-const featuredPost = {
-  title: 'August 2020 Cloud Native Computing Meetup Recap',
-  text: 'The August 2020 edition of the Cloud Native Computing Meetup took place on August 27th. It was the first time that the event took place online, and we thank all our attendees and speakers for a successful edition!',
-  date: new Date('2020-09-01'),
-  buttonText: 'Read more',
-  buttonUrl: '/',
-};
-
-const categories = {
-  items: [
-    {
-      name: 'All posts',
-      slug: '/',
-    },
-    {
-      name: 'General',
-      slug: '/general',
-    },
-    {
-      name: 'Technical',
-      slug: '/technical',
-    },
-    {
-      name: 'VSHNinternal',
-      slug: '/vshninternal',
-    },
-    {
-      name: 'VSHN.timer',
-      slug: '/vshn-timer',
-    },
-    {
-      name: 'Press releases',
-      slug: '/press-releases',
-    },
-    {
-      name: 'Project Syn',
-      slug: '/project-syn',
-    },
-  ],
-  activeItemSlug: '/',
-};
-
 const blogPostsList = {
   items: [
     {
@@ -98,18 +56,15 @@ const pagination = {
   nextUrl: '/',
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => {
-  console.log(data);
-  return (
-    <MainLayout seo={seo}>
-      <FeaturedPost {...data.featuredPost} />
-      <Categories {...categories} />
-      <BlogPostsList {...blogPostsList} />
-      <Pagination {...pagination} />
-      <Contact locale={locale} />
-    </MainLayout>
-  );
-};
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
+  <MainLayout seo={seo}>
+    <FeaturedPost {...data.featuredPost} />
+    <Categories {...data.categories} />
+    <BlogPostsList {...blogPostsList} />
+    <Pagination {...pagination} />
+    <Contact locale={locale} />
+  </MainLayout>
+);
 
 export const query = graphql`
   query($id: String!) {
@@ -127,6 +82,15 @@ export const query = graphql`
             }
           }
           footerText
+        }
+        categories {
+          items {
+            category {
+              name
+              uri
+            }
+          }
+          activeItemSlug
         }
       }
     }  

@@ -12,8 +12,8 @@ const Categories = ({ items, activeItemSlug }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('items-wrapper')}>
-        {items.map(({ name, slug }, index) => (
-          <Link className={cx('item', { active: activeItemSlug === slug })} to={slug} key={index}>
+        {items.map(({ category: { name, uri } }, index) => (
+          <Link className={cx('item', { active: activeItemSlug === uri })} to={uri} key={index}>
             {name}
           </Link>
         ))}
@@ -26,7 +26,7 @@ Categories.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
+      uri: PropTypes.string.isRequired,
     }),
   ).isRequired,
   activeItemSlug: PropTypes.string.isRequired,
