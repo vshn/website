@@ -126,7 +126,7 @@ export const query = graphql`
               }
             }
           }
-          itemFooterText
+          footerText
         }
       }
     }  

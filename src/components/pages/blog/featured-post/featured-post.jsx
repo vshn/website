@@ -11,7 +11,7 @@ import backgroundImageLgUp from './images/background-image-lg-up.svg';
 
 const cx = classNames.bind(styles);
 
-const FeaturedPost = ({ post: { date, title, acf: { shortDescription }, uri }, itemFooterText }) => {
+const FeaturedPost = ({ post: { date, title, acf: { shortDescription }, uri }, footerText }) => {
   const day = new Date(date).getDate();
   const month = new Date(date).toLocaleString('en-US', { month: 'short' });
 
@@ -27,7 +27,7 @@ const FeaturedPost = ({ post: { date, title, acf: { shortDescription }, uri }, i
 
         <div className={cx('content')}>
           <p className={cx('text')}>{shortDescription}</p>
-          <Button size="sm" to={uri}>{itemFooterText}</Button>
+          <Button size="sm" to={uri}>{footerText}</Button>
         </div>
 
         <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
@@ -65,7 +65,7 @@ FeaturedPost.propTypes = {
     }).isRequired,
     uri: PropTypes.string.isRequired,
   }).isRequired,
-  itemFooterText: PropTypes.string.isRequired,
+  footerText: PropTypes.string.isRequired,
 };
 
 export default FeaturedPost;
