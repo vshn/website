@@ -9,9 +9,11 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ post: { uri, categories, title, acf: { shortDescription } }, itemFooterText }) => (
+const Item = (
+  { post: { uri: url, categories, title, acf: { shortDescription } }, itemFooterText },
+) => (
   <article className={cx('wrapper')}>
-    <Link className={cx('inner')} to={uri}>
+    <Link className={cx('inner')} to={url}>
       <ul className={cx('categories-wrapper')}>
         {categories.nodes.map(({ name }, index) => (
           <li className={cx('category')} key={index}>{name}</li>

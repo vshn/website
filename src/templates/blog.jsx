@@ -9,19 +9,12 @@ import Pagination from 'components/pages/blog/pagination';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-const pagination = {
-  previousText: 'Older posts',
-  previousUrl: '/',
-  nextText: 'Newer posts',
-  nextUrl: '/',
-};
-
 export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
   <MainLayout seo={seo}>
     <FeaturedPost {...data.featuredPost} />
     <Categories {...data.categories} />
     <BlogPostsList {...data.blogPostsList} />
-    <Pagination {...pagination} />
+    <Pagination {...data.pagination} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -74,6 +67,16 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+        pagination {
+          nextText
+          nextUrl {
+            url
+          }
+          previousText
+          previousUrl {
+            url
           }
         }
       }
