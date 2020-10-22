@@ -136,18 +136,16 @@ const Partners = ({ title, items }) => {
 };
 
 Partners.propTypes = {
-  photo: PropTypes.objectOf(PropTypes.any).isRequired,
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      position: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      buttonLink: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
-  ).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    photo: PropTypes.objectOf(PropTypes.any).isRequired,
+    name: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    buttonLink: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+  })).isRequired,
 };
 
 export default Partners;
