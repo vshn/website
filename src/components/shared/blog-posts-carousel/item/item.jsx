@@ -18,7 +18,7 @@ const Item = ({ post: { uri, categories, title, acf: { shortDescription } }, ite
         ))}
       </ul>
       <Heading className={cx('title')} tag="h2" size="lg">{title}</Heading>
-      <p className={cx('text')}>{shortDescription}</p>
+      <p className={cx('short-description')}>{shortDescription}</p>
       <span className={cx('read-more')}>{itemFooterText}</span>
     </Link>
   </article>
