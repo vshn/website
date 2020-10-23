@@ -263,7 +263,9 @@
   :global {
     .wp-block-image {
       margin-top: 30px;
+      margin-right: -110px;
       margin-bottom: 30px;
+      margin-left: -110px;
 
       @include md-down {
         margin-top: 25px;
@@ -271,9 +273,7 @@
       }
 
       .gatsby-image-wrapper {
-        margin-right: -110px;
         margin-bottom: 15px;
-        margin-left: -110px;
         border: 1px solid $color-additional-2;
         border-radius: 4px;
 

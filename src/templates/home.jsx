@@ -14,23 +14,20 @@ import Technologies from 'components/pages/home/technologies';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => {
-  console.log(data);
-  return (
-    <MainLayout seo={seo}>
-      <Hero {...data.hero} />
-      <Advantages {...data.advantages} />
-      <Products {...data.products} />
-      <Awards {...data.awards} />
-      <Technologies {...data.technologies} />
-      <Partners {...data.partners} />
-      <Jobs {...data.jobs} />
-      <News {...data.news} />
-      <Report {...data.report} />
-      <Contact locale={locale} />
-    </MainLayout>
-  );
-};
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
+  <MainLayout seo={seo}>
+    <Hero {...data.hero} />
+    <Advantages {...data.advantages} />
+    <Products {...data.products} />
+    <Awards {...data.awards} />
+    <Technologies {...data.technologies} />
+    <Partners {...data.partners} />
+    <Jobs {...data.jobs} />
+    <News {...data.news} />
+    <Report {...data.report} />
+    <Contact locale={locale} />
+  </MainLayout>
+);
 
 export const query = graphql`
   query($id: String!) {

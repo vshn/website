@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import AuthorInfo from 'components/pages/blog-post/author-info';
@@ -6,15 +8,6 @@ import Hero from 'components/pages/blog-post/hero';
 import News from 'components/pages/blog-post/news';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
-
-const hero = {
-  title: 'VSHN announces Red Hat OpenShift 4 services',
-  categories: [
-    'General',
-    'Press releases',
-  ],
-  date: new Date('2020-08-24'),
-};
 
 const authorInfo = {
   name: 'Markus Speth',
@@ -91,12 +84,50 @@ const news = {
   ],
 };
 
-export default () => (
-  <MainLayout>
-    <Hero {...hero} />
-    <Content />
-    <AuthorInfo {...authorInfo} />
-    <News {...news} />
-    <Contact language="en" />
+export default ({ data: { seo, wpPost: data }, pageContext: { locale } }) => (
+  <MainLayout seo={seo}>
+    <Hero {...data} />
+    <Content {...data} />
+    {/* <AuthorInfo {...authorInfo} /> */}
+    <News {...data.acf} />
+    <Contact locale={locale} />
   </MainLayout>
 );
+export const query = graphql`
+  query($id: String!) {
+    wpPost(id: { eq: $id }) {
+      title
+      categories {
+        nodes {
+          name
+        }
+      }
+      date(formatString: "YYYY-MM-DD")
+      content
+      acf {
+        news {
+          title
+          items {
+            post {
+              ... on WpPost {
+                id
+                categories {
+                  nodes {
+                    name
+                  }
+                }
+                title
+                uri
+                acf {
+                  shortDescription
+                }
+              }
+            }
+          }
+        }
+        itemFooterText
+      }
+      ...wpPostSeo
+    }
+  }
+`;
