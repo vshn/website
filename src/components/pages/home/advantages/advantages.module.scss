@@ -1,5 +1,5 @@
 .wrapper {
-  margin-bottom: 160px;
+  margin-bottom: 175px;
 
   @include section-paddings;
 
@@ -15,6 +15,7 @@
 .title {
   margin-bottom: 30px;
   text-align: center;
+  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;

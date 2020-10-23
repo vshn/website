@@ -14,7 +14,7 @@ import News from 'components/pages/home/news';
 import Report from 'components/pages/home/report';
 
 const hero = {
-  title: 'We run your <strong>application</strong>',
+  title: 'We run your application',
   description: 'VSHN automates the operation of applications in the cloud or on-premise, so that software developers can focus on their business.',
   buttonText: 'Show Me How',
   buttonUrl: '/',
@@ -22,7 +22,7 @@ const hero = {
 
 const advantages = {
   title: 'Advantages',
-  description: '<strong>We are experts</strong> in Container, Kubernetes, Openshift',
+  description: 'We are experts in Container, Kubernetes, Openshift',
   items: [
     {
       title: 'Get Back Time',

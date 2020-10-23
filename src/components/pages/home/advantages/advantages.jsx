@@ -22,7 +22,7 @@ const itemImages = [
 const Advantages = ({ title, description, items }) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+      <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
       <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
 
       <ul className={cx('items-wrapper')}>
