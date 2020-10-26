@@ -105,24 +105,23 @@ const technologies = {
 };
 
 const partners = {
-  title: 'Partners',
   items: [
     {
       name: 'Michael Schmid',
       position: 'Group CTO, Amazee Labs',
-      text: 'We experience a trustful and <strong>successful collaboration</strong> with VSHN...',
+      text: 'We experience a trustful and successful collaboration with VSHN...',
       buttonUrl: '/',
     },
     {
       name: 'Silvan Mühlemann',
       position: 'CTO, Sobrado',
-      text: 'I appreciate VSHN as my <strong>solution-oriented and dependable</strong> partner without finger pointing...',
+      text: 'I appreciate VSHN as my solution-oriented and dependable partner without finger pointing...',
       buttonUrl: '/',
     },
     {
       name: 'Mathias Brenner',
       position: 'CTO, Sherpany',
-      text: 'Sherpany <strong>trusts</strong> VSHN as a competent partner...',
+      text: 'Sherpany trusts VSHN as a competent partner...',
       buttonUrl: '/',
     },
   ],
