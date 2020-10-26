@@ -17,12 +17,6 @@ const SubMenu = ({ className, post, items }) => (
           <Link className={cx('post')} to={post.url}>
             <Heading className={cx('post-title')} tag="h2" size="md" color="tertiary">{post.title}</Heading>
             <span className={cx('post-footer-text')}>{post.footerText}</span>
-            <span className={cx('post-rectangle', 'post-rectangle-1')} aria-hidden />
-            <span className={cx('post-rectangle', 'post-rectangle-2')} aria-hidden />
-            <span className={cx('post-rectangle', 'post-rectangle-3')} aria-hidden />
-            <span className={cx('post-ellipse', 'post-ellipse-1')} aria-hidden />
-            <span className={cx('post-ellipse', 'post-ellipse-2')} aria-hidden />
-            <span className={cx('post-ellipse', 'post-ellipse-3')} aria-hidden />
           </Link>
         )
       }

@@ -6,6 +6,8 @@ import Link from 'components/shared/link';
 import Logo from 'images/logo.inline.svg';
 
 import styles from './header.module.scss';
+import deutsch from './images/deutsch.svg';
+import english from './images/english.svg';
 import SubMenu from './sub-menu';
 
 const cx = classNames.bind(styles);
@@ -38,10 +40,16 @@ const Header = (props) => {
 
           <ul className={cx('list')}>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
+              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>
+                <img className={cx('icon')} src={english} alt="" aria-hidden />
+                {language1Text}
+              </Link>
             </li>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
+              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>
+                <img className={cx('icon')} src={deutsch} alt="" aria-hidden />
+                {language2Text}
+              </Link>
             </li>
           </ul>
         </div>

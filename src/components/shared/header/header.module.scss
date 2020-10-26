@@ -15,7 +15,7 @@
   }
 
   &.menu-item-is-hovered {
-    background-color: $color-additional-1;
+    background-color: $color-tertiary;
   }
 }
 
@@ -74,18 +74,27 @@
 }
 
 .list-link {
-  display: block;
+  display: flex;
+  align-items: center;
 
   &.active {
     color: inherit;
     pointer-events: none;
+
+    .icon {
+      opacity: 0.5;
+    }
   }
+}
+
+.icon {
+  margin-right: 10px;
 }
 
 .logo {
   display: block;
-  width: 134px;
-  height: 36px;
+  width: 138px;
+  height: 30px;
 
   @include md-down {
     width: 89px;
@@ -175,7 +184,7 @@
         height: 13px;
         visibility: hidden;
         content: '';
-        background-color: $color-additional-1;
+        background-color: $color-tertiary;
         border: 1px solid $color-additional-2;
         border-right: none;
         border-bottom: none;
