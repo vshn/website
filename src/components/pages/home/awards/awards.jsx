@@ -24,7 +24,7 @@ const itemImages = [
 const Awards = ({ title, description, items }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
-      <Heading className={cx('title')} tag="h2" size="sm" color="quaternary">{title}</Heading>
+      <Heading className={cx('title')} tag="h2" size="xs" color="quaternary">{title}</Heading>
       <Heading
         className={cx('description')}
         tag="p"
