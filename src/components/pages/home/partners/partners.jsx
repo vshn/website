@@ -168,7 +168,6 @@ const Partners = ({ items }) => {
 };
 
 Partners.propTypes = {
-  title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
