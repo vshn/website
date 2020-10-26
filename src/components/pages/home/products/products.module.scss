@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   z-index: 1;
-  padding-top: 190px;
+  padding-top: 120px;
   background-color: $color-additional-1;
 
   @include section-paddings;
@@ -21,7 +21,7 @@
 
 .inner {
   z-index: 1;
-  margin-bottom: 70px;
+  padding-bottom: 180px;
 
   @include lg-down {
     margin-bottom: 65px;
@@ -51,6 +51,7 @@
 
 .title {
   margin-bottom: 30px;
+  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;
@@ -129,7 +130,7 @@
 
 .details {
   position: absolute;
-  top: 150px;
+  top: 215px;
   right: 80px;
   max-width: 470px;
   border-radius: 8px;
@@ -217,9 +218,9 @@
 
 .details-rectangle-1 {
   top: -120px;
+  right: 280px;
+  bottom: 100px;
   left: -120px;
-  width: 310px;
-  height: 310px;
   background-color: $color-accent-secondary;
   border-top-left-radius: 120px;
 
@@ -253,8 +254,8 @@
 .details-rectangle-2 {
   top: 0;
   right: -120px;
-  width: 260px;
-  height: 175px;
+  bottom: 115px;
+  left: 100px;
   background-color: $color-accent-primary;
   border-bottom-right-radius: 120px;
 
@@ -279,8 +280,8 @@
 .details-rectangle-3 {
   top: -60px;
   right: -60px;
-  width: 430px;
-  height: 480px;
+  bottom: -125px;
+  left: 100px;
   background-color: $color-primary;
   border-bottom-right-radius: 120px;
 
@@ -308,9 +309,9 @@
 
 .details-rectangle-4 {
   top: 60px;
+  right: 140px;
+  bottom: -65px;
   left: -60px;
-  width: 390px;
-  height: 300px;
   background-color: $color-accent-primary;
   border-bottom-left-radius: 120px;
 

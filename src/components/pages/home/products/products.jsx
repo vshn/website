@@ -11,9 +11,6 @@ import motionFadeAnimation from 'constants/motion-fade-animation';
 
 import Item from './item';
 
-import illustration from './images/illustration.svg';
-
-import shape from './images/shape.svg';
 import styles from './products.module.scss';
 
 const cx = classNames.bind(styles);
@@ -44,7 +41,7 @@ const Products = ({ title, description, items }) => {
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
         <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+          <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
           <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
 
           <div className={cx('items-wrapper')}>
@@ -121,9 +118,6 @@ const Products = ({ title, description, items }) => {
           })}
         </div>
       </div>
-
-      <img className={cx('shape')} src={shape} aria-hidden alt="" />
-      <img className={cx('illustration')} src={illustration} aria-hidden alt="" />
     </section>
   );
 };

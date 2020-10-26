@@ -44,7 +44,7 @@ const advantages = {
 
 const products = {
   title: 'Products',
-  description: '<strong>Technologies</strong> we work with',
+  description: 'Technologies we work with',
   items: [
     {
       name: 'Appuio',
@@ -64,6 +64,11 @@ const products = {
     {
       name: 'VSHN Managed Services',
       detailsTitle: 'Swiss container platform 4',
+      detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
+    },
+    {
+      name: 'Managed Services',
+      detailsTitle: 'Swiss container platform 5',
       detailsContent: '<ul><li>Swiss container platform based on OpenShift as a managed service</li><li>On-demand development and operations platform</li><li>Including SSL/TLS certificates</li><li>100% open source</li></ul>',
     },
   ],
