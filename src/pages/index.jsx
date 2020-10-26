@@ -76,7 +76,7 @@ const products = {
 
 const awards = {
   title: 'Awards',
-  description: '<strong>Our experience</strong> is highly appreciated by others',
+  description: 'Our experience is highly appreciated by others',
   items: [
     {
       title: 'VSHN wins gold at the Digital Economy Award',
@@ -98,7 +98,7 @@ const awards = {
 
 const technologies = {
   title: 'Technologies',
-  description: 'We use <strong>trending technologies</strong>',
+  description: 'We use trending technologies',
   text: 'We can offer these tools as readily available managed services. We have the necessary soft-skills for consulting, collaborative implementation and continuous improvement',
   buttonText: 'See More',
   buttonUrl: '/',
@@ -129,14 +129,14 @@ const partners = {
 };
 
 const jobs = {
-  title: 'We\'re looking for <strong>talents</strong>',
+  title: 'We\'re looking for talents',
   description: 'We\'re a growing company and are currently looking for new team members',
   buttonText: 'Jobs With Us',
   buttonUrl: '/',
 };
 
 const news = {
-  title: 'Check <strong>latest news</strong>',
+  title: 'Check latest news',
   items: [
     {
       categories: ['Technical', 'Project Syn'],
