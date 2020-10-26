@@ -2,7 +2,7 @@
   position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
-  margin-bottom: 240px;
+  margin-bottom: 150px;
 
   @include section-paddings;
 
@@ -39,7 +39,8 @@
 .content {
   grid-column-start: 7;
   grid-column-end: 13;
-  padding-top: 100px;
+  padding-top: 60px;
+  margin-left: -10px;
 
   @include lg-down {
     grid-column-end: 12;
@@ -59,7 +60,8 @@
 }
 
 .title {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;
@@ -145,7 +147,7 @@
   width: 250px;
   height: 690px;
   background-color: $color-accent-secondary;
-  border-bottom-right-radius: 120px;
+  border-bottom-right-radius: 100px;
 
   @include lg-down {
     height: 630px;
@@ -182,17 +184,4 @@
 
 .image {
   border-radius: 8px;
-}
-
-.shape {
-  position: absolute;
-  top: -210px;
-  left: 1240px;
-  width: calc(50px + #{$container-side-gap});
-  min-width: 365px;
-  height: 760px;
-
-  @include lg-down {
-    display: none;
-  }
 }

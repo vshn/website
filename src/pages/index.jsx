@@ -196,7 +196,7 @@ const news = {
 
 const report = {
   title: 'Report',
-  description: '<strong>Report DevOps</strong> in Switzerland 2020',
+  description: 'Report DevOps in Switzerland 2020',
   text: 'Download the report of our DevOps in Switzerland study 2020.',
   buttonText: 'Read More',
   buttonUrl: '/',

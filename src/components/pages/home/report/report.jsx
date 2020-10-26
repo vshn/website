@@ -7,7 +7,6 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
 
-import shape from './images/shape.svg';
 import styles from './report.module.scss';
 
 const cx = classNames.bind(styles);
@@ -33,7 +32,7 @@ const Report = ({ title, description, text, buttonText, buttonUrl }) => {
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+          <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
           <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
           <p className={cx('text')}>{text}</p>
           <Button to={buttonUrl}>{buttonText}</Button>
@@ -46,7 +45,6 @@ const Report = ({ title, description, text, buttonText, buttonUrl }) => {
           <GatsbyImage className={cx('image')} fluid={image} />
         </div>
 
-        <img className={cx('shape')} src={shape} alt="" aria-hidden />
       </div>
     </section>
   );
