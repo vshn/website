@@ -1,16 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
-import Logo from 'images/logo.inline.svg';
-
 import Facebook from 'icons/facebook.inline.svg';
 import GitHub from 'icons/github.inline.svg';
 import Instagram from 'icons/instagram.inline.svg';
 import LinkedIn from 'icons/linkedin.inline.svg';
 import Twitter from 'icons/twitter.inline.svg';
+import Logo from 'images/logo.inline.svg';
 
 import styles from './footer.module.scss';
 

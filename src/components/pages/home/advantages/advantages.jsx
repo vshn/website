@@ -1,15 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
-import Item from './item';
 
+import styles from './advantages.module.scss';
 import ItemImage1 from './images/item-image-1.inline.svg';
 import ItemImage2 from './images/item-image-2.inline.svg';
 import ItemImage3 from './images/item-image-3.inline.svg';
-
-import styles from './advantages.module.scss';
+import Item from './item';
 
 const cx = classNames.bind(styles);
 

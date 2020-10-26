@@ -1,17 +1,16 @@
 import React from 'react';
-import MainLayout from 'layouts/main';
 
-import Contact from 'components/shared/contact';
-
-import Hero from 'components/pages/home/hero';
 import Advantages from 'components/pages/home/advantages';
-import Products from 'components/pages/home/products';
 import Awards from 'components/pages/home/awards';
-import Technologies from 'components/pages/home/technologies';
-import Partners from 'components/pages/home/partners';
+import Hero from 'components/pages/home/hero';
 import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
+import Partners from 'components/pages/home/partners';
+import Products from 'components/pages/home/products';
 import Report from 'components/pages/home/report';
+import Technologies from 'components/pages/home/technologies';
+import Contact from 'components/shared/contact';
+import MainLayout from 'layouts/main';
 
 const hero = {
   title: 'We run your application',

@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-
-import styles from './item.module.scss';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { ITEM_CHANGE_INTERVAL } from '..';
+
+import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 

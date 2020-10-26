@@ -1,23 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
+import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
-import Item from './item';
-
-import rancherLogo from './images/rancher.svg';
-import kubernatesLogo from './images/kubernates.svg';
 import ansibleLogo from './images/ansible.svg';
-import openshiftLogo from './images/openshift.svg';
 import dockerLogo from './images/docker.svg';
+import kubernatesLogo from './images/kubernates.svg';
+import openshiftLogo from './images/openshift.svg';
 import puppetLogo from './images/puppet.svg';
-
+import rancherLogo from './images/rancher.svg';
 import shape from './images/shape.svg';
-
+import Item from './item';
 import styles from './technologies.module.scss';
 
 const cx = classNames.bind(styles);

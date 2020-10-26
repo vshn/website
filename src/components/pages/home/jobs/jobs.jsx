@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
 import styles from './jobs.module.scss';
 

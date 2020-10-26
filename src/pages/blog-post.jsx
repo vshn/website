@@ -1,11 +1,11 @@
 import React from 'react';
-import MainLayout from 'layouts/main';
 
-import Hero from 'components/pages/blog-post/hero';
-import Content from 'components/pages/blog-post/content';
 import AuthorInfo from 'components/pages/blog-post/author-info';
+import Content from 'components/pages/blog-post/content';
+import Hero from 'components/pages/blog-post/hero';
 import News from 'components/pages/blog-post/news';
 import Contact from 'components/shared/contact';
+import MainLayout from 'layouts/main';
 
 const hero = {
   title: 'VSHN announces Red Hat OpenShift 4 services',

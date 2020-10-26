@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { motion, useAnimation } from 'framer-motion';
 import classNames from 'classnames/bind';
+import { motion, useAnimation } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 
 import styles from './confetti.module.scss';
 

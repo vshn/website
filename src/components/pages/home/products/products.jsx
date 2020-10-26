@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
+import { AnimatePresence, motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Heading from 'components/shared/heading';
+import motionFadeAnimation from 'constants/motion-fade-animation';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Arrow from 'icons/arrow.inline.svg';
-import motionFadeAnimation from 'constants/motion-fade-animation';
-
-import Item from './item';
 
 import styles from './products.module.scss';
 
@@ -64,8 +62,8 @@ const Products = ({ title, description, items }) => {
                     number={formattedNumber}
                     isActive={isActive}
                     isAnimationStarted={isAnimationStarted}
-                    onClick={!isActive ? handleClick : null}
                     key={index}
+                    onClick={!isActive ? handleClick : null}
                   />
                 );
               })}
@@ -110,9 +108,9 @@ const Products = ({ title, description, items }) => {
                 tabIndex="0"
                 role="button"
                 aria-label={`Go to product ${index + 1}`}
+                key={index}
                 onKeyPress={handleClick}
                 onClick={handleClick}
-                key={index}
               />
             );
           })}
