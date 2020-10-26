@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
-const BlogPostsCarousel = ({ className, title, items, shape }) => (
+const BlogPostsCarousel = ({ className, title, items }) => (
   <section className={cx('wrapper', className)}>
     <div className="container">
       <div className={cx('header')}>
@@ -66,7 +66,6 @@ const BlogPostsCarousel = ({ className, title, items, shape }) => (
         ))}
       </Swiper>
     </div>
-    {shape}
   </section>
 );
 
@@ -79,12 +78,10 @@ BlogPostsCarousel.propTypes = {
     text: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   })).isRequired,
-  shape: PropTypes.element,
 };
 
 BlogPostsCarousel.defaultProps = {
   className: null,
-  shape: null,
 };
 
 export default BlogPostsCarousel;
