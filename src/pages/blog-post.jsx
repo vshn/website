@@ -32,7 +32,7 @@ const authorInfo = {
 };
 
 const news = {
-  title: 'More <strong>news</strong>',
+  title: 'More news',
   items: [
     {
       categories: ['Technical', 'Project Syn'],
