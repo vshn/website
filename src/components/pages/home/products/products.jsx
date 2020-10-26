@@ -9,6 +9,7 @@ import motionFadeAnimation from 'constants/motion-fade-animation';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Arrow from 'icons/arrow.inline.svg';
 
+import Item from './item';
 import styles from './products.module.scss';
 
 const cx = classNames.bind(styles);
