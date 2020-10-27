@@ -11,7 +11,7 @@ import styles from './jobs.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Jobs = ({ title, description, buttonText, buttonUrl }) => {
+const Jobs = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -56,7 +56,9 @@ Jobs.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Jobs;

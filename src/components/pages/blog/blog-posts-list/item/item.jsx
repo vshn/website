@@ -9,9 +9,11 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ title, text, date, buttonUrl, buttonText }) => {
-  const day = date.getDate();
-  const month = date.toLocaleString('en-US', { month: 'short' });
+const Item = (
+  { post: { title, acf: { shortDescription }, date, uri: buttonUrl }, itemFooterText },
+) => {
+  const day = new Date(date).getDate();
+  const month = new Date(date).toLocaleString('en-US', { month: 'short' });
 
   return (
     <article className={cx('wrapper')}>
@@ -21,19 +23,23 @@ const Item = ({ title, text, date, buttonUrl, buttonText }) => {
       </div>
       <div>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
-        <p className={cx('text')}>{text}</p>
-        <Button to={buttonUrl} size="sm">{buttonText}</Button>
+        <p className={cx('short-description')}>{shortDescription}</p>
+        <Button to={buttonUrl} size="sm">{itemFooterText}</Button>
       </div>
     </article>
   );
 };
 
 Item.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
-  buttonUrl: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    acf: PropTypes.shape({
+      shortDescription: PropTypes.string.isRequired,
+    }).isRequired,
+    date: PropTypes.string.isRequired,
+    uri: PropTypes.string.isRequired,
+  }).isRequired,
+  itemFooterText: PropTypes.string.isRequired,
 };
 
 export default Item;

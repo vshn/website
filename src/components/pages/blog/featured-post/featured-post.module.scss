@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  z-index: 0;
   padding-top: 50px;
   margin-top: $header-height;
   margin-bottom: 145px;
@@ -138,7 +139,7 @@
   }
 }
 
-.text {
+.short-description {
   display: -webkit-box;
   margin-top: 0;
   margin-bottom: 30px;

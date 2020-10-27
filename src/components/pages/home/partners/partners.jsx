@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
@@ -28,42 +27,6 @@ const Partners = ({ title, items }) => {
     items.length,
     { interval: ITEM_CHANGE_INTERVAL },
   );
-
-  const {
-    michaelSchmid: {
-      childImageSharp: { fluid: michaelSchmid },
-    },
-    silvanMuhlemann: {
-      childImageSharp: { fluid: silvanMuhlemann },
-    },
-    mathiasBrenner: {
-      childImageSharp: { fluid: mathiasBrenner },
-    },
-  } = useStaticQuery(graphql`
-    {
-      michaelSchmid: file(relativePath: { eq: "pages/home/partners/michael-schmid.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 180) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      silvanMuhlemann: file(relativePath: { eq: "pages/home/partners/silvan-muhlemann.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 180) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      mathiasBrenner: file(relativePath: { eq: "pages/home/partners/mathias-brenner.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 180) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
 
   useEffect(() => {
     if (isAnimationStarted) startAnimation();
@@ -101,12 +64,6 @@ const Partners = ({ title, items }) => {
     </div>
   );
 
-  const photos = [
-    michaelSchmid,
-    silvanMuhlemann,
-    mathiasBrenner,
-  ];
-
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
@@ -115,13 +72,13 @@ const Partners = ({ title, items }) => {
         <div className={cx('details')}>
           <div className={cx('photo-wrapper')}>
             <AnimatePresence exitBeforeEnter>
-              {items.map((item, index) => {
+              {items.map(({ photo }, index) => {
                 const isActive = index === activeItemIndex;
                 if (!isActive) return null;
 
                 return (
                   <motion.div {...motionFadeAnimation} key={index}>
-                    <GatsbyImage className={cx('photo')} fluid={photos[index]} />
+                    <GatsbyImage className={cx('photo')} fluid={photo.localFile.childImageSharp.fluid} />
                   </motion.div>
                 );
               })}
@@ -156,7 +113,7 @@ const Partners = ({ title, items }) => {
           <Title className={cx('md-hidden')} />
           <Quote className={cx('quote-icon')} aria-hidden />
           <AnimatePresence exitBeforeEnter>
-            {items.map(({ text, buttonUrl }, index) => {
+            {items.map(({ text, buttonLink: { url: buttonUrl } }, index) => {
               const isActive = index === activeItemIndex;
               if (!isActive) return null;
 
@@ -180,14 +137,15 @@ const Partners = ({ title, items }) => {
 
 Partners.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      position: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      buttonUrl: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    photo: PropTypes.objectOf(PropTypes.any).isRequired,
+    name: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    buttonLink: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+  })).isRequired,
 };
 
 export default Partners;

@@ -11,9 +11,11 @@ import backgroundImageLgUp from './images/background-image-lg-up.svg';
 
 const cx = classNames.bind(styles);
 
-const FeaturedPost = ({ title, text, buttonText, buttonUrl, date }) => {
-  const day = date.getDate();
-  const month = date.toLocaleString('en-US', { month: 'short' });
+const FeaturedPost = (
+  { post: { date, title, acf: { shortDescription }, uri: buttonUrl }, footerText },
+) => {
+  const day = new Date(date).getDate();
+  const month = new Date(date).toLocaleString('en-US', { month: 'short' });
 
   return (
     <article className={cx('wrapper')}>
@@ -26,8 +28,8 @@ const FeaturedPost = ({ title, text, buttonText, buttonUrl, date }) => {
         <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
 
         <div className={cx('content')}>
-          <p className={cx('text')}>{text}</p>
-          <Button size="sm" to={buttonUrl}>{buttonText}</Button>
+          <p className={cx('short-description')}>{shortDescription}</p>
+          <Button size="sm" to={buttonUrl}>{footerText}</Button>
         </div>
 
         <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
@@ -57,11 +59,15 @@ const FeaturedPost = ({ title, text, buttonText, buttonUrl, date }) => {
 };
 
 FeaturedPost.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  post: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    acf: PropTypes.shape({
+      shortDescription: PropTypes.string.isRequired,
+    }).isRequired,
+    uri: PropTypes.string.isRequired,
+  }).isRequired,
+  footerText: PropTypes.string.isRequired,
 };
 
 export default FeaturedPost;
