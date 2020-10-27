@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-// import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -11,13 +10,21 @@ import styles from './author-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const AuthorInfo = ({ acf: { avatar, fullName, email, number }, description }) => (
+const AuthorInfo = ({
+  acf: { avatar, fullName, email, number },
+  description,
+}) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('items-wrapper')}>
-        <GatsbyImage className={cx('avatar')} fluid={avatar.localFile.childImageSharp.fluid} />
+        <GatsbyImage
+          className={cx('avatar')}
+          fluid={avatar.localFile.childImageSharp.fluid}
+        />
         <div className={cx('content')}>
-          <Heading className={cx('name')} tag="h3" size="lg">{fullName}</Heading>
+          <Heading className={cx('name')} tag="h3" size="lg">
+            {fullName}
+          </Heading>
           <ul className={cx('links-wrapper')}>
             <li className={cx('link-wrapper')}>
               <Link to={email.url}>{email.title}</Link>

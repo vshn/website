@@ -68,7 +68,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "./src/styles/variables.scss" , "./src/styles/mixins.scss";',
+        data:
+          '@import "./src/styles/variables.scss" , "./src/styles/mixins.scss";',
         cssLoaderOptions: {
           camelCase: true,
         },
@@ -80,8 +81,8 @@ module.exports = {
         url: process.env.WP_GRAPHQL_URL,
         auth: {
           htaccess: {
-            username: process.env.WP_HTACESS_USERNAME,
-            password: process.env.WP_HTACESS_PASSWORD,
+            username: process.env.WP_HTACCESS_USERNAME,
+            password: process.env.WP_HTACCESS_PASSWORD,
           },
         },
       },
