@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -11,51 +10,49 @@ import styles from './author-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const AuthorInfo = ({ name, links, description }) => {
-  const {
-    image: {
-      childImageSharp: { fluid: image },
-    },
-  } = useStaticQuery(graphql`
-    {
-      image: file(relativePath: { eq: "pages/blog-post/author-info/markus-speth.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
-  return (
-    <section className={cx('wrapper')}>
-      <div className="container">
-        <div className={cx('items-wrapper')}>
-          <GatsbyImage className={cx('image')} fluid={image} />
-          <div className={cx('content')}>
-            <Heading className={cx('name')} tag="h3" size="lg">{name}</Heading>
-            <ul className={cx('links-wrapper')}>
-              {links.map(({ label, path }, index) => (
-                <li className={cx('link-wrapper')} key={index}>
-                  <Link to={path}>{label}</Link>
-                </li>
-              ))}
-            </ul>
-            <p className={cx('description')}>{description}</p>
-          </div>
+const AuthorInfo = ({
+  acf: { avatar, fullName, email, number },
+  description,
+}) => (
+  <section className={cx('wrapper')}>
+    <div className="container">
+      <div className={cx('items-wrapper')}>
+        <GatsbyImage
+          className={cx('avatar')}
+          fluid={avatar.localFile.childImageSharp.fluid}
+        />
+        <div className={cx('content')}>
+          <Heading className={cx('name')} tag="h3" size="lg">
+            {fullName}
+          </Heading>
+          <ul className={cx('links-wrapper')}>
+            <li className={cx('link-wrapper')}>
+              <Link to={email.url}>{email.title}</Link>
+            </li>
+            <li className={cx('link-wrapper')}>
+              <Link to={number.url}>{number.title}</Link>
+            </li>
+          </ul>
+          <p className={cx('description')}>{description}</p>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 AuthorInfo.propTypes = {
-  name: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-  })).isRequired,
+  acf: PropTypes.shape({
+    avatar: PropTypes.objectOf(PropTypes.any).isRequired,
+    fullName: PropTypes.string.isRequired,
+    email: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+    number: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
   description: PropTypes.string.isRequired,
 };
 

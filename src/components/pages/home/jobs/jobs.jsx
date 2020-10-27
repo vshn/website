@@ -10,7 +10,7 @@ import styles from './jobs.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Jobs = ({ title, description, buttonText, buttonUrl }) => (
+const Jobs = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" highlightedWordsColor="secondary" innerHTML={title} />
@@ -26,7 +26,9 @@ Jobs.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Jobs;

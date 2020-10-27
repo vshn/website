@@ -10,8 +10,9 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ image, title, description, url }) => {
+const Item = ({ imageName, title, description, link: { url }, itemFooterText, itemImages }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const image = itemImages[imageName];
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
@@ -30,7 +31,7 @@ const Item = ({ image, title, description, url }) => {
             {title}
           </Heading>
           <p className={cx('description')}>{description}</p>
-          <span className={cx('read-more')}>Read more</span>
+          <span className={cx('read-more')}>{itemFooterText}</span>
         </div>
       </Link>
 
@@ -40,10 +41,14 @@ const Item = ({ image, title, description, url }) => {
 };
 
 Item.propTypes = {
-  image: PropTypes.string.isRequired,
+  imageName: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  link: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+  itemFooterText: PropTypes.string.isRequired,
+  itemImages: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Item;

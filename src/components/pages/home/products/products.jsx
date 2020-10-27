@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 
 export const ITEM_CHANGE_INTERVAL = 5000; // milliseconds
 
-const Products = ({ title, description, items }) => {
+const Products = ({ title, subtitle, items }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     triggerOnce: true,
   });
@@ -41,7 +41,7 @@ const Products = ({ title, description, items }) => {
       <div className={cx('container', 'inner')} ref={animationStartRef}>
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
-          <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
+          <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
 
           <div className={cx('items-wrapper')}>
             <button className={cx('button')} type="button" aria-label="Previous product" onClick={previousItem}>
@@ -123,7 +123,7 @@ const Products = ({ title, description, items }) => {
 
 Products.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

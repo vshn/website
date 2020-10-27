@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 
@@ -29,7 +30,7 @@ const MainLayout = ({ seo, children }) => {
 
   return (
     <>
-      <SEO {...seo} />
+      {seo && <SEO {...seo} />}
       <Header onBurgerClick={handleHeaderBurgerClick} />
       <main>{children}</main>
       <Footer />
@@ -45,7 +46,72 @@ MainLayout.propTypes = {
 };
 
 MainLayout.defaultProps = {
-  seo: {},
+  seo: null,
 };
+
+export const query = graphql`
+  fragment wpPageSeo on WpPage {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpPostSeo on WpPost {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default MainLayout;
