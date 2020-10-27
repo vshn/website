@@ -13,7 +13,7 @@ const cx = classNames.bind(styles);
 const Advantages = ({ title, subtitle, items }) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+      <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
       <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={getTextWithoutParagraph(subtitle)} />
 
       <ul className={cx('items-wrapper')}>

@@ -6,9 +6,9 @@
   padding-top: 60px;
   padding-bottom: 60px;
   visibility: hidden;
-  background-color: $color-additional-1;
+  background-color: $color-tertiary;
   border-top: 1px solid $color-additional-2;
-  box-shadow: 0 5px 5px rgba($color-primary, 0.25);
+  box-shadow: 0 50px 50px rgba($color-primary, 0.2);
   opacity: 0;
   transition-duration: $transition-base;
   transition-property: opacity visibility;
@@ -73,64 +73,8 @@
 
 .post-footer-text {
   font-size: $font-size-xs;
-  color: $color-tertiary;
+  color: $color-accent-secondary;
   transition: color $transition-base;
-}
-
-.post-rectangle {
-  position: absolute;
-  border-radius: 8px;
-  box-shadow: 0 30px 60px rgba($color-primary, 0.25);
-}
-
-.post-rectangle-1 {
-  bottom: -15px;
-  left: 130px;
-  width: 30px;
-  height: 30px;
-  background-color: $color-accent-primary;
-  border-bottom-right-radius: 50px;
-}
-
-.post-rectangle-2 {
-  right: 20px;
-  bottom: 15px;
-  width: 30px;
-  height: 30px;
-  background-color: $color-accent-secondary;
-  border-top-left-radius: 50px;
-}
-
-.post-rectangle-3 {
-  top: -15px;
-  right: 50px;
-  width: 40px;
-  height: 40px;
-  background-color: $color-tertiary;
-  border-top-right-radius: 50px;
-}
-
-.post-ellipse {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background-color: $color-tertiary;
-  border-radius: 50%;
-}
-
-.post-ellipse-1 {
-  top: 10px;
-  left: 175px;
-}
-
-.post-ellipse-2 {
-  top: 45px;
-  right: 40px;
-}
-
-.post-ellipse-3 {
-  right: 90px;
-  bottom: 25px;
 }
 
 .items {

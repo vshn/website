@@ -146,6 +146,7 @@
 }
 
 .name {
+  position: relative;
   margin-top: 0;
   margin-bottom: 0;
   font-size: $font-size-md;
@@ -153,12 +154,26 @@
   line-height: $line-height-md;
   transition: color $transition-base;
 
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -30px;
+    width: 1px;
+    content: '';
+    background-image: linear-gradient(180deg, rgba($color-additional-2, 0) 0%, $color-additional-2 50%, rgba($color-additional-2, 0) 100%);
+  }
+
   @include lg-down {
     font-size: 18px;
   }
 
   @include xs-down {
     font-size: 15px;
+
+    &::before {
+      visibility: hidden;
+    }
   }
 }
 

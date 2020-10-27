@@ -6,6 +6,8 @@ import Link from 'components/shared/link';
 import Logo from 'images/logo.inline.svg';
 
 import styles from './header.module.scss';
+import deutsch from './images/deutsch.svg';
+import english from './images/english.svg';
 import SubMenu from './sub-menu';
 
 const cx = classNames.bind(styles);
@@ -38,10 +40,16 @@ const Header = (props) => {
 
           <ul className={cx('list')}>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
+              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>
+                <img className={cx('icon')} src={english} alt="" aria-hidden />
+                {language1Text}
+              </Link>
             </li>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
+              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>
+                <img className={cx('icon')} src={deutsch} alt="" aria-hidden />
+                {language2Text}
+              </Link>
             </li>
           </ul>
         </div>
@@ -116,10 +124,10 @@ Header.propTypes = {
 Header.defaultProps = {
   topLineText1: 'Vision - the DevOps company',
   topLineText2: 'Neugasse 10, CH-8005 Zürich',
-  language1Text: 'Deutsch',
-  language1Url: '/',
-  language2Text: 'English',
-  language2Url: '/en',
+  language1Text: 'English',
+  language1Url: '/en',
+  language2Text: 'Deutsch',
+  language2Url: '/',
   menuItems: [
     {
       label: 'Solutions',

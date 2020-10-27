@@ -9,8 +9,6 @@ import motionFadeAnimation from 'constants/motion-fade-animation';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Arrow from 'icons/arrow.inline.svg';
 
-import illustration from './images/illustration.svg';
-import shape from './images/shape.svg';
 import Item from './item';
 import styles from './products.module.scss';
 
@@ -42,7 +40,7 @@ const Products = ({ title, subtitle, items }) => {
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
         <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+          <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
           <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
 
           <div className={cx('items-wrapper')}>
@@ -119,9 +117,6 @@ const Products = ({ title, subtitle, items }) => {
           })}
         </div>
       </div>
-
-      <img className={cx('shape')} src={shape} alt="" aria-hidden />
-      <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
     </section>
   );
 };
