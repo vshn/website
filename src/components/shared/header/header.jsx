@@ -124,10 +124,10 @@ Header.propTypes = {
 Header.defaultProps = {
   topLineText1: 'Vision - the DevOps company',
   topLineText2: 'Neugasse 10, CH-8005 Zürich',
-  language1Text: 'Deutsch',
-  language1Url: '/',
-  language2Text: 'English',
-  language2Url: '/en',
+  language1Text: 'English',
+  language1Url: '/en',
+  language2Text: 'Deutsch',
+  language2Url: '/',
   menuItems: [
     {
       label: 'Solutions',
