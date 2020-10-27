@@ -5,7 +5,7 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import image from './images/image.svg';
+import backgroundImage from './images/background-image.svg';
 import styles from './jobs.module.scss';
 
 const cx = classNames.bind(styles);
@@ -18,7 +18,7 @@ const Jobs = ({ title, description, buttonText, buttonUrl }) => (
       <Button to={buttonUrl}>{buttonText}</Button>
 
     </div>
-    <img className={cx('image')} src={image} alt="" aria-hidden />
+    <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
   </section>
 );
 

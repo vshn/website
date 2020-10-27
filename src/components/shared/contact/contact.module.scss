@@ -47,23 +47,10 @@
   }
 }
 
-.illustration {
+.background-image {
   position: absolute;
   bottom: 0;
   left: 50%;
   height: 100%;
   transform: translateX(-50%);
-
-  @include lg-down {
-    bottom: -5px;
-    width: 2260px;
-  }
-
-  @include sm-down {
-    bottom: -10px;
-  }
-
-  @include xs-down {
-    // margin-left: -410px;
-  }
 }

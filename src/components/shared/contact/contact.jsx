@@ -6,7 +6,7 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 import styles from './contact.module.scss';
-import illustration from './images/illustration.svg';
+import backgroundImage from './images/background-image.svg';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +18,7 @@ const Contact = ({ title, description, buttonText, buttonUrl }) => (
       <Button to={buttonUrl}>{buttonText}</Button>
     </div>
 
-    <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
+    <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
   </section>
 );
 
