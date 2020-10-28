@@ -1,24 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
+import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
-import Item from './item';
-
-import rancherLogo from './images/rancher.svg';
-import kubernatesLogo from './images/kubernates.svg';
 import ansibleLogo from './images/ansible.svg';
-import openshiftLogo from './images/openshift.svg';
 import dockerLogo from './images/docker.svg';
+import kubernatesLogo from './images/kubernates.svg';
+import openshiftLogo from './images/openshift.svg';
 import puppetLogo from './images/puppet.svg';
-
+import rancherLogo from './images/rancher.svg';
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
-
+import Item from './item';
 import styles from './technologies.module.scss';
 
 const cx = classNames.bind(styles);
@@ -59,7 +56,7 @@ const itemsWrapperAnimationVariants = {
   },
 };
 
-const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
+const Technologies = ({ title, subtitle, description, buttonText, buttonLink: { url: buttonUrl } }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -76,9 +73,9 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
             className={cx('description')}
             tag="p"
             size="xl"
-            innerHTML={description}
+            innerHTML={subtitle}
           />
-          <p className={cx('text')}>{text}</p>
+          <p className={cx('text')}>{description}</p>
           <Button to={buttonUrl}>{buttonText}</Button>
         </div>
 
@@ -103,10 +100,12 @@ const Technologies = ({ title, description, text, buttonText, buttonUrl }) => {
 
 Technologies.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Technologies;

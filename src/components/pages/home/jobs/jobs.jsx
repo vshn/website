@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
 import styles from './jobs.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Jobs = ({ title, description, buttonText, buttonUrl }) => {
+const Jobs = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }) => {
   const {
     image: {
       childImageSharp: { fluid: image },
@@ -56,7 +56,9 @@ Jobs.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Jobs;
