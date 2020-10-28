@@ -31,25 +31,6 @@ const FeaturedPost = (
           <p className={cx('short-description')}>{shortDescription}</p>
           <Button size="sm" to={buttonUrl}>{footerText}</Button>
         </div>
-
-        <span className={cx('rectangle', 'rectangle-1')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-2')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-4')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-5')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-6')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-7')} aria-hidden />
-        <span className={cx('rectangle', 'rectangle-8')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-1')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-2')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-3')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-4')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-5')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-6')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-7')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-8')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-9')} aria-hidden />
-        <span className={cx('ellipse', 'ellipse-10')} aria-hidden />
       </div>
 
       <img className={cx('background-image', 'lg-hidden')} src={backgroundImageLgUp} alt="" aria-hidden />

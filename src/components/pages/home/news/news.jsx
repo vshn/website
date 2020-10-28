@@ -4,15 +4,11 @@ import React from 'react';
 
 import BlogPostsCarousel from 'components/shared/blog-posts-carousel';
 
-import shape from './images/shape.svg';
 import styles from './news.module.scss';
 
 const cx = classNames.bind(styles);
 
-const News = ({ title, items, itemFooterText }) => {
-  const shapeElement = <img className={cx('shape')} src={shape} alt="" aria-hidden />;
-  return <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} shape={shapeElement} itemFooterText={itemFooterText} />;
-};
+const News = ({ title, items, itemFooterText }) => <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} itemFooterText={itemFooterText} />;
 
 News.propTypes = {
   title: PropTypes.string.isRequired,

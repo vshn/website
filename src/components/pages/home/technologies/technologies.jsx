@@ -13,8 +13,7 @@ import kubernatesLogo from './images/kubernates.svg';
 import openshiftLogo from './images/openshift.svg';
 import puppetLogo from './images/puppet.svg';
 import rancherLogo from './images/rancher.svg';
-import shape1 from './images/shape-1.svg';
-import shape2 from './images/shape-2.svg';
+import shape from './images/shape.svg';
 import Item from './item';
 import styles from './technologies.module.scss';
 
@@ -66,7 +65,7 @@ const Technologies = ({ title, subtitle, description, buttonText, buttonLink: { 
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">
+          <Heading className={cx('title')} tag="h2" size="xs" color="secondary">
             {title}
           </Heading>
           <Heading
@@ -89,10 +88,9 @@ const Technologies = ({ title, subtitle, description, buttonText, buttonLink: { 
               <Item key={index} {...item} />
             ))}
           </motion.ul>
-          <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
+          <img className={cx('shape')} src={shape} alt="" aria-hidden />
         </div>
 
-        <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
       </div>
     </section>
   );

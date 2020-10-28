@@ -90,7 +90,8 @@
 }
 
 .title {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .description {
@@ -111,8 +112,11 @@
   position: relative;
   width: 100%;
   margin-top: auto;
+  font-size: $font-size-xs;
   font-weight: 700;
+  line-height: $line-height-xs;
   color: $color-tertiary;
+  text-transform: uppercase;
   transition: color $transition-base;
 
   &::before {

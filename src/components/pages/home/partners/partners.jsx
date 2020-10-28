@@ -11,14 +11,13 @@ import motionFadeAnimation from 'constants/motion-fade-animation';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Quote from 'icons/quote.inline.svg';
 
-import shape from './images/shape.svg';
 import styles from './partners.module.scss';
 
 const cx = classNames.bind(styles);
 
 export const ITEM_CHANGE_INTERVAL = 5000; // milliseconds
 
-const Partners = ({ title, items }) => {
+const Partners = ({ items }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     triggerOnce: true,
   });
@@ -31,11 +30,6 @@ const Partners = ({ title, items }) => {
   useEffect(() => {
     if (isAnimationStarted) startAnimation();
   }, [startAnimation, isAnimationStarted]);
-
-  // eslint-disable-next-line react/prop-types
-  const Title = ({ className }) => (
-    <Heading className={cx('title', className)} tag="h2" size="sm" color="secondary">{title}</Heading>
-  );
 
   // eslint-disable-next-line react/prop-types
   const Tabs = ({ className }) => (
@@ -67,7 +61,6 @@ const Partners = ({ title, items }) => {
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
-        <Title className={cx('sm-visible')} />
 
         <div className={cx('details')}>
           <div className={cx('photo-wrapper')}>
@@ -90,7 +83,6 @@ const Partners = ({ title, items }) => {
           </div>
 
           <div>
-            <Title className={cx('md-visible', 'sm-hidden')} />
             <AnimatePresence exitBeforeEnter>
               {items.map(({ name, position }, index) => {
                 const isActive = index === activeItemIndex;
@@ -110,7 +102,6 @@ const Partners = ({ title, items }) => {
         </div>
 
         <div className={cx('content')}>
-          <Title className={cx('md-hidden')} />
           <Quote className={cx('quote-icon')} aria-hidden />
           <AnimatePresence exitBeforeEnter>
             {items.map(({ text, buttonLink: { url: buttonUrl } }, index) => {
@@ -128,15 +119,12 @@ const Partners = ({ title, items }) => {
         </div>
 
         <Tabs className={cx('sm-visible')} />
-
-        <img className={cx('shape')} src={shape} alt="" aria-hidden />
       </div>
     </section>
   );
 };
 
 Partners.propTypes = {
-  title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     photo: PropTypes.objectOf(PropTypes.any).isRequired,
     name: PropTypes.string.isRequired,

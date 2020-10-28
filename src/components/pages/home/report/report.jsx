@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,7 +6,6 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import shape from './images/shape.svg';
 import styles from './report.module.scss';
 
 const cx = classNames.bind(styles);
@@ -16,7 +14,7 @@ const Report = ({ title, subtitle, description, buttonText, buttonLink: { url: b
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')}>
-        <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
+        <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
         <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
         <p className={cx('text')}>{description}</p>
         <Button to={buttonUrl}>{buttonText}</Button>
@@ -29,7 +27,6 @@ const Report = ({ title, subtitle, description, buttonText, buttonLink: { url: b
         <GatsbyImage className={cx('image')} fluid={image.localFile.childImageSharp.fluid} />
       </div>
 
-      <img className={cx('shape')} src={shape} alt="" aria-hidden />
     </div>
   </section>
 );
