@@ -1,25 +1,25 @@
 .wrapper {
   position: relative;
-  padding-top: calc(#{$header-height} + 100px);
+  padding-top: $header-height + 100px;
   padding-bottom: 360px;
   margin-bottom: 120px;
 
   @include section-paddings;
 
   @include lg-down {
-    padding-top: calc(#{$header-height} + 80px);
+    padding-top: $header-height + 80px;
     padding-bottom: 260px;
     margin-bottom: 125px;
   }
 
   @include md-down {
-    padding-top: calc(#{$header-height-md} + 50px);
+    padding-top: $header-height-md + 50px;
     padding-bottom: 175px;
     margin-bottom: 110px;
   }
 
   @include sm-down {
-    padding-top: calc(#{$header-height-md} + 40px);
+    padding-top: $header-height-md + 40px;
     padding-bottom: 0;
     margin-bottom: 100px;
     text-align: center;
