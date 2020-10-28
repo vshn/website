@@ -10,7 +10,9 @@ import styles from './report.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Report = ({ title, subtitle, description, buttonText, buttonLink: { url: buttonUrl }, image }) => (
+const Report = (
+  { title, subtitle, description, buttonText, buttonLink: { url: buttonUrl }, image },
+) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')}>

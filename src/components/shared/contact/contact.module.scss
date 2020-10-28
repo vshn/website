@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
-  padding-top: 130px;
-  padding-bottom: 125px;
+  padding-top: 120px;
+  padding-bottom: 120px;
   text-align: center;
   background-color: $color-additional-1;
 
@@ -9,7 +9,7 @@
 
   @include lg-down {
     padding-top: 90px;
-    padding-bottom: 120px;
+    padding-bottom: 90px;
   }
 
   @include md-down {
@@ -28,6 +28,10 @@
 
 .title {
   margin-bottom: 15px;
+
+  @include lg-down {
+    margin-bottom: 5px;
+  }
 }
 
 .description {

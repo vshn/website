@@ -55,7 +55,9 @@ const itemsWrapperAnimationVariants = {
   },
 };
 
-const Technologies = ({ title, subtitle, description, buttonText, buttonLink: { url: buttonUrl } }) => {
+const Technologies = (
+  { title, subtitle, description, buttonText, buttonLink: { url: buttonUrl } },
+) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     threshold: 0.5,
     triggerOnce: true,
