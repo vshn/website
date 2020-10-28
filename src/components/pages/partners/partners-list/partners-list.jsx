@@ -10,7 +10,7 @@ import styles from './partners-list.module.scss';
 const cx = classNames.bind(styles);
 
 const Content = ({ title, filters, partners }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('header')}>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
@@ -30,7 +30,7 @@ const Content = ({ title, filters, partners }) => (
         ))}
       </ul>
     </div>
-  </div>
+  </section>
 );
 
 Content.propTypes = {

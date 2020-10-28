@@ -6,6 +6,10 @@
   @include lg-down {
     margin-bottom: 155px;
   }
+
+  @include md-down {
+    margin-bottom: 110px;
+  }
 }
 
 .title {
@@ -29,6 +33,12 @@
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 210px;
   }
+
+  @include md-down {
+    grid-auto-rows: 188px;
+    row-gap: 20px;
+    column-gap: $column-gap-md;
+  }
 }
 
 .item {
@@ -38,6 +48,13 @@
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
 
   @include with-link-primary;
+
+  @include md-down {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+  }
 }
 
 .link {
@@ -50,7 +67,18 @@
 .logo-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 135px;
+
+  @include md-down {
+    height: 80px;
+  }
+
+  img {
+    @include md-down {
+      width: 80%;
+    }
+  }
 }
 
 .footer-text {
@@ -70,5 +98,9 @@
     content: '';
     background-color: $color-additional-1;
     transform: translateX(-50%);
+  }
+
+  @include md-down {
+    font-size: 12px;
   }
 }

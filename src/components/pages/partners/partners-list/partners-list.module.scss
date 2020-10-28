@@ -6,6 +6,10 @@
   @include lg-down {
     margin-bottom: 150px;
   }
+
+  @include md-down {
+    margin-bottom: 115px;
+  }
 }
 
 .header {
@@ -62,6 +66,11 @@ select::-ms-expand {
   @include lg-down {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 34px;
+  }
+
+  @include md-down {
+    row-gap: 25px;
+    column-gap: $column-gap-md;
   }
 }
 

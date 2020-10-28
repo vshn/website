@@ -18,7 +18,7 @@ import styles from './success-stories.module.scss';
 const cx = classNames.bind(styles);
 
 const SuccessStories = ({ title, items }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
       <ul className={cx('items-wrapper')}>
@@ -34,7 +34,7 @@ const SuccessStories = ({ title, items }) => (
         ))}
       </ul>
     </div>
-  </div>
+  </section>
 );
 
 SuccessStories.propTypes = {

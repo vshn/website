@@ -13,7 +13,7 @@ import shape2 from './images/shape-2.svg';
 const cx = classNames.bind(styles);
 
 const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('category')} tag="h1" size="xs" color="secondary">{category}</Heading>
       <Heading className={cx('title')} tag="p" size="xl">{title}</Heading>
@@ -24,7 +24,7 @@ const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
       <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
       <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
     </div>
-  </div>
+  </section>
 );
 
 Hero.propTypes = {
