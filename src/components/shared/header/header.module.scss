@@ -29,6 +29,10 @@
   &:first-child {
     border-bottom: 1px solid $color-additional-1;
   }
+
+  @include md-down {
+    height: $header-height-md;
+  }
 }
 
 .top-section {
@@ -97,7 +101,7 @@
   height: 30px;
 
   @include md-down {
-    width: 89px;
+    width: 110px;
     height: 24px;
   }
 }
