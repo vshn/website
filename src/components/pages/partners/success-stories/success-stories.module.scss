@@ -10,6 +10,10 @@
   @include md-down {
     margin-bottom: 110px;
   }
+
+  @include sm-down {
+    margin-bottom: 120px;
+  }
 }
 
 .title {
@@ -17,6 +21,10 @@
 
   @include lg-down {
     margin-bottom: 50px;
+  }
+
+  @include sm-down {
+    margin-bottom: 40px;
   }
 }
 
@@ -39,6 +47,12 @@
     row-gap: 20px;
     column-gap: $column-gap-md;
   }
+
+  @include sm-down {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 168px;
+    row-gap: 15px;
+  }
 }
 
 .item {
@@ -54,6 +68,10 @@
     padding-right: 20px;
     padding-bottom: 25px;
     padding-left: 20px;
+  }
+
+  @include sm-down {
+    padding-bottom: 15px;
   }
 }
 

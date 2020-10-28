@@ -20,7 +20,10 @@ const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
       <p className={cx('description')}>{description}</p>
       <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
-      <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
+      <div className={cx('illustration-wrapper')}>
+        <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
+      </div>
+
       <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
       <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
     </div>

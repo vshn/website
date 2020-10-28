@@ -10,6 +10,10 @@
   @include md-down {
     margin-bottom: 115px;
   }
+
+  @include sm-down {
+    margin-bottom: 120px;
+  }
 }
 
 .header {
@@ -20,6 +24,18 @@
 
   @include lg-down {
     margin-bottom: 50px;
+  }
+
+  @include sm-down {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+}
+
+.title {
+  @include sm-down {
+    margin-bottom: 20px;
   }
 }
 
@@ -69,8 +85,13 @@ select::-ms-expand {
   }
 
   @include md-down {
-    row-gap: 25px;
+    row-gap: 29px;
     column-gap: $column-gap-md;
+  }
+
+  @include sm-down {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
   }
 }
 
@@ -85,6 +106,10 @@ select::-ms-expand {
 
   @include lg-down {
     font-size: 18px;
+  }
+
+  @include md-down {
+    font-size: 16px;
   }
 }
 

@@ -17,6 +17,13 @@
     padding-bottom: 90px;
     margin-bottom: 195px;
   }
+
+  @include sm-down {
+    padding-top: $header-height-md + 30px;
+    padding-bottom: 70px;
+    margin-bottom: 70px;
+    text-align: center;
+  }
 }
 
 .category {
@@ -41,6 +48,10 @@
   @include md-down {
     max-width: 340px;
   }
+
+  @include sm-down {
+    max-width: initial;
+  }
 }
 
 .description {
@@ -58,28 +69,52 @@
   @include md-down {
     max-width: 340px;
   }
-}
 
-.button {
-  @include md-down {
-    font-size: 14px;
+  @include sm-down {
+    max-width: initial;
   }
 }
 
-.illustration {
+.button {
+  @include sm-down {
+    margin-bottom: 60px;
+  }
+}
+
+.illustration-wrapper {
   position: absolute;
   top: 30px;
   right: 110px;
-  width: 520px;
+
+  img {
+    width: 520px;
+  }
 
   @include lg-down {
     right: 0;
-    width: 420px;
+
+    img {
+      width: 420px;
+    }
   }
 
   @include md-down {
     right: -85px;
-    width: 385px;
+
+    img {
+      width: 385px;
+    }
+  }
+
+  @include sm-down {
+    position: relative;
+    top: 0;
+    right: 0;
+    text-align: center;
+
+    img {
+      width: 324px;
+    }
   }
 }
 
