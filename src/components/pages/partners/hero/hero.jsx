@@ -1,15 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
+import styles from './hero.module.scss';
 import illustration from './images/illustration.svg';
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
-
-import styles from './hero.module.scss';
 
 const cx = classNames.bind(styles);
 

@@ -1,5 +1,11 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
 }
 
 .header {
@@ -7,6 +13,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 60px;
+
+  @include lg-down {
+    margin-bottom: 50px;
+  }
 }
 
 .filter {
@@ -48,6 +58,11 @@ select::-ms-expand {
   column-gap: $column-gap;
   justify-items: start;
   padding-left: 0;
+
+  @include lg-down {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 34px;
+  }
 }
 
 .partner {
@@ -58,6 +73,10 @@ select::-ms-expand {
   list-style-type: none;
 
   @include with-link-primary;
+
+  @include lg-down {
+    font-size: 18px;
+  }
 }
 
 .partner-link {

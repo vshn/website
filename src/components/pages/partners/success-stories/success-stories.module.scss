@@ -1,22 +1,37 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 155px;
+  }
 }
 
 .title {
   margin-bottom: 60px;
+
+  @include lg-down {
+    margin-bottom: 50px;
+  }
 }
 
 .items-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
   row-gap: 30px;
   column-gap: $column-gap;
   padding-left: 0;
   list-style-type: none;
+
+  @include lg-down {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 210px;
+  }
 }
 
 .item {
-  height: 220px;
   padding: 15px;
   background-image: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;

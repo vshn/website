@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
+import { graphql } from 'gatsby';
 import React from 'react';
-import MainLayout from 'layouts/main';
 
 import Hero from 'components/pages/partners/hero';
 import Partners from 'components/pages/partners/partners-list';
-import Contact from 'components/shared/contact';
 import SuccessStories from 'components/pages/partners/success-stories';
+import Contact from 'components/shared/contact';
+import MainLayout from 'layouts/main';
 
 const hero = {
   category: 'Partners',
@@ -112,11 +114,19 @@ const partners = {
   ],
 };
 
-export default () => (
-  <MainLayout>
+export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
+  <MainLayout seo={seo}>
     <Hero {...hero} />
     <SuccessStories {...successStories} />
     <Partners {...partners} />
-    <Contact />
+    <Contact locale={locale} />
   </MainLayout>
 );
+
+export const query = graphql`
+  query($id: String!) {
+    wpPage(id: { eq: $id }) {
+      ...wpPageSeo
+    }
+  }
+  `;
