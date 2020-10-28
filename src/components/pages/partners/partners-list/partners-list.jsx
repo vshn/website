@@ -5,13 +5,11 @@ import classNames from 'classnames/bind';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import Cup from 'icons/cup.inline.svg';
-
-import styles from './content.module.scss';
+import styles from './partners-list.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ title, filters, items }) => (
+const Content = ({ title, filters, partners }) => (
   <div className={cx('wrapper')}>
     <div className="container">
       <div className={cx('header')}>
@@ -24,13 +22,10 @@ const Content = ({ title, filters, items }) => (
           ))}
         </div>
       </div>
-      <ul className={cx('items-wrapper')}>
-        {items.map(({ url, name, type, successStoryLabel, successStoryUrl }, index) => (
-          <li className={cx('item')} key={index}>
-            <Link className={cx('item-link')} to={url}>{name}</Link>
-            {type === 'isFeatured' && (
-              <Link className={cx('icon-wrapper')} title={successStoryLabel} to={successStoryUrl}><Cup /></Link>
-            )}
+      <ul className={cx('partners-wrapper')}>
+        {partners.map(({ url, name }, index) => (
+          <li className={cx('partner')} key={index}>
+            <Link className={cx('partner-link')} to={url}>{name}</Link>
           </li>
         ))}
       </ul>
@@ -45,13 +40,10 @@ Content.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  items: PropTypes.arrayOf(
+  partners: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      type: PropTypes.string,
-      successStoryLabel: PropTypes.string,
-      successStoryUrl: PropTypes.string,
     }),
   ).isRequired,
 };

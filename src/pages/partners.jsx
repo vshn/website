@@ -2,23 +2,25 @@ import React from 'react';
 import MainLayout from 'layouts/main';
 
 import Hero from 'components/pages/partners/hero';
-import Content from 'components/pages/partners/content';
+import Partners from 'components/pages/partners/partners-list';
 import Contact from 'components/shared/contact';
+import SuccessStories from 'components/pages/partners/success-stories';
 
 const hero = {
   category: 'Partners',
   title: 'We have turned our customers into satisfied partners',
   description: 'Our understanding of successful business relationships based on partnership goes beyond a pure service provider/customer relationship. We therefore regard our customers as partners. Click on the respective link to learn more about our cooperation.',
   buttonUrl: '/',
-  buttonText: 'Learn more',
+  buttonText: 'Check partners',
 };
 
-const content = {
-  title: 'Our partners',
+const successStories = {
+  title: 'Success stories',
+};
+
+const partners = {
+  title: 'Partners',
   filters: [
-    {
-      label: 'Industry',
-    },
     {
       label: 'Provider',
     },
@@ -26,18 +28,14 @@ const content = {
       label: 'Technology',
     },
   ],
-  items: [
+  partners: [
     {
       url: '/',
       name: 'Acrevis Bank',
-      type: 'isFeatured',
-      successStoryLabel: 'Read success story',
-      successStoryUrl: '/',
     },
     {
       url: '/',
       name: 'Ginetta',
-      type: 'basic',
     },
     {
       url: '/',
@@ -54,9 +52,6 @@ const content = {
     {
       url: '/',
       name: 'HRM Systems',
-      type: 'isFeatured',
-      successStoryLabel: 'Read success story',
-      successStoryUrl: '/',
     },
     {
       url: '/',
@@ -68,7 +63,7 @@ const content = {
     },
     {
       url: '/',
-      name: 'Cinerent',
+      name: 'CreditGate24',
     },
     {
       url: '/',
@@ -84,39 +79,35 @@ const content = {
     },
     {
       url: '/',
-      name: 'Esurance',
-      type: 'isFeatured',
-      successStoryLabel: 'Read success story',
-      successStoryUrl: '/',
+      name: 'Younity / Wirz',
     },
     {
       url: '/',
-      name: 'Migros',
+      name: 'Younity / Wirz',
     },
     {
       url: '/',
-      name: 'Skribble',
-      type: 'isFeatured',
-      successStoryLabel: 'Read success story',
-      successStoryUrl: '/',
+      name: 'Younity / Wirz',
     },
     {
       url: '/',
-      name: 'Gbanga',
+      name: 'Younity / Wirz',
     },
     {
       url: '/',
-      name: 'Neon',
-      type: 'isFeatured',
-      successStoryLabel: 'Read success story',
-      successStoryUrl: '/',
+      name: 'Six',
     },
     {
       url: '/',
-      name: 'Sobrado',
-      type: 'isFeatured',
-      successStoryLabel: 'Read success story',
-      successStoryUrl: '/',
+      name: 'Six',
+    },
+    {
+      url: '/',
+      name: 'Six',
+    },
+    {
+      url: '/',
+      name: 'Six',
     },
   ],
 };
@@ -124,7 +115,8 @@ const content = {
 export default () => (
   <MainLayout>
     <Hero {...hero} />
-    <Content {...content} />
+    <SuccessStories {...successStories} />
+    <Partners {...partners} />
     <Contact />
   </MainLayout>
 );
