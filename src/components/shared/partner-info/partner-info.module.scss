@@ -6,6 +6,11 @@
   box-shadow: 0 10px 20px rgba($color-primary, 0.25);
 
   @include with-link-primary;
+
+  @include lg-down {
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+  }
 }
 
 .logo-wrapper {
@@ -15,12 +20,28 @@
   text-align: center;
   background-color: $color-accent-tertiary;
   border-radius: 8px 8px 0 0;
+
+  @include lg-down {
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+}
+
+.logo {
+  @include lg-down {
+    width: 40%;
+  }
 }
 
 .items-wrapper {
   padding-right: 30px;
   padding-left: 30px;
   list-style-type: none;
+
+  @include lg-down {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
 }
 
 .item {
@@ -30,17 +51,33 @@
   margin-bottom: 17px;
   font-size: 24px;
   font-weight: 700;
+  color: $color-quaternary;
   border-bottom: 1px solid $color-additional-1;
+
+  @include lg-down {
+    padding-bottom: 10px;
+    margin-bottom: 23px;
+    font-size: 20px;
+  }
 
   strong {
     margin-right: 15px;
     font-size: 40px;
     font-weight: 800;
-    color: $color-secondary;
+    color: $color-primary;
+
+    @include lg-down {
+      margin-right: 10px;
+      font-size: 30px;
+    }
   }
 
   &:last-child {
     margin-bottom: 30px;
+
+    @include lg-down {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -54,4 +91,8 @@
   font-weight: 700;
   line-height: 1.6;
   border-bottom: 2px solid $color-additional-2;
+
+  @include lg-down {
+    font-size: 16px;
+  }
 }

@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const PartnerInfo = ({ items, url }) => (
   <div className={cx('wrapper')}>
-    <div className={cx('logo-wrapper')}><img src={logo} alt="" aria-hidden /></div>
+    <div className={cx('logo-wrapper')}><img className={cx('logo')} src={logo} alt="" aria-hidden /></div>
     <ul className={cx('items-wrapper')}>
       {items.map(({ value, text }, index) => (
         <li className={cx('item')} key={index}>

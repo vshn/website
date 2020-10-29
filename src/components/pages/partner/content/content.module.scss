@@ -1,5 +1,7 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include section-paddings;
 }
 
 .content {
@@ -10,5 +12,9 @@
   blockquote {
     margin-right: 0;
     margin-left: 0;
+  }
+
+  @include lg-down {
+    max-width: 560px;
   }
 }

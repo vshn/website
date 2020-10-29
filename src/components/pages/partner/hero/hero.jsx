@@ -16,7 +16,7 @@ const Hero = ({ category, title, description, partnerInfo, story }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <span className={cx('category')}>{category}</span>
-      <Heading className={cx('title')} tag="h1" size="xl" innerHTML={title} />
+      <Heading className={cx('title')} tag="h1" size="xxl" innerHTML={title} />
       <p className={cx('description')}>{description}</p>
       <div className={cx('info')}>
         <PartnerInfo {...partnerInfo} />

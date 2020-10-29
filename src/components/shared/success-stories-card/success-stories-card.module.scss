@@ -1,10 +1,19 @@
 .wrapper {
   position: relative;
-  padding: 30px;
+  padding-top: 30px;
+  padding-right: 30px;
   padding-bottom: 115px;
+  padding-left: 30px;
   background: $color-primary;
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+
+  @include lg-down {
+    padding-top: 27px;
+    padding-right: 25px;
+    padding-bottom: 90px;
+    padding-left: 25px;
+  }
 }
 
 .category {
@@ -15,12 +24,20 @@
   line-height: $line-height-xs;
   color: $color-additional-1;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+
+  @include lg-down {
+    margin-bottom: 25px;
+    font-size: 12px;
+  }
 }
 
 .title {
   font-size: 40px;
   font-weight: 800;
+
+  @include lg-down {
+    font-size: 30px;
+  }
 }
 
 .description {
@@ -31,6 +48,13 @@
 .link {
   position: relative;
   z-index: 1;
+
+  @include lg-down {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+  }
 }
 
 .circles {

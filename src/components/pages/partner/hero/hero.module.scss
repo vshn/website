@@ -5,6 +5,14 @@
   margin-top: $header-height;
   margin-bottom: 75px;
   background-color: $color-additional-1;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-bottom: 70px;
+  }
 }
 
 .inner {
@@ -19,19 +27,18 @@
   line-height: $line-height-xs;
   color: $color-secondary;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.title {
-  font-size: $font-size-xxl;
-  line-height: $line-height-xxl;
 }
 
 .description {
-  max-width: 740px;
+  max-width: 770px;
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-secondary;
+
+  @include lg-down {
+    max-width: 560px;
+    font-size: 18px;
+  }
 }
 
 .info {
@@ -40,6 +47,11 @@
   right: 0;
   z-index: 1;
   max-width: 410px;
+
+  @include lg-down {
+    top: 50px;
+    max-width: 290px;
+  }
 }
 
 .background-image {
