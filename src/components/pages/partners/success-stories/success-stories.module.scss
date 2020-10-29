@@ -86,16 +86,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 65%;
   height: 135px;
 
   @include md-down {
     height: 80px;
   }
 
-  img {
-    @include md-down {
-      width: 80%;
-    }
+  .logo {
+    width: 100%;
   }
 }
 

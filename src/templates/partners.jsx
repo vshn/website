@@ -106,10 +106,12 @@ const partnersList = {
   ],
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
+export default (
+  { data: { wpPage: { seo, acf: data }, allWpSuccessStory }, pageContext: { locale } },
+) => (
   <MainLayout seo={seo}>
     <PartnersHero {...data.partnersHero} />
-    <SuccessStories {...successStories} />
+    <SuccessStories {...data.successStories} {...allWpSuccessStory} />
     <PartnersList {...partnersList} />
     <Contact locale={locale} />
   </MainLayout>
@@ -128,8 +130,29 @@ export const query = graphql`
           }
           buttonText
         }
+        successStories {
+          title
+          itemFooterText
+        }
       }
       ...wpPageSeo
     }
+    allWpSuccessStory(sort: {fields:  title, order: ASC}) {
+    nodes {
+      uri
+      title
+      acf {
+        logo {
+          localFile {
+            childImageSharp {
+              fluid(maxHeight: 135) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   }
   `;
