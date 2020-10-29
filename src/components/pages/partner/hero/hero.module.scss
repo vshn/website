@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   padding-top: 90px;
-  padding-bottom: 80px;
+  padding-bottom: 90px;
   margin-top: $header-height;
   margin-bottom: 75px;
   background-color: $color-additional-1;
@@ -13,10 +13,19 @@
     padding-bottom: 70px;
     margin-bottom: 70px;
   }
+
+  @include md-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: $header-height-md;
+    margin-bottom: 55px;
+    text-align: center;
+  }
 }
 
 .inner {
   position: relative;
+  z-index: 1;
 }
 
 .category {
@@ -27,10 +36,16 @@
   line-height: $line-height-xs;
   color: $color-secondary;
   text-transform: uppercase;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
 }
 
 .description {
   max-width: 770px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-secondary;
@@ -39,18 +54,10 @@
     max-width: 560px;
     font-size: 18px;
   }
-}
 
-.info {
-  position: absolute;
-  top: -30px;
-  right: 0;
-  z-index: 1;
-  max-width: 410px;
-
-  @include lg-down {
-    top: 50px;
-    max-width: 290px;
+  @include md-down {
+    max-width: initial;
+    font-size: 16px;
   }
 }
 

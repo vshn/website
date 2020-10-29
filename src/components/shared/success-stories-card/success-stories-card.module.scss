@@ -14,6 +14,10 @@
     padding-bottom: 90px;
     padding-left: 25px;
   }
+
+  @include md-down {
+    padding-bottom: 45px;
+  }
 }
 
 .category {

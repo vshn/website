@@ -1,6 +1,8 @@
 .wrapper {
-  padding-bottom: 45px;
-  margin-bottom: 45px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%), $color-tertiary;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba($color-primary, 0.25);
@@ -10,6 +12,11 @@
   @include lg-down {
     padding-bottom: 25px;
     margin-bottom: 30px;
+  }
+
+  @include md-down {
+    padding-bottom: 25px;
+    margin-bottom: 0;
   }
 }
 
@@ -25,11 +32,19 @@
     padding-top: 20px;
     padding-bottom: 15px;
   }
+
+  @include md-down {
+    margin-bottom: 10px;
+  }
 }
 
 .logo {
   @include lg-down {
     width: 40%;
+  }
+
+  @include md-down {
+    width: 34%;
   }
 }
 
@@ -73,7 +88,7 @@
   }
 
   &:last-child {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     @include lg-down {
       margin-bottom: 0;
@@ -84,6 +99,7 @@
 .link-wrapper {
   display: flex;
   justify-content: center;
+  margin-top: auto;
 }
 
 .link {

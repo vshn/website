@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
+import PartnerInfo from 'components/shared/partner-info';
+import SuccessStoriesCard from 'components/shared/success-stories-card';
 import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = () => (
+const Content = ({ partnerInfo, story }) => (
   <div className={cx('wrapper')}>
     <div className="container">
       <div className={cx('content')}>
@@ -39,9 +42,32 @@ const Content = () => (
           and look forward to a successful cooperation.
         </p>
       </div>
+      <div className={cx('info')}>
+        <PartnerInfo {...partnerInfo} />
+        <SuccessStoriesCard {...story} />
+      </div>
     </div>
 
   </div>
 );
+
+Content.propTypes = {
+  partnerInfo: PropTypes.shape({
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+      }),
+    ),
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+  story: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    footerUrl: PropTypes.string.isRequired,
+    footerText: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Content;

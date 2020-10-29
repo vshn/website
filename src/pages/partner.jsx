@@ -9,6 +9,9 @@ const hero = {
   category: 'Partners',
   title: 'Acrevis Bank',
   description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard',
+};
+
+const content = {
   partnerInfo: {
     items: [
       {
@@ -38,7 +41,7 @@ const hero = {
 export default () => (
   <MainLayout>
     <Hero {...hero} />
-    <Content />
+    <Content {...content} />
     <Contact />
   </MainLayout>
 );
