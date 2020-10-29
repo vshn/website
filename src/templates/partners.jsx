@@ -8,10 +8,6 @@ import SuccessStories from 'components/pages/partners/success-stories';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-const successStories = {
-  title: 'Success stories',
-};
-
 const partnersList = {
   title: 'Partners',
   filters: [
@@ -107,12 +103,15 @@ const partnersList = {
 };
 
 export default (
-  { data: { wpPage: { seo, acf: data }, allWpSuccessStory }, pageContext: { locale } },
+  {
+    data: { wpPage: { seo, acf: data }, allWpSuccessStory, allWpPartner },
+    pageContext: { locale },
+  },
 ) => (
   <MainLayout seo={seo}>
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
-    <PartnersList {...partnersList} />
+    <PartnersList {...data.partnersList} {...allWpPartner} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -134,10 +133,16 @@ export const query = graphql`
           title
           itemFooterText
         }
+        partnersList {
+          title
+          filters {
+            label
+          }
+        }
       }
       ...wpPageSeo
     }
-    allWpSuccessStory(sort: {fields:  title, order: ASC}) {
+    allWpSuccessStory(sort: {fields: title, order: ASC}) {
     nodes {
       uri
       title
@@ -154,5 +159,11 @@ export const query = graphql`
       }
     }
   }
+  allWpPartner(sort: {fields: title, order: ASC}) {
+    nodes {
+      uri
+      title
+    }
   }
-  `;
+}
+`;

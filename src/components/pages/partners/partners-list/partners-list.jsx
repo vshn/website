@@ -9,7 +9,7 @@ import styles from './partners-list.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ title, filters, partners }) => (
+const Content = ({ title, filters, nodes }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('header')}>
@@ -23,9 +23,9 @@ const Content = ({ title, filters, partners }) => (
         </div>
       </div>
       <ul className={cx('partners-wrapper')}>
-        {partners.map(({ url, name }, index) => (
+        {nodes.map(({ uri: url, title }, index) => (
           <li className={cx('partner')} key={index}>
-            <Link className={cx('partner-link')} to={url}>{name}</Link>
+            <Link className={cx('partner-link')} to={url}>{title}</Link>
           </li>
         ))}
       </ul>
@@ -40,10 +40,10 @@ Content.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  partners: PropTypes.arrayOf(
+  nodes: PropTypes.arrayOf(
     PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      uri: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };
