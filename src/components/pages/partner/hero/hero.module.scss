@@ -38,5 +38,14 @@
   position: absolute;
   top: -30px;
   right: 0;
+  z-index: 1;
   max-width: 410px;
+}
+
+.background-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
 }

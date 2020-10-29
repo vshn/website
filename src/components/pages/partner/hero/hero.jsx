@@ -6,12 +6,14 @@ import Heading from 'components/shared/heading/';
 import PartnerInfo from 'components/shared/partner-info';
 import SuccessStoriesCard from 'components/shared/success-stories-card';
 
+import backgroundImage from './images/background-image.svg';
+
 import styles from './hero.module.scss';
 
 const cx = classNames.bind(styles);
 
 const Hero = ({ category, title, description, partnerInfo, story }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <span className={cx('category')}>{category}</span>
       <Heading className={cx('title')} tag="h1" size="xl" innerHTML={title} />
@@ -21,7 +23,8 @@ const Hero = ({ category, title, description, partnerInfo, story }) => (
         <SuccessStoriesCard {...story} />
       </div>
     </div>
-  </div>
+    <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
+  </section>
 );
 
 Hero.propTypes = {
