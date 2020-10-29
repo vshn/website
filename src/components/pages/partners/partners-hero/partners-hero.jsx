@@ -5,18 +5,20 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import styles from './hero.module.scss';
 import illustration from './images/illustration.svg';
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
+import styles from './partners-hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
+const PartnersHero = (
+  { title, subtitle, description, buttonLink: { url: buttonUrl }, buttonText },
+) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('category')} tag="h1" size="xs" color="secondary">{category}</Heading>
-      <Heading className={cx('title')} tag="p" size="xl">{title}</Heading>
+      <Heading className={cx('title')} tag="h1" size="xs" color="secondary">{title}</Heading>
+      <Heading className={cx('subtitle')} tag="p" size="xl">{subtitle}</Heading>
       <p className={cx('description')}>{description}</p>
       <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
@@ -30,12 +32,14 @@ const Hero = ({ category, title, description, buttonUrl, buttonText }) => (
   </section>
 );
 
-Hero.propTypes = {
-  category: PropTypes.string.isRequired,
+PartnersHero.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   buttonText: PropTypes.string.isRequired,
 };
 
-export default Hero;
+export default PartnersHero;

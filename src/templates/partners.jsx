@@ -2,25 +2,17 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Hero from 'components/pages/partners/hero';
-import Partners from 'components/pages/partners/partners-list';
+import PartnersHero from 'components/pages/partners/partners-hero';
+import PartnersList from 'components/pages/partners/partners-list';
 import SuccessStories from 'components/pages/partners/success-stories';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
-
-const hero = {
-  category: 'Partners',
-  title: 'We have turned our customers into satisfied partners',
-  description: 'Our understanding of successful business relationships based on partnership goes beyond a pure service provider/customer relationship. We therefore regard our customers as partners. Click on the respective link to learn more about our cooperation.',
-  buttonUrl: '/',
-  buttonText: 'Check partners',
-};
 
 const successStories = {
   title: 'Success stories',
 };
 
-const partners = {
+const partnersList = {
   title: 'Partners',
   filters: [
     {
@@ -116,9 +108,9 @@ const partners = {
 
 export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
   <MainLayout seo={seo}>
-    <Hero {...hero} />
+    <PartnersHero {...data.partnersHero} />
     <SuccessStories {...successStories} />
-    <Partners {...partners} />
+    <PartnersList {...partnersList} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -126,6 +118,17 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
 export const query = graphql`
   query($id: String!) {
     wpPage(id: { eq: $id }) {
+      acf {
+        partnersHero {
+          title
+          subtitle
+          description
+          buttonLink {
+            url
+          }
+          buttonText
+        }
+      }
       ...wpPageSeo
     }
   }

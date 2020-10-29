@@ -5,14 +5,13 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import acrevis from '../images/acrevis.svg';
-import creditgate24 from '../images/creditgate24.svg';
-import esurance from '../images/esurance.svg';
-import hrmsystems from '../images/hrmsystems.svg';
-import neon from '../images/neon.svg';
-import skribble from '../images/skribble.svg';
-import sobrado from '../images/sobrado.svg';
-
+import acrevis from './images/acrevis.svg';
+import creditgate24 from './images/creditgate24.svg';
+import esurance from './images/esurance.svg';
+import hrmsystems from './images/hrmsystems.svg';
+import neon from './images/neon.svg';
+import skribble from './images/skribble.svg';
+import sobrado from './images/sobrado.svg';
 import styles from './success-stories.module.scss';
 
 const cx = classNames.bind(styles);
