@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
+import Item from 'components/pages/partners/partners-list/item';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
@@ -14,11 +15,9 @@ const Content = ({ title, filters, partners }) => (
     <div className="container">
       <div className={cx('header')}>
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
-        <div>
-          {filters.map(({ label }, index) => (
-            <select className={cx('filter')} key={index}>
-              <option value={label}>{label}</option>
-            </select>
+        <div className={cx('filters-wrapper')}>
+          {filters.map((filter, index) => (
+            <Item {...filter} key={index} />
           ))}
         </div>
       </div>
@@ -38,6 +37,9 @@ Content.propTypes = {
   filters: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
+      items: PropTypes.arrayOf(PropTypes.shape({
+        item: PropTypes.string.isRequired,
+      })).isRequired,
     }),
   ).isRequired,
   partners: PropTypes.arrayOf(

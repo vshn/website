@@ -137,6 +137,9 @@ export const query = graphql`
           title
           filters {
             label
+            items {
+              item
+            }
           }
         }
       }
