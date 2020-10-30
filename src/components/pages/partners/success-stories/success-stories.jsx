@@ -10,12 +10,12 @@ import styles from './success-stories.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SuccessStories = ({ title, itemFooterText, nodes }) => (
+const SuccessStories = ({ title, itemFooterText, successStories }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
       <ul className={cx('items-wrapper')}>
-        {nodes.map(({ uri: url, title, acf: { logo } }, index) => (
+        {successStories.map(({ uri: url, title, acf: { logo } }, index) => (
           <li className={cx('item')} key={index}>
             <Link className={cx('link')} to={url}>
               <div className={cx('logo-wrapper')}>
@@ -32,7 +32,7 @@ const SuccessStories = ({ title, itemFooterText, nodes }) => (
 
 SuccessStories.propTypes = {
   title: PropTypes.string.isRequired,
-  nodes: PropTypes.arrayOf(PropTypes.shape({
+  successStories: PropTypes.arrayOf(PropTypes.shape({
     uri: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({

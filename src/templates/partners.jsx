@@ -143,24 +143,24 @@ export const query = graphql`
       ...wpPageSeo
     }
     allWpSuccessStory(sort: {fields: title, order: ASC}) {
-    nodes {
-      uri
-      title
-      acf {
-        logo {
-          localFile {
-            childImageSharp {
-              fluid(maxHeight: 135) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
+      successStories: nodes {
+        uri
+        title
+        acf {
+          logo {
+            localFile {
+              childImageSharp {
+                fluid(maxHeight: 135) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
               }
             }
           }
         }
       }
-    }
   }
   allWpPartner(sort: {fields: title, order: ASC}) {
-    nodes {
+    partners: nodes {
       uri
       title
     }
