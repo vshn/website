@@ -47,6 +47,10 @@
 .description {
   margin-bottom: 30px;
   color: $color-additional-1;
+
+  @include lg-down {
+    margin-bottom: 25px;
+  }
 }
 
 .link {

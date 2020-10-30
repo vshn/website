@@ -36,6 +36,10 @@
   @include md-down {
     margin-bottom: 10px;
   }
+
+  @include sm-down {
+    margin-bottom: 5px;
+  }
 }
 
 .logo {
@@ -45,6 +49,10 @@
 
   @include md-down {
     width: 34%;
+  }
+
+  @include sm-down {
+    width: 30%;
   }
 }
 

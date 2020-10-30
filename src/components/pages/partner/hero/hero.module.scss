@@ -18,7 +18,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: $header-height-md;
-    margin-bottom: 55px;
+    margin-bottom: 50px;
     text-align: center;
   }
 }
@@ -43,12 +43,16 @@
 }
 
 .description {
+  display: -webkit-box;
   max-width: 770px;
   margin-top: 15px;
   margin-bottom: 15px;
+  overflow: hidden;
   font-size: $font-size-md;
   line-height: $line-height-md;
   color: $color-secondary;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 
   @include lg-down {
     max-width: 560px;
