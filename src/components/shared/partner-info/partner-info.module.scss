@@ -15,7 +15,7 @@
   }
 
   @include md-down {
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     margin-bottom: 0;
   }
 }
@@ -34,10 +34,6 @@
   }
 
   @include md-down {
-    margin-bottom: 10px;
-  }
-
-  @include sm-down {
     margin-bottom: 5px;
   }
 }
@@ -48,7 +44,7 @@
   }
 
   @include md-down {
-    width: 34%;
+    width: 17%;
   }
 
   @include sm-down {
@@ -85,7 +81,7 @@
 
   strong {
     margin-right: 15px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 800;
     color: $color-primary;
 

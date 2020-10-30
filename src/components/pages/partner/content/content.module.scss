@@ -46,13 +46,13 @@
     top: 0;
     right: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 25px;
     column-gap: $column-gap-md;
     max-width: initial;
   }
 
   @include sm-down {
-    grid-template-columns: repeat(1, 1fr);
     row-gap: 20px;
   }
 }
