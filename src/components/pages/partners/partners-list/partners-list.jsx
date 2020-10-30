@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
 import Item from 'components/pages/partners/partners-list/item';
 import Heading from 'components/shared/heading';
