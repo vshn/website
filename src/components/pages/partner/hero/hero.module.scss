@@ -28,7 +28,7 @@
   z-index: 1;
 }
 
-.category {
+.category-wrapper {
   display: block;
   margin-bottom: 30px;
   font-size: $font-size-xs;
@@ -36,6 +36,25 @@
   line-height: $line-height-xs;
   color: $color-secondary;
   text-transform: uppercase;
+
+  .category {
+    position: relative;
+    margin-right: 30px;
+    color: $color-accent-primary;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -18px;
+      display: inline-block;
+      padding: 3px;
+      content: '';
+      border: solid $color-secondary;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(-45deg);
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
 
   @include md-down {
     margin-bottom: 25px;

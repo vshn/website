@@ -13,7 +13,10 @@ const cx = classNames.bind(styles);
 const Hero = ({ category, title, description }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
-      <span className={cx('category')}>{category}</span>
+      <div className={cx('category-wrapper')}>
+        <span className={cx('category')}>{category}</span>
+        <span>{title}</span>
+      </div>
       <Heading className={cx('title')} tag="h1" size="xxl" innerHTML={title} />
       <p className={cx('description')}>{description}</p>
     </div>
