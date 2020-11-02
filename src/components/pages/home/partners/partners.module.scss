@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  padding-bottom: 200px;
+  padding-bottom: 180px;
 
   @include section-paddings;
 
@@ -15,6 +15,7 @@
 
 .inner {
   display: flex;
+  padding-top: 55px;
 
   @include md-down {
     display: block;
@@ -23,7 +24,7 @@
 
 .details {
   flex-shrink: 0;
-  padding-top: 110px;
+  padding-top: 60px;
   margin-right: 140px;
   text-align: center;
 
@@ -202,7 +203,7 @@
   }
 
   &.active {
-    color: $color-accent-primary;
+    color: $color-accent-secondary;
     cursor: default;
 
     &::after {
@@ -237,7 +238,7 @@
   &::after {
     width: 0;
     visibility: hidden;
-    background-color: $color-accent-primary;
+    background-color: $color-accent-secondary;
     opacity: 0;
     animation-duration: 5s;
     animation-timing-function: linear;
@@ -251,52 +252,11 @@
   }
 }
 
-.title {
-  margin-bottom: 30px;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-
-  @include sm-down {
-    margin-bottom: 70px;
-    text-align: center;
-  }
-
-  &.md-hidden {
-    @include md-down {
-      display: none;
-    }
-  }
-
-  &.md-visible {
-    display: none;
-
-    @include md-down {
-      display: block;
-    }
-  }
-
-  &.sm-hidden {
-    @include sm-down {
-      display: none;
-    }
-  }
-
-  &.sm-visible {
-    display: none;
-
-    @include sm-down {
-      display: block;
-    }
-  }
-}
-
 .quote-icon {
   display: block;
   width: 50px;
   margin-bottom: 30px;
-  fill: $color-accent-primary;
+  fill: $color-quaternary;
 
   @include lg-down {
     width: 40px;
@@ -321,36 +281,6 @@
 
   @include md-down {
     margin-bottom: 25px;
-  }
-}
-
-.shape {
-  position: absolute;
-  bottom: -200px;
-  left: 1025px;
-  z-index: -1;
-  width: calc(265px + #{$container-side-gap});
-  min-width: 580px;
-  height: 530px;
-
-  @include lg-down {
-    right: calc(#{$container-side-gap-lg} / -1);
-    bottom: -180px;
-    left: auto;
-    width: 480px;
-    min-width: initial;
-    height: initial;
-  }
-
-  @include md-down {
-    right: calc(#{$container-side-gap-md} / -1);
-    bottom: -145px;
-    width: 435px;
-  }
-
-  @include sm-down {
-    right: calc(#{$section-padding} / -1);
-    width: 220px;
   }
 }
 

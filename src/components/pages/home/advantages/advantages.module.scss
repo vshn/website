@@ -1,5 +1,5 @@
 .wrapper {
-  margin-bottom: 160px;
+  margin-bottom: 180px;
 
   @include section-paddings;
 
@@ -15,13 +15,14 @@
 .title {
   margin-bottom: 30px;
   text-align: center;
+  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;
   }
 }
 
-.description {
+.subtitle {
   max-width: 860px;
   margin-top: 0;
   margin-right: auto;

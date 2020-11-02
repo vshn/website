@@ -5,11 +5,17 @@
   left: 0;
   z-index: 1;
   height: $header-height;
+  background-color: transparent;
+  transition: background-color $transition-base;
 
   @include section-paddings;
 
   @include md-down {
     height: $header-height-md;
+  }
+
+  &.menu-item-is-hovered {
+    background-color: $color-tertiary;
   }
 }
 
@@ -18,13 +24,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  @include md-down {
-    padding-top: 25px;
-    padding-bottom: 25px;
-  }
+  height: 80px;
 
   &:first-child {
     border-bottom: 1px solid $color-additional-1;
@@ -48,9 +48,7 @@
 .list-item {
   position: relative;
   margin-right: 34px;
-  font-size: $font-size-xs;
-  line-height: $line-height-xs;
-  color: $color-quaternary;
+  color: $color-secondary;
 
   @include with-link-primary;
 
@@ -60,8 +58,8 @@
     right: -19px;
     width: 4px;
     height: 4px;
-    content: '';
-    background-color: #dfe2ec;
+    content: "";
+    background-color: $color-quaternary;
     border-radius: 50%;
     transform: translateY(-50%);
   }
@@ -76,16 +74,27 @@
 }
 
 .list-link {
-  display: block;
+  display: flex;
+  align-items: center;
 
   &.active {
     color: inherit;
     pointer-events: none;
+
+    .icon {
+      opacity: 0.5;
+    }
   }
+}
+
+.icon {
+  margin-right: 10px;
 }
 
 .logo {
   display: block;
+  width: 138px;
+  height: 30px;
 
   @include md-down {
     width: 89px;
@@ -96,13 +105,14 @@
 .nav {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .menu {
   display: flex;
+  height: 100%;
   padding-left: 0;
   margin-top: 0;
-  margin-right: 60px;
   margin-bottom: 0;
   list-style-type: none;
 
@@ -112,25 +122,87 @@
 }
 
 .menu-item {
-  margin-right: 30px;
+  margin-right: 50px;
+
+  @include lg-down {
+    margin-right: 30px;
+  }
 
   @include with-link-primary;
 
+  // Pre-last child
+  &:nth-last-child(2) {
+    margin-right: 62px;
+
+    @include lg-down {
+      margin-right: 43px;
+    }
+  }
+
   &:last-child {
+    position: relative;
     margin-right: 0;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      width: 2px;
+      height: 30px;
+      content: '';
+      background-color: $color-additional-2;
+      transform: translateY(-50%);
+
+      @include lg-down {
+        left: -20px;
+      }
+    }
+  }
+
+  &.with-sub-menu {
+    @include hover {
+      .sub-menu {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .link {
+        &::before {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    .link {
+      &::before {
+        position: absolute;
+        top: 87px;
+        left: 50%;
+        z-index: 1;
+        width: 13px;
+        height: 13px;
+        visibility: hidden;
+        content: '';
+        background-color: $color-tertiary;
+        border: 1px solid $color-additional-2;
+        border-right: none;
+        border-bottom: none;
+        opacity: 0;
+        transition-duration: $transition-base;
+        transition-property: opacity visibility;
+        transform: translateX(-50%) translateY(-100%) rotate(45deg);
+      }
+    }
   }
 }
 
 .link {
-  display: block;
-  font-size: $font-size-xs;
-  line-height: $line-height-xs;
-}
-
-.button {
-  @include md-down {
-    display: none;
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-weight: 700;
 }
 
 .burger {

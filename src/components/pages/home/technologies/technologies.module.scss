@@ -1,8 +1,8 @@
 .wrapper {
   position: relative;
-  padding-top: 60px;
+  padding-top: 80px;
   padding-bottom: 60px;
-  margin-bottom: 210px;
+  margin-bottom: 125px;
 
   @include section-paddings;
 
@@ -55,13 +55,14 @@
 
 .title {
   margin-bottom: 30px;
+  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;
   }
 }
 
-.description {
+.subtitle {
   margin-bottom: 30px;
 
   @include md-down {
@@ -128,7 +129,7 @@
   }
 }
 
-.shape-1 {
+.shape {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -149,35 +150,5 @@
 
   @include sm-down {
     top: -70px;
-  }
-}
-
-.shape-2 {
-  position: absolute;
-  right: 1175px;
-  bottom: -520px;
-  z-index: -1;
-  width: calc(115px + #{$container-side-gap});
-  min-width: 430px;
-  height: 700px;
-
-  @include lg-down {
-    right: auto;
-    bottom: -385px;
-    left: calc(#{$container-side-gap-lg} / -1 - 125px);
-    width: 300px;
-    min-width: initial;
-    height: initial;
-  }
-
-  @include md-down {
-    bottom: -230px;
-    left: calc(#{$container-side-gap-md} / -1 - 80px);
-    width: 175px;
-  }
-
-  @include sm-down {
-    bottom: -260px;
-    left: calc(#{$section-padding} / -1 - 80px);
   }
 }

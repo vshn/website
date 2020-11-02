@@ -1,19 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-import backgroundImageLgUp from './images/background-image-lg-up.svg';
-import backgroundImageLgDown from './images/background-image-lg-down.svg';
-
 import styles from './hero.module.scss';
+import backgroundImageLgDown from './images/background-image-lg-down.svg';
+import backgroundImageLgUp from './images/background-image-lg-up.svg';
 
 const cx = classNames.bind(styles);
 
 const Hero = ({ title, categories, date }) => {
-  const day = date.getDate();
-  const monthYear = date.toLocaleString('en-US', {
+  const day = new Date(date).getDate();
+  const monthYear = new Date(date).toLocaleString('en-US', {
     year: 'numeric',
     month: 'short',
   });
@@ -22,7 +21,7 @@ const Hero = ({ title, categories, date }) => {
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <div className={cx('categories-wrapper')}>
-          {categories.map((category, index) => <span className={cx('category')} key={index}>{category}</span>)}
+          {categories.nodes.map(({ name }, index) => <span className={cx('category')} key={index}>{name}</span>)}
         </div>
 
         <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
@@ -42,8 +41,12 @@ const Hero = ({ title, categories, date }) => {
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  categories: PropTypes.shape({
+    nodes: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    })),
+  }).isRequired,
+  date: PropTypes.string.isRequired,
 };
 
 export default Hero;

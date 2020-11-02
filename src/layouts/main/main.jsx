@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 
-import SEO from 'components/shared/seo';
-import Header from 'components/shared/header';
 import Footer from 'components/shared/footer';
-import Overlay from 'components/shared/overlay';
+import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
+import Overlay from 'components/shared/overlay';
+import SEO from 'components/shared/seo';
 
 const MainLayout = ({ seo, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,7 +30,7 @@ const MainLayout = ({ seo, children }) => {
 
   return (
     <>
-      <SEO {...seo} />
+      {seo && <SEO {...seo} />}
       <Header onBurgerClick={handleHeaderBurgerClick} />
       <main>{children}</main>
       <Footer />
@@ -45,7 +46,72 @@ MainLayout.propTypes = {
 };
 
 MainLayout.defaultProps = {
-  seo: {},
+  seo: null,
 };
+
+export const query = graphql`
+  fragment wpPageSeo on WpPage {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpPostSeo on WpPost {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default MainLayout;

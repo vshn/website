@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Link from 'components/shared/link';
 import Button from 'components/shared/button';
+import Link from 'components/shared/link';
 
 import styles from './mobile-menu.module.scss';
 
