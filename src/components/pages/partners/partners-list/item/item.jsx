@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './item.module.scss';
 
@@ -16,11 +16,24 @@ const variantsAnimation = {
 
 const Item = ({ label, items }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
   const handleFilterClick = () => {
     setIsOpen(!isOpen);
   };
+  const handleClickOutside = (e) => {
+    if (!menuRef.current.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isOpen]);
   return (
-    <div className={cx('wrapper')}>
+    <div className={cx('wrapper')} ref={menuRef}>
       <button className={cx('filter', { 'filter-open': isOpen })} type="button" aria-label="Filter" onClick={handleFilterClick}>
         <span className={cx('label')}>{label}</span>
         <div className={cx('arrow')}>
