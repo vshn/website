@@ -82,6 +82,10 @@
   @include md-down {
     flex-direction: row;
   }
+
+  @include sm-down {
+    flex-direction: column;
+  }
 }
 
 .number {
@@ -101,5 +105,9 @@
   @include md-down {
     padding: 3px 13px;
     margin-right: 10px;
+  }
+
+  @include md-down {
+    margin-bottom: 13px;
   }
 }

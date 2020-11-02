@@ -5,6 +5,8 @@
   margin-bottom: 80px;
   background-color: $color-primary;
 
+  @include section-paddings;
+
   @include lg-down {
     padding-top: 70px;
     padding-bottom: 70px;

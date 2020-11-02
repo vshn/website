@@ -10,7 +10,7 @@ import Facts from '../facts';
 const cx = classNames.bind(styles);
 
 const Content = ({ interview, facts }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('content')}>
         <p>
@@ -59,7 +59,7 @@ const Content = ({ interview, facts }) => (
         <Facts {...facts} />
       </div>
     </div>
-  </div>
+  </section>
 );
 
 Content.propTypes = {

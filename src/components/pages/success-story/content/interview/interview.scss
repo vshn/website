@@ -6,12 +6,38 @@
   border-top: 8px solid $color-additional-1;
   border-bottom: 8px solid $color-additional-1;
 
+  @include lg-down {
+    padding-top: 65px;
+  }
+
+  @include md-down {
+    padding-top: 60px;
+  }
+
   &__header {
     display: flex;
     align-items: center;
     padding-right: 30px;
     padding-left: 30px;
     margin-bottom: 90px;
+
+    @include lg-down {
+      padding-right: 20px;
+      padding-left: 20px;
+      margin-bottom: 65px;
+    }
+
+    @include md-down {
+      margin-bottom: 60px;
+    }
+
+    @include sm-down {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 0;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
   }
 
   &__avatar {
@@ -22,6 +48,17 @@
     margin-right: 75px;
     background-color: $color-additional-1;
     border-radius: 5px;
+
+    @include lg-down {
+      width: 86px;
+      height: 86px;
+      margin-right: 55px;
+    }
+
+    @include sm-down {
+      margin-bottom: 55px;
+      margin-left: 25px;
+    }
   }
 
   &__rectangle {
@@ -32,19 +69,19 @@
   }
 
   &__rectangle_1 {
-    top: -30px;
-    left: -30px;
-    width: 130px;
-    height: 130px;
+    top: -20px;
+    left: -20px;
+    width: 94px;
+    height: 94px;
     background-color: $color-accent-secondary;
     border-top-left-radius: 55px;
   }
 
   &__rectangle_2 {
-    right: -30px;
-    bottom: -30px;
-    width: 165px;
-    height: 100px;
+    right: -25px;
+    bottom: -20px;
+    width: 119px;
+    height: 72px;
     background-color: $color-primary;
     border-bottom-right-radius: 50px;
   }
@@ -52,15 +89,37 @@
   &__rectangle_3 {
     top: -15px;
     right: -15px;
-    width: 100px;
-    height: 100px;
+    width: 72px;
+    height: 72px;
     background-color: $color-accent-primary;
     border-bottom-left-radius: 120px;
+
+    @include md-down {
+      top: -10px;
+    }
+  }
+
+  &__info {
+    @include md-down {
+      max-width: 420px;
+    }
   }
 
   &__name {
     margin-bottom: 5px;
     font-size: 40px;
+
+    @include lg-down {
+      font-size: 35px;
+    }
+
+    @include md-down {
+      font-size: 30px;
+    }
+
+    @include sm-down {
+      font-size: 26px;
+    }
   }
 
   &__position {
@@ -68,6 +127,14 @@
     font-weight: 700;
     line-height: $line-height-md;
     color: $color-secondary;
+
+    @include lg-down {
+      font-size: 18px;
+    }
+
+    @include md-down {
+      font-size: 16px;
+    }
   }
 
   &__question {
