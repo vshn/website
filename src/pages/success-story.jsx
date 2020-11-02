@@ -7,10 +7,10 @@ import Content from 'components/pages/success-story/content';
 
 const hero = {
   category: 'Success stories',
-  title: 'Acrevis Bank <strong>&</strong> VSHN',
+  title: 'Acrevis Bank',
   description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard',
   facts: {
-    title: 'Interesting facts',
+    title: 'Facts',
     items: [
       'Acrevis Bank AG, a leading regional bank between Lake Constance and Lake Zurich',
       'Acrevis Bank AG has decided to partner with VSHN after an intensive evaluation and detailing phase.',
@@ -25,6 +25,14 @@ const content = {
     name: 'Christian Gentsch',
     position: 'Member of the Executive Board acrevis Bank AG and CEO Finanz-Logistik AG',
     byLine: 'The interview was conducted by Markus Speth, CMO VSHN – The DevOps Company.',
+  },
+  facts: {
+    title: 'Facts',
+    items: [
+      'Acrevis Bank AG, a leading regional bank between Lake Constance and Lake Zurich',
+      'Acrevis Bank AG has decided to partner with VSHN after an intensive evaluation and detailing phase.',
+      'Together with Puzzle ITC, a technology platform based on APPUiO was developed for the areas of implementation, realisation and operation of IT platforms.',
+    ],
   },
 };
 

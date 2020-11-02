@@ -5,9 +5,11 @@ import classNames from 'classnames/bind';
 import styles from './content.module.scss';
 import Interview from './interview';
 
+import Facts from '../facts';
+
 const cx = classNames.bind(styles);
 
-const Content = ({ interview }) => (
+const Content = ({ interview, facts }) => (
   <div className={cx('wrapper')}>
     <div className="container">
       <div className={cx('content')}>
@@ -53,6 +55,9 @@ const Content = ({ interview }) => (
 
         </p>
       </div>
+      <div className={cx('info-wrapper')}>
+        <Facts {...facts} />
+      </div>
     </div>
   </div>
 );
@@ -63,6 +68,10 @@ Content.propTypes = {
     name: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     byLine: PropTypes.string.isRequired,
+  }).isRequired,
+  facts: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf.isRequired,
   }).isRequired,
 };
 

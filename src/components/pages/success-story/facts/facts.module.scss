@@ -4,15 +4,29 @@
   background: linear-gradient(234.34deg, $color-additional-1 0%, $color-tertiary 100%);
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba($color-primary, 0.25);
+
+  @include lg-down {
+    padding: 25px;
+  }
 }
 
 .title {
   margin-bottom: 30px;
+  font-size: 40px;
+
+  @include lg-down {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
 }
 
 .items-wrapper {
   padding-left: 0;
   list-style-type: none;
+
+  @include lg-down {
+    margin-bottom: 0;
+  }
 }
 
 .item {
@@ -28,6 +42,11 @@
 
   &:last-child {
     border-bottom: none;
+
+    @include lg-down {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
   }
 
   &::after {
@@ -40,6 +59,16 @@
     background-color: $color-accent-secondary;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba($color-primary, 0.15);
+
+    @include lg-down {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  @include lg-down {
+    flex-direction: column;
+    font-size: 16px;
   }
 }
 
@@ -51,4 +80,9 @@
   font-size: $font-size-md;
   font-weight: 900;
   line-height: $line-height-md;
+
+  @include lg-down {
+    padding: 5px 12px;
+    margin-bottom: 10px;
+  }
 }

@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 const Facts = ({ title, items }) => (
   <div className={cx('wrapper')}>
-    <Heading className={cx('title')} tag="h2" size="lg" color="secondary" innerHTML={title} />
+    <Heading className={cx('title')} tag="h2" size="xl" color="primary" innerHTML={title} />
     <ul className={cx('items-wrapper')}>
       {items.map((item, index) => (
         <li className={cx('item')} key={index}>

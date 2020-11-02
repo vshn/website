@@ -6,22 +6,26 @@ import Heading from 'components/shared/heading/';
 import circles from './images/circles.svg';
 
 import styles from './hero.module.scss';
-import Facts from './facts';
+
+import Facts from '../facts';
 
 const cx = classNames.bind(styles);
 
 const Hero = ({ category, title, description, facts }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
-      <span className={cx('category')}>{category}</span>
-      <Heading className={cx('title')} tag="h2" size="xxl" color="tertiary" innerHTML={title} />
+      <div className={cx('category-wrapper')}>
+        <span className={cx('category')}>{category}</span>
+        <span>{title}</span>
+      </div>
+      <Heading className={cx('title')} tag="h2" size="xxl" color="tertiary">{title}</Heading>
       <p className={cx('description')}>{description}</p>
+      <img className={cx('circles')} src={circles} alt="" aria-hidden />
       <div className={cx('info-wrapper')}>
         <Facts {...facts} />
       </div>
-      <img className={cx('circles')} src={circles} alt="" aria-hidden />
     </div>
-  </div>
+  </section>
 );
 
 Hero.propTypes = {
