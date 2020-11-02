@@ -2,6 +2,10 @@
   margin-bottom: 180px;
 
   @include section-paddings;
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
 }
 
 .content {
@@ -12,8 +16,17 @@
   @include lg-down {
     max-width: 560px;
   }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 50px;
+  }
 }
 
 .info-wrapper {
   display: none;
+
+  @include md-down {
+    display: block;
+  }
 }
