@@ -24,11 +24,11 @@
 
   &.filter-open {
     .left {
-      transform: rotate(45deg);
+      transform: rotate(135deg);
     }
 
     .right {
-      transform: rotate(-45deg);
+      transform: rotate(-135deg);
     }
   }
 }
@@ -54,12 +54,12 @@
 
 .left {
   left: 0;
-  transform: rotate(135deg);
+  transform: rotate(45deg);
 }
 
 .right {
   right: 3px;
-  transform: rotate(-135deg);
+  transform: rotate(-45deg);
 }
 
 .items-wrapper {
@@ -88,6 +88,7 @@
   text-align: left;
   background-color: $color-tertiary;
   border: none;
+  outline: none;
 
   &:last-child {
     margin-bottom: 0;
