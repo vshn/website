@@ -9,6 +9,30 @@ const hero = {
   category: 'Partners',
   title: 'Acrevis Bank',
   description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard',
+  partnerInfo: {
+    items: [
+      {
+        value: '99,9%',
+        text: 'uptime',
+      },
+      {
+        value: '105',
+        text: 'running servers',
+      },
+      {
+        value: '3',
+        text: 'years partnership',
+      },
+    ],
+    url: 'acrevis.ch',
+  },
+  story: {
+    category: 'Success stories',
+    title: 'Acrevis Bank <strong>&</strong> VSHN',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard',
+    footerUrl: '/',
+    footerText: 'Read more',
+  },
 };
 
 const content = {

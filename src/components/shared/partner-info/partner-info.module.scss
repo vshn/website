@@ -7,16 +7,16 @@
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba($color-primary, 0.25);
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   @include lg-down {
     padding-bottom: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
 
   @include md-down {
     padding-bottom: 20px;
-    margin-bottom: 0;
+    margin-bottom: 25px;
   }
 }
 
@@ -30,11 +30,11 @@
 
   @include lg-down {
     padding-top: 20px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
   }
 
   @include md-down {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 }
 
@@ -81,7 +81,7 @@
 
   strong {
     margin-right: 15px;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 800;
     color: $color-primary;
 
@@ -106,7 +106,6 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1.6;
-  border-bottom: 2px solid $color-additional-2;
 
   @include lg-down {
     font-size: 16px;

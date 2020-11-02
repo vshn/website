@@ -39,13 +39,13 @@
 
   .category {
     position: relative;
-    margin-right: 30px;
+    margin-right: 25px;
     color: $color-accent-primary;
 
     &::after {
       position: absolute;
       top: 50%;
-      right: -18px;
+      right: -15px;
       display: inline-block;
       padding: 3px;
       content: '';
@@ -90,4 +90,20 @@
   left: 50%;
   height: 100%;
   transform: translateX(-50%);
+}
+
+.info-wrapper {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 1;
+  max-width: 410px;
+
+  @include lg-down {
+    max-width: 290px;
+  }
+
+  @include md-down {
+    display: none;
+  }
 }

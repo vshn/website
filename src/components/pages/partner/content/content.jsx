@@ -42,7 +42,7 @@ const Content = ({ partnerInfo, story }) => (
           and look forward to a successful cooperation.
         </p>
       </div>
-      <div className={cx('info')}>
+      <div className={cx('info-wrapper')}>
         <PartnerInfo {...partnerInfo} />
         <SuccessStoriesCard {...story} />
       </div>

@@ -17,6 +17,11 @@
   blockquote {
     margin-right: 0;
     margin-left: 0;
+
+    &::before {
+      width: 38px;
+      height: 30px;
+    }
   }
 
   @include lg-down {
@@ -29,30 +34,10 @@
   }
 }
 
-.info {
-  position: absolute;
-  top: -340px;
-  right: 0;
-  z-index: 1;
-  max-width: 410px;
-
-  @include lg-down {
-    top: -320px;
-    max-width: 290px;
-  }
+.info-wrapper {
+  display: none;
 
   @include md-down {
-    position: relative;
-    top: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    row-gap: 25px;
-    column-gap: $column-gap-md;
-    max-width: initial;
-  }
-
-  @include sm-down {
-    row-gap: 20px;
+    display: block;
   }
 }
