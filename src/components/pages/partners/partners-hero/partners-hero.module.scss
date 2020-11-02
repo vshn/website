@@ -116,6 +116,12 @@
       width: 324px;
     }
   }
+
+  @include xs-down {
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .shape-1 {
