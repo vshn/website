@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-
-import styles from './content.module.scss';
-import Interview from './interview';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Facts from '../facts';
 
+import styles from './content.module.scss';
+// import Interview from './interview';
+
 const cx = classNames.bind(styles);
 
-const Content = ({ interview, facts }) => (
+const Content = ({ acf: { facts } }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('content')}>
@@ -29,7 +29,7 @@ const Content = ({ interview, facts }) => (
           For acrevis it is clear: with VSHN, a competent partner was found who guarantees the
           operation of a secure and stable infrastructure.
         </p>
-        <Interview {...interview} />
+        {/* <Interview {...interview} /> */}
         <h3>About Acrevis Bank AG</h3>
         <p>
           <a href="/">Acrevis Bank AG</a>
@@ -63,15 +63,19 @@ const Content = ({ interview, facts }) => (
 );
 
 Content.propTypes = {
-  interview: PropTypes.shape({
-    avatar: PropTypes.node.isRequired,
-    name: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-    byLine: PropTypes.string.isRequired,
-  }).isRequired,
-  facts: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf.isRequired,
+  // interview: PropTypes.shape({
+  //   avatar: PropTypes.node.isRequired,
+  //   name: PropTypes.string.isRequired,
+  //   position: PropTypes.string.isRequired,
+  //   byLine: PropTypes.string.isRequired,
+  // }).isRequired,
+  acf: PropTypes.shape({
+    facts: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      items: PropTypes.arrayOf(PropTypes.shape({
+        item: PropTypes.string.isRequired,
+      })).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

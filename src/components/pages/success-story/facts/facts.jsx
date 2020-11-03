@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading/';
 
@@ -12,7 +12,7 @@ const Facts = ({ title, items }) => (
   <div className={cx('wrapper')}>
     <Heading className={cx('title')} tag="h2" size="xl" color="primary" innerHTML={title} />
     <ul className={cx('items-wrapper')}>
-      {items.map((item, index) => (
+      {items.map(({ item }, index) => (
         <li className={cx('item')} key={index}>
           <span className={cx('number')}>{index + 1}</span>
           {item}
@@ -24,7 +24,9 @@ const Facts = ({ title, items }) => (
 
 Facts.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.any).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    item: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 Facts.defaultProps = {

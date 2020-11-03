@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading/';
-import circles from './images/circles.svg';
-
-import styles from './hero.module.scss';
 
 import Facts from '../facts';
 
+import styles from './hero.module.scss';
+import circles from './images/circles.svg';
+
 const cx = classNames.bind(styles);
 
-const Hero = ({ category, title, description, facts }) => (
+const Hero = ({ title, acf: { category, description, facts } }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('category-wrapper')}>
@@ -29,12 +29,16 @@ const Hero = ({ category, title, description, facts }) => (
 );
 
 Hero.propTypes = {
-  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  facts: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf.isRequired,
+  acf: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    facts: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      items: PropTypes.arrayOf(PropTypes.shape({
+        item: PropTypes.string.isRequired,
+      })).isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

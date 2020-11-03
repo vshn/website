@@ -99,7 +99,54 @@ async function createPosts({ graphql, actions }) {
   });
 }
 
+async function createSuccessStoryPosts({ graphql, actions }) {
+  const { createPage } = actions;
+  const result = await graphql(`
+  {
+    allWpSuccessStory {
+      nodes {
+        id
+        content
+        uri
+        language {
+          locale
+        }
+      }
+    }
+  }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const posts = result.data.allWpSuccessStory.nodes;
+
+  posts.forEach(({ id, content, uri, language: { locale } }) => {
+    const templatePath = path.resolve('./src/templates/success-story.jsx');
+
+    const context = {
+      id,
+      locale,
+    };
+
+    if (content) {
+      context.content = replaceBrokenSpaces(content);
+    }
+
+    if (fs.existsSync(templatePath)) {
+      createPage({
+        path: uri,
+        component: slash(templatePath),
+        context,
+      });
+    } else {
+      console.error('Template Success Story was not found');
+    }
+  });
+}
+
 exports.createPages = async (args) => {
   await createPages(args);
   await createPosts(args);
+  await createSuccessStoryPosts(args);
 };
