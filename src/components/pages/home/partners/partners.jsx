@@ -1,25 +1,23 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import GatsbyImage from 'gatsby-image';
 import classNames from 'classnames/bind';
+import { motion, AnimatePresence } from 'framer-motion';
+import GatsbyImage from 'gatsby-image';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
-import Quote from 'icons/quote.inline.svg';
-import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
+import Heading from 'components/shared/heading';
 import motionFadeAnimation from 'constants/motion-fade-animation';
+import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
+import Quote from 'icons/quote.inline.svg';
 
-import shape from './images/shape.svg';
 import styles from './partners.module.scss';
 
 const cx = classNames.bind(styles);
 
 export const ITEM_CHANGE_INTERVAL = 5000; // milliseconds
 
-const Partners = ({ title, items }) => {
+const Partners = ({ items }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     triggerOnce: true,
   });
@@ -29,54 +27,14 @@ const Partners = ({ title, items }) => {
     { interval: ITEM_CHANGE_INTERVAL },
   );
 
-  const {
-    michaelSchmid: {
-      childImageSharp: { fluid: michaelSchmid },
-    },
-    silvanMuhlemann: {
-      childImageSharp: { fluid: silvanMuhlemann },
-    },
-    mathiasBrenner: {
-      childImageSharp: { fluid: mathiasBrenner },
-    },
-  } = useStaticQuery(graphql`
-    {
-      michaelSchmid: file(relativePath: { eq: "pages/home/partners/michael-schmid.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 180) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      silvanMuhlemann: file(relativePath: { eq: "pages/home/partners/silvan-muhlemann.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 180) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      mathiasBrenner: file(relativePath: { eq: "pages/home/partners/mathias-brenner.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 180) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
   useEffect(() => {
     if (isAnimationStarted) startAnimation();
   }, [startAnimation, isAnimationStarted]);
 
   // eslint-disable-next-line react/prop-types
-  const Title = ({ className }) => (
-    <Heading className={cx('title', className)} tag="h2" size="sm" color="secondary">{title}</Heading>
-  );
-
-  // eslint-disable-next-line react/prop-types
   const Tabs = ({ className }) => (
     <div className={cx('tabs-wrapper', className)}>
+      {/* eslint-disable-next-line react/prop-types */}
       {items.map((item, index) => {
         const number = index + 1;
         const isActive = index === activeItemIndex;
@@ -90,8 +48,8 @@ const Partners = ({ title, items }) => {
             size="lg"
             color="quaternary"
             type="button"
-            onClick={handleClick}
             key={index}
+            onClick={handleClick}
           >
             {number}
           </Heading>
@@ -100,27 +58,20 @@ const Partners = ({ title, items }) => {
     </div>
   );
 
-  const photos = [
-    michaelSchmid,
-    silvanMuhlemann,
-    mathiasBrenner,
-  ];
-
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
-        <Title className={cx('sm-visible')} />
 
         <div className={cx('details')}>
           <div className={cx('photo-wrapper')}>
             <AnimatePresence exitBeforeEnter>
-              {items.map((item, index) => {
+              {items.map(({ photo }, index) => {
                 const isActive = index === activeItemIndex;
                 if (!isActive) return null;
 
                 return (
                   <motion.div {...motionFadeAnimation} key={index}>
-                    <GatsbyImage className={cx('photo')} fluid={photos[index]} />
+                    <GatsbyImage className={cx('photo')} fluid={photo.localFile.childImageSharp.fluid} />
                   </motion.div>
                 );
               })}
@@ -132,7 +83,6 @@ const Partners = ({ title, items }) => {
           </div>
 
           <div>
-            <Title className={cx('md-visible', 'sm-hidden')} />
             <AnimatePresence exitBeforeEnter>
               {items.map(({ name, position }, index) => {
                 const isActive = index === activeItemIndex;
@@ -152,10 +102,9 @@ const Partners = ({ title, items }) => {
         </div>
 
         <div className={cx('content')}>
-          <Title className={cx('md-hidden')} />
           <Quote className={cx('quote-icon')} aria-hidden />
           <AnimatePresence exitBeforeEnter>
-            {items.map(({ text, buttonUrl }, index) => {
+            {items.map(({ text, buttonLink: { url: buttonUrl } }, index) => {
               const isActive = index === activeItemIndex;
               if (!isActive) return null;
 
@@ -170,23 +119,21 @@ const Partners = ({ title, items }) => {
         </div>
 
         <Tabs className={cx('sm-visible')} />
-
-        <img className={cx('shape')} src={shape} alt="" aria-hidden />
       </div>
     </section>
   );
 };
 
 Partners.propTypes = {
-  title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      position: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      buttonUrl: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    photo: PropTypes.objectOf(PropTypes.any).isRequired,
+    name: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    buttonLink: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+  })).isRequired,
 };
 
 export default Partners;

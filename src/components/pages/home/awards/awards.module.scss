@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  padding-top: 170px;
+  padding-top: 150px;
   padding-bottom: 150px;
   margin-bottom: 160px;
   background-color: $color-primary;
@@ -31,13 +31,14 @@
 .title {
   margin-bottom: 30px;
   text-align: center;
+  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;
   }
 }
 
-.description {
+.subtitle {
   max-width: 860px;
   margin-right: auto;
   margin-bottom: 60px;

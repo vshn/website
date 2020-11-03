@@ -1,13 +1,6 @@
 @mixin section-paddings {
   @include sm-down {
-    // padding without calc() is for browsers that do not support calc()
-    padding-right: #{$section-padding};
-    // constant() is for older versions of Safari
-    padding-right: calc(constant(safe-area-inset-right) + #{$section-padding});
-    // env() for all other cases
-    padding-right: calc(env(safe-area-inset-right) + #{$section-padding});
-    padding-left: #{$section-padding};
-    padding-left: calc(constant(safe-area-inset-left) + #{$section-padding});
-    padding-left: calc(env(safe-area-inset-left) + #{$section-padding});
+    @include safe-area(padding-right, right, $section-padding);
+    @include safe-area(padding-left, left, $section-padding);
   }
 }

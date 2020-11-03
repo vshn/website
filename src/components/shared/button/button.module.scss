@@ -5,6 +5,7 @@
   color: $color-primary;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
   vertical-align: top;
   cursor: pointer;
   background-color: $color-accent-secondary;
@@ -19,12 +20,12 @@
   }
 
   &_size_md {
-    padding-top: 16px;
+    padding-top: 19px;
     padding-right: 40px;
-    padding-bottom: 16px;
+    padding-bottom: 19px;
     padding-left: 40px;
-    font-size: $font-size-md;
-    line-height: $line-height-md;
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
     border-radius: 30px 4px;
 
     @include md-down {

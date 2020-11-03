@@ -1,33 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
-import Item from './item';
-
-import ItemImage1 from './images/item-image-1.inline.svg';
-import ItemImage2 from './images/item-image-2.inline.svg';
-import ItemImage3 from './images/item-image-3.inline.svg';
+import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
 import styles from './advantages.module.scss';
+import Item from './item';
 
 const cx = classNames.bind(styles);
 
-const itemImages = [
-  ItemImage1,
-  ItemImage2,
-  ItemImage3,
-];
-
-const Advantages = ({ title, description, items }) => (
+const Advantages = ({ title, subtitle, items }) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
-      <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
+      <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
+      <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={getTextWithoutParagraph(subtitle)} />
 
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
-          <Item number={index + 1} image={itemImages[index]} key={index} {...item} />
+          <Item number={index + 1} key={index} {...item} />
         ))}
       </ul>
     </div>
@@ -36,12 +27,16 @@ const Advantages = ({ title, description, items }) => (
 
 Advantages.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      footerText: PropTypes.string.isRequired,
+      link: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+      }).isRequired,
+      imageName: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

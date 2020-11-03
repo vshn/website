@@ -1,5 +1,6 @@
-import React from 'react';
 import { text } from '@storybook/addon-knobs';
+import React from 'react';
+
 import BlogPostsCarousel from './blog-posts-carousel';
 
 const items = [

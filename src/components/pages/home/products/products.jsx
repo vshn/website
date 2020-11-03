@@ -1,26 +1,22 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames/bind';
+import { AnimatePresence, motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Heading from 'components/shared/heading';
+import motionFadeAnimation from 'constants/motion-fade-animation';
 import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Arrow from 'icons/arrow.inline.svg';
-import motionFadeAnimation from 'constants/motion-fade-animation';
 
 import Item from './item';
-
-import illustration from './images/illustration.svg';
-
-import shape from './images/shape.svg';
 import styles from './products.module.scss';
 
 const cx = classNames.bind(styles);
 
 export const ITEM_CHANGE_INTERVAL = 5000; // milliseconds
 
-const Products = ({ title, description, items }) => {
+const Products = ({ title, subtitle, items }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     triggerOnce: true,
   });
@@ -44,8 +40,8 @@ const Products = ({ title, description, items }) => {
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')} ref={animationStartRef}>
         <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h2" size="sm" color="secondary">{title}</Heading>
-          <Heading className={cx('description')} tag="p" size="xl" innerHTML={description} />
+          <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
+          <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
 
           <div className={cx('items-wrapper')}>
             <button className={cx('button')} type="button" aria-label="Previous product" onClick={previousItem}>
@@ -67,8 +63,8 @@ const Products = ({ title, description, items }) => {
                     number={formattedNumber}
                     isActive={isActive}
                     isAnimationStarted={isAnimationStarted}
-                    onClick={!isActive ? handleClick : null}
                     key={index}
+                    onClick={!isActive ? handleClick : null}
                   />
                 );
               })}
@@ -113,24 +109,21 @@ const Products = ({ title, description, items }) => {
                 tabIndex="0"
                 role="button"
                 aria-label={`Go to product ${index + 1}`}
+                key={index}
                 onKeyPress={handleClick}
                 onClick={handleClick}
-                key={index}
               />
             );
           })}
         </div>
       </div>
-
-      <img className={cx('shape')} src={shape} aria-hidden alt="" />
-      <img className={cx('illustration')} src={illustration} aria-hidden alt="" />
     </section>
   );
 };
 
 Products.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'no-shadow': 0,
+    'no-shadow': 'off',
     'object-curly-newline': [
       'error',
       {
@@ -27,9 +27,28 @@ module.exports = {
         ExportDeclaration: { multiline: true, consistent: true },
       },
     ],
-    'react/no-array-index-key': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react/no-danger': 0,
+    'react/no-array-index-key': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-danger': 'off',
+    'react/jsx-sort-props': [
+      'error',
+      {
+        callbacksLast: true,
+        shorthandLast: true,
+        noSortAlphabetically: true,
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
     'import/no-extraneous-dependencies': [
       'error',
       {

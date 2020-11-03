@@ -2,9 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    siteTitle: 'VSHN AG',
-    siteDescription: 'VSHN AG is the leading Swiss partner for DevOps, Docker, Kubernetes, OpenShift and 24/7 Cloud Operations. VSHN helps software developers run their apps.',
-    siteLanguage: 'en',
+    siteUrl: process.env.GATSBY_DEFAULT_SITE_URL,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -70,9 +68,22 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "./src/styles/variables.scss" , "./src/styles/mixins.scss";',
+        data:
+          '@import "./src/styles/variables.scss" , "./src/styles/mixins.scss";',
         cssLoaderOptions: {
           camelCase: true,
+        },
+      },
+    },
+    {
+      resolve: '@silencerweb/gatsby-source-wordpress-experimental',
+      options: {
+        url: process.env.WP_GRAPHQL_URL,
+        auth: {
+          htaccess: {
+            username: process.env.WP_HTACCESS_USERNAME,
+            password: process.env.WP_HTACCESS_PASSWORD,
+          },
         },
       },
     },

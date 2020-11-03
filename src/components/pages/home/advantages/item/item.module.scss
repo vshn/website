@@ -114,7 +114,7 @@
 
 .description {
   margin-top: 0;
-  margin-bottom: 45px;
+  margin-bottom: 46px;
   color: $color-secondary;
 
   @include md-down {
@@ -130,7 +130,10 @@
   position: relative;
   width: 100%;
   margin-top: auto;
+  font-size: $font-size-xs;
   font-weight: 700;
+  line-height: $line-height-xs;
+  text-transform: uppercase;
   transition: color $transition-base;
 
   &::before {
