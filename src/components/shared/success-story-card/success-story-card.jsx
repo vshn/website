@@ -1,17 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
 
 import circles from './images/circles.svg';
-
-import styles from './success-stories-card.module.scss';
+import styles from './success-story-card.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SuccessStoriesCard = ({ category, title, description, footerUrl, footerText }) => (
+const SuccessStoryCard = (
+  { category, successStory: { title, acf: { description }, uri: footerUrl }, footerText },
+) => (
   <article className={cx('wrapper')}>
     <span className={cx('category')}>{category}</span>
     <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
@@ -21,12 +22,16 @@ const SuccessStoriesCard = ({ category, title, description, footerUrl, footerTex
   </article>
 );
 
-SuccessStoriesCard.propTypes = {
+SuccessStoryCard.propTypes = {
   category: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  footerUrl: PropTypes.string.isRequired,
+  successStory: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    acf: PropTypes.shape({
+      description: PropTypes.string.isRequired,
+    }),
+    uri: PropTypes.string.isRequired,
+  }).isRequired,
   footerText: PropTypes.string.isRequired,
 };
 
-export default SuccessStoriesCard;
+export default SuccessStoryCard;

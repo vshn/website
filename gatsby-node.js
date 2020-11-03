@@ -99,7 +99,54 @@ async function createPosts({ graphql, actions }) {
   });
 }
 
+async function createPartnerPosts({ graphql, actions }) {
+  const { createPage } = actions;
+  const result = await graphql(`
+  {
+    allWpPartner {
+      nodes {
+        id
+        content
+        uri
+        language {
+          locale
+        }
+      }
+    }
+  }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const posts = result.data.allWpPartner.nodes;
+
+  posts.forEach(({ id, content, uri, language: { locale } }) => {
+    const templatePath = path.resolve('./src/templates/partner.jsx');
+
+    const context = {
+      id,
+      locale,
+    };
+
+    if (content) {
+      context.content = replaceBrokenSpaces(content);
+    }
+
+    if (fs.existsSync(templatePath)) {
+      createPage({
+        path: uri,
+        component: slash(templatePath),
+        context,
+      });
+    } else {
+      console.error('Template Partner was not found');
+    }
+  });
+}
+
 exports.createPages = async (args) => {
   await createPages(args);
   await createPosts(args);
+  await createPartnerPosts(args);
 };

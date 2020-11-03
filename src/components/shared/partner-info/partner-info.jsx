@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Link from 'components/shared/link';
-import logo from './images/partner-logo.svg';
 
+import logo from './images/partner-logo.svg';
 import styles from './partner-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const PartnerInfo = ({ items, url }) => (
+const PartnerInfo = ({ items, partnerLink: { url, title } }) => (
   <div className={cx('wrapper')}>
     <div className={cx('logo-wrapper')}><img className={cx('logo')} src={logo} alt="" aria-hidden /></div>
     <ul className={cx('items-wrapper')}>
@@ -21,7 +21,7 @@ const PartnerInfo = ({ items, url }) => (
       ))}
     </ul>
     <div className={cx('link-wrapper')}>
-      <Link className={cx('link')} to={url}>{url}</Link>
+      <Link className={cx('link')} to={url}>{title}</Link>
     </div>
   </div>
 );
@@ -33,7 +33,10 @@ PartnerInfo.propTypes = {
       text: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  url: PropTypes.string.isRequired,
+  partnerLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default PartnerInfo;
