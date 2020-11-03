@@ -8,12 +8,14 @@ import SuccessStories from 'components/pages/partners/success-stories';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default (
-  {
-    data: { wpPage: { seo, acf: data }, allWpSuccessStory, allWpPartner },
-    pageContext: { locale },
+export default ({
+  data: {
+    wpPage: { seo, acf: data },
+    allWpSuccessStory,
+    allWpPartner,
   },
-) => (
+  pageContext: { locale },
+}) => (
   <MainLayout seo={seo}>
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
@@ -23,7 +25,7 @@ export default (
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
     wpPage(id: { eq: $id }) {
       acf {
         partnersHero {
@@ -51,7 +53,10 @@ export const query = graphql`
       }
       ...wpPageSeo
     }
-    allWpSuccessStory(sort: {fields: title, order: ASC}) {
+    allWpSuccessStory(
+      filter: { language: { locale: { eq: $locale } } }
+      sort: { fields: title, order: ASC }
+    ) {
       successStories: nodes {
         uri
         title
@@ -67,12 +72,15 @@ export const query = graphql`
           }
         }
       }
-  }
-  allWpPartner(sort: {fields: title, order: ASC}) {
-    partners: nodes {
-      uri
-      title
+    }
+    allWpPartner(
+      filter: { language: { locale: { eq: $locale } } }
+      sort: { fields: title, order: ASC }
+    ) {
+      partners: nodes {
+        uri
+        title
+      }
     }
   }
-}
 `;
