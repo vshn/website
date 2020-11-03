@@ -37,11 +37,11 @@ export const query = graphql`
           }
         }
         successStoryCard {
-          category
           successStory {
             ... on WpSuccessStory {    
               title
               acf {
+                category 
                 description
               }
               uri

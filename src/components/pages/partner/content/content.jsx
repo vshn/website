@@ -38,10 +38,10 @@ Content.propTypes = {
       }).isRequired,
     }).isRequired,
     successStoryCard: PropTypes.shape({
-      category: PropTypes.string.isRequired,
       successStory: PropTypes.shape({
         title: PropTypes.string.isRequired,
         acf: PropTypes.shape({
+          category: PropTypes.string.isRequired,
           description: PropTypes.string.isRequired,
         }),
         uri: PropTypes.string.isRequired,

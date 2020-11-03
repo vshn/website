@@ -11,7 +11,7 @@ import styles from './success-story-card.module.scss';
 const cx = classNames.bind(styles);
 
 const SuccessStoryCard = (
-  { category, successStory: { title, acf: { description }, uri: footerUrl }, footerText },
+  { successStory: { title, acf: { category, description }, uri: footerUrl }, footerText },
 ) => (
   <article className={cx('wrapper')}>
     <span className={cx('category')}>{category}</span>
@@ -23,10 +23,10 @@ const SuccessStoryCard = (
 );
 
 SuccessStoryCard.propTypes = {
-  category: PropTypes.string.isRequired,
   successStory: PropTypes.shape({
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({
+      category: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     }),
     uri: PropTypes.string.isRequired,
