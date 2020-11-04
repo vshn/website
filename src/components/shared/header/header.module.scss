@@ -43,14 +43,13 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include with-link-primary;
 }
 
 .list-item {
   position: relative;
   margin-right: 34px;
-  color: $color-secondary;
-
-  @include with-link-primary;
 
   &::after {
     position: absolute;
@@ -132,7 +131,7 @@
 
   // Pre-last child
   &:nth-last-child(2) {
-    margin-right: 62px;
+    margin-right: 65px;
 
     @include lg-down {
       margin-right: 43px;
