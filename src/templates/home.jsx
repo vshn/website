@@ -87,12 +87,7 @@ export const query = graphql`
         }
         technologies {
           title
-          subtitle
           description
-          buttonText
-          buttonLink {
-            url
-          }
         }
         partners {
           title
