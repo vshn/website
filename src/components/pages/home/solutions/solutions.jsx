@@ -10,7 +10,7 @@ import styles from './solutions.module.scss';
 const cx = classNames.bind(styles);
 
 const Solutions = ({ items, itemFooterText }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('content')}>
         {items.map((
@@ -34,7 +34,7 @@ const Solutions = ({ items, itemFooterText }) => (
         ))}
       </div>
     </div>
-  </div>
+  </section>
 );
 
 Solutions.propTypes = {
