@@ -2,7 +2,7 @@
   position: relative;
   padding-top: calc(#{$header-height} + 100px);
   padding-bottom: 360px;
-  margin-bottom: 120px;
+  margin-bottom: 155px;
 
   @include section-paddings;
 
@@ -101,7 +101,7 @@
 .shape-2 {
   position: absolute;
   right: 770px;
-  bottom: -735px;
+  bottom: -710px;
   z-index: -1;
   width: calc(520px + #{$container-side-gap});
   min-width: 835px;

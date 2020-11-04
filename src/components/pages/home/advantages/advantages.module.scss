@@ -13,21 +13,12 @@
 }
 
 .title {
-  margin-bottom: 30px;
-  text-align: center;
-  text-transform: uppercase;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.subtitle {
   max-width: 860px;
   margin-top: 0;
   margin-right: auto;
   margin-bottom: 60px;
   margin-left: auto;
+  font-size: 50px;
   text-align: center;
 
   @include lg-down {

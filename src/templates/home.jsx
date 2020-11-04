@@ -43,12 +43,10 @@ export const query = graphql`
         }
         advantages {
           title
-          subtitle
           items {
             title
             imageName
             footerText
-            description
             link {
               url
             }
