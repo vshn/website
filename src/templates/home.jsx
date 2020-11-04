@@ -8,8 +8,8 @@ import Hero from 'components/pages/home/hero';
 import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Partners from 'components/pages/home/partners';
-import Products from 'components/pages/home/products';
 import Report from 'components/pages/home/report';
+import Solutions from 'components/pages/home/solutions';
 import Technologies from 'components/pages/home/technologies';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
@@ -18,13 +18,13 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
   <MainLayout seo={seo}>
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
-    <Products {...data.products} />
-    <Awards {...data.awards} />
+    <Solutions {...data.solutions} />
+    <News {...data.news} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
     <Jobs {...data.jobs} />
-    <News {...data.news} />
     <Report {...data.report} />
+    <Awards {...data.awards} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -52,24 +52,35 @@ export const query = graphql`
             }
           }
         }
-        products {
-          title
-          subtitle
+        solutions {
           items {
-            name
-            detailsTitle
-            detailsContent
-          }
-        }
-        awards {
-          title
-          subtitle
-          items {
-            imageName
             title
             description
-            link {
+            list {
+              item
+            }
+            footerUrl {
               url
+            }
+          }
+          itemFooterText
+        }
+        news {
+          title
+          items {
+            post {
+              ... on WpPost {
+                title
+                uri
+                categories {
+                  nodes {
+                    name
+                  }
+                }
+                acf {
+                  shortDescription
+                }
+              }
             }
           }
           itemFooterText
@@ -111,26 +122,6 @@ export const query = graphql`
             url
           }
         }
-        news {
-          title
-          items {
-            post {
-              ... on WpPost {
-                title
-                uri
-                categories {
-                  nodes {
-                    name
-                  }
-                }
-                acf {
-                  shortDescription
-                }
-              }
-            }
-          }
-          itemFooterText
-        }
         report {
           title
           subtitle
@@ -148,6 +139,19 @@ export const query = graphql`
               }
             }
           }
+        }
+        awards {
+          title
+          subtitle
+          items {
+            imageName
+            title
+            description
+            link {
+              url
+            }
+          }
+          itemFooterText
         }
       }
       ...wpPageSeo
