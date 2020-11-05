@@ -10,14 +10,11 @@ import styles from './report.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Report = (
-  { title, subtitle, description, buttonText, buttonLink: { url: buttonUrl }, image },
-) => (
+const Report = ({ title, description, buttonText, buttonLink: { url: buttonUrl }, image }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')}>
-        <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
-        <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={subtitle} />
+        <Heading className={cx('title')} tag="h2" size="xl">{title}</Heading>
         <p className={cx('text')}>{description}</p>
         <Button to={buttonUrl}>{buttonText}</Button>
       </div>
@@ -34,7 +31,6 @@ const Report = (
 );
 Report.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.shape({

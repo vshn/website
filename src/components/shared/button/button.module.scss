@@ -55,4 +55,15 @@
       border-radius: 2px 15px;
     }
   }
+
+  &_size_xs {
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 15px 2px;
+
+    @include hover {
+      border-radius: 2px 15px;
+    }
+  }
 }

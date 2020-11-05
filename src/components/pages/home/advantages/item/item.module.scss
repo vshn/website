@@ -20,7 +20,7 @@
     background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
     box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
 
-    .read-more {
+    .footer-text {
       color: $color-accent-primary;
     }
   }
@@ -81,7 +81,8 @@
 }
 
 .image {
-  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 
   @include md-down {
     flex-shrink: 0;
@@ -109,24 +110,10 @@
 }
 
 .title {
-  margin-bottom: 15px;
+  margin-bottom: 60px;
 }
 
-.description {
-  margin-top: 0;
-  margin-bottom: 46px;
-  color: $color-secondary;
-
-  @include md-down {
-    margin-bottom: 20px;
-  }
-
-  @include sm-down {
-    margin-bottom: 40px;
-  }
-}
-
-.read-more {
+.footer-text {
   position: relative;
   width: 100%;
   margin-top: auto;

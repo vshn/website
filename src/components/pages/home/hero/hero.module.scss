@@ -2,14 +2,14 @@
   position: relative;
   padding-top: $header-height + 100px;
   padding-bottom: 360px;
-  margin-bottom: 120px;
+  margin-bottom: 150px;
 
   @include section-paddings;
 
   @include lg-down {
     padding-top: $header-height + 80px;
     padding-bottom: 260px;
-    margin-bottom: 125px;
+    margin-bottom: 180px;
   }
 
   @include md-down {
@@ -48,14 +48,9 @@
   line-height: $line-height-md;
   color: $color-secondary;
 
-  @include lg-down {
-    font-size: 18px;
-  }
-
   @include md-down {
     max-width: 340px;
     margin-bottom: 25px;
-    font-size: 16px;
   }
 
   @include sm-down {
@@ -101,7 +96,7 @@
 .shape-2 {
   position: absolute;
   right: 770px;
-  bottom: -735px;
+  bottom: -710px;
   z-index: -1;
   width: calc(520px + #{$container-side-gap});
   min-width: 835px;

@@ -90,14 +90,18 @@
 }
 
 .title {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 700;
 }
 
 .description {
   margin-top: 0;
-  margin-bottom: 45px;
+  margin-bottom: 50px;
   color: $color-quaternary;
+
+  @include lg-down {
+    margin-bottom: 45px;
+  }
 
   @include md-down {
     margin-bottom: 20px;
