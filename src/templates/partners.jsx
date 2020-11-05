@@ -14,9 +14,9 @@ export default ({
     allWpSuccessStory,
     allWpPartner,
   },
-  pageContext: { locale },
+  pageContext: { locale, pageUrls },
 }) => (
-  <MainLayout seo={seo}>
+  <MainLayout seo={seo} pageUrls={pageUrls}>
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
     <PartnersList {...data.partnersList} {...allWpPartner} />

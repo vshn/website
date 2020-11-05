@@ -21,11 +21,10 @@ const Header = (props) => {
     topLineText3,
     topLineText3Url,
     language1Text,
-    language1Url,
     language2Text,
-    language2Url,
     menuItems,
     onBurgerClick,
+    pageUrls,
   } = props;
 
   const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
@@ -45,13 +44,13 @@ const Header = (props) => {
 
           <ul className={cx('list')}>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language1Url} activeClassName={cx('active')}>
+              <Link className={cx('list-link')} to={pageUrls.en_US} activeClassName={cx('active')}>
                 <img className={cx('icon')} src={english} alt="" aria-hidden />
                 {language1Text}
               </Link>
             </li>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={language2Url} activeClassName={cx('active')}>
+              <Link className={cx('list-link')} to={pageUrls.de_DE} activeClassName={cx('active')}>
                 <img className={cx('icon')} src={deutsch} alt="" aria-hidden />
                 {language2Text}
               </Link>
@@ -110,9 +109,7 @@ Header.propTypes = {
   topLineText3: PropTypes.string,
   topLineText3Url: PropTypes.string,
   language1Text: PropTypes.string,
-  language1Url: PropTypes.string,
   language2Text: PropTypes.string,
-  language2Url: PropTypes.string,
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
@@ -128,6 +125,7 @@ Header.propTypes = {
     }),
   })),
   onBurgerClick: PropTypes.func.isRequired,
+  pageUrls: PropTypes.shape().isRequired,
 };
 
 Header.defaultProps = {
@@ -138,9 +136,7 @@ Header.defaultProps = {
   topLineText3: 'Supports',
   topLineText3Url: '/',
   language1Text: 'English',
-  language1Url: '/en',
   language2Text: 'Deutsch',
-  language2Url: '/',
   menuItems: [
     {
       label: 'Solutions',

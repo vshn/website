@@ -7,6 +7,28 @@ function replaceBrokenSpaces(string) {
   return string.replace(/\s/g, ' ');
 }
 
+const DEFAULT_LOCALE = 'de_DE';
+const SUPPORTED_LOCALES = ['en_US', 'de_DE'];
+
+function getUrlsForLocales(locale, url, translations) {
+  const urls = {};
+  urls[locale] = url;
+
+  const remainingLocales = SUPPORTED_LOCALES.filter((item) => item !== locale);
+
+  remainingLocales.forEach((remainingLocale) => {
+    const matchedTranslation = translations.find(
+      (translation) => translation.language.locale === remainingLocale,
+    );
+    if (matchedTranslation) {
+      urls[remainingLocale] = matchedTranslation.uri;
+    } else {
+      urls[remainingLocale] = remainingLocale === DEFAULT_LOCALE ? '/' : `/${remainingLocale.substring(0, 2)}`;
+    }
+  });
+  return urls;
+}
+
 async function createPages({ graphql, actions }) {
   const { createPage } = actions;
 
@@ -18,6 +40,12 @@ async function createPages({ graphql, actions }) {
           uri
           language {
             locale
+          }
+          translations {
+            language {
+              locale
+            }
+            uri
           }
           template {
             templateName
@@ -33,12 +61,13 @@ async function createPages({ graphql, actions }) {
 
   const pages = result.data.allWpPage.nodes;
 
-  pages.forEach(({ id, uri, language: { locale }, template: { templateName } }) => {
+  pages.forEach(({ id, uri, language: { locale }, translations, template: { templateName } }) => {
     const templatePath = path.resolve(`./src/templates/${templateName.toLowerCase()}.jsx`);
 
     const context = {
       id,
       locale,
+      pageUrls: getUrlsForLocales(locale, uri, translations),
     };
 
     if (fs.existsSync(templatePath)) {
