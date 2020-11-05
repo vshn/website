@@ -119,7 +119,6 @@ export const query = graphql`
         }
         report {
           title
-          subtitle
           description
           buttonText
           buttonLink {
@@ -137,7 +136,6 @@ export const query = graphql`
         }
         awards {
           title
-          subtitle
           items {
             imageName
             title

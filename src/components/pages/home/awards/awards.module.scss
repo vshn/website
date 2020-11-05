@@ -2,7 +2,6 @@
   position: relative;
   padding-top: 150px;
   padding-bottom: 150px;
-  margin-bottom: 160px;
   background-color: $color-primary;
 
   @include section-paddings;
@@ -29,16 +28,6 @@
 }
 
 .title {
-  margin-bottom: 30px;
-  text-align: center;
-  text-transform: uppercase;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.subtitle {
   max-width: 860px;
   margin-right: auto;
   margin-bottom: 60px;
