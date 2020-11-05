@@ -1,5 +1,5 @@
 .wrapper {
-  padding-top: 90px;
+  padding-top: 60px;
   padding-bottom: 30px;
 
   @include section-paddings;
@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 
   @include lg-down {
     display: block;
@@ -36,7 +36,6 @@
   flex-direction: column;
   grid-column: span 5;
   align-items: flex-start;
-  justify-content: space-between;
 
   @include lg-down {
     margin-bottom: 50px;
@@ -49,6 +48,7 @@
 
 .logo {
   display: block;
+  margin-bottom: 45px;
 
   @include md-down {
     width: 89px;
@@ -87,7 +87,7 @@
 }
 
 .social-menu-item {
-  margin-right: 15px;
+  margin-right: 10px;
 
   &:last-child {
     margin-right: 0;
@@ -98,8 +98,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   background: $color-quaternary;
   border-radius: 100px;
   transition: background-color $transition-base;
@@ -134,7 +134,7 @@
 
   &_github {
     svg {
-      width: 26px;
+      width: 24px;
 
       @include lg-down {
         width: 22px;
@@ -146,24 +146,23 @@
     }
   }
 
-  &_instagram {
+  &_gitlab {
     svg {
-      width: 20px;
+      width: 22px;
 
       @include lg-down {
-        width: 17px;
+        width: 19px;
       }
 
       @include md-down {
-        width: 15px;
+        width: 16px;
       }
     }
   }
 
-  &_linkedin {
+  &_instagram {
     svg {
-      width: 19px;
-      margin-bottom: 2px;
+      width: 18px;
 
       @include lg-down {
         width: 16px;
@@ -175,16 +174,45 @@
     }
   }
 
-  &_twitter {
+  &_linkedin {
     svg {
-      width: 22px;
+      width: 17px;
+      margin-bottom: 2px;
 
       @include lg-down {
-        width: 19px;
+        width: 15px;
+      }
+
+      @include md-down {
+        width: 13px;
+      }
+    }
+  }
+
+  &_twitter {
+    svg {
+      width: 20px;
+
+      @include lg-down {
+        width: 18px;
       }
 
       @include md-down {
         width: 16px;
+      }
+    }
+  }
+
+  &_youtube {
+    svg {
+      width: 20px;
+
+      @include lg-down {
+        width: 17px;
+      }
+
+      @include md-down {
+        width: 15px;
       }
     }
   }
@@ -199,7 +227,10 @@
 }
 
 .menu {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  column-gap: 130px;
+  padding-top: 75px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -222,7 +253,7 @@
 }
 
 .menu-item {
-  margin-right: 86px;
+  font-weight: 700;
 
   @include lg-down {
     margin-right: 0;
@@ -320,13 +351,5 @@
 
   @include sm-down {
     margin-bottom: 15px;
-  }
-}
-
-.copyright {
-  grid-column: span 2;
-
-  @include lg-down {
-    grid-column: span 6;
   }
 }
