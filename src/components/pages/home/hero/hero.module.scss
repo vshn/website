@@ -9,7 +9,7 @@
   @include lg-down {
     padding-top: calc(#{$header-height} + 80px);
     padding-bottom: 260px;
-    margin-bottom: 125px;
+    margin-bottom: 180px;
   }
 
   @include md-down {
@@ -48,14 +48,9 @@
   line-height: $line-height-md;
   color: $color-secondary;
 
-  @include lg-down {
-    font-size: 18px;
-  }
-
   @include md-down {
     max-width: 340px;
     margin-bottom: 25px;
-    font-size: 16px;
   }
 
   @include sm-down {

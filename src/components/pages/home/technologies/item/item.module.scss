@@ -7,7 +7,7 @@
   box-shadow: 0 15px 30px rgba($color-primary, 0.15);
 
   @include lg-down {
-    height: 390px;
+    height: 320px;
   }
 
   @include md-down {
@@ -18,8 +18,9 @@
     margin-top: 70px;
     border-top-left-radius: 30px;
 
-    @include md-down {
+    @include lg-down {
       margin-top: 50px;
+      border-top-left-radius: 20px;
     }
 
     .logo-wrapper::before {
@@ -39,8 +40,9 @@
     margin-top: 70px;
     border-top-right-radius: 30px;
 
-    @include md-down {
+    @include lg-down {
       margin-top: 50px;
+      border-top-right-radius: 25px;
     }
 
     .logo-wrapper::before {
@@ -52,8 +54,9 @@
     margin-top: 140px;
     border-top-left-radius: 30px;
 
-    @include md-down {
+    @include lg-down {
       margin-top: 100px;
+      border-top-left-radius: 20px;
     }
 
     .logo-wrapper::before {
@@ -65,8 +68,9 @@
     margin-top: 70px;
     border-top-left-radius: 30px;
 
-    @include md-down {
+    @include lg-down {
       margin-top: 50px;
+      border-top-left-radius: 20px;
     }
 
     .logo-wrapper::before {
@@ -92,7 +96,7 @@
     }
 
     .logo {
-      @include md-down {
+      @include lg-down {
         width: 30px;
       }
     }
@@ -108,7 +112,7 @@
     }
 
     .logo {
-      @include md-down {
+      @include lg-down {
         width: 30px;
       }
     }
@@ -124,8 +128,8 @@
     }
 
     .logo {
-      @include md-down {
-        width: 20px;
+      @include lg-down {
+        width: 21px;
       }
     }
   }
@@ -134,7 +138,7 @@
     background-color: #df2030;
 
     .logo {
-      @include md-down {
+      @include lg-down {
         width: 28px;
       }
     }
@@ -144,7 +148,7 @@
     background-color: $color-accent-primary;
 
     .logo {
-      @include md-down {
+      @include lg-down {
         width: 32px;
       }
     }
@@ -165,7 +169,7 @@
     }
 
     .logo {
-      @include md-down {
+      @include lg-down {
         width: 20px;
       }
     }
@@ -183,11 +187,7 @@
   transform: translate(-50%, -50%) rotate(-90deg);
 
   @include lg-down {
-    font-size: 18px;
-  }
-
-  @include md-down {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 

@@ -132,10 +132,6 @@
   // Pre-last child
   &:nth-last-child(2) {
     margin-right: 65px;
-
-    @include lg-down {
-      margin-right: 43px;
-    }
   }
 
   &:last-child {

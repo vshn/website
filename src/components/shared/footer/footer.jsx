@@ -65,21 +65,14 @@ const Footer = (props) => {
             <Link to="/">
               <Logo className={cx('logo')} />
             </Link>
-
-            <SocialMenu className={cx('lg-hidden')} />
+            <SocialMenu />
           </div>
 
           <nav className={cx('nav')}>
             <ul className={cx('menu')}>
-              {menuItems.map(({ childItems }, index) => (
+              {menuItems.map(({ label, path }, index) => (
                 <li className={cx('menu-item')} key={index}>
-                  <ul className={cx('sub-menu')}>
-                    {childItems.map(({ label, path }, index) => (
-                      <li className={cx('sub-menu-item')} key={index}>
-                        <Link className={cx('sub-menu-link')} to={path}>{label}</Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <Link className={cx('menu-link')} to={path}>{label}</Link>
                 </li>
               ))}
             </ul>
@@ -87,7 +80,6 @@ const Footer = (props) => {
         </div>
 
         <div className={cx('bottom-section')}>
-          <SocialMenu className={cx('lg-visible')} />
           <address className={cx('address')}>{address}</address>
           <p className={cx('design')} dangerouslySetInnerHTML={{ __html: design }} />
         </div>
@@ -98,10 +90,8 @@ const Footer = (props) => {
 
 Footer.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.shape({
-    childItems: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-    })),
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
   })),
   facebookUrl: PropTypes.string,
   githubUrl: PropTypes.string,
@@ -117,64 +107,48 @@ Footer.propTypes = {
 Footer.defaultProps = {
   menuItems: [
     {
-      childItems: [
-        {
-          label: 'Solutions',
-          path: '/solutions',
-        },
-        {
-          label: 'Products',
-          path: '/products',
-        },
-        {
-          label: 'Learn',
-          path: '/learn',
-        },
-      ],
+      label: 'Solutions',
+      path: '/solutions',
     },
     {
-      childItems: [
-        {
-          label: 'Partners',
-          path: '/partners',
-        },
-        {
-          label: 'Blog',
-          path: '/blog',
-        },
-        {
-          label: 'About',
-          path: '/about',
-        },
-      ],
+      label: 'Products',
+      path: '/products',
     },
     {
-      childItems: [
-        {
-          label: 'Contact',
-          path: '/contact',
-        },
-        {
-          label: 'Support',
-          path: '/support',
-        },
-        {
-          label: 'GTC',
-          path: '/gtc',
-        },
-      ],
+      label: 'Learn',
+      path: '/learn',
     },
     {
-      childItems: [
-        {
-          label: 'Imprint',
-          path: '/imprint',
-        },
-        {
-          label: 'Privacy Policy',
-          path: '/privacy-policy',
-        },
-      ],
+      label: 'Partners',
+      path: '/partners',
+    },
+    {
+      label: 'Blog',
+      path: '/blog',
+    },
+    {
+      label: 'About',
+      path: '/about',
+    },
+    {
+      label: 'Contact',
+      path: '/contact',
+    },
+    {
+      label: 'Support',
+      path: '/support',
+    },
+    {
+      label: 'GTC',
+      path: '/gtc',
+    },
+    {
+      label: 'Imprint',
+      path: '/imprint',
+    },
+    {
+      label: 'Privacy Policy',
+      path: '/privacy-policy',
     },
   ],
   facebookUrl: 'https://facebook.com',

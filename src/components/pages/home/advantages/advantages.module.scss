@@ -4,7 +4,7 @@
   @include section-paddings;
 
   @include lg-down {
-    margin-bottom: 120px;
+    margin-bottom: 150px;
   }
 
   @include md-down {
@@ -18,7 +18,6 @@
   margin-right: auto;
   margin-bottom: 60px;
   margin-left: auto;
-  font-size: 50px;
   text-align: center;
 
   @include lg-down {

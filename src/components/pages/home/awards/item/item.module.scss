@@ -99,6 +99,10 @@
   margin-bottom: 50px;
   color: $color-quaternary;
 
+  @include lg-down {
+    margin-bottom: 45px;
+  }
+
   @include md-down {
     margin-bottom: 20px;
   }

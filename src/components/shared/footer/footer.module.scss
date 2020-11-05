@@ -5,8 +5,7 @@
   @include section-paddings;
 
   @include lg-down {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
   }
 
   @include md-down {
@@ -19,12 +18,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
-  margin-bottom: 45px;
-
-  @include lg-down {
-    display: block;
-    margin-bottom: 50px;
-  }
+  margin-bottom: 30px;
 
   @include md-down {
     margin-bottom: 40px;
@@ -69,20 +63,6 @@
 
   @include sm-down {
     margin-bottom: 25px;
-  }
-
-  &.lg-hidden {
-    @include lg-down {
-      display: none;
-    }
-  }
-
-  &.lg-visible {
-    display: none;
-
-    @include lg-down {
-      display: flex;
-    }
   }
 }
 
@@ -228,7 +208,9 @@
 
 .menu {
   display: grid;
+  grid-template-rows: repeat(3, max-content);
   grid-template-columns: repeat(4, max-content);
+  grid-auto-flow: column;
   column-gap: 130px;
   padding-top: 75px;
   padding-left: 0;
@@ -238,8 +220,8 @@
 
   @include lg-down {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: $column-gap;
+    grid-template-rows: repeat(4, max-content);
+    grid-template-columns: repeat(3, max-content);
   }
 
   @include md-down {
@@ -253,38 +235,8 @@
 }
 
 .menu-item {
-  font-weight: 700;
-
-  @include lg-down {
-    margin-right: 0;
-  }
-
-  @include sm-down {
-    grid-column: span 3;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
-.heading {
-  margin-bottom: 30px;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.sub-menu {
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  list-style-type: none;
-}
-
-.sub-menu-item {
   margin-bottom: 15px;
+  font-weight: 700;
 
   @include with-link-primary;
 
@@ -293,7 +245,7 @@
   }
 }
 
-.sub-menu-link {
+.menu-link {
   display: block;
 
   @include md-down {
@@ -327,7 +279,7 @@
   font-style: normal;
 
   @include lg-down {
-    grid-column: span 6;
+    grid-column: span 7;
   }
 
   @include sm-down {
@@ -345,8 +297,7 @@
   @include with-link-primary;
 
   @include lg-down {
-    grid-column: span 6;
-    order: initial;
+    grid-column: span 5;
   }
 
   @include sm-down {

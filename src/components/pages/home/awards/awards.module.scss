@@ -7,19 +7,12 @@
   @include section-paddings;
 
   @include lg-down {
-    padding-top: 150px;
-    padding-bottom: 120px;
-    margin-bottom: 120px;
-  }
-
-  @include md-down {
     padding-top: 120px;
-    margin-bottom: 90px;
+    padding-bottom: 120px;
   }
 
   @include sm-down {
     padding-top: 90px;
-    padding-bottom: 90px;
   }
 }
 
@@ -36,7 +29,7 @@
 
   @include lg-down {
     max-width: 610px;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
   }
 
   @include md-down {
