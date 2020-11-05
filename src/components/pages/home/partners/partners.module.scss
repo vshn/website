@@ -279,6 +279,11 @@
   margin-bottom: 30px;
   margin-left: 0;
 
+  p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   @include md-down {
     margin-bottom: 25px;
   }

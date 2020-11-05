@@ -41,7 +41,9 @@ Solutions.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    list: PropTypes.arrayOf(PropTypes.string).isRequired,
+    list: PropTypes.arrayOf(PropTypes.shape({
+      item: PropTypes.string.isRequired,
+    })).isRequired,
     footerUrl: PropTypes.shape({
       url: PropTypes.string.isRequired,
     }),
