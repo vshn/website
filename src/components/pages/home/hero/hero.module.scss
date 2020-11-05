@@ -21,7 +21,7 @@
   @include sm-down {
     padding-top: calc(#{$header-height-md} + 40px);
     padding-bottom: 0;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     text-align: center;
   }
 }
@@ -61,7 +61,7 @@
 
 .button {
   @include sm-down {
-    margin-bottom: 55px;
+    margin-bottom: 60px;
   }
 }
 

@@ -76,6 +76,10 @@
     margin-top: 25px;
     margin-bottom: 25px;
   }
+
+  @include sm-down {
+    margin-top: 20px;
+  }
 }
 
 .short-description {

@@ -251,8 +251,9 @@
   }
 
   @include sm-down {
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 40px;
+    grid-template-rows: repeat(6, max-content);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0;
   }
 }
 
@@ -295,7 +296,7 @@
   }
 
   @include sm-down {
-    display: block;
+    grid-template-rows: repeat(2, min-content);
   }
 }
 
@@ -305,10 +306,6 @@
 
   @include lg-down {
     grid-column: span 7;
-  }
-
-  @include sm-down {
-    margin-bottom: 15px;
   }
 }
 
@@ -323,9 +320,5 @@
 
   @include lg-down {
     grid-column: span 5;
-  }
-
-  @include sm-down {
-    margin-bottom: 15px;
   }
 }

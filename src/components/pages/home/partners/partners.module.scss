@@ -70,7 +70,7 @@
 
   @include sm-down {
     margin-top: 0;
-    margin-bottom: 55px;
+    margin-bottom: 20px;
   }
 }
 
@@ -298,6 +298,7 @@
 
   @include sm-down {
     margin-right: auto;
+    margin-bottom: 30px;
     margin-left: auto;
   }
 }
