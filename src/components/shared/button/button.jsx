@@ -41,7 +41,7 @@ Button.defaultProps = {
 Button.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md']),
   children: PropTypes.node.isRequired,
 };
 

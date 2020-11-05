@@ -43,14 +43,13 @@
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
+
+  @include with-link-primary;
 }
 
 .list-item {
   position: relative;
   margin-right: 34px;
-  color: $color-secondary;
-
-  @include with-link-primary;
 
   &::after {
     position: absolute;
@@ -132,11 +131,7 @@
 
   // Pre-last child
   &:nth-last-child(2) {
-    margin-right: 62px;
-
-    @include lg-down {
-      margin-right: 43px;
-    }
+    margin-right: 65px;
   }
 
   &:last-child {
@@ -180,18 +175,16 @@
         top: 87px;
         left: 50%;
         z-index: 1;
-        width: 13px;
-        height: 13px;
-        visibility: hidden;
+        display: inline-block;
+        padding: 5px;
         content: '';
         background-color: $color-tertiary;
-        border: 1px solid $color-additional-2;
-        border-right: none;
-        border-bottom: none;
+        border: solid $color-additional-2;
+        border-width: 0 1px 1px 0;
         opacity: 0;
         transition-duration: $transition-base;
         transition-property: opacity visibility;
-        transform: translateX(-50%) translateY(-100%) rotate(45deg);
+        transform: translateX(-50%) translateY(-100%) rotate(-135deg);
       }
     }
   }

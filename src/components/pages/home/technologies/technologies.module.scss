@@ -7,9 +7,9 @@
   @include section-paddings;
 
   @include lg-down {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 50px;
-    margin-bottom: 170px;
+    margin-bottom: 90px;
   }
 
   @include md-down {
@@ -38,10 +38,11 @@
 .content {
   grid-column-start: 1;
   grid-column-end: 6;
-  padding-top: 95px;
+  padding-top: 160px;
 
   @include lg-down {
-    padding-top: 60px;
+    grid-column-end: 7;
+    padding-top: 80px;
   }
 
   @include md-down {
@@ -55,22 +56,13 @@
 
 .title {
   margin-bottom: 30px;
-  text-transform: uppercase;
 
   @include md-down {
     margin-bottom: 25px;
   }
 }
 
-.subtitle {
-  margin-bottom: 30px;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.text {
+.description {
   max-width: 478px;
   margin-top: 0;
   margin-bottom: 30px;
@@ -81,12 +73,10 @@
 
   @include lg-down {
     max-width: initial;
-    font-size: 18px;
   }
 
   @include md-down {
     margin-bottom: 25px;
-    font-size: 16px;
   }
 }
 
@@ -96,6 +86,7 @@
   grid-column-end: 12;
 
   @include lg-down {
+    grid-column-start: 8;
     grid-column-end: 13;
   }
 
@@ -138,12 +129,12 @@
   transform: translate(-50%, -50%);
 
   @include lg-down {
-    width: 710px;
+    width: 582px;
   }
 
   @include md-down {
     top: -30px;
-    width: 535px;
+    width: 534px;
     margin-left: 50px;
     transform: translateX(-50%);
   }

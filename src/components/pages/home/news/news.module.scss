@@ -1,14 +1,11 @@
 .wrapper {
   position: relative;
-  padding-top: 120px;
-  padding-bottom: 150px;
-  margin-bottom: 150px;
-  background-color: $color-additional-1;
+  margin-bottom: 160px;
 
   @include lg-down {
     padding-top: 100px;
     padding-bottom: 75px;
-    margin-bottom: 120px;
+    margin-bottom: 85px;
   }
 
   @include md-down {

@@ -1,22 +1,22 @@
 .wrapper {
   position: relative;
+  margin-bottom: 180px;
   text-align: center;
   background-color: $color-primary;
 
   @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
 }
 
 .inner {
   z-index: 1;
-  padding-top: 135px;
-  padding-bottom: 135px;
+  padding-top: 120px;
+  padding-bottom: 120px;
 
   @include lg-down {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  @include md-down {
     padding-top: 90px;
     padding-bottom: 90px;
   }
@@ -28,7 +28,7 @@
 }
 
 .title {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .description {
@@ -38,13 +38,8 @@
   line-height: $line-height-md;
   color: $color-quaternary;
 
-  @include lg-down {
-    font-size: 18px;
-  }
-
   @include md-down {
     margin-bottom: 25px;
-    font-size: 16px;
   }
 }
 

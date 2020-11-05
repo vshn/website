@@ -18,7 +18,7 @@ const images = {
   reduceCost: ReduceCostImage,
 };
 
-const Item = ({ number, title, description, footerText, link: { url }, imageName }) => {
+const Item = ({ number, title, footerText, link: { url }, imageName }) => {
   const Image = images[imageName];
 
   return (
@@ -28,8 +28,7 @@ const Item = ({ number, title, description, footerText, link: { url }, imageName
         <Image className={cx('image')} aria-hidden />
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h3" size="lg">{title}</Heading>
-          <p className={cx('description')}>{description}</p>
-          <span className={cx('read-more')}>{footerText}</span>
+          <span className={cx('footer-text')}>{footerText}</span>
         </div>
       </Link>
     </li>
@@ -39,7 +38,6 @@ const Item = ({ number, title, description, footerText, link: { url }, imageName
 Item.propTypes = {
   number: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   footerText: PropTypes.string.isRequired,
   link: PropTypes.shape({
     url: PropTypes.string.isRequired,

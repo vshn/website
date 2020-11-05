@@ -4,7 +4,7 @@
   @include section-paddings;
 
   @include lg-down {
-    margin-bottom: 120px;
+    margin-bottom: 150px;
   }
 
   @include md-down {
@@ -13,16 +13,6 @@
 }
 
 .title {
-  margin-bottom: 30px;
-  text-align: center;
-  text-transform: uppercase;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.subtitle {
   max-width: 860px;
   margin-top: 0;
   margin-right: auto;
