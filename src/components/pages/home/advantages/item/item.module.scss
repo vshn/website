@@ -47,9 +47,9 @@
   @include md-down {
     flex-direction: row;
     align-items: flex-start;
-    padding-top: 25px;
+    padding-top: 10px;
     padding-right: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     padding-left: 60px;
   }
 
@@ -106,11 +106,16 @@
 
   @include md-down {
     display: block;
+    padding-top: 35px;
   }
 }
 
 .title {
   margin-bottom: 60px;
+
+  @include md-down {
+    margin-bottom: 10px;
+  }
 }
 
 .footer-text {

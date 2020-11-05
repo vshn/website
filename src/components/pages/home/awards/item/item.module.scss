@@ -5,7 +5,7 @@
   border-radius: 8px;
 
   @include md-down {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: left;
   }
 
@@ -104,7 +104,7 @@
   }
 
   @include md-down {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   @include sm-down {

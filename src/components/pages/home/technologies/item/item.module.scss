@@ -59,6 +59,10 @@
       border-top-left-radius: 20px;
     }
 
+    @include md-down {
+      margin-top: 95px;
+    }
+
     .logo-wrapper::before {
       border-top-right-radius: 20px;
     }

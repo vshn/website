@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const Solutions = ({ items, itemFooterText }) => (
   <section className={cx('wrapper')}>
-    <div className="container">
+    <div className={cx('container', 'md-hidden')}>
       <div className={cx('content')}>
         {items.map((
           { title, description, list, footerUrl: { url: footerUrl } }, index,
@@ -33,6 +33,29 @@ const Solutions = ({ items, itemFooterText }) => (
           </div>
         ))}
       </div>
+    </div>
+    <div className={cx('md-visible', 'content')}>
+      {items.map((
+        { title, description, list, footerUrl: { url: footerUrl } }, index,
+      ) => (
+        <div className={cx('item-wrapper')}>
+          <div className={cx('container', 'inner')} key={index}>
+            <Heading className={cx('title')} tag="h2" size="xl">{title}</Heading>
+            <p className={cx('description')}>{description}</p>
+            <ul className={cx('list')}>
+              {list.map(({ item }, index) => (
+                <li className={cx('item')} key={index}>
+                  <div className={cx('number')}>
+                    <span>{index + 1}</span>
+                  </div>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Button className={cx('button')} to={footerUrl}>{itemFooterText}</Button>
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 );

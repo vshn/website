@@ -15,7 +15,7 @@
   @include md-down {
     padding-top: 25px;
     padding-bottom: 0;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
   }
 
   @include sm-down {
@@ -46,7 +46,8 @@
   }
 
   @include md-down {
-    padding-top: 0;
+    grid-column-end: 6;
+    padding-top: 50px;
   }
 
   @include sm-down {
@@ -56,10 +57,6 @@
 
 .title {
   margin-bottom: 30px;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
 }
 
 .description {
@@ -77,6 +74,7 @@
 
   @include md-down {
     margin-bottom: 25px;
+    font-size: 18px;
   }
 }
 
@@ -91,7 +89,9 @@
   }
 
   @include md-down {
-    padding-top: 40px;
+    grid-column-start: 7;
+    padding-top: 20px;
+    margin-left: -5px;
   }
 
   @include sm-down {
@@ -133,9 +133,9 @@
   }
 
   @include md-down {
-    top: -30px;
+    top: -15px;
     width: 534px;
-    margin-left: 50px;
+    margin-left: 20px;
     transform: translateX(-50%);
   }
 

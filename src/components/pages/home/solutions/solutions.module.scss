@@ -2,8 +2,15 @@
   margin-bottom: 180px;
   background-image: linear-gradient(90deg, rgba($color-primary, 1) 50%, rgba($color-additional-1, 1) 50%);
 
+  @include section-paddings;
+
   @include lg-down {
     margin-bottom: 50px;
+  }
+
+  @include md-down {
+    margin-bottom: 25px;
+    background-image: none;
   }
 }
 
@@ -15,7 +22,13 @@
 
   @include lg-down {
     padding-top: 90px;
-    padding-bottom: 90px;
+    padding-bottom: 95px;
+  }
+
+  @include md-down {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -42,11 +55,42 @@
     @include lg-down {
       padding-left: 95px;
     }
+
+    @include md-down {
+      padding-left: 0;
+    }
   }
+
+  @include md-down {
+    padding-top: 70px;
+    padding-bottom: 75px;
+  }
+}
+
+.md-hidden {
+  @include md-down {
+    display: none;
+  }
+}
+
+.md-visible {
+  display: none;
+
+  @include md-down {
+    display: block;
+  }
+}
+
+.inner {
+  width: 100%;
 }
 
 .title {
   margin-bottom: 10px;
+
+  @include md-down {
+    margin-bottom: 30px;
+  }
 }
 
 .description {
@@ -57,6 +101,12 @@
     max-width: 370px;
     margin-bottom: 10px;
   }
+
+  @include md-down {
+    max-width: initial;
+    margin-bottom: 25px;
+    font-size: 18px;
+  }
 }
 
 .list {
@@ -66,6 +116,11 @@
   font-weight: 700;
   line-height: 1.4;
   list-style-type: none;
+
+  @include md-down {
+    margin-bottom: 45px;
+    font-size: 16px;
+  }
 }
 
 .item {
@@ -101,6 +156,11 @@
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba($color-primary, 0.15);
     transform: translate(-50%, -50%);
+
+    @include md-down {
+      width: 32px;
+      height: 32px;
+    }
   }
 }
 
