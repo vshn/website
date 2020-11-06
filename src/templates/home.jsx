@@ -9,7 +9,7 @@ import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Partners from 'components/pages/home/partners';
 import Report from 'components/pages/home/report';
-import Solutions from 'components/pages/home/solutions';
+import SolutionsProducts from 'components/pages/home/solutions-products';
 import Technologies from 'components/pages/home/technologies';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
@@ -18,7 +18,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
   <MainLayout seo={seo}>
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
-    <Solutions {...data.solutions} />
+    <SolutionsProducts {...data.solutionsProducts} />
     <News {...data.news} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
@@ -52,7 +52,7 @@ export const query = graphql`
             }
           }
         }
-        solutions {
+        solutionsProducts {
           items {
             title
             description

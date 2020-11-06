@@ -41,9 +41,29 @@
   font-size: $font-size-md;
   line-height: $line-height-md;
 
+  @include md-down {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: -50%;
+      bottom: 0;
+      left: -50%;
+      z-index: -1;
+      content: '';
+    }
+  }
+
   &:nth-child(odd) {
     color: $color-tertiary;
     background-color: $color-primary;
+
+    @include md-down {
+      &::after {
+        background-color: $color-primary;
+      }
+    }
 
     .title {
       color: $color-tertiary;
@@ -60,26 +80,16 @@
 
     @include md-down {
       padding-left: 0;
+
+      &::after {
+        background-color: $color-additional-1;
+      }
     }
   }
 
   @include md-down {
     padding-top: 70px;
     padding-bottom: 75px;
-  }
-}
-
-.md-hidden {
-  @include md-down {
-    display: none;
-  }
-}
-
-.md-visible {
-  display: none;
-
-  @include md-down {
-    display: block;
   }
 }
 
