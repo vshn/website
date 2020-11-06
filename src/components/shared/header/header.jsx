@@ -15,7 +15,11 @@ const cx = classNames.bind(styles);
 const Header = (props) => {
   const {
     topLineText1,
+    topLineText1Url,
     topLineText2,
+    topLineText2Url,
+    topLineText3,
+    topLineText3Url,
     language1Text,
     language1Url,
     language2Text,
@@ -34,8 +38,9 @@ const Header = (props) => {
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
-            <li className={cx('list-item')}>{topLineText1}</li>
-            <li className={cx('list-item')}>{topLineText2}</li>
+            <Link className={cx('list-item')} to={topLineText1Url}>{topLineText1}</Link>
+            <Link className={cx('list-item')} to={topLineText2Url}>{topLineText2}</Link>
+            <Link className={cx('list-item')} to={topLineText3Url}>{topLineText3}</Link>
           </ul>
 
           <ul className={cx('list')}>
@@ -99,7 +104,11 @@ const Header = (props) => {
 
 Header.propTypes = {
   topLineText1: PropTypes.string,
+  topLineText1Url: PropTypes.string,
   topLineText2: PropTypes.string,
+  topLineText2Url: PropTypes.string,
+  topLineText3: PropTypes.string,
+  topLineText3Url: PropTypes.string,
   language1Text: PropTypes.string,
   language1Url: PropTypes.string,
   language2Text: PropTypes.string,
@@ -122,8 +131,12 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  topLineText1: 'Vision - the DevOps company',
-  topLineText2: 'Neugasse 10, CH-8005 Zürich',
+  topLineText1: 'Status',
+  topLineText1Url: '/',
+  topLineText2: 'Docs',
+  topLineText2Url: '/',
+  topLineText3: 'Supports',
+  topLineText3Url: '/',
   language1Text: 'English',
   language1Url: '/en',
   language2Text: 'Deutsch',
@@ -215,20 +228,20 @@ Header.defaultProps = {
       },
     },
     {
-      label: 'Technologies',
-      path: '/technologies',
+      label: 'Learn',
+      path: '/learn',
     },
     {
-      label: 'VSHN',
-      path: '/vshn',
-    },
-    {
-      label: 'Jobs',
-      path: '/jobs',
+      label: 'Partners',
+      path: '/partners',
     },
     {
       label: 'Blog',
       path: '/blog',
+    },
+    {
+      label: 'About',
+      path: '/about',
     },
     {
       label: 'Contact',

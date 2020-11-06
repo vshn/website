@@ -19,19 +19,10 @@ const itemImages = {
   itemImage3: ItemImage3,
 };
 
-const Awards = ({ title, subtitle, items, itemFooterText }) => (
+const Awards = ({ title, items, itemFooterText }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
-      <Heading className={cx('title')} tag="h2" size="xs" color="quaternary">{title}</Heading>
-      <Heading
-        className={cx('subtitle')}
-        tag="p"
-        size="xl"
-        color="tertiary"
-        highlightedWordsColor="secondary"
-        innerHTML={subtitle}
-      />
-
+      <Heading className={cx('title')} tag="h2" size="xl" color="tertiary">{title}</Heading>
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
           <Item
@@ -43,13 +34,11 @@ const Awards = ({ title, subtitle, items, itemFooterText }) => (
         ))}
       </ul>
     </div>
-
     <img className={cx('stripes')} src={stripes} alt="" aria-hidden />
   </section>
 );
 Awards.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       imageName: PropTypes.string.isRequired,
