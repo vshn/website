@@ -1,11 +1,4 @@
-.interview {
-  padding-top: 90px;
-  padding-bottom: 60px;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  border-top: 8px solid $color-additional-1;
-  border-bottom: 8px solid $color-additional-1;
-
+.personal-card {
   @include lg-down {
     padding-top: 65px;
   }
@@ -16,7 +9,7 @@
 
   &__header {
     display: flex;
-    align-items: center;
+    padding-top: 30px;
     padding-right: 30px;
     padding-left: 30px;
     margin-bottom: 90px;
@@ -40,12 +33,12 @@
     }
   }
 
-  &__avatar {
+  &__avatar-wrapper {
     position: relative;
     flex-shrink: 0;
     width: 120px;
     height: 120px;
-    margin-right: 75px;
+    margin-right: 70px;
     background-color: $color-additional-1;
     border-radius: 5px;
 
@@ -69,30 +62,49 @@
   }
 
   &__rectangle_1 {
-    top: -20px;
-    left: -20px;
-    width: 94px;
-    height: 94px;
+    top: -30px;
+    left: -30px;
+    width: 130px;
+    height: 130px;
     background-color: $color-accent-secondary;
     border-top-left-radius: 55px;
+
+    @include lg-down {
+      top: -20px;
+      left: -20px;
+      width: 94px;
+      height: 94px;
+    }
   }
 
   &__rectangle_2 {
-    right: -25px;
-    bottom: -20px;
-    width: 119px;
-    height: 72px;
+    right: -30px;
+    bottom: -30px;
+    width: 165px;
+    height: 100px;
     background-color: $color-primary;
     border-bottom-right-radius: 50px;
+
+    @include lg-down {
+      right: -25px;
+      bottom: -20px;
+      width: 119px;
+      height: 72px;
+    }
   }
 
   &__rectangle_3 {
     top: -15px;
     right: -15px;
-    width: 72px;
-    height: 72px;
+    width: 100px;
+    height: 100px;
     background-color: $color-accent-primary;
     border-bottom-left-radius: 120px;
+
+    @include lg-down {
+      width: 72px;
+      height: 72px;
+    }
 
     @include md-down {
       top: -10px;
@@ -106,8 +118,10 @@
   }
 
   &__name {
-    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: -5px;
     font-size: 40px;
+    font-weight: 900;
 
     @include lg-down {
       font-size: 35px;
@@ -135,16 +149,6 @@
     @include md-down {
       font-size: 16px;
     }
-  }
-
-  &__question {
-    font-size: 18px;
-    font-style: italic;
-    line-height: 1.6;
-  }
-
-  &__answer {
-    margin-bottom: 45px;
   }
 
   &__by-line {
