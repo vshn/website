@@ -1,17 +1,19 @@
 import classNames from 'classnames/bind';
+import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Link from 'components/shared/link';
 
-import logo from './images/partner-logo.svg';
 import styles from './partner-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const PartnerInfo = ({ items, partnerLink: { url, title } }) => (
+const PartnerInfo = ({ logoBackgroundColor, logoImage, items, partnerLink: { url, title } }) => (
   <div className={cx('wrapper')}>
-    <div className={cx('logo-wrapper')}><img className={cx('logo')} src={logo} alt="" aria-hidden /></div>
+    <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor}` }}>
+      <GatsbyImage className={cx('logo')} fluid={logoImage.localFile.childImageSharp.fluid} alt="" aria-hidden />
+    </div>
     <ul className={cx('items-wrapper')}>
       {items.map(({ value, text }, index) => (
         <li className={cx('item')} key={index}>
@@ -27,6 +29,8 @@ const PartnerInfo = ({ items, partnerLink: { url, title } }) => (
 );
 
 PartnerInfo.propTypes = {
+  logoBackgroundColor: PropTypes.string.isRequired,
+  logoImage: PropTypes.objectOf(PropTypes.any).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string.isRequired,

@@ -2,19 +2,19 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import SuccessStoryCard from 'components/pages/partner/success-story-card';
+import SuccessStoryCard from 'components/pages/partner/content/success-story-card';
 import PartnerInfo from 'components/shared/partner-info';
 
 import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, acf: { partnerInfo, successStoryCard } }) => (
+const Content = ({ content, acf: { logo, partnerInfo, successStoryCard } }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
-        <PartnerInfo {...partnerInfo} />
+        <PartnerInfo {...logo} {...partnerInfo} />
         <SuccessStoryCard {...successStoryCard} />
       </div>
     </div>
@@ -25,6 +25,10 @@ const Content = ({ content, acf: { partnerInfo, successStoryCard } }) => (
 Content.propTypes = {
   content: PropTypes.string.isRequired,
   acf: PropTypes.shape({
+    logo: PropTypes.shape({
+      logoBackgroundColor: PropTypes.string.isRequired,
+      logoImage: PropTypes.objectOf(PropTypes.any).isRequired,
+    }),
     partnerInfo: PropTypes.shape({
       items: PropTypes.arrayOf(
         PropTypes.shape({

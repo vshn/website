@@ -21,6 +21,18 @@ export const query = graphql`
       title
       content
       acf {
+        logo {
+          logoBackgroundColor
+          logoImage {
+            localFile {
+              childImageSharp {
+                fluid(maxHeight: 30) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
+          }
+        }
         category {
           title
           url

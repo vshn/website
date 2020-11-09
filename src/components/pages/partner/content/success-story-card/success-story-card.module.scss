@@ -56,13 +56,6 @@
 .link {
   position: relative;
   z-index: 1;
-
-  @include lg-down {
-    padding-top: 10px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-  }
 }
 
 .circles {
