@@ -62,6 +62,23 @@
   }
 }
 
+.title {
+  display: -webkit-box;
+  max-width: 770px;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  @include lg-down {
+    max-width: 560px;
+  }
+
+  @include md-down {
+    max-width: initial;
+    -webkit-line-clamp: 2;
+  }
+}
+
 .description {
   display: -webkit-box;
   max-width: 770px;
