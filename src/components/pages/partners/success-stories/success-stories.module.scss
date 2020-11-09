@@ -67,6 +67,10 @@
 
   @include with-link-primary;
 
+  @include hover {
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc, $color-tertiary);
+  }
+
   @include md-down {
     padding-top: 20px;
     padding-right: 20px;
