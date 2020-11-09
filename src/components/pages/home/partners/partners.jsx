@@ -82,7 +82,7 @@ const Partners = ({ items }) => {
             <span className={cx('rectangle', 'rectangle-3')} aria-hidden />
           </div>
 
-          <div>
+          <div className={cx('info')}>
             <AnimatePresence exitBeforeEnter>
               {items.map(({ name, position }, index) => {
                 const isActive = index === activeItemIndex;

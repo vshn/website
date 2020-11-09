@@ -65,7 +65,7 @@ const Footer = (props) => {
             <Link to="/">
               <Logo className={cx('logo')} />
             </Link>
-            <SocialMenu />
+            <SocialMenu className={cx('md-hidden')} />
           </div>
 
           <nav className={cx('nav')}>
@@ -77,6 +77,7 @@ const Footer = (props) => {
               ))}
             </ul>
           </nav>
+          <SocialMenu className={cx('md-visible')} />
         </div>
 
         <div className={cx('bottom-section')}>

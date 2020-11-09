@@ -50,9 +50,14 @@ const BlogPostsCarousel = ({ className, title, items, itemFooterText }) => (
             slidesPerView: 2,
             slidesPerGroup: 2,
           },
-          1330: {
+          1024: {
             slidesPerView: 2,
             slidesPerGroup: 2,
+            spaceBetween: 30,
+          },
+          1330: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
             spaceBetween: 30,
           },
         }}
