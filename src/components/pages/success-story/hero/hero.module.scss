@@ -100,4 +100,23 @@
   position: absolute;
   top: -90px;
   left: 195px;
+
+  @include lg-down {
+    top: -350px;
+    left: 155px;
+    width: 1000px;
+    height: 1000px;
+  }
+
+  @include md-down {
+    top: -260px;
+    left: 390px;
+    width: 700px;
+    height: 700px;
+  }
+
+  @include sm-down {
+    top: -225px;
+    left: 75px;
+  }
 }
