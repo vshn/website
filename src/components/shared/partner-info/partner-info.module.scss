@@ -11,7 +11,7 @@
 
   @include lg-down {
     padding-bottom: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 45px;
   }
 
   @include md-down {
@@ -30,7 +30,8 @@
 
   @include lg-down {
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 7px;
   }
 
   @include md-down {
@@ -75,13 +76,13 @@
 
   @include lg-down {
     padding-bottom: 10px;
-    margin-bottom: 23px;
+    margin-bottom: 12px;
     font-size: 20px;
   }
 
   strong {
     margin-right: 15px;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 800;
     color: $color-primary;
 

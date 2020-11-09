@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import SuccessStoryCard from 'components/pages/partner/success-story-card';
 import PartnerInfo from 'components/shared/partner-info';
-import SuccessStoryCard from 'components/shared/success-story-card';
 
 import styles from './content.module.scss';
 
@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const Content = ({ content, acf: { partnerInfo, successStoryCard } }) => (
   <div className={cx('wrapper')}>
-    <div className="container">
+    <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
         <PartnerInfo {...partnerInfo} />

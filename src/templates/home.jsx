@@ -18,7 +18,7 @@ export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } 
   <MainLayout seo={seo}>
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
-    <Solutions {...data.solutions} />
+    <Solutions {...data.solutionsProducts} />
     <News {...data.news} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
@@ -52,7 +52,7 @@ export const query = graphql`
             }
           }
         }
-        solutions {
+        solutionsProducts {
           items {
             title
             description
