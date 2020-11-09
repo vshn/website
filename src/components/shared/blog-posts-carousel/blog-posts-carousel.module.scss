@@ -9,7 +9,7 @@
   margin-bottom: 20px;
 
   @include lg-down {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   @include md-down {
@@ -38,8 +38,8 @@
   height: 50px;
   margin-right: 15px;
   cursor: pointer;
-  background-color: $color-accent-secondary;
-  border: none;
+  background-color: $color-tertiary;
+  border: 1px solid $color-additional-2;
   border-radius: 50%;
   outline: none;
   transition-duration: $transition-base;

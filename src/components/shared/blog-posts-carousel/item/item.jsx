@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import Link from 'components/shared/link';
 
 import styles from './item.module.scss';
 
@@ -13,7 +13,7 @@ const Item = (
   { post: { uri: url, categories, title, acf: { shortDescription } }, itemFooterText },
 ) => (
   <article className={cx('wrapper')}>
-    <Link className={cx('inner')} to={url}>
+    <div className={cx('inner')}>
       <ul className={cx('categories-wrapper')}>
         {categories.nodes.map(({ name }, index) => (
           <li className={cx('category')} key={index}>{name}</li>
@@ -21,8 +21,8 @@ const Item = (
       </ul>
       <Heading className={cx('title')} tag="h2" size="lg">{title}</Heading>
       <p className={cx('short-description')}>{shortDescription}</p>
-      <span className={cx('read-more')}>{itemFooterText}</span>
-    </Link>
+      <Button className={cx('read-more')} size="xs" to={url}>{itemFooterText}</Button>
+    </div>
   </article>
 );
 

@@ -9,20 +9,17 @@
 
   @include hover {
     background: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
-
-    .read-more {
-      color: $color-accent-primary;
-    }
   }
 }
 
 .inner {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   height: 100%;
   padding-top: 30px;
   padding-right: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   padding-left: 30px;
   color: inherit;
   text-decoration: none;
@@ -71,6 +68,10 @@
   margin-top: 30px;
   margin-bottom: 35px;
 
+  @include lg-down {
+    margin-top: 35px;
+  }
+
   @include md-down {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -80,7 +81,7 @@
 .short-description {
   display: -webkit-box;
   margin-top: 0;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
   overflow: hidden;
   color: $color-secondary;
   -webkit-line-clamp: 4;
@@ -88,7 +89,7 @@
 
   @include lg-down {
     -webkit-line-clamp: 6;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
   }
 
   @include md-down {
@@ -104,20 +105,4 @@
 .read-more {
   position: relative;
   margin-top: auto;
-  font-size: $font-size-xs;
-  font-weight: 700;
-  line-height: $line-height-xs;
-  text-align: center;
-  text-transform: uppercase;
-  transition: color $transition-base;
-
-  &::before {
-    position: absolute;
-    top: -15px;
-    right: 0;
-    left: 0;
-    height: 1px;
-    content: '';
-    background: linear-gradient(90deg, rgba($color-additional-2, 0) 0%, $color-additional-2 50%, rgba($color-additional-2, 0) 100%);
-  }
 }

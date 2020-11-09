@@ -3,19 +3,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
 import styles from './advantages.module.scss';
 import Item from './item';
 
 const cx = classNames.bind(styles);
 
-const Advantages = ({ title, subtitle, items }) => (
+const Advantages = ({ title, items }) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="xs" color="secondary">{title}</Heading>
-      <Heading className={cx('subtitle')} tag="p" size="xl" innerHTML={getTextWithoutParagraph(subtitle)} />
-
+      <Heading className={cx('title')} tag="h2" size="xl">{title}</Heading>
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
           <Item number={index + 1} key={index} {...item} />
@@ -27,11 +24,9 @@ const Advantages = ({ title, subtitle, items }) => (
 
 Advantages.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
       footerText: PropTypes.string.isRequired,
       link: PropTypes.shape({
         url: PropTypes.string.isRequired,

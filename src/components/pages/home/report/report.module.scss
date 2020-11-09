@@ -2,12 +2,13 @@
   position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
-  margin-bottom: 150px;
+  margin-bottom: 180px;
 
   @include section-paddings;
 
   @include lg-down {
-    margin-bottom: 180px;
+    padding-top: 50px;
+    margin-bottom: 150px;
   }
 
   @include md-down {
@@ -39,12 +40,13 @@
 .content {
   grid-column-start: 7;
   grid-column-end: 13;
-  padding-top: 60px;
+  padding-top: 125px;
   margin-left: -10px;
 
   @include lg-down {
     grid-column-end: 12;
-    padding-top: 90px;
+    padding-top: 110px;
+    margin-left: 0;
   }
 
   @include md-down {
@@ -60,15 +62,6 @@
 }
 
 .title {
-  margin-bottom: 35px;
-  text-transform: uppercase;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
-}
-
-.subtitle {
   max-width: 430px;
   margin-top: 0;
   margin-bottom: 30px;
@@ -91,14 +84,9 @@
   line-height: $line-height-md;
   color: $color-secondary;
 
-  @include lg-down {
-    font-size: 18px;
-  }
-
   @include md-down {
     max-width: initial;
     margin-bottom: 25px;
-    font-size: 16px;
   }
 }
 
@@ -133,6 +121,13 @@
   background-color: $color-accent-primary;
   border-top-left-radius: 100px;
 
+  @include lg-down {
+    top: -55px;
+    left: -50px;
+    width: 180px;
+    height: 380px;
+  }
+
   @include md-down {
     top: -50px;
     left: -45px;
@@ -150,7 +145,10 @@
   border-bottom-right-radius: 100px;
 
   @include lg-down {
-    height: 630px;
+    top: -25px;
+    left: 30px;
+    width: 225px;
+    height: 620px;
   }
 
   @include md-down {
@@ -170,8 +168,10 @@
   border-top-right-radius: 120px;
 
   @include lg-down {
-    width: 140px;
-    height: 310px;
+    bottom: -25px;
+    left: -30px;
+    width: 125px;
+    height: 335px;
   }
 
   @include md-down {
