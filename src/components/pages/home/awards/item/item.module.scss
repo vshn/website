@@ -5,7 +5,7 @@
   border-radius: 8px;
 
   @include md-down {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: left;
   }
 
@@ -47,6 +47,7 @@
   @include sm-down {
     flex-direction: column;
     align-items: center;
+    min-height: 344px;
     padding-top: 0;
     padding-right: 25px;
     padding-bottom: 20px;
@@ -85,7 +86,11 @@
   align-items: center;
 
   @include md-down {
-    display: block;
+    align-items: flex-start;
+  }
+
+  @include sm-down {
+    align-items: center;
   }
 }
 
@@ -104,7 +109,7 @@
   }
 
   @include md-down {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   @include sm-down {

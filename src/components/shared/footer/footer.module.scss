@@ -9,7 +9,7 @@
   }
 
   @include md-down {
-    padding-top: 40px;
+    padding-top: 45px;
     padding-bottom: 40px;
   }
 }
@@ -21,7 +21,7 @@
   margin-bottom: 30px;
 
   @include md-down {
-    margin-bottom: 40px;
+    display: block;
   }
 }
 
@@ -36,7 +36,7 @@
   }
 
   @include md-down {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
   }
 }
 
@@ -47,6 +47,7 @@
   @include md-down {
     width: 110px;
     height: 24px;
+    margin-bottom: 0;
   }
 }
 
@@ -71,6 +72,20 @@
 
   &:last-child {
     margin-right: 0;
+  }
+}
+
+.md-hidden {
+  @include md-down {
+    display: none;
+  }
+}
+
+.md-visible {
+  display: none;
+
+  @include md-down {
+    display: flex;
   }
 }
 
@@ -204,6 +219,10 @@
 
 .nav {
   grid-column: span 7;
+
+  @include md-down {
+    margin-bottom: 30px;
+  }
 }
 
 .menu {
@@ -225,12 +244,16 @@
   }
 
   @include md-down {
-    column-gap: $column-gap-md;
+    grid-template-rows: repeat(3, max-content);
+    grid-template-columns: repeat(4, max-content);
+    column-gap: 105px;
+    padding-top: 0;
   }
 
   @include sm-down {
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 40px;
+    grid-template-rows: repeat(6, max-content);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0;
   }
 }
 
@@ -249,7 +272,7 @@
   display: block;
 
   @include md-down {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -265,12 +288,15 @@
   }
 
   @include md-down {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 10px;
     column-gap: $column-gap-md;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   @include sm-down {
-    display: block;
+    grid-template-rows: repeat(2, min-content);
   }
 }
 
@@ -280,10 +306,6 @@
 
   @include lg-down {
     grid-column: span 7;
-  }
-
-  @include sm-down {
-    margin-bottom: 15px;
   }
 }
 
@@ -298,9 +320,5 @@
 
   @include lg-down {
     grid-column: span 5;
-  }
-
-  @include sm-down {
-    margin-bottom: 15px;
   }
 }
