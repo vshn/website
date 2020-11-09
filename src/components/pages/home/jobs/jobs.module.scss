@@ -9,6 +9,14 @@
   @include lg-down {
     margin-bottom: 150px;
   }
+
+  @include md-down {
+    margin-bottom: 110px;
+  }
+
+  @include sm-down {
+    margin-bottom: 120px;
+  }
 }
 
 .inner {
@@ -21,9 +29,9 @@
     padding-bottom: 90px;
   }
 
-  @include sm-down {
+  @include md-down {
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 75px;
   }
 }
 
@@ -39,7 +47,8 @@
   color: $color-quaternary;
 
   @include md-down {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-size: 18px;
   }
 }
 
