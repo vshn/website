@@ -95,19 +95,3 @@
   top: -90px;
   left: 195px;
 }
-
-.info-wrapper {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  z-index: 1;
-  max-width: 410px;
-
-  @include lg-down {
-    max-width: 290px;
-  }
-
-  @include md-down {
-    display: none;
-  }
-}

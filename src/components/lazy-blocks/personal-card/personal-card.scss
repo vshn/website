@@ -1,12 +1,4 @@
 .personal-card {
-  @include lg-down {
-    padding-top: 65px;
-  }
-
-  @include md-down {
-    padding-top: 60px;
-  }
-
   &__header {
     display: flex;
     padding-top: 30px;
@@ -15,12 +7,14 @@
     margin-bottom: 90px;
 
     @include lg-down {
+      padding-top: 10px;
       padding-right: 20px;
       padding-left: 20px;
       margin-bottom: 65px;
     }
 
     @include md-down {
+      padding-top: 15px;
       margin-bottom: 60px;
     }
 
@@ -45,11 +39,16 @@
     @include lg-down {
       width: 86px;
       height: 86px;
+      margin-top: 10px;
       margin-right: 55px;
     }
 
+    @include md-down {
+      margin-top: 5px;
+    }
+
     @include sm-down {
-      margin-bottom: 55px;
+      margin-bottom: 50px;
       margin-left: 25px;
     }
   }

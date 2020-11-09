@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const Content = ({ content, acf: { facts } }) => (
   <section className={cx('wrapper')}>
-    <div className="container">
+    <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
         <Facts {...facts} />
