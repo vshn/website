@@ -268,6 +268,7 @@
     margin-top: 45px;
     font-family: inherit;
     color: $color-secondary;
+    white-space: pre-wrap;
   }
 
   hr {
@@ -275,7 +276,6 @@
     height: 8px;
     margin-top: 60px;
     margin-bottom: 60px;
-    white-space: pre-wrap;
     background-color: $color-additional-1;
     border: none;
 
