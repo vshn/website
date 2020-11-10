@@ -29,6 +29,10 @@
   &:first-child {
     border-bottom: 1px solid $color-additional-1;
   }
+
+  @include md-down {
+    height: $header-height-md;
+  }
 }
 
 .top-section {
@@ -172,7 +176,7 @@
     .link {
       &::before {
         position: absolute;
-        top: 87px;
+        top: 92px;
         left: 50%;
         z-index: 1;
         display: inline-block;
