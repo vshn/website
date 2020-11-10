@@ -4,6 +4,7 @@ import React from 'react';
 
 import Hero from 'components/pages/parent-category/hero';
 import Options from 'components/pages/parent-category/options';
+import OtherOptions from 'components/pages/parent-category/other-options';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
@@ -38,10 +39,18 @@ const options = {
   ],
 };
 
+const otherOptions = {
+  title: 'Also see',
+  items: [
+    'Our solutions',
+  ],
+};
+
 export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
   <MainLayout seo={seo}>
     <Hero {...hero} />
     <Options {...options} />
+    <OtherOptions {...otherOptions} />
     <Contact locale={locale} />
   </MainLayout>
 );
