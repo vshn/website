@@ -54,7 +54,7 @@ export const query = graphql`
       ...wpPageSeo
     }
     allWpSuccessStory(
-      filter: { language: { locale: { eq: $locale } } }
+      filter: { language: { slug: { eq: $locale } } }
       sort: { fields: title, order: ASC }
     ) {
       successStories: nodes {
@@ -74,7 +74,7 @@ export const query = graphql`
       }
     }
     allWpPartner(
-      filter: { language: { locale: { eq: $locale } } }
+      filter: { language: { slug: { eq: $locale } } }
       sort: { fields: title, order: ASC }
     ) {
       partners: nodes {
