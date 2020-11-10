@@ -5,13 +5,13 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import styles from './solutions.module.scss';
+import styles from './solutions-products.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Solutions = ({ items, itemFooterText }) => (
+const SolutionsProducts = ({ items, itemFooterText }) => (
   <section className={cx('wrapper')}>
-    <div className="container">
+    <div className={cx('container', 'md-hidden')}>
       <div className={cx('content')}>
         {items.map((
           { title, description, list, footerUrl: { url: footerUrl } }, index,
@@ -37,7 +37,7 @@ const Solutions = ({ items, itemFooterText }) => (
   </section>
 );
 
-Solutions.propTypes = {
+SolutionsProducts.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -51,4 +51,4 @@ Solutions.propTypes = {
   itemFooterText: PropTypes.string.isRequired,
 };
 
-export default Solutions;
+export default SolutionsProducts;

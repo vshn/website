@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 import ansibleLogo from './images/ansible.svg';

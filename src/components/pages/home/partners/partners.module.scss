@@ -9,7 +9,7 @@
   }
 
   @include md-down {
-    padding-bottom: 145px;
+    padding-bottom: 125px;
   }
 }
 
@@ -40,7 +40,7 @@
     align-items: flex-start;
     padding-top: 0;
     margin-right: 0;
-    margin-bottom: 55px;
+    margin-bottom: 80px;
     text-align: left;
   }
 
@@ -70,7 +70,7 @@
 
   @include sm-down {
     margin-top: 0;
-    margin-bottom: 55px;
+    margin-bottom: 20px;
   }
 }
 
@@ -154,6 +154,13 @@
   }
 }
 
+.info {
+  @include md-down {
+    padding-top: 40px;
+    margin-left: 30px;
+  }
+}
+
 .name {
   margin-bottom: 5px;
 }
@@ -168,7 +175,7 @@
   }
 
   @include md-down {
-    margin-bottom: 60px;
+    margin-bottom: 25px;
   }
 
   @include sm-down {
@@ -291,6 +298,7 @@
 
   @include sm-down {
     margin-right: auto;
+    margin-bottom: 30px;
     margin-left: auto;
   }
 }
@@ -307,7 +315,7 @@
   }
 
   @include md-down {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
 }
 

@@ -1,27 +1,27 @@
 .wrapper {
   position: relative;
-  padding-top: calc(#{$header-height} + 100px);
+  padding-top: $header-height + 100px;
   padding-bottom: 360px;
   margin-bottom: 150px;
 
   @include section-paddings;
 
   @include lg-down {
-    padding-top: calc(#{$header-height} + 80px);
+    padding-top: $header-height + 80px;
     padding-bottom: 260px;
     margin-bottom: 180px;
   }
 
   @include md-down {
-    padding-top: calc(#{$header-height-md} + 50px);
+    padding-top: $header-height-md + 50px;
     padding-bottom: 175px;
-    margin-bottom: 110px;
+    margin-bottom: 185px;
   }
 
   @include sm-down {
-    padding-top: calc(#{$header-height-md} + 40px);
+    padding-top: $header-height-md + 40px;
     padding-bottom: 0;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     text-align: center;
   }
 }
@@ -32,7 +32,7 @@
 
   @include md-down {
     max-width: 340px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
 
   @include sm-down {
@@ -50,7 +50,8 @@
 
   @include md-down {
     max-width: 340px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-size: 18px;
   }
 
   @include sm-down {
@@ -60,7 +61,7 @@
 
 .button {
   @include sm-down {
-    margin-bottom: 55px;
+    margin-bottom: 60px;
   }
 }
 

@@ -27,10 +27,10 @@ const AuthorInfo = ({
           </Heading>
           <ul className={cx('links-wrapper')}>
             <li className={cx('link-wrapper')}>
-              <Link to={email.url}>{email.title}</Link>
+              {/* <Link to={email.url}>{email.title}</Link> */}
             </li>
             <li className={cx('link-wrapper')}>
-              <Link to={number.url}>{number.title}</Link>
+              {/* <Link to={number.url}>{number.title}</Link> */}
             </li>
           </ul>
           <p className={cx('description')}>{description}</p>
@@ -44,14 +44,8 @@ AuthorInfo.propTypes = {
   acf: PropTypes.shape({
     avatar: PropTypes.objectOf(PropTypes.any).isRequired,
     fullName: PropTypes.string.isRequired,
-    email: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }).isRequired,
-    number: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }).isRequired,
+    email: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }).isRequired,
   description: PropTypes.string.isRequired,
 };

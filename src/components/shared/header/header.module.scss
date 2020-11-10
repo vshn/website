@@ -24,10 +24,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 80px;
+  height: 74px;
 
   &:first-child {
     border-bottom: 1px solid $color-additional-1;
+  }
+
+  @include md-down {
+    height: $header-height-md;
   }
 }
 
@@ -96,7 +100,7 @@
   height: 30px;
 
   @include md-down {
-    width: 89px;
+    width: 110px;
     height: 24px;
   }
 }
@@ -172,7 +176,7 @@
     .link {
       &::before {
         position: absolute;
-        top: 87px;
+        top: 92px;
         left: 50%;
         z-index: 1;
         display: inline-block;

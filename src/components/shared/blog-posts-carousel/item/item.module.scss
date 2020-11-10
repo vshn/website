@@ -25,9 +25,9 @@
   text-decoration: none;
 
   @include md-down {
-    padding-top: 25px;
+    padding-top: 15px;
     padding-right: 25px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     padding-left: 25px;
   }
 }
@@ -42,6 +42,10 @@
   margin-bottom: -5px;
   margin-left: -7.5px;
   list-style-type: none;
+
+  @include md-down {
+    margin-bottom: 0;
+  }
 }
 
 .category {
@@ -58,10 +62,6 @@
   line-height: $line-height-xs;
   background-color: $color-additional-2;
   border-radius: 2px;
-
-  @include lg-down {
-    font-size: 13px;
-  }
 }
 
 .title {
@@ -75,6 +75,10 @@
   @include md-down {
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+
+  @include sm-down {
+    margin-top: 20px;
   }
 }
 
@@ -94,7 +98,7 @@
 
   @include md-down {
     -webkit-line-clamp: 5;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
   }
 
   @include sm-down {

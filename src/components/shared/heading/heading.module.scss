@@ -16,10 +16,6 @@
         font-size: 50px;
       }
 
-      @include sm-down {
-        font-size: 45px;
-      }
-
       @include xs-down {
         font-size: 40px;
       }
@@ -34,11 +30,7 @@
       }
 
       @include md-down {
-        font-size: 35px;
-      }
-
-      @include sm-down {
-        font-size: 30px;
+        font-size: 36px;
       }
 
       @include xs-down {
