@@ -13,7 +13,7 @@ const Contact = ({ locale }) => {
         allWpSharedBlock(filter: { slug: { eq: "contact" } }) {
           nodes {
             language {
-              locale
+              slug
             }
             acf {
               title
@@ -29,9 +29,14 @@ const Contact = ({ locale }) => {
     `,
   );
 
-  const data = nodes.find(({ language }) => language.locale === locale)?.acf;
+  const data = nodes.find(({ language }) => language.slug === locale)?.acf;
 
-  const { title, description, buttonText, buttonLink: { url: buttonUrl } } = data;
+  const {
+    title,
+    description,
+    buttonText,
+    buttonLink: { url: buttonUrl },
+  } = data;
 
   return (
     <View
@@ -44,7 +49,7 @@ const Contact = ({ locale }) => {
 };
 
 Contact.propTypes = {
-  locale: PropTypes.oneOf(['de_DE', 'en_US']).isRequired,
+  locale: PropTypes.oneOf(['de', 'en']).isRequired,
 };
 
 export default Contact;
