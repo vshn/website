@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+  padding-top: $header-height + 50px;
+  margin-bottom: 120px;
+}
+
+.title {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: $color-secondary;
+}
+
+.illustration {
+  position: absolute;
+  top: 0;
+  right: 110px;
+}
+
+.shape {
+  position: absolute;
+  top: -35px;
+  left: 655px;
+  z-index: -1;
+  width: calc(645px + #{$container-side-gap});
+  min-width: 960px;
+  height: 940px;
+}

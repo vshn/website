@@ -34,7 +34,8 @@ async function createPages({ graphql, actions }) {
   const pages = result.data.allWpPage.nodes;
 
   pages.forEach(({ id, uri, language: { locale }, template: { templateName } }) => {
-    const templatePath = path.resolve(`./src/templates/${templateName.toLowerCase()}.jsx`);
+    const templateNamePath = templateName.toLowerCase().replace(/\s/g, '-');
+    const templatePath = path.resolve(`./src/templates/${templateNamePath}.jsx`);
 
     const context = {
       id,
