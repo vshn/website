@@ -35,7 +35,10 @@ const MainLayout = ({ seo, children, pageUrls }) => {
       <main>{children}</main>
       <Footer />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
-      <MobileMenu isOpen={isMobileMenuOpen} onCloseButtonClick={handleMobileNavCloseButtonClick} />
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onCloseButtonClick={handleMobileNavCloseButtonClick}
+      />
     </>
   );
 };

@@ -7,8 +7,8 @@ function replaceBrokenSpaces(string) {
   return string.replace(/\s/g, ' ');
 }
 
-const DEFAULT_LOCALE = 'de_DE';
-const SUPPORTED_LOCALES = ['en_US', 'de_DE'];
+const DEFAULT_LOCALE = 'de';
+const SUPPORTED_LOCALES = ['en', 'de'];
 
 function getUrlsForLocales(locale, url, translations) {
   const urls = {};
@@ -23,7 +23,7 @@ function getUrlsForLocales(locale, url, translations) {
     if (matchedTranslation) {
       urls[remainingLocale] = matchedTranslation.uri;
     } else {
-      urls[remainingLocale] = remainingLocale === DEFAULT_LOCALE ? '/' : `/${remainingLocale.substring(0, 2)}`;
+      urls[remainingLocale] = remainingLocale === DEFAULT_LOCALE ? '/' : `/${remainingLocale}`;
     }
   });
   return urls;
@@ -39,11 +39,11 @@ async function createPages({ graphql, actions }) {
           id
           uri
           language {
-            locale
+            locale: slug
           }
           translations {
             language {
-              locale
+              locale: slug
             }
             uri
           }
@@ -61,42 +61,52 @@ async function createPages({ graphql, actions }) {
 
   const pages = result.data.allWpPage.nodes;
 
-  pages.forEach(({ id, uri, language: { locale }, translations, template: { templateName } }) => {
-    const templatePath = path.resolve(`./src/templates/${templateName.toLowerCase()}.jsx`);
-
-    const context = {
+  pages.forEach(
+    ({
       id,
-      locale,
-      pageUrls: getUrlsForLocales(locale, uri, translations),
-    };
+      uri,
+      language: { locale },
+      translations,
+      template: { templateName },
+    }) => {
+      const templatePath = path.resolve(
+        `./src/templates/${templateName.toLowerCase()}.jsx`,
+      );
 
-    if (fs.existsSync(templatePath)) {
-      createPage({
-        path: uri,
-        component: slash(templatePath),
-        context,
-      });
-    } else {
-      console.error(`Template "${templateName}" was not found`);
-    }
-  });
+      const context = {
+        id,
+        locale,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
+
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        console.error(`Template "${templateName}" was not found`);
+      }
+    },
+  );
 }
 
 async function createPosts({ graphql, actions }) {
   const { createPage } = actions;
   const result = await graphql(`
-  {
-    allWpPost {
-      nodes {
-        id
-        content
-        uri
-        language {
-          locale
+    {
+      allWpPost {
+        nodes {
+          id
+          content
+          uri
+          language {
+            locale: slug
+          }
         }
       }
     }
-  }
   `);
 
   if (result.errors) {

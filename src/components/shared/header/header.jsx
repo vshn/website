@@ -37,20 +37,34 @@ const Header = (props) => {
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
-            <Link className={cx('list-item')} to={topLineText1Url}>{topLineText1}</Link>
-            <Link className={cx('list-item')} to={topLineText2Url}>{topLineText2}</Link>
-            <Link className={cx('list-item')} to={topLineText3Url}>{topLineText3}</Link>
+            <Link className={cx('list-item')} to={topLineText1Url}>
+              {topLineText1}
+            </Link>
+            <Link className={cx('list-item')} to={topLineText2Url}>
+              {topLineText2}
+            </Link>
+            <Link className={cx('list-item')} to={topLineText3Url}>
+              {topLineText3}
+            </Link>
           </ul>
 
           <ul className={cx('list')}>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={pageUrls.en_US} activeClassName={cx('active')}>
+              <Link
+                className={cx('list-link')}
+                to={pageUrls.en}
+                activeClassName={cx('active')}
+              >
                 <img className={cx('icon')} src={english} alt="" aria-hidden />
                 {language1Text}
               </Link>
             </li>
             <li className={cx('list-item')}>
-              <Link className={cx('list-link')} to={pageUrls.de_DE} activeClassName={cx('active')}>
+              <Link
+                className={cx('list-link')}
+                to={pageUrls.de}
+                activeClassName={cx('active')}
+              >
                 <img className={cx('icon')} src={deutsch} alt="" aria-hidden />
                 {language2Text}
               </Link>
@@ -90,7 +104,12 @@ const Header = (props) => {
             </ul>
           </nav>
 
-          <button className={cx('burger')} type="button" aria-label="Open Mobile Menu" onClick={onBurgerClick}>
+          <button
+            className={cx('burger')}
+            type="button"
+            aria-label="Open Mobile Menu"
+            onClick={onBurgerClick}
+          >
             <span className={cx('burger-line')} />
             <span className={cx('burger-line')} />
             <span className={cx('burger-line')} />
@@ -110,20 +129,24 @@ Header.propTypes = {
   topLineText3Url: PropTypes.string,
   language1Text: PropTypes.string,
   language2Text: PropTypes.string,
-  menuItems: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    childItems: PropTypes.shape({
-      post: PropTypes.shape({
-        url: PropTypes.string,
-        title: PropTypes.string,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+      childItems: PropTypes.shape({
+        post: PropTypes.shape({
+          url: PropTypes.string,
+          title: PropTypes.string,
+        }),
+        nodes: PropTypes.arrayOf(
+          PropTypes.shape({
+            label: PropTypes.string,
+            path: PropTypes.string,
+          }),
+        ),
       }),
-      nodes: PropTypes.arrayOf(PropTypes.shape({
-        label: PropTypes.string,
-        path: PropTypes.string,
-      })),
     }),
-  })),
+  ),
   onBurgerClick: PropTypes.func.isRequired,
   pageUrls: PropTypes.shape().isRequired,
 };
