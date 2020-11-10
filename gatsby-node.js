@@ -138,7 +138,63 @@ async function createPosts({ graphql, actions }) {
   });
 }
 
+async function createPartners({ graphql, actions }) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allWpPartner {
+        nodes {
+          id
+          content
+          uri
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const partners = result.data.allWpPartner.nodes;
+
+  partners.forEach(
+    ({ id, content, uri, language: { locale }, translations }) => {
+      const templatePath = path.resolve('./src/templates/partner.jsx');
+
+      const context = {
+        id,
+        locale,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
+
+      if (content) {
+        context.content = replaceBrokenSpaces(content);
+      }
+
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        console.error('Template Partner was not found');
+      }
+    },
+  );
+}
+
 exports.createPages = async (args) => {
   await createPages(args);
   await createPosts(args);
+  await createPartners(args);
 };
