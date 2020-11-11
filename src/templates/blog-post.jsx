@@ -11,15 +11,12 @@ import MainLayout from 'layouts/main';
 
 export default ({
   data: { seo, wpPost: data },
-  pageContext: { locale, pageUrls, menuItems, topMenuItems, mobileMenuItems, footerMenuItems },
+  pageContext: { locale, pageUrls, menus },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
-    menuItems={menuItems}
-    mobileMenuItems={mobileMenuItems}
-    topMenuItems={topMenuItems}
-    footerMenuItems={footerMenuItems}
+    menus={menus}
   >
     <Hero {...data} />
     <Content {...data} />

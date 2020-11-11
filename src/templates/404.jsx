@@ -6,10 +6,7 @@ export default ({
   pageContext: {
     locale,
     pageUrls,
-    topMenuItems,
-    menuItems,
-    mobileMenuItems,
-    footerMenuItems,
+    menus,
   },
 }) => {
   const content = {
@@ -25,10 +22,7 @@ export default ({
   return (
     <MainLayout
       pageUrls={pageUrls}
-      menuItems={menuItems}
-      topMenuItems={topMenuItems}
-      mobileMenuItems={mobileMenuItems}
-      footerMenuItems={footerMenuItems}
+      menus={menus}
     >
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '260px', paddingBottom: '260px' }}>
         <h1>{content[locale].title}</h1>
