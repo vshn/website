@@ -4,9 +4,16 @@
   padding-bottom: 60px;
   margin-bottom: 120px;
 
+  @include section-paddings;
+
   @include lg-down {
     padding-top: $header-height + 35px;
     padding-bottom: 0;
+  }
+
+  @include md-down {
+    padding-top: $header-height-md + 40px;
+    margin-bottom: 90px;
   }
 }
 
@@ -23,6 +30,11 @@
     max-width: 450px;
     font-size: 50px;
   }
+
+  @include md-down {
+    max-width: 340px;
+    font-size: 36px;
+  }
 }
 
 .description {
@@ -34,6 +46,11 @@
   @include lg-down {
     max-width: 450px;
   }
+
+  @include md-down {
+    max-width: 340px;
+    font-size: 16px;
+  }
 }
 
 .illustration {
@@ -44,6 +61,11 @@
   @include lg-down {
     left: 480px;
     width: 69%;
+  }
+
+  @include md-down {
+    left: 400px;
+    width: 78%;
   }
 }
 
@@ -63,5 +85,11 @@
     width: 690px;
     min-width: initial;
     height: initial;
+  }
+
+  @include md-down {
+    top: calc((#{$header-height-md} - 34px) / -1);
+    right: calc(#{$container-side-gap-md} / -1 - 155px);
+    width: 645px;
   }
 }

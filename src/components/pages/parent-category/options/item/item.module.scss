@@ -23,6 +23,11 @@
       color: $color-accent-primary;
     }
   }
+
+  @include md-down {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .inner {
@@ -36,6 +41,14 @@
   padding-left: 30px;
   color: inherit;
   text-decoration: none;
+
+  @include md-down {
+    position: relative;
+    flex-direction: row;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 190px;
+  }
 }
 
 .number {
@@ -50,11 +63,26 @@
   background-color: $color-accent-secondary;
   border-top-left-radius: 8px;
   border-bottom-right-radius: 30px;
+
+  @include md-down {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .image {
   margin-top: 15px;
   margin-bottom: 30px;
+
+  @include md-down {
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    height: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: translateY(-50%);
+  }
 }
 
 .content {
@@ -62,10 +90,18 @@
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
+
+  @include md-down {
+    align-items: flex-start;
+  }
 }
 
 .title {
   margin-bottom: 60px;
+
+  @include md-down {
+    margin-bottom: 15px;
+  }
 }
 
 .footer-text {
@@ -77,6 +113,10 @@
   line-height: $line-height-xs;
   text-transform: uppercase;
   transition: color $transition-base;
+
+  @include md-down {
+    width: initial;
+  }
 
   &::before {
     position: absolute;
