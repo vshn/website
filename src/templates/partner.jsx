@@ -7,8 +7,18 @@ import Hero from 'components/pages/partner/hero/';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { seo, wpPartner: data }, pageContext: { locale, pageUrls } }) => (
-  <MainLayout seo={seo} pageUrls={pageUrls}>
+export default ({
+  data: { seo, wpPartner: data },
+  pageContext: { locale, pageUrls, menuItems, mobileMenuItems, topMenuItems, footerMenuItems },
+}) => (
+  <MainLayout
+    seo={seo}
+    pageUrls={pageUrls}
+    menuItems={menuItems}
+    topMenuItems={topMenuItems}
+    mobileMenuItems={mobileMenuItems}
+    footerMenuItems={footerMenuItems}
+  >
     <Hero {...data} />
     <Content {...data} />
     <Contact locale={locale} />

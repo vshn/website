@@ -9,8 +9,18 @@ import Pagination from 'components/pages/blog/pagination';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
-  <MainLayout seo={seo}>
+export default ({
+  data: { wpPage: { seo, acf: data } },
+  pageContext: { locale, pageUrls, topMenuItems, menuItems, mobileMenuItems, footerMenuItems },
+}) => (
+  <MainLayout
+    seo={seo}
+    pageUrls={pageUrls}
+    menuItems={menuItems}
+    topMenuItems={topMenuItems}
+    mobileMenuItems={mobileMenuItems}
+    footerMenuItems={footerMenuItems}
+  >
     <FeaturedPost {...data.featuredPost} />
     <Categories {...data.categories} />
     <BlogPostsList {...data.blogPostsList} />

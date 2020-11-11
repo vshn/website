@@ -37,19 +37,14 @@ const Header = (props) => {
     `,
   );
   const {
-    topLineText1,
-    topLineText1Url,
-    topLineText2,
-    topLineText2Url,
-    topLineText3,
-    topLineText3Url,
     language1Text,
     language2Text,
     menuItems,
+    topMenuItems,
     onBurgerClick,
     pageUrls,
   } = props;
-
+  console.log(topMenuItems);
   const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
 
   const handleMenuItemMouseEnter = () => setIsMenuItemHovered(true);
@@ -60,15 +55,11 @@ const Header = (props) => {
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
-            <Link className={cx('list-item')} to={topLineText1Url}>
-              {topLineText1}
-            </Link>
-            <Link className={cx('list-item')} to={topLineText2Url}>
-              {topLineText2}
-            </Link>
-            <Link className={cx('list-item')} to={topLineText3Url}>
-              {topLineText3}
-            </Link>
+            {topMenuItems.map(({ label, path }, i) => (
+              <Link key={i} className={cx('list-item')} to={path}>
+                {label}
+              </Link>
+            ))}
           </ul>
 
           <ul className={cx('list')}>
@@ -146,12 +137,6 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  topLineText1: PropTypes.string,
-  topLineText1Url: PropTypes.string,
-  topLineText2: PropTypes.string,
-  topLineText2Url: PropTypes.string,
-  topLineText3: PropTypes.string,
-  topLineText3Url: PropTypes.string,
   language1Text: PropTypes.string,
   language2Text: PropTypes.string,
   menuItems: PropTypes.arrayOf(
@@ -159,10 +144,6 @@ Header.propTypes = {
       label: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
       childItems: PropTypes.shape({
-        post: PropTypes.shape({
-          url: PropTypes.string,
-          title: PropTypes.string,
-        }),
         nodes: PropTypes.arrayOf(
           PropTypes.shape({
             label: PropTypes.string,
@@ -171,20 +152,22 @@ Header.propTypes = {
         ),
       }),
     }),
-  ).isRequired,
+  ),
+  topMenuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    }),
+  ),
   onBurgerClick: PropTypes.func.isRequired,
   pageUrls: PropTypes.shape().isRequired,
 };
 
 Header.defaultProps = {
-  topLineText1: 'Status',
-  topLineText1Url: '/',
-  topLineText2: 'Docs',
-  topLineText2Url: '/',
-  topLineText3: 'Supports',
-  topLineText3Url: '/',
   language1Text: 'English',
   language2Text: 'Deutsch',
+  menuItems: [],
+  topMenuItems: [],
 };
 
 export default Header;

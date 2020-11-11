@@ -29,7 +29,7 @@ const Contact = ({ locale }) => {
     `,
   );
 
-  const data = nodes.find(({ language }) => language.slug === locale)?.acf;
+  const data = nodes.find(({ language }) => language.locale === locale)?.acf;
 
   const {
     title,

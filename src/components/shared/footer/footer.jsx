@@ -106,52 +106,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  menuItems: [
-    {
-      label: 'Solutions',
-      path: '/solutions',
-    },
-    {
-      label: 'Products',
-      path: '/products',
-    },
-    {
-      label: 'Learn',
-      path: '/learn',
-    },
-    {
-      label: 'Partners',
-      path: '/partners',
-    },
-    {
-      label: 'Blog',
-      path: '/blog',
-    },
-    {
-      label: 'About',
-      path: '/about',
-    },
-    {
-      label: 'Contact',
-      path: '/contact',
-    },
-    {
-      label: 'Support',
-      path: '/support',
-    },
-    {
-      label: 'GTC',
-      path: '/gtc',
-    },
-    {
-      label: 'Imprint',
-      path: '/imprint',
-    },
-    {
-      label: 'Privacy Policy',
-      path: '/privacy-policy',
-    },
-  ],
+  menuItems: [],
   facebookUrl: 'https://facebook.com',
   githubUrl: 'https://github.com',
   gitlabUrl: 'https://gitlab.com',
