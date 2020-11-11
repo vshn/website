@@ -1,11 +1,10 @@
 import classNames from 'classnames/bind';
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Link from 'components/shared/link';
 import Logo from 'images/logo.inline.svg';
-import filterNonRootItems from 'utils/filter-non-root-items';
 
 import styles from './header.module.scss';
 import deutsch from './images/deutsch.svg';
@@ -16,9 +15,6 @@ const cx = classNames.bind(styles);
 
 const Header = (props) => {
   const {
-    wpMenu: {
-      menuItems: { nodes: menuItemsNodes },
-    },
     allWpMenuBanner: { banners },
   } = useStaticQuery(
     graphql`
@@ -37,27 +33,6 @@ const Header = (props) => {
             }
           }
         }
-        wpMenu(slug: { eq: "main-menu-english" }) {
-          menuItems {
-            nodes {
-              label
-              path
-              parentId
-              childItems {
-                nodes {
-                  label
-                  path
-                  childItems {
-                    nodes {
-                      label
-                      path
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     `,
   );
@@ -69,19 +44,16 @@ const Header = (props) => {
     topLineText3,
     topLineText3Url,
     language1Text,
-    language1Url,
     language2Text,
-    language2Url,
+    menuItems,
     onBurgerClick,
+    pageUrls,
   } = props;
 
   const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
 
   const handleMenuItemMouseEnter = () => setIsMenuItemHovered(true);
   const handleMenuItemMouseLeave = () => setIsMenuItemHovered(false);
-
-  // Graphql does not allow to filter by null values so has to do it manually
-  const menuItems = filterNonRootItems(menuItemsNodes);
 
   return (
     <header className={cx('wrapper', { menuItemIsHovered: isMenuItemHovered })}>
@@ -103,7 +75,7 @@ const Header = (props) => {
             <li className={cx('list-item')}>
               <Link
                 className={cx('list-link')}
-                to={language1Url}
+                to={pageUrls.en}
                 activeClassName={cx('active')}
               >
                 <img className={cx('icon')} src={english} alt="" aria-hidden />
@@ -113,7 +85,7 @@ const Header = (props) => {
             <li className={cx('list-item')}>
               <Link
                 className={cx('list-link')}
-                to={language2Url}
+                to={pageUrls.de}
                 activeClassName={cx('active')}
               >
                 <img className={cx('icon')} src={deutsch} alt="" aria-hidden />
@@ -181,9 +153,7 @@ Header.propTypes = {
   topLineText3: PropTypes.string,
   topLineText3Url: PropTypes.string,
   language1Text: PropTypes.string,
-  language1Url: PropTypes.string,
   language2Text: PropTypes.string,
-  language2Url: PropTypes.string,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -201,8 +171,9 @@ Header.propTypes = {
         ),
       }),
     }),
-  ),
+  ).isRequired,
   onBurgerClick: PropTypes.func.isRequired,
+  pageUrls: PropTypes.shape().isRequired,
 };
 
 Header.defaultProps = {
@@ -213,9 +184,7 @@ Header.defaultProps = {
   topLineText3: 'Supports',
   topLineText3Url: '/',
   language1Text: 'English',
-  language1Url: '/en',
   language2Text: 'Deutsch',
-  language2Url: '/',
 };
 
 export default Header;

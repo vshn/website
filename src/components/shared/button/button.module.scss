@@ -33,7 +33,8 @@
       padding-right: 30px;
       padding-bottom: 13px;
       padding-left: 30px;
-      font-size: 14px;
+      font-size: $font-size-xs;
+      line-height: $line-height-xs;
     }
 
     @include hover {

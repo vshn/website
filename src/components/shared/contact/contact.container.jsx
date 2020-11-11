@@ -13,7 +13,7 @@ const Contact = ({ locale }) => {
         allWpSharedBlock(filter: { slug: { eq: "contact" } }) {
           nodes {
             language {
-              slug
+              locale: slug
             }
             acf {
               title

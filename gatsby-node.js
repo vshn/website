@@ -63,6 +63,27 @@ const getAllMenusByLocale = async (graphql) => {
     },
   };
 };
+const DEFAULT_LOCALE = 'de';
+const SUPPORTED_LOCALES = ['en', 'de'];
+
+function getUrlsForLocales(locale, url, translations) {
+  const urls = {};
+  urls[locale] = url;
+
+  const remainingLocales = SUPPORTED_LOCALES.filter((item) => item !== locale);
+
+  remainingLocales.forEach((remainingLocale) => {
+    const matchedTranslation = translations.find(
+      (translation) => translation.language.locale === remainingLocale,
+    );
+    if (matchedTranslation) {
+      urls[remainingLocale] = matchedTranslation.uri;
+    } else {
+      urls[remainingLocale] = remainingLocale === DEFAULT_LOCALE ? '/' : `/${remainingLocale}`;
+    }
+  });
+  return urls;
+}
 
 async function createPages({ graphql, actions }) {
   const { createPage } = actions;
@@ -76,7 +97,13 @@ async function createPages({ graphql, actions }) {
           id
           uri
           language {
-            slug
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
           }
           template {
             templateName
@@ -93,15 +120,15 @@ async function createPages({ graphql, actions }) {
   const pages = result.data.allWpPage.nodes;
 
   pages.forEach(
-    ({ id, uri, language: { slug }, template: { templateName } }) => {
+    ({ id, uri, language: { locale }, translations, template: { templateName } }) => {
       const templatePath = path.resolve(
         `./src/templates/${templateName.toLowerCase()}.jsx`,
       );
 
       const context = {
         id,
-        locale: slug,
-        menus: allMenus[slug],
+        locale,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
       };
 
       if (fs.existsSync(templatePath)) {
@@ -127,7 +154,7 @@ async function createPosts({ graphql, actions }) {
           content
           uri
           language {
-            slug
+            locale: slug
           }
         }
       }
@@ -163,7 +190,63 @@ async function createPosts({ graphql, actions }) {
   });
 }
 
+async function createPartners({ graphql, actions }) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allWpPartner {
+        nodes {
+          id
+          content
+          uri
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const partners = result.data.allWpPartner.nodes;
+
+  partners.forEach(
+    ({ id, content, uri, language: { locale }, translations }) => {
+      const templatePath = path.resolve('./src/templates/partner.jsx');
+
+      const context = {
+        id,
+        locale,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
+
+      if (content) {
+        context.content = replaceBrokenSpaces(content);
+      }
+
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        console.error('Template Partner was not found');
+      }
+    },
+  );
+}
+
 exports.createPages = async (args) => {
   await createPages(args);
   await createPosts(args);
+  await createPartners(args);
 };
