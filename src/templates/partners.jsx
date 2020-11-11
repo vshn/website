@@ -14,15 +14,12 @@ export default ({
     allWpSuccessStory,
     allWpPartner,
   },
-  pageContext: { locale, pageUrls, menuItems, mobileMenuItems, topMenuItems, footerMenuItems },
+  pageContext: { locale, pageUrls, menus },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
-    menuItems={menuItems}
-    topMenuItems={topMenuItems}
-    mobileMenuItems={mobileMenuItems}
-    footerMenuItems={footerMenuItems}
+    menus={menus}
   >
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />

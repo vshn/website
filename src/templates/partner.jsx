@@ -9,15 +9,12 @@ import MainLayout from 'layouts/main';
 
 export default ({
   data: { seo, wpPartner: data },
-  pageContext: { locale, pageUrls, menuItems, mobileMenuItems, topMenuItems, footerMenuItems },
+  pageContext: { locale, pageUrls, menus },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
-    menuItems={menuItems}
-    topMenuItems={topMenuItems}
-    mobileMenuItems={mobileMenuItems}
-    footerMenuItems={footerMenuItems}
+    menus={menus}
   >
     <Hero {...data} />
     <Content {...data} />

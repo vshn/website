@@ -156,7 +156,7 @@ function getUrlsForLocales(locale, url, translations) {
 
 /* Main logic */
 
-async function createPages({ graphql, actions, reporter, getMenuItems }) {
+async function createPages({ graphql, actions, reporter, getMenus }) {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -196,10 +196,7 @@ async function createPages({ graphql, actions, reporter, getMenuItems }) {
       const context = {
         id,
         locale,
-        menuItems: getMenuItems({ locale }),
-        topMenuItems: getMenuItems({ type: 'top', locale }),
-        mobileMenuItems: getMenuItems({ type: 'mobile', locale }),
-        footerMenuItems: getMenuItems({ type: 'footer', locale }),
+        menus: getMenus(locale),
         pageUrls: getUrlsForLocales(locale, uri, translations),
       };
 
@@ -216,7 +213,7 @@ async function createPages({ graphql, actions, reporter, getMenuItems }) {
   );
 }
 
-async function createPosts({ graphql, actions, reporter, getMenuItems }) {
+async function createPosts({ graphql, actions, reporter, getMenus }) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -244,10 +241,7 @@ async function createPosts({ graphql, actions, reporter, getMenuItems }) {
     const context = {
       id,
       locale,
-      menuItems: getMenuItems({ locale }),
-      topMenuItems: getMenuItems({ type: 'top', locale }),
-      mobileMenuItems: getMenuItems({ type: 'mobile', locale }),
-      footerMenuItems: getMenuItems({ type: 'footer', locale }),
+      menus: getMenus(locale),
       pageUrls: getUrlsForLocales(locale, uri, []),
     };
 
@@ -267,7 +261,7 @@ async function createPosts({ graphql, actions, reporter, getMenuItems }) {
   });
 }
 
-async function createPartners({ graphql, actions, reporter, getMenuItems }) {
+async function createPartners({ graphql, actions, reporter, getMenus }) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -302,10 +296,7 @@ async function createPartners({ graphql, actions, reporter, getMenuItems }) {
       const context = {
         id,
         locale,
-        menuItems: getMenuItems({ locale }),
-        topMenuItems: getMenuItems({ type: 'top', locale }),
-        mobileMenuItems: getMenuItems({ type: 'mobile', locale }),
-        footerMenuItems: getMenuItems({ type: 'footer', locale }),
+        menus: getMenus(locale),
         pageUrls: getUrlsForLocales(locale, uri, translations),
       };
 
@@ -326,30 +317,64 @@ async function createPartners({ graphql, actions, reporter, getMenuItems }) {
   );
 }
 
+/* Note: this is a stub, should be set properly after
+// there is a 404 page in WP
+*/
+const createNotFound = ({ actions, getMenus }) => {
+  const { createPage } = actions;
+
+  createPage({
+    path: '/en/404',
+    component: slash(path.resolve('./src/templates/404.jsx')),
+    context: {
+      menus: getMenus('end'),
+      locale: 'en',
+      pageUrls: getUrlsForLocales('en', '/en/404', [{ language: { locale: 'de' }, uri: '/404' }]),
+    },
+  });
+
+  createPage({
+    path: '/404',
+    component: slash(path.resolve('./src/templates/404.jsx')),
+    context: {
+      menus: getMenus('de'),
+      locale: 'de',
+      pageUrls: getUrlsForLocales('de', '/404', [{ language: { locale: 'en' }, uri: '/en/404' }]),
+    },
+  });
+};
+
 exports.createPages = async (args) => {
   // since all the pages have the exact same menu,
   // query it early and pass to page generators
   const allMenus = await getAllMenusByLocale(args.graphql);
 
   // a little local helper to avoid copypasting chains
-  // getMenuItems({
+  // getMenus({
   //  type: oneOf(SUPPORTED_MENU_TYPES),
   //  locale: oneOf(SUPPORTED_LOCALES)
   // }) -> Array<MenuItem>
-  const getMenuItems = ({ type = 'main', locale = DEFAULT_LOCALE }) => {
-    const menuType = SUPPORTED_MENU_TYPES.includes(type) ? type : DEFAULT_MENU;
+  const getMenus = (locale = DEFAULT_LOCALE) => {
     const menuLocale = SUPPORTED_LOCALES.includes(locale) ? locale : DEFAULT_LOCALE;
-    const items = allMenus[menuLocale][`${menuType}Menu`].menuItems.nodes;
+
+    const menus = {};
+
+    SUPPORTED_MENU_TYPES.forEach((type) => {
+      const items = allMenus[menuLocale][`${type}Menu`].menuItems.nodes;
+      menus[`${type}MenuItems`] = type === 'main' ? filterNonRootItems(items) : items;
+    });
     // filter non top level links if type of menu is main
-    return type === 'main' ? filterNonRootItems(items) : items;
+    return menus;
   };
 
   const params = {
     ...args,
-    getMenuItems,
+    getMenus,
   };
 
   await createPages(params);
   await createPosts(params);
   await createPartners(params);
+  // custom 404
+  await createNotFound(params);
 };

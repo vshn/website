@@ -11,15 +11,12 @@ import MainLayout from 'layouts/main';
 
 export default ({
   data: { wpPage: { seo, acf: data } },
-  pageContext: { locale, pageUrls, topMenuItems, menuItems, mobileMenuItems, footerMenuItems },
+  pageContext: { locale, pageUrls, menus },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
-    menuItems={menuItems}
-    topMenuItems={topMenuItems}
-    mobileMenuItems={mobileMenuItems}
-    footerMenuItems={footerMenuItems}
+    menus={menus}
   >
     <FeaturedPost {...data.featuredPost} />
     <Categories {...data.categories} />
