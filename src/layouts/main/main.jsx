@@ -8,7 +8,16 @@ import MobileMenu from 'components/shared/mobile-menu';
 import Overlay from 'components/shared/overlay';
 import SEO from 'components/shared/seo';
 
-const MainLayout = ({ seo, children, pageUrls }) => {
+const MainLayout = (props) => {
+  const {
+    seo,
+    children,
+    pageUrls,
+    menuItems,
+    topMenuItems,
+    mobileMenuItems,
+    footerMenuItems,
+  } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(true);
@@ -27,16 +36,21 @@ const MainLayout = ({ seo, children, pageUrls }) => {
       document.body.style.cssText = '';
     }
   }, [isMobileMenuOpen]);
-
   return (
     <>
       {seo && <SEO {...seo} />}
-      <Header pageUrls={pageUrls} onBurgerClick={handleHeaderBurgerClick} />
+      <Header
+        pageUrls={pageUrls}
+        menuItems={menuItems}
+        topMenuItems={topMenuItems}
+        onBurgerClick={handleHeaderBurgerClick}
+      />
       <main>{children}</main>
-      <Footer />
+      <Footer menuItems={footerMenuItems} />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
       <MobileMenu
         isOpen={isMobileMenuOpen}
+        menuItems={mobileMenuItems}
         onCloseButtonClick={handleMobileNavCloseButtonClick}
       />
     </>
@@ -47,10 +61,18 @@ MainLayout.propTypes = {
   seo: PropTypes.objectOf(PropTypes.any),
   children: PropTypes.node.isRequired,
   pageUrls: PropTypes.shape().isRequired,
+  topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  menuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 MainLayout.defaultProps = {
   seo: null,
+  menuItems: [],
+  mobileMenuItems: [],
+  topMenuItems: [],
+  footerMenuItems: [],
 };
 
 export const query = graphql`

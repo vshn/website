@@ -18,9 +18,16 @@ export default ({
   data: {
     wpPage: { seo, acf: data },
   },
-  pageContext: { locale, pageUrls },
+  pageContext: { locale, pageUrls, menuItems, topMenuItems, mobileMenuItems, footerMenuItems },
 }) => (
-  <MainLayout seo={seo} pageUrls={pageUrls}>
+  <MainLayout
+    seo={seo}
+    pageUrls={pageUrls}
+    menuItems={menuItems}
+    topMenuItems={topMenuItems}
+    mobileMenuItems={mobileMenuItems}
+    footerMenuItems={footerMenuItems}
+  >
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
     <SolutionsProducts {...data.solutionsProducts} />

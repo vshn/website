@@ -9,8 +9,18 @@ import News from 'components/pages/blog-post/news';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { seo, wpPost: data }, pageContext: { locale } }) => (
-  <MainLayout seo={seo}>
+export default ({
+  data: { seo, wpPost: data },
+  pageContext: { locale, pageUrls, menuItems, topMenuItems, mobileMenuItems, footerMenuItems },
+}) => (
+  <MainLayout
+    seo={seo}
+    pageUrls={pageUrls}
+    menuItems={menuItems}
+    mobileMenuItems={mobileMenuItems}
+    topMenuItems={topMenuItems}
+    footerMenuItems={footerMenuItems}
+  >
     <Hero {...data} />
     <Content {...data} />
     <AuthorInfo {...data.acf.authorInfo} />
