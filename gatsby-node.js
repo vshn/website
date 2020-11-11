@@ -326,6 +326,40 @@ async function createPartners({ graphql, actions, reporter, getMenuItems }) {
   );
 }
 
+/* Note: this is a stub, should be set properly after
+// there is a 404 page in WP
+*/
+const createNotFound = ({ actions, getMenuItems }) => {
+  const { createPage } = actions;
+
+  const context = (locale) => ({
+    menuItems: getMenuItems({ locale }),
+    topMenuItems: getMenuItems({ type: 'top', locale }),
+    mobileMenuItems: getMenuItems({ type: 'mobile', locale }),
+    footerMenuItems: getMenuItems({ type: 'footer', locale }),
+  });
+
+  createPage({
+    path: '/en/404',
+    component: slash(path.resolve('./src/templates/404.jsx')),
+    context: {
+      ...context('en'),
+      locale: 'en',
+      pageUrls: getUrlsForLocales('en', '/en/404', [{ language: { locale: 'de' }, uri: '/404' }]),
+    },
+  });
+
+  createPage({
+    path: '/404',
+    component: slash(path.resolve('./src/templates/404.jsx')),
+    context: {
+      ...context('de'),
+      locale: 'de',
+      pageUrls: getUrlsForLocales('de', '/404', [{ language: { locale: 'en' }, uri: '/en/404' }]),
+    },
+  });
+};
+
 exports.createPages = async (args) => {
   // since all the pages have the exact same menu,
   // query it early and pass to page generators
@@ -352,4 +386,6 @@ exports.createPages = async (args) => {
   await createPages(params);
   await createPosts(params);
   await createPartners(params);
+  // custom 404
+  await createNotFound(params);
 };
