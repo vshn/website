@@ -1,0 +1,145 @@
+.wrapper {
+  position: relative;
+  padding-top: $header-height + 60px;
+  padding-bottom: 180px;
+  margin-bottom: 230px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: $header-height + 40px;
+    padding-bottom: 120px;
+    margin-bottom: 200px;
+  }
+
+  @include md-down {
+    padding-top: $header-height-md + 40px;
+    padding-bottom: 90px;
+    margin-bottom: 195px;
+  }
+
+  @include sm-down {
+    padding-top: $header-height-md + 30px;
+    padding-bottom: 70px;
+    margin-bottom: 70px;
+    text-align: center;
+  }
+}
+
+.title {
+  display: block;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
+}
+
+.subtitle {
+  max-width: 520px;
+  margin-bottom: 30px;
+
+  @include lg-down {
+    max-width: 450px;
+  }
+
+  @include md-down {
+    max-width: 340px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+  }
+}
+
+.description {
+  max-width: 520px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: $color-secondary;
+
+  @include lg-down {
+    max-width: 450px;
+    font-size: 16px;
+  }
+
+  @include md-down {
+    max-width: 340px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+  }
+}
+
+.button {
+  @include sm-down {
+    margin-bottom: 60px;
+  }
+}
+
+.illustration-wrapper {
+  position: absolute;
+  top: 30px;
+  right: 110px;
+
+  img {
+    width: 520px;
+  }
+
+  @include lg-down {
+    right: 0;
+
+    img {
+      width: 420px;
+    }
+  }
+
+  @include md-down {
+    right: -85px;
+
+    img {
+      width: 385px;
+    }
+  }
+
+  @include sm-down {
+    position: relative;
+    top: 0;
+    right: 0;
+    text-align: center;
+
+    img {
+      width: 324px;
+    }
+  }
+
+  @include xs-down {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.shape-1 {
+  position: absolute;
+  top: -60px;
+  left: 655px;
+  z-index: -1;
+  width: calc(645px + #{$container-side-gap});
+  min-width: 948px;
+  height: 1000px;
+}
+
+.shape-2 {
+  position: absolute;
+  right: 1100px;
+  bottom: -505px;
+  z-index: -1;
+  width: calc(520px + #{$container-side-gap});
+  min-width: 505px;
+  height: 400px;
+}

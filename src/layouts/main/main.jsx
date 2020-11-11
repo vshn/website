@@ -8,7 +8,7 @@ import MobileMenu from 'components/shared/mobile-menu';
 import Overlay from 'components/shared/overlay';
 import SEO from 'components/shared/seo';
 
-const MainLayout = ({ seo, children }) => {
+const MainLayout = ({ seo, children, pageUrls }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(true);
@@ -31,11 +31,14 @@ const MainLayout = ({ seo, children }) => {
   return (
     <>
       {seo && <SEO {...seo} />}
-      <Header onBurgerClick={handleHeaderBurgerClick} />
+      <Header pageUrls={pageUrls} onBurgerClick={handleHeaderBurgerClick} />
       <main>{children}</main>
       <Footer />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
-      <MobileMenu isOpen={isMobileMenuOpen} onCloseButtonClick={handleMobileNavCloseButtonClick} />
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onCloseButtonClick={handleMobileNavCloseButtonClick}
+      />
     </>
   );
 };
@@ -43,6 +46,7 @@ const MainLayout = ({ seo, children }) => {
 MainLayout.propTypes = {
   seo: PropTypes.objectOf(PropTypes.any),
   children: PropTypes.node.isRequired,
+  pageUrls: PropTypes.shape().isRequired,
 };
 
 MainLayout.defaultProps = {

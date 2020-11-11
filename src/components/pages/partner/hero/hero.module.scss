@@ -1,0 +1,112 @@
+.wrapper {
+  position: relative;
+  z-index: 0;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  margin-top: $header-height;
+  margin-bottom: 90px;
+  background-color: #f9fafb;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-bottom: 60px;
+  }
+
+  @include md-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: $header-height-md;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.category-wrapper {
+  display: block;
+  margin-bottom: 30px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  color: $color-secondary;
+  text-transform: uppercase;
+
+  @include with-link-secondary;
+
+  .category {
+    position: relative;
+    margin-right: 25px;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      display: inline-block;
+      padding: 3px;
+      content: '';
+      border: solid $color-secondary;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(-45deg);
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+
+  @include md-down {
+    margin-bottom: 25px;
+  }
+}
+
+.title {
+  display: -webkit-box;
+  max-width: 770px;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  @include lg-down {
+    max-width: 560px;
+  }
+
+  @include md-down {
+    max-width: initial;
+    -webkit-line-clamp: 2;
+  }
+}
+
+.description {
+  display: -webkit-box;
+  max-width: 770px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-secondary;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  @include lg-down {
+    max-width: 560px;
+    -webkit-line-clamp: 3;
+  }
+
+  @include md-down {
+    max-width: initial;
+    font-size: 18px;
+  }
+}
+
+.background-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+}

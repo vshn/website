@@ -46,8 +46,13 @@ const otherOptions = {
   ],
 };
 
-export default ({ data: { wpPage: { seo, acf: data } }, pageContext: { locale } }) => (
-  <MainLayout seo={seo}>
+export default ({
+  data: {
+    wpPage: { seo, acf: data },
+  },
+  pageContext: { locale, pageUrls },
+}) => (
+  <MainLayout seo={seo} pageUrls={pageUrls}>
     <Hero {...hero} />
     <Options {...options} />
     <OtherOptions {...otherOptions} />

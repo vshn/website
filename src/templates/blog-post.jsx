@@ -43,7 +43,7 @@ export const query = graphql`
               }
             }
             fullName
-            email 
+            email
             number
           }
           description
