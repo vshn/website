@@ -70,7 +70,7 @@
 .illustration {
   position: absolute;
   top: 0;
-  left: 590px;
+  left: 660px;
 
   @include lg-down {
     left: 480px;
@@ -92,7 +92,7 @@
 
 .shape {
   position: absolute;
-  top: -35px;
+  top: -60px;
   left: 655px;
   z-index: -1;
   width: calc(645px + #{$container-side-gap});
