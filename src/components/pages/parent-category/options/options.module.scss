@@ -3,9 +3,7 @@
 }
 
 .items-wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: $column-gap;
+  display: flex;
   padding-left: 0;
   list-style-type: none;
 }

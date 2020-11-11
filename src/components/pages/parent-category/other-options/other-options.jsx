@@ -9,7 +9,7 @@ import styles from './other-options.module.scss';
 const cx = classNames.bind(styles);
 
 const OtherOptions = ({ title, items }) => (
-  <div className={cx('wrapper')}>
+  <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('title')} tag="h2">{title}</Heading>
       <ul className={cx('items-wrapper')}>
@@ -18,7 +18,7 @@ const OtherOptions = ({ title, items }) => (
         ))}
       </ul>
     </div>
-  </div>
+  </section>
 );
 
 OtherOptions.propTypes = {

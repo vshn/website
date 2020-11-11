@@ -1,10 +1,18 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
 }
 
 .title {
   margin-bottom: 45px;
   font-size: 36px;
+
+  @include lg-down {
+    font-size: 32px;
+  }
 }
 
 .items-wrapper {
@@ -24,6 +32,10 @@
   font-size: $font-size-lg;
   line-height: $line-height-lg;
   border-bottom: 1px solid $color-additional-2;
+
+  @include lg-down {
+    font-size: 24px;
+  }
 
   &:last-child {
     padding-bottom: 0;

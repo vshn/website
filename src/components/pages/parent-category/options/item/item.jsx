@@ -5,19 +5,17 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import Appuio from './images/appuio.inline.svg';
-import ManagedServices from './images/managed-services.inline.svg';
-import OpenSource from './images/open-source.inline.svg';
-import VSHNSynSupport from './images/vshn-syn-support.inline.svg';
+import DevOpsEnablement from './images/devops-enablement.inline.svg';
+import ManagedApplicationServices from './images/managed-application-services.inline.svg';
+import ManagedContainerPlatforms from './images/managed-container-platforms.inline.svg';
 import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
 const images = [
-  <Appuio className={cx('image')} />,
-  <ManagedServices className={cx('image')} />,
-  <VSHNSynSupport className={cx('image')} />,
-  <OpenSource className={cx('image')} />,
+  <DevOpsEnablement className={cx('image')} />,
+  <ManagedContainerPlatforms className={cx('image')} />,
+  <ManagedApplicationServices className={cx('image')} />,
 ];
 
 const Item = ({ number, title, footerText, link }) => (
@@ -38,10 +36,6 @@ Item.propTypes = {
   title: PropTypes.string.isRequired,
   footerText: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-};
-
-Item.defaultProps = {
-
 };
 
 export default Item;

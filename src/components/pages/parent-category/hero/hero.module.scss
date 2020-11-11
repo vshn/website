@@ -1,7 +1,13 @@
 .wrapper {
   position: relative;
   padding-top: $header-height + 50px;
+  padding-bottom: 60px;
   margin-bottom: 120px;
+
+  @include lg-down {
+    padding-top: $header-height + 35px;
+    padding-bottom: 0;
+  }
 }
 
 .title {
@@ -12,6 +18,11 @@
 .subtitle {
   max-width: 520px;
   margin-bottom: 30px;
+
+  @include lg-down {
+    max-width: 450px;
+    font-size: 50px;
+  }
 }
 
 .description {
@@ -19,12 +30,21 @@
   font-size: 18px;
   line-height: 1.6;
   color: $color-secondary;
+
+  @include lg-down {
+    max-width: 450px;
+  }
 }
 
 .illustration {
   position: absolute;
   top: 0;
-  right: 110px;
+  left: 590px;
+
+  @include lg-down {
+    left: 480px;
+    width: 69%;
+  }
 }
 
 .shape {
@@ -33,6 +53,15 @@
   left: 655px;
   z-index: -1;
   width: calc(645px + #{$container-side-gap});
-  min-width: 960px;
-  height: 940px;
+  min-width: 948px;
+  height: 1000px;
+
+  @include lg-down {
+    top: -45px;
+    right: calc(#{$container-side-gap-lg} / -1 - 105px);
+    left: auto;
+    width: 690px;
+    min-width: initial;
+    height: initial;
+  }
 }

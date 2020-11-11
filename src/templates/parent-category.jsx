@@ -9,30 +9,25 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 const hero = {
-  title: 'Products',
-  subtitle: 'VSHN products',
-  description: '<p>Our products help you get the most out of your DevOps journey, become Cloud Native and implement your cloud or on-premise container environment.</p><p>DevOps stands for a new culture and approach in the collaboration of traditionally separated departments. Our products help Development and Operations to work together to increase software quality and availability and ultimately customer satisfaction.</p>',
+  title: 'Solutions',
+  subtitle: 'Solutions VSHN provides',
+  description: '<p>DevOps is the industrial revolution in the software industry. VSHN helps you solve the problems when software is transformed into an online-service.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</p>',
 };
 
 const options = {
   items: [
     {
-      title: 'APPUiO',
+      title: 'DevOps Enablement',
       footerText: 'Learn more',
       link: '/',
     },
     {
-      title: 'Managed Services',
+      title: 'Managed Container Platforms',
       footerText: 'Learn more',
       link: '/',
     },
     {
-      title: 'VSHN Syn Support',
-      footerText: 'Learn more',
-      link: '/',
-    },
-    {
-      title: 'Open Source',
+      title: 'Managed Application Services',
       footerText: 'Learn more',
       link: '/',
     },
@@ -42,7 +37,8 @@ const options = {
 const otherOptions = {
   title: 'Also see',
   items: [
-    'Our solutions',
+    'Why DevOps?',
+    'Our products',
   ],
 };
 
