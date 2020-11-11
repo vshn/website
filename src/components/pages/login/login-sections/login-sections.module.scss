@@ -1,0 +1,18 @@
+.wrapper {
+  padding-top: $header-height + 90px;
+  margin-bottom: 180px;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 90px;
+}
+
+.items-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 410px);
+  column-gap: $column-gap;
+  justify-content: center;
+  padding-left: 0;
+  list-style-type: none;
+}
