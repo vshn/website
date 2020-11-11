@@ -44,7 +44,6 @@ const Header = (props) => {
     onBurgerClick,
     pageUrls,
   } = props;
-  console.log(topMenuItems);
   const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
 
   const handleMenuItemMouseEnter = () => setIsMenuItemHovered(true);
