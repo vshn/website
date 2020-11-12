@@ -13,10 +13,12 @@ const MainLayout = (props) => {
     seo,
     children,
     pageUrls,
-    menuItems,
-    topMenuItems,
-    mobileMenuItems,
-    footerMenuItems,
+    menus: {
+      menuItems,
+      topMenuItems,
+      mobileMenuItems,
+      footerMenuItems,
+    },
   } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -61,18 +63,22 @@ MainLayout.propTypes = {
   seo: PropTypes.objectOf(PropTypes.any),
   children: PropTypes.node.isRequired,
   pageUrls: PropTypes.shape().isRequired,
-  topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
-  menuItems: PropTypes.arrayOf(PropTypes.shape({})),
-  mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
-  footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  menus: PropTypes.shape({
+    topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    menuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
 };
 
 MainLayout.defaultProps = {
   seo: null,
-  menuItems: [],
-  mobileMenuItems: [],
-  topMenuItems: [],
-  footerMenuItems: [],
+  menus: {
+    menuItems: [],
+    mobileMenuItems: [],
+    topMenuItems: [],
+    footerMenuItems: [],
+  },
 };
 
 export const query = graphql`
