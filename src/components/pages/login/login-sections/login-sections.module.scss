@@ -2,10 +2,30 @@
   padding-top: $header-height + 90px;
   margin-bottom: 180px;
   text-align: center;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: $header-height + 60px;
+    margin-bottom: 120px;
+  }
+
+  @include md-down {
+    padding-top: $header-height-md + 60px;
+    margin-bottom: 90px;
+  }
 }
 
 .title {
   margin-bottom: 90px;
+
+  @include lg-down {
+    margin-bottom: 60px;
+  }
+
+  @include md-down {
+    margin-bottom: 40px;
+  }
 }
 
 .items-wrapper {
@@ -15,4 +35,9 @@
   justify-content: center;
   padding-left: 0;
   list-style-type: none;
+
+  @include md-down {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
+  }
 }
