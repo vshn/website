@@ -7,8 +7,11 @@ import Hero from 'components/pages/success-story/hero';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { seo, wpSuccessStory: data }, pageContext: { locale } }) => (
-  <MainLayout seo={seo}>
+export default ({
+  data: { seo, wpSuccessStory: data },
+  pageContext: { locale, pageUrls, menus },
+}) => (
+  <MainLayout seo={seo} pageUrls={pageUrls} menus={menus}>
     <Hero {...data} />
     <Content {...data} />
     <Contact locale={locale} />

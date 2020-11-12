@@ -9,8 +9,15 @@ import News from 'components/pages/blog-post/news';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { seo, wpPost: data }, pageContext: { locale } }) => (
-  <MainLayout seo={seo}>
+export default ({
+  data: { seo, wpPost: data },
+  pageContext: { locale, pageUrls, menus },
+}) => (
+  <MainLayout
+    seo={seo}
+    pageUrls={pageUrls}
+    menus={menus}
+  >
     <Hero {...data} />
     <Content {...data} />
     <AuthorInfo {...data.acf.authorInfo} />
@@ -43,14 +50,8 @@ export const query = graphql`
               }
             }
             fullName
-            email {
-              title
-              url
-            }
-            number {
-              title
-              url
-            }
+            email
+            number
           }
           description
         }

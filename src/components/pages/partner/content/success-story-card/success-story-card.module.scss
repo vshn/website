@@ -1,0 +1,65 @@
+.wrapper {
+  position: relative;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 115px;
+  padding-left: 30px;
+  background: $color-primary;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+
+  @include lg-down {
+    padding-top: 27px;
+    padding-right: 25px;
+    padding-bottom: 90px;
+    padding-left: 25px;
+  }
+
+  @include md-down {
+    padding-bottom: 45px;
+  }
+}
+
+.category {
+  display: block;
+  margin-bottom: 30px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  color: $color-additional-1;
+  text-transform: uppercase;
+
+  @include lg-down {
+    margin-bottom: 25px;
+    font-size: 12px;
+  }
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+
+  @include lg-down {
+    font-size: 30px;
+  }
+}
+
+.description {
+  margin-bottom: 30px;
+  color: $color-additional-1;
+
+  @include lg-down {
+    margin-bottom: 25px;
+  }
+}
+
+.link {
+  position: relative;
+  z-index: 1;
+}
+
+.circles {
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+}
