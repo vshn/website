@@ -13,32 +13,32 @@ import styles from './partners-hero.module.scss';
 const cx = classNames.bind(styles);
 
 const PartnersHero = (
-  { title, subtitle, description, buttonText },
-) => {
-  const buttonUrl = `#${title.toLowerCase()}`;
-  return (
-    <section className={cx('wrapper')}>
-      <div className="container">
-        <Heading className={cx('title')} tag="h1" size="xs" color="secondary">{title}</Heading>
-        <Heading className={cx('subtitle')} tag="p" size="xl">{subtitle}</Heading>
-        <p className={cx('description')}>{description}</p>
-        <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
+  { title, subtitle, description, buttonLink: { url: buttonUrl }, buttonText },
+) => (
+  <section className={cx('wrapper')}>
+    <div className="container">
+      <Heading className={cx('title')} tag="h1" size="xs" color="secondary">{title}</Heading>
+      <Heading className={cx('subtitle')} tag="p" size="xl">{subtitle}</Heading>
+      <p className={cx('description')}>{description}</p>
+      <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
-        <div className={cx('illustration-wrapper')}>
-          <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
-        </div>
-
-        <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
-        <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
+      <div className={cx('illustration-wrapper')}>
+        <img className={cx('illustration')} src={illustration} alt="" aria-hidden />
       </div>
-    </section>
-  );
-};
+
+      <img className={cx('shape-1')} src={shape1} alt="" aria-hidden />
+      <img className={cx('shape-2')} src={shape2} alt="" aria-hidden />
+    </div>
+  </section>
+);
 
 PartnersHero.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  buttonLink: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   buttonText: PropTypes.string.isRequired,
 };
 
