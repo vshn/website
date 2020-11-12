@@ -29,8 +29,4 @@ Facts.propTypes = {
   })).isRequired,
 };
 
-Facts.defaultProps = {
-
-};
-
 export default Facts;

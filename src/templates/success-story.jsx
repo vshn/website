@@ -26,6 +26,34 @@ export const query = graphql`
       acf {
         category
         description
+        partnerPost {
+          ... on WpPartner {
+            acf {
+              logo {
+                logoBackgroundColor
+                logoImage {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxHeight: 30) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                      }
+                    }
+                  }
+                }
+              }
+              partnerInfo {
+                items {
+                  value
+                  text
+                }
+                partnerLink {
+                  url
+                  title
+                }
+              }
+            }
+          }
+        }
         facts {
           title
           items {
