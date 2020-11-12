@@ -74,19 +74,19 @@
 
   @include lg-down {
     left: 480px;
-    width: 48vw;
+    width: 640px;
   }
 
   @include md-down {
     left: 400px;
-    width: 53vw;
+    width: 550px;
   }
 
   @include sm-down {
     position: relative;
     top: 30px;
     left: 30px;
-    width: 130vw;
+    width: 545px;
   }
 }
 
