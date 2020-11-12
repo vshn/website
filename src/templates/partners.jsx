@@ -14,12 +14,13 @@ export default ({
     allWpSuccessStory,
     allWpPartner,
   },
-  pageContext: { locale, pageUrls, menus },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
@@ -36,9 +37,6 @@ export const query = graphql`
           title
           subtitle
           description
-          buttonLink {
-            url
-          }
           buttonText
         }
         successStories {

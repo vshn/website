@@ -7,6 +7,7 @@ export default ({
     locale,
     pageUrls,
     menus,
+    globalFields,
   },
 }) => {
   const content = {
@@ -23,6 +24,7 @@ export default ({
     <MainLayout
       pageUrls={pageUrls}
       menus={menus}
+      globalFields={globalFields}
     >
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '260px', paddingBottom: '260px' }}>
         <h1>{content[locale].title}</h1>

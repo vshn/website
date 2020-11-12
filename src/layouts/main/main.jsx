@@ -19,6 +19,10 @@ const MainLayout = (props) => {
       mobileMenuItems,
       footerMenuItems,
     },
+    globalFields: {
+      socialLinks,
+      footerMeta,
+    },
   } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -48,7 +52,7 @@ const MainLayout = (props) => {
         onBurgerClick={handleHeaderBurgerClick}
       />
       <main>{children}</main>
-      <Footer menuItems={footerMenuItems} />
+      <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
       <MobileMenu
         isOpen={isMobileMenuOpen}
@@ -69,6 +73,10 @@ MainLayout.propTypes = {
     mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
   }),
+  globalFields: PropTypes.shape({
+    socialLinks: PropTypes.shape({}),
+    footerMeta: PropTypes.shape({}),
+  }),
 };
 
 MainLayout.defaultProps = {
@@ -78,6 +86,10 @@ MainLayout.defaultProps = {
     mobileMenuItems: [],
     topMenuItems: [],
     footerMenuItems: [],
+  },
+  globalFields: {
+    socialLinks: undefined,
+    globalFields: undefined,
   },
 };
 

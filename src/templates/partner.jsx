@@ -8,13 +8,17 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: { seo, wpPartner: data },
-  pageContext: { locale, pageUrls, menus },
+  data: {
+    seo,
+    wpPartner: data,
+  },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
     <Hero {...data} />
     <Content {...data} />
