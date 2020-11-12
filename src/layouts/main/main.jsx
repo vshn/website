@@ -14,7 +14,7 @@ const MainLayout = (props) => {
     children,
     pageUrls,
     menus: {
-      menuItems,
+      mainMenuItems,
       topMenuItems,
       mobileMenuItems,
       footerMenuItems,
@@ -43,7 +43,7 @@ const MainLayout = (props) => {
       {seo && <SEO {...seo} />}
       <Header
         pageUrls={pageUrls}
-        menuItems={menuItems}
+        menuItems={mainMenuItems}
         topMenuItems={topMenuItems}
         onBurgerClick={handleHeaderBurgerClick}
       />
@@ -65,7 +65,7 @@ MainLayout.propTypes = {
   pageUrls: PropTypes.shape().isRequired,
   menus: PropTypes.shape({
     topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
-    menuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    mainMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
   }),
@@ -74,7 +74,7 @@ MainLayout.propTypes = {
 MainLayout.defaultProps = {
   seo: null,
   menus: {
-    menuItems: [],
+    mainMenuItems: [],
     mobileMenuItems: [],
     topMenuItems: [],
     footerMenuItems: [],
