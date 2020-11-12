@@ -14,7 +14,7 @@ const Content = ({ title, filters, partners }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('header')}>
-        <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
+        <Heading className={cx('title')} id={title.toLowerCase()} tag="h2" size="xl" color="primary">{title}</Heading>
         <div className={cx('filters-wrapper')}>
           {filters.map((filter, index) => (
             <Item {...filter} key={index} />
