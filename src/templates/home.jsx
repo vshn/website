@@ -117,6 +117,7 @@ export const query = graphql`
               url
             }
           }
+          itemButtonText
         }
         jobs {
           title
