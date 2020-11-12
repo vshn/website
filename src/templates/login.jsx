@@ -8,15 +8,13 @@ import MainLayout from 'layouts/main';
 
 export default ({
   data: { wpPage: { seo, acf: data } },
-  pageContext: { locale, pageUrls, topMenuItems, menuItems, mobileMenuItems, footerMenuItems },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
-    menuItems={menuItems}
-    topMenuItems={topMenuItems}
-    mobileMenuItems={mobileMenuItems}
-    footerMenuItems={footerMenuItems}
+    menus={menus}
+    globalFields={globalFields}
   >
     <LoginSections {...data.loginSections} />
     <Contact locale={locale} />
