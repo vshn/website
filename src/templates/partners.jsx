@@ -38,6 +38,9 @@ export const query = graphql`
           subtitle
           description
           buttonText
+          buttonLink {
+            url
+          }
         }
         successStories {
           title
