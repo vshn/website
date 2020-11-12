@@ -99,7 +99,6 @@ export const query = graphql`
           description
         }
         partners {
-          title
           items {
             photo {
               localFile {
@@ -117,6 +116,7 @@ export const query = graphql`
               url
             }
           }
+          itemButtonText
         }
         jobs {
           title
