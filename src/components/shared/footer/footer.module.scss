@@ -99,11 +99,6 @@
   border-radius: 100px;
   transition: background-color $transition-base;
 
-  @include lg-down {
-    width: 34px;
-    height: 34px;
-  }
-
   @include md-down {
     width: 30px;
     height: 30px;
@@ -300,8 +295,9 @@
   }
 }
 
-.address {
+.copyright {
   grid-column: span 5;
+  margin: 0;
   font-style: normal;
 
   @include lg-down {
@@ -309,7 +305,7 @@
   }
 }
 
-.design {
+.praise {
   grid-column: span 5;
   order: -1;
   margin-top: 0;
