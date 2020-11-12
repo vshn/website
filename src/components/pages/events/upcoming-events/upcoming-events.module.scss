@@ -1,0 +1,16 @@
+.wrapper {
+  margin-bottom: 180px;
+}
+
+.title {
+  margin-bottom: 60px;
+  font-size: 36px;
+}
+
+.items-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: $column-gap;
+  padding-left: 0;
+  list-style-type: none;
+}

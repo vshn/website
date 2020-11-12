@@ -1,0 +1,69 @@
+.wrapper {
+  position: relative;
+  text-align: center;
+  background-image: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+  transition: background-image $transition-base, box-shadow $transition-base;
+
+  @include hover {
+    z-index: 1;
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
+
+    .date {
+      color: $color-accent-primary;
+    }
+  }
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.image {
+  position: absolute;
+  top: 50px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-top: 150px;
+}
+
+.description {
+  margin-bottom: 45px;
+}
+
+.date {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  text-transform: uppercase;
+  transition: color $transition-base;
+
+  &::before {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    background-image: linear-gradient(90deg, rgba($color-additional-2, 0) 0%, $color-additional-2 50%, rgba($color-additional-2, 0) 100%);
+  }
+}
