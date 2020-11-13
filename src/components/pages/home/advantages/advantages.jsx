@@ -27,9 +27,9 @@ Advantages.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      footerText: PropTypes.string.isRequired,
       link: PropTypes.shape({
         url: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
       }).isRequired,
       imageName: PropTypes.string.isRequired,
     }),

@@ -47,9 +47,9 @@ export const query = graphql`
         hero {
           title
           description
-          buttonText
           buttonLink {
             url
+            title
           }
         }
         advantages {
@@ -57,9 +57,9 @@ export const query = graphql`
           items {
             title
             imageName
-            footerText
             link {
               url
+              title
             }
           }
         }
@@ -107,17 +107,17 @@ export const query = graphql`
         jobs {
           title
           description
-          buttonText
           buttonLink {
             url
+            title
           }
         }
         report {
           title
           description
-          buttonText
           buttonLink {
             url
+            title
           }
           image {
             localFile {
