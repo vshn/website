@@ -6,13 +6,14 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ label, items }) => {
+const Item = ({ label, items, filterSelectHandler }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
 
-  const handleItemClick = (newSelection) => {
+  const handleItemSelect = (newSelection) => {
     setSelectedItem(newSelection);
+    filterSelectHandler(newSelection?.toLowerCase() ?? newSelection);
     setIsOpen(false);
   };
   const handleFilterClick = () => {
@@ -41,9 +42,15 @@ const Item = ({ label, items }) => {
       </button>
       {isOpen && (
       <div className={cx('items-wrapper')}>
-        {items.map(({ item }, index) => (
-          <button className={cx('item')} type="button" value={item} key={index} onClick={() => handleItemClick(item)}>{item}</button>
-        ))}
+        {selectedItem && (
+          <button className={cx('item')} type="button" onClick={() => handleItemSelect(null)}>None</button>
+        )}
+        {items.map(({ item }, index) => {
+          if (item === selectedItem) return null;
+          return (
+            <button className={cx('item')} type="button" value={item} key={index} onClick={() => handleItemSelect(item)}>{item}</button>
+          );
+        })}
       </div>
       )}
     </div>
@@ -55,6 +62,7 @@ Item.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     item: PropTypes.string.isRequired,
   })).isRequired,
+  filterSelectHandler: PropTypes.func.isRequired,
 };
 
 export default Item;

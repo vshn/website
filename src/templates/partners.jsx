@@ -49,6 +49,7 @@ export const query = graphql`
         partnersList {
           title
           filters {
+            isEnabled
             label
             items {
               item
@@ -85,6 +86,13 @@ export const query = graphql`
       partners: nodes {
         uri
         title
+        acf {
+          filters {
+            technology
+            industry
+            infrastructure
+          }
+        }
       }
     }
   }
