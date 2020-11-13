@@ -1,0 +1,12 @@
+{
+  "en": {
+    "partner": {
+      "breadcrumbRoot": "Partners"
+    }
+  },
+  "de": {
+    "partner": {
+      "breadcrumbRoot": "Partner"
+    }
+  }
+}
