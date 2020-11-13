@@ -146,7 +146,7 @@ export const query = graphql`
     }
     allWpPost(
       filter: {language: {slug: {eq: $locale}}}, 
-      limit: 12, 
+      limit: 9, 
       sort: {fields: date, order: DESC}
       ) {
       items: nodes {
