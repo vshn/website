@@ -46,18 +46,18 @@
 .partners-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 43px;
+  row-gap: 45px;
   column-gap: $column-gap;
   justify-items: start;
   padding-left: 0;
 
   @include lg-down {
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 34px;
+    row-gap: 35px;
   }
 
   @include md-down {
-    row-gap: 29px;
+    row-gap: 30px;
     column-gap: $column-gap-md;
   }
 
