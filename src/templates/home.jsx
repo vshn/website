@@ -17,6 +17,7 @@ import MainLayout from 'layouts/main';
 export default ({
   data: {
     wpPage: { seo, acf: data },
+    allWpPost,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -29,7 +30,7 @@ export default ({
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
     <SolutionsProducts {...data.solutionsProducts} />
-    <News {...data.news} />
+    <News {...data.news} {...allWpPost} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
     <Jobs {...data.jobs} />
@@ -40,7 +41,7 @@ export default ({
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
     wpPage(id: { eq: $id }) {
       acf {
         hero {
@@ -77,22 +78,6 @@ export const query = graphql`
         }
         news {
           title
-          items {
-            post {
-              ... on WpPost {
-                title
-                uri
-                categories {
-                  nodes {
-                    name
-                  }
-                }
-                acf {
-                  shortDescription
-                }
-              }
-            }
-          }
           itemFooterText
         }
         technologies {
@@ -158,6 +143,24 @@ export const query = graphql`
         }
       }
       ...wpPageSeo
+    }
+    allWpPost(
+      filter: {language: {slug: {eq: $locale}}}, 
+      limit: 12, 
+      sort: {fields: date, order: DESC}
+      ) {
+      items: nodes {
+        title
+        uri
+        categories {
+          nodes {
+            name
+          }
+        }
+        acf {
+          shortDescription
+        }
+      }
     }
   }
 `;

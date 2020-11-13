@@ -13,6 +13,7 @@ export default ({
   data: {
     seo,
     wpPost: data,
+    allWpPost,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -25,13 +26,13 @@ export default ({
     <Hero {...data} />
     <Content {...data} />
     <AuthorInfo {...data.acf.authorInfo} />
-    <News {...data.acf} />
+    <News {...data.acf} {...allWpPost} />
     <Contact locale={locale} />
   </MainLayout>
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
     wpPost(id: { eq: $id }) {
       title
       categories {
@@ -61,27 +62,28 @@ export const query = graphql`
         }
         news {
           title
-          items {
-            post {
-              ... on WpPost {
-                id
-                categories {
-                  nodes {
-                    name
-                  }
-                }
-                title
-                uri
-                acf {
-                  shortDescription
-                }
-              }
-            }
-          }
         }
         itemFooterText
       }
       ...wpPostSeo
+    }
+    allWpPost(
+      filter: {language: {slug: {eq: $locale}}}, 
+      limit: 12, 
+      sort: {fields: date, order: DESC}
+      ) {
+      items: nodes {
+        title
+        uri
+        categories {
+          nodes {
+            name
+          }
+        }
+        acf {
+          shortDescription
+        }
+      }
     }
   }
 `;
