@@ -1,0 +1,26 @@
+{
+  "en": {
+    "partner": {
+      "breadcrumbRoot": "Partners"
+    },
+    "partners": {
+      "filters": {
+        "industries": "Industry",
+        "technologies": "Technology",
+        "infrastructures": "Infrastructure"
+      }
+    }
+  },
+  "de": {
+    "partner": {
+      "breadcrumbRoot": "Partner"
+    },
+    "partners": {
+      "filters": {
+        "industries": "Industry",
+        "technologies": "Technology",
+        "infrastructures": "Infrastructure"
+      }
+    }
+  }
+}

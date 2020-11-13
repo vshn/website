@@ -14,10 +14,14 @@ const MainLayout = (props) => {
     children,
     pageUrls,
     menus: {
-      menuItems,
+      mainMenuItems,
       topMenuItems,
       mobileMenuItems,
       footerMenuItems,
+    },
+    globalFields: {
+      socialLinks,
+      footerMeta,
     },
   } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,12 +47,12 @@ const MainLayout = (props) => {
       {seo && <SEO {...seo} />}
       <Header
         pageUrls={pageUrls}
-        menuItems={menuItems}
+        menuItems={mainMenuItems}
         topMenuItems={topMenuItems}
         onBurgerClick={handleHeaderBurgerClick}
       />
       <main>{children}</main>
-      <Footer menuItems={footerMenuItems} />
+      <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
       <MobileMenu
         isOpen={isMobileMenuOpen}
@@ -65,19 +69,27 @@ MainLayout.propTypes = {
   pageUrls: PropTypes.shape().isRequired,
   menus: PropTypes.shape({
     topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
-    menuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    mainMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+  globalFields: PropTypes.shape({
+    socialLinks: PropTypes.shape({}),
+    footerMeta: PropTypes.shape({}),
   }),
 };
 
 MainLayout.defaultProps = {
   seo: null,
   menus: {
-    menuItems: [],
+    mainMenuItems: [],
     mobileMenuItems: [],
     topMenuItems: [],
     footerMenuItems: [],
+  },
+  globalFields: {
+    socialLinks: undefined,
+    globalFields: undefined,
   },
 };
 

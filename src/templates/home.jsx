@@ -18,12 +18,13 @@ export default ({
   data: {
     wpPage: { seo, acf: data },
   },
-  pageContext: { locale, pageUrls, menus },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
@@ -99,7 +100,6 @@ export const query = graphql`
           description
         }
         partners {
-          title
           items {
             photo {
               localFile {
@@ -117,6 +117,7 @@ export const query = graphql`
               url
             }
           }
+          itemButtonText
         }
         jobs {
           title

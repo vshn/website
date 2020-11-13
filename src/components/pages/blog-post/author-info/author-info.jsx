@@ -27,10 +27,10 @@ const AuthorInfo = ({
           </Heading>
           <ul className={cx('links-wrapper')}>
             <li className={cx('link-wrapper')}>
-              {/* <Link to={email.url}>{email.title}</Link> */}
+              <Link to={`mailto:${email}`}>{email}</Link>
             </li>
             <li className={cx('link-wrapper')}>
-              {/* <Link to={number.url}>{number.title}</Link> */}
+              <Link to={`tel:${number}`}>{number}</Link>
             </li>
           </ul>
           <p className={cx('description')}>{description}</p>

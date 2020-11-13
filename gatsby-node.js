@@ -8,7 +8,6 @@ const filterNonRootItems = require('./src/utils/filter-non-root-items');
 /* Constants */
 const DEFAULT_LOCALE = 'de';
 const SUPPORTED_LOCALES = ['en', 'de'];
-const DEFAULT_MENU = 'main';
 const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
 
 /* Local helper fns */
@@ -16,6 +15,38 @@ const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
 // removes all the spaces from a string
 // stripSpaces(string: String) -> String
 const stripSpaces = (string) => string.replace(/\s+/g, ' ');
+
+// fetches global fields
+// getGlobalFields() -> Object: {socialLinks, footerMeta}
+const getGlobalFields = async (graphql) => {
+  const { data: { wp: { globalFields: { socialLinksAcf, footerMetaAcf } } } } = await graphql(`
+    {
+      wp {
+        globalFields {
+          socialLinksAcf {
+            facebookLink
+            youtubeLink
+            twitterLink
+            instagramLink
+            linkedinLink
+            githubLink
+            gitlabLink
+          }
+          footerMetaAcf {
+            copyright
+            praiseBody
+            praiseLink
+            praiseLinkName
+          }
+        }
+      } 
+    }
+  `);
+  return {
+    socialLinks: socialLinksAcf,
+    footerMeta: footerMetaAcf,
+  };
+};
 
 // fetches all vshn menus for both locales
 // getAllMenusByLocale(graphql: GatsbyGraphQlInstance) -> Object
@@ -156,7 +187,7 @@ function getUrlsForLocales(locale, url, translations) {
 
 /* Main logic */
 
-async function createPages({ graphql, actions, reporter, getMenus }) {
+async function createPages({ graphql, actions, reporter, getMenus, globalFields }) {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -197,6 +228,7 @@ async function createPages({ graphql, actions, reporter, getMenus }) {
         id,
         locale,
         menus: getMenus(locale),
+        globalFields,
         pageUrls: getUrlsForLocales(locale, uri, translations),
       };
 
@@ -213,7 +245,7 @@ async function createPages({ graphql, actions, reporter, getMenus }) {
   );
 }
 
-async function createPosts({ graphql, actions, reporter, getMenus }) {
+async function createPosts({ graphql, actions, reporter, getMenus, globalFields }) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -241,6 +273,7 @@ async function createPosts({ graphql, actions, reporter, getMenus }) {
     const context = {
       id,
       locale,
+      globalFields,
       menus: getMenus(locale),
       pageUrls: getUrlsForLocales(locale, uri, []),
     };
@@ -261,7 +294,7 @@ async function createPosts({ graphql, actions, reporter, getMenus }) {
   });
 }
 
-async function createPartners({ graphql, actions, reporter, getMenus }) {
+async function createPartners({ graphql, actions, reporter, getMenus, globalFields }) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -297,6 +330,7 @@ async function createPartners({ graphql, actions, reporter, getMenus }) {
         id,
         locale,
         menus: getMenus(locale),
+        globalFields,
         pageUrls: getUrlsForLocales(locale, uri, translations),
       };
 
@@ -374,7 +408,7 @@ async function createSuccessStoryPosts({ graphql, actions, reporter, getMenus })
 /* Note: this is a stub, should be set properly after
 // there is a 404 page in WP
 */
-const createNotFound = ({ actions, getMenus }) => {
+const createNotFound = ({ actions, getMenus, globalFields }) => {
   const { createPage } = actions;
 
   createPage({
@@ -383,6 +417,7 @@ const createNotFound = ({ actions, getMenus }) => {
     context: {
       menus: getMenus('end'),
       locale: 'en',
+      globalFields,
       pageUrls: getUrlsForLocales('en', '/en/404', [{ language: { locale: 'de' }, uri: '/404' }]),
     },
   });
@@ -393,6 +428,7 @@ const createNotFound = ({ actions, getMenus }) => {
     context: {
       menus: getMenus('de'),
       locale: 'de',
+      globalFields,
       pageUrls: getUrlsForLocales('de', '/404', [{ language: { locale: 'en' }, uri: '/en/404' }]),
     },
   });
@@ -421,9 +457,13 @@ exports.createPages = async (args) => {
     return menus;
   };
 
+  // fetch global fields data exactly once and pass it anywhere
+  const globalFields = await getGlobalFields(args.graphql);
+
   const params = {
     ...args,
     getMenus,
+    globalFields,
   };
 
   await createPages(params);

@@ -4,16 +4,17 @@ import React from 'react';
 
 import Heading from 'components/shared/heading/';
 import Link from 'components/shared/link';
+import translations from 'i18n';
 
 import styles from './hero.module.scss';
 import backgroundImage from './images/background-image.svg';
 
 const cx = classNames.bind(styles);
-const Hero = ({ title, acf: { category, description } }) => (
+const Hero = ({ title, acf: { category, description }, locale }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('category-wrapper')}>
-        <Link className={cx('category')} to={category.url}>{category.title}</Link>
+        <Link className={cx('category')} to={category.url}>{translations[locale].partner.breadcrumbRoot}</Link>
         <span>{title}</span>
       </div>
       <Heading className={cx('title')} tag="h1" size="xxl" innerHTML={title} />
@@ -32,6 +33,7 @@ Hero.propTypes = {
     }),
     description: PropTypes.string.isRequired,
   }).isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 export default Hero;
