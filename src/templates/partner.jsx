@@ -20,7 +20,7 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero {...data} />
+    <Hero {...data} locale={locale} />
     <Content {...data} />
     <Contact locale={locale} />
   </MainLayout>
