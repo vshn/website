@@ -5,6 +5,7 @@ import React, { useState, useMemo } from 'react';
 import Select from 'components/pages/partners/partners-list/select';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import t from 'i18n';
 
 import styles from './partners-list.module.scss';
 
@@ -12,7 +13,7 @@ const cx = classNames.bind(styles);
 
 const getFlattenTaxonomies = (taxonomies) => taxonomies.nodes.map((taxonomy) => taxonomy.slug);
 
-const Content = ({ title, filters, partners }) => {
+const PartnersList = ({ title, filters, partners, locale }) => {
   const [activeFilters, setActiveFilters] = useState(
     () => Object.fromEntries(Object.keys(filters).map((filterKey) => [filterKey, null])),
   );
@@ -57,7 +58,7 @@ const Content = ({ title, filters, partners }) => {
           <div className={cx('filters-wrapper')}>
             {Object.entries(filters).map(([filterKey, filterOptions], index) => (
               <Select
-                label={filterKey}
+                label={t[locale].partners.filters[filterKey]}
                 filterKey={filterKey}
                 options={filterOptions}
                 key={index}
@@ -74,7 +75,8 @@ const Content = ({ title, filters, partners }) => {
   );
 };
 
-Content.propTypes = {
+PartnersList.propTypes = {
+  locale: PropTypes.oneOf(['de', 'en']).isRequired,
   title: PropTypes.string.isRequired,
   filters: PropTypes.shape({}).isRequired,
   partners: PropTypes.arrayOf(
@@ -88,4 +90,4 @@ Content.propTypes = {
   ).isRequired,
 };
 
-export default Content;
+export default PartnersList;

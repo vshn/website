@@ -28,7 +28,12 @@ export default ({
   >
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
-    <PartnersList {...data.partnersList} {...allWpPartner} filters={{ industries, infrastructures, technologies }} />
+    <PartnersList
+      {...data.partnersList}
+      {...allWpPartner}
+      filters={{ industries, infrastructures, technologies }}
+      locale={locale}
+    />
     <Contact locale={locale} />
   </MainLayout>
 );
