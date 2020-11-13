@@ -9,13 +9,12 @@ import MainLayout from 'layouts/main';
 
 export default ({
   data: {
-    seo,
     wpPartner: data,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
-    seo={seo}
+    seo={data.seo}
     pageUrls={pageUrls}
     menus={menus}
     globalFields={globalFields}
@@ -29,6 +28,7 @@ export default ({
 export const query = graphql`
   query($id: String!) {
     wpPartner(id: { eq: $id }) {
+      ...wpPartnerSeo
       title
       content
       acf {

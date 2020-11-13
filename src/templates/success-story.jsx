@@ -8,10 +8,15 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: { seo, wpSuccessStory: data },
-  pageContext: { locale, pageUrls, menus },
+  data: { wpSuccessStory: data },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
-  <MainLayout seo={seo} pageUrls={pageUrls} menus={menus}>
+  <MainLayout
+    seo={data.seo}
+    pageUrls={pageUrls}
+    menus={menus}
+    globalFields={globalFields}
+  >
     <Hero {...data} />
     <Content {...data} />
     <Contact locale={locale} />
@@ -21,6 +26,7 @@ export default ({
 export const query = graphql`
   query($id: String!) {
     wpSuccessStory(id: { eq: $id }) {
+      ...wpSuccessStorySeo
       title
       content
       acf {

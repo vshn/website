@@ -19,7 +19,13 @@ const stripSpaces = (string) => string.replace(/\s+/g, ' ');
 // fetches global fields
 // getGlobalFields() -> Object: {socialLinks, footerMeta}
 const getGlobalFields = async (graphql) => {
-  const { data: { wp: { globalFields: { socialLinksAcf, footerMetaAcf } } } } = await graphql(`
+  const {
+    data: {
+      wp: {
+        globalFields: { socialLinksAcf, footerMetaAcf },
+      },
+    },
+  } = await graphql(`
     {
       wp {
         globalFields {
@@ -39,7 +45,7 @@ const getGlobalFields = async (graphql) => {
             praiseLinkName
           }
         }
-      } 
+      }
     }
   `);
   return {
@@ -51,100 +57,111 @@ const getGlobalFields = async (graphql) => {
 // fetches all vshn menus for both locales
 // getAllMenusByLocale(graphql: GatsbyGraphQlInstance) -> Object
 const getAllMenusByLocale = async (graphql) => {
-  const { data: { mainMenuEn, mainMenuDe, topMenuEn, topMenuDe, mobileMenuEn, mobileMenuDe, footerMenuEn, footerMenuDe } } = await graphql(`
-  {
-    mainMenuEn:wpMenu(slug: { eq: "main-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
-          parentId
-          childItems {
-            nodes {
-              label
-              path
-              childItems {
-                nodes {
-                  label
-                  path
+  const {
+    data: {
+      mainMenuEn,
+      mainMenuDe,
+      topMenuEn,
+      topMenuDe,
+      mobileMenuEn,
+      mobileMenuDe,
+      footerMenuEn,
+      footerMenuDe,
+    },
+  } = await graphql(`
+    {
+      mainMenuEn: wpMenu(slug: { eq: "main-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            parentId
+            childItems {
+              nodes {
+                label
+                path
+                childItems {
+                  nodes {
+                    label
+                    path
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    topMenuEn:wpMenu(slug: { eq: "top-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      topMenuEn: wpMenu(slug: { eq: "top-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
-    }
-    mobileMenuEn:wpMenu(slug: { eq: "mobile-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      mobileMenuEn: wpMenu(slug: { eq: "mobile-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
-    }
-    footerMenuEn:wpMenu(slug: { eq: "footer-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      footerMenuEn: wpMenu(slug: { eq: "footer-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
-    }
-    mainMenuDe:wpMenu(slug: { eq: "main-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
-          parentId
-          childItems {
-            nodes {
-              label
-              path
-              childItems {
-                nodes {
-                  label
-                  path
+      mainMenuDe: wpMenu(slug: { eq: "main-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            parentId
+            childItems {
+              nodes {
+                label
+                path
+                childItems {
+                  nodes {
+                    label
+                    path
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    topMenuDe:wpMenu(slug: { eq: "top-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      topMenuDe: wpMenu(slug: { eq: "top-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
+        }
+      }
+      mobileMenuDe: wpMenu(slug: { eq: "mobile-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
+        }
+      }
+      footerMenuDe: wpMenu(slug: { eq: "footer-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
     }
-    mobileMenuDe:wpMenu(slug: { eq: "mobile-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
-        }
-      }
-    }
-    footerMenuDe:wpMenu(slug: { eq: "footer-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
-        }
-      }
-    }
-  }
-`);
+  `);
 
   return {
     en: {
@@ -187,7 +204,13 @@ function getUrlsForLocales(locale, url, translations) {
 
 /* Main logic */
 
-async function createPages({ graphql, actions, reporter, getMenus, globalFields }) {
+async function createPages({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -220,7 +243,13 @@ async function createPages({ graphql, actions, reporter, getMenus, globalFields 
   const pages = result.data.allWpPage.nodes;
 
   pages.forEach(
-    ({ id, uri, language: { locale }, translations, template: { templateName } }) => {
+    ({
+      id,
+      uri,
+      language: { locale },
+      translations,
+      template: { templateName },
+    }) => {
       const templatePath = path.resolve(
         `./src/templates/${templateName.toLowerCase()}.jsx`,
       );
@@ -245,7 +274,13 @@ async function createPages({ graphql, actions, reporter, getMenus, globalFields 
   );
 }
 
-async function createPosts({ graphql, actions, reporter, getMenus, globalFields }) {
+async function createPosts({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -273,9 +308,9 @@ async function createPosts({ graphql, actions, reporter, getMenus, globalFields 
     const context = {
       id,
       locale,
-      globalFields,
       menus: getMenus(locale),
-      pageUrls: getUrlsForLocales(locale, uri, []),
+      globalFields,
+      pageUrls: getUrlsForLocales(locale, uri, translations),
     };
 
     if (content) {
@@ -294,7 +329,13 @@ async function createPosts({ graphql, actions, reporter, getMenus, globalFields 
   });
 }
 
-async function createPartners({ graphql, actions, reporter, getMenus, globalFields }) {
+async function createPartners({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -351,7 +392,12 @@ async function createPartners({ graphql, actions, reporter, getMenus, globalFiel
   );
 }
 
-async function createSuccessStoryPosts({ graphql, actions, reporter, getMenus }) {
+async function createSuccessStoryPosts({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+}) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -418,7 +464,9 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       menus: getMenus('end'),
       locale: 'en',
       globalFields,
-      pageUrls: getUrlsForLocales('en', '/en/404', [{ language: { locale: 'de' }, uri: '/404' }]),
+      pageUrls: getUrlsForLocales('en', '/en/404', [
+        { language: { locale: 'de' }, uri: '/404' },
+      ]),
     },
   });
 
@@ -429,7 +477,9 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       menus: getMenus('de'),
       locale: 'de',
       globalFields,
-      pageUrls: getUrlsForLocales('de', '/404', [{ language: { locale: 'en' }, uri: '/en/404' }]),
+      pageUrls: getUrlsForLocales('de', '/404', [
+        { language: { locale: 'en' }, uri: '/en/404' },
+      ]),
     },
   });
 };
@@ -445,7 +495,9 @@ exports.createPages = async (args) => {
   //  locale: oneOf(SUPPORTED_LOCALES)
   // }) -> Array<MenuItem>
   const getMenus = (locale = DEFAULT_LOCALE) => {
-    const menuLocale = SUPPORTED_LOCALES.includes(locale) ? locale : DEFAULT_LOCALE;
+    const menuLocale = SUPPORTED_LOCALES.includes(locale)
+      ? locale
+      : DEFAULT_LOCALE;
 
     const menus = {};
 
