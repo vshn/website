@@ -37,7 +37,6 @@ const Footer = (props) => {
     },
     menuItems,
   } = props;
-
   // eslint-disable-next-line react/prop-types
   const SocialMenu = ({ className }) => (
     <ul className={cx('social-menu', className)}>
@@ -45,11 +44,10 @@ const Footer = (props) => {
         const company = key.replace(/Link/, '');
         const Icon = SOCIAL_ICONS[company];
         return (
-          <li className={cx('social-menu-item')}>
+          <li key={value} className={cx('social-menu-item')}>
             <a
               className={cx('social-menu-link', `social-menu-link_${company}`)}
               href={value}
-              key={value}
               target="_blank"
             >
               <Icon />
