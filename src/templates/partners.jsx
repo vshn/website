@@ -13,6 +13,10 @@ export default ({
     wpPage: { seo, acf: data },
     allWpSuccessStory,
     allWpPartner,
+    allWpIndustry: { industries },
+    allWpInfrastructure: { infrastructures },
+    allWpTechnology: { technologies },
+
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -24,7 +28,7 @@ export default ({
   >
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
-    <PartnersList {...data.partnersList} {...allWpPartner} />
+    <PartnersList {...data.partnersList} {...allWpPartner} filters={{ industries, infrastructures, technologies }} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -48,16 +52,27 @@ export const query = graphql`
         }
         partnersList {
           title
-          filters {
-            isEnabled
-            label
-            items {
-              item
-            }
-          }
         }
       }
       ...wpPageSeo
+    }
+    allWpIndustry(filter: { language: { slug: { eq: $locale } } }) {
+      industries: nodes {
+        name
+        slug
+      }
+    }
+    allWpInfrastructure(filter: { language: { slug: { eq: $locale } } }) {
+      infrastructures:  nodes {
+        name
+        slug
+      }
+    }
+    allWpTechnology(filter: { language: { slug: { eq: $locale } } }) {
+      technologies:nodes {
+        name
+        slug
+      }
     }
     allWpSuccessStory(
       filter: { language: { slug: { eq: $locale } } }
@@ -86,11 +101,19 @@ export const query = graphql`
       partners: nodes {
         uri
         title
-        acf {
-          filters {
-            technology
-            industry
-            infrastructure
+        industries {
+          nodes {
+            slug
+          }
+        }
+        infrastructures {
+          nodes {
+            slug
+          }
+        }
+        technologies {
+          nodes {
+            slug
           }
         }
       }

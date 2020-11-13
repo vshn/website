@@ -2,18 +2,17 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
-import styles from './item.module.scss';
+import styles from './select.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ label, items, filterSelectHandler }) => {
+const Select = ({ label, options, filterSelectHandler, filterKey }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
-
   const handleItemSelect = (newSelection) => {
     setSelectedItem(newSelection);
-    filterSelectHandler(newSelection?.toLowerCase() ?? newSelection);
+    filterSelectHandler(filterKey, newSelection);
     setIsOpen(false);
   };
   const handleFilterClick = () => {
@@ -45,10 +44,10 @@ const Item = ({ label, items, filterSelectHandler }) => {
         {selectedItem && (
           <button className={cx('item')} type="button" onClick={() => handleItemSelect(null)}>None</button>
         )}
-        {items.map(({ item }, index) => {
-          if (item === selectedItem) return null;
+        {options.map(({ name, slug }, index) => {
+          if (slug === selectedItem) return null;
           return (
-            <button className={cx('item')} type="button" value={item} key={index} onClick={() => handleItemSelect(item)}>{item}</button>
+            <button className={cx('item')} type="button" value={slug} key={index} onClick={() => handleItemSelect(slug)}>{name}</button>
           );
         })}
       </div>
@@ -57,12 +56,14 @@ const Item = ({ label, items, filterSelectHandler }) => {
   );
 };
 
-Item.propTypes = {
+Select.propTypes = {
   label: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    item: PropTypes.string.isRequired,
+  filterKey: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
   })).isRequired,
   filterSelectHandler: PropTypes.func.isRequired,
 };
 
-export default Item;
+export default Select;
