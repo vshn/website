@@ -204,6 +204,7 @@ function getUrlsForLocales(locale, url, translations) {
 
 /* Main logic */
 
+// Create Pages
 async function createPages({
   graphql,
   actions,
@@ -274,6 +275,7 @@ async function createPages({
   );
 }
 
+// Create Posts
 async function createPosts({
   graphql,
   actions,
@@ -292,6 +294,12 @@ async function createPosts({
           language {
             locale: slug
           }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
         }
       }
     }
@@ -302,7 +310,7 @@ async function createPosts({
   }
   const posts = result.data.allWpPost.nodes;
 
-  posts.forEach(({ id, content, uri, language: { locale } }) => {
+  posts.forEach(({ id, content, uri, language: { locale }, translations }) => {
     const templatePath = path.resolve('./src/templates/blog-post.jsx');
 
     const context = {
@@ -329,6 +337,7 @@ async function createPosts({
   });
 }
 
+// Create Partners
 async function createPartners({
   graphql,
   actions,
@@ -392,11 +401,13 @@ async function createPartners({
   );
 }
 
-async function createSuccessStoryPosts({
+// Create Success Stories
+async function createSuccessStories({
   graphql,
   actions,
   reporter,
   getMenus,
+  globalFields,
 }) {
   const { createPage } = actions;
   const result = await graphql(`
@@ -423,32 +434,35 @@ async function createSuccessStoryPosts({
   if (result.errors) {
     throw new Error(result.errors);
   }
-  const posts = result.data.allWpSuccessStory.nodes;
+  const successStories = result.data.allWpSuccessStory.nodes;
 
-  posts.forEach(({ id, content, uri, language: { locale }, translations }) => {
-    const templatePath = path.resolve('./src/templates/success-story.jsx');
+  successStories.forEach(
+    ({ id, content, uri, language: { locale }, translations }) => {
+      const templatePath = path.resolve('./src/templates/success-story.jsx');
 
-    const context = {
-      id,
-      locale,
-      menus: getMenus(locale),
-      pageUrls: getUrlsForLocales(locale, uri, translations),
-    };
+      const context = {
+        id,
+        locale,
+        menus: getMenus(locale),
+        globalFields,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
 
-    if (content) {
-      context.content = stripSpaces(content);
-    }
+      if (content) {
+        context.content = stripSpaces(content);
+      }
 
-    if (fs.existsSync(templatePath)) {
-      createPage({
-        path: uri,
-        component: slash(templatePath),
-        context,
-      });
-    } else {
-      reporter.error('Template Success Story was not found');
-    }
-  });
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        reporter.error('Template Success Story was not found');
+      }
+    },
+  );
 }
 
 /* Note: this is a stub, should be set properly after
@@ -521,7 +535,7 @@ exports.createPages = async (args) => {
   await createPages(params);
   await createPosts(params);
   await createPartners(params);
-  await createSuccessStoryPosts(params);
+  await createSuccessStories(params);
   // custom 404
   await createNotFound(params);
 };
