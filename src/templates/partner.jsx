@@ -64,7 +64,6 @@ export const query = graphql`
             ... on WpSuccessStory {    
               title
               acf {
-                category 
                 description
               }
               uri
