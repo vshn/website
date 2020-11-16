@@ -1,0 +1,48 @@
+.wrapper {
+  margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
+}
+
+.content {
+  max-width: 850px;
+  margin-right: auto;
+  margin-bottom: 60px;
+  margin-left: auto;
+
+  @include content;
+
+  > h2 {
+    margin-bottom: 30px;
+    font-size: 36px;
+  }
+
+  :global {
+    .wp-block-image {
+      margin-right: 60px;
+      margin-left: 60px;
+
+      .gatsby-image-wrapper {
+        border: none;
+      }
+    }
+  }
+
+  @include lg-down {
+    max-width: 770px;
+    margin-bottom: 50px;
+  }
+
+  @include md-down {
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+}
