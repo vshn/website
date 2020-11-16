@@ -251,8 +251,9 @@ async function createPages({
       translations,
       template: { templateName },
     }) => {
+      const templateNamePath = templateName.toLowerCase().replace(/\s/g, '-');
       const templatePath = path.resolve(
-        `./src/templates/${templateName.toLowerCase()}.jsx`,
+        `./src/templates/${templateNamePath}.jsx`,
       );
       const context = {
         id,
