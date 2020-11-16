@@ -27,55 +27,53 @@
 }
 
 .items-wrapper {
-  padding-top: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
-  padding-left: 55px;
-  list-style-type: none;
   background-color: $color-additional-1;
   border-radius: 8px;
-
-  @include md-down {
-    padding-top: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-    padding-left: 50px;
-  }
 }
 
 .item {
   position: relative;
+  display: block;
+  padding-top: 30px;
+  padding-right: 30px;
   padding-bottom: 30px;
-  margin-bottom: 30px;
+  padding-left: 55px;
   font-size: $font-size-lg;
   line-height: $line-height-lg;
+  color: $color-primary;
+  text-decoration: none;
   border-bottom: 1px solid $color-additional-2;
+
+  &:hover {
+    color: $color-accent-primary;
+  }
 
   @include lg-down {
     font-size: 24px;
   }
 
   @include md-down {
+    padding-top: 25px;
+    padding-right: 25px;
     padding-bottom: 25px;
-    margin-bottom: 25px;
+    padding-left: 50px;
     font-size: 22px;
   }
 
   &:last-child {
-    padding-bottom: 0;
-    margin-bottom: 0;
     border-bottom: transparent;
   }
 
   &::before {
     position: absolute;
-    top: 10px;
-    left: -25px;
+    top: 50%;
+    left: 25px;
     width: 10px;
     height: 10px;
-    content: '';
-    background-color: $color-accent-primary;
+    content: "";
+    background-color: #4cc3ff;
     border-radius: 50%;
+    transform: translateY(-50%);
 
     @include md-down {
       width: 8px;

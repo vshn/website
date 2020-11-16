@@ -49,9 +49,14 @@
 
 .description {
   max-width: 520px;
+  min-height: 300px;
   font-size: 18px;
   line-height: 1.6;
   color: $color-secondary;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
 
   @include lg-down {
     max-width: 450px;
@@ -85,8 +90,10 @@
   @include sm-down {
     position: relative;
     top: 30px;
-    left: 30px;
-    width: 545px;
+    right: auto;
+    left: auto;
+    width: 100%;
+    max-width: 545px;
   }
 }
 

@@ -5,24 +5,15 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import DevOpsEnablement from './images/devops-enablement.inline.svg';
-import ManagedApplicationServices from './images/managed-application-services.inline.svg';
-import ManagedContainerPlatforms from './images/managed-container-platforms.inline.svg';
 import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const images = [
-  <DevOpsEnablement className={cx('image')} />,
-  <ManagedContainerPlatforms className={cx('image')} />,
-  <ManagedApplicationServices className={cx('image')} />,
-];
-
-const Item = ({ number, title, footerText, link }) => (
+const Item = ({ number, title, footerText, link, icon: { localFile: { publicURL: iconUrl } } }) => (
   <li className={cx('wrapper')}>
-    <Link className={cx('inner')} to={link}>
+    <Link className={cx('inner')} to={link.url}>
       <Heading className={cx('number')} tag="span" size="lg" aria-hidden>{number}</Heading>
-      {images[`${number - 1}`]}
+      <img src={iconUrl} className={cx('image')} alt="" />
       <div className={cx('content')}>
         <Heading className={cx('title')} tag="h3" size="lg">{title}</Heading>
         <span className={cx('footer-text')}>{footerText}</span>
@@ -35,7 +26,12 @@ Item.propTypes = {
   number: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   footerText: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  link: PropTypes.shape({}).isRequired,
+  icon: PropTypes.shape({
+    localFile: PropTypes.shape({
+      publicURL: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Item;

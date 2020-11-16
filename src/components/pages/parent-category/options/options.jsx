@@ -7,12 +7,12 @@ import styles from './options.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Options = ({ items }) => (
+const Options = ({ items, itemFooterText }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
-          <Item number={index + 1} key={index} {...item} />
+          <Item number={index + 1} footerText={itemFooterText} key={index} {...item} />
         ))}
       </ul>
     </div>
@@ -23,11 +23,9 @@ Options.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      footerText: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      imageName: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  itemFooterText: PropTypes.string.isRequired,
 };
 
 Options.defaultProps = {
