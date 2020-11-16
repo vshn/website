@@ -1,3 +1,15 @@
+@keyframes in {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .wrapper {
   position: relative;
   margin-right: 15px;
@@ -70,7 +82,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  min-width: 100%;
   padding-top: 10px;
   padding-right: 15px;
   padding-bottom: 10px;
@@ -78,6 +90,7 @@
   background-color: $color-tertiary;
   border-radius: 2px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+  animation: in 0.2s ease-in;
 }
 
 .item {

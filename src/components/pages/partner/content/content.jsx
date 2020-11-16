@@ -15,7 +15,7 @@ const Content = ({ content, acf: { logo, partnerInfo, successStoryCard } }) => (
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
         <PartnerInfo {...logo} {...partnerInfo} />
-        <SuccessStoryCard {...successStoryCard} />
+        {successStoryCard.successStory && <SuccessStoryCard {...successStoryCard} />}
       </div>
     </div>
 

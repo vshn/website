@@ -13,13 +13,27 @@ export default ({
     wpPage: { seo, acf: data },
     allWpSuccessStory,
     allWpPartner,
+    allWpIndustry: { industries },
+    allWpInfrastructure: { infrastructures },
+    allWpTechnology: { technologies },
+
   },
-  pageContext: { locale, pageUrls },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
-  <MainLayout seo={seo} pageUrls={pageUrls}>
+  <MainLayout
+    seo={seo}
+    pageUrls={pageUrls}
+    menus={menus}
+    globalFields={globalFields}
+  >
     <PartnersHero {...data.partnersHero} />
     <SuccessStories {...data.successStories} {...allWpSuccessStory} />
-    <PartnersList {...data.partnersList} {...allWpPartner} />
+    <PartnersList
+      {...data.partnersList}
+      {...allWpPartner}
+      filters={{ industries, infrastructures, technologies }}
+      locale={locale}
+    />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -32,10 +46,10 @@ export const query = graphql`
           title
           subtitle
           description
+          buttonText
           buttonLink {
             url
           }
-          buttonText
         }
         successStories {
           title
@@ -43,15 +57,27 @@ export const query = graphql`
         }
         partnersList {
           title
-          filters {
-            label
-            items {
-              item
-            }
-          }
         }
       }
       ...wpPageSeo
+    }
+    allWpIndustry(filter: { language: { slug: { eq: $locale } } }) {
+      industries: nodes {
+        name
+        slug
+      }
+    }
+    allWpInfrastructure(filter: { language: { slug: { eq: $locale } } }) {
+      infrastructures:  nodes {
+        name
+        slug
+      }
+    }
+    allWpTechnology(filter: { language: { slug: { eq: $locale } } }) {
+      technologies:nodes {
+        name
+        slug
+      }
     }
     allWpSuccessStory(
       filter: { language: { slug: { eq: $locale } } }
@@ -80,6 +106,21 @@ export const query = graphql`
       partners: nodes {
         uri
         title
+        industries {
+          nodes {
+            slug
+          }
+        }
+        infrastructures {
+          nodes {
+            slug
+          }
+        }
+        technologies {
+          nodes {
+            slug
+          }
+        }
       }
     }
   }

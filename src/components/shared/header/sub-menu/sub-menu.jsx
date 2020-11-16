@@ -5,33 +5,39 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
+import SubSubMenu from '../sub-sub-menu';
+
 import styles from './sub-menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SubMenu = ({ className, post, items }) => (
-  <div className={cx('wrapper', { withoutPost: !post }, className)}>
+const SubMenu = ({ className, items, banner }) => (
+  <div className={cx('wrapper', className)}>
     <div className={cx('container', 'inner')}>
       {
-        post && (
-          <Link className={cx('post')} to={post.url}>
-            <Heading className={cx('post-title')} tag="h2" size="md" color="tertiary">{post.title}</Heading>
-            <span className={cx('post-footer-text')}>{post.footerText}</span>
+        banner && (
+          <Link className={cx('banner')} to={banner.acf.link.url}>
+            <Heading className={cx('banner-title')} tag="h2" size="md" color="tertiary">{banner.title}</Heading>
+            <span className={cx('banner-link-text')}>{banner.acf.linkText}</span>
           </Link>
         )
       }
-
       <ul className={cx('items')}>
-        {items.map(({ label, path }, index) => (
-          <li key={index}>
-            <Link to={path}>{label}</Link>
-          </li>
-        ))}
+        {items.map(({ label, path, childItems }, index) => {
+          const withSubMenu = childItems && childItems.nodes.length > 0;
+          return (
+            <li key={index} className={cx({ 'with-sub-menu': withSubMenu })}>
+              <Link to={path}>{label}</Link>
+              {withSubMenu && (
+                <SubSubMenu className={cx('sub-menu')} items={childItems.nodes} />
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   </div>
 );
-
 SubMenu.propTypes = {
   className: PropTypes.string,
   post: PropTypes.shape({

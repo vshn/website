@@ -7,9 +7,19 @@ import Hero from 'components/pages/partner/hero/';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({ data: { seo, wpPartner: data }, pageContext: { locale, pageUrls } }) => (
-  <MainLayout seo={seo} pageUrls={pageUrls}>
-    <Hero {...data} />
+export default ({
+  data: {
+    wpPartner: data,
+  },
+  pageContext: { locale, pageUrls, menus, globalFields },
+}) => (
+  <MainLayout
+    seo={data.seo}
+    pageUrls={pageUrls}
+    menus={menus}
+    globalFields={globalFields}
+  >
+    <Hero {...data} locale={locale} />
     <Content {...data} />
     <Contact locale={locale} />
   </MainLayout>
@@ -18,6 +28,7 @@ export default ({ data: { seo, wpPartner: data }, pageContext: { locale, pageUrl
 export const query = graphql`
   query($id: String!) {
     wpPartner(id: { eq: $id }) {
+      ...wpPartnerSeo
       title
       content
       acf {
@@ -53,7 +64,6 @@ export const query = graphql`
             ... on WpSuccessStory {    
               title
               acf {
-                category 
                 description
               }
               uri

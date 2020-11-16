@@ -21,7 +21,6 @@ const MobileMenu = (props) => {
     isOpen,
     onCloseButtonClick,
   } = props;
-
   return (
     <nav className={cx('wrapper', { open: isOpen })}>
       <div className={cx('inner')}>
@@ -67,31 +66,10 @@ MobileMenu.propTypes = {
 
 MobileMenu.defaultProps = {
   language1Text: 'English',
-  language1Url: '/',
+  language1Url: '/en',
   language2Text: 'Deutsch',
-  language2Url: '/de',
-  menuItems: [
-    {
-      label: 'Products',
-      path: '/products',
-    },
-    {
-      label: 'Solutions',
-      path: '/solutions',
-    },
-    {
-      label: 'Resources',
-      path: '/resources',
-    },
-    {
-      label: 'References',
-      path: '/references',
-    },
-    {
-      label: 'About',
-      path: '/about',
-    },
-  ],
+  language2Url: '/',
+  menuItems: [],
   buttonText: 'Contact Us',
   buttonUrl: '/',
   isOpen: false,

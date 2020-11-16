@@ -8,7 +8,22 @@ import MobileMenu from 'components/shared/mobile-menu';
 import Overlay from 'components/shared/overlay';
 import SEO from 'components/shared/seo';
 
-const MainLayout = ({ seo, children, pageUrls }) => {
+const MainLayout = (props) => {
+  const {
+    seo,
+    children,
+    pageUrls,
+    menus: {
+      mainMenuItems,
+      topMenuItems,
+      mobileMenuItems,
+      footerMenuItems,
+    },
+    globalFields: {
+      socialLinks,
+      footerMeta,
+    },
+  } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(true);
@@ -27,16 +42,21 @@ const MainLayout = ({ seo, children, pageUrls }) => {
       document.body.style.cssText = '';
     }
   }, [isMobileMenuOpen]);
-
   return (
     <>
       {seo && <SEO {...seo} />}
-      <Header pageUrls={pageUrls} onBurgerClick={handleHeaderBurgerClick} />
+      <Header
+        pageUrls={pageUrls}
+        menuItems={mainMenuItems}
+        topMenuItems={topMenuItems}
+        onBurgerClick={handleHeaderBurgerClick}
+      />
       <main>{children}</main>
-      <Footer />
+      <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
       <MobileMenu
         isOpen={isMobileMenuOpen}
+        menuItems={mobileMenuItems}
         onCloseButtonClick={handleMobileNavCloseButtonClick}
       />
     </>
@@ -47,10 +67,30 @@ MainLayout.propTypes = {
   seo: PropTypes.objectOf(PropTypes.any),
   children: PropTypes.node.isRequired,
   pageUrls: PropTypes.shape().isRequired,
+  menus: PropTypes.shape({
+    topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    mainMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+  globalFields: PropTypes.shape({
+    socialLinks: PropTypes.shape({}),
+    footerMeta: PropTypes.shape({}),
+  }),
 };
 
 MainLayout.defaultProps = {
   seo: null,
+  menus: {
+    mainMenuItems: [],
+    mobileMenuItems: [],
+    topMenuItems: [],
+    footerMenuItems: [],
+  },
+  globalFields: {
+    socialLinks: undefined,
+    globalFields: undefined,
+  },
 };
 
 export const query = graphql`
@@ -86,6 +126,68 @@ export const query = graphql`
     }
   }
   fragment wpPostSeo on WpPost {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpSuccessStorySeo on WpSuccessStory {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpPartnerSeo on WpPartner {
     seo {
       title
       metaDesc

@@ -9,28 +9,49 @@ import styles from './partner-info.module.scss';
 
 const cx = classNames.bind(styles);
 
-const PartnerInfo = ({ logoBackgroundColor, logoImage, items, partnerLink: { url, title } }) => (
-  <div className={cx('wrapper')}>
-    <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor}` }}>
-      <GatsbyImage className={cx('logo')} fluid={logoImage.localFile.childImageSharp.fluid} alt="" aria-hidden />
+const PartnerInfo = (props) => {
+  const { logoBackgroundColor, logoImage, items, partnerLink: { url, title } } = props;
+  return (
+    <div className={cx('wrapper')}>
+      <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor}` }}>
+        {logoImage && (
+          <GatsbyImage
+            className={cx('logo')}
+            fluid={logoImage.localFile.childImageSharp.fluid}
+            alt=""
+            aria-hidden
+          />
+        )}
+      </div>
+      <ul className={cx('items-wrapper')}>
+        {items.map(({ value, text }, index) => (
+          <li className={cx('item')} key={index}>
+            <strong>{value}</strong>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+      <div className={cx('link-wrapper')}>
+        <Link className={cx('link')} to={url}>{title}</Link>
+      </div>
     </div>
-    <ul className={cx('items-wrapper')}>
-      {items.map(({ value, text }, index) => (
-        <li className={cx('item')} key={index}>
-          <strong>{value}</strong>
-          <span>{text}</span>
-        </li>
-      ))}
-    </ul>
-    <div className={cx('link-wrapper')}>
-      <Link className={cx('link')} to={url}>{title}</Link>
-    </div>
-  </div>
-);
+  );
+};
 
 PartnerInfo.propTypes = {
   logoBackgroundColor: PropTypes.string.isRequired,
-  logoImage: PropTypes.objectOf(PropTypes.any).isRequired,
+  logoImage: PropTypes.shape({
+    localFile: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.shape({
+          aspectRatio: PropTypes.number.isRequired,
+          src: PropTypes.string.isRequired,
+          srcSet: PropTypes.string.isRequired,
+          sizes: PropTypes.string.isRequired,
+        }),
+      }),
+    }),
+  }),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string.isRequired,
@@ -41,6 +62,10 @@ PartnerInfo.propTypes = {
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+PartnerInfo.defaultProps = {
+  logoImage: null,
 };
 
 export default PartnerInfo;
