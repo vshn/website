@@ -35,10 +35,11 @@
   color: $color-tertiary;
   text-transform: uppercase;
 
+  @include with-link-secondary;
+
   .category {
     position: relative;
     margin-right: 25px;
-    color: $color-accent-primary;
 
     &::after {
       position: absolute;

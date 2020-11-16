@@ -97,10 +97,6 @@
   width: 65%;
   height: 135px;
 
-  @include md-down {
-    height: 80px;
-  }
-
   .logo {
     width: 100%;
   }

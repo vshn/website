@@ -9,13 +9,14 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, acf: { logo, partnerInfo, successStoryCard } }) => (
+const Content = ({ content, acf: { logo, partnerInfo, successStoryCard }, locale }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
         <PartnerInfo {...logo} {...partnerInfo} />
-        {successStoryCard.successStory && <SuccessStoryCard {...successStoryCard} />}
+        {successStoryCard.successStory
+        && <SuccessStoryCard {...successStoryCard} locale={locale} />}
       </div>
     </div>
 
@@ -53,6 +54,7 @@ Content.propTypes = {
       footerText: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 export default Content;

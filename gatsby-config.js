@@ -76,7 +76,7 @@ module.exports = {
       },
     },
     {
-      resolve: '@silencerweb/gatsby-source-wordpress-experimental',
+      resolve: 'gatsby-source-wordpress-experimental',
       options: {
         url: process.env.WP_GRAPHQL_URL,
         auth: {

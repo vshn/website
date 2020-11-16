@@ -4,6 +4,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import t from 'i18n';
 
 import circles from './images/circles.svg';
 import styles from './success-story-card.module.scss';
@@ -11,10 +12,10 @@ import styles from './success-story-card.module.scss';
 const cx = classNames.bind(styles);
 
 const SuccessStoryCard = (
-  { successStory: { title, acf: { category, description }, uri: footerUrl }, footerText },
+  { successStory: { title, acf: { description }, uri: footerUrl }, footerText, locale },
 ) => (
   <article className={cx('wrapper')}>
-    <span className={cx('category')}>{category}</span>
+    <span className={cx('category')}>{t[locale].successStory.breadcrumbRoot}</span>
     <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
     <p className={cx('description')}>{description}</p>
     <Button className={cx('link')} size="xs" to={footerUrl}>{footerText}</Button>
@@ -32,6 +33,7 @@ SuccessStoryCard.propTypes = {
     uri: PropTypes.string.isRequired,
   }).isRequired,
   footerText: PropTypes.string.isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 export default SuccessStoryCard;
