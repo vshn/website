@@ -1,0 +1,19 @@
+.wrapper {
+  margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include md-down {
+    margin-bottom: 100px;
+  }
+}
+
+.items-wrapper {
+  display: flex;
+  padding-left: 0;
+  list-style-type: none;
+
+  @include md-down {
+    flex-direction: column;
+  }
+}

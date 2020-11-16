@@ -156,6 +156,68 @@ export const query = graphql`
       }
     }
   }
+  fragment wpSuccessStorySeo on WpSuccessStory {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpPartnerSeo on WpPartner {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default MainLayout;

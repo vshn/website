@@ -1,5 +1,4 @@
 .wrapper {
-  position: relative;
   margin-bottom: 180px;
 
   @include section-paddings;
@@ -23,36 +22,26 @@
 
   @include content;
 
-  blockquote {
-    margin-right: 0;
-    margin-left: 0;
-
-    &::before {
-      width: 38px;
-      height: 30px;
-    }
-  }
-
   @include lg-down {
     max-width: 560px;
     margin-right: 80px;
+    margin-bottom: 50px;
   }
 
   @include md-down {
     max-width: initial;
     margin-right: 0;
-    margin-bottom: 50px;
   }
 }
 
 .info-wrapper {
   max-width: 410px;
-  margin-top: -350px;
+  margin-top: -345px;
   margin-left: auto;
 
   @include lg-down {
     max-width: 290px;
-    margin-top: -315px;
+    margin-top: -320px;
   }
 
   @include md-down {

@@ -19,7 +19,13 @@ const stripSpaces = (string) => string.replace(/\s+/g, ' ');
 // fetches global fields
 // getGlobalFields() -> Object: {socialLinks, footerMeta}
 const getGlobalFields = async (graphql) => {
-  const { data: { wp: { globalFields: { socialLinksAcf, footerMetaAcf } } } } = await graphql(`
+  const {
+    data: {
+      wp: {
+        globalFields: { socialLinksAcf, footerMetaAcf },
+      },
+    },
+  } = await graphql(`
     {
       wp {
         globalFields {
@@ -39,7 +45,7 @@ const getGlobalFields = async (graphql) => {
             praiseLinkName
           }
         }
-      } 
+      }
     }
   `);
   return {
@@ -51,100 +57,111 @@ const getGlobalFields = async (graphql) => {
 // fetches all vshn menus for both locales
 // getAllMenusByLocale(graphql: GatsbyGraphQlInstance) -> Object
 const getAllMenusByLocale = async (graphql) => {
-  const { data: { mainMenuEn, mainMenuDe, topMenuEn, topMenuDe, mobileMenuEn, mobileMenuDe, footerMenuEn, footerMenuDe } } = await graphql(`
-  {
-    mainMenuEn:wpMenu(slug: { eq: "main-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
-          parentId
-          childItems {
-            nodes {
-              label
-              path
-              childItems {
-                nodes {
-                  label
-                  path
+  const {
+    data: {
+      mainMenuEn,
+      mainMenuDe,
+      topMenuEn,
+      topMenuDe,
+      mobileMenuEn,
+      mobileMenuDe,
+      footerMenuEn,
+      footerMenuDe,
+    },
+  } = await graphql(`
+    {
+      mainMenuEn: wpMenu(slug: { eq: "main-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            parentId
+            childItems {
+              nodes {
+                label
+                path
+                childItems {
+                  nodes {
+                    label
+                    path
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    topMenuEn:wpMenu(slug: { eq: "top-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      topMenuEn: wpMenu(slug: { eq: "top-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
-    }
-    mobileMenuEn:wpMenu(slug: { eq: "mobile-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      mobileMenuEn: wpMenu(slug: { eq: "mobile-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
-    }
-    footerMenuEn:wpMenu(slug: { eq: "footer-menu-english" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      footerMenuEn: wpMenu(slug: { eq: "footer-menu-english" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
-    }
-    mainMenuDe:wpMenu(slug: { eq: "main-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
-          parentId
-          childItems {
-            nodes {
-              label
-              path
-              childItems {
-                nodes {
-                  label
-                  path
+      mainMenuDe: wpMenu(slug: { eq: "main-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            parentId
+            childItems {
+              nodes {
+                label
+                path
+                childItems {
+                  nodes {
+                    label
+                    path
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    topMenuDe:wpMenu(slug: { eq: "top-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
+      topMenuDe: wpMenu(slug: { eq: "top-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
+        }
+      }
+      mobileMenuDe: wpMenu(slug: { eq: "mobile-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
+        }
+      }
+      footerMenuDe: wpMenu(slug: { eq: "footer-menu-deutsch" }) {
+        menuItems {
+          nodes {
+            label
+            path
+          }
         }
       }
     }
-    mobileMenuDe:wpMenu(slug: { eq: "mobile-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
-        }
-      }
-    }
-    footerMenuDe:wpMenu(slug: { eq: "footer-menu-deutsch" }) {
-      menuItems {
-        nodes {
-          label
-          path
-        }
-      }
-    }
-  }
-`);
+  `);
 
   return {
     en: {
@@ -187,7 +204,14 @@ function getUrlsForLocales(locale, url, translations) {
 
 /* Main logic */
 
-async function createPages({ graphql, actions, reporter, getMenus, globalFields }) {
+// Create Pages
+async function createPages({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -220,9 +244,16 @@ async function createPages({ graphql, actions, reporter, getMenus, globalFields 
   const pages = result.data.allWpPage.nodes;
 
   pages.forEach(
-    ({ id, uri, language: { locale }, translations, template: { templateName } }) => {
+    ({
+      id,
+      uri,
+      language: { locale },
+      translations,
+      template: { templateName },
+    }) => {
+      const templateNamePath = templateName.toLowerCase().replace(/\s/g, '-');
       const templatePath = path.resolve(
-        `./src/templates/${templateName.toLowerCase()}.jsx`,
+        `./src/templates/${templateNamePath}.jsx`,
       );
       const context = {
         id,
@@ -245,7 +276,14 @@ async function createPages({ graphql, actions, reporter, getMenus, globalFields 
   );
 }
 
-async function createPosts({ graphql, actions, reporter, getMenus, globalFields }) {
+// Create Posts
+async function createPosts({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -257,6 +295,12 @@ async function createPosts({ graphql, actions, reporter, getMenus, globalFields 
           language {
             locale: slug
           }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
         }
       }
     }
@@ -267,15 +311,15 @@ async function createPosts({ graphql, actions, reporter, getMenus, globalFields 
   }
   const posts = result.data.allWpPost.nodes;
 
-  posts.forEach(({ id, content, uri, language: { locale } }) => {
+  posts.forEach(({ id, content, uri, language: { locale }, translations }) => {
     const templatePath = path.resolve('./src/templates/blog-post.jsx');
 
     const context = {
       id,
       locale,
-      globalFields,
       menus: getMenus(locale),
-      pageUrls: getUrlsForLocales(locale, uri, []),
+      globalFields,
+      pageUrls: getUrlsForLocales(locale, uri, translations),
     };
 
     if (content) {
@@ -294,7 +338,14 @@ async function createPosts({ graphql, actions, reporter, getMenus, globalFields 
   });
 }
 
-async function createPartners({ graphql, actions, reporter, getMenus, globalFields }) {
+// Create Partners
+async function createPartners({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
   const { createPage } = actions;
   const result = await graphql(`
     {
@@ -351,6 +402,70 @@ async function createPartners({ graphql, actions, reporter, getMenus, globalFiel
   );
 }
 
+// Create Success Stories
+async function createSuccessStories({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allWpSuccessStory {
+        nodes {
+          id
+          content
+          uri
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const successStories = result.data.allWpSuccessStory.nodes;
+
+  successStories.forEach(
+    ({ id, content, uri, language: { locale }, translations }) => {
+      const templatePath = path.resolve('./src/templates/success-story.jsx');
+
+      const context = {
+        id,
+        locale,
+        menus: getMenus(locale),
+        globalFields,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
+
+      if (content) {
+        context.content = stripSpaces(content);
+      }
+
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        reporter.error('Template Success Story was not found');
+      }
+    },
+  );
+}
+
 /* Note: this is a stub, should be set properly after
 // there is a 404 page in WP
 */
@@ -364,7 +479,9 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       menus: getMenus('end'),
       locale: 'en',
       globalFields,
-      pageUrls: getUrlsForLocales('en', '/en/404', [{ language: { locale: 'de' }, uri: '/404' }]),
+      pageUrls: getUrlsForLocales('en', '/en/404', [
+        { language: { locale: 'de' }, uri: '/404' },
+      ]),
     },
   });
 
@@ -375,7 +492,9 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       menus: getMenus('de'),
       locale: 'de',
       globalFields,
-      pageUrls: getUrlsForLocales('de', '/404', [{ language: { locale: 'en' }, uri: '/en/404' }]),
+      pageUrls: getUrlsForLocales('de', '/404', [
+        { language: { locale: 'en' }, uri: '/en/404' },
+      ]),
     },
   });
 };
@@ -391,7 +510,9 @@ exports.createPages = async (args) => {
   //  locale: oneOf(SUPPORTED_LOCALES)
   // }) -> Array<MenuItem>
   const getMenus = (locale = DEFAULT_LOCALE) => {
-    const menuLocale = SUPPORTED_LOCALES.includes(locale) ? locale : DEFAULT_LOCALE;
+    const menuLocale = SUPPORTED_LOCALES.includes(locale)
+      ? locale
+      : DEFAULT_LOCALE;
 
     const menus = {};
 
@@ -415,6 +536,7 @@ exports.createPages = async (args) => {
   await createPages(params);
   await createPosts(params);
   await createPartners(params);
+  await createSuccessStories(params);
   // custom 404
   await createNotFound(params);
 };

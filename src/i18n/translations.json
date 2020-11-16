@@ -1,5 +1,8 @@
 {
   "en": {
+    "successStory": {
+      "breadcrumbRoot":  "Success Stories"
+    },
     "partner": {
       "breadcrumbRoot": "Partners"
     },
@@ -12,6 +15,9 @@
     }
   },
   "de": {
+    "successStory": {
+      "breadcrumbRoot":  "Success Stories"
+    },
     "partner": {
       "breadcrumbRoot": "Partner"
     },
