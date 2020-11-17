@@ -89,6 +89,16 @@
     }
   }
 
+  > h4 {
+    margin-top: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+
+    @include md-down {
+      font-size: 16px;
+    }
+  }
+
   > ul,
   > ol {
     padding-left: 30px;
@@ -252,6 +262,32 @@
     color: #fb687f;
     background-color: $color-additional-1;
     border-radius: 2px;
+  }
+
+  pre {
+    margin-top: 45px;
+    font-family: inherit;
+    color: $color-secondary;
+    white-space: pre-wrap;
+  }
+
+  hr {
+    width: 100%;
+    height: 8px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: $color-additional-1;
+    border: none;
+
+    @include lg-down {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    @include md-down {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
   }
 
   img {

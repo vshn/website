@@ -10,13 +10,19 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: { wpPage: { seo, acf: data } },
-  pageContext: { locale, pageUrls, menus },
+  data: {
+    wpPage: {
+      seo,
+      acf: data,
+    },
+  },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
     <FeaturedPost {...data.featuredPost} />
     <Categories {...data.categories} />

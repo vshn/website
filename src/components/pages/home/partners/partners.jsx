@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 
 export const ITEM_CHANGE_INTERVAL = 5000; // milliseconds
 
-const Partners = ({ items }) => {
+const Partners = ({ items, itemButtonText }) => {
   const [animationStartRef, isAnimationStarted] = useInView({
     triggerOnce: true,
   });
@@ -111,7 +111,7 @@ const Partners = ({ items }) => {
               return (
                 <motion.div {...motionFadeAnimation} key={index}>
                   <Heading className={cx('text')} tag="blockquote" size="xl" innerHTML={text} />
-                  <Button to={buttonUrl}>Continue</Button>
+                  <Button to={buttonUrl}>{itemButtonText}</Button>
                 </motion.div>
               );
             })}
@@ -134,6 +134,7 @@ Partners.propTypes = {
       url: PropTypes.string.isRequired,
     }).isRequired,
   })).isRequired,
+  itemButtonText: PropTypes.string.isRequired,
 };
 
 export default Partners;

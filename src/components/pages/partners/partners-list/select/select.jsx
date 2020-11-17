@@ -2,17 +2,17 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
-import styles from './item.module.scss';
+import styles from './select.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ label, items }) => {
+const Select = ({ label, options, filterSelectHandler, filterKey }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
-
-  const handleItemClick = (newSelection) => {
+  const handleItemSelect = (newSelection) => {
     setSelectedItem(newSelection);
+    filterSelectHandler(filterKey, newSelection);
     setIsOpen(false);
   };
   const handleFilterClick = () => {
@@ -41,20 +41,29 @@ const Item = ({ label, items }) => {
       </button>
       {isOpen && (
       <div className={cx('items-wrapper')}>
-        {items.map(({ item }, index) => (
-          <button className={cx('item')} type="button" value={item} key={index} onClick={() => handleItemClick(item)}>{item}</button>
-        ))}
+        {selectedItem && (
+          <button className={cx('item')} type="button" onClick={() => handleItemSelect(null)}>None</button>
+        )}
+        {options.map(({ name, slug }, index) => {
+          if (slug === selectedItem) return null;
+          return (
+            <button className={cx('item')} type="button" value={slug} key={index} onClick={() => handleItemSelect(slug)}>{name}</button>
+          );
+        })}
       </div>
       )}
     </div>
   );
 };
 
-Item.propTypes = {
+Select.propTypes = {
   label: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    item: PropTypes.string.isRequired,
+  filterKey: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
   })).isRequired,
+  filterSelectHandler: PropTypes.func.isRequired,
 };
 
-export default Item;
+export default Select;
