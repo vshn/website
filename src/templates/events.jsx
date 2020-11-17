@@ -2,6 +2,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
+import EventsList from 'components/pages/events/events-list';
 import Hero from 'components/pages/events/hero';
 import UpcomingEvents from 'components/pages/events/upcoming-events';
 import Contact from 'components/shared/contact';
@@ -49,6 +50,7 @@ export default ({
   >
     <Hero {...hero} />
     <UpcomingEvents {...upcomingEvents} />
+    <EventsList />
     <Contact locale={locale} />
   </MainLayout>
 );
