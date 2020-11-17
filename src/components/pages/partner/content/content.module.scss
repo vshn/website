@@ -46,13 +46,17 @@
 }
 
 .info-wrapper {
+  max-width: 410px;
   margin-top: -350px;
+  margin-left: auto;
 
   @include lg-down {
+    max-width: 290px;
     margin-top: -315px;
   }
 
   @include md-down {
+    max-width: initial;
     margin-top: 0;
   }
 }

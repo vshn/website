@@ -1,0 +1,32 @@
+{
+  "en": {
+    "successStory": {
+      "breadcrumbRoot":  "Success Stories"
+    },
+    "partner": {
+      "breadcrumbRoot": "Partners"
+    },
+    "partners": {
+      "filters": {
+        "industries": "Industry",
+        "technologies": "Technology",
+        "infrastructures": "Infrastructure"
+      }
+    }
+  },
+  "de": {
+    "successStory": {
+      "breadcrumbRoot":  "Success Stories"
+    },
+    "partner": {
+      "breadcrumbRoot": "Partner"
+    },
+    "partners": {
+      "filters": {
+        "industries": "Industry",
+        "technologies": "Technology",
+        "infrastructures": "Infrastructure"
+      }
+    }
+  }
+}

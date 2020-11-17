@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-top: 45px;
+  padding-right: 30px;
+  padding-bottom: 45px;
+  padding-left: 30px;
+  background-image: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+  transition: background-image $transition-base, box-shadow $transition-base;
+
+  @include hover {
+    z-index: 1;
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
+  }
+}
+
+.image {
+  position: absolute;
+  margin-bottom: 45px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  padding-top: 110px;
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.button {
+  margin-top: auto;
+}
