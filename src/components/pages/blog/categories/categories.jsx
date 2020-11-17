@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { navigate } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,19 +11,24 @@ import styles from './categories.module.scss';
 const cx = classNames.bind(styles);
 
 const Categories = ({ locale, rootPath, categories, activeCategoryId }) => {
-  console.log(categories);
-  console.log(activeCategoryId);
+  const handleClick = (event) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    navigate(href, {
+      state: { preventScroll: true },
+    });
+  };
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <div className={cx('items-wrapper')}>
-          <Link className={cx('item', { active: !activeCategoryId })} to={rootPath}>
+          <a className={cx('item', { active: !activeCategoryId })} href={rootPath} onClick={(event) => { handleClick(event); }}>
             {translations[locale].blog.allPostsCategoryName}
-          </Link>
+          </a>
           {categories.map(({ name, slug, id }) => (
-            <Link className={cx('item', { active: activeCategoryId === id })} to={`${rootPath}${slug}`} key={id}>
+            <a className={cx('item', { active: activeCategoryId === id })} href={`${rootPath}${slug}`} key={id} onClick={(event) => { handleClick(event); }}>
               {name}
-            </Link>
+            </a>
           ))}
         </div>
       </div>
