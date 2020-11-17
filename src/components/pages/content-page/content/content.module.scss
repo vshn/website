@@ -23,12 +23,30 @@
   > h2 {
     margin-bottom: 30px;
     font-size: 36px;
+
+    @include lg-down {
+      font-size: 32px;
+    }
+
+    @include md-down {
+      font-size: 30px;
+    }
   }
 
   :global {
     .wp-block-image {
       margin-right: 60px;
       margin-left: 60px;
+
+      @include lg-down {
+        margin-right: 30px;
+        margin-left: 30px;
+      }
+
+      @include md-down {
+        margin-right: 0;
+        margin-left: 0;
+      }
 
       .gatsby-image-wrapper {
         border: none;
