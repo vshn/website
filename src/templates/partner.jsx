@@ -72,7 +72,7 @@ export const query = graphql`
               acf {
                 description
               }
-              uri
+              footerUrl: uri
             }
           }
           footerText

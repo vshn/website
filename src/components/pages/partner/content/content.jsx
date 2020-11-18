@@ -47,7 +47,7 @@ Content.propTypes = {
       acf: PropTypes.shape({
         description: PropTypes.string.isRequired,
       }),
-      uri: PropTypes.string.isRequired,
+      footerUrl: PropTypes.string.isRequired,
     }),
     footerText: PropTypes.string.isRequired,
   }).isRequired,

@@ -12,7 +12,7 @@ import styles from './success-story-card.module.scss';
 const cx = classNames.bind(styles);
 
 const SuccessStoryCard = (
-  { successStory: { title, acf: { description }, uri: footerUrl }, footerText, locale },
+  { successStory: { title, acf: { description }, footerUrl }, footerText, locale },
 ) => (
   <article className={cx('wrapper')}>
     <span className={cx('category')}>{t[locale].successStory.breadcrumbRoot}</span>
@@ -29,7 +29,7 @@ SuccessStoryCard.propTypes = {
     acf: PropTypes.shape({
       description: PropTypes.string.isRequired,
     }),
-    uri: PropTypes.string.isRequired,
+    footerUrl: PropTypes.string.isRequired,
   }),
   footerText: PropTypes.string.isRequired,
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
