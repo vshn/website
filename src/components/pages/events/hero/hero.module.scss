@@ -5,6 +5,15 @@
   background-color: $color-additional-1;
 
   @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 60px;
+  }
+
+  @include md-down {
+    margin-top: $header-height-md;
+    margin-bottom: 45px;
+  }
 }
 
 .inner {
@@ -12,6 +21,16 @@
   padding-top: 90px;
   padding-bottom: 90px;
   text-align: center;
+
+  @include lg-down {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include md-down {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 .category-wrapper {
@@ -46,6 +65,18 @@
 
 .title {
   margin-bottom: 60px;
+
+  @include lg-down {
+    margin-bottom: 50px;
+  }
+
+  @include md-down {
+    margin-bottom: 40px;
+  }
+
+  @include sm-down {
+    font-size: 36px;
+  }
 }
 
 .background-image {

@@ -1,11 +1,25 @@
 .wrapper {
   margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
 }
 
 .years-wrapper {
   padding-left: 0;
   margin-bottom: 30px;
   border-bottom: 2px solid $color-additional-1;
+
+  @include md-down {
+    border-bottom: none;
+  }
 }
 
 .year {
@@ -16,7 +30,6 @@
   font-size: $font-size-sm;
   font-weight: 700;
   line-height: $line-height-sm;
-  white-space: nowrap;
   cursor: pointer;
   background-color: $color-tertiary;
   border: none;
@@ -37,6 +50,7 @@
     padding: 5px 10px;
     margin-right: 15px;
     background-color: $color-additional-1;
+    border: 2px solid $color-additional-1;
     border-radius: 5px;
   }
 
@@ -58,8 +72,28 @@
   }
 
   &.active {
+    position: relative;
     color: $color-accent-primary;
-    border-bottom: 2px solid $color-accent-primary;
+    pointer-events: none;
+
+    @include md-down {
+      background-color: $color-tertiary;
+      border: 2px solid $color-accent-primary;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: $color-accent-primary;
+
+      @include md-down {
+        display: none;
+      }
+    }
   }
 }
 
