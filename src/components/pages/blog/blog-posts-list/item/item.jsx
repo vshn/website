@@ -4,6 +4,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
 
 import styles from './item.module.scss';
 
@@ -19,8 +20,13 @@ const Item = ({ title, acf: { shortDescription }, date, uri: buttonUrl, ctaButto
         <span className={cx('day')}>{day}</span>
         <span className={cx('month')}>{month}</span>
       </div>
+
       <div>
-        <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
+        <Heading className={cx('title')} tag="h2" size="xl" color="primary">
+          <Link to={buttonUrl}>
+            {title}
+          </Link>
+        </Heading>
         <p className={cx('short-description')}>{shortDescription}</p>
         <Button to={buttonUrl} size="sm">{ctaButtonText}</Button>
       </div>

@@ -70,6 +70,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @include with-link-primary;
 }
 
 .short-description {

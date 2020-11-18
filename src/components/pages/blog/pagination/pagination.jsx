@@ -34,22 +34,24 @@ const Pagination = (
   return (
     <div className={cx('wrapper')}>
       <div className="container">
-        <ReactPaginate
-          containerClassName={cx('items-wrapper')}
-          pageClassName={cx('item')}
-          breakClassName={cx('item')}
-          activeClassName={cx('active')}
-          previousClassName={cx('item', 'previous')}
-          nextClassName={cx('item', 'next')}
-          disabledClassName={cx('disabled')}
-          pageCount={pageCount}
-          pageRangeDisplayed={0}
-          marginPagesDisplayed={0}
-          forcePage={currentPageIndex}
-          previousLabel={<PrevLabel />}
-          nextLabel={<NextLabel />}
-          onPageChange={handlePageChange}
-        />
+        {pageCount ? (
+          <ReactPaginate
+            containerClassName={cx('items-wrapper')}
+            pageClassName={cx('item')}
+            breakClassName={cx('item')}
+            activeClassName={cx('active')}
+            previousClassName={cx('item', 'previous')}
+            nextClassName={cx('item', 'next')}
+            disabledClassName={cx('disabled')}
+            pageCount={pageCount}
+            pageRangeDisplayed={0}
+            marginPagesDisplayed={0}
+            forcePage={currentPageIndex}
+            previousLabel={<PrevLabel />}
+            nextLabel={<NextLabel />}
+            onPageChange={handlePageChange}
+          />
+        ) : null}
       </div>
     </div>
   );
