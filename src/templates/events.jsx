@@ -39,14 +39,15 @@ const upcomingEvents = {
 
 export default ({
   data: {
-    wpPage: { seo, acf: data },
+    wpPage: { seo, acf: data, title },
   },
-  pageContext: { locale, pageUrls, menus },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
     <Hero {...hero} />
     <UpcomingEvents {...upcomingEvents} />
