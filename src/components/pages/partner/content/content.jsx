@@ -9,7 +9,7 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, acf: { logo, partnerInfo, successStoryCard }, locale }) => (
+const Content = ({ content, logo, partnerInfo, successStoryCard, locale }) => (
   <div className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
@@ -25,34 +25,31 @@ const Content = ({ content, acf: { logo, partnerInfo, successStoryCard }, locale
 
 Content.propTypes = {
   content: PropTypes.string.isRequired,
-  acf: PropTypes.shape({
-    logo: PropTypes.shape({
-      logoBackgroundColor: PropTypes.string.isRequired,
-      logoImage: PropTypes.objectOf(PropTypes.any).isRequired,
+  logo: PropTypes.shape({
+    logoBackgroundColor: PropTypes.string.isRequired,
+    logoImage: PropTypes.objectOf(PropTypes.any).isRequired,
+  }).isRequired,
+  partnerInfo: PropTypes.shape({
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+    partnerLink: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  successStoryCard: PropTypes.shape({
+    successStory: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      acf: PropTypes.shape({
+        description: PropTypes.string.isRequired,
+      }),
+      uri: PropTypes.string.isRequired,
     }),
-    partnerInfo: PropTypes.shape({
-      items: PropTypes.arrayOf(
-        PropTypes.shape({
-          value: PropTypes.string.isRequired,
-          text: PropTypes.string.isRequired,
-        }),
-      ).isRequired,
-      partnerLink: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-    successStoryCard: PropTypes.shape({
-      successStory: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        acf: PropTypes.shape({
-          category: PropTypes.string.isRequired,
-          description: PropTypes.string.isRequired,
-        }),
-        uri: PropTypes.string.isRequired,
-      }).isRequired,
-      footerText: PropTypes.string.isRequired,
-    }).isRequired,
+    footerText: PropTypes.string.isRequired,
   }).isRequired,
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };

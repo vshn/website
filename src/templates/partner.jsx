@@ -10,7 +10,7 @@ import MainLayout from 'layouts/main';
 export default ({
   data: {
     wpPartner: data,
-    allWpPage,
+    wpPage: { slug },
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -20,8 +20,13 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero {...data} {...allWpPage} locale={locale} />
-    <Content {...data} locale={locale} />
+    <Hero
+      slug={slug}
+      title={data.title}
+      description={data.acf.description}
+      locale={locale}
+    />
+    <Content content={data.content} {...data.acf} locale={locale} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -74,10 +79,8 @@ export const query = graphql`
         }
       }
     }
-    allWpPage(filter: {template: {templateName: {eq: "Partners"}}, language: {slug: {eq: $locale}}}) {
-      nodes {
-        url: uri
-      }
+    wpPage(template: {templateName: {eq: "Partners"}}, language: {slug: {eq: $locale}}) {
+      slug: uri
     }
   }
 `;

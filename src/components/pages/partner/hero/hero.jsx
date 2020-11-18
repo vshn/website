@@ -10,11 +10,11 @@ import styles from './hero.module.scss';
 import backgroundImage from './images/background-image.svg';
 
 const cx = classNames.bind(styles);
-const Hero = ({ nodes, title, acf: { description }, locale }) => (
+const Hero = ({ slug, title, description, locale }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('category-wrapper')}>
-        <Link className={cx('category')} to={nodes[0].url}>
+        <Link className={cx('category')} to={slug}>
           {translations[locale].partner.breadcrumbRoot}
         </Link>
         <span>{title}</span>
@@ -27,13 +27,9 @@ const Hero = ({ nodes, title, acf: { description }, locale }) => (
 );
 
 Hero.propTypes = {
-  nodes: PropTypes.arrayOf(PropTypes.shape({
-    url: PropTypes.string.isRequired,
-  })).isRequired,
+  slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  acf: PropTypes.shape({
-    description: PropTypes.string.isRequired,
-  }).isRequired,
+  description: PropTypes.string.isRequired,
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 

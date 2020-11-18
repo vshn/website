@@ -27,13 +27,16 @@ SuccessStoryCard.propTypes = {
   successStory: PropTypes.shape({
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({
-      category: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     }),
     uri: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   footerText: PropTypes.string.isRequired,
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
+};
+
+SuccessStoryCard.defaultProps = {
+  successStory: null,
 };
 
 export default SuccessStoryCard;
