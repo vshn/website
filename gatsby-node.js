@@ -222,7 +222,6 @@ const buildUrlsForLocales = (url) => {
     .forEach((remainingLocale) => {
       urls[remainingLocale] = `/${remainingLocale}${defaultUrl}`;
     });
-  console.log('after', urls);
   return urls;
 };
 
@@ -408,8 +407,9 @@ const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => 
 
     const pageCount = Math.ceil(localizedPostsWithoutFeaturedPost.length / POSTS_PER_PAGE);
 
+    const makePath = (i) => (i === 0 ? blogPage.uri : `${blogPage.uri}${i + 1}`);
+
     Array.from({ length: pageCount }).forEach((_, i) => {
-      const makePath = (i) => (i === 0 ? blogPage.uri : `${blogPage.uri}${i + 1}`);
       createPage({
         path: makePath(i),
         component: slash(template),
