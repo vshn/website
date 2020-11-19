@@ -5,6 +5,7 @@ import React from 'react';
 import Content from 'components/pages/content-page/content';
 import Hero from 'components/pages/content-page/hero';
 import Contact from 'components/shared/contact';
+import RelatedItems from 'components/shared/related-items/';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -20,8 +21,8 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero {...data} />
-    <Content {...data} />
+    <Hero title={data.title} />
+    <Content content={data.content} relatedItems={data.acf.relatedItems} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -30,6 +31,18 @@ export const query = graphql`
     wpPage(id: { eq: $id }) {
       title
       content
+      acf {
+        relatedItems {
+          title
+          items {
+            link {
+              url
+              title
+              target
+            }
+          }
+        }
+      }
       ...wpPageSeo
     }
   }

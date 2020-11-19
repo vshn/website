@@ -3,9 +3,9 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Hero from 'components/pages/parent-category/hero';
-import Options from 'components/pages/parent-category/options';
-import OtherOptions from 'components/pages/parent-category/other-options';
+import SubPages from 'components/pages/parent-category/sub-pages';
 import Contact from 'components/shared/contact';
+import RelatedItems from 'components/shared/related-items';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -21,8 +21,8 @@ export default ({
     globalFields={globalFields}
   >
     <Hero title={title} {...data.parentCategoryHero} />
-    <Options {...data.subPages} />
-    {data.relatedItems.items && <OtherOptions {...data.relatedItems} />}
+    <SubPages {...data.subPages} />
+    {data.relatedItems.items && <RelatedItems {...data.relatedItems} />}
     <Contact locale={locale} />
   </MainLayout>
 );

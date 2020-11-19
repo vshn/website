@@ -12,11 +12,22 @@
   }
 }
 
-.content {
+.inner {
   max-width: 850px;
   margin-right: auto;
-  margin-bottom: 60px;
   margin-left: auto;
+
+  @include lg-down {
+    max-width: 770px;
+  }
+
+  @include md-down {
+    max-width: 700px;
+  }
+}
+
+.content {
+  margin-bottom: 60px;
 
   @include content;
 
@@ -55,12 +66,10 @@
   }
 
   @include lg-down {
-    max-width: 770px;
     margin-bottom: 50px;
   }
 
   @include md-down {
-    max-width: 700px;
     margin-bottom: 40px;
   }
 }

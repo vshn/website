@@ -28,8 +28,4 @@ Hero.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-Hero.defaultProps = {
-
-};
-
 export default Hero;
