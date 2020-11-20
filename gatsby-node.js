@@ -466,6 +466,70 @@ async function createSuccessStories({
   );
 }
 
+// Create Events
+async function createEvents({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allWpEvent {
+        nodes {
+          id
+          content
+          uri
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const events = result.data.allWpEvent.nodes;
+
+  events.forEach(
+    ({ id, content, uri, language: { locale }, translations }) => {
+      const templatePath = path.resolve('./src/templates/event.jsx');
+
+      const context = {
+        id,
+        locale,
+        menus: getMenus(locale),
+        globalFields,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
+
+      if (content) {
+        context.content = stripSpaces(content);
+      }
+
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        reporter.error('Template Event was not found');
+      }
+    },
+  );
+}
+
 /* Note: this is a stub, should be set properly after
 // there is a 404 page in WP
 */
@@ -537,6 +601,7 @@ exports.createPages = async (args) => {
   await createPosts(params);
   await createPartners(params);
   await createSuccessStories(params);
+  await createEvents(params);
   // custom 404
   await createNotFound(params);
 };

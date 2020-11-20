@@ -15,7 +15,7 @@ const UpcomingEvents = ({ title, items }) => (
       <Heading className={cx('title')}>{title}</Heading>
       <ul className={cx('items-wrapper')}>
         {items.map((item, index) => (
-          <Item key={index} {...item} index={index} />
+          <Item key={index} {...item} />
         ))}
       </ul>
     </div>
@@ -27,8 +27,17 @@ UpcomingEvents.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    date: PropTypes.instanceOf(Date).isRequired,
+    item: PropTypes.shape({
+      logo: PropTypes.shape({
+        localFile: PropTypes.shape({
+          publicURL: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+      description: PropTypes.string.isRequired,
+      schedule: PropTypes.shape({
+        startDate: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
   })).isRequired,
 };
 
