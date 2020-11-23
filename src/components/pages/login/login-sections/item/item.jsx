@@ -16,7 +16,9 @@ const images = {
   vshn: Vshn,
 };
 
-const Item = ({ title, description, buttonLink: { url }, buttonText, imageName }) => {
+const Item = (
+  { title, description, buttonLink: { url: buttonUrl, title: buttonText }, imageName },
+) => {
   const Image = images[imageName];
 
   return (
@@ -25,7 +27,7 @@ const Item = ({ title, description, buttonLink: { url }, buttonText, imageName }
       <div className={cx('content')}>
         <Heading className={cx('title')} size="lg">{title}</Heading>
         <p className={cx('description')}>{description}</p>
-        <Button className={cx('button')} to={url} size="xs">{buttonText}</Button>
+        <Button className={cx('button')} to={buttonUrl} size="xs">{buttonText}</Button>
       </div>
     </li>
   );
@@ -36,8 +38,8 @@ Item.propTypes = {
   description: PropTypes.string.isRequired,
   buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
-  buttonText: PropTypes.string.isRequired,
   imageName: PropTypes.string.isRequired,
 };
 

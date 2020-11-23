@@ -29,8 +29,8 @@ LoginSections.propTypes = {
     description: PropTypes.string.isRequired,
     buttonLink: PropTypes.shape({
       url: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired,
-    buttonText: PropTypes.string.isRequired,
   })).isRequired,
 };
 

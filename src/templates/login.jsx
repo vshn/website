@@ -32,8 +32,8 @@ export const query = graphql`
             description
             buttonLink {
               url
+              title
             }
-            buttonText
             imageName
           }
         }

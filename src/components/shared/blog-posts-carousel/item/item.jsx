@@ -10,7 +10,7 @@ import styles from './item.module.scss';
 const cx = classNames.bind(styles);
 
 const Item = (
-  { post: { uri: url, categories, title, acf: { shortDescription } }, itemFooterText },
+  { uri: url, categories, title, acf: { shortDescription }, itemFooterText },
 ) => (
   <article className={cx('wrapper')}>
     <div className={cx('inner')}>
@@ -27,17 +27,15 @@ const Item = (
 );
 
 Item.propTypes = {
-  post: PropTypes.shape({
-    uri: PropTypes.string.isRequired,
-    categories: PropTypes.shape({
-      nodes: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-      })),
-    }).isRequired,
-    title: PropTypes.string.isRequired,
-    acf: PropTypes.shape({
-      shortDescription: PropTypes.string.isRequired,
-    }).isRequired,
+  uri: PropTypes.string.isRequired,
+  categories: PropTypes.shape({
+    nodes: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    })),
+  }).isRequired,
+  title: PropTypes.string.isRequired,
+  acf: PropTypes.shape({
+    shortDescription: PropTypes.string.isRequired,
   }).isRequired,
   itemFooterText: PropTypes.string.isRequired,
 };
