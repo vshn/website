@@ -21,7 +21,7 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={data.title} />
+    <Hero title={data.title} breadcrumbs={data.acf.breadcrumbs} />
     <Content content={data.content} relatedItems={data.acf.relatedItems} />
     <Contact locale={locale} />
   </MainLayout>
@@ -32,6 +32,13 @@ export const query = graphql`
       title
       content
       acf {
+        breadcrumbs {
+          link {
+            url
+            title
+            target
+          }
+        }
         relatedItems {
           title
           items {

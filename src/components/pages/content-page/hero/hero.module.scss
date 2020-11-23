@@ -1,9 +1,14 @@
 .wrapper {
   position: relative;
-  z-index: 0;
+  display: flex;
+  align-items: center;
+  min-height: 350px;
   margin-top: $header-height;
   margin-bottom: 90px;
-  background-color: $color-additional-1;
+  background:
+    url("./images/background-image.svg") no-repeat center
+    $color-additional-1;
+  background-size: cover;
 
   @include section-paddings;
 
@@ -12,31 +17,31 @@
   }
 
   @include md-down {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
     margin-top: $header-height-md;
     margin-bottom: 45px;
+  }
+
+  @include sm-down {
+    padding-top: 100px;
+    padding-bottom: 50px;
   }
 }
 
 .inner {
   z-index: 1;
-  padding-top: 90px;
-  padding-bottom: 90px;
   text-align: center;
 
   @include with-link-secondary;
-
-  @include lg-down {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-
-  @include md-down {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
 }
 
 .breadcrumbs {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  left: 0;
   display: block;
   margin-bottom: 30px;
   font-size: $font-size-xs;
@@ -55,7 +60,7 @@
       right: -15px;
       display: inline-block;
       padding: 3px;
-      content: '';
+      content: "";
       border: solid $color-secondary;
       border-width: 0 2px 2px 0;
       -webkit-transform: rotate(-45deg);
@@ -65,17 +70,6 @@
 }
 
 .title {
-  margin-bottom: 60px;
-
-  @include lg-down {
-    margin-bottom: 50px;
-  }
-}
-
-.background-image {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  height: 100%;
-  transform: translateX(-50%);
+  max-width: 850px;
+  margin: 0 auto;
 }
