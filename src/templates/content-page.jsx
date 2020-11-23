@@ -5,18 +5,16 @@ import React from 'react';
 import Content from 'components/pages/content-page/content';
 import Hero from 'components/pages/content-page/hero';
 import Contact from 'components/shared/contact';
-import RelatedItems from 'components/shared/related-items/';
 import MainLayout from 'layouts/main';
 
 export default ({
   data: {
-    seo,
     wpPage: data,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
-    seo={seo}
+    seo={data.seo}
     pageUrls={pageUrls}
     menus={menus}
     globalFields={globalFields}
