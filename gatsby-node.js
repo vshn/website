@@ -9,6 +9,7 @@ const filterNonRootItems = require('./src/utils/filter-non-root-items');
 const DEFAULT_LOCALE = 'de';
 const SUPPORTED_LOCALES = ['en', 'de'];
 const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
+const POSTS_PER_PAGE = 5;
 
 /* Local helper fns */
 
@@ -202,6 +203,28 @@ function getUrlsForLocales(locale, url, translations) {
   return urls;
 }
 
+// takes an url of a being generated page
+// and makes a dictionary based on SUPPORTED_LOCALES of type
+// { [locale]: url }
+// buildUrlsForLocales(url: String!) -> Object<{[locale]: url}>
+const buildUrlsForLocales = (url) => {
+  // urls dictionary
+  const urls = {};
+  // get default url
+  const stripLocaleRegex = new RegExp(`^/?(${SUPPORTED_LOCALES.join('|')})?(/.*?)$`);
+  const defaultUrl = url.replace(stripLocaleRegex, '$2');
+  // assign default url to default locale
+  urls[DEFAULT_LOCALE] = defaultUrl;
+
+  // build every other localized url
+  SUPPORTED_LOCALES
+    .filter((item) => item !== DEFAULT_LOCALE)
+    .forEach((remainingLocale) => {
+      urls[remainingLocale] = `/${remainingLocale}${defaultUrl}`;
+    });
+  return urls;
+};
+
 /* Main logic */
 
 // Create Pages
@@ -216,7 +239,7 @@ async function createPages({
 
   const result = await graphql(`
     {
-      allWpPage {
+      allWpPage(filter: { template: { templateName: { ne: "Blog" } } } ) {
         nodes {
           id
           uri
@@ -275,6 +298,166 @@ async function createPages({
     },
   );
 }
+
+const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      blog: allWpPage(filter: { template: { templateName: { eq: "Blog" } } }) {
+        nodes {
+          id
+          uri
+          language {
+            locale: slug 
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+          acf {
+            featuredPost {
+              post {
+                ... on WpPost {
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+      posts: allWpPost(sort: { fields: date, order: DESC }) {
+        edges {
+          node {
+            id
+            categories {
+              nodes {
+                id
+                uri
+                language {
+                  locale: slug
+                }
+                translations {
+                  language {
+                    locale: slug
+                  }
+                  uri
+                }
+              }
+            }
+          }
+        }
+      }
+      categories: allWpCategory(
+        filter: { slug: { nin: ["all-post", "uncategorized"] } }
+        sort: { order: ASC, fields: name }
+      ) {
+        nodes {
+          id
+          slug
+          name
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const { data: { blog, posts, categories } } = result;
+
+  const blogPages = blog.nodes;
+
+  const postPages = posts.edges;
+
+  // make sure category list includes no duplicates
+  const postCategories = categories.nodes;
+
+  const template = path.resolve('./src/templates/blog.jsx');
+
+  blogPages.forEach((blogPage) => {
+    const context = {
+      id: blogPage.id,
+      featuredPostId: blogPage.acf.featuredPost.post.id,
+      menus: getMenus(blogPage.language.locale),
+      globalFields,
+      locale: blogPage.language.locale,
+      categories: postCategories
+        .filter(({ language: { locale } }) => locale === blogPage.language.locale),
+    };
+
+    // Omit feature post since it is not included in posts list
+    const localizedPostsWithoutFeaturedPost = postPages
+      .filter((post) => post.node.id !== blogPage.acf.featuredPost.post.id)
+      // omit posts whose locale doesn't match current blogPage's one
+      .filter((post) => post.node.categories.nodes[0].language.locale
+            === blogPage.language.locale);
+
+    const pageCount = Math.ceil(localizedPostsWithoutFeaturedPost.length / POSTS_PER_PAGE);
+
+    const makePath = (i) => (i === 0 ? blogPage.uri : `${blogPage.uri}${i + 1}`);
+
+    Array.from({ length: pageCount }).forEach((_, i) => {
+      createPage({
+        path: makePath(i),
+        component: slash(template),
+        context: {
+          ...context,
+          limit: POSTS_PER_PAGE,
+          skip: i * POSTS_PER_PAGE,
+          pageCount,
+          currentPageIndex: i,
+          pageUrls: buildUrlsForLocales(makePath(i)),
+        },
+      });
+    });
+
+    postCategories
+      // filter categories based on blogPage locale
+      .filter((category) => category.language.locale === blogPage.language.locale)
+      .forEach((category) => {
+      // then count posts based on category id
+        const postsForCategory = localizedPostsWithoutFeaturedPost
+          .filter((post) => {
+            const postCategoryId = post.node.categories.nodes[0].id;
+            return postCategoryId === category.id;
+          });
+
+        const pageCount = Math.ceil(postsForCategory.length / POSTS_PER_PAGE);
+
+        const makePath = (i) => (i === 0 ? `${blogPage.uri}${category.slug}` : `${blogPage.uri}${category.slug}/${i + 1}`);
+
+        // create paginated blog pages
+        Array.from({ length: pageCount || 1 }).forEach((_, i) => {
+          createPage({
+            path: makePath(i),
+            component: slash(template),
+            context: {
+              ...context,
+              limit: POSTS_PER_PAGE,
+              skip: i * POSTS_PER_PAGE,
+              pageCount,
+              currentPageIndex: i,
+              categoryId: category.id,
+              pageUrls: buildUrlsForLocales(makePath(i)),
+            },
+          });
+        });
+      });
+  });
+};
 
 // Create Posts
 async function createPosts({
@@ -534,6 +717,7 @@ exports.createPages = async (args) => {
   };
 
   await createPages(params);
+  await createBlogPages(params);
   await createPosts(params);
   await createPartners(params);
   await createSuccessStories(params);

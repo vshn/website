@@ -34,6 +34,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.29.1",
+    "react-paginate": "^6.5.0",
     "swiper": "^6.3.3"
   },
   "devDependencies": {

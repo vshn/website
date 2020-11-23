@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
+import { navigate } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactPaginate from 'react-paginate';
 
-import Link from 'components/shared/link';
+import translations from 'i18n';
 
 import Arrow from './images/arrow.inline.svg';
 import styles from './pagination.module.scss';
@@ -10,37 +12,56 @@ import styles from './pagination.module.scss';
 const cx = classNames.bind(styles);
 
 const Pagination = (
-  { previousText, previousUrl: { url: previousUrl }, nextText, nextUrl: { url: nextUrl } },
-) => (
-  <div className={cx('wrapper')}>
-    <div className="container">
-      <div className={cx('items-wrapper')}>
-        {previousUrl && (
-          <Link className={cx('item', 'previous')} to={previousUrl}>
-            <Arrow />
-            <span>{previousText}</span>
-          </Link>
-        )}
-        {nextUrl && (
-          <Link className={cx('item', 'next')} to={nextUrl}>
-            <span>{nextText}</span>
-            <Arrow />
-          </Link>
-        )}
+  { locale, pageCount, currentPageIndex, rootPath },
+) => {
+  const handlePageChange = ({ selected }) => {
+    const navigatePath = selected === 0 ? rootPath : rootPath + (selected + 1);
+    navigate(navigatePath);
+  };
+
+  const PrevLabel = () => (
+    <span>
+      <Arrow />
+      <span>{translations[locale].blog.pagination.prevLabel}</span>
+    </span>
+  );
+  const NextLabel = () => (
+    <span>
+      <span>{translations[locale].blog.pagination.nextLabel}</span>
+      <Arrow />
+    </span>
+  );
+  return (
+    <div className={cx('wrapper')}>
+      <div className="container">
+        {pageCount ? (
+          <ReactPaginate
+            containerClassName={cx('items-wrapper')}
+            pageClassName={cx('item')}
+            breakClassName={cx('item')}
+            activeClassName={cx('active')}
+            previousClassName={cx('item', 'previous')}
+            nextClassName={cx('item', 'next')}
+            disabledClassName={cx('disabled')}
+            pageCount={pageCount}
+            pageRangeDisplayed={0}
+            marginPagesDisplayed={0}
+            forcePage={currentPageIndex}
+            previousLabel={<PrevLabel />}
+            nextLabel={<NextLabel />}
+            onPageChange={handlePageChange}
+          />
+        ) : null}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 Pagination.propTypes = {
-  previousText: PropTypes.string.isRequired,
-  previousUrl: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-  }).isRequired,
-  nextText: PropTypes.string.isRequired,
-  nextUrl: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
+  pageCount: PropTypes.number.isRequired,
+  currentPageIndex: PropTypes.number.isRequired,
+  rootPath: PropTypes.string.isRequired,
 };
 
 export default Pagination;

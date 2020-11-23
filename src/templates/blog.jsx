@@ -13,10 +13,21 @@ export default ({
   data: {
     wpPage: {
       seo,
+      uri: pageRootUri,
       acf: data,
     },
+    posts,
   },
-  pageContext: { locale, pageUrls, menus, globalFields },
+  pageContext: {
+    locale,
+    pageUrls,
+    menus,
+    globalFields,
+    categories,
+    pageCount,
+    currentPageIndex,
+    categoryId,
+  },
 }) => (
   <MainLayout
     seo={seo}
@@ -25,17 +36,41 @@ export default ({
     globalFields={globalFields}
   >
     <FeaturedPost {...data.featuredPost} />
-    <Categories {...data.categories} />
-    <BlogPostsList {...data.blogPostsList} />
-    <Pagination {...data.pagination} />
+    <Categories
+      locale={locale}
+      rootPath={pageRootUri}
+      categories={categories}
+      activeCategoryId={categoryId}
+    />
+    <BlogPostsList locale={locale} posts={posts.nodes} banner={data.banner} />
+    <Pagination
+      locale={locale}
+      pageCount={pageCount}
+      currentPageIndex={currentPageIndex}
+      rootPath={pageRootUri}
+    />
     <Contact locale={locale} />
   </MainLayout>
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $featuredPostId: String!, $categoryId: String, $skip: Int!, $limit: Int!, $locale: String!) {
     wpPage(id: { eq: $id }) {
+      uri
       acf {
+        banner {
+          bannerCover {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
+          }
+          bannerTitle
+          bannerLink
+        }
         featuredPost {
           post {
             ... on WpPost {
@@ -49,51 +84,27 @@ export const query = graphql`
           }
           footerText
         }
-        categories {
-          items {
-            category {
-              name
-              uri
-            }
-          }
-          activeItemSlug
-        }
-        blogPostsList {
-          items {
-            post {
-              ... on WpPost {
-                title
-                acf {
-                  shortDescription
-                }
-                date(formatString: "YYYY-MM-DD")
-                uri
-              }
-            }
-          }
-          itemFooterText
-          image {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
-              }
-            }
-          }
-        }
-        pagination {
-          nextText
-          nextUrl {
-            url
-          }
-          previousText
-          previousUrl {
-            url
-          }
-        }
-      }
+       }
       ...wpPageSeo
-    }  
+    }
+    posts: allWpPost(
+      filter: {
+        id: { ne: $featuredPostId }
+        categories: { nodes: { elemMatch: { id: { eq: $categoryId } } } }
+        language: { slug: { eq: $locale } }
+      }
+      sort: { fields: date, order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      nodes {
+        title
+        uri
+        acf {
+          shortDescription
+        }
+        date(formatString: "YYYY-MM-DD")
+      }
+    }
   }
 `;

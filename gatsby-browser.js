@@ -6,3 +6,5 @@
 
 // You can delete this file if you're not using it
 require('./src/styles/app.scss');
+
+exports.shouldUpdateScroll = ({ routerProps: { location } }) => !location.state?.preventScroll;

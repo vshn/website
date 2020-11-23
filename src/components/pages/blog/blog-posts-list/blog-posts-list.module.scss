@@ -8,6 +8,10 @@
 .items-wrapper {
   max-width: 850px;
 
+  &.has-banner {
+    min-height: 630px; // make sure banner is visible even if no/too few posts
+  }
+
   @include lg-down {
     max-width: 610px;
   }
@@ -89,26 +93,49 @@
   }
 }
 
-.image {
-  border-radius: 8px;
+.banner {
+  position: relative;
+  display: block;
+  text-decoration: none;
+
+  &-title {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  &-image,
+  &-overlay {
+    border-radius: 8px;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(8, 17, 43, 0) 0%, #08112b 100%);
+    opacity: 0.75;
+  }
 }
 
 .shape {
   position: absolute;
-  top: 755px;
-  left: 1175px;
+  right: 0;
+  bottom: 50%;
   z-index: -1;
-  width: calc(115px + #{$container-side-gap});
-  min-width: 430px;
-  height: 700px;
+  transform: translateY(50%);
+
+  @include xl-up {
+    width: #{$container-side-gap};
+    min-width: 430px;
+    max-height: 700px;
+  }
 
   @include lg-down {
-    top: 1000px;
-    right: calc((100vw - #{$container-width-lg}) / 2 / -1);
-    left: auto;
     width: 220px;
-    min-width: 0;
-    height: auto;
   }
 
   @include md-down {
