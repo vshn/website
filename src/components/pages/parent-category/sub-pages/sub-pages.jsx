@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Item from './item';
-import styles from './options.module.scss';
+import styles from './sub-pages.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Options = ({ items, itemFooterText }) => (
+const SubPages = ({ items, itemFooterText }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <ul className={cx('items-wrapper')}>
@@ -19,7 +19,7 @@ const Options = ({ items, itemFooterText }) => (
   </section>
 );
 
-Options.propTypes = {
+SubPages.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -28,8 +28,4 @@ Options.propTypes = {
   itemFooterText: PropTypes.string.isRequired,
 };
 
-Options.defaultProps = {
-
-};
-
-export default Options;
+export default SubPages;

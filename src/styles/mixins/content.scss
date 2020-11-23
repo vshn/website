@@ -133,6 +133,10 @@
       padding-left: 16px;
       list-style-type: none;
 
+      li:first-of-type {
+        margin-top: 10px;
+      }
+
       &::before {
         position: absolute;
         top: 9px;

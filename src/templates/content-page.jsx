@@ -2,58 +2,40 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Hero from 'components/pages/parent-category/hero';
-import SubPages from 'components/pages/parent-category/sub-pages';
+import Content from 'components/pages/content-page/content';
+import Hero from 'components/pages/content-page/hero';
 import Contact from 'components/shared/contact';
-import RelatedItems from 'components/shared/related-items';
 import MainLayout from 'layouts/main';
 
 export default ({
   data: {
-    wpPage: { seo, acf: data, title },
+    wpPage: data,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
-    seo={seo}
+    seo={data.seo}
     pageUrls={pageUrls}
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={title} {...data.parentCategoryHero} />
-    <SubPages {...data.subPages} />
-    {data.relatedItems.items && <RelatedItems {...data.relatedItems} />}
+    <Hero title={data.title} breadcrumbs={data.acf.breadcrumbs} />
+    <Content content={data.content} relatedItems={data.acf.relatedItems} />
     <Contact locale={locale} />
   </MainLayout>
 );
-
 export const query = graphql`
   query($id: String!) {
     wpPage(id: { eq: $id }) {
       title
+      content
       acf {
-        parentCategoryHero {
-          description
-          subtitle
-          image {
-            localFile {
-              publicURL
-            }
-          }
-        }
-        subPages {
-          items {
+        breadcrumbs {
+          link {
+            url
             title
-            link {
-              url
-            }
-            icon {
-              localFile {
-                publicURL
-              }
-            }
+            target
           }
-          itemFooterText
         }
         relatedItems {
           title

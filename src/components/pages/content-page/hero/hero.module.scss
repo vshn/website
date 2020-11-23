@@ -1,0 +1,44 @@
+.wrapper {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  min-height: 350px;
+  margin-top: $header-height;
+  margin-bottom: 90px;
+  background:
+    url("./images/background-image.svg") no-repeat center
+    $color-additional-1;
+  background-size: cover;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 60px;
+  }
+
+  @include md-down {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    margin-top: $header-height-md;
+    margin-bottom: 45px;
+  }
+
+  @include sm-down {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+}
+
+.inner {
+  z-index: 1;
+  text-align: center;
+
+  @include with-link-secondary;
+}
+
+.title {
+  max-width: 850px;
+  margin: 0 auto;
+}

@@ -1,0 +1,31 @@
+.breadcrumbs {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  left: 0;
+  display: block;
+  margin-bottom: 30px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  color: $color-secondary;
+  text-transform: uppercase;
+
+  .link {
+    position: relative;
+    margin-right: 25px;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      display: inline-block;
+      padding: 3px;
+      content: "";
+      border: solid $color-secondary;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(-45deg);
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+}
