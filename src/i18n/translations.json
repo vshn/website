@@ -15,6 +15,14 @@
         "technologies": "Technology",
         "infrastructures": "Infrastructure"
       }
+    },
+    "blog": {
+      "postCtaButton": "Read more",
+      "allPostsCategoryName": "All posts",
+      "pagination": {
+        "prevLabel": "Newer posts",
+        "nextLabel": "Older Posts"
+      }
     }
   },
   "de": {
@@ -32,6 +40,14 @@
         "industries": "Industry",
         "technologies": "Technology",
         "infrastructures": "Infrastructure"
+      }
+    },
+    "blog": {
+      "postCtaButton": "Weiterlesen",
+      "allPostsCategoryName": "Alle Beiträge",
+      "pagination": {
+        "prevLabel": "Ältere Beiträge",
+        "nextLabel": "Neuere Beiträge"
       }
     }
   }

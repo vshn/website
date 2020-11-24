@@ -16,7 +16,7 @@ import shape2 from './images/shape-2.svg';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }) => {
+const Hero = ({ title, description, buttonLink: { url: buttonUrl, title: buttonText } }) => {
   const [animationPlayRef, isAnimationPlaying] = useInView();
 
   const [isInitialAnimationReady, setIsInitialAnimationReady] = useState(false);
@@ -101,9 +101,9 @@ const Hero = ({ title, description, buttonText, buttonLink: { url: buttonUrl } }
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
   buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
 };
 

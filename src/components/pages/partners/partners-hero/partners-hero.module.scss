@@ -31,10 +31,6 @@
   margin-bottom: 30px;
   font-weight: 700;
   text-transform: uppercase;
-
-  @include md-down {
-    margin-bottom: 25px;
-  }
 }
 
 .subtitle {

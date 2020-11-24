@@ -5,11 +5,11 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import styles from './other-options.module.scss';
+import styles from './related-items.module.scss';
 
 const cx = classNames.bind(styles);
 
-const OtherOptions = ({ title, items }) => (
+const RelatedItems = ({ title, items }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('title')} tag="h2">{title}</Heading>
@@ -22,7 +22,7 @@ const OtherOptions = ({ title, items }) => (
   </section>
 );
 
-OtherOptions.propTypes = {
+RelatedItems.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     link: PropTypes.shape({
@@ -33,8 +33,4 @@ OtherOptions.propTypes = {
   })).isRequired,
 };
 
-OtherOptions.defaultProps = {
-
-};
-
-export default OtherOptions;
+export default RelatedItems;

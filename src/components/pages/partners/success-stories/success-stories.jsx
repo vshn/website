@@ -13,13 +13,19 @@ const cx = classNames.bind(styles);
 const SuccessStories = ({ title, itemFooterText, successStories }) => (
   <section className={cx('wrapper')}>
     <div className="container">
-      <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
+      <Heading className={cx('title')} id="success-stories" tag="h2" size="xl" color="primary">{title}</Heading>
       <ul className={cx('items-wrapper')}>
         {successStories.map(({ uri: url, title, acf: { logo } }, index) => (
           <li className={cx('item')} key={index}>
             <Link className={cx('link')} to={url}>
               <div className={cx('logo-wrapper')}>
-                <GatsbyImage className={cx('logo')} fluid={logo.localFile.childImageSharp.fluid} alt={`${title} logo`} />
+                <GatsbyImage
+                  className={cx('logo')}
+                  style={{ maxHeight: '80px' }}
+                  imgStyle={{ objectFit: 'contain' }}
+                  fluid={logo.localFile.childImageSharp.fluid}
+                  alt={`${title} logo`}
+                />
               </div>
               <span className={cx('footer-text')}>{itemFooterText}</span>
             </Link>

@@ -8,7 +8,10 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: { wpSuccessStory: data },
+  data: {
+    wpSuccessStory: data,
+    wpPage: { slug },
+  },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
@@ -17,14 +20,23 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero {...data} locale={locale} />
-    <Content {...data} />
+    <Hero
+      slug={slug}
+      title={data.title}
+      description={data.acf.description}
+      locale={locale}
+    />
+    <Content
+      content={data.content}
+      partnerPost={data.acf.partnerPost}
+      facts={data.acf.facts}
+    />
     <Contact locale={locale} />
   </MainLayout>
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
     wpSuccessStory(id: { eq: $id }) {
       ...wpSuccessStorySeo
       title
@@ -66,6 +78,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    wpPage(template: {templateName: {eq: "Partners"}}, language: {slug: {eq: $locale}}) {
+      slug: uri
     }
   }
 `;

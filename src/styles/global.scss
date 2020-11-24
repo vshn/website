@@ -21,6 +21,7 @@ body {
 
 .container {
   position: relative;
+  flex-grow: 1;
   max-width: $container-width;
   margin-right: auto;
   margin-left: auto;
