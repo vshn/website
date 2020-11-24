@@ -1,122 +1,67 @@
 import classNames from 'classnames/bind';
+import { navigate } from 'gatsby';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
-import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
 
 import styles from './events-list.module.scss';
+import FormattedDate from './formatted-date';
 
 const cx = classNames.bind(styles);
 
-const data = {
-  2020: [
-    {
-      title: 'WeAreDevelopers Live Week',
-      time: 'October 5 – 9 2020',
-      shortDescription: 'Aarno & Adrian are present as speaker & panelists in the DevOps & Security tracks!',
-    },
-    {
-      title: 'TechTalkThursday #13',
-      time: 'Thursday October 1 2020 ',
-      shortDescription: 'Tobias Brunner’s talk: <a>How Project Syn helps to manage a fleet of Kubernetes Clusters</a>',
-    },
-    {
-      title: 'Cloud Native Computing Meetup',
-      time: 'Thursday August 27 2020 3pm',
-      shortDescription: 'remote / online – <a>Recap & Recording</a>',
-    },
-    {
-      title: 'KubeCon and CloudNativeCon Europe 2020',
-      time: 'August 17 – 20 2020',
-      shortDescription: 'remote / online',
-    },
-    {
-      title: 'EURODOG (The European DevOps Group)',
-      time: 'August 17 – 20 2020',
-      shortDescription: 'remote / online',
-    },
-    {
-      title: 'TechTalkThursday #13',
-      time: 'Thursday October 1 2020',
-      shortDescription: 'Tobias Brunner’s talk: <a>How Project Syn helps to manage a fleet of Kubernetes Clusters</a>',
-    },
-    {
-      title: 'Cloud Native Computing Meetup',
-      time: 'Thursday August 27 2020 3pm',
-      shortDescription: 'remote / online – <a>Recap & Recording</a>',
-    },
-    {
-      title: 'KubeCon and CloudNativeCon Europe 2020',
-      time: 'August 17 – 20 2020',
-      shortDescription: 'remote / online',
-    },
-    {
-      title: 'EURODOG (The European DevOps Group)',
-      time: 'August 17 – 20 2020',
-      shortDescription: 'remote / online',
-    },
-  ],
-  2019: [
-    {
-      title: 'WeAreDevelopers Live Week',
-      time: 'October 5 – 9 2020',
-      shortDescription: 'Aarno & Adrian are present as speaker & panelists in the DevOps & Security tracks!',
-    },
-    {
-      title: 'TechTalkThursday #13',
-      time: 'Thursday October 1 2020 ',
-      shortDescription: 'Tobias Brunner’s talk: How Project Syn helps to manage a fleet of Kubernetes Clusters',
-    },
-    {
-      title: 'WeAreDevelopers Live Week',
-      time: 'October 5 – 9 2020',
-      shortDescription: 'Aarno & Adrian are present as speaker & panelists in the DevOps & Security tracks!',
-    },
-  ],
-  2018: [
-    {
-      title: 'WeAreDevelopers Live Week',
-      time: 'October 5 – 9 2020',
-      shortDescription: 'Aarno & Adrian are present as speaker & panelists in the DevOps & Security tracks!',
-    },
-    {
-      title: 'TechTalkThursday #13',
-      time: 'Thursday October 1 2020 ',
-      shortDescription: 'Tobias Brunner’s talk: How Project Syn helps to manage a fleet of Kubernetes Clusters',
-    },
-  ],
-};
+const EventsList = ({ eventYear, rootPath, items = [] }) => {
+  const eventsByYear = {};
+  items.forEach((yearEvent) => {
+    const { item } = yearEvent;
+    const date = item.schedule.startDate;
+    const year = new Date(date).getFullYear();
+    const thisYearEvents = eventsByYear[year] || [];
+    thisYearEvents.push(yearEvent);
+    eventsByYear[year] = thisYearEvents;
+  });
+  const years = Object.keys(eventsByYear).sort((a, b) => b - a);
+  const eventForYear = eventsByYear[eventYear];
 
-const EventsList = () => {
-  const years = Object.keys(data).sort((a, b) => b - a);
-  const [activeYear, setActiveYear] = useState(years[0]);
+  const handleClick = (event) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    navigate(href, {
+      state: { preventScroll: true },
+    });
+  };
 
-  const items = data[activeYear];
   return (
     <section className={cx('wrapper')}>
       <div className="container">
         <div className={cx('years-wrapper')}>
           {years.map((year, index) => (
-            <button
-              className={cx('year', { active: year === activeYear })}
-              type="button"
+            <a
+              className={cx('year', { active: eventYear === year })}
+              href={`${rootPath}${year}/`}
               key={index}
-              onClick={() => setActiveYear(year)}
+              onClick={(event) => { handleClick(event); }}
             >
               {year}
-            </button>
+            </a>
           ))}
         </div>
         <ul className={cx('items-wrapper')}>
-          {items.map(({ title, time, shortDescription }, index) => (
+          {eventForYear && eventForYear.map(({
+            url,
+            title,
+            item: { schedule, description },
+          }, index) => (
             <li className={cx('item')} key={index}>
-              <Heading className={cx('title')} tag="h3" size="md">{title}</Heading>
+              <Link className={cx('title')} to={url}>{title}</Link>
               <div className={cx('details')}>
-                <span className={cx('time')}>{time}</span>
+                <span className={cx('time')}>
+                  <FormattedDate schedule={schedule} />
+                </span>
                 {' '}
                 –
                 {' '}
-                <span dangerouslySetInnerHTML={{ __html: shortDescription }} />
+                <span dangerouslySetInnerHTML={{ __html: description }} />
               </div>
             </li>
           ))}
@@ -127,11 +72,25 @@ const EventsList = () => {
 };
 
 EventsList.propTypes = {
-
+  items: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    item: PropTypes.shape({
+      schedule: PropTypes.shape({
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string,
+        time: PropTypes.string,
+      }).isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+  })),
+  eventYear: PropTypes.string,
+  rootPath: PropTypes.string.isRequired,
 };
 
 EventsList.defaultProps = {
-
+  items: [],
+  eventYear: null,
 };
 
 export default EventsList;

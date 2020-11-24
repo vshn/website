@@ -13,9 +13,12 @@
 }
 
 .years-wrapper {
+  padding-bottom: 10px;
   padding-left: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-bottom: 2px solid $color-additional-1;
+
+  @include with-link-primary;
 
   @include md-down {
     border-bottom: none;
@@ -106,6 +109,8 @@
 
 .item {
   margin-bottom: 30px;
+
+  @include with-link-primary;
 
   &:last-child {
     margin-bottom: 0;

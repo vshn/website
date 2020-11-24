@@ -4,6 +4,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import getLocaleDateNames from 'utils/locale-date-names';
 
 import styles from './item.module.scss';
 
@@ -22,9 +23,7 @@ const Item = (
     },
   },
 ) => {
-  const day = new Date(startDate).toLocaleString('en-US', { weekday: 'short' });
-  const dateMonth = new Date(startDate).toLocaleString('en-US', { month: 'long', day: 'numeric' });
-  const year = new Date(startDate).toLocaleString('en-US', { year: 'numeric' });
+  const { weekdayShort, dayMonth, year } = getLocaleDateNames(startDate);
   return (
     <li className={cx('wrapper')}>
       <Link className={cx('inner')} to={url}>
@@ -36,11 +35,11 @@ const Item = (
 
         <div className={cx('date')}>
           <span>
-            {day}
+            {weekdayShort}
             .
             {' '}
           </span>
-          <span>{dateMonth}</span>
+          <span>{dayMonth}</span>
           {' '}
           <span>{year}</span>
         </div>

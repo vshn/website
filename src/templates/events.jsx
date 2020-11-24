@@ -11,9 +11,16 @@ import MainLayout from 'layouts/main';
 export default ({
   data: {
     wpPage: data,
-    allWpEvent,
+    upcomingEvents,
+    eventsList,
   },
-  pageContext: { locale, pageUrls, menus, globalFields },
+  pageContext: {
+    locale,
+    pageUrls,
+    menus,
+    globalFields,
+    year,
+  },
 }) => (
   <MainLayout
     seo={data.seo}
@@ -22,16 +29,16 @@ export default ({
     globalFields={globalFields}
   >
     <Hero title={data.title} locale={locale} />
-    <UpcomingEvents title={data.acf.upcomingEvents.title} {...allWpEvent} />
-    <EventsList />
+    <UpcomingEvents title={data.acf.upcomingEvents.title} {...upcomingEvents} />
+    <EventsList eventYear={year} rootPath={data.uri} {...eventsList} />
     <Contact locale={locale} />
   </MainLayout>
 );
-
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
     wpPage(id: { eq: $id }) {
       title
+      uri
       acf {
         upcomingEvents {
           title
@@ -39,7 +46,12 @@ export const query = graphql`
       }
       ...wpPageSeo 
     }
-    allWpEvent(limit: 3, sort: {order: ASC, fields: acf___schedule___startDate}) {
+    upcomingEvents: allWpEvent(
+      filter: {
+        language: { slug: { eq: $locale } }
+      },
+      limit: 3, 
+      sort: {order: DESC, fields: acf___schedule___startDate}) {
       items: nodes {
         url: uri
         title
@@ -53,6 +65,25 @@ export const query = graphql`
           schedule {
             startDate
           }
+        }
+      }
+    }
+    eventsList: allWpEvent( 
+    filter: {
+        language: { slug: { eq: $locale } },
+      },
+    sort: {order: DESC, fields: acf___schedule___startDate},
+    ) {
+      items: nodes {
+        url: uri
+        title
+        item: acf {
+          schedule {
+            startDate
+            endDate
+            time
+          }
+          description
         }
       }
     }
