@@ -1,0 +1,13 @@
+.wrapper {
+  margin-bottom: 180px;
+}
+
+.inner {
+  max-width: 850px;
+}
+
+.content {
+  margin-bottom: 60px;
+
+  @include content;
+}
