@@ -1,0 +1,34 @@
+.wrapper {
+  z-index: 0;
+  display: flex;
+  min-height: 500px;
+  padding-top: 140px;
+  padding-bottom: 300px;
+  margin-top: $header-height;
+  margin-bottom: 280px;
+  background:
+    url("./images/background-image.svg") no-repeat center
+    $color-additional-1;
+  background-size: cover;
+
+  @include section-paddings;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  @include with-link-secondary;
+}
+
+.title {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.photo-wrapper {
+  position: absolute;
+  top: 115px;
+  width: 100%;
+}
