@@ -11,7 +11,6 @@ import MainLayout from 'layouts/main';
 export default ({
   data: {
     wpPage: data,
-    upcomingEvents,
   },
   pageContext: {
     locale,
@@ -21,21 +20,33 @@ export default ({
     year,
     eventsGroupedByYears,
   },
-}) => (
-  <MainLayout
-    seo={data.seo}
-    pageUrls={pageUrls}
-    menus={menus}
-    globalFields={globalFields}
-  >
-    <Hero title={data.title} locale={locale} />
-    <UpcomingEvents title={data.acf.upcomingEvents.title} {...upcomingEvents} />
-    <EventsList activeYear={year} rootPath={data.uri} eventsGroupedByYears={eventsGroupedByYears} />
-    <Contact locale={locale} />
-  </MainLayout>
-);
+}) => {
+  const years = Object.keys(eventsGroupedByYears).sort((a, b) => b - a);
+  const upcomingEvents = eventsGroupedByYears[years[0]].slice(0, 3).reverse();
+  return (
+    <MainLayout
+      seo={data.seo}
+      pageUrls={pageUrls}
+      menus={menus}
+      globalFields={globalFields}
+    >
+      <Hero title={data.title} locale={locale} />
+      <UpcomingEvents
+        title={data.acf.upcomingEvents.title}
+        items={upcomingEvents}
+      />
+      <EventsList
+        years={years}
+        activeYear={year}
+        rootPath={data.uri}
+        eventsGroupedByYears={eventsGroupedByYears}
+      />
+      <Contact locale={locale} />
+    </MainLayout>
+  );
+};
 export const query = graphql`
-  query($id: String!, $locale: String!) {
+  query($id: String!) {
     wpPage(id: { eq: $id }) {
       title
       uri
@@ -45,28 +56,6 @@ export const query = graphql`
         }
       }
       ...wpPageSeo 
-    }
-    upcomingEvents: allWpEvent(
-      filter: {
-        language: { slug: { eq: $locale } }
-      },
-      limit: 3, 
-      sort: {order: DESC, fields: acf___schedule___startDate}) {
-      items: nodes {
-        url: uri
-        title
-        item: acf {
-          logo {
-            localFile {
-              publicURL
-            }
-          }
-          description
-          schedule {
-            startDate
-          }
-        }
-      }
-    }
+    }  
   }
 `;

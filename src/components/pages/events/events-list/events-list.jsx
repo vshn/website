@@ -10,8 +10,7 @@ import FormattedDate from './formatted-date';
 
 const cx = classNames.bind(styles);
 
-const EventsList = ({ activeYear, rootPath, eventsGroupedByYears }) => {
-  const years = Object.keys(eventsGroupedByYears).sort((a, b) => b - a);
+const EventsList = ({ years, activeYear, rootPath, eventsGroupedByYears }) => {
   const eventsByYear = eventsGroupedByYears[activeYear];
   const handleClick = (event) => {
     event.preventDefault();
@@ -62,6 +61,9 @@ const EventsList = ({ activeYear, rootPath, eventsGroupedByYears }) => {
 };
 
 EventsList.propTypes = {
+  years: PropTypes.arrayOf(PropTypes.string).isRequired,
+  activeYear: PropTypes.string,
+  rootPath: PropTypes.string.isRequired,
   eventsGroupedByYears: PropTypes.objectOf(
     PropTypes.arrayOf(PropTypes.shape({
       url: PropTypes.string,
@@ -76,8 +78,6 @@ EventsList.propTypes = {
       }),
     })),
   ),
-  activeYear: PropTypes.string,
-  rootPath: PropTypes.string.isRequired,
 };
 
 EventsList.defaultProps = {
