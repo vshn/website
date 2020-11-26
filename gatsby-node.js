@@ -10,6 +10,7 @@ const DEFAULT_LOCALE = 'de';
 const SUPPORTED_LOCALES = ['en', 'de'];
 const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
 const POSTS_PER_PAGE = 5;
+const DEFAULT_YEAR = `${new Date().getFullYear()}`;
 
 /* Local helper fns */
 
@@ -650,12 +651,13 @@ async function createSuccessStories({
   );
 }
 
+// Create Event Pages
 const createEventPages = async ({ graphql, actions, getMenus, globalFields }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
     {
-      events: allWpPage(filter: { template: { templateName: { eq: "Events" } } }) {
+      allWpPage(filter: { template: { templateName: { eq: "Events" } } }) {
         nodes {
           id
           uri
@@ -670,18 +672,25 @@ const createEventPages = async ({ graphql, actions, getMenus, globalFields }) =>
           }
         }
       }
-      posts: allWpEvent(sort: {fields: acf___schedule___startDate, order: DESC}) {
-        edges {
-          node {
-            id
-            uri
-            language {
-              locale: slug 
-            }
-            acf {
-              schedule {
-                startDate
+      allWpEvent(sort: {order: DESC, fields: acf___schedule___startDate}) {
+        nodes {
+          id
+          url: uri
+          language {
+            locale: slug
+          }
+          title
+          item: acf {
+            logo {
+              localFile {
+                publicURL
               }
+            }
+            description
+            schedule {
+              startDate
+              endDate
+              time
             }
           }
         }
@@ -693,130 +702,63 @@ const createEventPages = async ({ graphql, actions, getMenus, globalFields }) =>
     throw new Error(result.errors);
   }
 
-  const { data: { events, posts } } = result;
-  const eventsPages = events.nodes;
-  const eventPosts = posts.edges;
-
-  const eventsByYear = {};
-  eventPosts.forEach((yearEvent) => {
-    const { node } = yearEvent;
-    const date = node.acf.schedule.startDate;
-    const year = new Date(date).getFullYear();
-    const thisYearEvents = eventsByYear[year] || [];
-    thisYearEvents.push(yearEvent);
-    eventsByYear[year] = thisYearEvents;
-  });
+  const {
+    data:
+    {
+      allWpPage: { nodes: eventsPages },
+      allWpEvent: { nodes: events },
+    },
+  } = result;
 
   const template = path.resolve('./src/templates/events.jsx');
 
   eventsPages.forEach((eventsPage) => {
+    const eventsGroupedByYears = {};
+    events
+      .filter((event) => event.language.locale === eventsPage.language.locale)
+      .forEach((event) => {
+        const date = event.item.schedule.startDate;
+        const year = new Date(date).getFullYear();
+        const eventsByYear = eventsGroupedByYears[year] || [];
+        eventsByYear.push(event);
+        eventsGroupedByYears[year] = eventsByYear;
+      });
+
     const context = {
       id: eventsPage.id,
       menus: getMenus(eventsPage.language.locale),
       globalFields,
       locale: eventsPage.language.locale,
-      eventsByYear,
+      eventsGroupedByYears,
     };
 
-    const eventsWithoutUpcomingEvents = eventPosts
-      .filter((event) => event.node.language.locale === eventsPage.language.locale).slice(3);
-    const makePath = (i) => (i === 0 ? eventsPage.uri : `${eventsPage.uri}${i + 1}`);
+    // Create "events/" page
+    createPage({
+      path: eventsPage.uri,
+      component: slash(template),
+      context: {
+        ...context,
+        year: DEFAULT_YEAR,
+        pageUrls: buildUrlsForLocales(eventsPage.uri),
+      },
+    });
 
-    Array.from({ length: eventsWithoutUpcomingEvents.length })
-      .forEach((_, i) => {
+    // Create "events/{year}" pages
+    Object.keys(eventsGroupedByYears)
+      .forEach((year) => {
+        const path = `${eventsPage.uri}${year}`;
         createPage({
-          path: makePath(i),
+          path,
           component: slash(template),
           context: {
             ...context,
-            pageUrls: buildUrlsForLocales(makePath(i)),
+            year,
+            pageUrls: buildUrlsForLocales(path),
           },
         });
       });
-    Object.keys(eventsByYear)
-      .forEach((year) => {
-        const makePath = (i) => (i === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}`);
-
-        // create paginated event pages
-        Array.from({ length: Object.keys(eventsByYear).length || 1 })
-          .forEach((_, i) => {
-            createPage({
-              path: makePath(i),
-              component: slash(template),
-              context: {
-                ...context,
-                year,
-                pageUrls: buildUrlsForLocales(makePath(i)),
-              },
-            });
-          });
-      });
   });
 };
-
-// Create Events
-async function createEvents({
-  graphql,
-  actions,
-  reporter,
-  getMenus,
-  globalFields,
-}) {
-  const { createPage } = actions;
-  const result = await graphql(`
-     {
-       allWpEvent {
-         nodes {
-           id
-           content
-           uri
-           language {
-             locale: slug
-           }
-           translations {
-             language {
-               locale: slug
-             }
-             uri
-           }
-         }
-       }
-     }
-   `);
-
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
-  const events = result.data.allWpEvent.nodes;
-
-  events.forEach(
-    ({ id, content, uri, language: { locale }, translations }) => {
-      const templatePath = path.resolve('./src/templates/event.jsx');
-
-      const context = {
-        id,
-        locale,
-        menus: getMenus(locale),
-        globalFields,
-        pageUrls: getUrlsForLocales(locale, uri, translations),
-      };
-
-      if (content) {
-        context.content = stripSpaces(content);
-      }
-
-      if (fs.existsSync(templatePath)) {
-        createPage({
-          path: uri,
-          component: slash(templatePath),
-          context,
-        });
-      } else {
-        reporter.error('Template Event was not found');
-      }
-    },
-  );
-}
 
 /* Note: this is a stub, should be set properly after
 // there is a 404 page in WP
@@ -897,7 +839,6 @@ exports.createPages = async (args) => {
   await createPosts(params);
   await createPartners(params);
   await createSuccessStories(params);
-  await createEvents(params);
   await createEventPages(params);
   // custom 404
   await createNotFound(params);

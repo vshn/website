@@ -10,19 +10,9 @@ import FormattedDate from './formatted-date';
 
 const cx = classNames.bind(styles);
 
-const EventsList = ({ eventYear, rootPath, items = [] }) => {
-  const eventsByYear = {};
-  items.forEach((yearEvent) => {
-    const { item } = yearEvent;
-    const date = item.schedule.startDate;
-    const year = new Date(date).getFullYear();
-    const thisYearEvents = eventsByYear[year] || [];
-    thisYearEvents.push(yearEvent);
-    eventsByYear[year] = thisYearEvents;
-  });
-  const years = Object.keys(eventsByYear).sort((a, b) => b - a);
-  const eventForYear = eventsByYear[eventYear];
-
+const EventsList = ({ activeYear, rootPath, eventsGroupedByYears }) => {
+  const years = Object.keys(eventsGroupedByYears).sort((a, b) => b - a);
+  const eventsByYear = eventsGroupedByYears[activeYear];
   const handleClick = (event) => {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
@@ -37,7 +27,7 @@ const EventsList = ({ eventYear, rootPath, items = [] }) => {
         <div className={cx('years-wrapper')}>
           {years.map((year, index) => (
             <a
-              className={cx('year', { active: eventYear === year })}
+              className={cx('year', { active: activeYear === year })}
               href={`${rootPath}${year}/`}
               key={index}
               onClick={(event) => { handleClick(event); }}
@@ -47,7 +37,7 @@ const EventsList = ({ eventYear, rootPath, items = [] }) => {
           ))}
         </div>
         <ul className={cx('items-wrapper')}>
-          {eventForYear && eventForYear.map(({
+          {eventsByYear && eventsByYear.map(({
             url,
             title,
             item: { schedule, description },
@@ -72,25 +62,27 @@ const EventsList = ({ eventYear, rootPath, items = [] }) => {
 };
 
 EventsList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    item: PropTypes.shape({
-      schedule: PropTypes.shape({
-        startDate: PropTypes.string.isRequired,
-        endDate: PropTypes.string,
-        time: PropTypes.string,
-      }).isRequired,
-      description: PropTypes.string.isRequired,
-    }),
-  })),
-  eventYear: PropTypes.string,
+  eventsGroupedByYears: PropTypes.objectOf(
+    PropTypes.arrayOf(PropTypes.shape({
+      url: PropTypes.string,
+      title: PropTypes.string.isRequired,
+      item: PropTypes.shape({
+        schedule: PropTypes.shape({
+          startDate: PropTypes.string.isRequired,
+          endDate: PropTypes.string,
+          time: PropTypes.string,
+        }).isRequired,
+        description: PropTypes.string.isRequired,
+      }),
+    })),
+  ),
+  activeYear: PropTypes.string,
   rootPath: PropTypes.string.isRequired,
 };
 
 EventsList.defaultProps = {
-  items: [],
-  eventYear: null,
+  eventsGroupedByYears: [],
+  activeYear: null,
 };
 
 export default EventsList;

@@ -12,7 +12,6 @@ export default ({
   data: {
     wpPage: data,
     upcomingEvents,
-    eventsList,
   },
   pageContext: {
     locale,
@@ -20,6 +19,7 @@ export default ({
     menus,
     globalFields,
     year,
+    eventsGroupedByYears,
   },
 }) => (
   <MainLayout
@@ -30,7 +30,7 @@ export default ({
   >
     <Hero title={data.title} locale={locale} />
     <UpcomingEvents title={data.acf.upcomingEvents.title} {...upcomingEvents} />
-    <EventsList eventYear={year} rootPath={data.uri} {...eventsList} />
+    <EventsList activeYear={year} rootPath={data.uri} eventsGroupedByYears={eventsGroupedByYears} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -65,25 +65,6 @@ export const query = graphql`
           schedule {
             startDate
           }
-        }
-      }
-    }
-    eventsList: allWpEvent( 
-    filter: {
-        language: { slug: { eq: $locale } },
-      },
-    sort: {order: DESC, fields: acf___schedule___startDate},
-    ) {
-      items: nodes {
-        url: uri
-        title
-        item: acf {
-          schedule {
-            startDate
-            endDate
-            time
-          }
-          description
         }
       }
     }
