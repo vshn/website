@@ -1,12 +1,8 @@
 .wrapper {
   padding-top: 60px;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 
   @include section-paddings;
-
-  @include lg-down {
-    padding-bottom: 60px;
-  }
 
   @include md-down {
     padding-top: 45px;
@@ -18,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: $column-gap;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 
   @include md-down {
     display: block;
@@ -105,7 +101,7 @@
   }
 
   @include hover {
-    background-color: $color-accent-primary;
+    background-color: $color-secondary;
   }
 
   &_facebook {
