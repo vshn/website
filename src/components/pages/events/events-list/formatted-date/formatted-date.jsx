@@ -4,31 +4,37 @@ import React from 'react';
 import getLocaleDateNames from 'utils/locale-date-names';
 
 const FormattedDate = ({ schedule }) => {
-  const { startDate, endDate } = schedule;
-  const startNames = getLocaleDateNames(startDate);
-  const endNames = endDate ? getLocaleDateNames(endDate) : null;
+  const { startDate, time, endDate } = schedule;
+  const formatStartDate = getLocaleDateNames(startDate);
+  const formatEndDate = endDate ? getLocaleDateNames(endDate) : null;
 
   if (startDate && endDate) {
     return (
       <>
-        {startNames.dayMonth}
+        {formatStartDate.dayMonth}
         {' '}
         -
         {' '}
-        {endNames.day}
+        {formatEndDate.day}
         {' '}
-        {endNames.year}
+        {formatEndDate.year}
       </>
     );
   }
 
   return (
     <>
-      {startNames.weekdayLong}
+      {formatStartDate.weekdayLong}
       {' '}
-      {startNames.dayMonth}
+      {formatStartDate.dayMonth}
       {' '}
-      {startNames.year}
+      {formatStartDate.year}
+      {time && (
+      <>
+        {' '}
+        {time}
+      </>
+      )}
     </>
   );
 };
@@ -36,8 +42,8 @@ const FormattedDate = ({ schedule }) => {
 FormattedDate.propTypes = {
   schedule: PropTypes.shape({
     startDate: PropTypes.string.isRequired,
-    endDate: PropTypes.string,
     time: PropTypes.string,
+    endDate: PropTypes.string,
   }).isRequired,
 };
 

@@ -689,8 +689,8 @@ const createEventPages = async ({ graphql, actions, getMenus, globalFields }) =>
             description
             schedule {
               startDate
-              endDate
               time
+              endDate
             }
           }
         }
