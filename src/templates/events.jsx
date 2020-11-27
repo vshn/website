@@ -26,7 +26,8 @@ export default ({
   useEffect(() => {
     setUpcomingEvents(
       eventsGroupedByYears[availableYears[0]]
-        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date()),
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
+        .slice(0, 3),
     );
   }, [eventsGroupedByYears, availableYears]);
 
@@ -38,7 +39,7 @@ export default ({
       globalFields={globalFields}
     >
       <Hero title={data.title} locale={locale} />
-      {upcomingEvents.length > 0 && (
+      {upcomingEvents.length === 3 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
           upcomingEvents={upcomingEvents}
