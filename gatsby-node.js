@@ -10,6 +10,7 @@ const DEFAULT_LOCALE = 'de';
 const SUPPORTED_LOCALES = ['en', 'de'];
 const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
 const POSTS_PER_PAGE = 5;
+const DEFAULT_YEAR = `${new Date().getFullYear()}`;
 
 /* Local helper fns */
 
@@ -211,17 +212,19 @@ const buildUrlsForLocales = (url) => {
   // urls dictionary
   const urls = {};
   // get default url
-  const stripLocaleRegex = new RegExp(`^/?(${SUPPORTED_LOCALES.join('|')})?(/.*?)$`);
+  const stripLocaleRegex = new RegExp(
+    `^/?(${SUPPORTED_LOCALES.join('|')})?(/.*?)$`,
+  );
   const defaultUrl = url.replace(stripLocaleRegex, '$2');
   // assign default url to default locale
   urls[DEFAULT_LOCALE] = defaultUrl;
 
   // build every other localized url
-  SUPPORTED_LOCALES
-    .filter((item) => item !== DEFAULT_LOCALE)
-    .forEach((remainingLocale) => {
+  SUPPORTED_LOCALES.filter((item) => item !== DEFAULT_LOCALE).forEach(
+    (remainingLocale) => {
       urls[remainingLocale] = `/${remainingLocale}${defaultUrl}`;
-    });
+    },
+  );
   return urls;
 };
 
@@ -239,7 +242,7 @@ async function createPages({
 
   const result = await graphql(`
     {
-      allWpPage(filter: { template: { templateName: { ne: "Blog" } } } ) {
+      allWpPage(filter: { template: { templateName: { ne: "Blog" } } }) {
         nodes {
           id
           uri
@@ -299,7 +302,12 @@ async function createPages({
   );
 }
 
-const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => {
+const createBlogPages = async ({
+  graphql,
+  actions,
+  getMenus,
+  globalFields,
+}) => {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -309,7 +317,7 @@ const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => 
           id
           uri
           language {
-            locale: slug 
+            locale: slug
           }
           translations {
             language {
@@ -376,7 +384,9 @@ const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => 
     throw new Error(result.errors);
   }
 
-  const { data: { blog, posts, categories } } = result;
+  const {
+    data: { blog, posts, categories },
+  } = result;
 
   const blogPages = blog.nodes;
 
@@ -394,18 +404,23 @@ const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => 
       menus: getMenus(blogPage.language.locale),
       globalFields,
       locale: blogPage.language.locale,
-      categories: postCategories
-        .filter(({ language: { locale } }) => locale === blogPage.language.locale),
+      categories: postCategories.filter(
+        ({ language: { locale } }) => locale === blogPage.language.locale,
+      ),
     };
 
     // Omit feature post since it is not included in posts list
     const localizedPostsWithoutFeaturedPost = postPages
       .filter((post) => post.node.id !== blogPage.acf.featuredPost.post.id)
       // omit posts whose locale doesn't match current blogPage's one
-      .filter((post) => post.node.categories.nodes[0].language.locale
-            === blogPage.language.locale);
+      .filter(
+        (post) => post.node.categories.nodes[0].language.locale
+          === blogPage.language.locale,
+      );
 
-    const pageCount = Math.ceil(localizedPostsWithoutFeaturedPost.length / POSTS_PER_PAGE);
+    const pageCount = Math.ceil(
+      localizedPostsWithoutFeaturedPost.length / POSTS_PER_PAGE,
+    );
 
     const makePath = (i) => (i === 0 ? blogPage.uri : `${blogPage.uri}${i + 1}`);
 
@@ -426,18 +441,23 @@ const createBlogPages = async ({ graphql, actions, getMenus, globalFields }) => 
 
     postCategories
       // filter categories based on blogPage locale
-      .filter((category) => category.language.locale === blogPage.language.locale)
+      .filter(
+        (category) => category.language.locale === blogPage.language.locale,
+      )
       .forEach((category) => {
-      // then count posts based on category id
-        const postsForCategory = localizedPostsWithoutFeaturedPost
-          .filter((post) => {
+        // then count posts based on category id
+        const postsForCategory = localizedPostsWithoutFeaturedPost.filter(
+          (post) => {
             const postCategoryId = post.node.categories.nodes[0].id;
             return postCategoryId === category.id;
-          });
+          },
+        );
 
         const pageCount = Math.ceil(postsForCategory.length / POSTS_PER_PAGE);
 
-        const makePath = (i) => (i === 0 ? `${blogPage.uri}${category.slug}` : `${blogPage.uri}${category.slug}/${i + 1}`);
+        const makePath = (i) => (i === 0
+          ? `${blogPage.uri}${category.slug}`
+          : `${blogPage.uri}${category.slug}/${i + 1}`);
 
         // create paginated blog pages
         Array.from({ length: pageCount || 1 }).forEach((_, i) => {
@@ -649,9 +669,150 @@ async function createSuccessStories({
   );
 }
 
+// Create Event Pages
+const createEventPages = async ({
+  graphql,
+  actions,
+  getMenus,
+  globalFields,
+}) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allWpPage(filter: { template: { templateName: { eq: "Events" } } }) {
+        nodes {
+          id
+          uri
+          title
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+          acf {
+            upcomingEvents {
+              title
+            }
+          }
+          seo {
+            title
+            metaDesc
+            metaKeywords
+            opengraphDescription
+            opengraphTitle
+            opengraphUrl
+            opengraphImage {
+              localFile {
+                childImageSharp {
+                  fixed(toFormat: JPG, width: 1200, height: 630) {
+                    src
+                  }
+                }
+              }
+            }
+            canonical
+            twitterTitle
+            twitterDescription
+            twitterImage {
+              localFile {
+                childImageSharp {
+                  fixed(toFormat: JPG, width: 1024, height: 512) {
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      allWpEvent(sort: { order: DESC, fields: acf___schedule___startDate }) {
+        nodes {
+          id
+          url: uri
+          language {
+            locale: slug
+          }
+          title
+          acf {
+            link
+            logo {
+              localFile {
+                publicURL
+              }
+            }
+            description
+            schedule {
+              startDate
+              time
+              endDate
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    data: {
+      allWpPage: { nodes: eventsPages },
+      allWpEvent: { nodes: events },
+    },
+  } = result;
+
+  const template = path.resolve('./src/templates/events.jsx');
+
+  eventsPages.forEach((eventsPage) => {
+    const eventsGroupedByYears = {};
+    events
+      .filter((event) => event.language.locale === eventsPage.language.locale)
+      .forEach((event) => {
+        const date = event.acf.schedule.startDate;
+        const year = new Date(date).getFullYear();
+        const eventsByYear = eventsGroupedByYears[year] || [];
+        eventsByYear.push(event);
+        eventsGroupedByYears[year] = eventsByYear;
+      });
+    // Create "events/{year}" pages
+    const availableYears = Object.keys(eventsGroupedByYears).reverse();
+    availableYears.forEach((year, index) => {
+      const path = index === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}`;
+
+      const context = {
+        id: eventsPage.id,
+        menus: getMenus(eventsPage.language.locale),
+        globalFields,
+        locale: eventsPage.language.locale,
+        eventsGroupedByYears,
+        availableYears,
+        data: eventsPage,
+        pageYear: year,
+      };
+
+      createPage({
+        path,
+        component: slash(template),
+        context: {
+          ...context,
+          pageUrls: buildUrlsForLocales(path),
+        },
+      });
+    });
+  });
+};
+
 /* Note: this is a stub, should be set properly after
 // there is a 404 page in WP
 */
+
 const createNotFound = ({ actions, getMenus, globalFields }) => {
   const { createPage } = actions;
 
@@ -663,7 +824,10 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       locale: 'en',
       globalFields,
       pageUrls: getUrlsForLocales('en', '/en/404', [
-        { language: { locale: 'de' }, uri: '/404' },
+        {
+          language: { locale: 'de' },
+          uri: '/404',
+        },
       ]),
     },
   });
@@ -676,7 +840,10 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       locale: 'de',
       globalFields,
       pageUrls: getUrlsForLocales('de', '/404', [
-        { language: { locale: 'en' }, uri: '/en/404' },
+        {
+          language: { locale: 'en' },
+          uri: '/en/404',
+        },
       ]),
     },
   });
@@ -721,6 +888,7 @@ exports.createPages = async (args) => {
   await createPosts(params);
   await createPartners(params);
   await createSuccessStories(params);
+  await createEventPages(params);
   // custom 404
   await createNotFound(params);
 };

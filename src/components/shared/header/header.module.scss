@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   height: $header-height;
   background-color: transparent;
   transition: background-color $transition-base;
@@ -40,7 +40,7 @@
   margin-bottom: 0;
   list-style-type: none;
 
-  @include with-link-primary;
+  @include with-link-secondary;
 }
 
 .list-item {
@@ -120,7 +120,7 @@
     margin-right: 30px;
   }
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   // Pre-last child
   &:nth-last-child(2) {
@@ -137,7 +137,7 @@
       left: -30px;
       width: 2px;
       height: 30px;
-      content: '';
+      content: "";
       background-color: $color-additional-2;
       transform: translateY(-50%);
 
@@ -170,7 +170,7 @@
         z-index: 1;
         display: inline-block;
         padding: 5px;
-        content: '';
+        content: "";
         background-color: $color-tertiary;
         border: solid $color-additional-2;
         border-width: 0 1px 1px 0;

@@ -1,5 +1,8 @@
 {
   "en": {
+    "events": {
+      "breadcrumbRoot": "Learn"
+    },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
     },
@@ -23,6 +26,9 @@
     }
   },
   "de": {
+    "events": {
+      "breadcrumbRoot": "Learn"
+    },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
     },

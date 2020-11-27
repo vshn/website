@@ -254,7 +254,7 @@
 .menu-item {
   font-weight: 700;
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   &:last-child {
     margin-bottom: 0;
@@ -310,7 +310,7 @@
   margin-bottom: 0;
   color: $color-quaternary;
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   @include lg-down {
     grid-column: span 5;
