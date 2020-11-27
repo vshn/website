@@ -5,7 +5,7 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import arrow from './images/arrow.svg';
+import Arrow from './images/arrow.inline.svg';
 import styles from './open-positions.module.scss';
 
 const cx = classNames.bind(styles);
@@ -22,7 +22,7 @@ const OpenPositions = ({ title, items }) => (
             </div>
             {title}
           </div>
-          <img className={cx('arrow')} src={arrow} alt="" aria-hidden />
+          <Arrow className={cx('arrow')} />
         </Link>
       ))}
     </div>
@@ -31,7 +31,10 @@ const OpenPositions = ({ title, items }) => (
 
 OpenPositions.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 OpenPositions.defaultProps = {

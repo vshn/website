@@ -1,0 +1,31 @@
+.rating-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: $column-gap;
+  margin-top: 30px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    text-align: center;
+    background-color: $color-additional-1;
+    border-radius: 8px;
+  }
+
+  &__description {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  &__image-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+  }
+}

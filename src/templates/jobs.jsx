@@ -70,7 +70,7 @@ export default ({
     globalFields={globalFields}
   >
     <Hero title={data.title} breadcrumbs={data.acf.breadcrumbs} {...data.acf.jobsHero} />
-    <Content {...data.acf.content} positions={positions} />
+    <Content content={data.content} openPositions={data.acf.openPositions} positions={positions} />
   </MainLayout>
 );
 
@@ -78,6 +78,7 @@ export const query = graphql`
   query($id: String!) {
     wpPage(id: { eq: $id }) {
       title
+      content
       acf {
         breadcrumbs {
           link {
@@ -97,26 +98,8 @@ export const query = graphql`
             }
           }
         }
-        content {
-          openPositions {
-            title
-          }
-          text
-          companyRating {
-            title
-            items {
-              description
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxHeight: 130) {
-                      ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                  }
-                }
-              }
-            }
-          }
+        openPositions {
+          title
         }
       }
       ...wpPageSeo

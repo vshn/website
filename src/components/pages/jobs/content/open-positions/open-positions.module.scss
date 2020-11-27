@@ -28,8 +28,15 @@
 
 .item-wrapper {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid $color-additional-1;
+
+  @include hover {
+    .arrow path {
+      stroke: $color-accent-primary;
+    }
+  }
 
   &:last-child,
   &:nth-last-child(2) {
