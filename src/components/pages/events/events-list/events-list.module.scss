@@ -18,7 +18,7 @@
   margin-bottom: 20px;
   border-bottom: 2px solid $color-additional-1;
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   @include md-down {
     border-bottom: none;
@@ -69,7 +69,7 @@
         display: block;
         width: $container-side-gap-md;
         height: 1px;
-        content: '';
+        content: "";
       }
     }
   }
@@ -90,7 +90,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      content: '';
+      content: "";
       background-color: $color-accent-primary;
 
       @include md-down {
@@ -110,8 +110,6 @@
 .item {
   margin-bottom: 30px;
 
-  @include with-link-primary;
-
   &:last-child {
     margin-bottom: 0;
   }
@@ -119,11 +117,14 @@
 
 .title {
   margin-bottom: 5px;
+  font-size: $font-size-md;
   font-weight: 700;
 }
 
 .details {
   color: $color-secondary;
+
+  @include with-link-primary;
 }
 
 .time {

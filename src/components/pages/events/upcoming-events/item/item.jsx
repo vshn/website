@@ -12,9 +12,9 @@ const cx = classNames.bind(styles);
 
 const Item = (
   {
-    url,
     title,
-    item: {
+    acf: {
+      link,
       logo: {
         localFile: { publicURL: logoUrl },
       },
@@ -26,11 +26,12 @@ const Item = (
   const { weekdayShort, dayMonth, year } = getLocaleDateNames(startDate);
   return (
     <li className={cx('wrapper')}>
-      <Link className={cx('inner')} to={url}>
-        <img src={logoUrl} className={cx('image')} alt="" />
+      <Link className={cx('inner')} to={link}>
+        <div className={cx('image-wrapper')}>
+          <img src={logoUrl} className={cx('image')} alt="" />
+        </div>
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h3" size="lg">{title}</Heading>
-          <p className={cx('description')}>{description}</p>
         </div>
 
         <div className={cx('date')}>
@@ -49,9 +50,9 @@ const Item = (
 };
 
 Item.propTypes = {
-  url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  item: PropTypes.shape({
+  acf: PropTypes.shape({
+    link: PropTypes.string.isRequired,
     logo: PropTypes.shape({
       localFile: PropTypes.shape({
         publicURL: PropTypes.string.isRequired,

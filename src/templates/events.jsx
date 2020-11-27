@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import EventsList from 'components/pages/events/events-list';
 import Hero from 'components/pages/events/hero';
@@ -9,20 +9,27 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: {
-    wpPage: data,
-  },
   pageContext: {
     locale,
     pageUrls,
     menus,
     globalFields,
-    year,
     eventsGroupedByYears,
+    availableYears,
+    data,
+    pageYear,
   },
 }) => {
-  const years = Object.keys(eventsGroupedByYears).sort((a, b) => b - a);
-  const upcomingEvents = eventsGroupedByYears[years[0]].slice(0, 3).reverse();
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const events = eventsGroupedByYears[pageYear];
+
+  useEffect(() => {
+    setUpcomingEvents(
+      eventsGroupedByYears[availableYears[0]]
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date()),
+    );
+  }, [eventsGroupedByYears, availableYears]);
+
   return (
     <MainLayout
       seo={data.seo}
@@ -31,31 +38,19 @@ export default ({
       globalFields={globalFields}
     >
       <Hero title={data.title} locale={locale} />
-      <UpcomingEvents
-        title={data.acf.upcomingEvents.title}
-        items={upcomingEvents}
-      />
+      {upcomingEvents.length > 0 && (
+        <UpcomingEvents
+          title={data.acf.upcomingEvents.title}
+          upcomingEvents={upcomingEvents}
+        />
+      )}
       <EventsList
-        years={years}
-        activeYear={year}
+        years={availableYears}
+        activeYear={2020}
+        events={events}
         rootPath={data.uri}
-        eventsGroupedByYears={eventsGroupedByYears}
       />
       <Contact locale={locale} />
     </MainLayout>
   );
 };
-export const query = graphql`
-  query($id: String!) {
-    wpPage(id: { eq: $id }) {
-      title
-      uri
-      acf {
-        upcomingEvents {
-          title
-        }
-      }
-      ...wpPageSeo 
-    }  
-  }
-`;

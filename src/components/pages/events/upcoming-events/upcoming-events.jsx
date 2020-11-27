@@ -9,13 +9,13 @@ import styles from './upcoming-events.module.scss';
 
 const cx = classNames.bind(styles);
 
-const UpcomingEvents = ({ title, items }) => (
+const UpcomingEvents = ({ title, upcomingEvents }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('title')}>{title}</Heading>
       <ul className={cx('items-wrapper')}>
-        {items.map((item, index) => (
-          <Item key={index} {...item} />
+        {upcomingEvents.map((upcomingEvent, index) => (
+          <Item key={index} {...upcomingEvent} />
         ))}
       </ul>
     </div>
@@ -24,10 +24,9 @@ const UpcomingEvents = ({ title, items }) => (
 
 UpcomingEvents.propTypes = {
   title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    url: PropTypes.string.isRequired,
+  upcomingEvents: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    item: PropTypes.shape({
+    acf: PropTypes.shape({
       logo: PropTypes.shape({
         localFile: PropTypes.shape({
           publicURL: PropTypes.string.isRequired,

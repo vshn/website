@@ -42,7 +42,7 @@
   color: $color-secondary;
   text-transform: uppercase;
 
-  @include with-link-secondary;
+  @include with-link-primary;
 
   .category {
     position: relative;
@@ -54,7 +54,7 @@
       right: -15px;
       display: inline-block;
       padding: 3px;
-      content: '';
+      content: "";
       border: solid $color-secondary;
       border-width: 0 2px 2px 0;
       -webkit-transform: rotate(-45deg);

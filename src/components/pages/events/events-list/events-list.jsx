@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Link from 'components/shared/link';
+import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
 import styles from './events-list.module.scss';
 import FormattedDate from './formatted-date';
 
 const cx = classNames.bind(styles);
 
-const EventsList = ({ years, activeYear, rootPath, eventsGroupedByYears }) => {
-  const eventsByYear = eventsGroupedByYears[activeYear];
+const EventsList = ({ years, rootPath, events }) => {
   const handleClick = (event) => {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
@@ -25,32 +25,34 @@ const EventsList = ({ years, activeYear, rootPath, eventsGroupedByYears }) => {
       <div className="container">
         <div className={cx('years-wrapper')}>
           {years.map((year, index) => (
-            <a
-              className={cx('year', { active: activeYear === year })}
-              href={`${rootPath}${year}/`}
+            <Link
+              className={cx('year')}
+              activeClassName={cx('active')}
+              to={index === 0 ? rootPath : `${rootPath}${year}/`}
               key={index}
               onClick={(event) => { handleClick(event); }}
             >
               {year}
-            </a>
+            </Link>
           ))}
         </div>
         <ul className={cx('items-wrapper')}>
-          {eventsByYear && eventsByYear.map(({
-            url,
-            title,
-            item: { schedule, description },
-          }, index) => (
+          {/* event variables is deprecated so we have to use alternative */}
+          {events.map((cEvent, index) => (
             <li className={cx('item')} key={index}>
-              <Link className={cx('title')} to={url}>{title}</Link>
+              <Link className={cx('title')} to={cEvent.acf.link}>{cEvent.title}</Link>
               <div className={cx('details')}>
                 <span className={cx('time')}>
-                  <FormattedDate schedule={schedule} />
+                  <FormattedDate schedule={cEvent.acf.schedule} />
                 </span>
                 {' '}
                 –
                 {' '}
-                <span dangerouslySetInnerHTML={{ __html: description }} />
+                <span
+                  dangerouslySetInnerHTML={
+                    { __html: getTextWithoutParagraph(cEvent.acf.description) }
+                  }
+                />
               </div>
             </li>
           ))}
@@ -62,13 +64,12 @@ const EventsList = ({ years, activeYear, rootPath, eventsGroupedByYears }) => {
 
 EventsList.propTypes = {
   years: PropTypes.arrayOf(PropTypes.string).isRequired,
-  activeYear: PropTypes.string,
   rootPath: PropTypes.string.isRequired,
-  eventsGroupedByYears: PropTypes.objectOf(
+  events:
     PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string,
       title: PropTypes.string.isRequired,
-      item: PropTypes.shape({
+      acf: PropTypes.shape({
+        link: PropTypes.string.isRequired,
         schedule: PropTypes.shape({
           startDate: PropTypes.string.isRequired,
           endDate: PropTypes.string,
@@ -76,8 +77,7 @@ EventsList.propTypes = {
         }).isRequired,
         description: PropTypes.string.isRequired,
       }),
-    })),
-  ),
+    })).isRequired,
 };
 
 EventsList.defaultProps = {

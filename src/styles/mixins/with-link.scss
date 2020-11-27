@@ -1,24 +1,32 @@
+@mixin link-secondary {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  @include hover {
+    color: $color-accent-primary;
+  }
+}
+
+@mixin link-primary {
+  color: $color-accent-primary;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color $transition-base;
+
+  @include hover {
+    color: $color-quaternary;
+  }
+}
+
 @mixin with-link-primary {
   a {
-    color: $color-primary;
-    text-decoration: none;
-    transition: color $transition-base;
-
-    @include hover {
-      color: $color-accent-primary;
-    }
+    @include link-primary;
   }
 }
 
 @mixin with-link-secondary {
   a {
-    color: $color-accent-primary;
-    text-decoration: none;
-    word-break: break-word;
-    transition: color $transition-base;
-
-    @include hover {
-      color: $color-quaternary;
-    }
+    @include link-secondary;
   }
 }
