@@ -44,7 +44,7 @@ const Footer = (props) => {
         const company = key.replace(/Link/, '');
         const Icon = SOCIAL_ICONS[company];
         return (
-          <li key={value} className={cx('social-menu-item')}>
+          <li key={key} className={cx('social-menu-item')}>
             <a
               className={cx('social-menu-link', `social-menu-link_${company}`)}
               href={value}

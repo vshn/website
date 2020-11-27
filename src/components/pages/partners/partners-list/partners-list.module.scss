@@ -74,7 +74,7 @@
   line-height: $line-height-md;
   list-style-type: none;
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   @include lg-down {
     font-size: 18px;

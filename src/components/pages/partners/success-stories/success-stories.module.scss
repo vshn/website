@@ -61,14 +61,21 @@
 
 .item {
   padding: 15px;
-  background-image: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  background-image:
+    linear-gradient(
+      234.34deg,
+      #f8fafc 0%,
+      $color-tertiary 100%
+    );
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
 
-  @include with-link-primary;
+  @include with-link-secondary;
 
   @include hover {
-    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc, $color-tertiary);
+    background-image:
+      linear-gradient(0deg, $color-tertiary, $color-tertiary),
+      linear-gradient(234.34deg, #f8fafc, $color-tertiary);
   }
 
   @include md-down {
