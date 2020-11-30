@@ -54,7 +54,9 @@ export const query = graphql`
       }
       ...wpPageSeo
     }
-    positions: allWpJob(filter: { language: { slug: { eq: $locale } } }) {
+    positions: allWpJob(
+      filter: { language: { slug: { eq: $locale } } },
+      sort: {order: ASC, fields: title}) {
       items: nodes {
         url: uri
         title
