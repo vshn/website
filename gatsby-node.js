@@ -301,7 +301,7 @@ async function createPages({
     },
   );
 }
-
+/*
 const createBlogPages = async ({
   graphql,
   actions,
@@ -478,7 +478,8 @@ const createBlogPages = async ({
       });
   });
 };
-
+*/
+/*
 // Create Posts
 async function createPosts({
   graphql,
@@ -540,6 +541,7 @@ async function createPosts({
     }
   });
 }
+*/
 
 // Create Partners
 async function createPartners({
@@ -809,6 +811,70 @@ const createEventPages = async ({
   });
 };
 
+// Create Jobs page
+async function createJobs({
+  graphql,
+  actions,
+  reporter,
+  getMenus,
+  globalFields,
+}) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allWpJob {
+        nodes {
+          id
+          content
+          uri
+          language {
+            locale: slug
+          }
+          translations {
+            language {
+              locale: slug
+            }
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+  const jobs = result.data.allWpJob.nodes;
+
+  jobs.forEach(
+    ({ id, content, uri, language: { locale }, translations }) => {
+      const templatePath = path.resolve('./src/templates/job.jsx');
+
+      const context = {
+        id,
+        locale,
+        menus: getMenus(locale),
+        globalFields,
+        pageUrls: getUrlsForLocales(locale, uri, translations),
+      };
+
+      if (content) {
+        context.content = stripSpaces(content);
+      }
+
+      if (fs.existsSync(templatePath)) {
+        createPage({
+          path: uri,
+          component: slash(templatePath),
+          context,
+        });
+      } else {
+        reporter.error('Template Job was not found');
+      }
+    },
+  );
+}
+
 /* Note: this is a stub, should be set properly after
 // there is a 404 page in WP
 */
@@ -884,10 +950,11 @@ exports.createPages = async (args) => {
   };
 
   await createPages(params);
-  await createBlogPages(params);
-  await createPosts(params);
+  // await createBlogPages(params);
+  // await createPosts(params);
   await createPartners(params);
   await createSuccessStories(params);
+  await createJobs(params);
   await createEventPages(params);
   // custom 404
   await createNotFound(params);

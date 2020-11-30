@@ -58,27 +58,43 @@
   }
 
   > h1 {
-    font-size: $font-size-xl;
+    font-size: 70px;
+
+    @include lg-down {
+      font-size: 60px;
+    }
+
+    @include md-down {
+      font-size: 50px;
+    }
   }
 
   > h2 {
-    font-size: 40px;
+    font-size: 60px;
 
     @include lg-down {
-      font-size: 35px;
+      font-size: 40px;
+    }
+
+    @include md-down {
+      font-size: 36px;
+    }
+  }
+
+  > h3 {
+    font-size: 36px;
+
+    @include lg-down {
+      font-size: 32px;
     }
 
     @include md-down {
       font-size: 30px;
     }
-
-    @include sm-down {
-      font-size: 26px;
-    }
   }
 
-  > h3 {
-    font-size: $font-size-lg;
+  > h4 {
+    font-size: 26px;
 
     @include lg-down {
       font-size: 24px;
@@ -89,13 +105,15 @@
     }
   }
 
-  > h4 {
-    margin-top: 40px;
-    font-size: 18px;
-    line-height: 1.6;
+  > h5 {
+    font-size: 24px;
+
+    @include lg-down {
+      font-size: 22px;
+    }
 
     @include md-down {
-      font-size: 16px;
+      font-size: 20px;
     }
   }
 
