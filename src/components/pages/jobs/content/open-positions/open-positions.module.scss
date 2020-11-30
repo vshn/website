@@ -50,6 +50,7 @@
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-right: 20px;
   font-size: 18px;
   font-weight: 700;
 }
@@ -86,4 +87,9 @@
       height: 32px;
     }
   }
+}
+
+.arrow {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
