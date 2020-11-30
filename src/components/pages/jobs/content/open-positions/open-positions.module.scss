@@ -7,11 +7,27 @@
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+
+  @include lg-down {
+    margin-bottom: 45px;
+  }
+
+  @include md-down {
+    margin-bottom: 30px;
+  }
 }
 
 .title {
   margin-bottom: 20px;
   font-size: 36px;
+
+  @include lg-down {
+    font-size: 32px;
+  }
+
+  @include md-down {
+    font-size: 30px;
+  }
 }
 
 .list {
@@ -24,6 +40,10 @@
   list-style-type: none;
 
   @include with-link-secondary;
+
+  @include md-down {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .item-wrapper {
@@ -53,6 +73,10 @@
   margin-right: 20px;
   font-size: 18px;
   font-weight: 700;
+
+  @include md-down {
+    font-size: 16px;
+  }
 }
 
 .number {

@@ -1,8 +1,14 @@
 .rating-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  row-gap: 30px;
   column-gap: $column-gap;
   margin-top: 30px;
+
+  @include sm-down {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
+  }
 
   &__item {
     display: flex;

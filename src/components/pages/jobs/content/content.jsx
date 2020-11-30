@@ -5,7 +5,7 @@ import React from 'react';
 import styles from './content.module.scss';
 import OpenPositions from './open-positions';
 
-import 'components/lazy-blocks/rating-card/rating-card.scss';
+import 'components/lazy-blocks/rating-cards/rating-cards.scss';
 
 const cx = classNames.bind(styles);
 
@@ -29,10 +29,6 @@ Content.propTypes = {
     })).isRequired,
   }).isRequired,
   content: PropTypes.string.isRequired,
-};
-
-Content.defaultProps = {
-
 };
 
 export default Content;
