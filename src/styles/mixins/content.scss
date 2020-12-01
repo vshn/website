@@ -58,11 +58,11 @@
   }
 
   > h1 {
-    font-size: $font-size-xl;
+    font-size: 70px;
   }
 
   > h2 {
-    font-size: 40px;
+    font-size: 50px;
 
     @include lg-down {
       font-size: 35px;
@@ -78,7 +78,7 @@
   }
 
   > h3 {
-    font-size: $font-size-lg;
+    font-size: 36px;
 
     @include lg-down {
       font-size: 24px;
@@ -91,7 +91,16 @@
 
   > h4 {
     margin-top: 40px;
-    font-size: 18px;
+    font-size: 26px;
+    line-height: 1.6;
+
+    @include md-down {
+      font-size: 16px;
+    }
+  }
+
+  > h5 {
+    font-size: 24px;
     line-height: 1.6;
 
     @include md-down {
@@ -189,7 +198,7 @@
       width: 50px;
       height: 40px;
       content: '';
-      background-image: url(./images/quote.svg);
+      background-image: url(icons/quote.svg);
 
       @include lg-down {
         top: -15px;
