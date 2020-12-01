@@ -1,0 +1,30 @@
+.wrapper {
+  padding-bottom: 180px;
+  border-bottom: 2px solid $color-additional-1;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-bottom: 150px;
+  }
+
+  @include md-down {
+    padding-bottom: 120px;
+  }
+}
+
+.inner {
+  max-width: 850px;
+
+  @include lg-down {
+    max-width: 770px;
+  }
+
+  @include md-down {
+    max-width: 700px;
+  }
+}
+
+.content {
+  @include content;
+}

@@ -1,20 +1,12 @@
 {
   "en": {
-    "job": {
-      "breadcrumbs": [
-      {
-        "breadcrumbRoot": "About",
-        "breadcrumbSlug": "en/about/"
-      },
-      {
-        "breadcrumbRoot": "Jobs",
-        "breadcrumbSlug": "en/jobs/"
-      }
-    ],
-    "openPositionsTitle": "Open positions"
+    "jobs": {
+      "breadcrumbRoot": "About",
+      "breadcrumbSlug": "/en/about"
     },
     "events": {
-      "breadcrumbRoot": "Learn"
+      "breadcrumbRoot": "Learn",
+      "breadcrumbSlug": "/en/learn"
     },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
@@ -42,21 +34,13 @@
     }
   },
   "de": {
-    "job": {
-      "breadcrumbs": [
-      {
-        "breadcrumbRoot": "About",
-        "breadcrumbSlug": "/about/"
-      },
-      {
-        "breadcrumbRoot": "Jobs",
-        "breadcrumbSlug": "/jobs/"
-      }
-    ],
-    "openPositionsTitle": "Open positions"
+    "jobs": {
+      "breadcrumbRoot": "Über",
+      "breadcrumbSlug": "/about"
     },
     "events": {
-      "breadcrumbRoot": "Learn"
+      "breadcrumbRoot": "Lernen",
+      "breadcrumbSlug": "/learn"
     },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"

@@ -59,42 +59,26 @@
 
   > h1 {
     font-size: 70px;
-
-    @include lg-down {
-      font-size: 60px;
-    }
-
-    @include md-down {
-      font-size: 50px;
-    }
   }
 
   > h2 {
-    font-size: 60px;
+    font-size: 50px;
 
     @include lg-down {
-      font-size: 40px;
-    }
-
-    @include md-down {
-      font-size: 36px;
-    }
-  }
-
-  > h3 {
-    font-size: 36px;
-
-    @include lg-down {
-      font-size: 32px;
+      font-size: 35px;
     }
 
     @include md-down {
       font-size: 30px;
     }
+
+    @include sm-down {
+      font-size: 26px;
+    }
   }
 
-  > h4 {
-    font-size: 26px;
+  > h3 {
+    font-size: 36px;
 
     @include lg-down {
       font-size: 24px;
@@ -105,15 +89,22 @@
     }
   }
 
-  > h5 {
-    font-size: 24px;
-
-    @include lg-down {
-      font-size: 22px;
-    }
+  > h4 {
+    margin-top: 40px;
+    font-size: 26px;
+    line-height: 1.6;
 
     @include md-down {
-      font-size: 20px;
+      font-size: 16px;
+    }
+  }
+
+  > h5 {
+    font-size: 24px;
+    line-height: 1.6;
+
+    @include md-down {
+      font-size: 16px;
     }
   }
 
@@ -161,7 +152,7 @@
         left: 0;
         width: 6px;
         height: 6px;
-        content: '';
+        content: "";
         background-color: $color-accent-primary;
         border-radius: 50%;
       }
@@ -206,7 +197,7 @@
       left: 0;
       width: 50px;
       height: 40px;
-      content: '';
+      content: "";
       background-image: url(icons/quote.svg);
 
       @include lg-down {
@@ -228,7 +219,7 @@
       right: 0;
       width: calc(100% - 80px);
       height: 4px;
-      content: '';
+      content: "";
       background-color: $color-primary;
 
       @include lg-down {
@@ -271,7 +262,7 @@
       color: $color-secondary;
 
       &::before {
-        content: '– ';
+        content: "– ";
       }
     }
   }
