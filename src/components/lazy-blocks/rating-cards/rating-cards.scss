@@ -26,6 +26,8 @@
   &__description {
     margin-top: 0;
     margin-bottom: 30px;
+
+    @include with-link-primary;
   }
 
   &__image-wrapper {
@@ -33,5 +35,10 @@
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
+    // Caught a very weird bug with wrong calculation of aspect ratio for images that comes
+    // from WP in gatsby-image so had to force contain styles
+    img {
+      object-fit: contain !important;
+    }
   }
 }
