@@ -7,6 +7,7 @@ import Content from 'components/pages/blog-post/content';
 import Hero from 'components/pages/blog-post/hero';
 import News from 'components/pages/blog-post/news';
 import Contact from 'components/shared/contact';
+import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -25,8 +26,13 @@ export default ({
   >
     <Hero {...data} />
     <Content {...data} />
-    <AuthorInfo {...data.acf.authorInfo} />
-    <News {...data.acf} {...allWpPost} />
+    <AuthorInfo {...data.author.node} />
+    <News
+      {...data.acf}
+      {...allWpPost}
+      title={translations[locale].blogPost.latestNews}
+      readMoreText={translations[locale].blog.postCtaButton}
+    />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -42,8 +48,8 @@ export const query = graphql`
       }
       date(formatString: "YYYY-MM-DD")
       content
-      acf {
-        authorInfo {
+      author {
+        node {
           acf {
             avatar {
               localFile {
@@ -54,16 +60,11 @@ export const query = graphql`
                 }
               }
             }
-            fullName
-            email
-            number
           }
+          firstName
+          lastName
           description
-        }
-        news {
-          title
-        }
-        itemFooterText
+        } 
       }
       ...wpPostSeo
     }
