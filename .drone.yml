@@ -1,11 +1,192 @@
 kind: pipeline
 name: default
-
 steps:
-  - name: tests
-    image: node:12.14.0-alpine3.11
+  - name: initial_notification
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: slack_webhook
+      template: >
+        There is a new deploy in process for *{{repo.name}}* 
+
+        Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
+
+        Logs: {{build.link}}
+
+  - name: get-cache
+    image: meltwater/drone-cache:dev
+    settings:
+      backend: 'filesystem'
+      restore: true
+      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package-lock.json" }}'
+      mount:
+        - 'node_modules'
+        - '.cache'
+        - 'public'
+    volumes:
+      - name: cache
+        path: /tmp/cache
+    depends_on:
+      - initial_notification
+
+  - name: build
+    image: node:14.13.1-slim
     environment:
-      GATSBY_DEFAULT_SITE_URL: http://localhost
+      WP_GRAPHQL_URL: https://vshn.cyon.site/graphql
+      GATSBY_DEFAULT_SITE_URL: https://vshn.ch/
+      GATSBY_CONCURRENT_DOWNLOAD: 5
+      WP_HTACCESS_USERNAME: vshn
+      WP_HTACCESS_PASSWORD:
+        from_secret: wp_htaccess_password
     commands:
-      - npm install
+      - npm install --prefer-offline --no-audit
+      - |
+        [ -n "$CACHE_CLEAN" ] && npm run clean
       - npm run build
+    depends_on:
+      - get-cache
+
+  - name: update-cache
+    image: meltwater/drone-cache:dev
+    settings:
+      backend: 'filesystem'
+      rebuild: true
+      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package-lock.json" }}'
+      mount:
+        - 'node_modules'
+        - '.cache'
+        - 'public'
+    volumes:
+      - name: cache
+        path: /tmp/cache
+    depends_on:
+      - build
+
+  - name: netlify-deploy-preview
+    image: williamjackson/netlify-cli
+    environment:
+      NETLIFY_SITE_ID: bf0ff740-d67f-4d6b-b784-2036164e718f
+      NETLIFY_AUTH_TOKEN:
+        from_secret: netlify_access_token
+    commands:
+      - netlify deploy --dir=public --alias=$DRONE_COMMIT_BRANCH
+    depends_on:
+      - build
+    when:
+      branch:
+        exclude:
+          - master
+
+  - name: netlify-success-notification
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: slack_webhook
+      template: >
+        Successful deploy of {{repo.name}}
+
+        Deploy preview URL: https://{{build.branch}}--vshn.netlify.app
+    when:
+      branch:
+        exclude:
+          - master
+    depends_on:
+      - netlify-deploy-preview
+
+  - name: netlify-deploy
+    image: williamjackson/netlify-cli
+    environment:
+      NETLIFY_SITE_ID: cbeefaa7-9e70-4cf1-b568-accbfb877fba
+      NETLIFY_AUTH_TOKEN:
+        from_secret: netlify_access_token
+    commands:
+      - netlify deploy --prod --dir=public
+    depends_on:
+      - build
+    when:
+      branch:
+        - master
+
+  - name: netlify-success-notification-prod
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: slack_webhook
+      template: >
+        Successful deploy of {{repo.name}}
+
+        Deploy URL: https://vshn.netlify.app
+    when:
+      branch:
+        - master
+    depends_on:
+      - netlify-deploy
+
+  - name: build-gatsby-preview-docker
+    image: plugins/docker
+    settings:
+      repo: registry.pixelpoint.io/vshn-website
+      registry: registry.pixelpoint.io
+      dockerfile: Dockerfile.preview
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      branch:
+        - master
+      event:
+        exclude:
+          - custom
+    depends_on:
+      - build
+
+  - name: deploy-gatsby-preview-server
+    image: peloton/drone-k8s-deployment
+    settings:
+      insecure: false
+      deployment_names: vshn-website
+      container_names: vshn-website
+      namespaces: vshn
+      docker_image: registry.pixelpoint.io/vshn-website:latest
+      date_label: deployment.drone.io/date-deployed
+      url:
+        from_secret: kubernetes_url
+      token:
+        from_secret: kubernetes_token
+    when:
+      branch:
+        - master
+      event:
+        exclude:
+          - custom
+    depends_on:
+      - build-gatsby-preview-docker
+
+  - name: failed_status_notification
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: slack_webhook
+      template: >
+        Deploy did not complete for *{{repo.name}}*. 
+
+        Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
+
+        Logs: {{build.link}}
+    depends_on:
+      - deploy-gatsby-preview-server
+      - netlify-deploy-preview
+    when:
+      status:
+        - failure
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache
+
+trigger:
+  event:
+    - push
+    - custom
