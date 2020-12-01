@@ -9,8 +9,7 @@ const filterNonRootItems = require('./src/utils/filter-non-root-items');
 const DEFAULT_LOCALE = 'de';
 const SUPPORTED_LOCALES = ['en', 'de'];
 const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
-const POSTS_PER_PAGE = 5;
-const DEFAULT_YEAR = `${new Date().getFullYear()}`;
+const POSTS_PER_PAGE = 20;
 
 /* Local helper fns */
 
