@@ -41,6 +41,10 @@
 
   @include with-link-secondary;
 
+  @include lg-down {
+    column-gap: 60px;
+  }
+
   @include md-down {
     grid-template-columns: repeat(1, 1fr);
   }
