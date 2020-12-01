@@ -65,7 +65,7 @@ steps:
   - name: netlify-deploy-preview
     image: williamjackson/netlify-cli
     environment:
-      NETLIFY_SITE_ID: bf0ff740-d67f-4d6b-b784-2036164e718f
+      NETLIFY_SITE_ID: cbeefaa7-9e70-4cf1-b568-accbfb877fba
       NETLIFY_AUTH_TOKEN:
         from_secret: netlify_access_token
     commands:
