@@ -15,7 +15,7 @@ const Hero = ({ locale, title, image }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('category-wrapper')}>
-        <Link className={cx('category')} to="/">{t[locale].jobs.breadcrumbRoot}</Link>
+        <Link className={cx('category')} to={t[locale].jobs.breadcrumbSlug}>{t[locale].jobs.breadcrumbRoot}</Link>
         <span>{title}</span>
       </div>
       <Heading className={cx('title')} tag="h1" size="xl">{title}</Heading>

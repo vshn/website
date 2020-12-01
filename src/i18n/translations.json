@@ -1,10 +1,12 @@
 {
   "en": {
     "jobs": {
-      "breadcrumbRoot": "About"
+      "breadcrumbRoot": "About",
+      "breadcrumbSlug": "/en/about"
     },
     "events": {
-      "breadcrumbRoot": "Learn"
+      "breadcrumbRoot": "Learn",
+      "breadcrumbSlug": "/en/learn"
     },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
@@ -33,10 +35,12 @@
   },
   "de": {
     "jobs": {
-      "breadcrumbRoot": "Über"
+      "breadcrumbRoot": "Über",
+      "breadcrumbSlug": "/about"
     },
     "events": {
-      "breadcrumbRoot": "Learn"
+      "breadcrumbRoot": "Lernen",
+      "breadcrumbSlug": "/learn"
     },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
