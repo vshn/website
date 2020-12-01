@@ -37,8 +37,4 @@ OpenPositions.propTypes = {
   })).isRequired,
 };
 
-OpenPositions.defaultProps = {
-
-};
-
 export default OpenPositions;

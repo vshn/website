@@ -20,8 +20,8 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={data.title} breadcrumbs={data.acf.breadcrumbs} />
-    <Content content={data.content} openPositions={data.acf.openPositions} positions={positions} />
+    <Hero title={data.title} locale={locale} breadcrumbs={data.acf.breadcrumbs} />
+    <Content content={data.content} title={data.acf.openPositionsTitle} positions={positions} />
     <Contact locale={locale} />
   </MainLayout>
 );
@@ -33,16 +33,7 @@ export const query = graphql`
       title
       content
       acf {
-        breadcrumbs {
-          link {
-            url
-            title
-            target
-          }
-        }
-        openPositions {
-          title
-        }
+        openPositionsTitle
       }
     }
     positions: allWpJob(
