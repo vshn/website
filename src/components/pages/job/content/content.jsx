@@ -20,7 +20,6 @@ Content.propTypes = {
   content: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   positions: PropTypes.shape({
-    title: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       url: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,

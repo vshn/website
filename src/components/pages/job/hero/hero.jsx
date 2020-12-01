@@ -11,7 +11,7 @@ import styles from './hero.module.scss';
 const cx = classNames.bind(styles);
 
 const Hero = ({ title, locale }) => {
-  const breadcrumbs = t[locale].job;
+  const { breadcrumbs } = t[locale].job;
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
