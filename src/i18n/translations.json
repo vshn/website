@@ -23,6 +23,9 @@
         "prevLabel": "Newer posts",
         "nextLabel": "Older Posts"
       }
+    },
+    "blogPost": {
+      "latestNews": "Latest News"
     }
   },
   "de": {
@@ -49,6 +52,9 @@
         "prevLabel": "Ältere Beiträge",
         "nextLabel": "Neuere Beiträge"
       }
+    },
+    "blogPost": {
+      "latestNews": "Neuesten Nachrichten"
     }
   }
 }
