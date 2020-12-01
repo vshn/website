@@ -35,7 +35,7 @@
   color: $color-tertiary;
   text-transform: uppercase;
 
-  @include with-link-secondary;
+  @include with-link-primary;
 
   .category {
     position: relative;
