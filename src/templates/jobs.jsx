@@ -4,6 +4,7 @@ import React from 'react';
 
 import Content from 'components/pages/jobs/content';
 import Hero from 'components/pages/jobs/hero';
+import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -20,7 +21,11 @@ export default ({
     globalFields={globalFields}
   >
     <Hero title={data.title} locale={locale} image={data.acf.jobsHeroImage} />
-    <Content content={data.content} title={data.acf.openPositionsTitle} positions={positions} />
+    <Content
+      content={data.content}
+      title={translations[locale].job.openPositionsTitle}
+      positions={positions}
+    />
   </MainLayout>
 );
 
@@ -39,7 +44,6 @@ export const query = graphql`
             }
           }
         }
-        openPositionsTitle
       }
       ...wpPageSeo
     }
