@@ -9,19 +9,17 @@ import 'components/lazy-blocks/rating-cards/rating-cards.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ openPositions, positions, content }) => (
+const Content = ({ title, positions, content }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
-      <OpenPositions {...openPositions} {...positions} />
+      <OpenPositions title={title} {...positions} />
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   </section>
 );
 
 Content.propTypes = {
-  openPositions: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  }).isRequired,
+  title: PropTypes.string.isRequired,
   positions: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({
       url: PropTypes.string.isRequired,

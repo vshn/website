@@ -1,5 +1,8 @@
 {
   "en": {
+    "jobs": {
+      "breadcrumbRoot": "About"
+    },
     "events": {
       "breadcrumbRoot": "Learn"
     },
@@ -29,6 +32,9 @@
     }
   },
   "de": {
+    "jobs": {
+      "breadcrumbRoot": "Über"
+    },
     "events": {
       "breadcrumbRoot": "Learn"
     },

@@ -11,7 +11,7 @@ export default ({
     wpPage: data,
     positions,
   },
-  pageContext: { pageUrls, menus, globalFields },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={data.seo}
@@ -19,8 +19,8 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={data.title} breadcrumbs={data.acf.breadcrumbs} {...data.acf.jobsHero} />
-    <Content content={data.content} openPositions={data.acf.openPositions} positions={positions} />
+    <Hero title={data.title} locale={locale} image={data.acf.jobsHeroImage} />
+    <Content content={data.content} title={data.acf.openPositionsTitle} positions={positions} />
   </MainLayout>
 );
 
@@ -30,27 +30,16 @@ export const query = graphql`
       title
       content
       acf {
-        breadcrumbs {
-          link {
-            url
-            title
-            target
-          }
-        }
-        jobsHero {
-          photo {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1290) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
+        jobsHeroImage {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1290) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
         }
-        openPositions {
-          title
-        }
+        openPositionsTitle
       }
       ...wpPageSeo
     }
