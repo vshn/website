@@ -10,7 +10,7 @@ import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Item = ({ title, acf: { shortDescription }, date, uri: buttonUrl, ctaButtonText }) => {
+const Item = ({ title, shortDescription, date, uri: buttonUrl, ctaButtonText }) => {
   const day = new Date(date).getDate();
   const month = new Date(date).toLocaleString('en-US', { month: 'short' });
 
@@ -27,7 +27,7 @@ const Item = ({ title, acf: { shortDescription }, date, uri: buttonUrl, ctaButto
             {title}
           </Link>
         </Heading>
-        <p className={cx('short-description')}>{shortDescription}</p>
+        <p className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
         <Button to={buttonUrl} size="sm">{ctaButtonText}</Button>
       </div>
     </article>
@@ -36,9 +36,7 @@ const Item = ({ title, acf: { shortDescription }, date, uri: buttonUrl, ctaButto
 
 Item.propTypes = {
   title: PropTypes.string.isRequired,
-  acf: PropTypes.shape({
-    shortDescription: PropTypes.string.isRequired,
-  }).isRequired,
+  shortDescription: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   uri: PropTypes.string.isRequired,
   ctaButtonText: PropTypes.string.isRequired,

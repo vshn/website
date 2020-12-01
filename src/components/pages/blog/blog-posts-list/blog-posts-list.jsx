@@ -57,9 +57,7 @@ BlogPostList.propTypes = {
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    acf: PropTypes.shape({
-      shortDescription: PropTypes.string.isRequired,
-    }).isRequired,
+    shortDescription: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     uri: PropTypes.string.isRequired,
   })).isRequired,

@@ -12,6 +12,7 @@ import Report from 'components/pages/home/report';
 import SolutionsProducts from 'components/pages/home/solutions-products';
 import Technologies from 'components/pages/home/technologies';
 import Contact from 'components/shared/contact';
+import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -30,7 +31,7 @@ export default ({
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
     <SolutionsProducts {...data.solutionsProducts} />
-    <News {...data.news} {...allWpPost} />
+    <News {...data.news} {...allWpPost} readMoreText={translations[locale].blog.postCtaButton} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
     <Jobs {...data.jobs} />
@@ -151,14 +152,12 @@ export const query = graphql`
       ) {
       items: nodes {
         title
+        shortDescription: excerpt
         uri
         categories {
           nodes {
             name
           }
-        }
-        acf {
-          shortDescription
         }
       }
     }

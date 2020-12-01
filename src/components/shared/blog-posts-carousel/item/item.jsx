@@ -10,7 +10,7 @@ import styles from './item.module.scss';
 const cx = classNames.bind(styles);
 
 const Item = (
-  { uri: url, categories, title, acf: { shortDescription }, readMoreText },
+  { uri: url, categories, title, shortDescription, readMoreText },
 ) => (
   <article className={cx('wrapper')}>
     <div className={cx('inner')}>
@@ -20,7 +20,7 @@ const Item = (
         ))}
       </ul>
       <Heading className={cx('title')} tag="h2" size="lg">{title}</Heading>
-      <p className={cx('short-description')}>{shortDescription}</p>
+      <p className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
       <Button className={cx('read-more')} size="xs" to={url}>{readMoreText}</Button>
     </div>
   </article>
@@ -34,9 +34,7 @@ Item.propTypes = {
     })),
   }).isRequired,
   title: PropTypes.string.isRequired,
-  acf: PropTypes.shape({
-    shortDescription: PropTypes.string.isRequired,
-  }).isRequired,
+  shortDescription: PropTypes.string.isRequired,
   readMoreText: PropTypes.string.isRequired,
 };
 
