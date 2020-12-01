@@ -15,15 +15,17 @@ const OpenPositions = ({ title, items }) => (
     <Heading className={cx('title')} tag="h2" size="lg">{title}</Heading>
     <div className={cx('list')}>
       {items.map(({ url, title }, index) => (
-        <Link className={cx('item-wrapper')} key={index} to={url}>
-          <div className={cx('item')}>
-            <div className={cx('number')}>
-              <span>{index + 1}</span>
-            </div>
-            {title}
+        <div className={cx('item-wrapper')}>
+          <div className={cx('number')}>
+            <span>{index + 1}</span>
           </div>
-          <Arrow className={cx('arrow')} />
-        </Link>
+          <div className={cx('item')}>
+            <Link className={cx('link')} key={index} to={url}>
+              {title}
+            </Link>
+            <Arrow className={cx('arrow')} />
+          </div>
+        </div>
       ))}
     </div>
   </div>

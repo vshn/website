@@ -7,6 +7,13 @@
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+
+  @include lg-down {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
 }
 
 .title {
@@ -14,10 +21,12 @@
   font-size: 36px;
 
   @include lg-down {
+    margin-bottom: 30px;
     font-size: 32px;
   }
 
   @include md-down {
+    margin-bottom: 15px;
     font-size: 30px;
   }
 }
@@ -49,20 +58,46 @@
   &:last-child {
     border-bottom: none;
   }
+
+  @include lg-down {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  @include md-down {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+  }
 }
 
 .item {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-right: 20px;
   font-size: 18px;
   font-weight: 700;
 
+  @include lg-down {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
   @include md-down {
     font-size: 16px;
+  }
+}
+
+.link {
+  margin-right: 20px;
+
+  @include lg-down {
+    margin-right: 15px;
   }
 }
 
@@ -75,6 +110,10 @@
   font-size: 20px;
   font-weight: 900;
   color: $color-primary;
+
+  @include md-down {
+    font-size: 18px;
+  }
 
   span {
     position: inherit;
@@ -92,6 +131,11 @@
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba($color-primary, 0.15);
     transform: translate(-50%, -50%);
+
+    @include md-down {
+      width: 36px;
+      height: 36px;
+    }
 
     @include md-down {
       width: 32px;
