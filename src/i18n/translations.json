@@ -1,5 +1,9 @@
 {
   "en": {
+    "clients": {
+      "breadcrumbRoot": "Partners",
+      "breadcrumbSlug": "/en/partners/"
+    },
     "job": {
       "breadcrumbs": [
       {
@@ -15,11 +19,11 @@
     },
     "jobs": {
       "breadcrumbRoot": "About",
-      "breadcrumbSlug": "/en/about"
+      "breadcrumbSlug": "/en/about/"
     },
     "events": {
       "breadcrumbRoot": "Learn",
-      "breadcrumbSlug": "/en/learn"
+      "breadcrumbSlug": "/en/learn/"
     },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
@@ -47,6 +51,10 @@
     }
   },
   "de": {
+    "clients": {
+      "breadcrumbRoot": "Partner",
+      "breadcrumbSlug": "/partner/"
+    },
     "job": {
       "breadcrumbs": [
       {
