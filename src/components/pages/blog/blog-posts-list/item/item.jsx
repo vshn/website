@@ -22,13 +22,13 @@ const Item = ({ title, shortDescription, date, uri: buttonUrl, ctaButtonText }) 
       </div>
 
       <div>
-        <Heading className={cx('title')} tag="h2" size="xl" color="primary">
+        <Heading className={cx('title')} tag="h3" color="primary">
           <Link to={buttonUrl}>
             {title}
           </Link>
         </Heading>
-        <p className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
-        <Button to={buttonUrl} size="sm">{ctaButtonText}</Button>
+        <div className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
+        <Button to={buttonUrl} size="xs">{ctaButtonText}</Button>
       </div>
     </article>
   );

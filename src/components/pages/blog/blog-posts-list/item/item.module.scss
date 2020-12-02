@@ -7,8 +7,8 @@
 
   @include lg-down {
     flex-direction: column;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
+    padding-bottom: 45px;
+    margin-bottom: 45px;
   }
 
   @include md-down {
@@ -36,10 +36,10 @@
 
   @include lg-down {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     padding-top: 0;
     padding-bottom: 0;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     background-color: $color-tertiary;
   }
 }
@@ -67,11 +67,21 @@
 .title {
   display: -webkit-box;
   margin-bottom: 15px;
+  overflow: hidden;
+  font-size: 36px;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 
   @include with-link-secondary;
+
+  @include lg-down {
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
+
+  @include md-down {
+    font-size: 30px;
+  }
 }
 
 .short-description {
@@ -81,6 +91,10 @@
   overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
+  p {
+    margin-top: 0;
+  }
 
   @include md-down {
     margin-bottom: 25px;

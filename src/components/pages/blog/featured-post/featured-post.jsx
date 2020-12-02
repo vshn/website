@@ -28,8 +28,8 @@ const FeaturedPost = (
         <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
 
         <div className={cx('content')}>
-          <p className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
-          <Button size="sm" to={buttonUrl}>{footerText}</Button>
+          <div className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
+          <Button size="xs" to={buttonUrl}>{footerText}</Button>
         </div>
       </div>
 
