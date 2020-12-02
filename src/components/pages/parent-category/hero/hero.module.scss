@@ -69,6 +69,7 @@
 
   @include sm-down {
     max-width: initial;
+    min-height: initial;
   }
 }
 
@@ -124,7 +125,7 @@
   @include sm-down {
     top: initial;
     right: calc(#{$section-padding} / -1 - 225px);
-    bottom: -300px;
+    bottom: -150px;
     width: 585px;
   }
 }
