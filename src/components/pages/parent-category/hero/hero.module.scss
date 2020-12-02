@@ -120,4 +120,11 @@
     right: calc(#{$container-side-gap-md} / -1 - 155px);
     width: 645px;
   }
+
+  @include sm-down {
+    top: initial;
+    right: calc(#{$section-padding} / -1 - 225px);
+    bottom: -300px;
+    width: 585px;
+  }
 }
