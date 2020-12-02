@@ -1,0 +1,41 @@
+.wrapper {
+  margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include md-down {
+    display: block;
+  }
+}
+
+.content {
+  max-width: 770px;
+  margin-right: 110px;
+
+  @include content;
+
+  @include lg-down {
+    max-width: 560px;
+    margin-right: 80px;
+    margin-bottom: 50px;
+  }
+
+  @include md-down {
+    max-width: initial;
+    margin-right: 0;
+  }
+}

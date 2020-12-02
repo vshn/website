@@ -1,5 +1,18 @@
 {
   "en": {
+    "job": {
+      "breadcrumbs": [
+      {
+        "breadcrumbRoot": "About",
+        "breadcrumbSlug": "en/about/"
+      },
+      {
+        "breadcrumbRoot": "Jobs",
+        "breadcrumbSlug": "en/jobs/"
+      }
+    ],
+    "openPositionsTitle": "Open positions"
+    },
     "jobs": {
       "breadcrumbRoot": "About",
       "breadcrumbSlug": "/en/about"
@@ -34,6 +47,19 @@
     }
   },
   "de": {
+    "job": {
+      "breadcrumbs": [
+      {
+        "breadcrumbRoot": "Über",
+        "breadcrumbSlug": "/about/"
+      },
+      {
+        "breadcrumbRoot": "Jobs",
+        "breadcrumbSlug": "/jobs/"
+      }
+    ],
+    "openPositionsTitle": "Open positions"
+    },
     "jobs": {
       "breadcrumbRoot": "Über",
       "breadcrumbSlug": "/about"

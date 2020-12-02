@@ -152,7 +152,7 @@
         left: 0;
         width: 6px;
         height: 6px;
-        content: '';
+        content: "";
         background-color: $color-accent-primary;
         border-radius: 50%;
       }
@@ -197,7 +197,7 @@
       left: 0;
       width: 50px;
       height: 40px;
-      content: '';
+      content: "";
       background-image: url(icons/quote.svg);
 
       @include lg-down {
@@ -219,7 +219,7 @@
       right: 0;
       width: calc(100% - 80px);
       height: 4px;
-      content: '';
+      content: "";
       background-color: $color-primary;
 
       @include lg-down {
@@ -262,7 +262,7 @@
       color: $color-secondary;
 
       &::before {
-        content: '– ';
+        content: "– ";
       }
     }
   }

@@ -2,14 +2,15 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Content from 'components/pages/jobs/content';
-import Hero from 'components/pages/jobs/hero';
+import Content from 'components/pages/job/content';
+import Hero from 'components/pages/job/hero';
+import Contact from 'components/shared/contact';
 import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
   data: {
-    wpPage: data,
+    wpJob: data,
     positions,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
@@ -20,35 +21,25 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={data.title} locale={locale} image={data.acf.jobsHeroImage} />
+    <Hero title={data.title} locale={locale} />
     <Content
       content={data.content}
       title={translations[locale].job.openPositionsTitle}
       positions={positions}
     />
+    <Contact locale={locale} />
   </MainLayout>
 );
 
 export const query = graphql`
   query($id: String!, $locale: String!) {
-    wpPage(id: { eq: $id }) {
+    wpJob(id: { eq: $id }) {
+      ...wpJobSeo
       title
       content
-      acf {
-        jobsHeroImage {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1290) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
-              }
-            }
-          }
-        }
-      }
-      ...wpPageSeo
     }
     positions: allWpJob(
-      filter: { language: { slug: { eq: $locale } } },
+      filter: {language: {slug: {eq: $locale}}},
       sort: {order: ASC, fields: title}) {
       items: nodes {
         url: uri
