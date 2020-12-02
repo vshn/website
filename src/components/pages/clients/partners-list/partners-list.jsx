@@ -52,18 +52,16 @@ const PartnersList = ({ filters, partners, locale }) => {
   return (
     <section className={cx('wrapper')}>
       <div className="container">
-        <div className={cx('header')}>
-          <div className={cx('filters-wrapper')}>
-            {Object.entries(filters).map(([filterKey, filterOptions], index) => (
-              <Select
-                label={t[locale].partners.filters[filterKey]}
-                filterKey={filterKey}
-                options={filterOptions}
-                key={index}
-                filterSelectHandler={filterSelectHandler}
-              />
-            ))}
-          </div>
+        <div className={cx('filters-wrapper')}>
+          {Object.entries(filters).map(([filterKey, filterOptions], index) => (
+            <Select
+              label={t[locale].partners.filters[filterKey]}
+              filterKey={filterKey}
+              options={filterOptions}
+              key={index}
+              filterSelectHandler={filterSelectHandler}
+            />
+          ))}
         </div>
         <ul className={cx('partners-wrapper')}>
           {memoizedPartners}

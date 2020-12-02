@@ -16,20 +16,17 @@
   }
 }
 
-.header {
+.filters-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 60px;
 
-  @include lg-down {
-    margin-bottom: 50px;
+  @include md-down {
+    margin-bottom: 45px;
   }
 
   @include sm-down {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
   }
 }
 
@@ -37,10 +34,6 @@
   @include sm-down {
     margin-bottom: 20px;
   }
-}
-
-.filters-wrapper {
-  display: flex;
 }
 
 .partners-wrapper {

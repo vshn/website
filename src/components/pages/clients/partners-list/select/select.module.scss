@@ -14,8 +14,16 @@
   position: relative;
   margin-right: 15px;
 
+  @include sm-down {
+    margin-bottom: 10px;
+  }
+
   &:last-child {
     margin-right: 0;
+
+    @include sm-down {
+      margin-bottom: 0;
+    }
   }
 }
 
