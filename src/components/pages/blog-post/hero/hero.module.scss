@@ -2,30 +2,23 @@
   position: relative;
   z-index: 0;
   padding-top: 60px;
-  padding-bottom: 90px;
+  padding-bottom: 60px;
   margin-top: $header-height;
-  margin-bottom: 75px;
+  margin-bottom: 90px;
   text-align: center;
   background-color: $color-additional-1;
 
   @include section-paddings;
 
   @include lg-down {
-    padding-top: 50px;
-    padding-bottom: 70px;
-    margin-bottom: 85px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    margin-bottom: 60px;
   }
 
   @include md-down {
-    padding-top: 40px;
-    padding-bottom: 75px;
     margin-top: $header-height-md;
-    margin-bottom: 70px;
-  }
-
-  @include sm-down {
-    padding-bottom: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
   }
 }
 
@@ -36,7 +29,7 @@
 .categories-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .category {
@@ -63,7 +56,7 @@
 .title {
   max-width: 850px;
   margin-right: auto;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   margin-left: auto;
 
   @include lg-down {
