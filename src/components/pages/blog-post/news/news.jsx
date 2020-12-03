@@ -22,9 +22,7 @@ News.propTypes = {
       })),
     }).isRequired,
     title: PropTypes.string.isRequired,
-    acf: PropTypes.shape({
-      shortDescription: PropTypes.string.isRequired,
-    }).isRequired,
+    shortDescription: PropTypes.string.isRequired,
   })).isRequired,
   readMoreText: PropTypes.string.isRequired,
 };

@@ -75,14 +75,12 @@ export const query = graphql`
       ) {
       items: nodes {
         title
+        shortDescription: excerpt
         uri
         categories {
           nodes {
             name
           }
-        }
-        acf {
-          shortDescription
         }
       }
     }

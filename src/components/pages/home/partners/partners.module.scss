@@ -222,7 +222,7 @@
 
   &:not(.active) {
     @include hover {
-      color: $color-accent-primary;
+      color: $color-secondary;
     }
   }
 
@@ -231,7 +231,7 @@
   }
 
   &.active {
-    color: $color-accent-secondary;
+    color: $color-accent-primary;
     cursor: default;
 
     &::after {
@@ -251,7 +251,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3px;
+    height: 4px;
     content: '';
     border-radius: 10px;
     transition-duration: $transition-base;
@@ -266,7 +266,7 @@
   &::after {
     width: 0;
     visibility: hidden;
-    background-color: $color-accent-secondary;
+    background-color: $color-accent-primary;
     opacity: 0;
     animation-duration: 5s;
     animation-timing-function: linear;

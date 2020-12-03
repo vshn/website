@@ -17,12 +17,12 @@ import styles from './footer.module.scss';
 const cx = classNames.bind(styles);
 
 const SOCIAL_ICONS = {
-  facebook: Facebook,
+  twitter: Twitter,
+  linkedin: LinkedIn,
   github: GitHub,
   gitlab: GitLab,
+  facebook: Facebook,
   instagram: Instagram,
-  linkedin: LinkedIn,
-  twitter: Twitter,
   youtube: YouTube,
 };
 
@@ -106,12 +106,12 @@ Footer.propTypes = {
     copyright: PropTypes.string,
   }),
   socialLinks: PropTypes.shape({
-    facebookLink: PropTypes.string,
+    twitterLink: PropTypes.string,
+    linkedinLink: PropTypes.string,
     githubLink: PropTypes.string,
     gitlabLink: PropTypes.string,
+    facebookLink: PropTypes.string,
     instagramLink: PropTypes.string,
-    linkedinLink: PropTypes.string,
-    twitterLink: PropTypes.string,
     youtubeLink: PropTypes.string,
   }),
 };

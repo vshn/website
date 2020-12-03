@@ -8,7 +8,7 @@ import styles from './news.module.scss';
 
 const cx = classNames.bind(styles);
 
-const News = ({ title, items, itemFooterText }) => <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} itemFooterText={itemFooterText} />;
+const News = ({ title, items, readMoreText }) => <BlogPostsCarousel className={cx('wrapper')} title={title} items={items} readMoreText={readMoreText} />;
 
 News.propTypes = {
   title: PropTypes.string.isRequired,
@@ -20,9 +20,7 @@ News.propTypes = {
       })),
     }).isRequired,
     title: PropTypes.string.isRequired,
-    acf: PropTypes.shape({
-      shortDescription: PropTypes.string.isRequired,
-    }).isRequired,
+    shortDescription: PropTypes.string.isRequired,
   })).isRequired,
   itemFooterText: PropTypes.string.isRequired,
 };

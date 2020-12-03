@@ -69,6 +69,7 @@
 
   @include sm-down {
     max-width: initial;
+    min-height: initial;
   }
 }
 
@@ -119,5 +120,12 @@
     top: calc((#{$header-height-md} - 34px) / -1);
     right: calc(#{$container-side-gap-md} / -1 - 155px);
     width: 645px;
+  }
+
+  @include sm-down {
+    top: initial;
+    right: calc(#{$section-padding} / -1 - 225px);
+    bottom: -150px;
+    width: 585px;
   }
 }

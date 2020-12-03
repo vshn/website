@@ -96,7 +96,6 @@
 
 .title {
   margin-bottom: 15px;
-  font-weight: 700;
 }
 
 .description {
@@ -135,7 +134,7 @@
     left: 0;
     height: 1px;
     content: "";
-    background: linear-gradient(90deg, rgba($color-tertiary, 0) 0%, $color-tertiary 50%, rgba($color-tertiary, 0) 100%);
+    background-color: $color-tertiary;
     opacity: 0.15;
 
     @include md-down {

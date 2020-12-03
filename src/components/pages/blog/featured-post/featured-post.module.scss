@@ -40,22 +40,18 @@
   @include lg-down {
     flex-direction: column;
     align-items: flex-start;
-    padding: 50px 80px;
+    padding: 60px 80px;
     transform: translateY(70px);
   }
 
   @include md-down {
-    padding: 40px 60px;
+    padding: 45px 60px;
     transform: translateY(60px);
   }
 
   @include sm-down {
     padding: 30px;
     transform: translateY(50px);
-  }
-
-  @include xs-down {
-    padding: 25px;
   }
 }
 
@@ -76,17 +72,13 @@
   @include lg-down {
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     padding-top: 0;
     padding-bottom: 0;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     color: $color-tertiary;
     text-align: left;
     background-color: $color-primary;
-  }
-
-  @include md-down {
-    margin-bottom: 20px;
   }
 }
 
@@ -123,11 +115,7 @@
 
   @include lg-down {
     max-width: 610px;
-    margin-bottom: 15px;
-  }
-
-  @include sm-down {
-    font-size: 30px;
+    margin-bottom: 30px;
   }
 }
 
@@ -147,12 +135,12 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  @include lg-down {
-    -webkit-line-clamp: 3;
+  p {
+    margin-top: 0;
   }
 
-  @include md-down {
-    margin-bottom: 25px;
+  @include lg-down {
+    -webkit-line-clamp: 3;
   }
 }
 

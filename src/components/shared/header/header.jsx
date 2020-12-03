@@ -7,8 +7,8 @@ import Link from 'components/shared/link';
 import Logo from 'images/logo.inline.svg';
 
 import styles from './header.module.scss';
-import deutsch from './images/deutsch.svg';
-import english from './images/english.svg';
+import DeutschIcon from './images/deutsch.inline.svg';
+import EnglishIcon from './images/english.inline.svg';
 import SubMenu from './sub-menu';
 
 const cx = classNames.bind(styles);
@@ -68,7 +68,7 @@ const Header = (props) => {
                 to={pageUrls.en}
                 activeClassName={cx('active')}
               >
-                <img className={cx('icon')} src={english} alt="" aria-hidden />
+                <EnglishIcon className={cx('icon')} />
                 {language1Text}
               </Link>
             </li>
@@ -78,7 +78,7 @@ const Header = (props) => {
                 to={pageUrls.de}
                 activeClassName={cx('active')}
               >
-                <img className={cx('icon')} src={deutsch} alt="" aria-hidden />
+                <DeutschIcon className={cx('icon')} />
                 {language2Text}
               </Link>
             </li>

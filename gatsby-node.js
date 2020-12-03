@@ -31,13 +31,13 @@ const getGlobalFields = async (graphql) => {
       wp {
         globalFields {
           socialLinksAcf {
-            facebookLink
-            youtubeLink
             twitterLink
-            instagramLink
             linkedinLink
             githubLink
             gitlabLink
+            facebookLink
+            instagramLink
+            youtubeLink
           }
           footerMetaAcf {
             copyright
@@ -300,7 +300,7 @@ async function createPages({
     },
   );
 }
-/*
+
 const createBlogPages = async ({
   graphql,
   actions,
@@ -477,8 +477,7 @@ const createBlogPages = async ({
       });
   });
 };
-*/
-/*
+
 // Create Posts
 async function createPosts({
   graphql,
@@ -540,7 +539,6 @@ async function createPosts({
     }
   });
 }
-*/
 
 // Create Partners
 async function createPartners({
@@ -949,8 +947,8 @@ exports.createPages = async (args) => {
   };
 
   await createPages(params);
-  // await createBlogPages(params);
-  // await createPosts(params);
+  await createBlogPages(params);
+  await createPosts(params);
   await createPartners(params);
   await createSuccessStories(params);
   await createJobs(params);

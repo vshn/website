@@ -17,7 +17,7 @@ const BlogPostList = ({ locale, posts, banner: { bannerCover, bannerTitle, banne
   let banner = null;
   const hasBanner = bannerCover && bannerTitle && bannerLink;
   // show gray shape only if page is full of posts
-  const hasDecoration = posts.length === 5;
+  const hasDecoration = posts.length === 20;
   if (hasBanner) {
     banner = (
       <div className={cx('illustration')} aria-hidden>
@@ -57,9 +57,7 @@ BlogPostList.propTypes = {
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    acf: PropTypes.shape({
-      shortDescription: PropTypes.string.isRequired,
-    }).isRequired,
+    shortDescription: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     uri: PropTypes.string.isRequired,
   })).isRequired,
