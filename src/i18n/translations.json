@@ -1,17 +1,15 @@
 {
   "en": {
-<<<<<<< HEAD
     "technologyPartners": {
       "breadcrumbRoot": "Partners",
       "breadcrumbSlug": "/en/partners/",
       "title": "Technology partners"
-=======
+    },
     "successStories": {
       "title": "Success stories",
       "breadcrumbRoot":  "Partners",
       "breadcrumbSlug": "/en/partners/",
       "itemFooterText": "Read more"
->>>>>>> master
     },
     "clients": {
       "breadcrumbRoot": "Partners",
@@ -83,18 +81,16 @@
     }
   },
   "de": {
-<<<<<<< HEAD
     "technologyPartners": {
       "breadcrumbRoot": "Partner",
       "breadcrumbSlug": "/partner/",
       "title": "Technologiepartner"
-=======
+    },
     "successStories": {
       "title": "Success stories",
       "breadcrumbRoot":  "Partner",
       "breadcrumbSlug": "/partner/",
       "itemFooterText": "Weiterlesen"
->>>>>>> master
     },
     "clients": {
       "breadcrumbRoot": "Partner",
