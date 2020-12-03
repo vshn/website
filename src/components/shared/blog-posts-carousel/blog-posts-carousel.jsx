@@ -85,7 +85,6 @@ BlogPostsCarousel.propTypes = {
       })),
     }).isRequired,
     title: PropTypes.string.isRequired,
-    shortDescription: PropTypes.string.isRequired,
   })).isRequired,
   readMoreText: PropTypes.string.isRequired,
 };
