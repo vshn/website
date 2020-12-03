@@ -1,5 +1,10 @@
 {
   "en": {
+    "technologyPartners": {
+      "breadcrumbRoot": "Partners",
+      "breadcrumbSlug": "/en/partners/",
+      "title": "Technology partners"
+    },
     "clients": {
       "breadcrumbRoot": "Partners",
       "breadcrumbSlug": "/en/partners/",
@@ -7,16 +12,16 @@
     },
     "job": {
       "breadcrumbs": [
-      {
-        "breadcrumbRoot": "About",
-        "breadcrumbSlug": "en/about/"
-      },
-      {
-        "breadcrumbRoot": "Jobs",
-        "breadcrumbSlug": "en/jobs/"
-      }
-    ],
-    "openPositionsTitle": "Open positions"
+        {
+          "breadcrumbRoot": "About",
+          "breadcrumbSlug": "/en/about/"
+        },
+        {
+          "breadcrumbRoot": "Jobs",
+          "breadcrumbSlug": "/en/jobs/"
+        }
+      ],
+      "openPositionsTitle": "Open positions"
     },
     "jobs": {
       "breadcrumbRoot": "About",
@@ -27,7 +32,16 @@
       "breadcrumbSlug": "/en/learn/"
     },
     "successStory": {
-      "breadcrumbRoot":  "Success Stories"
+      "breadcrumbs": [
+        {
+          "breadcrumbRoot": "Partners",
+          "breadcrumbSlug": "/en/partners/"
+        },
+        {
+          "breadcrumbRoot": "Success stories",
+          "breadcrumbSlug": "/en/partners/success-stories/"
+        }
+      ]
     },
     "partner": {
       "breadcrumbRoot": "Partners"
@@ -52,6 +66,11 @@
     }
   },
   "de": {
+    "technologyPartners": {
+      "breadcrumbRoot": "Partner",
+      "breadcrumbSlug": "/partner/",
+      "title": "Technologiepartner"
+    },
     "clients": {
       "breadcrumbRoot": "Partner",
       "breadcrumbSlug": "/partner/",
@@ -72,14 +91,23 @@
     },
     "jobs": {
       "breadcrumbRoot": "Über",
-      "breadcrumbSlug": "/about"
+      "breadcrumbSlug": "/about/"
     },
     "events": {
       "breadcrumbRoot": "Lernen",
-      "breadcrumbSlug": "/learn"
+      "breadcrumbSlug": "/learn/"
     },
     "successStory": {
-      "breadcrumbRoot":  "Success Stories"
+      "breadcrumbs": [
+        {
+          "breadcrumbRoot": "Partner",
+          "breadcrumbSlug": "/partner/"
+        },
+        {
+          "breadcrumbRoot": "Success stories",
+          "breadcrumbSlug": "/partner/success-stories/"
+        }
+      ]
     },
     "partner": {
       "breadcrumbRoot": "Partner"

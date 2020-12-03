@@ -5,12 +5,12 @@ import React from 'react';
 import Content from 'components/pages/success-story/content';
 import Hero from 'components/pages/success-story/hero';
 import Contact from 'components/shared/contact';
+import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
   data: {
     wpSuccessStory: data,
-    wpPage: { slug },
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -21,7 +21,7 @@ export default ({
     globalFields={globalFields}
   >
     <Hero
-      slug={slug}
+      slug={translations[locale].successStory.breadcrumbSlug}
       title={data.title}
       description={data.acf.description}
       locale={locale}
@@ -36,7 +36,7 @@ export default ({
 );
 
 export const query = graphql`
-  query($id: String!, $locale: String!) {
+  query($id: String!) {
     wpSuccessStory(id: { eq: $id }) {
       ...wpSuccessStorySeo
       title
@@ -78,9 +78,6 @@ export const query = graphql`
           }
         }
       }
-    }
-    wpPage(template: {templateName: {eq: "Partners"}}, language: {slug: {eq: $locale}}) {
-      slug: uri
     }
   }
 `;

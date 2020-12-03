@@ -44,15 +44,6 @@ export const query = graphql`
   query($id: String!, $locale: String!) {
     wpPage(id: { eq: $id }) {
       title
-      acf {
-        breadcrumbs {
-          link {
-            url
-            title
-            target
-          }
-        }
-      }
       ...wpPageSeo
     }
     allWpIndustry(filter: { language: { slug: { eq: $locale } } }) {
