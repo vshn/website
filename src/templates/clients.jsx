@@ -5,6 +5,7 @@ import React from 'react';
 import Hero from 'components/pages/clients/hero';
 import PartnersList from 'components/pages/clients/partners-list';
 import Contact from 'components/shared/contact';
+import t from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -24,7 +25,12 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={data.title} locale={locale} />
+    <Hero
+      breadcrumbSlug={t[locale].clients.breadcrumbSlug}
+      breadcrumbRoot={t[locale].clients.breadcrumbRoot}
+      title={t[locale].clients.title}
+      subtitle={data.title}
+    />
     <PartnersList
       {...allWpPartner}
       filters={{ industries, infrastructures, technologies }}

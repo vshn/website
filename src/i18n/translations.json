@@ -2,7 +2,8 @@
   "en": {
     "clients": {
       "breadcrumbRoot": "Partners",
-      "breadcrumbSlug": "/en/partners/"
+      "breadcrumbSlug": "/en/partners/",
+      "title": "Clients"
     },
     "job": {
       "breadcrumbs": [
@@ -53,7 +54,8 @@
   "de": {
     "clients": {
       "breadcrumbRoot": "Partner",
-      "breadcrumbSlug": "/partner/"
+      "breadcrumbSlug": "/partner/",
+      "title": "Kunden"
     },
     "job": {
       "breadcrumbs": [
