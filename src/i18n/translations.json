@@ -1,5 +1,11 @@
 {
   "en": {
+    "successStories": {
+      "title": "Success stories",
+      "breadcrumbRoot":  "Partners",
+      "breadcrumbSlug": "/en/partners/",
+      "itemFooterText": "Read more"
+    },
     "job": {
       "breadcrumbs": [
       {
@@ -47,6 +53,12 @@
     }
   },
   "de": {
+    "successStories": {
+      "title": "Success stories",
+      "breadcrumbRoot":  "Partner",
+      "breadcrumbSlug": "/partner/",
+      "itemFooterText": "Weiterlesen"
+    },
     "job": {
       "breadcrumbs": [
       {
