@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
 
-import Select from 'components/pages/partners/partners-list/select';
+import Select from 'components/pages/clients/partners-list/select';
 import Link from 'components/shared/link';
 import t from 'i18n';
 
