@@ -75,11 +75,9 @@ export const query = graphql`
           post {
             ... on WpPost {
               title
+              shortDescription: excerpt
               date(formatString: "YYYY-MM-DD")
               uri
-              acf {
-                shortDescription
-              }
             }
           }
           footerText
@@ -99,10 +97,8 @@ export const query = graphql`
     ) {
       nodes {
         title
+        shortDescription: excerpt
         uri
-        acf {
-          shortDescription
-        }
         date(formatString: "YYYY-MM-DD")
       }
     }

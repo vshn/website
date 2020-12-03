@@ -6,6 +6,11 @@
       "breadcrumbSlug": "/en/partners/",
       "itemFooterText": "Read more"
     },
+    "clients": {
+      "breadcrumbRoot": "Partners",
+      "breadcrumbSlug": "/en/partners/",
+      "title": "Clients"
+    },
     "job": {
       "breadcrumbs": [
       {
@@ -21,11 +26,11 @@
     },
     "jobs": {
       "breadcrumbRoot": "About",
-      "breadcrumbSlug": "/en/about"
+      "breadcrumbSlug": "/en/about/"
     },
     "events": {
       "breadcrumbRoot": "Learn",
-      "breadcrumbSlug": "/en/learn"
+      "breadcrumbSlug": "/en/learn/"
     },
     "successStory": {
       "breadcrumbRoot":  "Success Stories"
@@ -58,6 +63,11 @@
       "breadcrumbRoot":  "Partner",
       "breadcrumbSlug": "/partner/",
       "itemFooterText": "Weiterlesen"
+    },
+    "clients": {
+      "breadcrumbRoot": "Partner",
+      "breadcrumbSlug": "/partner/",
+      "title": "Kunden"
     },
     "job": {
       "breadcrumbs": [

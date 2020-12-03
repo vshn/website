@@ -309,6 +309,14 @@
     overflow: hidden;
   }
 
+  iframe {
+    @include sm-down {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+
   :global {
     .wp-block-image {
       margin-top: 30px;

@@ -75,10 +75,7 @@
   &.active {
     color: inherit;
     pointer-events: none;
-
-    .icon {
-      opacity: 0.5;
-    }
+    opacity: 0.5;
   }
 }
 
