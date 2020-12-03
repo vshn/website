@@ -13,16 +13,16 @@
     },
     "job": {
       "breadcrumbs": [
-      {
-        "breadcrumbRoot": "About",
-        "breadcrumbSlug": "en/about/"
-      },
-      {
-        "breadcrumbRoot": "Jobs",
-        "breadcrumbSlug": "en/jobs/"
-      }
-    ],
-    "openPositionsTitle": "Open positions"
+        {
+          "breadcrumbRoot": "About",
+          "breadcrumbSlug": "/en/about/"
+        },
+        {
+          "breadcrumbRoot": "Jobs",
+          "breadcrumbSlug": "/en/jobs/"
+        }
+      ],
+      "openPositionsTitle": "Open positions"
     },
     "jobs": {
       "breadcrumbRoot": "About",
@@ -36,7 +36,16 @@
       "breadcrumbRoot":  "Success Stories"
     },
     "partner": {
-      "breadcrumbRoot": "Partners"
+      "breadcrumbs": [
+        {
+          "breadcrumbRoot": "Partners",
+          "breadcrumbSlug": "/en/partners/"
+        },
+        {
+          "breadcrumbRoot": "Clients",
+          "breadcrumbSlug": "/en/partners/clients/"
+        }
+      ]
     },
     "partners": {
       "filters": {
@@ -94,7 +103,16 @@
       "breadcrumbRoot":  "Success Stories"
     },
     "partner": {
-      "breadcrumbRoot": "Partner"
+      "breadcrumbs": [
+        {
+          "breadcrumbRoot": "Partner",
+          "breadcrumbSlug": "/partner/"
+        },
+        {
+          "breadcrumbRoot": "Kunden",
+          "breadcrumbSlug": "/partner/kunden/"
+        }
+      ]
     },
     "partners": {
       "filters": {

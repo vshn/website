@@ -10,7 +10,6 @@ import MainLayout from 'layouts/main';
 export default ({
   data: {
     wpPartner: data,
-    wpPage: { slug },
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -21,7 +20,6 @@ export default ({
     globalFields={globalFields}
   >
     <Hero
-      slug={slug}
       title={data.title}
       description={data.acf.description}
       locale={locale}
@@ -32,7 +30,7 @@ export default ({
 );
 
 export const query = graphql`
-  query($id: String!, $locale: String!) {
+  query($id: String!) {
     wpPartner(id: { eq: $id }) {
       ...wpPartnerSeo
       title
@@ -78,9 +76,6 @@ export const query = graphql`
           footerText
         }
       }
-    }
-    wpPage(template: {templateName: {eq: "Partners"}}, language: {slug: {eq: $locale}}) {
-      slug: uri
     }
   }
 `;
