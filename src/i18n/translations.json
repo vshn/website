@@ -1,5 +1,10 @@
 {
   "en": {
+    "technologyPartners": {
+      "breadcrumbRoot": "Partners",
+      "breadcrumbSlug": "/en/partners/",
+      "title": "Technology partners"
+    },
     "successStories": {
       "title": "Success stories",
       "breadcrumbRoot":  "Partners",
@@ -33,7 +38,16 @@
       "breadcrumbSlug": "/en/learn/"
     },
     "successStory": {
-      "breadcrumbRoot":  "Success Stories"
+      "breadcrumbs": [
+        {
+          "breadcrumbRoot": "Partners",
+          "breadcrumbSlug": "/en/partners/"
+        },
+        {
+          "breadcrumbRoot": "Success stories",
+          "breadcrumbSlug": "/en/partners/success-stories/"
+        }
+      ]
     },
     "partner": {
       "breadcrumbs": [
@@ -67,6 +81,11 @@
     }
   },
   "de": {
+    "technologyPartners": {
+      "breadcrumbRoot": "Partner",
+      "breadcrumbSlug": "/partner/",
+      "title": "Technologiepartner"
+    },
     "successStories": {
       "title": "Success stories",
       "breadcrumbRoot":  "Partner",
@@ -93,14 +112,23 @@
     },
     "jobs": {
       "breadcrumbRoot": "Über",
-      "breadcrumbSlug": "/about"
+      "breadcrumbSlug": "/about/"
     },
     "events": {
       "breadcrumbRoot": "Lernen",
-      "breadcrumbSlug": "/learn"
+      "breadcrumbSlug": "/learn/"
     },
     "successStory": {
-      "breadcrumbRoot":  "Success Stories"
+      "breadcrumbs": [
+        {
+          "breadcrumbRoot": "Partner",
+          "breadcrumbSlug": "/partner/"
+        },
+        {
+          "breadcrumbRoot": "Success stories",
+          "breadcrumbSlug": "/partner/success-stories/"
+        }
+      ]
     },
     "partner": {
       "breadcrumbs": [

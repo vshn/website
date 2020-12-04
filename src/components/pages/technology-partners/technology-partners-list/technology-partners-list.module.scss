@@ -4,27 +4,11 @@
   @include section-paddings;
 
   @include lg-down {
-    margin-bottom: 155px;
+    margin-bottom: 150px;
   }
 
   @include md-down {
-    margin-bottom: 110px;
-  }
-
-  @include sm-down {
     margin-bottom: 120px;
-  }
-}
-
-.title {
-  margin-bottom: 60px;
-
-  @include lg-down {
-    margin-bottom: 50px;
-  }
-
-  @include sm-down {
-    margin-bottom: 40px;
   }
 }
 
@@ -39,18 +23,17 @@
 
   @include lg-down {
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 210px;
   }
 
   @include md-down {
-    grid-auto-rows: 188px;
+    grid-auto-rows: 205px;
     row-gap: 20px;
     column-gap: $column-gap-md;
   }
 
   @include sm-down {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 168px;
+    grid-auto-rows: 230px;
     row-gap: 15px;
   }
 
@@ -60,7 +43,8 @@
 }
 
 .item {
-  padding: 15px;
+  padding: 30px;
+  text-align: center;
   background-image:
     linear-gradient(
       234.34deg,
@@ -81,7 +65,7 @@
   @include md-down {
     padding-top: 20px;
     padding-right: 20px;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     padding-left: 20px;
   }
 
@@ -94,6 +78,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   height: 100%;
 }
 
@@ -109,19 +94,14 @@
   }
 }
 
-.footer-text {
-  position: relative;
-  width: 100%;
-  padding-top: 15px;
-  margin-top: auto;
-  font-size: $font-size-xs;
+.name {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: $font-size-md;
   font-weight: 700;
-  line-height: $line-height-xs;
-  text-align: center;
-  text-transform: uppercase;
-  border-top: 1px solid $color-additional-2;
+  line-height: $line-height-md;
 
   @include md-down {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
