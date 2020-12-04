@@ -4,6 +4,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import t from 'i18n';
 
 import styles from './featured-post.module.scss';
 import backgroundImageLgDown from './images/background-image-lg-down.svg';
@@ -12,11 +13,11 @@ import backgroundImageLgUp from './images/background-image-lg-up.svg';
 const cx = classNames.bind(styles);
 
 const FeaturedPost = (
-  { post: { date, title, shortDescription, uri: buttonUrl }, footerText },
+  { post: { date, title, shortDescription, uri: buttonUrl }, locale },
 ) => {
   const day = new Date(date).getDate();
   const month = new Date(date).toLocaleString('en-US', { month: 'short' });
-
+  const buttonText = t[locale].blog.postCtaButton;
   return (
     <article className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
@@ -29,7 +30,7 @@ const FeaturedPost = (
 
         <div className={cx('content')}>
           <div className={cx('short-description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
-          <Button size="xs" to={buttonUrl}>{footerText}</Button>
+          <Button size="xs" to={buttonUrl}>{buttonText}</Button>
         </div>
       </div>
 
@@ -46,7 +47,7 @@ FeaturedPost.propTypes = {
     shortDescription: PropTypes.string.isRequired,
     uri: PropTypes.string.isRequired,
   }).isRequired,
-  footerText: PropTypes.string.isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 export default FeaturedPost;

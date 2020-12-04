@@ -35,7 +35,7 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <FeaturedPost {...data.featuredPost} />
+    <FeaturedPost {...data.featuredPost} locale={locale} />
     <Categories
       locale={locale}
       rootPath={pageRootUri}
@@ -80,9 +80,8 @@ export const query = graphql`
               uri
             }
           }
-          footerText
         }
-       }
+      }
       ...wpPageSeo
     }
     posts: allWpPost(
