@@ -3,8 +3,9 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Content from 'components/pages/content-page/content';
-import Hero from 'components/pages/content-page/hero';
+import backgroundImage from 'components/pages/content-page/hero/images/background-image.svg';
 import Contact from 'components/shared/contact';
+import Hero from 'components/shared/hero';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -19,7 +20,12 @@ export default ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero title={data.title} breadcrumbs={data.acf.breadcrumbs} />
+    <Hero
+      breadcrumbs={data.acf.breadcrumbs}
+      title={data.title}
+      subtitle={data.title}
+      backgroundImage={backgroundImage}
+    />
     <Content content={data.content} relatedItems={data.acf.relatedItems} />
     <Contact locale={locale} />
   </MainLayout>

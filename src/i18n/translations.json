@@ -1,65 +1,55 @@
 {
   "en": {
+    "breadcrumbs": {
+      "about": {
+        "link": {
+          "title": "About",
+          "url": "/en/about/"
+        }
+      },
+      "learn": {
+        "link": {
+          "title": "Learn",
+          "url": "/en/learn/"
+        }
+      },
+      "jobs": {
+        "link": {
+          "title": "Jobs",
+          "url": "/en/jobs/"
+        }
+      },
+      "partners": {
+        "link": {
+          "title": "Partners",
+          "url": "/en/partners/"
+        }
+      },
+      "successStories": {
+        "link": {
+          "title": "Success stories",
+          "url": "/en/partners/success-stories/"
+        }
+      },
+      "clients": {
+        "link": {
+          "title": "Clients",
+          "url": "/en/partners/clients/"
+        }
+      }
+    },
     "technologyPartners": {
-      "breadcrumbRoot": "Partners",
-      "breadcrumbSlug": "/en/partners/",
       "title": "Technology partners"
     },
     "successStories": {
       "title": "Success stories",
-      "breadcrumbRoot":  "Partners",
-      "breadcrumbSlug": "/en/partners/",
       "itemFooterText": "Read more"
     },
     "clients": {
-      "breadcrumbRoot": "Partners",
-      "breadcrumbSlug": "/en/partners/",
       "title": "Clients"
     },
     "job": {
-      "breadcrumbs": [
-        {
-          "breadcrumbRoot": "About",
-          "breadcrumbSlug": "/en/about/"
-        },
-        {
-          "breadcrumbRoot": "Jobs",
-          "breadcrumbSlug": "/en/jobs/"
-        }
-      ],
       "openPositionsTitle": "Open positions"
-    },
-    "jobs": {
-      "breadcrumbRoot": "About",
-      "breadcrumbSlug": "/en/about/"
-    },
-    "events": {
-      "breadcrumbRoot": "Learn",
-      "breadcrumbSlug": "/en/learn/"
-    },
-    "successStory": {
-      "breadcrumbs": [
-        {
-          "breadcrumbRoot": "Partners",
-          "breadcrumbSlug": "/en/partners/"
-        },
-        {
-          "breadcrumbRoot": "Success stories",
-          "breadcrumbSlug": "/en/partners/success-stories/"
-        }
-      ]
-    },
-    "partner": {
-      "breadcrumbs": [
-        {
-          "breadcrumbRoot": "Partners",
-          "breadcrumbSlug": "/en/partners/"
-        },
-        {
-          "breadcrumbRoot": "Clients",
-          "breadcrumbSlug": "/en/partners/clients/"
-        }
-      ]
     },
     "partners": {
       "filters": {
@@ -81,66 +71,56 @@
     }
   },
   "de": {
+    "breadcrumbs": {
+      "about": {
+        "link": {
+          "title": "Über",
+          "url": "/about/"
+        }
+      },
+      "learn": {
+        "link": {
+          "title": "Lernen",
+          "url": "/learn/"
+        }
+      },
+      "jobs": {
+        "link": {
+          "title": "Jobs",
+          "url": "/jobs/"
+        }
+      },
+      "partners": {
+        "link": {
+          "title": "Partner",
+          "url": "/partner/"
+        }
+      },
+      "successStories": {
+        "link": {
+          "title": "Success stories",
+          "url": "/partner/success-stories/"
+        }
+      },
+      "clients": {
+        "link": {
+          "title": "Kunden",
+          "url": "/partner/kunden/"
+        }
+      }
+    },
     "technologyPartners": {
-      "breadcrumbRoot": "Partner",
-      "breadcrumbSlug": "/partner/",
       "title": "Technologiepartner"
     },
     "successStories": {
       "title": "Success stories",
-      "breadcrumbRoot":  "Partner",
-      "breadcrumbSlug": "/partner/",
       "itemFooterText": "Weiterlesen"
     },
     "clients": {
-      "breadcrumbRoot": "Partner",
-      "breadcrumbSlug": "/partner/",
       "title": "Kunden"
     },
     "job": {
-      "breadcrumbs": [
-      {
-        "breadcrumbRoot": "Über",
-        "breadcrumbSlug": "/about/"
-      },
-      {
-        "breadcrumbRoot": "Jobs",
-        "breadcrumbSlug": "/jobs/"
-      }
-    ],
-    "openPositionsTitle": "Open positions"
-    },
-    "jobs": {
-      "breadcrumbRoot": "Über",
-      "breadcrumbSlug": "/about/"
-    },
-    "events": {
-      "breadcrumbRoot": "Lernen",
-      "breadcrumbSlug": "/learn/"
-    },
-    "successStory": {
-      "breadcrumbs": [
-        {
-          "breadcrumbRoot": "Partner",
-          "breadcrumbSlug": "/partner/"
-        },
-        {
-          "breadcrumbRoot": "Success stories",
-          "breadcrumbSlug": "/partner/success-stories/"
-        }
-      ]
-    },
-    "partner": {
-      "breadcrumbs": [
-        {
-          "breadcrumbRoot": "Partner",
-          "breadcrumbSlug": "/partner/"
-        },
-        {
-          "breadcrumbRoot": "Kunden",
-          "breadcrumbSlug": "/partner/kunden/"
-        }
-      ]
+      "openPositionsTitle": "Open positions"
     },
     "partners": {
       "filters": {

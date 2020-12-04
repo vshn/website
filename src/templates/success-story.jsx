@@ -21,7 +21,6 @@ export default ({
     globalFields={globalFields}
   >
     <Hero
-      slug={translations[locale].successStory.breadcrumbSlug}
       title={data.title}
       description={data.acf.description}
       locale={locale}

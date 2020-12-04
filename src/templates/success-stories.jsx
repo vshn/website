@@ -2,9 +2,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Hero from 'components/pages/success-stories/hero';
-import Items from 'components/pages/success-stories/items';
+import backgroundImage from 'components/pages/success-stories/hero/images/background-image.svg';
+import SuccessStoriesList from 'components/pages/success-stories/success-stories-list';
 import Contact from 'components/shared/contact';
+import Hero from 'components/shared/hero';
 import t from 'i18n';
 import MainLayout from 'layouts/main';
 
@@ -14,26 +15,29 @@ export default ({
     allWpSuccessStory,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
-}) => (
-  <MainLayout
-    seo={data.seo}
-    pageUrls={pageUrls}
-    menus={menus}
-    globalFields={globalFields}
-  >
-    <Hero
-      title={t[locale].successStories.title}
-      breadcrumbSlug={t[locale].successStories.breadcrumbSlug}
-      breadcrumbRoot={t[locale].successStories.breadcrumbRoot}
-      subtitle={data.title}
-    />
-    <Items
-      {...allWpSuccessStory}
-      itemFooterText={t[locale].successStories.itemFooterText}
-    />
-    <Contact locale={locale} />
-  </MainLayout>
-);
+}) => {
+  const breadcrumbs = [t[locale].breadcrumbs.partners];
+  return (
+    <MainLayout
+      seo={data.seo}
+      pageUrls={pageUrls}
+      menus={menus}
+      globalFields={globalFields}
+    >
+      <Hero
+        breadcrumbs={breadcrumbs}
+        title={t[locale].successStories.title}
+        subtitle={data.title}
+        backgroundImage={backgroundImage}
+      />
+      <SuccessStoriesList
+        {...allWpSuccessStory}
+        itemFooterText={t[locale].successStories.itemFooterText}
+      />
+      <Contact locale={locale} />
+    </MainLayout>
+  );
+};
 
 export const query = graphql`
   query($id: String!, $locale: String!) {
