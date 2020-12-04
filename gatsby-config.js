@@ -85,6 +85,18 @@ module.exports = {
             password: process.env.WP_HTACCESS_PASSWORD,
           },
         },
+        html: {
+          fallbackImageMaxWidth: 1920,
+          imageQuality: 80,
+        },
+        type: {
+          Post: {
+            limit:
+              process.env.NODE_ENV === 'development'
+                ? Number(process.env.WP_POSTS_LIMIT)
+                : undefined,
+          },
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
