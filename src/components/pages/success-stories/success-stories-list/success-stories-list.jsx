@@ -3,14 +3,13 @@ import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import styles from './items.module.scss';
+import styles from './success-stories-list.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Items = ({ itemFooterText, successStories }) => (
+const SuccessStoriesList = ({ itemFooterText, successStories }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <ul className={cx('items-wrapper')}>
@@ -35,7 +34,7 @@ const Items = ({ itemFooterText, successStories }) => (
   </section>
 );
 
-Items.propTypes = {
+SuccessStoriesList.propTypes = {
   successStories: PropTypes.arrayOf(PropTypes.shape({
     uri: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -46,4 +45,4 @@ Items.propTypes = {
   itemFooterText: PropTypes.string.isRequired,
 };
 
-export default Items;
+export default SuccessStoriesList;
