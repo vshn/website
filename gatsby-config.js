@@ -96,6 +96,13 @@ module.exports = {
                 ? Number(process.env.WP_POSTS_LIMIT)
                 : undefined,
           },
+          MediaItem: {
+            localFile: {
+              requestConcurrency: process.env.WP_MEDIA_REQUEST_CONCURRENCY
+                ? Number(process.env.WP_MEDIA_REQUEST_CONCURRENCY)
+                : 100,
+            },
+          },
         },
       },
     },
