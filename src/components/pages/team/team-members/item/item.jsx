@@ -33,7 +33,7 @@ const Item = ({ name, acf: { image, jobTitle, jobPosition, socialLinks }, icons 
                 className={cx('social-link', `social-link_${company}`)}
                 href={value}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <Icon />
               </a>
