@@ -41,8 +41,9 @@
 }
 
 .items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
   row-gap: 45px;
   column-gap: 120px;
   padding-left: 0;
