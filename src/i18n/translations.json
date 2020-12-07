@@ -38,6 +38,9 @@
         }
       }
     },
+    "team": {
+      "title": "Team"
+    },
     "technologyPartners": {
       "title": "Technology partners"
     },
@@ -108,6 +111,9 @@
           "url": "/partner/kunden/"
         }
       }
+    },
+    "team": {
+      "title": "Team"
     },
     "technologyPartners": {
       "title": "Technologiepartner"

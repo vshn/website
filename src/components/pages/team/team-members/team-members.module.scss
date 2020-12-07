@@ -1,0 +1,18 @@
+.wrapper {
+  margin-bottom: 180px;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  row-gap: 45px;
+  column-gap: $column-gap;
+}

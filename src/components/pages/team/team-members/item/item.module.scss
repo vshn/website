@@ -1,0 +1,167 @@
+.item-wrapper {
+  background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
+  transition: background-image $transition-base, box-shadow $transition-base;
+
+  @include hover {
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
+    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
+  }
+}
+
+.image-wrapper {
+  width: 300px;
+  min-height: 200px;
+  background-color: $color-additional-1;
+}
+
+.image {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.details {
+  min-height: 125px;
+  margin-bottom: 40px;
+}
+
+.job-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: $line-height-xs;
+  color: $color-quaternary;
+  text-transform: uppercase;
+}
+
+.name {
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  padding-left: 0;
+  margin-top: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+
+  @include lg-down {
+    grid-column: span 6;
+  }
+
+  @include sm-down {
+    margin-bottom: 25px;
+  }
+}
+
+.social-link-wrapper {
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: $color-quaternary;
+  border-radius: 100px;
+  transition: background-color $transition-base;
+
+  @include md-down {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include hover {
+    background-color: $color-secondary;
+  }
+
+  &_email {
+    svg {
+      width: 16px;
+
+      @include md-down {
+        width: 14px;
+      }
+    }
+  }
+
+  &_lock {
+    svg {
+      width: 12px;
+
+      @include md-down {
+        width: 10px;
+      }
+    }
+  }
+
+  &_key {
+    svg {
+      width: 14px;
+
+      @include md-down {
+        width: 12px;
+      }
+    }
+  }
+
+  &_twitter {
+    svg {
+      width: 14px;
+
+      @include md-down {
+        width: 12px;
+      }
+    }
+  }
+
+  &_linkedin {
+    svg {
+      width: 13px;
+      margin-bottom: 2px;
+
+      @include md-down {
+        width: 11px;
+      }
+    }
+  }
+
+  &_xing {
+    svg {
+      width: 15px;
+
+      @include md-down {
+        width: 13px;
+      }
+    }
+  }
+
+  &_github {
+    svg {
+      width: 19px;
+
+      @include md-down {
+        width: 17px;
+      }
+    }
+  }
+
+  svg {
+    fill: $color-tertiary;
+  }
+}
