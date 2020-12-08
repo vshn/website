@@ -2,7 +2,7 @@
   font-size: 18px;
   line-height: 1.6;
 
-  @include with-link-secondary;
+  @include with-link-primary;
 
   @include md-down {
     font-size: 16px;

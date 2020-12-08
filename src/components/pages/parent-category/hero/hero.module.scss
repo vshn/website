@@ -54,6 +54,8 @@
   line-height: 1.6;
   color: $color-secondary;
 
+  @include content;
+
   *:last-child {
     margin-bottom: 0;
   }
