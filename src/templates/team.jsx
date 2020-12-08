@@ -72,12 +72,13 @@ export const query = graphql`
           jobPosition
           socialLinks {
             email
-            lock
             key
+            sshKey
             twitterLink
             linkedinLink
             xingLink
             githubLink
+            personalLink
           }
         }
       }

@@ -4,9 +4,10 @@ import React from 'react';
 
 import Email from 'icons/email.inline.svg';
 import Github from 'icons/github.inline.svg';
-import Key from 'icons/key.inline.svg';
+import SSHKey from 'icons/key.inline.svg';
 import LinkedIn from 'icons/linkedin.inline.svg';
-import Lock from 'icons/lock.inline.svg';
+import Key from 'icons/lock.inline.svg';
+import Personal from 'icons/personal.inline.svg';
 import Twitter from 'icons/twitter.inline.svg';
 import Xing from 'icons/xing.inline.svg';
 
@@ -17,12 +18,13 @@ const cx = classNames.bind(styles);
 
 const SOCIAL_ICONS = {
   email: Email,
-  lock: Lock,
   key: Key,
+  sshKey: SSHKey,
   twitter: Twitter,
   linkedin: LinkedIn,
   xing: Xing,
   github: Github,
+  personal: Personal,
 };
 
 const TeamMembers = ({ items }) => (
