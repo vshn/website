@@ -2,12 +2,6 @@
   background: linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
-  transition: background-image $transition-base, box-shadow $transition-base;
-
-  @include hover {
-    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary), linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
-    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
-  }
 }
 
 .image-wrapper {
