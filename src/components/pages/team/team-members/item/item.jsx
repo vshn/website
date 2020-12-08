@@ -27,11 +27,17 @@ const Item = ({ name, acf: { image, jobTitle, jobPosition, socialLinks }, icons 
           if (!value) {
             return null;
           }
+          let link;
+          if (company === 'email') {
+            link = `mailto:${value}`;
+          } else {
+            link = value;
+          }
           return (
             <li key={index} className={cx('social-link-wrapper')}>
               <a
                 className={cx('social-link', `social-link_${company}`)}
-                href={value}
+                href={link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -62,15 +68,18 @@ Item.propTypes = {
     }),
     jobTitle: PropTypes.string.isRequired,
     jobPosition: PropTypes.string,
-    socialLinks: PropTypes.arrayOf(PropTypes.string),
-  }),
+    socialLinks: PropTypes.shape({
+      email: PropTypes.string,
+      key: PropTypes.string,
+      sshKey: PropTypes.string,
+      twitterLink: PropTypes.string,
+      linkedinLink: PropTypes.string,
+      xingLink: PropTypes.string,
+      githubLink: PropTypes.string,
+      personalLink: PropTypes.string,
+    }),
+  }).isRequired,
   icons: PropTypes.objectOf(PropTypes.any).isRequired,
-};
-
-Item.defaultProps = {
-  image: null,
-  jobPosition: null,
-  socialLinks: [],
 };
 
 export default Item;
