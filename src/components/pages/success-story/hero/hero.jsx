@@ -12,14 +12,15 @@ import circles from './images/circles.svg';
 const cx = classNames.bind(styles);
 
 const Hero = ({ title, description, locale }) => {
-  const { breadcrumbs } = t[locale].successStory;
+  const links = t[locale].breadcrumbs;
+  const breadcrumbs = [links.partners, links.successStories];
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
-        <div className={cx('category-wrapper')}>
+        <div className={cx('crumbs-wrapper')}>
           {breadcrumbs.map((crumb, index) => (
-            <Link className={cx('crumb')} to={crumb.breadcrumbSlug} key={index}>
-              {crumb.breadcrumbRoot}
+            <Link className={cx('crumb')} to={crumb.link.url} key={index}>
+              {crumb.link.title}
             </Link>
           ))}
           <span>{title}</span>

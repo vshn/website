@@ -15,7 +15,7 @@ const TechnologyPartnersList = ({ technologyPartnersList }) => (
       <ul className={cx('items-wrapper')}>
         {technologyPartnersList.map(({ url, logo, name }, index) => (
           <li className={cx('item')} key={index}>
-            <Link className={cx('link')} to={url}>
+            <Link className={cx('link')} to={url} target="_blank" rel="noopener">
               <img className={cx('logo')} src={logo.localFile.publicURL} alt="" aria-hidden />
               <p className={cx('name')}>{name}</p>
             </Link>

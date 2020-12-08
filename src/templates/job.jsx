@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet';
 import { useInView } from 'react-intersection-observer';
 
 import Content from 'components/pages/job/content';
-import Hero from 'components/pages/job/hero';
-import Contact from 'components/shared/contact';
-import translations from 'i18n';
+import backgroundImage from 'components/pages/job/hero/images/background-image.svg';
+import Hero from 'components/shared/hero';
+import t from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -37,7 +37,8 @@ export default ({
       scriptTag.onload = handleOnLoad;
     }
   };
-
+  const links = t[locale].breadcrumbs;
+  const breadcrumbs = [links.about, links.jobs];
   return (
     <MainLayout
       seo={data.seo}
@@ -45,10 +46,15 @@ export default ({
       menus={menus}
       globalFields={globalFields}
     >
-      <Hero title={data.title} locale={locale} />
+      <Hero
+        breadcrumbs={breadcrumbs}
+        title={data.title}
+        subtitle={data.title}
+        backgroundImage={backgroundImage}
+      />
       <Content
         content={data.content}
-        title={translations[locale].job.openPositionsTitle}
+        title={t[locale].job.openPositionsTitle}
         positions={positions}
       />
       <section ref={sectionRef}>

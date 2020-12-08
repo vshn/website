@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.category-wrapper {
+.crumbs-wrapper {
   display: block;
   margin-bottom: 30px;
   font-size: $font-size-xs;
@@ -37,7 +37,7 @@
 
   @include with-link-primary;
 
-  .category {
+  .crumb {
     position: relative;
     margin-right: 25px;
 

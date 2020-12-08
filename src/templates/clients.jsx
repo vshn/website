@@ -2,9 +2,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Hero from 'components/pages/clients/hero';
+import backgroundImage from 'components/pages/clients/hero/images/background-image.svg';
 import PartnersList from 'components/pages/clients/partners-list';
 import Contact from 'components/shared/contact';
+import Hero from 'components/shared/hero';
 import t from 'i18n';
 import MainLayout from 'layouts/main';
 
@@ -18,27 +19,30 @@ export default ({
 
   },
   pageContext: { locale, pageUrls, menus, globalFields },
-}) => (
-  <MainLayout
-    seo={data.seo}
-    pageUrls={pageUrls}
-    menus={menus}
-    globalFields={globalFields}
-  >
-    <Hero
-      breadcrumbSlug={t[locale].clients.breadcrumbSlug}
-      breadcrumbRoot={t[locale].clients.breadcrumbRoot}
-      title={t[locale].clients.title}
-      subtitle={data.title}
-    />
-    <PartnersList
-      {...allWpPartner}
-      filters={{ industries, infrastructures, technologies }}
-      locale={locale}
-    />
-    <Contact locale={locale} />
-  </MainLayout>
-);
+}) => {
+  const breadcrumbs = [t[locale].breadcrumbs.partners];
+  return (
+    <MainLayout
+      seo={data.seo}
+      pageUrls={pageUrls}
+      menus={menus}
+      globalFields={globalFields}
+    >
+      <Hero
+        breadcrumbs={breadcrumbs}
+        title={t[locale].clients.title}
+        subtitle={data.title}
+        backgroundImage={backgroundImage}
+      />
+      <PartnersList
+        {...allWpPartner}
+        filters={{ industries, infrastructures, technologies }}
+        locale={locale}
+      />
+      <Contact locale={locale} />
+    </MainLayout>
+  );
+};
 
 export const query = graphql`
   query($id: String!, $locale: String!) {

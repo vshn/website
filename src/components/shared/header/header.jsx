@@ -54,8 +54,8 @@ const Header = (props) => {
       <div className="container">
         <div className={cx('section', 'top-section')}>
           <ul className={cx('list')}>
-            {topMenuItems.map(({ label, path }, i) => (
-              <Link key={i} className={cx('list-item')} to={path}>
+            {topMenuItems.map(({ label, path, target }, i) => (
+              <Link key={i} className={cx('list-item')} to={path} target={target}>
                 {label}
               </Link>
             ))}

@@ -97,6 +97,7 @@ const getAllMenusByLocale = async (graphql) => {
           nodes {
             label
             path
+            target
           }
         }
       }
@@ -142,6 +143,7 @@ const getAllMenusByLocale = async (graphql) => {
           nodes {
             label
             path
+            target
           }
         }
       }

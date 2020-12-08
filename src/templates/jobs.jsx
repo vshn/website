@@ -4,7 +4,7 @@ import React from 'react';
 
 import Content from 'components/pages/jobs/content';
 import Hero from 'components/pages/jobs/hero';
-import translations from 'i18n';
+import t from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -13,21 +13,28 @@ export default ({
     positions,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
-}) => (
-  <MainLayout
-    seo={data.seo}
-    pageUrls={pageUrls}
-    menus={menus}
-    globalFields={globalFields}
-  >
-    <Hero title={data.title} locale={locale} image={data.acf.jobsHeroImage} />
-    <Content
-      content={data.content}
-      title={translations[locale].job.openPositionsTitle}
-      positions={positions}
-    />
-  </MainLayout>
-);
+}) => {
+  const breadcrumbs = [t[locale].breadcrumbs.about];
+  return (
+    <MainLayout
+      seo={data.seo}
+      pageUrls={pageUrls}
+      menus={menus}
+      globalFields={globalFields}
+    >
+      <Hero
+        breadcrumbs={breadcrumbs}
+        title={data.title}
+        image={data.acf.jobsHeroImage}
+      />
+      <Content
+        content={data.content}
+        title={t[locale].job.openPositionsTitle}
+        positions={positions}
+      />
+    </MainLayout>
+  );
+};
 
 export const query = graphql`
   query($id: String!, $locale: String!) {

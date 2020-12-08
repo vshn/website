@@ -15,7 +15,7 @@ const SuccessStoryCard = (
   { successStory: { title, acf: { description }, footerUrl }, footerText, locale },
 ) => (
   <article className={cx('wrapper')}>
-    <span className={cx('category')}>{t[locale].successStory.breadcrumbRoot}</span>
+    <span className={cx('category')}>{t[locale].successStories.title}</span>
     <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
     <p className={cx('description')}>{description}</p>
     <Button className={cx('link')} size="xs" to={footerUrl}>{footerText}</Button>

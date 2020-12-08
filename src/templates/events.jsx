@@ -3,9 +3,11 @@ import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import EventsList from 'components/pages/events/events-list';
-import Hero from 'components/pages/events/hero';
+import backgroundImage from 'components/pages/events/hero/images/background-image.svg';
 import UpcomingEvents from 'components/pages/events/upcoming-events';
 import Contact from 'components/shared/contact';
+import Hero from 'components/shared/hero';
+import t from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -31,6 +33,8 @@ export default ({
     );
   }, [eventsGroupedByYears, availableYears]);
 
+  const breadcrumbs = [t[locale].breadcrumbs.learn];
+
   return (
     <MainLayout
       seo={data.seo}
@@ -38,7 +42,12 @@ export default ({
       menus={menus}
       globalFields={globalFields}
     >
-      <Hero title={data.title} locale={locale} />
+      <Hero
+        breadcrumbs={breadcrumbs}
+        title={data.title}
+        subtitle={data.title}
+        backgroundImage={backgroundImage}
+      />
       {upcomingEvents.length === 3 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}

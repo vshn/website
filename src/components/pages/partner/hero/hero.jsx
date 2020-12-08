@@ -11,14 +11,15 @@ import backgroundImage from './images/background-image.svg';
 
 const cx = classNames.bind(styles);
 const Hero = ({ title, description, locale }) => {
-  const { breadcrumbs } = t[locale].partner;
+  const links = t[locale].breadcrumbs;
+  const breadcrumbs = [links.partners, links.clients];
   return (
     <section className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <div className={cx('crumbs-wrapper')}>
           {breadcrumbs.map((crumb, index) => (
-            <Link className={cx('crumb')} to={crumb.breadcrumbSlug} key={index}>
-              {crumb.breadcrumbRoot}
+            <Link className={cx('crumb')} to={crumb.link.url} key={index}>
+              {crumb.link.title}
             </Link>
           ))}
           <span>{title}</span>
