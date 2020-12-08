@@ -1,6 +1,8 @@
 .wrapper {
   margin-bottom: 180px;
 
+  @include section-paddings;
+
   @include lg-down {
     margin-bottom: 150px;
   }
@@ -12,7 +14,22 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   row-gap: 45px;
   column-gap: $column-gap;
+
+  @include lg-down {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include md-down {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    column-gap: $column-gap-md;
+  }
+
+  @include sm-down {
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+  }
 }

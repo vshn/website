@@ -11,12 +11,12 @@
 }
 
 .image-wrapper {
-  width: 300px;
-  min-height: 200px;
+  height: 200px;
   background-color: $color-additional-1;
 }
 
 .image {
+  height: 100%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -100,7 +100,7 @@
     }
   }
 
-  &_lock {
+  &_key {
     svg {
       width: 12px;
 
@@ -110,7 +110,7 @@
     }
   }
 
-  &_key {
+  &_sshKey {
     svg {
       width: 14px;
 
@@ -157,6 +157,16 @@
 
       @include md-down {
         width: 17px;
+      }
+    }
+  }
+
+  &_personal {
+    svg {
+      width: 16px;
+
+      @include md-down {
+        width: 14px;
       }
     }
   }
