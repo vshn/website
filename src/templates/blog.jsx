@@ -10,63 +10,56 @@ import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: { wpPage: { seo, acf: data } },
-  pageContext: { locale, pageUrls, menus },
+  data: {
+    wpPage: {
+      seo,
+      uri: pageRootUri,
+      acf: data,
+    },
+    posts,
+  },
+  pageContext: {
+    locale,
+    pageUrls,
+    menus,
+    globalFields,
+    categories,
+    pageCount,
+    currentPageIndex,
+    categoryId,
+  },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
-    <FeaturedPost {...data.featuredPost} />
-    <Categories {...data.categories} />
-    <BlogPostsList {...data.blogPostsList} />
-    <Pagination {...data.pagination} />
+    <FeaturedPost {...data.featuredPost} locale={locale} />
+    <Categories
+      locale={locale}
+      rootPath={pageRootUri}
+      categories={categories}
+      activeCategoryId={categoryId}
+    />
+    <BlogPostsList locale={locale} posts={posts.nodes} banner={data.banner} />
+    <Pagination
+      locale={locale}
+      pageCount={pageCount}
+      currentPageIndex={currentPageIndex}
+      rootPath={pageRootUri}
+    />
     <Contact locale={locale} />
   </MainLayout>
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $featuredPostId: String!, $categoryId: String, $skip: Int!, $limit: Int!, $locale: String!) {
     wpPage(id: { eq: $id }) {
+      uri
       acf {
-        featuredPost {
-          post {
-            ... on WpPost {
-              title
-              date(formatString: "YYYY-MM-DD")
-              uri
-              acf {
-                shortDescription
-              }
-            }
-          }
-          footerText
-        }
-        categories {
-          items {
-            category {
-              name
-              uri
-            }
-          }
-          activeItemSlug
-        }
-        blogPostsList {
-          items {
-            post {
-              ... on WpPost {
-                title
-                acf {
-                  shortDescription
-                }
-                date(formatString: "YYYY-MM-DD")
-                uri
-              }
-            }
-          }
-          itemFooterText
-          image {
+        banner {
+          bannerCover {
             localFile {
               childImageSharp {
                 fluid(maxWidth: 300) {
@@ -75,19 +68,38 @@ export const query = graphql`
               }
             }
           }
+          bannerTitle
+          bannerLink
         }
-        pagination {
-          nextText
-          nextUrl {
-            url
-          }
-          previousText
-          previousUrl {
-            url
+        featuredPost {
+          post {
+            ... on WpPost {
+              title
+              shortDescription: excerpt
+              date(formatString: "YYYY-MM-DD")
+              uri
+            }
           }
         }
       }
       ...wpPageSeo
-    }  
+    }
+    posts: allWpPost(
+      filter: {
+        id: { ne: $featuredPostId }
+        categories: { nodes: { elemMatch: { id: { eq: $categoryId } } } }
+        language: { slug: { eq: $locale } }
+      }
+      sort: { fields: date, order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      nodes {
+        title
+        shortDescription: excerpt
+        uri
+        date(formatString: "YYYY-MM-DD")
+      }
+    }
   }
 `;

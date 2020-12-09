@@ -11,28 +11,23 @@ import styles from './author-info.module.scss';
 const cx = classNames.bind(styles);
 
 const AuthorInfo = ({
-  acf: { avatar, fullName, email, number },
+  firstName, lastName,
+  acf: { avatar },
   description,
 }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <div className={cx('items-wrapper')}>
+        {avatar?.localFile && (
         <GatsbyImage
           className={cx('avatar')}
           fluid={avatar.localFile.childImageSharp.fluid}
         />
+        )}
         <div className={cx('content')}>
           <Heading className={cx('name')} tag="h3" size="lg">
-            {fullName}
+            {`${firstName} ${lastName}`}
           </Heading>
-          <ul className={cx('links-wrapper')}>
-            <li className={cx('link-wrapper')}>
-              {/* <Link to={email.url}>{email.title}</Link> */}
-            </li>
-            <li className={cx('link-wrapper')}>
-              {/* <Link to={number.url}>{number.title}</Link> */}
-            </li>
-          </ul>
           <p className={cx('description')}>{description}</p>
         </div>
       </div>
@@ -43,10 +38,9 @@ const AuthorInfo = ({
 AuthorInfo.propTypes = {
   acf: PropTypes.shape({
     avatar: PropTypes.objectOf(PropTypes.any).isRequired,
-    fullName: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
   }).isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 

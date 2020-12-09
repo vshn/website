@@ -16,44 +16,45 @@ import styles from './footer.module.scss';
 
 const cx = classNames.bind(styles);
 
+const SOCIAL_ICONS = {
+  twitter: Twitter,
+  linkedin: LinkedIn,
+  github: GitHub,
+  gitlab: GitLab,
+  facebook: Facebook,
+  instagram: Instagram,
+  youtube: YouTube,
+};
+
 const Footer = (props) => {
   const {
+    socialLinks,
+    footerMeta: {
+      copyright,
+      praiseBody,
+      praiseLink,
+      praiseLinkName,
+    },
     menuItems,
-    facebookUrl,
-    githubUrl,
-    gitlabUrl,
-    instagramUrl,
-    linkedinUrl,
-    twitterUrl,
-    youtubeUrl,
-    design,
-    address,
   } = props;
-
   // eslint-disable-next-line react/prop-types
   const SocialMenu = ({ className }) => (
     <ul className={cx('social-menu', className)}>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_twitter')} to={twitterUrl}><Twitter /></Link>
-      </li>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_linkedin')} to={linkedinUrl}><LinkedIn /></Link>
-      </li>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_github')} to={githubUrl}><GitHub /></Link>
-      </li>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_gitlab')} to={gitlabUrl}><GitLab /></Link>
-      </li>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_facebook')} to={facebookUrl}><Facebook /></Link>
-      </li>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_instagram')} to={instagramUrl}><Instagram /></Link>
-      </li>
-      <li className={cx('social-menu-item')}>
-        <Link className={cx('social-menu-link', 'social-menu-link_youtube')} to={youtubeUrl}><YouTube /></Link>
-      </li>
+      {Object.entries(socialLinks).map(([key, value]) => {
+        const company = key.replace(/Link/, '');
+        const Icon = SOCIAL_ICONS[company];
+        return (
+          <li key={key} className={cx('social-menu-item')}>
+            <a
+              className={cx('social-menu-link', `social-menu-link_${company}`)}
+              href={value}
+              target="_blank"
+            >
+              <Icon />
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 
@@ -81,8 +82,12 @@ const Footer = (props) => {
         </div>
 
         <div className={cx('bottom-section')}>
-          <address className={cx('address')}>{address}</address>
-          <p className={cx('design')} dangerouslySetInnerHTML={{ __html: design }} />
+          <p className={cx('copyright')}>{copyright}</p>
+          <p className={cx('praise')}>
+            {praiseBody}
+            {' '}
+            <a href={praiseLink} target="_blank" rel="noopener noreferrer">{praiseLinkName}</a>
+          </p>
         </div>
       </div>
     </footer>
@@ -94,28 +99,40 @@ Footer.propTypes = {
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
   })),
-  facebookUrl: PropTypes.string,
-  githubUrl: PropTypes.string,
-  gitlabUrl: PropTypes.string,
-  instagramUrl: PropTypes.string,
-  linkedinUrl: PropTypes.string,
-  twitterUrl: PropTypes.string,
-  youtubeUrl: PropTypes.string,
-  design: PropTypes.string,
-  address: PropTypes.string,
+  footerMeta: PropTypes.shape({
+    praiseLink: PropTypes.string,
+    praiseLinkName: PropTypes.string,
+    praiseBody: PropTypes.string,
+    copyright: PropTypes.string,
+  }),
+  socialLinks: PropTypes.shape({
+    twitterLink: PropTypes.string,
+    linkedinLink: PropTypes.string,
+    githubLink: PropTypes.string,
+    gitlabLink: PropTypes.string,
+    facebookLink: PropTypes.string,
+    instagramLink: PropTypes.string,
+    youtubeLink: PropTypes.string,
+  }),
 };
 
 Footer.defaultProps = {
   menuItems: [],
-  facebookUrl: 'https://facebook.com',
-  githubUrl: 'https://github.com',
-  gitlabUrl: 'https://gitlab.com',
-  instagramUrl: 'https://instagram.com',
-  linkedinUrl: 'https://linkedin.com',
-  twitterUrl: 'https://twitter.com',
-  youtubeUrl: 'https://youtube.com',
-  design: 'Creative design made by <a href="https://pixelpoint.io/">Pixel Point</a>',
-  address: '© 2020 VSHN. AG Neugasse 10, CH-8005, Zürich, Switzerland',
+  footerMeta: {
+    praiseBody: '',
+    praiseLink: '',
+    praiseLinkName: '',
+    copyright: '',
+  },
+  socialLinks: {
+    facebookLink: '',
+    githubLink: '',
+    gitlabLink: '',
+    instagramLink: '',
+    linkedinLink: '',
+    twitterLink: '',
+    youtubeLink: '',
+  },
 };
 
 export default Footer;

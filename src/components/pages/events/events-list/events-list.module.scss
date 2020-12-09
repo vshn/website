@@ -1,0 +1,132 @@
+.wrapper {
+  margin-bottom: 180px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
+}
+
+.years-wrapper {
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid $color-additional-1;
+
+  @include with-link-secondary;
+
+  @include md-down {
+    border-bottom: none;
+  }
+}
+
+.year {
+  padding-right: 0;
+  padding-bottom: 10px;
+  padding-left: 0;
+  margin-right: 45px;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  line-height: $line-height-sm;
+  cursor: pointer;
+  background-color: $color-tertiary;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  transition-duration: $transition-base;
+  transition-property: color, border-bottom;
+
+  @include hover {
+    color: $color-accent-primary;
+  }
+
+  @include lg-down {
+    margin-right: 30px;
+  }
+
+  @include md-down {
+    padding: 5px 10px;
+    margin-right: 15px;
+    background-color: $color-additional-1;
+    border: 2px solid $color-additional-1;
+    border-radius: 5px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+    @include md-down {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: calc(#{$container-side-gap-md} / -1);
+        display: block;
+        width: $container-side-gap-md;
+        height: 1px;
+        content: "";
+      }
+    }
+  }
+
+  &.active {
+    position: relative;
+    color: $color-accent-primary;
+    pointer-events: none;
+
+    @include md-down {
+      background-color: $color-tertiary;
+      border: 2px solid $color-accent-primary;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: "";
+      background-color: $color-accent-primary;
+
+      @include md-down {
+        display: none;
+      }
+    }
+  }
+}
+
+.items-wrapper {
+  padding-left: 0;
+  list-style-type: none;
+
+  @include with-link-secondary;
+}
+
+.item {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  margin-bottom: 5px;
+  font-size: $font-size-md;
+  font-weight: 700;
+}
+
+.details {
+  color: $color-secondary;
+
+  @include with-link-primary;
+}
+
+.time {
+  font-weight: 700;
+}

@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+  text-align: center;
+  background-color: $color-primary;
+
+  @include section-paddings;
+}
+
+.inner {
+  z-index: 1;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  @include lg-down {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  @include md-down {
+    padding-top: 70px;
+    padding-bottom: 75px;
+  }
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.description {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: $color-quaternary;
+
+  @include md-down {
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
+}
+
+.background-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+}

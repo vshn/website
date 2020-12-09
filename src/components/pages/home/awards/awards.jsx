@@ -5,18 +5,18 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 
 import styles from './awards.module.scss';
-import ItemImage1 from './images/item-image-1.svg';
-import ItemImage2 from './images/item-image-2.svg';
-import ItemImage3 from './images/item-image-3.svg';
+import DigitalEconomyAward from './images/digital-economy-award.svg';
+import ISGProviderLens from './images/isg-provider-lens.svg';
+import KubernetesCertifiedServiceProvider from './images/kubernetes-certified-service-provider.svg';
 import stripes from './images/stripes.svg';
 import Item from './item';
 
 const cx = classNames.bind(styles);
 
 const itemImages = {
-  itemImage1: ItemImage1,
-  itemImage2: ItemImage2,
-  itemImage3: ItemImage3,
+  digitalEconomyAward: DigitalEconomyAward,
+  kubernetesCertifiedServiceProvider: KubernetesCertifiedServiceProvider,
+  isgProviderLens: ISGProviderLens,
 };
 
 const Awards = ({ title, items, itemFooterText }) => (

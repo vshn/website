@@ -29,7 +29,7 @@
   z-index: 1;
 }
 
-.category-wrapper {
+.crumbs-wrapper {
   display: block;
   margin-bottom: 30px;
   font-size: $font-size-xs;
@@ -38,9 +38,9 @@
   color: $color-secondary;
   text-transform: uppercase;
 
-  @include with-link-secondary;
+  @include with-link-primary;
 
-  .category {
+  .crumb {
     position: relative;
     margin-right: 25px;
 

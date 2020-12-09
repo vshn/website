@@ -1,0 +1,59 @@
+.wrapper {
+  z-index: 0;
+  display: flex;
+  padding-top: 140px;
+  padding-bottom: 300px;
+  margin-top: $header-height;
+  margin-bottom: 280px;
+  background:
+    url("./images/background-image.svg") no-repeat center
+    $color-additional-1;
+  background-size: cover;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: 120px;
+    padding-bottom: 210px;
+    margin-bottom: 220px;
+  }
+
+  @include md-down {
+    padding-top: 100px;
+    padding-bottom: 180px;
+    margin-top: $header-height-md;
+    margin-bottom: 150px;
+  }
+
+  @include xs-down {
+    padding-bottom: 120px;
+    margin-bottom: 100px;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  @include with-link-secondary;
+}
+
+.title {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.image-wrapper {
+  position: absolute;
+  top: 115px;
+  width: 100%;
+
+  @include lg-down {
+    top: 90px;
+  }
+
+  @include md-down {
+    top: 75px;
+  }
+}

@@ -15,6 +15,8 @@
 .items-wrapper {
   display: flex;
   max-width: 850px;
+  padding: 0;
+  list-style-type: none;
 
   @include lg-down {
     max-width: 610px;
@@ -26,16 +28,45 @@
 }
 
 .item {
-  font-weight: 700;
-  color: $color-primary;
-  text-decoration: none;
-  transition: color $transition-base;
+  display: none;
+
+  &.previous,
+  &.next {
+    display: list-item;
+    font-weight: 700;
+    color: $color-primary;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color $transition-base;
+
+    a:focus,
+    a:active {
+      outline: none;
+    }
+
+    &:not(.disabled) {
+      a:focus,
+      a:active {
+        color: $color-accent-primary;
+
+        path {
+          stroke: $color-accent-primary;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    visibility: hidden;
+  }
 
   @include hover {
-    color: $color-accent-primary;
+    &:not(.disabled) {
+      color: $color-accent-primary;
 
-    path {
-      stroke: $color-accent-primary;
+      path {
+        stroke: $color-accent-primary;
+      }
     }
   }
 

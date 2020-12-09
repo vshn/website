@@ -4,6 +4,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import createMetaImagePath from 'utils/create-meta-image-path';
+import unescapeHTML from 'utils/unescape-html-entities';
 
 const SEO = (props) => {
   const {
@@ -39,29 +40,30 @@ const SEO = (props) => {
       }
     }
   `);
-
+  const unescapedTitle = unescapeHTML(title);
+  const unescapedDescription = unescapeHTML(metaDesc);
   return (
     <Helmet
-      title={title}
+      title={unescapedTitle}
       htmlAttributes={{
         lang: settings.language,
         prefix: 'og: http://ogp.me/ns#',
       }}
     >
       {/* General */}
-      <meta name="description" content={metaDesc} />
+      <meta name="description" content={unescapedDescription} />
       {metaKeywords && <meta name="keywords" content={metaKeywords} />}
       {/* Open Graph */}
-      <meta property="og:title" content={opengraphTitle} />
-      <meta property="og:description" content={opengraphDescription} />
+      <meta property="og:title" content={unescapeHTML(opengraphTitle)} />
+      <meta property="og:description" content={unescapeHTML(opengraphDescription)} />
       <meta property="og:type" content="website" />
       {opengraphImage && (
         <meta property="og:image" content={createMetaImagePath(opengraphImage, siteUrl)} />
       )}
       {opengraphUrl.startsWith(siteUrl) && <meta property="og:url" content={opengraphUrl} />}
       {/* Twitter */}
-      <meta name="twitter:title" content={twitterTitle || title} />
-      <meta name="twitter:description" content={twitterDescription || metaDesc} />
+      <meta name="twitter:title" content={twitterTitle || unescapedTitle} />
+      <meta name="twitter:description" content={twitterDescription || unescapedDescription} />
       {(twitterImage || opengraphImage) && (
         <meta
           property="twitter:image"

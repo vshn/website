@@ -76,13 +76,32 @@ module.exports = {
       },
     },
     {
-      resolve: '@silencerweb/gatsby-source-wordpress-experimental',
+      resolve: 'gatsby-source-wordpress-experimental',
       options: {
         url: process.env.WP_GRAPHQL_URL,
         auth: {
           htaccess: {
             username: process.env.WP_HTACCESS_USERNAME,
             password: process.env.WP_HTACCESS_PASSWORD,
+          },
+        },
+        html: {
+          fallbackImageMaxWidth: 1920,
+          imageQuality: 80,
+        },
+        type: {
+          Post: {
+            limit:
+              process.env.NODE_ENV === 'development'
+                ? Number(process.env.WP_POSTS_LIMIT)
+                : undefined,
+          },
+          MediaItem: {
+            localFile: {
+              requestConcurrency: process.env.WP_MEDIA_REQUEST_CONCURRENCY
+                ? Number(process.env.WP_MEDIA_REQUEST_CONCURRENCY)
+                : 100,
+            },
           },
         },
       },

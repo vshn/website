@@ -8,24 +8,29 @@
 .items-wrapper {
   max-width: 850px;
 
+  &.has-banner {
+    min-height: 630px; // make sure banner is visible even if no/too few posts
+  }
+
   @include lg-down {
     max-width: 610px;
   }
 
   @include md-down {
-    max-width: 580px;
+    max-width: initial;
   }
 }
 
 .illustration {
   position: absolute;
   top: 45px;
-  right: 0;
-  width: 300px;
+  right: 45px;
+  width: 320px;
 
   @include lg-down {
-    top: 25px;
-    width: 210px;
+    top: 30px;
+    right: 30px;
+    width: 230px;
   }
 
   @include md-down {
@@ -41,74 +46,101 @@
 
 .rectangle-1 {
   top: -45px;
-  left: -30px;
-  width: 200px;
+  left: -45px;
+  width: 300px;
   height: 350px;
   background-color: $color-accent-primary;
   border-top-left-radius: 60px;
 
   @include lg-down {
     top: -30px;
-    left: -20px;
-    width: 140px;
-    height: 245px;
+    left: -30px;
+    width: 212px;
+    height: 247px;
     border-top-left-radius: 45px;
   }
 }
 
 .rectangle-2 {
   top: -30px;
-  right: -30px;
-  width: 220px;
-  height: 560px;
+  right: -45px;
+  width: 300px;
+  height: 575px;
   background-color: $color-accent-secondary;
   border-bottom-right-radius: 60px;
 
   @include lg-down {
     top: -20px;
-    right: -20px;
-    width: 155px;
-    height: 395px;
+    right: -30px;
+    width: 212px;
+    height: 406px;
     border-bottom-right-radius: 40px;
   }
 }
 
 .rectangle-3 {
-  bottom: -15px;
-  left: -15px;
-  width: 180px;
-  height: 370px;
+  bottom: -30px;
+  left: -30px;
+  width: 230px;
+  height: 385px;
   background-color: $color-primary;
   border-top-right-radius: 120px;
 
   @include lg-down {
     bottom: -15px;
-    left: -10px;
-    width: 126px;
-    height: 260px;
+    left: -20px;
+    width: 163px;
+    height: 272px;
   }
 }
 
-.image {
-  border-radius: 8px;
+.banner {
+  position: relative;
+  display: block;
+  text-decoration: none;
+
+  &-title {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+
+    @include lg-down {
+      font-size: 18px;
+    }
+  }
+
+  &-image,
+  &-overlay {
+    border-radius: 8px;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(8, 17, 43, 0) 0%, #08112b 100%);
+    opacity: 0.75;
+  }
 }
 
 .shape {
   position: absolute;
-  top: 755px;
-  left: 1175px;
+  right: 0;
+  bottom: 50%;
   z-index: -1;
-  width: calc(115px + #{$container-side-gap});
-  min-width: 430px;
-  height: 700px;
+  transform: translateY(50%);
+
+  @include xl-up {
+    width: #{$container-side-gap};
+    min-width: 430px;
+    max-height: 700px;
+  }
 
   @include lg-down {
-    top: 1000px;
-    right: calc((100vw - #{$container-width-lg}) / 2 / -1);
-    left: auto;
     width: 220px;
-    min-width: 0;
-    height: auto;
   }
 
   @include md-down {

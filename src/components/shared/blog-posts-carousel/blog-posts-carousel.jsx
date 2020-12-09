@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
-const BlogPostsCarousel = ({ className, title, items, itemFooterText }) => (
+const BlogPostsCarousel = ({ className, title, items, readMoreText }) => (
   <section className={cx('wrapper', className)}>
     <div className="container">
       <div className={cx('header')}>
@@ -66,7 +66,7 @@ const BlogPostsCarousel = ({ className, title, items, itemFooterText }) => (
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            <Item {...item} itemFooterText={itemFooterText} />
+            <Item {...item} readMoreText={readMoreText} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -78,20 +78,15 @@ BlogPostsCarousel.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
-    post: PropTypes.shape({
-      uri: PropTypes.string.isRequired,
-      categories: PropTypes.shape({
-        nodes: PropTypes.arrayOf(PropTypes.shape({
-          name: PropTypes.string.isRequired,
-        })),
-      }).isRequired,
-      title: PropTypes.string.isRequired,
-      acf: PropTypes.shape({
-        shortDescription: PropTypes.string.isRequired,
-      }).isRequired,
+    uri: PropTypes.string.isRequired,
+    categories: PropTypes.shape({
+      nodes: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })),
     }).isRequired,
+    title: PropTypes.string.isRequired,
   })).isRequired,
-  itemFooterText: PropTypes.string.isRequired,
+  readMoreText: PropTypes.string.isRequired,
 };
 
 BlogPostsCarousel.defaultProps = {

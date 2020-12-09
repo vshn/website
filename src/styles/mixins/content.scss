@@ -2,7 +2,7 @@
   font-size: 18px;
   line-height: 1.6;
 
-  @include with-link-secondary;
+  @include with-link-primary;
 
   @include md-down {
     font-size: 16px;
@@ -58,11 +58,11 @@
   }
 
   > h1 {
-    font-size: $font-size-xl;
+    font-size: 70px;
   }
 
   > h2 {
-    font-size: 40px;
+    font-size: 50px;
 
     @include lg-down {
       font-size: 35px;
@@ -78,7 +78,7 @@
   }
 
   > h3 {
-    font-size: $font-size-lg;
+    font-size: 36px;
 
     @include lg-down {
       font-size: 24px;
@@ -86,6 +86,25 @@
 
     @include md-down {
       font-size: 22px;
+    }
+  }
+
+  > h4 {
+    margin-top: 40px;
+    font-size: 26px;
+    line-height: 1.6;
+
+    @include md-down {
+      font-size: 16px;
+    }
+  }
+
+  > h5 {
+    font-size: 24px;
+    line-height: 1.6;
+
+    @include md-down {
+      font-size: 16px;
     }
   }
 
@@ -123,13 +142,17 @@
       padding-left: 16px;
       list-style-type: none;
 
+      li:first-of-type {
+        margin-top: 10px;
+      }
+
       &::before {
         position: absolute;
         top: 9px;
         left: 0;
         width: 6px;
         height: 6px;
-        content: '';
+        content: "";
         background-color: $color-accent-primary;
         border-radius: 50%;
       }
@@ -174,8 +197,8 @@
       left: 0;
       width: 50px;
       height: 40px;
-      content: '';
-      background-image: url(./images/quote.svg);
+      content: "";
+      background-image: url(icons/quote.svg);
 
       @include lg-down {
         top: -15px;
@@ -196,7 +219,7 @@
       right: 0;
       width: calc(100% - 80px);
       height: 4px;
-      content: '';
+      content: "";
       background-color: $color-primary;
 
       @include lg-down {
@@ -239,7 +262,7 @@
       color: $color-secondary;
 
       &::before {
-        content: '– ';
+        content: "– ";
       }
     }
   }
@@ -254,10 +277,44 @@
     border-radius: 2px;
   }
 
+  pre {
+    margin-top: 45px;
+    font-family: inherit;
+    color: $color-secondary;
+    white-space: pre-wrap;
+  }
+
+  hr {
+    width: 100%;
+    height: 8px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: $color-additional-1;
+    border: none;
+
+    @include lg-down {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    @include md-down {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
   img {
     display: block;
     max-width: 100%;
     overflow: hidden;
+  }
+
+  iframe {
+    @include sm-down {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+    }
   }
 
   :global {

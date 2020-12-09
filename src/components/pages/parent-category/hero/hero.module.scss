@@ -1,0 +1,133 @@
+.wrapper {
+  position: relative;
+  padding-top: $header-height + 50px;
+  padding-bottom: 60px;
+  margin-bottom: 120px;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-top: $header-height + 35px;
+    padding-bottom: 0;
+  }
+
+  @include md-down {
+    padding-top: $header-height-md + 40px;
+    margin-bottom: 90px;
+  }
+
+  @include sm-down {
+    padding-top: $header-height-md + 30px;
+    margin-bottom: 115px;
+    text-align: center;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  max-width: 520px;
+  margin-bottom: 30px;
+
+  @include lg-down {
+    max-width: 450px;
+    font-size: 50px;
+  }
+
+  @include md-down {
+    max-width: 340px;
+    font-size: 36px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+  }
+}
+
+.description {
+  max-width: 520px;
+  min-height: 300px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: $color-secondary;
+
+  @include content;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include lg-down {
+    max-width: 450px;
+  }
+
+  @include md-down {
+    max-width: 340px;
+    font-size: 16px;
+  }
+
+  @include sm-down {
+    max-width: initial;
+    min-height: initial;
+  }
+}
+
+.illustration {
+  position: absolute;
+  top: 0;
+  left: 660px;
+
+  @include lg-down {
+    left: 480px;
+    width: 640px;
+  }
+
+  @include md-down {
+    left: 400px;
+    width: 550px;
+  }
+
+  @include sm-down {
+    position: relative;
+    top: 30px;
+    right: auto;
+    left: auto;
+    width: 100%;
+    max-width: 545px;
+  }
+}
+
+.shape {
+  position: absolute;
+  top: -60px;
+  left: 655px;
+  z-index: -1;
+  width: calc(645px + #{$container-side-gap});
+  min-width: 948px;
+  height: 1000px;
+
+  @include lg-down {
+    top: -45px;
+    right: calc(#{$container-side-gap-lg} / -1 - 105px);
+    left: auto;
+    width: 690px;
+    min-width: initial;
+    height: initial;
+  }
+
+  @include md-down {
+    top: calc((#{$header-height-md} - 34px) / -1);
+    right: calc(#{$container-side-gap-md} / -1 - 155px);
+    width: 645px;
+  }
+
+  @include sm-down {
+    top: initial;
+    right: calc(#{$section-padding} / -1 - 225px);
+    bottom: -150px;
+    width: 585px;
+  }
+}

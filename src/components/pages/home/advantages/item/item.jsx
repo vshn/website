@@ -18,7 +18,7 @@ const images = {
   reduceCost: ReduceCostImage,
 };
 
-const Item = ({ number, title, footerText, link: { url }, imageName }) => {
+const Item = ({ number, title, link: { url, title: footerText }, imageName }) => {
   const Image = images[imageName];
 
   return (
@@ -38,9 +38,9 @@ const Item = ({ number, title, footerText, link: { url }, imageName }) => {
 Item.propTypes = {
   number: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  footerText: PropTypes.string.isRequired,
   link: PropTypes.shape({
     url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
   imageName: PropTypes.string.isRequired,
 };

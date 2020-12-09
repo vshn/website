@@ -14,10 +14,14 @@ const MainLayout = (props) => {
     children,
     pageUrls,
     menus: {
-      menuItems,
+      mainMenuItems,
       topMenuItems,
       mobileMenuItems,
       footerMenuItems,
+    },
+    globalFields: {
+      socialLinks,
+      footerMeta,
     },
   } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,12 +47,12 @@ const MainLayout = (props) => {
       {seo && <SEO {...seo} />}
       <Header
         pageUrls={pageUrls}
-        menuItems={menuItems}
+        menuItems={mainMenuItems}
         topMenuItems={topMenuItems}
         onBurgerClick={handleHeaderBurgerClick}
       />
       <main>{children}</main>
-      <Footer menuItems={footerMenuItems} />
+      <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
       <MobileMenu
         isOpen={isMobileMenuOpen}
@@ -65,19 +69,27 @@ MainLayout.propTypes = {
   pageUrls: PropTypes.shape().isRequired,
   menus: PropTypes.shape({
     topMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
-    menuItems: PropTypes.arrayOf(PropTypes.shape({})),
+    mainMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     mobileMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
     footerMenuItems: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+  globalFields: PropTypes.shape({
+    socialLinks: PropTypes.shape({}),
+    footerMeta: PropTypes.shape({}),
   }),
 };
 
 MainLayout.defaultProps = {
   seo: null,
   menus: {
-    menuItems: [],
+    mainMenuItems: [],
     mobileMenuItems: [],
     topMenuItems: [],
     footerMenuItems: [],
+  },
+  globalFields: {
+    socialLinks: undefined,
+    globalFields: undefined,
   },
 };
 
@@ -114,6 +126,99 @@ export const query = graphql`
     }
   }
   fragment wpPostSeo on WpPost {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpSuccessStorySeo on WpSuccessStory {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpPartnerSeo on WpPartner {
+    seo {
+      title
+      metaDesc
+      metaKeywords
+      opengraphDescription
+      opengraphTitle
+      opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1200, height: 630) {
+              src
+            }
+          }
+        }
+      }
+      canonical
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        localFile {
+          childImageSharp {
+            fixed(toFormat: JPG, width: 1024, height: 512) {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+  fragment wpJobSeo on WpJob {
     seo {
       title
       metaDesc

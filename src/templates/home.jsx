@@ -5,30 +5,33 @@ import React from 'react';
 import Advantages from 'components/pages/home/advantages';
 import Awards from 'components/pages/home/awards';
 import Hero from 'components/pages/home/hero';
-import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Partners from 'components/pages/home/partners';
 import Report from 'components/pages/home/report';
 import SolutionsProducts from 'components/pages/home/solutions-products';
 import Technologies from 'components/pages/home/technologies';
 import Contact from 'components/shared/contact';
+import Jobs from 'components/shared/jobs';
+import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
   data: {
     wpPage: { seo, acf: data },
+    allWpPost,
   },
-  pageContext: { locale, pageUrls, menus },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}
+    globalFields={globalFields}
   >
     <Hero {...data.hero} />
     <Advantages {...data.advantages} />
     <SolutionsProducts {...data.solutionsProducts} />
-    <News {...data.news} />
+    <News {...data.news} {...allWpPost} readMoreText={translations[locale].blog.postCtaButton} />
     <Technologies {...data.technologies} />
     <Partners {...data.partners} />
     <Jobs {...data.jobs} />
@@ -39,15 +42,15 @@ export default ({
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
     wpPage(id: { eq: $id }) {
       acf {
         hero {
           title
           description
-          buttonText
           buttonLink {
             url
+            title
           }
         }
         advantages {
@@ -55,9 +58,9 @@ export const query = graphql`
           items {
             title
             imageName
-            footerText
             link {
               url
+              title
             }
           }
         }
@@ -76,22 +79,6 @@ export const query = graphql`
         }
         news {
           title
-          items {
-            post {
-              ... on WpPost {
-                title
-                uri
-                categories {
-                  nodes {
-                    name
-                  }
-                }
-                acf {
-                  shortDescription
-                }
-              }
-            }
-          }
           itemFooterText
         }
         technologies {
@@ -99,7 +86,6 @@ export const query = graphql`
           description
         }
         partners {
-          title
           items {
             photo {
               localFile {
@@ -117,21 +103,22 @@ export const query = graphql`
               url
             }
           }
+          itemButtonText
         }
         jobs {
           title
           description
-          buttonText
           buttonLink {
             url
+            title
           }
         }
         report {
           title
           description
-          buttonText
           buttonLink {
             url
+            title
           }
           image {
             localFile {
@@ -157,6 +144,22 @@ export const query = graphql`
         }
       }
       ...wpPageSeo
+    }
+    allWpPost(
+      filter: {language: {slug: {eq: $locale}}}, 
+      limit: 9, 
+      sort: {fields: date, order: DESC}
+      ) {
+      items: nodes {
+        title
+        shortDescription: excerpt
+        uri
+        categories {
+          nodes {
+            name
+          }
+        }
+      }
     }
   }
 `;
