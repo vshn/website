@@ -14,29 +14,10 @@ export default ({
   data: {
     wpJob: data,
     positions,
+    allWpPage,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
-  const [sectionRef, inView] = useInView({ triggerOnce: true, rootMargin: '500px' });
-
-  const handleOnLoad = () => {
-    hbspt.forms.create({
-      portalId: '7105834',
-      formId: 'af9cccae-d6a8-4aad-8daa-dc207893b330',
-      target: '#job-form-container',
-      locale: 'en',
-      inlineMessage: '',
-      onFormSubmitted: () => {
-        console.log('haha');
-      },
-    });
-  };
-  const handleScriptInject = ({ scriptTags }) => {
-    if (scriptTags) {
-      const scriptTag = scriptTags[0];
-      scriptTag.onload = handleOnLoad;
-    }
-  };
   const links = t[locale].breadcrumbs;
   const breadcrumbs = [links.about, links.jobs];
   return (
@@ -56,18 +37,9 @@ export default ({
         content={data.content}
         title={t[locale].job.openPositionsTitle}
         positions={positions}
+        form={allWpPage.nodes[0].acf.jobForm}
+        locale={locale}
       />
-      <section ref={sectionRef}>
-        <div className="container" id="job-form-container" />
-      </section>
-      {inView && (
-        <Helmet
-          script={[{ src: 'https://js.hsforms.net/forms/v2.js' }]}
-        // Helmet doesn't support `onload` in script objects so we have to hack in our own
-          onChangeClientState={(newState, addedTags) => handleScriptInject(addedTags)}
-        />
-      )}
-
     </MainLayout>
   );
 };
@@ -85,6 +57,16 @@ export const query = graphql`
       items: nodes {
         url: uri
         title
+      }
+    }
+    allWpPage(filter: { template: { templateName: { eq: "Jobs" } }, language: { slug: { eq: $locale } }  }) {
+      nodes {
+        acf {
+          jobForm {
+            title
+            formId
+          }
+        }
       }
     }
   }

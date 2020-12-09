@@ -31,6 +31,8 @@ export default ({
         content={data.content}
         title={t[locale].job.openPositionsTitle}
         positions={positions}
+        form={data.acf.jobForm}
+        locale={locale}
       />
     </MainLayout>
   );
@@ -50,6 +52,10 @@ export const query = graphql`
               }
             }
           }
+        }
+        jobForm {
+          title
+          formId
         }
       }
       ...wpPageSeo
