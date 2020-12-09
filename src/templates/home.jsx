@@ -5,13 +5,13 @@ import React from 'react';
 import Advantages from 'components/pages/home/advantages';
 import Awards from 'components/pages/home/awards';
 import Hero from 'components/pages/home/hero';
-import Jobs from 'components/pages/home/jobs';
 import News from 'components/pages/home/news';
 import Partners from 'components/pages/home/partners';
 import Report from 'components/pages/home/report';
 import SolutionsProducts from 'components/pages/home/solutions-products';
 import Technologies from 'components/pages/home/technologies';
 import Contact from 'components/shared/contact';
+import Jobs from 'components/shared/jobs';
 import translations from 'i18n';
 import MainLayout from 'layouts/main';
 

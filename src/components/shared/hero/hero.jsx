@@ -24,6 +24,11 @@ Hero.propTypes = {
   })),
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string.isRequired,
+};
+
+Hero.defaultProps = {
+  breadcrumbs: [],
 };
 
 export default Hero;
