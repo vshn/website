@@ -1,0 +1,37 @@
+@mixin button {
+  display: inline-block;
+  padding-top: 19px;
+  padding-right: 40px;
+  padding-bottom: 19px;
+  padding-left: 40px;
+  font-size: $font-size-sm;
+  font-weight: 900;
+  line-height: $line-height-sm;
+  color: $color-primary;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: $color-accent-secondary;
+  border: 0;
+  border-radius: 30px 4px;
+  outline: none;
+  transition-timing-function: cubic-bezier(0.44, 0, 0.56, 1);
+  transition-duration: 0.5s;
+  transition-property: border-radius background-color;
+
+  @include md-down {
+    padding-top: 13px;
+    padding-right: 30px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+    font-size: $font-size-xs;
+    line-height: $line-height-xs;
+  }
+
+  @include hover {
+    background-color: lighten($color-accent-secondary, 5.5%);
+    border-radius: 4px 30px;
+  }
+}
