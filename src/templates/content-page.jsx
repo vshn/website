@@ -23,7 +23,7 @@ export default ({
     <Hero
       breadcrumbs={data.acf.breadcrumbs}
       title={data.title}
-      subtitle={data.title}
+      pageTitle={data.title}
       backgroundImage={backgroundImage}
     />
     <Content content={data.content} relatedItems={data.acf.relatedItems} />

@@ -16,9 +16,15 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 180px;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
 
   @include md-down {
     display: block;
+    margin-bottom: 120px;
   }
 }
 
