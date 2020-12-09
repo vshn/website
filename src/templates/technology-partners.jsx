@@ -26,7 +26,7 @@ export default ({
       <Hero
         breadcrumbs={breadcrumbs}
         title={t[locale].technologyPartners.title}
-        subtitle={data.title}
+        pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
       <TechnologyPartnersList technologyPartnersList={data.acf.technologyPartnersList} />

@@ -9,11 +9,11 @@ import styles from './hero.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ breadcrumbs, title, subtitle, backgroundImage }) => (
+const Hero = ({ breadcrumbs, title, pageTitle, backgroundImage }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       {breadcrumbs?.length > 0 && <Breadcrumbs currentPageTitle={title} crumbs={breadcrumbs} />}
-      <Heading className={cx('title')} size="xl">{subtitle}</Heading>
+      <Heading className={cx('title')} tag="h1" size="xl">{pageTitle}</Heading>
     </div>
     <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
   </section>
@@ -23,7 +23,7 @@ Hero.propTypes = {
   breadcrumbs: PropTypes.arrayOf(PropTypes.shape({
   })),
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  pageTitle: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
 };
 

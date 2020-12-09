@@ -27,7 +27,7 @@ export default ({
       <Hero
         breadcrumbs={breadcrumbs}
         title={t[locale].successStories.title}
-        subtitle={data.title}
+        pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
       <SuccessStoriesList
