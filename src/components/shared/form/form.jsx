@@ -42,12 +42,10 @@ const Form = ({ formId, locale, title }) => {
   };
   return (
     <>
-      <section ref={sectionRef}>
-        <div className="container">
-          <Heading className={cx('title')} tag="h3">{title}</Heading>
-          <div className={cx('form-container')} id="form-container" />
-        </div>
-      </section>
+      <div ref={sectionRef}>
+        {title && <Heading className={cx('title')} tag="h3">{title}</Heading>}
+        <div className={cx('form-container')} id="form-container" />
+      </div>
       {inView && (
       <Helmet
         script={[{ src: 'https://js.hsforms.net/forms/v2.js' }]}
@@ -60,9 +58,13 @@ const Form = ({ formId, locale, title }) => {
 };
 
 Form.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   formId: PropTypes.string.isRequired,
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
+};
+
+Form.defaultProps = {
+  title: null,
 };
 
 export default Form;

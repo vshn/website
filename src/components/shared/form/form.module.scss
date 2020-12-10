@@ -44,6 +44,10 @@
       border-radius: 4px;
       box-shadow: 0 0 5px rgba($color-primary, 0.05);
 
+      @include md-down {
+        padding: 15px;
+      }
+
       &:focus {
         border: 2px solid $color-accent-primary;
         outline: none;

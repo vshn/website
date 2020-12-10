@@ -2,6 +2,12 @@
   position: relative;
   margin-top: $header-height;
   background-color: $color-additional-1;
+
+  @include section-paddings;
+
+  @include md-down {
+    margin-top: $header-height-md;
+  }
 }
 
 .inner {
