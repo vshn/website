@@ -25,18 +25,35 @@
 :global {
   #form-container {
     .hs-form {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     .hs-form-field {
       position: relative;
       display: block;
       margin-bottom: 30px;
+
+      @include lg-down {
+        margin-bottom: 20px;
+      }
+
+      @include md-down {
+        margin-bottom: 15px;
+      }
+
+      & > label {
+        display: block;
+        margin-bottom: 5px;
+      }
     }
 
     .hs-input {
       width: 100%;
-      padding: 20px;
+      padding-top: 17px;
+      padding-right: 20px;
+      padding-bottom: 17px;
+      padding-left: 20px;
       font-size: $font-size-sm;
       line-height: $line-height-sm;
       background-color: $color-tertiary;
@@ -45,7 +62,10 @@
       box-shadow: 0 0 5px rgba($color-primary, 0.05);
 
       @include md-down {
-        padding: 15px;
+        padding-top: 12px;
+        padding-right: 20px;
+        padding-bottom: 12px;
+        padding-left: 20px;
       }
 
       &:focus {
@@ -65,7 +85,7 @@
 
     .hs-message {
       textarea {
-        height: 240px;
+        min-height: 160px;
         resize: none;
       }
     }
@@ -106,7 +126,14 @@
     }
 
     .hs_error_rollup {
-      display: none;
+      order: -1;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      color: #ac1709;
+      text-align: center;
+      background-color: #fbd3d0;
+      border-radius: 4px;
     }
   }
 }

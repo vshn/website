@@ -27,7 +27,6 @@ const Form = ({ formId, locale, title }) => {
         de: {
           inlineMessage: 'Danke für Deine Kontaktaufnahme. Wir werden deine Anfrage schnellstmöglich bearbeiten und uns bei dir melden.',
         },
-
       },
       onFormSubmitted: () => {
         console.log('haha');
