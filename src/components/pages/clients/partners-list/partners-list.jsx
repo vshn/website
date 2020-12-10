@@ -64,7 +64,14 @@ const PartnersList = ({ filters, partners, locale }) => {
           ))}
         </div>
         <ul className={cx('partners-wrapper')}>
-          {memoizedPartners}
+          {memoizedPartners.length
+            ? memoizedPartners
+            : (
+              <p className={cx('no-matches')}>
+                <span className={cx('icon')} />
+                No matches found
+              </p>
+            )}
         </ul>
       </div>
     </section>

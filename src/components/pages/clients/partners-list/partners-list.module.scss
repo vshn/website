@@ -38,10 +38,14 @@
 
 .partners-wrapper {
   display: grid;
+  grid-template-areas:
+    ". . . ."
+    ". a a .";
   grid-template-columns: repeat(4, 1fr);
   row-gap: 45px;
   column-gap: $column-gap;
   justify-items: start;
+  min-height: 120px;
   padding-left: 0;
 
   @include lg-down {
@@ -82,4 +86,36 @@
   display: block;
   padding-bottom: 5px;
   border-bottom: 2px solid $color-additional-2;
+}
+
+.no-matches {
+  grid-area: a;
+  align-self: flex-end;
+  justify-self: center;
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.4;
+  color: $color-quaternary;
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  border: 2px solid $color-quaternary;
+  border-radius: 50%;
+
+  &::before {
+    position: absolute;
+    bottom: -7px;
+    left: -15px;
+    width: 23px;
+    height: 2px;
+    content: "";
+    background-color: $color-quaternary;
+    transform: rotate(135deg);
+  }
 }
