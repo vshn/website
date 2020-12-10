@@ -26,21 +26,22 @@ const Content = ({ content, logo, partnerInfo, successStoryCard, locale }) => (
 Content.propTypes = {
   content: PropTypes.string.isRequired,
   logo: PropTypes.shape({
-    logoBackgroundColor: PropTypes.string.isRequired,
-    logoImage: PropTypes.objectOf(PropTypes.any).isRequired,
-  }).isRequired,
+    logoBackgroundColor: PropTypes.string,
+    logoImage: PropTypes.objectOf(PropTypes.any),
+  }),
   partnerInfo: PropTypes.shape({
     items: PropTypes.arrayOf(
       PropTypes.shape({
-        value: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
+        value: PropTypes.string,
+        text: PropTypes.string,
       }),
-    ).isRequired,
+    ),
     partnerLink: PropTypes.shape({
       url: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      target: PropTypes.string.isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
   successStoryCard: PropTypes.shape({
     successStory: PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -50,8 +51,21 @@ Content.propTypes = {
       footerUrl: PropTypes.string.isRequired,
     }),
     footerText: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
+};
+
+Content.defaultProps = {
+  logo: {
+    logoImage: null,
+    logoBackgroundColor: null,
+  },
+  partnerInfo: {
+    items: null,
+  },
+  successStoryCard: {
+    successStory: null,
+  },
 };
 
 export default Content;

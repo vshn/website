@@ -75,6 +75,16 @@ export const query = graphql`
       partners: nodes {
         uri
         title
+        content
+        acf {
+          partnerInfo {
+            partnerLink {
+              url
+              title
+              target
+            }
+          }
+        }
         industries {
           nodes {
             slug
