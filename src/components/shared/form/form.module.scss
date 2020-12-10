@@ -14,7 +14,9 @@
 }
 
 .form-container {
+  max-width: 850px;
   padding: 30px;
+  margin: 0 auto;
   color: $color-secondary;
   background-color: $color-additional-1;
   border-radius: 8px;
@@ -23,32 +25,13 @@
 :global {
   #form-container {
     .hs-form {
-      display: grid;
-      grid-template-rows: repeat(5, 60px);
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-flow: column;
-      row-gap: 30px;
-      column-gap: 30px;
+      display: block;
     }
 
     .hs-form-field {
       position: relative;
       display: block;
-
-      & > label {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        left: 22px;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      input[type=text],
-      input[type=email],
-      input[type=tel] {
-        height: 60px;
-      }
+      margin-bottom: 30px;
     }
 
     .hs-input {
@@ -67,14 +50,16 @@
         box-shadow: 0 5px 15px rgba($color-primary, 0.15);
       }
 
+      &.error {
+        border: 2px solid #fbd3d0;
+      }
+
       &::placeholder {
-        opacity: 0;
+        color: $color-secondary;
       }
     }
 
     .hs-message {
-      grid-row: 1 / span 3;
-
       textarea {
         height: 240px;
         resize: none;
@@ -91,6 +76,7 @@
     }
 
     .legal-consent-container {
+      margin-bottom: 30px;
       font-size: $font-size-sm;
       line-height: $line-height-sm;
     }
@@ -98,21 +84,10 @@
     .hs-submit {
       position: relative;
       display: flex;
-      grid-row: 6 / span 1;
-      grid-column: 1/ span 2;
       justify-content: flex-end;
       width: 100%;
-      margin-top: 40px;
-
-      &::before {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        left: 0;
-        height: 2px;
-        content: '';
-        background-color: $color-additional-2;
-      }
+      padding-top: 40px;
+      border-top: 2px solid $color-additional-2;
     }
 
     .hs-button {
