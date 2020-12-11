@@ -18,7 +18,7 @@ export default ({
   >
     <Hero title={data.title} />
     <Content
-      form={data.acf.contactFormId}
+      formId={data.acf.contactFormId}
       contactInfo={data.acf.contactInfo}
     />
   </MainLayout>

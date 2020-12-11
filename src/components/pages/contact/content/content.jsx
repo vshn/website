@@ -9,10 +9,10 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ form, contactInfo }) => (
+const Content = ({ formId, contactInfo }) => (
   <section className={cx('wrapper')}>
     <div className={cx('form-wrapper')}>
-      <Form {...form} />
+      <Form formId={formId} />
     </div>
     <div className="container">
       <ContactInfo {...contactInfo} />
@@ -21,9 +21,7 @@ const Content = ({ form, contactInfo }) => (
 );
 
 Content.propTypes = {
-  form: PropTypes.shape({
-    formId: PropTypes.string.isRequired,
-  }).isRequired,
+  formId: PropTypes.string.isRequired,
   contactInfo: PropTypes.shape({}).isRequired,
 };
 
