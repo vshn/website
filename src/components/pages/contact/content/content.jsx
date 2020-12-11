@@ -9,10 +9,10 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ form, locale, contactInfo }) => (
+const Content = ({ form, contactInfo }) => (
   <section className={cx('wrapper')}>
     <div className={cx('form-wrapper')}>
-      <Form {...form} locale={locale} />
+      <Form {...form} />
     </div>
     <div className="container">
       <ContactInfo {...contactInfo} />
@@ -24,7 +24,6 @@ Content.propTypes = {
   form: PropTypes.shape({
     formId: PropTypes.string.isRequired,
   }).isRequired,
-  locale: PropTypes.oneOf(['en', 'de']).isRequired,
   contactInfo: PropTypes.shape({}).isRequired,
 };
 

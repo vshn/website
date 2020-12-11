@@ -8,7 +8,7 @@ import MainLayout from 'layouts/main';
 
 export default ({
   data: { wpPage: data },
-  pageContext: { locale, pageUrls, menus, globalFields },
+  pageContext: { pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     seo={data.seo}
@@ -18,8 +18,7 @@ export default ({
   >
     <Hero title={data.title} />
     <Content
-      form={data.acf.contactForm}
-      locale={locale}
+      form={data.acf.contactFormId}
       contactInfo={data.acf.contactInfo}
     />
   </MainLayout>
@@ -30,9 +29,7 @@ export const query = graphql`
     wpPage(id: { eq: $id }) {
       title
       acf {
-        contactForm {
-          formId
-        }
+        contactFormId
         contactInfo {
           items {
             icon {
