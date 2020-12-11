@@ -10,7 +10,7 @@ import styles from './partner-info.module.scss';
 const cx = classNames.bind(styles);
 
 const PartnerInfo = (props) => {
-  const { logoBackgroundColor, logoImage, items, partnerLink: { url, title } } = props;
+  const { logoBackgroundColor, logoImage, items, partnerLink: { url, title, target } } = props;
   return (
     <div className={cx('wrapper')}>
       <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor}` }}>
@@ -32,14 +32,14 @@ const PartnerInfo = (props) => {
         ))}
       </ul>
       <div className={cx('link-wrapper')}>
-        <Link className={cx('link')} to={url}>{title}</Link>
+        <Link className={cx('link')} to={url} target={target}>{title}</Link>
       </div>
     </div>
   );
 };
 
 PartnerInfo.propTypes = {
-  logoBackgroundColor: PropTypes.string.isRequired,
+  logoBackgroundColor: PropTypes.string,
   logoImage: PropTypes.shape({
     localFile: PropTypes.shape({
       childImageSharp: PropTypes.shape({
@@ -54,18 +54,24 @@ PartnerInfo.propTypes = {
   }),
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
+      value: PropTypes.string,
+      text: PropTypes.string,
     }),
-  ).isRequired,
+  ),
   partnerLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 PartnerInfo.defaultProps = {
   logoImage: null,
+  logoBackgroundColor: '#000000',
+  items: {
+    value: null,
+    text: null,
+  },
 };
 
 export default PartnerInfo;
