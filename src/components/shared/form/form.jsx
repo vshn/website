@@ -18,8 +18,6 @@ const Form = ({ formId, title }) => {
       portalId: '7105834',
       formId,
       target: '#form-container',
-      onFormSubmitted: () => {
-      },
     });
   };
   const handleScriptInject = ({ scriptTags }) => {
