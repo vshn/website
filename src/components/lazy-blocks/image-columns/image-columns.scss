@@ -1,0 +1,20 @@
+.image-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__image-wrapper {
+    margin-right: 30px;
+    margin-bottom: 15px;
+
+    @include md-down {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+}
