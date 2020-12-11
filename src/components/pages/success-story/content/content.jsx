@@ -45,13 +45,14 @@ Content.propTypes = {
       partnerInfo: PropTypes.shape({
         items: PropTypes.arrayOf(
           PropTypes.shape({
-            value: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
+            value: PropTypes.string,
+            text: PropTypes.string,
           }),
-        ).isRequired,
+        ),
         partnerLink: PropTypes.shape({
           url: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
+          target: PropTypes.string.isRequired,
         }).isRequired,
       }),
     }),

@@ -56,6 +56,7 @@ export const query = graphql`
           }
           partnerLink {
             url
+            target
             title
           }
         }

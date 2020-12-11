@@ -42,9 +42,16 @@ const PartnersList = ({ filters, partners, locale }) => {
       return shouldBeShown;
     });
 
-    return filteredPartners.map(({ uri: url, title }, index) => (
+    return filteredPartners.map(({
+      uri: url,
+      title,
+      content,
+      acf: { partnerInfo: { partnerLink } },
+    }, index) => (
       <li className={cx('partner')} key={index}>
-        <Link className={cx('partner-link')} to={url}>{title}</Link>
+        {content
+          ? <Link className={cx('partner-link')} to={url}>{title}</Link>
+          : <Link className={cx('partner-link')} to={partnerLink.url} target={partnerLink.target}>{title}</Link>}
       </li>
     ));
   }, [activeFilters, partners]);
@@ -64,7 +71,14 @@ const PartnersList = ({ filters, partners, locale }) => {
           ))}
         </div>
         <ul className={cx('partners-wrapper')}>
-          {memoizedPartners}
+          {memoizedPartners.length
+            ? memoizedPartners
+            : (
+              <p className={cx('no-matches')}>
+                <span className={cx('icon')} />
+                No matches found
+              </p>
+            )}
         </ul>
       </div>
     </section>
