@@ -11,7 +11,7 @@ import 'components/lazy-blocks/rating-cards/rating-cards.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ title, positions, content, form, locale }) => (
+const Content = ({ title, positions, content, form }) => (
 
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
@@ -19,7 +19,7 @@ const Content = ({ title, positions, content, form, locale }) => (
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
     </div>
 
-    <Form {...form} locale={locale} />
+    <Form {...form} />
   </section>
 );
 
@@ -36,7 +36,6 @@ Content.propTypes = {
     title: PropTypes.string.isRequired,
     formId: PropTypes.string.isRequired,
   }).isRequired,
-  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 export default Content;

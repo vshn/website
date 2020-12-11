@@ -32,7 +32,6 @@ export default ({
         title={t[locale].job.openPositionsTitle}
         positions={positions}
         form={data.acf.jobForm}
-        locale={locale}
       />
     </MainLayout>
   );

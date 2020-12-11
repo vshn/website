@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useInView } from 'react-intersection-observer';
 
 import Content from 'components/pages/job/content';
 import backgroundImage from 'components/pages/job/hero/images/background-image.svg';
@@ -38,7 +36,6 @@ export default ({
         title={t[locale].job.openPositionsTitle}
         positions={positions}
         form={allWpPage.nodes[0].acf.jobForm}
-        locale={locale}
       />
     </MainLayout>
   );

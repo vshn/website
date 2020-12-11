@@ -48,10 +48,6 @@ export const query = graphql`
             }
           }
         }
-        category {
-          title
-          url
-        }
         description
         partnerInfo {
           items {
