@@ -10,7 +10,7 @@ import styles from './form.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Form = ({ formId, locale, title }) => {
+const Form = ({ formId, title }) => {
   const [sectionRef, inView] = useInView({ triggerOnce: true });
 
   const handleOnLoad = () => {
@@ -18,18 +18,7 @@ const Form = ({ formId, locale, title }) => {
       portalId: '7105834',
       formId,
       target: '#form-container',
-      locale,
-      css: '',
-      translations: {
-        en: {
-          inlineMessage: 'Thanks for your message. We will get back to you as soon as possible.',
-        },
-        de: {
-          inlineMessage: 'Danke für Deine Kontaktaufnahme. Wir werden deine Anfrage schnellstmöglich bearbeiten und uns bei dir melden.',
-        },
-      },
       onFormSubmitted: () => {
-        console.log('haha');
       },
     });
   };
@@ -59,7 +48,6 @@ const Form = ({ formId, locale, title }) => {
 Form.propTypes = {
   title: PropTypes.string,
   formId: PropTypes.string.isRequired,
-  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 Form.defaultProps = {
