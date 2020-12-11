@@ -9,13 +9,13 @@ import OpenPositions from './open-positions';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, title, positions, form, locale }) => (
+const Content = ({ content, title, positions, form }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <OpenPositions className={cx('open-positions')} title={title} {...positions} />
     </div>
-    <Form {...form} locale={locale} />
+    <Form {...form} />
   </section>
 );
 
@@ -32,7 +32,6 @@ Content.propTypes = {
     title: PropTypes.string.isRequired,
     formId: PropTypes.string.isRequired,
   }).isRequired,
-  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 export default Content;
