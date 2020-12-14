@@ -17,7 +17,7 @@ const Form = ({ formId, title }) => {
     hbspt.forms.create({
       portalId: '7105834',
       formId,
-      target: '#form-container',
+      target: '#form-container'
     });
   };
   const handleScriptInject = ({ scriptTags }) => {

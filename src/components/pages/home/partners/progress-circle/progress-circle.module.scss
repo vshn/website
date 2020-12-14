@@ -1,0 +1,76 @@
+.wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+
+  @include lg-down {
+    width: 56px;
+    height: 56px;
+  }
+
+  @include lg-down {
+    width: 54px;
+    height: 54px;
+  }
+
+  svg {
+    path {
+      transition: fill 0.4s;
+    }
+  }
+
+  &.animate {
+    border-color: transparent;
+
+    .inner {
+      background-color: $color-tertiary;
+    }
+
+    svg {
+      path {
+        fill: $color-accent-primary;
+      }
+    }
+
+    .circle {
+      opacity: 1;
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 58px;
+  height: 58px;
+  opacity: 0;
+  stroke: $color-accent-primary;
+  stroke-linecap: round;
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+
+  @include lg-down {
+    width: 56px;
+    height: 56px;
+  }
+
+  @include lg-down {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.4s;
+}

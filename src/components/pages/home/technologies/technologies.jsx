@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 
 import ansibleLogo from './images/ansible.svg';
 import dockerLogo from './images/docker.svg';
-import kubernatesLogo from './images/kubernates.svg';
+import kubernetesLogo from './images/kubernetes.svg';
 import openshiftLogo from './images/openshift.svg';
 import puppetLogo from './images/puppet.svg';
 import rancherLogo from './images/rancher.svg';
@@ -24,15 +24,15 @@ const items = [
     logo: rancherLogo,
   },
   {
-    name: 'Kubernates',
-    logo: kubernatesLogo,
+    name: 'Kubernetes',
+    logo: kubernetesLogo,
   },
   {
     name: 'Ansible',
     logo: ansibleLogo,
   },
   {
-    name: 'Openshift',
+    name: 'OpenShift',
     logo: openshiftLogo,
   },
   {

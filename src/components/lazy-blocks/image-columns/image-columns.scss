@@ -1,0 +1,31 @@
+.image-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  row-gap: 20px;
+  column-gap: $column-gap;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+
+  @include lg-down {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  @include md-down {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    row-gap: 15px;
+    column-gap: $column-gap-md;
+  }
+
+  @include sm-down {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  @include xs-down {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  &__image-wrapper {
+    width: 100%;
+  }
+}
