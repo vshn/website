@@ -45,7 +45,7 @@ export default ({
       <Hero
         breadcrumbs={breadcrumbs}
         title={data.title}
-        subtitle={data.title}
+        pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
       {upcomingEvents.length === 3 && (

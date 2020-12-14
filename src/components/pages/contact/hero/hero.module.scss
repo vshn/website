@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  margin-top: $header-height;
+  background-color: $color-additional-1;
+
+  @include section-paddings;
+
+  @include md-down {
+    margin-top: $header-height-md;
+  }
+}
+
+.inner {
+  min-height: 500px;
+  text-align: center;
+}
+
+.title {
+  padding-top: 90px;
+}
+
+.background-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+}

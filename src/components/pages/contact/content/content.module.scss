@@ -1,0 +1,29 @@
+.wrapper {
+  padding-bottom: 180px;
+  border-bottom: 2px solid $color-additional-1;
+
+  @include section-paddings;
+
+  @include lg-down {
+    padding-bottom: 150px;
+  }
+
+  @include md-down {
+    padding-bottom: 120px;
+  }
+}
+
+.form-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-top: -290px;
+  margin-bottom: 120px;
+
+  :global {
+    #form-container {
+      background-color: $color-tertiary;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba($color-primary, 0.25);
+    }
+  }
+}
