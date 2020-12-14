@@ -12,6 +12,7 @@ import useAutoChangeableIndex from 'hooks/use-auto-changeable-index';
 import Quote from 'icons/quote.inline.svg';
 
 import styles from './partners.module.scss';
+import ProgressCircle from './progress-circle';
 
 const cx = classNames.bind(styles);
 
@@ -51,7 +52,11 @@ const Partners = ({ items, itemButtonText }) => {
             key={index}
             onClick={handleClick}
           >
-            {number}
+            {isActive ? (
+              <ProgressCircle className={cx('tab-progress-circle')} animate={isActive}>
+                {number}
+              </ProgressCircle>
+            ) : <span className={cx('bullet')} />}
           </Heading>
         );
       })}
