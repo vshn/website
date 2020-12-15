@@ -18,6 +18,7 @@
 
   &__wrapper {
     position: relative;
+    min-height: 357px;
     text-align: center;
     background-image:
       linear-gradient(
@@ -28,6 +29,10 @@
     border-radius: 8px;
     box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
     transition: background-image $transition-base, box-shadow $transition-base;
+
+    @include md-down {
+      min-height: initial;
+    }
 
     @include hover {
       z-index: 1;
@@ -139,8 +144,9 @@
   }
 
   &__title {
-    margin-bottom: 60px;
+    margin-top: 0;
     font-size: 26px;
+    font-weight: 900;
     line-height: 1.2;
 
     @include lg-down {

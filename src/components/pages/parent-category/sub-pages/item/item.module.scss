@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  min-height: 357px;
   text-align: center;
   background-image:
     linear-gradient(
@@ -10,6 +11,14 @@
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
   transition: background-image $transition-base, box-shadow $transition-base;
+
+  @include lg-down {
+    min-height: 382px;
+  }
+
+  @include md-down {
+    min-height: initial;
+  }
 
   @include hover {
     z-index: 1;
@@ -107,14 +116,6 @@
 
   @include sm-down {
     align-items: center;
-  }
-}
-
-.title {
-  margin-bottom: 60px;
-
-  @include md-down {
-    margin-bottom: 15px;
   }
 }
 
