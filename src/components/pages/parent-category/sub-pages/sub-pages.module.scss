@@ -16,6 +16,10 @@
   padding-left: 0;
   list-style-type: none;
 
+  @include lg-down {
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  }
+
   @include md-down {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 15px;
