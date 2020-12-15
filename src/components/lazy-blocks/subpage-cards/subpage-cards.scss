@@ -36,7 +36,7 @@
         linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
       box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
 
-      &__button-text {
+      .subpage-cards__button-text {
         color: $color-accent-primary;
       }
     }
