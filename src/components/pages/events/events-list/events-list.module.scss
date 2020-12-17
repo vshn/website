@@ -18,8 +18,6 @@
   margin-bottom: 20px;
   border-bottom: 2px solid $color-additional-1;
 
-  @include with-link-secondary;
-
   @include md-down {
     border-bottom: none;
   }
@@ -33,6 +31,8 @@
   font-size: $font-size-sm;
   font-weight: 700;
   line-height: $line-height-sm;
+  color: $color-primary;
+  text-decoration: none;
   cursor: pointer;
   background-color: $color-tertiary;
   border: none;
@@ -42,7 +42,7 @@
   transition-property: color, border-bottom;
 
   @include hover {
-    color: $color-accent-primary;
+    color: $color-secondary;
   }
 
   @include lg-down {
