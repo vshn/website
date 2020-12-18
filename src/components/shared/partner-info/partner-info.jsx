@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -15,9 +14,9 @@ const PartnerInfo = (props) => {
     <div className={cx('wrapper')}>
       <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor}` }}>
         {logoImage && (
-          <GatsbyImage
+          <img
             className={cx('logo')}
-            fluid={logoImage.localFile.childImageSharp.fluid}
+            src={logoImage.localFile.publicURL}
             alt=""
             aria-hidden
           />
@@ -42,14 +41,7 @@ PartnerInfo.propTypes = {
   logoBackgroundColor: PropTypes.string,
   logoImage: PropTypes.shape({
     localFile: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number.isRequired,
-          src: PropTypes.string.isRequired,
-          srcSet: PropTypes.string.isRequired,
-          sizes: PropTypes.string.isRequired,
-        }),
-      }),
+      publicURL: PropTypes.string,
     }),
   }),
   items: PropTypes.arrayOf(
