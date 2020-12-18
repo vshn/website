@@ -17,11 +17,9 @@ const SuccessStoriesList = ({ itemFooterText, successStories }) => (
           <li className={cx('item')} key={index}>
             <Link className={cx('link')} to={url}>
               <div className={cx('logo-wrapper')}>
-                <GatsbyImage
+                <img
                   className={cx('logo')}
-                  style={{ maxHeight: '80px' }}
-                  imgStyle={{ objectFit: 'contain' }}
-                  fluid={logo.localFile.childImageSharp.fluid}
+                  src={logo.localFile.publicURL}
                   alt={`${title} logo`}
                 />
               </div>
@@ -39,7 +37,11 @@ SuccessStoriesList.propTypes = {
     uri: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({
-      logo: PropTypes.objectOf(PropTypes.any).isRequired,
+      logo: PropTypes.shape({
+        localFile: PropTypes.shape({
+          publicURL: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
     }).isRequired,
   })).isRequired,
   itemFooterText: PropTypes.string.isRequired,

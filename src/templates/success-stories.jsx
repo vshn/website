@@ -55,11 +55,7 @@ export const query = graphql`
         acf {
           logo {
             localFile {
-              childImageSharp {
-                fluid(maxHeight: 135) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
-              }
+              publicURL
             }
           }
         }
