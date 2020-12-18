@@ -31,7 +31,14 @@ Content.propTypes = {
         logoBackgroundColor: PropTypes.string.isRequired,
         logoImage: PropTypes.shape({
           localFile: PropTypes.shape({
-            publicURL: PropTypes.string,
+            childImageSharp: PropTypes.shape({
+              fluid: PropTypes.shape({
+                aspectRatio: PropTypes.number.isRequired,
+                src: PropTypes.string.isRequired,
+                srcSet: PropTypes.string.isRequired,
+                sizes: PropTypes.string.isRequired,
+              }),
+            }),
           }),
         }),
       }),

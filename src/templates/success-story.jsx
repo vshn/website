@@ -49,7 +49,11 @@ export const query = graphql`
                 logoBackgroundColor
                 logoImage {
                   localFile {
-                    publicURL
+                    childImageSharp {
+                      fluid(maxHeight: 30) {
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
+                      }
+                    }
                   }
                 }
               }

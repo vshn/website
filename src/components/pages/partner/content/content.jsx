@@ -27,11 +27,7 @@ Content.propTypes = {
   content: PropTypes.string.isRequired,
   logo: PropTypes.shape({
     logoBackgroundColor: PropTypes.string,
-    logoImage: PropTypes.shape({
-      localFile: PropTypes.shape({
-        publicURL: PropTypes.string,
-      }),
-    }),
+    logoImage: PropTypes.objectOf(PropTypes.any),
   }),
   partnerInfo: PropTypes.shape({
     items: PropTypes.arrayOf(
