@@ -132,10 +132,10 @@
     top: -15px;
     right: 0;
     left: 0;
-    height: 1px;
+    height: 2px;
     content: "";
     background-color: $color-tertiary;
-    opacity: 0.15;
+    opacity: 0.05;
 
     @include md-down {
       display: none;
