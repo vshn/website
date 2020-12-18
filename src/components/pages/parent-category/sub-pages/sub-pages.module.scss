@@ -9,11 +9,20 @@
 }
 
 .items-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 20px;
+  column-gap: $column-gap;
   padding-left: 0;
   list-style-type: none;
 
+  @include lg-down {
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  }
+
   @include md-down {
-    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 15px;
+    column-gap: $column-gap-md;
   }
 }

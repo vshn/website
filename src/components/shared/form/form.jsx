@@ -10,20 +10,30 @@ import styles from './form.module.scss';
 
 const cx = classNames.bind(styles);
 
+const PORTAL_ID = '7105834';
+const FORM_JS_SRC = 'https://js.hsforms.net/forms/v2.js';
+
 const Form = ({ formId, title }) => {
   const [sectionRef, inView] = useInView({ triggerOnce: true });
 
   const handleOnLoad = () => {
     hbspt.forms.create({
-      portalId: '7105834',
+      portalId: PORTAL_ID,
       formId,
-      target: '#form-container'
+      target: '#form-container',
     });
   };
-  const handleScriptInject = ({ scriptTags }) => {
+  const handleScriptInject = ({ scriptTags: existTags }, { scriptTags }) => {
     if (scriptTags) {
-      const scriptTag = scriptTags[0];
-      scriptTag.onload = handleOnLoad;
+      // If script just has been added
+      const addedScriptTag = scriptTags[0];
+      addedScriptTag.onload = handleOnLoad;
+    } else {
+      // If script already exist
+      const hasScript = existTags.some((script) => script.src === FORM_JS_SRC);
+      if (hasScript) {
+        handleOnLoad();
+      }
     }
   };
   return (
@@ -34,9 +44,9 @@ const Form = ({ formId, title }) => {
       </div>
       {inView && (
       <Helmet
-        script={[{ src: 'https://js.hsforms.net/forms/v2.js' }]}
+        script={[{ src: FORM_JS_SRC }]}
         // Helmet doesn't support `onload` in script objects so we have to hack in our own
-        onChangeClientState={(newState, addedTags) => handleScriptInject(addedTags)}
+        onChangeClientState={(newState, addedTags) => handleScriptInject(newState, addedTags)}
       />
       )}
     </>

@@ -26,7 +26,7 @@ const SubMenu = ({ className, items, banner }) => (
         {items.map(({ label, path, childItems }, index) => {
           const withSubMenu = childItems && childItems.nodes.length > 0;
           return (
-            <li key={index} className={cx({ 'with-sub-menu': withSubMenu })}>
+            <li key={index} className={cx('item', { 'with-sub-menu': withSubMenu })}>
               <Link to={path}>{label}</Link>
               {withSubMenu && (
                 <SubSubMenu className={cx('sub-menu')} items={childItems.nodes} />

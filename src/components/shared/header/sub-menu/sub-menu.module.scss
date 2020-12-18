@@ -50,7 +50,7 @@
   list-style-type: none;
 }
 
-.with-sub-menu > a {
+.item > a {
   display: inline-block;
   margin-bottom: 15px;
   font-size: $font-size-xs;
@@ -93,6 +93,7 @@
 
 .banner-link-text {
   font-size: $font-size-xs;
+  font-weight: 700;
   color: $color-accent-secondary;
   transition: color $transition-base;
 }

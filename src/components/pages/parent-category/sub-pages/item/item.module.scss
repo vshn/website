@@ -1,10 +1,6 @@
 .wrapper {
   position: relative;
-  flex-basis: 22%;
-  flex-grow: 1;
-  flex-shrink: 0;
-  max-width: 410px;
-  margin-right: 30px;
+  min-height: 357px;
   text-align: center;
   background-image:
     linear-gradient(
@@ -16,8 +12,12 @@
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
   transition: background-image $transition-base, box-shadow $transition-base;
 
-  &:last-child {
-    margin-right: 0;
+  @include lg-down {
+    min-height: 382px;
+  }
+
+  @include md-down {
+    min-height: initial;
   }
 
   @include hover {
@@ -30,12 +30,6 @@
     .footer-text {
       color: $color-accent-primary;
     }
-  }
-
-  @include md-down {
-    max-width: 100%;
-    margin-right: 0;
-    margin-bottom: 20px;
   }
 }
 
@@ -122,14 +116,6 @@
 
   @include sm-down {
     align-items: center;
-  }
-}
-
-.title {
-  margin-bottom: 60px;
-
-  @include md-down {
-    margin-bottom: 15px;
   }
 }
 

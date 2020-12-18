@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RelatedItems from 'components/shared/related-items';
+import 'components/lazy-blocks/subpage-cards/subpage-cards.scss';
 
 import styles from './content.module.scss';
 
