@@ -785,7 +785,7 @@ const createEventPages = async ({
     // Create "events/{year}" pages
     const availableYears = Object.keys(eventsGroupedByYears).reverse();
     availableYears.forEach((year, index) => {
-      const path = index === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}`;
+      const path = index === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}/`;
 
       const context = {
         id: eventsPage.id,

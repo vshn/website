@@ -78,13 +78,13 @@
       "about": {
         "link": {
           "title": "Über",
-          "url": "/about/"
+          "url": "/ueber/"
         }
       },
       "learn": {
         "link": {
-          "title": "Lernen",
-          "url": "/learn/"
+          "title": "Wissen",
+          "url": "/wissen/"
         }
       },
       "jobs": {
