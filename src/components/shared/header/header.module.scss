@@ -73,9 +73,12 @@
   align-items: center;
 
   &.active {
-    color: inherit;
+    color: $color-quaternary;
     pointer-events: none;
-    opacity: 0.5;
+
+    & .icon {
+      opacity: 0.5;
+    }
   }
 }
 
@@ -138,7 +141,7 @@
       width: 2px;
       height: 30px;
       content: "";
-      background-color: $color-additional-2;
+      background-color: $color-additional-1;
       transform: translateY(-50%);
 
       @include lg-down {

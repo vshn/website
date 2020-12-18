@@ -14,7 +14,8 @@
 }
 
 .inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
   padding-top: 55px;
 
   @include md-down {
@@ -25,7 +26,7 @@
 .details {
   flex-shrink: 0;
   padding-top: 60px;
-  margin-right: 140px;
+  margin-right: 130px;
   text-align: center;
 
   @include lg-down {
@@ -82,7 +83,7 @@
   position: absolute;
   z-index: -1;
   border-radius: 8px;
-  box-shadow: 0 10px 20px rgba($color-accent-secondary, 0.15);
+  box-shadow: 0 10px 20px rgba($color-primary, 0.15);
 }
 
 .rectangle-1 {
@@ -167,7 +168,7 @@
 
 .position {
   display: block;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
   color: $color-secondary;
 
   @include lg-down {
@@ -247,7 +248,7 @@
     }
 
     @include hover {
-      background-color: $color-secondary;
+      background-color: $color-accent-primary;
     }
   }
 }
