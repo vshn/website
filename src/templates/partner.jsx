@@ -21,7 +21,6 @@ export default ({
   >
     <Hero
       title={data.title}
-      description={data.acf.description}
       locale={locale}
     />
     <Content content={data.content} {...data.acf} locale={locale} />
@@ -48,7 +47,6 @@ export const query = graphql`
             }
           }
         }
-        description
         partnerInfo {
           items {
             value

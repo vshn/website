@@ -37,6 +37,7 @@
   > h2,
   > h3 {
     margin-top: 60px;
+    margin-bottom: 30px;
 
     @include lg-down {
       margin-top: 50px;
@@ -59,26 +60,42 @@
 
   > h1 {
     font-size: 70px;
+
+    @include lg-down {
+      font-size: 60px;
+    }
+
+    @include md-down {
+      font-size: 50px;
+    }
   }
 
   > h2 {
     font-size: 50px;
 
     @include lg-down {
-      font-size: 35px;
+      font-size: 40px;
     }
 
     @include md-down {
-      font-size: 30px;
-    }
-
-    @include sm-down {
-      font-size: 26px;
+      font-size: 36px;
     }
   }
 
   > h3 {
     font-size: 36px;
+
+    @include lg-down {
+      font-size: 32px;
+    }
+
+    @include md-down {
+      font-size: 30px;
+    }
+  }
+
+  > h4 {
+    font-size: 26px;
 
     @include lg-down {
       font-size: 24px;
@@ -89,22 +106,16 @@
     }
   }
 
-  > h4 {
-    margin-top: 40px;
-    font-size: 26px;
-    line-height: 1.6;
-
-    @include md-down {
-      font-size: 16px;
-    }
-  }
-
   > h5 {
     font-size: 24px;
     line-height: 1.6;
 
+    @include lg-down {
+      font-size: 22px;
+    }
+
     @include md-down {
-      font-size: 16px;
+      font-size: 20px;
     }
   }
 
@@ -167,11 +178,11 @@
 
   > blockquote {
     position: relative;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 30px;
-    margin-top: 50px;
+    margin-top: 45px;
     margin-right: -110px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     margin-left: -110px;
     border-bottom: 4px solid $color-primary;
 
@@ -183,11 +194,8 @@
     }
 
     @include md-down {
-      padding-top: 40px;
-      padding-bottom: 25px;
       margin-top: 40px;
       margin-right: 0;
-      margin-bottom: 40px;
       margin-left: 0;
     }
 
@@ -195,21 +203,22 @@
       position: absolute;
       top: -20px;
       left: 0;
-      width: 50px;
-      height: 40px;
+      width: 38px;
+      height: 30px;
       content: "";
       background-image: url(icons/quote.svg);
+      background-repeat: no-repeat;
 
       @include lg-down {
         top: -15px;
-        width: 40px;
-        height: 32px;
+        width: 35px;
+        height: 28px;
         background-size: contain;
       }
 
       @include md-down {
-        width: 35px;
-        height: 28px;
+        width: 33px;
+        height: 26px;
       }
     }
 
@@ -217,7 +226,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: calc(100% - 80px);
+      width: calc(100% - 70px);
       height: 4px;
       content: "";
       background-color: $color-primary;
@@ -306,7 +315,9 @@
   img {
     display: block;
     max-width: 100%;
+    height: auto;
     overflow: hidden;
+    object-fit: contain;
   }
 
   iframe {
@@ -320,14 +331,7 @@
   :global {
     .wp-block-image {
       margin-top: 30px;
-      margin-right: -110px;
       margin-bottom: 30px;
-      margin-left: -110px;
-
-      @include lg-down {
-        margin-right: -80px;
-        margin-left: -80px;
-      }
 
       @include md-down {
         margin-top: 25px;

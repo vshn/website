@@ -22,7 +22,6 @@ export default ({
   >
     <Hero
       title={data.title}
-      description={data.acf.description}
       locale={locale}
     />
     <Content
@@ -41,7 +40,6 @@ export const query = graphql`
       title
       content
       acf {
-        description
         partnerPost {
           ... on WpPartner {
             acf {
