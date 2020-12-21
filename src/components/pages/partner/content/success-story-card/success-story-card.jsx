@@ -16,7 +16,7 @@ const SuccessStoryCard = (
 ) => (
   <article className={cx('wrapper')}>
     <span className={cx('category')}>{t[locale].successStories.title}</span>
-    <Heading className={cx('title')} tag="h2" size="xl" color="tertiary" innerHTML={title} />
+    <Heading className={cx('title')} tag="h3" color="tertiary" innerHTML={title} />
     <p className={cx('description')}>{description}</p>
     <Button className={cx('link')} size="xs" to={footerUrl}>{footerText}</Button>
     <img className={cx('circles')} src={circles} alt="" aria-hidden />

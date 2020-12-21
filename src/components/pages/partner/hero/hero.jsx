@@ -10,7 +10,7 @@ import styles from './hero.module.scss';
 import backgroundImage from './images/background-image.svg';
 
 const cx = classNames.bind(styles);
-const Hero = ({ title, description, locale }) => {
+const Hero = ({ title, locale }) => {
   const links = t[locale].breadcrumbs;
   const breadcrumbs = [links.partners, links.clients];
   return (
@@ -18,14 +18,13 @@ const Hero = ({ title, description, locale }) => {
       <div className={cx('container', 'inner')}>
         <div className={cx('crumbs-wrapper')}>
           {breadcrumbs.map((crumb, index) => (
-            <Link className={cx('crumb')} to={crumb.link.url} key={index}>
+            <Link className={cx('link')} to={crumb.link.url} key={index}>
               {crumb.link.title}
             </Link>
           ))}
           <span>{title}</span>
         </div>
         <Heading className={cx('title')} tag="h1" size="xxl" innerHTML={title} />
-        <p className={cx('description')}>{description}</p>
       </div>
       <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
     </section>
@@ -34,7 +33,6 @@ const Hero = ({ title, description, locale }) => {
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 

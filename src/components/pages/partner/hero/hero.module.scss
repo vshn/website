@@ -1,8 +1,8 @@
 .wrapper {
   position: relative;
   z-index: 0;
-  padding-top: 90px;
-  padding-bottom: 90px;
+  min-height: 350px;
+  padding-top: 110px;
   margin-top: $header-height;
   margin-bottom: 90px;
   background-color: #f9fafb;
@@ -30,8 +30,11 @@
 }
 
 .crumbs-wrapper {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  left: 0;
   display: block;
-  margin-bottom: 30px;
   font-size: $font-size-xs;
   font-weight: 700;
   line-height: $line-height-xs;
@@ -40,9 +43,11 @@
 
   @include with-link-primary;
 
-  .crumb {
+  .link {
     position: relative;
     margin-right: 25px;
+
+    @include link-primary;
 
     &::after {
       position: absolute;
@@ -50,7 +55,7 @@
       right: -15px;
       display: inline-block;
       padding: 3px;
-      content: '';
+      content: "";
       border: solid $color-secondary;
       border-width: 0 2px 2px 0;
       -webkit-transform: rotate(-45deg);
@@ -77,29 +82,6 @@
   @include md-down {
     max-width: initial;
     -webkit-line-clamp: 2;
-  }
-}
-
-.description {
-  display: -webkit-box;
-  max-width: 770px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  font-size: $font-size-md;
-  line-height: $line-height-md;
-  color: $color-secondary;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-
-  @include lg-down {
-    max-width: 560px;
-    -webkit-line-clamp: 3;
-  }
-
-  @include md-down {
-    max-width: initial;
-    font-size: 18px;
   }
 }
 
