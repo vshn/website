@@ -104,6 +104,10 @@ module.exports = {
             },
           },
         },
+        develop: {
+          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
+          hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

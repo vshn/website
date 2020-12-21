@@ -74,3 +74,5 @@ yarn-error.log
 
 .stylelintcache
 .eslintcache
+
+.wordpress-cache
