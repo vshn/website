@@ -15,6 +15,10 @@
       @include md-down {
         font-size: 50px;
       }
+
+      @include xs-down {
+        font-size: 40px;
+      }
     }
 
     &_xl {

@@ -9,14 +9,13 @@
   @include section-paddings;
 
   @include lg-down {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    min-height: 326px;
     margin-bottom: 70px;
   }
 
   @include md-down {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    min-height: 250px;
+    padding-top: 100px;
     margin-top: $header-height-md;
     margin-bottom: 50px;
     text-align: center;
