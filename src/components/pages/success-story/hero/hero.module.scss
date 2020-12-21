@@ -1,6 +1,7 @@
 .wrapper {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  position: relative;
+  min-height: 350px;
+  padding-top: 110px;
   margin-top: $header-height;
   margin-bottom: 80px;
   background-color: $color-primary;
@@ -27,8 +28,11 @@
 }
 
 .crumbs-wrapper {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  left: 0;
   display: block;
-  margin-bottom: 30px;
   font-size: $font-size-xs;
   font-weight: 700;
   line-height: $line-height-xs;
@@ -37,9 +41,11 @@
 
   @include with-link-primary;
 
-  .crumb {
+  .link {
     position: relative;
     margin-right: 25px;
+
+    @include link-primary;
 
     &::after {
       position: absolute;
@@ -47,7 +53,7 @@
       right: -15px;
       display: inline-block;
       padding: 3px;
-      content: '';
+      content: "";
       border: solid $color-tertiary;
       border-width: 0 2px 2px 0;
       -webkit-transform: rotate(-45deg);
@@ -99,8 +105,9 @@
 
 .circles {
   position: absolute;
-  top: -90px;
+  top: -110px;
   left: 195px;
+  pointer-events: none;
 
   @include lg-down {
     top: -350px;

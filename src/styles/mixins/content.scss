@@ -37,6 +37,7 @@
   > h2,
   > h3 {
     margin-top: 60px;
+    margin-bottom: 30px;
 
     @include lg-down {
       margin-top: 50px;
@@ -167,11 +168,11 @@
 
   > blockquote {
     position: relative;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 30px;
-    margin-top: 50px;
+    margin-top: 45px;
     margin-right: -110px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     margin-left: -110px;
     border-bottom: 4px solid $color-primary;
 
@@ -183,11 +184,8 @@
     }
 
     @include md-down {
-      padding-top: 40px;
-      padding-bottom: 25px;
       margin-top: 40px;
       margin-right: 0;
-      margin-bottom: 40px;
       margin-left: 0;
     }
 

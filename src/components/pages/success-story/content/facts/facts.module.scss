@@ -16,7 +16,7 @@
 
 .title {
   margin-bottom: 30px;
-  font-size: 40px;
+  font-size: 36px;
 
   @include lg-down {
     margin-bottom: 20px;
@@ -38,15 +38,15 @@
 }
 
 .item {
-  position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
+  // align-items: center;
   padding-bottom: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.6;
-  border-bottom: 1px solid $color-additional-1;
+  border-bottom: 2px solid $color-additional-1;
 
   &:last-child {
     border-bottom: none;
@@ -54,23 +54,6 @@
     @include lg-down {
       padding-bottom: 0;
       margin-bottom: 0;
-    }
-  }
-
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    content: '';
-    background-color: $color-accent-secondary;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba($color-primary, 0.15);
-
-    @include lg-down {
-      width: 35px;
-      height: 35px;
     }
   }
 
@@ -88,26 +71,119 @@
   }
 }
 
+// .item {
+//   position: relative;
+//   display: flex;
+//   align-items: flex-start;
+//   padding-bottom: 15px;
+//   margin-bottom: 15px;
+//   font-size: 18px;
+//   font-weight: 700;
+//   line-height: 1.6;
+//   border-bottom: 2px solid $color-additional-1;
+
+//   &:last-child {
+//     border-bottom: none;
+
+//     @include lg-down {
+//       padding-bottom: 0;
+//       margin-bottom: 0;
+//     }
+//   }
+
+//   &::after {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 40px;
+//     height: 40px;
+//     content: '';
+//     background-color: $color-accent-secondary;
+//     border-radius: 50%;
+//     box-shadow: 0 5px 15px rgba($color-primary, 0.15);
+
+//     @include lg-down {
+//       width: 35px;
+//       height: 35px;
+//     }
+//   }
+
+//   @include lg-down {
+//     flex-direction: column;
+//     font-size: 16px;
+//   }
+
+//   @include md-down {
+//     flex-direction: row;
+//   }
+
+//   @include sm-down {
+//     flex-direction: column;
+//   }
+// }
+
 .number {
-  z-index: 1;
+  position: relative;
   display: block;
-  padding: 6px 16px;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: 15px;
-  font-size: $font-size-md;
+  font-size: 20px;
   font-weight: 900;
-  line-height: $line-height-md;
+  color: $color-primary;
 
   @include lg-down {
-    padding: 5px 12px;
+    padding-right: 13px;
+    padding-left: 13px;
     margin-bottom: 10px;
+    font-size: 18px;
   }
 
-  @include md-down {
-    padding: 3px 13px;
-    margin-right: 10px;
+  span {
+    position: inherit;
+    z-index: 1;
   }
 
-  @include md-down {
-    margin-bottom: 13px;
+  &::after {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    content: '';
+    background-color: $color-accent-secondary;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba($color-primary, 0.15);
+    transform: translateX(-50%);
+
+    @include lg-down {
+      top: -4px;
+      width: 35px;
+      height: 35px;
+    }
   }
 }
+
+// .number {
+//   z-index: 1;
+//   display: block;
+//   padding: 6px 16px;
+//   margin-right: 15px;
+//   font-size: $font-size-md;
+//   font-weight: 900;
+//   line-height: $line-height-md;
+
+//   @include lg-down {
+//     padding: 5px 12px;
+//     margin-bottom: 10px;
+//   }
+
+//   @include md-down {
+//     padding: 3px 13px;
+//     margin-right: 10px;
+//   }
+
+//   @include md-down {
+//     margin-bottom: 13px;
+//   }
+// }
