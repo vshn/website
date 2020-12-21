@@ -59,7 +59,7 @@
     "gatsby-plugin-sharp": "^2.10.1",
     "gatsby-plugin-svgr-svgo": "^1.0.12",
     "gatsby-source-filesystem": "^2.7.0",
-    "gatsby-source-wordpress-experimental": "^5.0.2",
+    "gatsby-source-wordpress-experimental": "^6.0.0",
     "gatsby-transformer-sharp": "^2.8.0",
     "husky": "^4.3.5",
     "lint-staged": "^10.5.3",
