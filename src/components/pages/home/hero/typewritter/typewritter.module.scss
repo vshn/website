@@ -3,7 +3,7 @@
 }
 
 .cursor {
-  border-left: 0.1em solid $color-accent-primary;
+  border-left: 4px solid $color-accent-primary;
   animation: blink 0.7s steps(1) infinite;
 }
 
