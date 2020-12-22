@@ -18,6 +18,17 @@ const Typewritter = ({ messages }) => {
     typingSpeed: TYPING_SPEED,
   });
 
+  const getCurrentText = (currentState) => (currentState.isDeleting
+    ? currentState.message.substring(0, currentState.text.length - 1)
+    : currentState.message.substring(0, currentState.text.length + 1));
+
+  // eslint-disable-next-line max-len
+  const getMessage = (currentState, data) => data[Number(currentState.loopNum) % Number(data.length)];
+
+  const getTypingSpeed = (currentState) => (currentState.isDeleting
+    ? TYPING_SPEED
+    : DELETING_SPEED);
+
   useEffect(() => {
     let timer = '';
     const handleType = () => {
@@ -55,17 +66,6 @@ const Typewritter = ({ messages }) => {
       }, 300);
     }
   }, [animationState.text, animationState.message, animationState.isDeleting, messages]);
-
-  const getCurrentText = (currentState) => (currentState.isDeleting
-    ? currentState.message.substring(0, currentState.text.length - 1)
-    : currentState.message.substring(0, currentState.text.length + 1));
-
-  // eslint-disable-next-line max-len
-  const getMessage = (currentState, data) => data[Number(currentState.loopNum) % Number(data.length)];
-
-  const getTypingSpeed = (currentState) => (currentState.isDeleting
-    ? TYPING_SPEED
-    : DELETING_SPEED);
 
   return (
     <div className={cx('wrapper')}>

@@ -1,9 +1,9 @@
 .wrapper {
-  color: #08c;
+  color: $color-accent-primary;
 }
 
 .cursor {
-  border-left: 0.1em solid #08c;
+  border-left: 0.1em solid $color-accent-primary;
   animation: blink 0.7s steps(1) infinite;
 }
 

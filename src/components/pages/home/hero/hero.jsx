@@ -16,7 +16,12 @@ import Typewritter from './typewritter';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ title, animatedText, description, buttonLink: { url: buttonUrl, title: buttonText } }) => {
+const Hero = ({
+  title,
+  animatedText,
+  description,
+  buttonLink: { url: buttonUrl, title: buttonText },
+}) => {
   const [animationPlayRef, isAnimationPlaying] = useInView();
 
   const [isInitialAnimationReady, setIsInitialAnimationReady] = useState(false);
@@ -71,15 +76,17 @@ const Hero = ({ title, animatedText, description, buttonLink: { url: buttonUrl, 
       isAnimationPlaying,
     ],
   );
-
-  const messages = animatedText.map((item) => item.text);
-
+  let messages;
+  const withAnimatedText = animatedText && animatedText.length > 0;
+  if (withAnimatedText) {
+    messages = animatedText.map((item) => item.text);
+  }
   return (
     <section className={cx('wrapper')}>
       <div className="container">
         <Heading className={cx('title')}>
           {title}
-          <Typewritter messages={messages} />
+          {withAnimatedText && <Typewritter messages={messages} />}
         </Heading>
         <p className={cx('description')}>{description}</p>
         <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
