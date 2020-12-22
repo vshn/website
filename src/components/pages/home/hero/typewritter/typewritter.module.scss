@@ -1,0 +1,14 @@
+.wrapper {
+  color: #08c;
+}
+
+.cursor {
+  border-left: 0.1em solid #08c;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

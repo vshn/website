@@ -32,6 +32,10 @@
 .title {
   max-width: 850px;
   margin: 0 auto;
+
+  @include xs-down {
+    word-break: break-word;
+  }
 }
 
 .background-image {
