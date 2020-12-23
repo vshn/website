@@ -40,6 +40,14 @@
   }
 }
 
+.typewriter {
+  color: $color-accent-primary;
+
+  span:nth-of-type(2) {
+    font-weight: 500;
+  }
+}
+
 .description {
   max-width: 480px;
   margin-top: 0;

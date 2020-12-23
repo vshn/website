@@ -35,7 +35,8 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
     "react-paginate": "^6.5.0",
-    "swiper": "^6.4.5"
+    "swiper": "^6.4.5",
+    "typewriter-effect": "^2.17.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

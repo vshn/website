@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Typewriter from 'typewriter-effect';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
@@ -12,7 +13,6 @@ import loopedAnimationData from './data/looped-animation.json';
 import styles from './hero.module.scss';
 import shape1 from './images/shape-1.svg';
 import shape2 from './images/shape-2.svg';
-import Typewritter from './typewritter';
 
 const cx = classNames.bind(styles);
 
@@ -86,7 +86,17 @@ const Hero = ({
       <div className="container">
         <Heading className={cx('title')}>
           {title}
-          {withAnimatedText && <Typewritter messages={messages} />}
+          {withAnimatedText && (
+            <div className={cx('typewriter')}>
+              <Typewriter
+                options={{
+                  strings: messages,
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </div>
+          )}
         </Heading>
         <p className={cx('description')}>{description}</p>
         <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
