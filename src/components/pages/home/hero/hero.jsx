@@ -2,11 +2,11 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Typewriter from 'typewriter-effect';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import useLottie from 'hooks/use-lottie';
-import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 
 import initialAnimationData from './data/initial-animation.json';
 import loopedAnimationData from './data/looped-animation.json';
@@ -16,7 +16,12 @@ import shape2 from './images/shape-2.svg';
 
 const cx = classNames.bind(styles);
 
-const Hero = ({ title, description, buttonLink: { url: buttonUrl, title: buttonText } }) => {
+const Hero = ({
+  title,
+  animatedText,
+  description,
+  buttonLink: { url: buttonUrl, title: buttonText },
+}) => {
   const [animationPlayRef, isAnimationPlaying] = useInView();
 
   const [isInitialAnimationReady, setIsInitialAnimationReady] = useState(false);
@@ -71,11 +76,28 @@ const Hero = ({ title, description, buttonLink: { url: buttonUrl, title: buttonT
       isAnimationPlaying,
     ],
   );
-
+  let messages;
+  const withAnimatedText = animatedText && animatedText.length > 0;
+  if (withAnimatedText) {
+    messages = animatedText.map((item) => item.text);
+  }
   return (
     <section className={cx('wrapper')}>
       <div className="container">
-        <Heading className={cx('title')} innerHTML={getTextWithoutParagraph(title)} />
+        <Heading className={cx('title')}>
+          {title}
+          {withAnimatedText && (
+            <div className={cx('typewriter')}>
+              <Typewriter
+                options={{
+                  strings: messages,
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </div>
+          )}
+        </Heading>
         <p className={cx('description')}>{description}</p>
         <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
@@ -100,11 +122,18 @@ const Hero = ({ title, description, buttonLink: { url: buttonUrl, title: buttonT
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
+  animatedText: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string,
+  })),
   description: PropTypes.string.isRequired,
   buttonLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+Hero.defaultProps = {
+  animatedText: [],
 };
 
 export default Hero;

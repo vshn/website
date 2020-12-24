@@ -47,6 +47,9 @@ export const query = graphql`
       acf {
         hero {
           title
+          animatedText {
+            text
+          }
           description
           buttonLink {
             url
