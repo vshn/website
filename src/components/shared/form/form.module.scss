@@ -60,6 +60,7 @@
       border: 2px solid $color-additional-2;
       border-radius: 4px;
       box-shadow: 0 0 5px rgba($color-primary, 0.05);
+      -webkit-appearance: none;
 
       @include md-down {
         padding-top: 12px;
@@ -87,6 +88,7 @@
       textarea {
         min-height: 160px;
         resize: none;
+        -webkit-appearance: none;
       }
     }
 
