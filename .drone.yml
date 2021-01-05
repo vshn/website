@@ -30,7 +30,7 @@ steps:
       - initial_notification
 
   - name: build
-    image: node:14.13.1-slim
+    image: node:14.15.4-slim
     environment:
       WP_GRAPHQL_URL: https://vshn.cyon.site/graphql
       GATSBY_DEFAULT_SITE_URL: https://vshn.ch/
