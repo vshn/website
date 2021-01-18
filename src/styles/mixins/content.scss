@@ -11,8 +11,12 @@
   > * {
     margin-top: 0;
     margin-right: 0;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     margin-left: 0;
+
+    @include md-down {
+      margin-bottom: 15px;
+    }
 
     &:first-child {
       margin-top: 0;
