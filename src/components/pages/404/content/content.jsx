@@ -13,13 +13,15 @@ const cx = classNames.bind(styles);
 
 const Content = ({ title, description, buttonText }) => {
   const goBack = () => {
-    navigate(-1);
+    navigate('/');
   };
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
         <img className={cx('image')} src={errorSvg} alt="" aria-hidden />
-        <Heading className={cx('title')} size="xl">{title}</Heading>
+        <Heading className={cx('title')} size="xl">
+          {title}
+        </Heading>
         <p className={cx('description')}>{description}</p>
         <Button onClick={goBack}>{buttonText}</Button>
       </div>
