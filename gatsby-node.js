@@ -882,22 +882,6 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
   const { createPage } = actions;
 
   createPage({
-    path: '/en/404',
-    component: slash(path.resolve('./src/templates/404.jsx')),
-    context: {
-      menus: getMenus('end'),
-      locale: 'en',
-      globalFields,
-      pageUrls: getUrlsForLocales('en', '/en/404', [
-        {
-          language: { locale: 'de' },
-          uri: '/404',
-        },
-      ]),
-    },
-  });
-
-  createPage({
     path: '/404',
     component: slash(path.resolve('./src/templates/404.jsx')),
     context: {
@@ -906,8 +890,8 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
       globalFields,
       pageUrls: getUrlsForLocales('de', '/404', [
         {
-          language: { locale: 'en' },
-          uri: '/en/404',
+          language: { locale: 'de' },
+          uri: '/404',
         },
       ]),
     },
