@@ -15,6 +15,7 @@ export default ({
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
+    locale={locale}
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}

@@ -11,9 +11,10 @@ export default ({
   data: {
     wpPage: data,
   },
-  pageContext: { pageUrls, menus, globalFields },
+  pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
+    locale={locale}
     seo={data.seo}
     pageUrls={pageUrls}
     menus={menus}

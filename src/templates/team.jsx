@@ -19,6 +19,7 @@ export default ({
   const breadcrumbs = [t[locale].breadcrumbs.about];
   return (
     <MainLayout
+      locale={locale}
       seo={data.seo}
       pageUrls={pageUrls}
       menus={menus}
