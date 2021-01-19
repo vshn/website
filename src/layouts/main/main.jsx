@@ -13,6 +13,7 @@ const MainLayout = (props) => {
     seo,
     children,
     pageUrls,
+    locale,
     menus: {
       mainMenuItems,
       topMenuItems,
@@ -47,6 +48,7 @@ const MainLayout = (props) => {
       {seo && <SEO {...seo} />}
       <Header
         pageUrls={pageUrls}
+        locale={locale}
         menuItems={mainMenuItems}
         topMenuItems={topMenuItems}
         onBurgerClick={handleHeaderBurgerClick}
@@ -77,6 +79,7 @@ MainLayout.propTypes = {
     socialLinks: PropTypes.shape({}),
     footerMeta: PropTypes.shape({}),
   }),
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 MainLayout.defaultProps = {
@@ -99,6 +102,7 @@ export const query = graphql`
       title
       metaDesc
       metaKeywords
+      metaRobotsNoindex
       opengraphDescription
       opengraphTitle
       opengraphUrl

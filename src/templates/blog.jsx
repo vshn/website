@@ -30,6 +30,7 @@ export default ({
   },
 }) => (
   <MainLayout
+    locale={locale}
     seo={seo}
     pageUrls={pageUrls}
     menus={menus}

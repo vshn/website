@@ -10,7 +10,7 @@ export default ({ pageContext: { locale, pageUrls, menus, globalFields } }) => {
     buttonText: 'Back to Home',
   };
   return (
-    <MainLayout pageUrls={pageUrls} menus={menus} globalFields={globalFields}>
+    <MainLayout locale={locale} pageUrls={pageUrls} menus={menus} globalFields={globalFields}>
       <Content {...content} />
     </MainLayout>
   );

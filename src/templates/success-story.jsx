@@ -5,7 +5,6 @@ import React from 'react';
 import Content from 'components/pages/success-story/content';
 import Hero from 'components/pages/success-story/hero';
 import Contact from 'components/shared/contact';
-import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
@@ -15,6 +14,7 @@ export default ({
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
+    locale={locale}
     seo={data.seo}
     pageUrls={pageUrls}
     menus={menus}

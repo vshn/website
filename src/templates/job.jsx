@@ -20,6 +20,7 @@ export default ({
   const breadcrumbs = [links.about, links.jobs];
   return (
     <MainLayout
+      locale={locale}
       seo={data.seo}
       pageUrls={pageUrls}
       menus={menus}

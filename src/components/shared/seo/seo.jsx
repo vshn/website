@@ -11,6 +11,7 @@ const SEO = (props) => {
     title,
     metaDesc,
     metaKeywords,
+    metaRobotsNoindex,
     opengraphDescription,
     opengraphTitle,
     opengraphImage,
@@ -42,6 +43,7 @@ const SEO = (props) => {
   `);
   const unescapedTitle = unescapeHTML(title);
   const unescapedDescription = unescapeHTML(metaDesc);
+  const isRobotsNoindexPage = metaRobotsNoindex === 'noindex';
   return (
     <Helmet
       title={unescapedTitle}
@@ -53,6 +55,7 @@ const SEO = (props) => {
       {/* General */}
       <meta name="description" content={unescapedDescription} />
       {metaKeywords && <meta name="keywords" content={metaKeywords} />}
+      {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
       {/* Open Graph */}
       <meta property="og:title" content={unescapeHTML(opengraphTitle)} />
       <meta property="og:description" content={unescapeHTML(opengraphDescription)} />

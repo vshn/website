@@ -13,6 +13,8 @@ import SubMenu from './sub-menu';
 
 const cx = classNames.bind(styles);
 
+const getIndexURL = (locale) => (locale === 'en' ? '/en/' : '/');
+
 const Header = (props) => {
   const {
     allWpMenuBanner: { banners },
@@ -43,7 +45,9 @@ const Header = (props) => {
     topMenuItems,
     onBurgerClick,
     pageUrls,
+    locale,
   } = props;
+
   const [isMenuItemHovered, setIsMenuItemHovered] = useState(false);
 
   const handleMenuItemMouseEnter = () => setIsMenuItemHovered(true);
@@ -85,7 +89,7 @@ const Header = (props) => {
           </ul>
         </div>
         <div className={cx('section')}>
-          <Link to="/">
+          <Link to={getIndexURL(locale)}>
             <Logo className={cx('logo')} />
           </Link>
 
@@ -160,6 +164,7 @@ Header.propTypes = {
   ),
   onBurgerClick: PropTypes.func.isRequired,
   pageUrls: PropTypes.shape().isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 Header.defaultProps = {
