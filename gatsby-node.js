@@ -231,6 +231,42 @@ const buildUrlsForLocales = (url) => {
 
 /* Main logic */
 
+// Create Redirects
+async function createRedirects({ graphql, actions }) {
+  const { createRedirect } = actions;
+  const result = await graphql(`
+    {
+      wp {
+        seo {
+          redirects {
+            origin
+            target
+            type
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const { redirects } = result.data.wp.seo;
+  // Add slash at the beginning of the string if not present to adjust it for Netlify's format
+  // eg. blog/the-ultimate-guide-to-buying-intercom-systems-for-offices -> /blog/the-ultimate-guide-to-buying-intercom-systems-for-offices
+
+  const formatPath = (path) => (/^\/|^http|^https|^www/.test(path) ? path : `/${path}`);
+  redirects.forEach(({ origin, target, type }) => {
+    createRedirect({
+      fromPath: formatPath(origin),
+      toPath: formatPath(target),
+      statusCode: parseInt(type, 10),
+      force: true,
+    });
+  });
+}
+
 // Create Pages
 async function createPages({
   graphql,
@@ -932,6 +968,7 @@ exports.createPages = async (args) => {
     globalFields,
   };
 
+  await createRedirects(params);
   await createPages(params);
   await createBlogPages(params);
   await createPosts(params);
