@@ -18,7 +18,6 @@
 
   &__wrapper {
     position: relative;
-    min-height: 357px;
     text-align: center;
     background-image:
       linear-gradient(
@@ -29,10 +28,6 @@
     border-radius: 8px;
     box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
     transition: background-image $transition-base, box-shadow $transition-base;
-
-    @include md-down {
-      min-height: initial;
-    }
 
     @include hover {
       z-index: 1;
@@ -52,7 +47,7 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    padding-top: 30px;
+    padding-top: 45px;
     padding-right: 30px;
     padding-bottom: 20px;
     padding-left: 30px;
@@ -62,14 +57,12 @@
     @include md-down {
       position: relative;
       flex-direction: row;
-      padding-top: 45px;
       padding-bottom: 45px;
-      padding-left: 190px;
+      padding-left: 60px;
     }
 
     @include sm-down {
       flex-direction: column;
-      min-height: 312px;
       padding-top: 40px;
       padding-right: 25px;
       padding-bottom: 20px;
@@ -86,9 +79,9 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    font-size: 26px;
+    font-size: $font-size-lg;
     font-weight: 900;
-    line-height: 1.2;
+    line-height: $line-height-lg;
     color: $color-primary;
     background-color: $color-accent-secondary;
     border-top-left-radius: 8px;
@@ -105,25 +98,30 @@
     }
   }
 
-  &__icon {
-    margin-top: 15px;
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
     margin-bottom: 30px;
 
     @include md-down {
-      position: absolute;
-      top: 50%;
-      left: 45px;
+      max-width: 115px;
       height: 100px;
-      margin-top: 0;
+      margin-right: 30px;
       margin-bottom: 0;
-      transform: translateY(-50%);
     }
 
     @include sm-down {
-      position: static;
+      max-width: initial;
+      margin-right: 0;
       margin-bottom: 25px;
-      transform: none;
     }
+  }
+
+  &__icon {
+    height: 100%;
   }
 
   &__content {
@@ -145,9 +143,10 @@
 
   &__title {
     margin-top: 0;
-    font-size: 26px;
+    margin-bottom: 45px;
+    font-size: $font-size-lg;
     font-weight: 900;
-    line-height: 1.2;
+    line-height: $line-height-lg;
 
     @include lg-down {
       font-size: 24px;
@@ -156,44 +155,38 @@
     @include md-down {
       margin-bottom: 15px;
       font-size: 22px;
+      text-align: left;
+    }
+
+    @include sm-down {
+      margin-bottom: 40px;
+      text-align: center;
     }
   }
 
   &__button-text {
     position: relative;
     width: 100%;
+    padding-top: 15px;
     margin-top: auto;
     font-size: $font-size-xs;
     font-weight: 700;
     line-height: $line-height-xs;
     color: $color-primary;
     text-transform: uppercase;
+    border-top: 2px solid $color-additional-1;
     transition: color $transition-base;
 
     @include md-down {
       width: initial;
+      padding-top: 0;
+      border-top: none;
     }
 
     @include sm-down {
       width: 100%;
-    }
-
-    &::before {
-      position: absolute;
-      top: -15px;
-      right: 0;
-      left: 0;
-      height: 2px;
-      content: "";
-      background-color: $color-additional-1;
-
-      @include md-down {
-        visibility: hidden;
-      }
-
-      @include sm-down {
-        visibility: visible;
-      }
+      padding-top: 15px;
+      border-top: 2px solid $color-additional-1;
     }
   }
 }
