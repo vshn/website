@@ -1,13 +1,12 @@
 {
-  "extends": [
-    "@commitlint/config-conventional"
-  ],
+  "extends": ["@commitlint/config-conventional"],
   "rules": {
     "scope-enum": [
       2,
       "always",
       [
         "components",
+        "lazy-blocks",
         "constants",
         "hooks",
         "icons",
