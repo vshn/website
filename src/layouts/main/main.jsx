@@ -26,7 +26,6 @@ const MainLayout = (props) => {
     },
   } = props;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(true);
   const handleOverlayClick = () => setIsMobileMenuOpen(false);
   const handleMobileNavCloseButtonClick = () => setIsMobileMenuOpen(false);
@@ -57,6 +56,8 @@ const MainLayout = (props) => {
       <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
       <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
       <MobileMenu
+        pageUrls={pageUrls}
+        topMenuItems={topMenuItems}
         isOpen={isMobileMenuOpen}
         menuItems={mobileMenuItems}
         onCloseButtonClick={handleMobileNavCloseButtonClick}

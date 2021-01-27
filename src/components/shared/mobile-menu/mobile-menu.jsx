@@ -12,9 +12,9 @@ const cx = classNames.bind(styles);
 const MobileMenu = (props) => {
   const {
     language1Text,
-    language1Url,
     language2Text,
-    language2Url,
+    topMenuItems,
+    pageUrls,
     menuItems,
     buttonText,
     buttonUrl,
@@ -26,20 +26,30 @@ const MobileMenu = (props) => {
       <div className={cx('inner')}>
         <ul className={cx('lang-menu')}>
           <li className={cx('lang-menu-item')}>
-            <Link className={cx('lang-menu-link')} to={language1Url} activeClassName={cx('active')}>{language1Text}</Link>
+            <Link className={cx('lang-menu-link')} to={pageUrls.en} activeClassName={cx('active')}>{language1Text}</Link>
           </li>
           <li className={cx('lang-menu-item')}>
-            <Link className={cx('lang-menu-link')} to={language2Url} activeClassName={cx('active')}>{language2Text}</Link>
+            <Link className={cx('lang-menu-link')} to={pageUrls.de} activeClassName={cx('active')}>{language2Text}</Link>
           </li>
         </ul>
-
-        <ul className={cx('menu')}>
-          {menuItems.map(({ label, path }, index) => (
-            <li className={cx('menu-item')} key={index}>
-              <Link className={cx('menu-link')} to={path}>{label}</Link>
-            </li>
-          ))}
-        </ul>
+        <div className={cx('menu-wrapper')}>
+          <ul className={cx('list')}>
+            {topMenuItems.map(({ label, path, target }, i) => (
+              <li key={i} className={cx('list-item')}>
+                <Link to={path} target={target}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className={cx('menu')}>
+            {menuItems.map(({ label, path }, index) => (
+              <li className={cx('menu-item')} key={index}>
+                <Link className={cx('menu-link')} to={path}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
 
@@ -51,9 +61,14 @@ const MobileMenu = (props) => {
 
 MobileMenu.propTypes = {
   language1Text: PropTypes.string,
-  language1Url: PropTypes.string,
   language2Text: PropTypes.string,
-  language2Url: PropTypes.string,
+  topMenuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+      target: PropTypes.string.isRequired,
+    }),
+  ),
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
@@ -62,15 +77,15 @@ MobileMenu.propTypes = {
   buttonUrl: PropTypes.string,
   isOpen: PropTypes.bool,
   onCloseButtonClick: PropTypes.func.isRequired,
+  pageUrls: PropTypes.shape().isRequired,
 };
 
 MobileMenu.defaultProps = {
   language1Text: 'English',
-  language1Url: '/en',
   language2Text: 'Deutsch',
-  language2Url: '/',
+  topMenuItems: [],
   menuItems: [],
-  buttonText: 'Contact Us',
+  buttonText: 'Login',
   buttonUrl: '/',
   isOpen: false,
 };
