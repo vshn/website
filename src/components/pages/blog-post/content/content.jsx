@@ -11,7 +11,7 @@ import 'components/lazy-blocks/hubspot-form/hubspot-form.scss';
 const cx = classNames.bind(styles);
 
 const Content = ({ content }) => {
-  useHubspotForm();
+  useHubspotForm('.wp-block-lazyblock-hubspot-form');
   return (
     <article className={cx('wrapper')}>
       <div className="container">

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 const PORTAL_ID = '7105834';
 const FORM_JS_SRC = 'https://js.hsforms.net/forms/v2.js';
 
-export default function useForm() {
+export default function useHubspotForm(lazyBlockSelector) {
   const [formId, setFormId] = useState(null);
 
   const initForm = useCallback(() => {
@@ -33,8 +33,10 @@ export default function useForm() {
 
   useEffect(() => {
     // Get form ID
-    const form = document.querySelector('.wp-block-lazyblock-hubspot-form');
-    const formIdData = form.querySelector('.hubspot-form').getAttribute('data-form-id');
-    setFormId(formIdData);
-  }, []);
+    const form = document.querySelector(lazyBlockSelector);
+    if (form) {
+      const formIdData = form.querySelector('.hubspot-form').getAttribute('data-form-id');
+      setFormId(formIdData);
+    }
+  }, [lazyBlockSelector]);
 }
