@@ -20,10 +20,8 @@
   color: $color-secondary;
   background-color: $color-additional-1;
   border-radius: 8px;
-}
 
-:global {
-  #form-container {
+  :global {
     .hs-form {
       display: flex;
       flex-direction: column;
