@@ -106,6 +106,7 @@ module.exports = {
           },
         },
         develop: {
+          nodeUpdateInterval: process.env.WP_NODE_UPDATE_INTERVAL || 5000,
           hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
           hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },

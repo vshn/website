@@ -11,16 +11,12 @@ import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
 export default ({
-  data: {
-    seo,
-    wpPost: data,
-    allWpPost,
-  },
+  data: { wpPost: data, allWpPost },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
     locale={locale}
-    seo={seo}
+    seo={data.seo}
     pageUrls={pageUrls}
     menus={menus}
     globalFields={globalFields}
@@ -65,15 +61,15 @@ export const query = graphql`
           firstName
           lastName
           description
-        } 
+        }
       }
       ...wpPostSeo
     }
     allWpPost(
-      filter: {language: {slug: {eq: $locale}}}, 
-      limit: 9, 
-      sort: {fields: date, order: DESC}
-      ) {
+      filter: { language: { slug: { eq: $locale } } }
+      limit: 9
+      sort: { fields: date, order: DESC }
+    ) {
       items: nodes {
         title
         shortDescription: excerpt
