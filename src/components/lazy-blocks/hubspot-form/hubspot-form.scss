@@ -1,126 +1,123 @@
 .hubspot-form {
-  &__container {
-    max-width: 850px;
-    padding: 30px;
-    margin: 0 auto;
-    color: $color-secondary;
-    background-color: $color-additional-1;
-    border-radius: 8px;
+  padding: 30px;
+  margin: 0 auto;
+  color: $color-secondary;
+  background-color: $color-additional-1;
+  border-radius: 8px;
 
-    :global {
-      .hs-form {
-        display: flex;
-        flex-direction: column;
+  :global {
+    .hs-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hs-form-field {
+      position: relative;
+      display: block;
+      margin-bottom: 30px;
+
+      @include lg-down {
+        margin-bottom: 20px;
       }
 
-      .hs-form-field {
-        position: relative;
+      @include md-down {
+        margin-bottom: 15px;
+      }
+
+      label {
         display: block;
-        margin-bottom: 30px;
-
-        @include lg-down {
-          margin-bottom: 20px;
-        }
-
-        @include md-down {
-          margin-bottom: 15px;
-        }
-
-        & > label {
-          display: block;
-          margin-bottom: 5px;
-        }
+        margin-bottom: 5px;
       }
+    }
 
-      .hs-input {
-        width: 100%;
-        padding-top: 17px;
+    .hs-input {
+      width: 100%;
+      padding-top: 17px;
+      padding-right: 20px;
+      padding-bottom: 17px;
+      padding-left: 20px;
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+      background-color: $color-tertiary;
+      border: 2px solid $color-additional-2;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba($color-primary, 0.05);
+      -webkit-appearance: none;
+
+      @include md-down {
+        padding-top: 12px;
         padding-right: 20px;
-        padding-bottom: 17px;
+        padding-bottom: 12px;
         padding-left: 20px;
-        font-size: $font-size-sm;
-        line-height: $line-height-sm;
-        background-color: $color-tertiary;
-        border: 2px solid $color-additional-2;
-        border-radius: 4px;
-        box-shadow: 0 0 5px rgba($color-primary, 0.05);
+      }
+
+      &:focus {
+        border: 2px solid $color-accent-primary;
+        outline: none;
+        box-shadow: 0 5px 15px rgba($color-primary, 0.15);
+      }
+
+      &.error {
+        border: 2px solid #fbd3d0;
+      }
+
+      &::placeholder {
+        color: $color-secondary;
+      }
+    }
+
+    .hs-message {
+      textarea {
+        min-height: 160px;
+        resize: none;
         -webkit-appearance: none;
-
-        @include md-down {
-          padding-top: 12px;
-          padding-right: 20px;
-          padding-bottom: 12px;
-          padding-left: 20px;
-        }
-
-        &:focus {
-          border: 2px solid $color-accent-primary;
-          outline: none;
-          box-shadow: 0 5px 15px rgba($color-primary, 0.15);
-        }
-
-        &.error {
-          border: 2px solid #fbd3d0;
-        }
-
-        &::placeholder {
-          color: $color-secondary;
-        }
       }
+    }
 
-      .hs-message {
-        textarea {
-          min-height: 160px;
-          resize: none;
-          -webkit-appearance: none;
-        }
-      }
+    .hs-error-msgs {
+      padding-left: 5px;
+      margin-top: 5px;
+      margin-bottom: 0;
+      font-size: $font-size-xs;
+      line-height: $line-height-xs;
+      list-style-type: none;
+    }
 
-      .hs-error-msgs {
-        padding-left: 5px;
-        margin-top: 5px;
-        margin-bottom: 0;
-        font-size: $font-size-xs;
-        line-height: $line-height-xs;
-        list-style-type: none;
-      }
+    .legal-consent-container {
+      margin-bottom: 30px;
+      font-size: $font-size-sm;
+      line-height: $line-height-sm;
+    }
 
-      .legal-consent-container {
-        margin-bottom: 30px;
-        font-size: $font-size-sm;
-        line-height: $line-height-sm;
-      }
+    .hs-submit {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 40px;
+      border-top: 2px solid $color-additional-2;
+    }
 
-      .hs-submit {
-        position: relative;
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        padding-top: 40px;
-        border-top: 2px solid $color-additional-2;
-      }
+    .hs-button {
+      @include button;
+    }
 
-      .hs-button {
-        @include button;
-      }
+    .submitted-message {
+      color: #09ac40;
+      text-align: center;
+      background: #d0fbdf;
+      border-radius: 4px;
+    }
 
-      .submitted-message {
-        color: #09ac40;
-        text-align: center;
-        background: #d0fbdf;
-        border-radius: 4px;
-      }
-
-      .hs_error_rollup {
-        order: -1;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 30px;
-        color: #ac1709;
-        text-align: center;
-        background-color: #fbd3d0;
-        border-radius: 4px;
-      }
+    .hs_error_rollup {
+      order: -1;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      color: #ac1709;
+      text-align: center;
+      background-color: #fbd3d0;
+      border-radius: 4px;
     }
   }
 }

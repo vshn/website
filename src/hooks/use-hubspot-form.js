@@ -19,8 +19,7 @@ const injectScript = () => new Promise((resolve, reject) => {
 
 const init = async (element) => {
   await injectScript();
-  const formEl = element.querySelector('.hubspot-form__container');
-  const formId = formEl.getAttribute('data-form-id');
+  const formId = element.getAttribute('data-form-id');
   window.hbspt.forms.create({
     portalId: PORTAL_ID,
     formId,
