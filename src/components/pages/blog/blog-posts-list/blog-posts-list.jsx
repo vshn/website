@@ -21,9 +21,6 @@ const BlogPostList = ({ locale, posts, banner: { bannerCover, bannerTitle, banne
   if (hasBanner) {
     banner = (
       <div className={cx('illustration')} aria-hidden>
-        <span className={cx('rectangle', 'rectangle-1')} />
-        <span className={cx('rectangle', 'rectangle-2')} />
-        <span className={cx('rectangle', 'rectangle-3')} />
         <Link className={cx('banner')} to={bannerLink}>
           <GatsbyImage className={cx('banner-image')} fluid={bannerCover.localFile.childImageSharp.fluid} />
           <div className={cx('banner-overlay')} />

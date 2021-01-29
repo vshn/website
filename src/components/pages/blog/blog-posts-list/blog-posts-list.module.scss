@@ -23,7 +23,7 @@
 
 .illustration {
   position: absolute;
-  top: 45px;
+  top: 0;
   right: 45px;
   width: 320px;
 
@@ -35,62 +35,6 @@
 
   @include md-down {
     display: none;
-  }
-}
-
-.rectangle {
-  position: absolute;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba($color-primary, 0.15);
-}
-
-.rectangle-1 {
-  top: -45px;
-  left: -45px;
-  width: 300px;
-  height: 350px;
-  background-color: $color-accent-primary;
-  border-top-left-radius: 60px;
-
-  @include lg-down {
-    top: -30px;
-    left: -30px;
-    width: 212px;
-    height: 247px;
-    border-top-left-radius: 45px;
-  }
-}
-
-.rectangle-2 {
-  top: -30px;
-  right: -45px;
-  width: 300px;
-  height: 575px;
-  background-color: $color-accent-secondary;
-  border-bottom-right-radius: 60px;
-
-  @include lg-down {
-    top: -20px;
-    right: -30px;
-    width: 212px;
-    height: 406px;
-    border-bottom-right-radius: 40px;
-  }
-}
-
-.rectangle-3 {
-  bottom: -30px;
-  left: -30px;
-  width: 230px;
-  height: 385px;
-  background-color: $color-primary;
-  border-top-right-radius: 120px;
-
-  @include lg-down {
-    bottom: -15px;
-    left: -20px;
-    width: 163px;
-    height: 272px;
   }
 }
 
