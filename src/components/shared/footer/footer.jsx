@@ -29,12 +29,7 @@ const SOCIAL_ICONS = {
 const Footer = (props) => {
   const {
     socialLinks,
-    footerMeta: {
-      copyright,
-      praiseBody,
-      praiseLink,
-      praiseLinkName,
-    },
+    footerMeta: { copyright, praiseBody },
     menuItems,
   } = props;
   // eslint-disable-next-line react/prop-types
@@ -73,7 +68,9 @@ const Footer = (props) => {
             <ul className={cx('menu')}>
               {menuItems.map(({ label, path }, index) => (
                 <li className={cx('menu-item')} key={index}>
-                  <Link className={cx('menu-link')} to={path}>{label}</Link>
+                  <Link className={cx('menu-link')} to={path}>
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -83,11 +80,7 @@ const Footer = (props) => {
 
         <div className={cx('bottom-section')}>
           <p className={cx('copyright')}>{copyright}</p>
-          <p className={cx('praise')}>
-            {praiseBody}
-            {' '}
-            <a href={praiseLink} target="_blank" rel="noopener noreferrer">{praiseLinkName}</a>
-          </p>
+          <p className={cx('praise')}>{praiseBody}</p>
         </div>
       </div>
     </footer>
@@ -95,13 +88,13 @@ const Footer = (props) => {
 };
 
 Footer.propTypes = {
-  menuItems: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-  })),
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    }),
+  ),
   footerMeta: PropTypes.shape({
-    praiseLink: PropTypes.string,
-    praiseLinkName: PropTypes.string,
     praiseBody: PropTypes.string,
     copyright: PropTypes.string,
   }),
@@ -120,8 +113,6 @@ Footer.defaultProps = {
   menuItems: [],
   footerMeta: {
     praiseBody: '',
-    praiseLink: '',
-    praiseLinkName: '',
     copyright: '',
   },
   socialLinks: {

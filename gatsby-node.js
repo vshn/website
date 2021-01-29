@@ -42,8 +42,6 @@ const getGlobalFields = async (graphql) => {
           footerMetaAcf {
             copyright
             praiseBody
-            praiseLink
-            praiseLinkName
           }
         }
       }
@@ -881,33 +879,31 @@ async function createJobs({
   }
   const jobs = result.data.allWpJob.nodes;
 
-  jobs.forEach(
-    ({ id, content, uri, language: { locale }, translations }) => {
-      const templatePath = path.resolve('./src/templates/job.jsx');
+  jobs.forEach(({ id, content, uri, language: { locale }, translations }) => {
+    const templatePath = path.resolve('./src/templates/job.jsx');
 
-      const context = {
-        id,
-        locale,
-        menus: getMenus(locale),
-        globalFields,
-        pageUrls: getUrlsForLocales(locale, uri, translations),
-      };
+    const context = {
+      id,
+      locale,
+      menus: getMenus(locale),
+      globalFields,
+      pageUrls: getUrlsForLocales(locale, uri, translations),
+    };
 
-      if (content) {
-        context.content = stripSpaces(content);
-      }
+    if (content) {
+      context.content = stripSpaces(content);
+    }
 
-      if (fs.existsSync(templatePath)) {
-        createPage({
-          path: uri,
-          component: slash(templatePath),
-          context,
-        });
-      } else {
-        reporter.error('Template Job was not found');
-      }
-    },
-  );
+    if (fs.existsSync(templatePath)) {
+      createPage({
+        path: uri,
+        component: slash(templatePath),
+        context,
+      });
+    } else {
+      reporter.error('Template Job was not found');
+    }
+  });
 }
 
 /* Note: this is a stub, should be set properly after
