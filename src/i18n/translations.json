@@ -71,6 +71,10 @@
     },
     "blogPost": {
       "latestNews": "Latest News"
+    },
+    "login": {
+      "title": "Login",
+      "url": "/en/login/"
     }
   },
   "de": {
@@ -145,6 +149,10 @@
     },
     "blogPost": {
       "latestNews": "Neuesten Nachrichten"
+    },
+    "login": {
+      "title": "Login",
+      "url": "/login/"
     }
   }
 }
