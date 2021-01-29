@@ -62,6 +62,11 @@
       .gatsby-image-wrapper {
         border: none;
       }
+
+      img {
+        // fix issue the images are cut on left & right sides
+        object-fit: contain !important;
+      }
     }
   }
 

@@ -9,7 +9,10 @@ const cx = classNames.bind(styles);
 const Content = ({ content }) => (
   <article className={cx('wrapper')}>
     <div className="container">
-      <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        className={cx('content')}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   </article>
 );
