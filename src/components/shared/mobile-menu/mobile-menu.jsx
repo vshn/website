@@ -4,6 +4,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
+import t from 'i18n';
 
 import styles from './mobile-menu.module.scss';
 
@@ -16,9 +17,8 @@ const MobileMenu = (props) => {
     topMenuItems,
     pageUrls,
     menuItems,
-    buttonText,
-    buttonUrl,
     isOpen,
+    locale,
     onCloseButtonClick,
   } = props;
   return (
@@ -51,7 +51,7 @@ const MobileMenu = (props) => {
           </ul>
         </div>
 
-        <Button className={cx('button')} to={buttonUrl}>{buttonText}</Button>
+        <Button className={cx('button')} to={t[locale].login.url}>{t[locale].login.title}</Button>
 
         <button className={cx('close-button')} type="button" aria-label="Close Mobile Menu" onClick={onCloseButtonClick} />
       </div>
@@ -73,11 +73,10 @@ MobileMenu.propTypes = {
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
   })),
-  buttonText: PropTypes.string,
-  buttonUrl: PropTypes.string,
   isOpen: PropTypes.bool,
   onCloseButtonClick: PropTypes.func.isRequired,
   pageUrls: PropTypes.shape().isRequired,
+  locale: PropTypes.oneOf(['en', 'de']).isRequired,
 };
 
 MobileMenu.defaultProps = {
@@ -85,8 +84,6 @@ MobileMenu.defaultProps = {
   language2Text: 'Deutsch',
   topMenuItems: [],
   menuItems: [],
-  buttonText: 'Login',
-  buttonUrl: '/',
   isOpen: false,
 };
 
