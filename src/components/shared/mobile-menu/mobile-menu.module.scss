@@ -21,8 +21,7 @@
 .inner {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  min-height: 100%;
+  height: 100%;
   background-color: $color-tertiary;
 
   @include safe-area(padding-top, top, 30px);
