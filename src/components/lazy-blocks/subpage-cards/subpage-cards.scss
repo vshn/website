@@ -122,6 +122,10 @@
 
   &__icon {
     height: 100%;
+
+    img {
+      object-fit: contain !important;
+    }
   }
 
   &__content {

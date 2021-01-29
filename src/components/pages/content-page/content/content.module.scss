@@ -46,13 +46,7 @@
 
   :global {
     .wp-block-image {
-      margin-right: 60px;
-      margin-left: 60px;
-
-      @include lg-down {
-        margin-right: 30px;
-        margin-left: 30px;
-      }
+      line-height: 0;
 
       @include md-down {
         margin-right: 0;
@@ -61,11 +55,6 @@
 
       .gatsby-image-wrapper {
         border: none;
-      }
-
-      img {
-        // fix issue the images are cut on left & right sides
-        object-fit: contain !important;
       }
     }
   }

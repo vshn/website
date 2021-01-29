@@ -79,6 +79,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress-experimental',
       options: {
+        schema: {
+          timeout: 60000,
+        },
         url: process.env.WP_GRAPHQL_URL,
         auth: {
           htaccess: {
