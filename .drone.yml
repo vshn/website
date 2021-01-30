@@ -13,6 +13,21 @@ steps:
 
         Logs: {{build.link}}
 
+  - name: initial_notification_vshn
+    image: mike1pol/drone-rocket
+    settings:
+      url:
+        from_secret: rocket_url
+      user_id:
+        from_secret: rocket_user
+      token:
+        from_secret: rocket_token
+      channel:
+        from_secret: rocket_channel
+      message: >
+        There is a new deploy in process for *{{repo.name}}* 
+        Logs: {{build.link}}
+
   - name: get-cache
     image: meltwater/drone-cache:dev
     settings:
@@ -93,6 +108,28 @@ steps:
     depends_on:
       - netlify-deploy-preview
 
+  - name: netlify-success-notification-vshn
+    image: mike1pol/drone-rocket
+    settings:
+      url:
+        from_secret: rocket_url
+      user_id:
+        from_secret: rocket_user
+      token:
+        from_secret: rocket_token
+      channel:
+        from_secret: rocket_channel
+      message: >
+        Successful deploy of {{repo.name}}
+
+        Deploy preview URL: https://{{build.branch}}--vshn.netlify.app
+    when:
+      branch:
+        exclude:
+          - master
+    depends_on:
+      - netlify-deploy-preview
+
   - name: netlify-deploy
     image: williamjackson/netlify-cli
     environment:
@@ -113,6 +150,27 @@ steps:
       webhook:
         from_secret: slack_webhook
       template: >
+        Successful deploy of {{repo.name}}
+
+        Deploy URL: https://vshn.netlify.app
+    when:
+      branch:
+        - master
+    depends_on:
+      - netlify-deploy
+
+  - name: netlify-success-notification-prod-vshn
+    image: mike1pol/drone-rocket
+    settings:
+      url:
+        from_secret: rocket_url
+      user_id:
+        from_secret: rocket_user
+      token:
+        from_secret: rocket_token
+      channel:
+        from_secret: rocket_channel
+      message: >
         Successful deploy of {{repo.name}}
 
         Deploy URL: https://vshn.netlify.app
@@ -181,6 +239,30 @@ steps:
       status:
         - failure
 
+  - name: failed_status_notification_vshn
+    image: mike1pol/drone-rocket
+    settings:
+      url:
+        from_secret: rocket_url
+      user_id:
+        from_secret: rocket_user
+      token:
+        from_secret: rocket_token
+      channel:
+        from_secret: rocket_channel
+      message: >
+        Deploy did not complete for *{{repo.name}}*. 
+
+        Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
+
+        Logs: {{build.link}}
+    depends_on:
+      - deploy-gatsby-preview-server
+      - netlify-deploy-preview
+    when:
+      status:
+        - failure
+
 volumes:
   - name: cache
     host:
@@ -190,3 +272,4 @@ trigger:
   event:
     - push
     - custom
+
