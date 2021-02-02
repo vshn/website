@@ -60,6 +60,7 @@ const MainLayout = (props) => {
         topMenuItems={topMenuItems}
         isOpen={isMobileMenuOpen}
         menuItems={mobileMenuItems}
+        locale={locale}
         onCloseButtonClick={handleMobileNavCloseButtonClick}
       />
     </>
