@@ -26,7 +26,9 @@ Item.propTypes = {
   number: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   footerText: PropTypes.string.isRequired,
-  link: PropTypes.shape({}).isRequired,
+  link: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   icon: PropTypes.shape({
     localFile: PropTypes.shape({
       publicURL: PropTypes.string.isRequired,
