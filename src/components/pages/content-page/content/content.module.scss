@@ -46,7 +46,7 @@
 
   :global {
     .wp-block-image {
-      line-height: 0;
+      line-height: 1;
 
       @include md-down {
         margin-right: 0;
@@ -55,6 +55,10 @@
 
       .gatsby-image-wrapper {
         border: none;
+      }
+
+      img {
+        object-fit: contain !important;
       }
     }
   }
