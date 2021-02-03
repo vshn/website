@@ -143,12 +143,12 @@
       "postCtaButton": "Weiterlesen",
       "allPostsCategoryName": "Alle Beiträge",
       "pagination": {
-        "prevLabel": "Ältere Beiträge",
-        "nextLabel": "Neuere Beiträge"
+        "prevLabel": "Neuere Beiträge",
+        "nextLabel": "Ältere Beiträge"
       }
     },
     "blogPost": {
-      "latestNews": "Neuesten Nachrichten"
+      "latestNews": "Neuigkeiten"
     },
     "login": {
       "title": "Login",
