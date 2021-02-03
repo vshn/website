@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Content from 'components/pages/404/content';
 import MainLayout from 'layouts/main';
@@ -10,8 +12,13 @@ export default ({ pageContext: { locale, pageUrls, menus, globalFields } }) => {
     buttonText: 'Back to Home',
   };
   return (
-    <MainLayout locale={locale} pageUrls={pageUrls} menus={menus} globalFields={globalFields}>
-      <Content {...content} />
-    </MainLayout>
+    <>
+      <Helmet>
+        <title>404 - Page Not Found</title>
+      </Helmet>
+      <MainLayout locale={locale} pageUrls={pageUrls} menus={menus} globalFields={globalFields}>
+        <Content {...content} />
+      </MainLayout>
+    </>
   );
 };
