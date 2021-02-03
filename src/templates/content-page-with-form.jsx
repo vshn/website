@@ -2,8 +2,8 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Content from 'components/pages/content-page-with-form/content';
 import backgroundImage from 'components/pages/content-page/hero/images/background-image.svg';
+import Content from 'components/shared/content';
 import Hero from 'components/shared/hero';
 import MainLayout from 'layouts/main';
 
