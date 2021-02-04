@@ -14,31 +14,25 @@
 
 .items-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 220px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   row-gap: 30px;
   column-gap: $column-gap;
   padding-left: 0;
   list-style-type: none;
 
   @include lg-down {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   }
 
   @include md-down {
-    grid-auto-rows: 205px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     row-gap: 20px;
     column-gap: $column-gap-md;
   }
 
   @include sm-down {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 230px;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
     row-gap: 15px;
-  }
-
-  @include xs-down {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -86,12 +80,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 65%;
-  height: 135px;
+  width: 100%;
+  min-height: 135px;
+}
 
-  .logo {
-    width: 100%;
-  }
+.logo {
+  display: block;
+  height: auto;
+  overflow: hidden;
+  object-fit: contain;
 }
 
 .name {
