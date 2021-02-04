@@ -56,7 +56,7 @@ module.exports = {
               url: site.siteMetadata.siteUrl + edge.node.uri,
               guid: site.siteMetadata.siteUrl + edge.node.uri,
               // relDir: edge.relativeDirectory,
-              custom_elements: [{ 'content:encoded': edge.node.excerpt }],
+              // custom_elements: [{ 'content:encoded': edge.node.excerpt }],
             })),
             query: `
               {

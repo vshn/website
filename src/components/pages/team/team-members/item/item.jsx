@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-
-import NoAvatar from '../images/no-avatar.inline.svg';
+import NoAvatar from 'icons/no-avatar.inline.svg';
 
 import styles from './item.module.scss';
 
