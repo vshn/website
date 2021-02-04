@@ -11,18 +11,15 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, relatedItems, formId }) => {
-  const hasRelatedItems = relatedItems && relatedItems.items.length > 0;
-  return (
-    <section className={cx('wrapper')}>
-      <div className={cx('container', 'inner')}>
-        <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
-        {hasRelatedItems && <RelatedItems {...relatedItems} />}
-        {formId && <Form formId={formId} />}
-      </div>
-    </section>
-  );
-};
+const Content = ({ content, relatedItems, formId }) => (
+  <section className={cx('wrapper')}>
+    <div className={cx('container', 'inner')}>
+      <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
+      {relatedItems?.items && <RelatedItems {...relatedItems} />}
+      {formId && <Form formId={formId} />}
+    </div>
+  </section>
+);
 Content.propTypes = {
   content: PropTypes.string.isRequired,
   relatedItems: PropTypes.shape({

@@ -34,6 +34,52 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
+              title: edge.node.title,
+              description: edge.node.excerpt,
+              url: site.siteMetadata.siteUrl + edge.node.uri,
+              guid: site.siteMetadata.siteUrl + edge.node.uri,
+              // relDir: edge.relativeDirectory,
+              custom_elements: [{ 'content:encoded': edge.node.excerpt }],
+            })),
+            query: `
+              {
+                allWpPost(
+                  sort: { fields: date, order: DESC }
+                )  {
+                  edges {
+                    node {
+                      excerpt
+                      title
+                      uri
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'VSHN - Blog',
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-svgr-svgo',
       options: {
         inlineSvgOptions: [
