@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import GatsbyImage from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -16,7 +15,9 @@ const TechnologyPartnersList = ({ technologyPartnersList }) => (
         {technologyPartnersList.map(({ url, logo, name }, index) => (
           <li className={cx('item')} key={index}>
             <Link className={cx('link')} to={url} target="_blank" rel="noopener">
-              <img className={cx('logo')} src={logo.localFile.publicURL} alt="" aria-hidden />
+              <div className={cx('logo-wrapper')}>
+                {logo && <img className={cx('logo')} src={logo.localFile.publicURL} alt="" aria-hidden />}
+              </div>
               <p className={cx('name')}>{name}</p>
             </Link>
           </li>
@@ -33,9 +34,9 @@ TechnologyPartnersList.propTypes = {
       localFile: PropTypes.shape({
         publicURL: PropTypes.string.isRequired,
       }).isRequired,
-    }).isRequired,
+    }),
     name: PropTypes.string.isRequired,
-  })),
+  })).isRequired,
 };
 
 export default TechnologyPartnersList;

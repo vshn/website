@@ -1,15 +1,14 @@
 .wrapper {
-  padding-bottom: 180px;
-  border-bottom: 2px solid $color-additional-1;
+  margin-bottom: 180px;
 
   @include section-paddings;
 
   @include lg-down {
-    padding-bottom: 150px;
+    margin-bottom: 150px;
   }
 
   @include md-down {
-    padding-bottom: 120px;
+    margin-bottom: 120px;
   }
 }
 
@@ -47,13 +46,7 @@
 
   :global {
     .wp-block-image {
-      margin-right: 60px;
-      margin-left: 60px;
-
-      @include lg-down {
-        margin-right: 30px;
-        margin-left: 30px;
-      }
+      line-height: 1;
 
       @include md-down {
         margin-right: 0;
@@ -62,6 +55,10 @@
 
       .gatsby-image-wrapper {
         border: none;
+      }
+
+      img {
+        object-fit: contain !important;
       }
     }
   }

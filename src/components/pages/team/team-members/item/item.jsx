@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
+import NoAvatar from 'icons/no-avatar.inline.svg';
 
 import styles from './item.module.scss';
 
@@ -12,7 +13,9 @@ const cx = classNames.bind(styles);
 const Item = ({ name, acf: { image, jobTitle, jobPosition, socialLinks }, icons }) => (
   <div className={cx('item-wrapper')}>
     <div className={cx('image-wrapper')}>
-      {image && <GatsbyImage className={cx('image')} fluid={image.localFile.childImageSharp.fluid} />}
+      {image
+        ? <GatsbyImage className={cx('image')} fluid={image.localFile.childImageSharp.fluid} />
+        : <NoAvatar className={cx('no-avatar')} />}
     </div>
     <div className={cx('content')}>
       <div className={cx('details')}>
