@@ -333,9 +333,14 @@
   }
 
   :global {
+    .wp-block-embed {
+      text-align: center;
+    }
+
     .wp-block-image {
       margin-top: 30px;
       margin-bottom: 30px;
+      text-align: center;
 
       @include md-down {
         margin-top: 25px;
@@ -346,8 +351,6 @@
 
       .gatsby-image-wrapper {
         margin-bottom: 15px;
-        border: 1px solid $color-additional-2;
-        border-radius: 4px;
 
         @include md-down {
           margin-bottom: 10px;
