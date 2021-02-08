@@ -9,10 +9,15 @@
   list-style-type: none;
 
   @include md-down {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     row-gap: 15px;
     column-gap: $column-gap-md;
     margin-top: 30px;
     margin-bottom: 30px;
+  }
+
+  @include sm-down {
+    grid-template-columns: repeat(auto-fill, minmax(263px, 1fr));
   }
 
   &__wrapper {
