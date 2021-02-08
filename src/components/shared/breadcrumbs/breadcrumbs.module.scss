@@ -10,6 +10,13 @@
   color: $color-secondary;
   text-transform: uppercase;
 
+  @include sm-down {
+    top: -70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .link {
     position: relative;
     margin-right: 25px;
