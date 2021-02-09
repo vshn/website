@@ -42,18 +42,20 @@ const PartnersList = ({ filters, partners, locale }) => {
       return shouldBeShown;
     });
 
-    return filteredPartners.map(({
-      uri: url,
-      title,
-      content,
-      acf: { partnerInfo: { partnerLink } },
-    }, index) => (
-      <li className={cx('partner')} key={index}>
-        {content
-          ? <Link className={cx('partner-link')} to={url}>{title}</Link>
-          : <Link className={cx('partner-link')} to={partnerLink.url} target={partnerLink.target}>{title}</Link>}
-      </li>
-    ));
+    return filteredPartners
+      .sort((a, b) => (a.title.toLocaleLowerCase() > b.title.toLocaleLowerCase() ? 1 : -1))
+      .map(({
+        uri: url,
+        title,
+        content,
+        acf: { partnerInfo: { partnerLink } },
+      }, index) => (
+        <li className={cx('partner')} key={index}>
+          {content
+            ? <Link className={cx('partner-link')} to={url}>{title}</Link>
+            : <Link className={cx('partner-link')} to={partnerLink.url} target={partnerLink.target}>{title}</Link>}
+        </li>
+      ));
   }, [activeFilters, partners]);
 
   return (

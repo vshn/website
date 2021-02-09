@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
+import unescapeHTML from 'utils/unescape-html-entities';
 
 import styles from './hero.module.scss';
 import backgroundImageLgDown from './images/background-image-lg-down.svg';
@@ -24,7 +25,7 @@ const Hero = ({ title, categories, date }) => {
           {categories.nodes.map(({ name }, index) => <span className={cx('category')} key={index}>{name}</span>)}
         </div>
 
-        <Heading className={cx('title')} tag="h2" size="xl" color="primary">{title}</Heading>
+        <Heading className={cx('title')} tag="h2" size="xl" color="primary">{unescapeHTML(title)}</Heading>
         <div className={cx('date')}>
           {day}
           .
