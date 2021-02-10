@@ -44,10 +44,10 @@ const Select = ({ label, options, filterSelectHandler, filterKey }) => {
         {selectedItem && (
           <button className={cx('item')} type="button" onClick={() => handleItemSelect(null)}>None</button>
         )}
-        {options.map(({ name, slug }, index) => {
-          if (slug === selectedItem) return null;
+        {options.map((option, index) => {
+          if (option === selectedItem) return null;
           return (
-            <button className={cx('item')} type="button" value={slug} key={index} onClick={() => handleItemSelect(slug)}>{name}</button>
+            <button className={cx('item')} type="button" value={option} key={index} onClick={() => handleItemSelect(option)}>{option}</button>
           );
         })}
       </div>
@@ -59,10 +59,7 @@ const Select = ({ label, options, filterSelectHandler, filterKey }) => {
 Select.propTypes = {
   label: PropTypes.string.isRequired,
   filterKey: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  })).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   filterSelectHandler: PropTypes.func.isRequired,
 };
 

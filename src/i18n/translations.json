@@ -39,7 +39,11 @@
       }
     },
     "team": {
-      "title": "Team"
+      "title": "Team",
+      "filters": {
+        "teams": "Teams",
+        "roles": "Roles"
+      }
     },
     "technologyPartners": {
       "title": "Technology partners"
@@ -117,7 +121,11 @@
       }
     },
     "team": {
-      "title": "Team"
+      "title": "Team",
+      "filters": {
+        "teams": "Teams",
+        "roles": "Roles"
+      }
     },
     "technologyPartners": {
       "title": "Technologiepartner"

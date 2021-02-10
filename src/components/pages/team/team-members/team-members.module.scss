@@ -12,6 +12,20 @@
   }
 }
 
+.filters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+
+  @include md-down {
+    margin-bottom: 45px;
+  }
+
+  @include sm-down {
+    margin-bottom: 35px;
+  }
+}
+
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -31,5 +45,62 @@
   @include sm-down {
     grid-template-columns: repeat(auto-fill, 300px);
     justify-content: center;
+  }
+}
+
+.no-matches {
+  grid-column: 2/ span 2;
+  align-self: flex-end;
+  justify-self: center;
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.4;
+  color: $color-quaternary;
+
+  @include lg-down {
+    grid-column: 1/ span 3;
+    font-size: 40px;
+  }
+
+  @include md-down {
+    grid-column: 1/ span 2;
+    font-size: 36px;
+  }
+
+  @include sm-down {
+    font-size: 32px;
+  }
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  border: 2px solid $color-quaternary;
+  border-radius: 50%;
+
+  @include md-down {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0;
+  }
+
+  &::before {
+    position: absolute;
+    bottom: -7px;
+    left: -15px;
+    width: 23px;
+    height: 2px;
+    content: "";
+    background-color: $color-quaternary;
+    transform: rotate(135deg);
+
+    @include md-down {
+      bottom: -5px;
+      width: 20px;
+    }
   }
 }

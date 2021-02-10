@@ -13,10 +13,14 @@ export default ({
   data: {
     wpPage: data,
     allWpTeamMember,
+    allWpTeam,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
   const breadcrumbs = [t[locale].breadcrumbs.about];
+  const getAllTeamRoles = allWpTeamMember.items.map((item) => item.acf.jobTitle);
+  const roles = [...new Set(getAllTeamRoles)].sort((a, b) => (a > b ? 1 : -1));
+  const teams = allWpTeam.teams.map((item) => item.name);
   return (
     <MainLayout
       locale={locale}
@@ -31,7 +35,7 @@ export default ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      <TeamMembers {...allWpTeamMember} />
+      <TeamMembers {...allWpTeamMember} filters={{ teams, roles }} locale={locale} />
       <Jobs {...data.acf.jobs} />
     </MainLayout>
   );
@@ -52,6 +56,13 @@ export const query = graphql`
         }
       }
       ...wpPageSeo
+    }
+    allWpTeam(
+      filter: {language:{slug:{eq: $locale}}}, 
+      sort: {order: ASC, fields: ancestors___nodes___name}) {
+      teams: nodes {
+        name
+      }
     }
     allWpTeamMember(
       filter: {language: {slug: {eq: $locale}}},
@@ -80,6 +91,11 @@ export const query = graphql`
             xingLink
             githubLink
             personalLink
+          }
+        }
+        teams {
+          nodes {
+            name
           }
         }
       }

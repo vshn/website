@@ -62,15 +62,18 @@ const PartnersList = ({ filters, partners, locale }) => {
     <section className={cx('wrapper')}>
       <div className="container">
         <div className={cx('filters-wrapper')}>
-          {Object.entries(filters).map(([filterKey, filterOptions], index) => (
-            <Select
-              label={t[locale].partners.filters[filterKey]}
-              filterKey={filterKey}
-              options={filterOptions}
-              key={index}
-              filterSelectHandler={filterSelectHandler}
-            />
-          ))}
+          {Object.entries(filters).map(([filterKey, filterOptions], index) => {
+            const options = filterOptions.map((option) => option.name);
+            return (
+              <Select
+                label={t[locale].partners.filters[filterKey]}
+                filterKey={filterKey}
+                options={options}
+                key={index}
+                filterSelectHandler={filterSelectHandler}
+              />
+            );
+          })}
         </div>
         <ul className={cx('partners-wrapper')}>
           {memoizedPartners.length
