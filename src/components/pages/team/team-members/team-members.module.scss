@@ -68,7 +68,12 @@
   }
 
   @include sm-down {
+    grid-column: 1/ -1;
     font-size: 32px;
+  }
+
+  @include xs-down {
+    font-size: 26px;
   }
 }
 
