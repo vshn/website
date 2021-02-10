@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 
-import Select from 'components/pages/clients/partners-list/select';
+import Select from 'components/shared/select';
 import t from 'i18n';
 import Email from 'icons/email.inline.svg';
 import Github from 'icons/github.inline.svg';

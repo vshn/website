@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
 
-import Select from 'components/pages/clients/partners-list/select';
 import Link from 'components/shared/link';
+import Select from 'components/shared/select';
 import t from 'i18n';
 
 import styles from './partners-list.module.scss';
