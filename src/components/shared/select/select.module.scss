@@ -90,11 +90,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-width: 100%;
+  min-width: max-content;
+  max-height: 250px;
   padding-top: 10px;
   padding-right: 15px;
   padding-bottom: 10px;
   padding-left: 15px;
+  overflow: scroll;
   background-color: $color-tertiary;
   border-radius: 2px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
