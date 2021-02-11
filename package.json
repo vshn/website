@@ -61,6 +61,7 @@
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-sass": "^2.8.0",
     "gatsby-plugin-sharp": "^2.13.1",
+    "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-plugin-svgr-svgo": "^1.1.0",
     "gatsby-source-filesystem": "^2.10.0",
     "gatsby-source-wordpress-experimental": "^7.0.3",
