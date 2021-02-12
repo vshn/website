@@ -2,37 +2,45 @@
 # https://docs.netlify.com/routing/redirects/redirect-options/
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/
 
-/en/privacy-policy                  https://legal.docs.vshn.ch/legal/privacy_policy_en.html
-/blog/page/*                        /blog/:splat
-/blog/author/*                      /blog/
-/en/blog/author/*                   /en/blog/
-/en/success-stories/                /en/partners/success-stories/
-/en/press                           /en/blog/press-en
-/en/categories/:cat/                /en/blog/:cat
-/en/categories/:cat/page/:page/     /en/blog/:cat/:page
-/terms-and-conditions               https://legal.docs.vshn.ch/legal/gtc_en.html
-/agb                                https://legal.docs.vshn.ch/legal/agb_de.html
-/kubecon                            /en/blog/kubecon-cloudnativecon-2019-barcelona-recap/
-/en/kostenlos-an-die-cloud-conference-2019/ /en/blog/looking-back-appuio-at-the-cloud-conferences-bonn-hanau-hamburg-munich-2019/
-/kostenlos-an-die-cloud-conference-2019/ /blog/rueckblick-appuio-an-den-cloud-conferences-bonn-hanau-hamburg-muenchen-2019/
 /en/devops/                         /en/solutions/devops-enablement/
-/en/blog/herzlich-willkommen-adrian/ /en/blog/bienvenido-adrian/
-/en/blog/welcome-soufiane/          /en/blog/benvenuto-soufiane/
 /en/event/red-hat-forum-switzerland-zuerich-2019/   /en/events/
+/en/java-hosting/                   /en/solutions/managed-application-services/
+/en/k8up-backup-operator-for-kubernetes/    /products/open-source/k8up/
 /en/managed-docker/                 /en/solutions/managed-container-platforms/
+/en/managed-kubernetes/             /en/solutions/managed-container-platforms/managed-kubernetes/
+/en/managed-services                /en/products/managed-services/
+/en/press                           /en/blog/press-en
+/en/success-stories/                /en/partners/success-stories/
+/en/tech-talks/                     /en/events/
+/en/vshn/                           /en/about/
+/en/vshn/events/                    /en/events/
+/en/vshn/events/                    /en/events/
+/en/what-others-say/                /en/about/awards-certifications/
+/loesungen                          /solutions
+/managed-kubernetes/                /solutions/managed-container-platforms/managed-kubernetes/
+/managed-services                   /produkte/managed-services/
+/vshn/                              /ueber/
 /vshn/events/                       /events/
+
+# old landing pages
+/agb                                https://legal.docs.vshn.ch/legal/agb_de.html
 /coronavirus/                       https://handbook.vshn.ch/hb/coronavirus.html
 /en/coronavirus/                    https://handbook.vshn.ch/hb/coronavirus.html
-/en/what-others-say/                /en/about/awards-certifications/
-/en/java-hosting/                   /en/solutions/managed-application-services/
-/loesungen                          /solutions
-/en/tech-talks/                     /en/events/
-/managed-services                   /produkte/managed-services/
-/en/managed-services                /en/products/managed-services/
-/en/vshn/events/                    /en/events/
-/en/managed-kubernetes/             /en/solutions/managed-container-platforms/managed-kubernetes/
-/managed-kubernetes/                /solutions/managed-container-platforms/managed-kubernetes/
-/en/k8up-backup-operator-for-kubernetes/    /products/open-source/k8up/
+/en/kostenlos-an-die-cloud-conference-2019/ /en/blog/looking-back-appuio-at-the-cloud-conferences-bonn-hanau-hamburg-munich-2019/
+/en/privacy-policy                  https://legal.docs.vshn.ch/legal/privacy_policy_en.html
+/kostenlos-an-die-cloud-conference-2019/ /blog/rueckblick-appuio-an-den-cloud-conferences-bonn-hanau-hamburg-muenchen-2019/
+/kubecon                            /en/blog/kubecon-cloudnativecon-2019-barcelona-recap/
+/terms-and-conditions               https://legal.docs.vshn.ch/legal/gtc_en.html
+
+# blog/event structures
+/blog/author/*                      /blog/
+/blog/page/*                        /blog/:splat
+/en/blog/author/*                   /en/blog/
+/en/blog/herzlich-willkommen-adrian/ /en/blog/bienvenido-adrian/
+/en/blog/welcome-soufiane/          /en/blog/benvenuto-soufiane/
+/en/categories/:cat/                /en/blog/:cat
+/en/categories/:cat/page/:page/     /en/blog/:cat/:page
+/en/events/category*                /en/events/
 
 # pre-2017 blog
 /2015/11/willkommen-beim-vshn-blog                           /blog/willkommen-beim-vshn-blog/
