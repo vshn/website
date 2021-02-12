@@ -106,23 +106,6 @@
   @include safe-area(margin-right, right, -30px);
 }
 
-.list {
-  padding-left: 0;
-  margin-top: 45px;
-  margin-bottom: 45px;
-  list-style-type: none;
-
-  @include with-link-secondary;
-}
-
-.list-item {
-  margin-bottom: 15px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
 .menu {
   padding-left: 0;
   margin-top: 0;

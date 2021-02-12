@@ -14,7 +14,6 @@ const MobileMenu = (props) => {
   const {
     language1Text,
     language2Text,
-    topMenuItems,
     pageUrls,
     menuItems,
     isOpen,
@@ -33,15 +32,6 @@ const MobileMenu = (props) => {
           </li>
         </ul>
         <div className={cx('menu-wrapper')}>
-          <ul className={cx('list')}>
-            {topMenuItems.map(({ label, path, target }, i) => (
-              <li key={i} className={cx('list-item')}>
-                <Link to={path} target={target}>
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
           <ul className={cx('menu')}>
             {menuItems.map(({ label, path }, index) => (
               <li className={cx('menu-item')} key={index}>
