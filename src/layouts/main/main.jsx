@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
@@ -44,25 +45,27 @@ const MainLayout = (props) => {
   }, [isMobileMenuOpen]);
   return (
     <>
-      {seo && <SEO {...seo} />}
-      <Header
-        pageUrls={pageUrls}
-        locale={locale}
-        menuItems={mainMenuItems}
-        topMenuItems={topMenuItems}
-        onBurgerClick={handleHeaderBurgerClick}
-      />
-      <main>{children}</main>
-      <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
-      <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
-      <MobileMenu
-        pageUrls={pageUrls}
-        topMenuItems={topMenuItems}
-        isOpen={isMobileMenuOpen}
-        menuItems={mobileMenuItems}
-        locale={locale}
-        onCloseButtonClick={handleMobileNavCloseButtonClick}
-      />
+      <SimpleReactLightbox>
+        {seo && <SEO {...seo} />}
+        <Header
+          pageUrls={pageUrls}
+          locale={locale}
+          menuItems={mainMenuItems}
+          topMenuItems={topMenuItems}
+          onBurgerClick={handleHeaderBurgerClick}
+        />
+        <main>{children}</main>
+        <Footer menuItems={footerMenuItems} socialLinks={socialLinks} footerMeta={footerMeta} />
+        <Overlay isVisible={isMobileMenuOpen} onClick={handleOverlayClick} />
+        <MobileMenu
+          pageUrls={pageUrls}
+          topMenuItems={topMenuItems}
+          isOpen={isMobileMenuOpen}
+          menuItems={mobileMenuItems}
+          locale={locale}
+          onCloseButtonClick={handleMobileNavCloseButtonClick}
+        />
+      </SimpleReactLightbox>
     </>
   );
 };
