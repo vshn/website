@@ -37,7 +37,6 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
     "react-paginate": "^6.5.0",
-    "simple-react-lightbox": "^3.6.3",
     "swiper": "^6.4.5",
     "typewriter-effect": "^2.17.0"
   },
