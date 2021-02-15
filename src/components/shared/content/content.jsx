@@ -23,7 +23,7 @@ const Content = ({ content, relatedItems, formId }) => (
 Content.propTypes = {
   content: PropTypes.string.isRequired,
   relatedItems: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
       link: PropTypes.shape({
         url: PropTypes.string.isRequired,

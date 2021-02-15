@@ -29,6 +29,7 @@ export default ({
         breadcrumbs={breadcrumbs}
         title={t[locale].team.title}
         pageTitle={data.title}
+        description={data.acf.heroDescription}
         backgroundImage={backgroundImage}
       />
       <TeamMembers {...allWpTeamMember} />
@@ -42,6 +43,7 @@ export const query = graphql`
     wpPage(id: { eq: $id }) {
       title
       acf {
+        heroDescription
         jobs {
           title
           description

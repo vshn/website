@@ -126,6 +126,7 @@
 
   &__icon {
     height: 100%;
+    pointer-events: none;
 
     img {
       object-fit: contain !important;
