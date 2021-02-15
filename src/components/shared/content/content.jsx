@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { SRLWrapper } from 'simple-react-lightbox';
 
 import RelatedItems from 'components/shared/related-items';
 import 'components/lazy-blocks/subpage-cards/subpage-cards.scss';
@@ -11,10 +12,26 @@ import styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 
+const options = {
+  thumbnails: {
+    showThumbnails: false,
+  },
+  buttons: {
+    showAutoplayButton: false,
+    showCloseButton: false,
+    showDownloadButton: false,
+    showFullscreenButton: false,
+    showNextButton: false,
+    showPrevButton: false,
+  },
+};
+
 const Content = ({ content, relatedItems, formId }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
-      <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
+      <SRLWrapper options={options}>
+        <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
+      </SRLWrapper>
       {relatedItems?.items && <RelatedItems {...relatedItems} />}
       {formId && <Form formId={formId} />}
     </div>
