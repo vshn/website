@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 
 const options = {
   thumbnails: {
+    settings: { autoplaySpeed: 0, disableKeyboardControls: true },
     showThumbnails: false,
   },
   buttons: {

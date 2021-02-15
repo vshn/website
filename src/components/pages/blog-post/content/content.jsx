@@ -8,6 +8,7 @@ import styles from './content.module.scss';
 const cx = classNames.bind(styles);
 
 const options = {
+  settings: { autoplaySpeed: 0, disableKeyboardControls: true },
   thumbnails: {
     showThumbnails: false,
   },
