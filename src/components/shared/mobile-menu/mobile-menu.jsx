@@ -14,7 +14,6 @@ const MobileMenu = (props) => {
   const {
     language1Text,
     language2Text,
-    topMenuItems,
     pageUrls,
     menuItems,
     isOpen,
@@ -34,17 +33,9 @@ const MobileMenu = (props) => {
         </ul>
         <div className={cx('menu-wrapper')}>
           <ul className={cx('menu')}>
-            {menuItems.map(({ label, path }, index) => (
+            {menuItems.map(({ label, path, target }, index) => (
               <li className={cx('menu-item')} key={index}>
-                <Link className={cx('menu-link')} to={path}>{label}</Link>
-              </li>
-            ))}
-
-            {topMenuItems.map(({ label, path, target }, i) => (
-              <li key={i} className={cx('menu-item')}>
-                <Link className={cx('menu-link')} to={path} target={target}>
-                  {label}
-                </Link>
+                <Link className={cx('menu-link')} to={path} target={target}>{label}</Link>
               </li>
             ))}
           </ul>
@@ -61,16 +52,10 @@ const MobileMenu = (props) => {
 MobileMenu.propTypes = {
   language1Text: PropTypes.string,
   language2Text: PropTypes.string,
-  topMenuItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-      target: PropTypes.string.isRequired,
-    }),
-  ),
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
+    target: PropTypes.string,
   })),
   isOpen: PropTypes.bool,
   onCloseButtonClick: PropTypes.func.isRequired,
@@ -81,7 +66,6 @@ MobileMenu.propTypes = {
 MobileMenu.defaultProps = {
   language1Text: 'English',
   language2Text: 'Deutsch',
-  topMenuItems: [],
   menuItems: [],
   isOpen: false,
 };
