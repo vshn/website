@@ -19,7 +19,6 @@ const options = {
   },
   buttons: {
     showAutoplayButton: false,
-    showCloseButton: false,
     showDownloadButton: false,
     showFullscreenButton: false,
     showNextButton: false,
