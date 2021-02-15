@@ -1,0 +1,2 @@
+/.well-known/matrix/client
+  Access-Control-Allow-Origin: *
