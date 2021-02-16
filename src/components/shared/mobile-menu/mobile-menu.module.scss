@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 11;
   overflow-y: auto;
   visibility: hidden;
   transition-duration: $transition-base;
@@ -104,23 +104,6 @@
   @include safe-area(padding-right, right, 30px);
   @include safe-area(margin-left, left, -30px);
   @include safe-area(margin-right, right, -30px);
-}
-
-.list {
-  padding-left: 0;
-  margin-top: 45px;
-  margin-bottom: 45px;
-  list-style-type: none;
-
-  @include with-link-secondary;
-}
-
-.list-item {
-  margin-bottom: 15px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .menu {
