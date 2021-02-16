@@ -55,6 +55,8 @@
 /en/managed-openshift/ /en/solutions/managed-container-platforms/managed-openshift/
 /en/managed-services                /en/products/managed-services/
 /en/managed-services/ /en/products/managed-services/
+/en/managed-rancher/ /en/solutions/managed-container-platforms/managed-rancher/
+/en/solutions/devops-workshop/ /en/solutions/devops-enablement/devops-workshop/
 /en/open-source/ /en/products/open-source/
 /en/press/                          /en/blog/press-en
 /en/success-stories/                /en/partners/success-stories/
@@ -80,6 +82,7 @@
 /managed-openshift/ /solutions/managed-container-platforms/managed-openshift/
 /managed-services                   /produkte/managed-services/
 /managed-services/ /produkte/managed-services/
+/managed-rancher/ /solutions/managed-container-platforms/managed-rancher/
 /open-source/ /produkte/open-source/
 /presse/                            /blog/press
 /produkte/appuio/ /produkte/appuio-swiss-container-platform/
