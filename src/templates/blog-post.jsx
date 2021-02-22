@@ -27,7 +27,7 @@ export default ({
     >
       <Hero {...data} />
       <Content {...data} />
-      <AuthorInfo {...data.author.node} />
+      <AuthorInfo {...data.author.node} locale={locale} />
       <News
         {...data.acf}
         {...allWpPost}
@@ -62,6 +62,8 @@ export const query = graphql`
                 }
               }
             }
+            descriptionDe
+            descriptionEn
           }
           firstName
           lastName
