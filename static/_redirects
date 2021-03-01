@@ -2,6 +2,7 @@
 # https://docs.netlify.com/routing/redirects/redirect-options/
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/
 
+/about/ /en/about/
 /blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/ /blog/devsecops-sicherheit-fuer-entwicklung-und-it-betrieb/
 /blog/einfuehrung-in-operatoren-operatoren-framework-und-operatoren-sdk/ /blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/
 /blog/release-your-applications-faster-and-easier-move-them-to-the-cloud/ /en/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud-2/
