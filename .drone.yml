@@ -34,6 +34,7 @@ steps:
       restore: true
       endpoint: minio.minio:9000
       bucket: vshn-website
+      region: eu-west-1
       path_style: true
       cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package-lock.json" }}'
       mount:
@@ -71,6 +72,7 @@ steps:
       rebuild: true
       endpoint: minio.minio:9000
       bucket: vshn-website
+      region: eu-west-1
       path_style: true
       cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package-lock.json" }}'
       mount:
