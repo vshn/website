@@ -41,11 +41,11 @@ steps:
         - 'node_modules'
         - '.cache'
         - 'public'
-      environment:
-        AWS_ACCESS_KEY_ID:
-          from_secret: minio_access_key
-        AWS_SECRET_ACCESS_KEY: 
-          from_secret: minio_secret_key
+    environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: minio_access_key
+      AWS_SECRET_ACCESS_KEY: 
+        from_secret: minio_secret_key
     depends_on:
       - initial_notification
 
