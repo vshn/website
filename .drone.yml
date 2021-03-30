@@ -215,7 +215,7 @@ steps:
       insecure: false
       deployment_names: vshn-website
       container_names: vshn-website
-      namespaces: vshn
+      namespaces: websites
       docker_image: registry.pixelpoint.io/vshn-website:latest
       date_label: deployment.drone.io/date-deployed
       url:
