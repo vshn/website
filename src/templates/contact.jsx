@@ -6,7 +6,7 @@ import Content from 'components/pages/contact/content';
 import Hero from 'components/pages/contact/hero';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Contact = ({
   data: { wpPage: data },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -52,3 +52,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Contact;

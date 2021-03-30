@@ -12,7 +12,7 @@ import translations from 'i18n';
 import MainLayout from 'layouts/main';
 import 'components/lazy-blocks/hubspot-form/hubspot-form.scss';
 
-export default ({
+const BlogPost = ({
   data: { wpPost: data, allWpPost },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
@@ -90,3 +90,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default BlogPost;

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import Content from 'components/pages/404/content';
 import MainLayout from 'layouts/main';
 
-export default ({ pageContext: { locale, pageUrls, menus, globalFields } }) => {
+const ErrorPage = ({ pageContext: { locale, pageUrls, menus, globalFields } }) => {
   const content = {
     title: 'Oops! Error page 404',
     description: 'The page you requested could not be found',
@@ -22,3 +22,5 @@ export default ({ pageContext: { locale, pageUrls, menus, globalFields } }) => {
     </>
   );
 };
+
+export default ErrorPage;

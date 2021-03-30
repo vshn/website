@@ -8,7 +8,7 @@ import Contact from 'components/shared/contact';
 import RelatedItems from 'components/shared/related-items';
 import MainLayout from 'layouts/main';
 
-export default ({
+const ParentCategory = ({
   data: {
     wpPage: { seo, acf: data, title },
   },
@@ -71,3 +71,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default ParentCategory;

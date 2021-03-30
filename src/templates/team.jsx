@@ -9,7 +9,7 @@ import Jobs from 'components/shared/jobs';
 import t from 'i18n';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Team = ({
   data: {
     wpPage: data,
     allWpTeamMember,
@@ -104,3 +104,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Team;

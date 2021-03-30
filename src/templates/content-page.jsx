@@ -8,7 +8,7 @@ import Content from 'components/shared/content';
 import Hero from 'components/shared/hero';
 import MainLayout from 'layouts/main';
 
-export default ({
+const ContentPage = ({
   data: {
     wpPage: data,
   },
@@ -59,3 +59,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default ContentPage;

@@ -15,7 +15,7 @@ import Jobs from 'components/shared/jobs';
 import translations from 'i18n';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Home = ({
   data: {
     wpPage: { seo, acf: data },
     allWpPost,
@@ -167,3 +167,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Home;

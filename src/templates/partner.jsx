@@ -7,7 +7,7 @@ import Hero from 'components/pages/partner/hero/';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Partner = ({
   data: {
     wpPartner: data,
   },
@@ -75,3 +75,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Partner;

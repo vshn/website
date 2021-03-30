@@ -7,7 +7,7 @@ import Hero from 'components/pages/jobs/hero';
 import t from 'i18n';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Jobs = ({
   data: {
     wpPage: data,
     positions,
@@ -70,3 +70,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Jobs;

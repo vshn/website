@@ -9,7 +9,7 @@ import Pagination from 'components/pages/blog/pagination';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Blog = ({
   data: {
     wpPage: {
       seo,
@@ -104,3 +104,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Blog;

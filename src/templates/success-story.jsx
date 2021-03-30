@@ -7,7 +7,7 @@ import Hero from 'components/pages/success-story/hero';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({
+const SuccessStory = ({
   data: {
     wpSuccessStory: data,
   },
@@ -79,3 +79,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default SuccessStory;

@@ -6,7 +6,7 @@ import LoginSections from 'components/pages/login/login-sections';
 import Contact from 'components/shared/contact';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Login = ({
   data: { wpPage: { seo, acf: data } },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
@@ -43,3 +43,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Login;

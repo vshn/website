@@ -10,7 +10,7 @@ import Hero from 'components/shared/hero';
 import t from 'i18n';
 import MainLayout from 'layouts/main';
 
-export default ({
+const Events = ({
   pageContext: {
     locale,
     pageUrls,
@@ -65,3 +65,5 @@ export default ({
     </MainLayout>
   );
 };
+
+export default Events;

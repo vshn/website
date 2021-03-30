@@ -116,10 +116,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data:
+        additionalData:
           '@import "./src/styles/variables.scss" , "./src/styles/mixins.scss";',
         cssLoaderOptions: {
-          camelCase: true,
+          modules: {
+            namedExport: false,
+            exportLocalsConvention: 'camelCase',
+          },
         },
       },
     },
