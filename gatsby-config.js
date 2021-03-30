@@ -124,7 +124,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-wordpress-experimental',
+      resolve: 'gatsby-source-wordpress',
       options: {
         schema: {
           timeout: 60000,
