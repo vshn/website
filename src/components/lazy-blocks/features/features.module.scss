@@ -99,4 +99,8 @@
 
 .text {
   @include with-link-primary;
+
+  a {
+    font-weight: 600;
+  }
 }
