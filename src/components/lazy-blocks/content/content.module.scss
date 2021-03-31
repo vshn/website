@@ -1,0 +1,7 @@
+.wrapper {
+  @include section-paddings;
+}
+
+.inner {
+  @include content;
+}
