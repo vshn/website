@@ -96,3 +96,7 @@
     transform: translate(-50%, -50%);
   }
 }
+
+.text {
+  @include with-link-primary;
+}

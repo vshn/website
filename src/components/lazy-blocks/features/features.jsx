@@ -14,7 +14,7 @@ const Features = ({ items, columns }) => (
       {items.map(({ text }, index) => (
         <li className={cx('item')} key={index}>
           <span className={cx('icon')}><CheckIcon /></span>
-          {text}
+          <div className={cx('text')} dangerouslySetInnerHTML={{ __html: text }} />
         </li>
       ))}
     </ul>
