@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import parse, { attributesToProps } from 'html-react-parser';
 import React from 'react';
 
+import Cards from 'components/lazy-blocks/cards';
 import Content from 'components/lazy-blocks/content';
 import Features from 'components/lazy-blocks/features';
 import Hero from 'components/lazy-blocks/hero';
@@ -32,6 +33,10 @@ const Page = ({
           case 'features': {
             const items = JSON.parse(props.items);
             return <Features items={items} columns={props.columns} />;
+          }
+          case 'cards': {
+            const items = JSON.parse(props.items);
+            return <Cards items={items} />;
           }
           default:
             return undefined;
