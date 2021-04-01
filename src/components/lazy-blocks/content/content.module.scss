@@ -62,6 +62,23 @@
     font-weight: 600;
   }
 
+  blockquote {
+    margin-top: 75px;
+    margin-right: 0;
+    margin-bottom: 90px;
+    margin-left: 0;
+
+    @include lg-down {
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+
+    @include md-down {
+      margin-top: 30px;
+      margin-bottom: 45px;
+    }
+  }
+
   :global {
     .wp-block-image {
       margin-top: 90px;
