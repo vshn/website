@@ -4,4 +4,78 @@
 
 .inner {
   @include content;
+
+  > h1,
+  > h2,
+  > h3 {
+    margin-top: 90px;
+    margin-bottom: 0;
+    font-size: 36px;
+    line-height: 1.2;
+
+    + p {
+      margin-top: 20px;
+    }
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+:global {
+  .margin-bottom-sm {
+    margin-bottom: 30px;
+  }
+
+  .margin-bottom-md {
+    margin-bottom: 90px;
+  }
+
+  .wp-block-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .wp-block-column {
+    flex: 0 0 300px;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        content: '';
+        background-image: url('./images/check.svg');
+      }
+    }
+  }
 }
