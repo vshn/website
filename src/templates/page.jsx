@@ -8,10 +8,13 @@ import Content from 'components/lazy-blocks/content';
 import Features from 'components/lazy-blocks/features';
 import Hero from 'components/lazy-blocks/hero';
 import ProminentText from 'components/lazy-blocks/prominent-text';
+import RelativeLink from 'components/lazy-blocks/relative-link';
+import Contact from 'components/shared/contact';
 import useHubspotForm from 'hooks/use-hubspot-form';
 import MainLayout from 'layouts/main';
 
 import 'components/lazy-blocks/hubspot-form/hubspot-form.scss';
+import 'components/lazy-blocks/subpage-cards/subpage-cards.scss';
 
 const Page = ({
   data: {
@@ -42,6 +45,17 @@ const Page = ({
             const items = JSON.parse(props.items);
             return <Cards items={items} />;
           }
+          case 'relativelink': {
+            const icon = JSON.parse(props.icon);
+            return (
+              <RelativeLink
+                icon={icon}
+                text={props.text}
+                buttonLink={props.buttonlink}
+                buttonText={props.buttontext}
+              />
+            );
+          }
           default:
             return undefined;
         }
@@ -58,6 +72,7 @@ const Page = ({
     >
       <Hero title={title} />
       <Content>{reactedContent}</Content>
+      <Contact locale={locale} />
     </MainLayout>
   );
 };
