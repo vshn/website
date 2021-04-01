@@ -45,7 +45,7 @@
 
 .list {
   display: grid;
-  row-gap: 40px;
+  row-gap: 45px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -63,6 +63,7 @@
 
   @include md-down {
     font-size: $font-size-sm;
+    line-height: $line-height-sm;
   }
 }
 
@@ -99,13 +100,5 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-}
-
-.text {
-  @include with-link-primary;
-
-  a {
-    font-weight: 600;
   }
 }

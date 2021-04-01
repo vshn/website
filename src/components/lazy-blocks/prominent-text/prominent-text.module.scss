@@ -17,6 +17,10 @@
     font-size: $font-size-lg;
   }
 
+  @include xs-down {
+    font-size: 22px;
+  }
+
   @include with-link-primary;
 
   a {
