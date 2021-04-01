@@ -17,7 +17,7 @@ const Cards = ({ items }) => (
           <li className={cx('item')} key={index}>
             <span className={cx('number')} aria-hidden>{number}</span>
             <Heading className={cx('title')} tag="h4">{title}</Heading>
-            <p className={cx('text')}>{text}</p>
+            <p className={cx('text')} dangerouslySetInnerHTML={{ __html: text }} />
           </li>
         );
       })}
