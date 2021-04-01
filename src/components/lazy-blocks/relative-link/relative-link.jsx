@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 const RelativeLink = ({ icon, text, buttonLink, buttonText }) => (
   <section className={cx('wrapper')}>
     <span className={cx('icon')}>
-      <img src={icon.url !== '' ? icon.url : urlIcon} alt="" aria-hidden />
+      <img src={icon ? icon.url : urlIcon} alt="" aria-hidden />
     </span>
     <div className={cx('inner')}>
       <div className={cx('text')} dangerouslySetInnerHTML={{ __html: text }} />
@@ -32,7 +32,7 @@ RelativeLink.propTypes = {
 
 RelativeLink.defaultProps = {
   icon: {
-    url: '',
+    url: null,
   },
   buttonLink: '',
   buttonText: '',
