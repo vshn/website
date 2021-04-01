@@ -8,7 +8,10 @@ import Content from 'components/lazy-blocks/content';
 import Features from 'components/lazy-blocks/features';
 import Hero from 'components/lazy-blocks/hero';
 import ProminentText from 'components/lazy-blocks/prominent-text';
+import useHubspotForm from 'hooks/use-hubspot-form';
 import MainLayout from 'layouts/main';
+
+import 'components/lazy-blocks/hubspot-form/hubspot-form.scss';
 
 const Page = ({
   data: {
@@ -16,6 +19,7 @@ const Page = ({
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
+  useHubspotForm('hubspot-form');
   // https://github.com/remarkablemark/html-react-parser#htmlparser2
   // The library does parsing on client side differently from server side
   // it results in having a need of passing htmlparser2 to adjust behavior
