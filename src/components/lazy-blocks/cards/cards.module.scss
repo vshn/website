@@ -5,6 +5,10 @@
   @include md-down {
     margin-bottom: 40px;
   }
+
+  @include sm-down {
+    margin-bottom: 25px;
+  }
 }
 
 .list {

@@ -2,9 +2,14 @@
   margin-top: 90px;
   margin-bottom: 90px;
 
-  @include md-down {
+  @include lg-down {
     margin-top: 60px;
     margin-bottom: 60px;
+  }
+
+  @include md-down {
+    margin-top: 45px;
+    margin-bottom: 45px;
   }
 
   &.columns-2 {

@@ -13,6 +13,16 @@
     font-size: 36px;
     line-height: 1.2;
 
+    @include lg-down {
+      margin-top: 60px;
+      font-size: 32px;
+    }
+
+    @include md-down {
+      margin-top: 45px;
+      font-size: 30px;
+    }
+
     + section {
       margin-top: 40px;
     }
@@ -24,16 +34,9 @@
 }
 
 :global {
-  .margin-bottom-sm {
-    margin-bottom: 30px;
-  }
-
-  .margin-bottom-md {
-    margin-bottom: 90px;
-  }
-
   .wp-block-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 40px;
     margin-bottom: 30px;
@@ -42,12 +45,38 @@
   .wp-block-column {
     flex: 0 0 300px;
 
+    @include lg-down {
+      flex: 0 0 230px;
+    }
+
+    @include md-down {
+      flex: 0 0 300px;
+      margin-bottom: 30px;
+
+      &:nth-last-of-type(-n+2) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include sm-down {
+      flex: 0 0 250px;
+    }
+
     h4 {
       margin-top: 0;
       margin-bottom: 30px;
       font-size: 24px;
       font-weight: 700;
       line-height: 1.2;
+
+      @include lg-down {
+        font-size: 22px;
+      }
+
+      @include md-down {
+        margin-bottom: 15px;
+        font-size: $font-size-md;
+      }
     }
 
     ul {
