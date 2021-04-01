@@ -9,12 +9,12 @@
   > h2,
   > h3 {
     margin-top: 90px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     font-size: 36px;
     line-height: 1.2;
 
-    + p {
-      margin-top: 20px;
+    + section {
+      margin-top: 40px;
     }
   }
 
