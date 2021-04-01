@@ -1,5 +1,15 @@
 .wrapper {
   @include section-paddings;
+
+  margin-bottom: 180px;
+
+  @include lg-down {
+    margin-bottom: 150px;
+  }
+
+  @include md-down {
+    margin-bottom: 120px;
+  }
 }
 
 .inner {
@@ -25,11 +35,38 @@
 
     + section {
       margin-top: 40px;
+      margin-bottom: 90px;
+
+      @include lg-down {
+        margin-bottom: 60px;
+      }
+
+      @include md-down {
+        margin-top: 30px;
+        margin-bottom: 45px;
+      }
+    }
+  }
+
+  > p {
+    + section {
+      margin-top: 40px;
+
+      @include md-down {
+        margin-top: 30px;
+      }
     }
   }
 
   a {
     font-weight: 600;
+  }
+
+  :global {
+    .wp-block-image {
+      margin-top: 90px;
+      margin-bottom: 90px;
+    }
   }
 }
 
@@ -40,6 +77,10 @@
     justify-content: space-between;
     margin-top: 40px;
     margin-bottom: 30px;
+
+    @include md-down {
+      margin-top: 30px;
+    }
   }
 
   .wp-block-column {
