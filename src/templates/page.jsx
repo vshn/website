@@ -18,7 +18,7 @@ import 'components/lazy-blocks/subpage-cards/subpage-cards.scss';
 
 const Page = ({
   data: {
-    wpPage: { title, content, seo },
+    wpPage: { title, content, acf: data, seo },
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
@@ -72,7 +72,7 @@ const Page = ({
     >
       <Hero title={title} />
       <Content>{reactedContent}</Content>
-      <Contact locale={locale} />
+      {data?.enableContactUs && <Contact locale={locale} />}
     </MainLayout>
   );
 };
@@ -84,6 +84,9 @@ export const query = graphql`
     wpPage(id: { eq: $id }) {
       title
       content
+      acf {
+        enableContactUs
+      }
       ...wpPageSeo
     }
   }
