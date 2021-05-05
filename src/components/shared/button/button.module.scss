@@ -13,7 +13,7 @@
   outline: none;
   transition-timing-function: cubic-bezier(0.44, 0, 0.56, 1);
   transition-duration: 0.5s;
-  transition-property: border-radius background-color;
+  transition-property: border-radius, background-color;
 
   @include hover {
     background-color: lighten($color-accent-secondary, 5.5%);

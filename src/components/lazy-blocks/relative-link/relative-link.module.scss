@@ -1,0 +1,122 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  margin-top: 40px;
+  margin-bottom: 90px;
+  background-color: $color-additional-1;
+  border-radius: 6px;
+
+  @include md-down {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 30px;
+  }
+
+  @include sm-down {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @include xs-down {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.inner {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  @include xs-down {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin-right: 30px;
+  background-color: $color-accent-secondary;
+  border-radius: 50%;
+
+  @include lg-down {
+    width: 46px;
+    height: 46px;
+  }
+
+  @include md-down {
+    width: 42px;
+    height: 42px;
+    margin-right: 20px;
+  }
+
+  @include sm-down {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  @include xs-down {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    transform: translate(-50%, -50%);
+
+    @include lg-down {
+      width: 17px;
+    }
+
+    @include md-down {
+      width: 15px;
+    }
+  }
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.6;
+
+  @include md-down {
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+  }
+}
+
+a.button {
+  flex-shrink: 0;
+  margin-left: 30px;
+  color: $color-primary;
+  transition-timing-function: cubic-bezier(0.44, 0, 0.56, 1);
+  transition-duration: 0.5s;
+  transition-property: border-radius, background-color;
+
+  @include sm-down {
+    margin-left: 10px;
+  }
+
+  @include xs-down {
+    align-self: center;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+
+  @include hover {
+    color: $color-primary;
+  }
+}
