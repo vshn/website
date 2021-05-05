@@ -41,6 +41,11 @@
   display: flex;
   justify-content: center;
   height: 150px;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 .content {
