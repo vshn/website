@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
-import { navigate } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Link from 'components/shared/link';
 import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
@@ -11,14 +10,23 @@ import FormattedDate from './formatted-date';
 
 const cx = classNames.bind(styles);
 
-const EventsList = ({ years, rootPath, events }) => {
-  const handleClick = (event) => {
-    event.preventDefault();
-    const href = event.currentTarget.getAttribute('href');
-    navigate(href, {
-      state: { preventScroll: true },
-    });
+const EventsList = ({ years, rootPath, events, pageYear }) => {
+  const scrollTo = () => {
+    const elementClassName = styles.wrapper || 'wrapper';
+    const element = document.querySelector(`.${elementClassName}`);
+    const offset = -50;
+    const y = element.getBoundingClientRect().top + window.pageYOffset + offset;
+
+    window.scrollTo({ top: y });
   };
+
+  useEffect(() => {
+    // scroll the page to the podcast list
+    // when navigating through the pages
+    if (pageYear !== years[0]) {
+      scrollTo();
+    }
+  }, [pageYear, years]);
 
   return (
     <section className={cx('wrapper')}>
@@ -30,7 +38,6 @@ const EventsList = ({ years, rootPath, events }) => {
               activeClassName={cx('active')}
               to={index === 0 ? rootPath : `${rootPath}${year}/`}
               key={index}
-              onClick={(event) => { handleClick(event); }}
             >
               {year}
             </Link>
@@ -78,11 +85,7 @@ EventsList.propTypes = {
         description: PropTypes.string.isRequired,
       }),
     })).isRequired,
-};
-
-EventsList.defaultProps = {
-  eventsGroupedByYears: [],
-  activeYear: null,
+  pageYear: PropTypes.number.isRequired,
 };
 
 export default EventsList;

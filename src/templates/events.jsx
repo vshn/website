@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import EventsList from 'components/pages/events/events-list';
 import backgroundImage from 'components/pages/events/hero/images/background-image.svg';
@@ -21,10 +21,17 @@ const Events = ({
     pageYear,
   },
 }) => {
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
   const events = eventsGroupedByYears[pageYear];
-  const upcomingEvents = eventsGroupedByYears[availableYears[0]]
-    .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
-    .slice(0, 3);
+  const shouldShowUpcoming = pageYear === availableYears[0];
+
+  useEffect(() => {
+    setUpcomingEvents(
+      eventsGroupedByYears[availableYears[0]]
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
+        .slice(0, 3),
+    );
+  }, [eventsGroupedByYears, availableYears]);
 
   const breadcrumbs = [t[locale].breadcrumbs.learn];
 
@@ -42,7 +49,7 @@ const Events = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      {upcomingEvents.length === 3 && (
+      {shouldShowUpcoming && upcomingEvents.length === 3 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
           upcomingEvents={upcomingEvents}
@@ -50,9 +57,9 @@ const Events = ({
       )}
       <EventsList
         years={availableYears}
-        activeYear={2020}
         events={events}
         rootPath={data.uri}
+        pageYear={pageYear}
       />
       <Contact locale={locale} />
     </MainLayout>
