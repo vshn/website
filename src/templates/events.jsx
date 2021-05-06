@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import EventsList from 'components/pages/events/events-list';
 import backgroundImage from 'components/pages/events/hero/images/background-image.svg';
@@ -22,16 +21,10 @@ const Events = ({
     pageYear,
   },
 }) => {
-  const [upcomingEvents, setUpcomingEvents] = useState([]);
   const events = eventsGroupedByYears[pageYear];
-
-  useEffect(() => {
-    setUpcomingEvents(
-      eventsGroupedByYears[availableYears[0]]
-        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
-        .slice(0, 3),
-    );
-  }, [eventsGroupedByYears, availableYears]);
+  const upcomingEvents = eventsGroupedByYears[availableYears[0]]
+    .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
+    .slice(0, 3);
 
   const breadcrumbs = [t[locale].breadcrumbs.learn];
 
