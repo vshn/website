@@ -52,6 +52,7 @@
 .no-avatar {
   flex-shrink: 0;
   width: 100px;
+  max-height: 100px;
   margin-right: 30px;
   border-radius: 50%;
   box-shadow: 0 5px 10px rgba($color-primary, 0.25);

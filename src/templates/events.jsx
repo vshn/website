@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import EventsList from 'components/pages/events/events-list';
@@ -24,6 +23,7 @@ const Events = ({
 }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const events = eventsGroupedByYears[pageYear];
+  const shouldShowUpcoming = pageYear === availableYears[0];
 
   useEffect(() => {
     setUpcomingEvents(
@@ -49,7 +49,7 @@ const Events = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      {upcomingEvents.length === 3 && (
+      {shouldShowUpcoming && upcomingEvents.length === 3 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
           upcomingEvents={upcomingEvents}
@@ -57,9 +57,9 @@ const Events = ({
       )}
       <EventsList
         years={availableYears}
-        activeYear={2020}
         events={events}
         rootPath={data.uri}
+        pageYear={pageYear}
       />
       <Contact locale={locale} />
     </MainLayout>

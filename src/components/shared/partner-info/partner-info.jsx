@@ -24,7 +24,7 @@ const PartnerInfo = (props) => {
         )}
       </div>
       <ul className={cx('items-wrapper')}>
-        {items.map(({ value, text }, index) => (
+        {items?.map(({ value, text }, index) => (
           <li className={cx('item')} key={index}>
             <strong>{value}</strong>
             <span>{text}</span>
