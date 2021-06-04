@@ -18,7 +18,6 @@ const Item = (
       logo: {
         localFile: { publicURL: logoUrl },
       },
-      description,
       schedule: { startDate },
     },
   },
