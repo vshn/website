@@ -29,7 +29,7 @@ const Events = ({
     setUpcomingEvents(
       eventsGroupedByYears[availableYears[0]]
         .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
-        .slice(0, 3),
+        .slice(0, 3).reverse(),
     );
   }, [eventsGroupedByYears, availableYears]);
 
