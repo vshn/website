@@ -315,8 +315,10 @@ async function createPages({
       template: { templateName },
     }) => {
       const templateNamePath = templateName.toLowerCase().replace(/\s/g, '-');
+      const isDefaultTemplate = templateName === 'Default';
+
       const templatePath = path.resolve(
-        `./src/templates/${templateNamePath}.jsx`,
+        `./src/templates/${isDefaultTemplate ? 'content-page' : templateNamePath}.jsx`,
       );
       const context = {
         id,
