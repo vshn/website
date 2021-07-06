@@ -22,14 +22,14 @@ const Events = ({
   },
 }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
-  const events = eventsGroupedByYears[pageYear];
+  const events = eventsGroupedByYears[pageYear]
+    .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date());
   const shouldShowUpcoming = pageYear === availableYears[0];
 
   useEffect(() => {
     setUpcomingEvents(
       eventsGroupedByYears[availableYears[0]]
-        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
-        .slice(0, 3).reverse(),
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()).reverse(),
     );
   }, [eventsGroupedByYears, availableYears]);
 
@@ -49,7 +49,7 @@ const Events = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      {shouldShowUpcoming && upcomingEvents.length === 3 && (
+      {shouldShowUpcoming && upcomingEvents.length > 0 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
           upcomingEvents={upcomingEvents}

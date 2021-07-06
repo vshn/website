@@ -1,86 +1,47 @@
-.wrapper {
-  position: relative;
-  text-align: center;
-  background-image:
-    linear-gradient(
-      234.34deg,
-      #f8fafc 0%,
-      $color-tertiary 100%
-    );
-  border-radius: 8px;
-  box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
-  transition: background-image $transition-base, box-shadow $transition-base;
-
-  @include hover {
-    z-index: 1;
-    background-image:
-      linear-gradient(0deg, $color-tertiary, $color-tertiary),
-      linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
-    box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
-
-    .date {
-      color: $color-accent-primary;
-    }
-  }
-}
-
-.inner {
+.item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  padding-top: 15px;
-  padding-right: 30px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  color: inherit;
-  text-decoration: none;
-}
+  margin-bottom: 30px;
 
-.image-wrapper {
-  display: flex;
-  justify-content: center;
-  height: 150px;
+  @include with-link-secondary;
 
-  img {
-    width: 100%;
-    object-fit: contain;
+  &:last-child {
+    margin-bottom: 0;
   }
-}
-
-.content {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.description {
-  margin-bottom: 70px;
 }
 
 .date {
-  position: relative;
-  width: 100%;
-  padding-top: 15px;
-  margin-top: auto;
-  font-size: $font-size-xs;
-  font-weight: 700;
-  line-height: $line-height-xs;
-  text-transform: uppercase;
-  transition: color $transition-base;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  align-self: flex-start;
+  justify-content: center;
+  width: 64px;
+  height: 74px;
+  margin-right: 20px;
+  line-height: $line-height-lg;
+  background-color: $color-accent-secondary;
+  border-radius: 5px;
+  border-bottom-right-radius: 30px;
+}
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 1px;
-    content: "";
-    background-image:
-      linear-gradient(
-        90deg,
-        rgba($color-additional-2, 0) 0%,
-        $color-additional-2 50%,
-        rgba($color-additional-2, 0) 100%
-      );
-  }
+.day {
+  font-size: $font-size-lg;
+  font-weight: 900;
+}
+
+.event-title {
+  margin-bottom: 5px;
+  font-size: $font-size-md;
+  font-weight: 700;
+}
+
+.details {
+  color: $color-secondary;
+
+  @include with-link-primary;
+}
+
+.time {
+  font-weight: 700;
 }

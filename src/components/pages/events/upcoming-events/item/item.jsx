@@ -2,9 +2,11 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 import getLocaleDateNames from 'utils/locale-date-names';
+
+import FormattedDate from '../../events-list/formatted-date';
 
 import styles from './item.module.scss';
 
@@ -15,53 +17,45 @@ const Item = (
     title,
     acf: {
       link,
-      logo: {
-        localFile: { publicURL: logoUrl },
-      },
-      schedule: { startDate },
+      description,
+      schedule,
     },
   },
 ) => {
-  const { weekdayShort, dayMonth, year } = getLocaleDateNames(startDate);
-  return (
-    <li className={cx('wrapper')}>
-      <Link className={cx('inner')} to={link}>
-        <div className={cx('image-wrapper')}>
-          <img src={logoUrl} className={cx('image')} alt="" />
-        </div>
-        <div className={cx('content')}>
-          <Heading className={cx('title')} tag="h3" size="lg">{title}</Heading>
-        </div>
+  const { day, month } = getLocaleDateNames(schedule.startDate);
 
-        <div className={cx('date')}>
-          <span>
-            {weekdayShort}
-            .
-            {' '}
+  return (
+    <li className={cx('item')}>
+      <div className={cx('date')}>
+        <span className={cx('day')}>{day}</span>
+        <span>{month}</span>
+      </div>
+      <div>
+        <Link className={cx('event-title')} to={link}>{title}</Link>
+        <div className={cx('details')}>
+          <span className={cx('time')}>
+            <FormattedDate schedule={schedule} />
           </span>
-          <span>{dayMonth}</span>
           {' '}
-          <span>{year}</span>
+          –
+          {' '}
+          <span
+            dangerouslySetInnerHTML={
+      { __html: getTextWithoutParagraph(description) }
+    }
+          />
         </div>
-      </Link>
+      </div>
     </li>
   );
 };
 
 Item.propTypes = {
-  title: PropTypes.string.isRequired,
-  acf: PropTypes.shape({
-    link: PropTypes.string.isRequired,
-    logo: PropTypes.shape({
-      localFile: PropTypes.shape({
-        publicURL: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-    description: PropTypes.string.isRequired,
-    schedule: PropTypes.shape({
-      startDate: PropTypes.string.isRequired,
-    }),
-  }).isRequired,
+
+};
+
+Item.defaultProps = {
+
 };
 
 export default Item;

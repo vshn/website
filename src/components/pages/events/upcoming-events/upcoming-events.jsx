@@ -4,6 +4,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
+import CardItem from './card-item';
 import Item from './item';
 import styles from './upcoming-events.module.scss';
 
@@ -14,7 +15,12 @@ const UpcomingEvents = ({ title, upcomingEvents }) => (
     <div className="container">
       <Heading className={cx('title')}>{title}</Heading>
       <ul className={cx('items-wrapper')}>
-        {upcomingEvents.map((upcomingEvent, index) => (
+        <div className={cx('cards-wrapper')}>
+          {upcomingEvents.slice(0, 3).map((upcomingEvent, index) => (
+            <CardItem key={index} {...upcomingEvent} />
+          ))}
+        </div>
+        {upcomingEvents.slice(3).map((upcomingEvent, index) => (
           <Item key={index} {...upcomingEvent} />
         ))}
       </ul>
