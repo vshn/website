@@ -6,8 +6,6 @@ import Link from 'components/shared/link';
 import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 import getLocaleDateNames from 'utils/locale-date-names';
 
-import FormattedDate from '../../events-list/formatted-date';
-
 import styles from './item.module.scss';
 
 const cx = classNames.bind(styles);
@@ -33,12 +31,6 @@ const Item = (
       <div>
         <Link className={cx('event-title')} to={link}>{title}</Link>
         <div className={cx('details')}>
-          <span className={cx('time')}>
-            <FormattedDate schedule={schedule} />
-          </span>
-          {' '}
-          –
-          {' '}
           <span
             dangerouslySetInnerHTML={
       { __html: getTextWithoutParagraph(description) }
@@ -51,7 +43,14 @@ const Item = (
 };
 
 Item.propTypes = {
-
+  title: PropTypes.string.isRequired,
+  acf: PropTypes.shape({
+    link: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    schedule: PropTypes.shape({
+      startDate: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
 };
 
 Item.defaultProps = {

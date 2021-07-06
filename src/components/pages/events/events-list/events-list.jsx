@@ -8,7 +8,6 @@ import getTextWithoutParagraph from 'utils/get-text-without-paragraph';
 import getLocaleDateNames from 'utils/locale-date-names';
 
 import styles from './events-list.module.scss';
-import FormattedDate from './formatted-date';
 
 const cx = classNames.bind(styles);
 
@@ -60,12 +59,6 @@ const EventsList = ({ years, rootPath, events, pageYear }) => {
                 <div>
                   <Link className={cx('event-title')} to={cEvent.acf.link}>{cEvent.title}</Link>
                   <div className={cx('details')}>
-                    <span className={cx('time')}>
-                      <FormattedDate schedule={cEvent.acf.schedule} />
-                    </span>
-                    {' '}
-                    –
-                    {' '}
                     <span
                       dangerouslySetInnerHTML={
                     { __html: getTextWithoutParagraph(cEvent.acf.description) }
