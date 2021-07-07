@@ -22,8 +22,7 @@ const Events = ({
   },
 }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
-  const events = eventsGroupedByYears[pageYear]
-    .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date());
+  const [pastEvents, setPastEvents] = useState([]);
   const shouldShowUpcoming = pageYear === availableYears[0];
 
   useEffect(() => {
@@ -31,7 +30,11 @@ const Events = ({
       eventsGroupedByYears[availableYears[0]]
         .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()).reverse(),
     );
-  }, [eventsGroupedByYears, availableYears]);
+    setPastEvents(
+      eventsGroupedByYears[pageYear]
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()),
+    );
+  }, [eventsGroupedByYears, availableYears, pageYear]);
 
   const breadcrumbs = [t[locale].breadcrumbs.learn];
 
@@ -57,7 +60,7 @@ const Events = ({
       )}
       <EventsList
         years={availableYears}
-        events={events}
+        events={pastEvents}
         rootPath={data.uri}
         pageYear={pageYear}
       />

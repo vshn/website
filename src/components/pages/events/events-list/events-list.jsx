@@ -91,7 +91,7 @@ EventsList.propTypes = {
         description: PropTypes.string.isRequired,
       }),
     })).isRequired,
-  pageYear: PropTypes.number.isRequired,
+  pageYear: PropTypes.string.isRequired,
 };
 
 export default EventsList;
