@@ -3,6 +3,7 @@ export default function getLocaleDateNames(date) {
     weekdayShort: new Date(date).toLocaleString('en-US', { weekday: 'short' }),
     weekdayLong: new Date(date).toLocaleString('en-US', { weekday: 'long' }),
     day: new Date(date).toLocaleString('en-US', { day: 'numeric' }),
+    month: new Date(date).toLocaleString('en-US', { month: 'short' }),
     dayMonth: new Date(date).toLocaleString('en-US', { month: 'long', day: 'numeric' }),
     year: new Date(date).toLocaleString('en-US', { year: 'numeric' }),
   };
