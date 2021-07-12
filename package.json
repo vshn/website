@@ -25,7 +25,7 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "framer-motion": "^4.1.17",
-    "gatsby": "^3.6.2",
+    "gatsby": "^3.9.1",
     "gatsby-image": "^3.6.0",
     "gatsby-plugin-feed": "^3.6.0",
     "gatsby-plugin-netlify": "^3.6.1",
