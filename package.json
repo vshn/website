@@ -29,7 +29,7 @@
     "gatsby-image": "^3.6.0",
     "gatsby-plugin-feed": "^3.6.0",
     "gatsby-plugin-netlify": "^3.6.1",
-    "gatsby-source-wordpress": "^5.9.1",
+    "gatsby-source-wordpress": "^5.9.2",
     "lottie-web": "5.7.10",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
