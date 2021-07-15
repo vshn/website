@@ -4,6 +4,8 @@ import React from 'react';
 
 import RelatedItems from 'components/shared/related-items';
 import 'components/lazy-blocks/subpage-cards/subpage-cards.scss';
+import 'components/lazy-blocks/image-columns/image-columns.scss';
+import 'components/lazy-blocks/rating-cards/rating-cards.scss';
 
 import Form from '../form';
 

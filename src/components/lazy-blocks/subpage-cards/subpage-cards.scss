@@ -96,7 +96,7 @@
       font-size: 18px;
       line-height: 1.6;
       color: $color-accent-primary;
-      text-transform: lowercase;
+      text-transform: none;
 
       @include md-down {
         font-size: $font-size-sm;
