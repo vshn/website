@@ -15,19 +15,25 @@
 
 .inner {
   max-width: 850px;
-  margin-bottom: 180px;
 
   @include lg-down {
     max-width: 770px;
-    margin-bottom: 150px;
   }
 
   @include md-down {
     max-width: 700px;
-    margin-bottom: 120px;
   }
 }
 
 .content {
   @include content;
+}
+
+:global {
+  .widgetloading#freshteam-widget {
+    .content {
+      width: 100%;
+      margin-bottom: 45px;
+    }
+  }
 }

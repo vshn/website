@@ -1,41 +1,28 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import Form from 'components/shared/form';
+import { Helmet } from 'react-helmet';
 
 import styles from './content.module.scss';
-import OpenPositions from './open-positions';
 
 import 'components/lazy-blocks/rating-cards/rating-cards.scss';
 
 const cx = classNames.bind(styles);
+const SRC_URL = 'https://s3.eu-central-1.amazonaws.com/files-eu.freshteam.com/production/84595/attachments/25000068981/original/25000001952_widget.js?1627285000';
 
-const Content = ({ title, positions, content, form }) => (
+const Content = ({ content }) => (
 
   <section className={cx('wrapper')}>
+    <Helmet script={[{ src: SRC_URL }]} />
     <div className={cx('container', 'inner')}>
-      <OpenPositions title={title} {...positions} />
+      <div className={cx('widget')} id="freshteam-widget" />
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
     </div>
-
-    <Form {...form} />
   </section>
 );
 
 Content.propTypes = {
-  title: PropTypes.string.isRequired,
-  positions: PropTypes.shape({
-    items: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    })).isRequired,
-  }).isRequired,
   content: PropTypes.string.isRequired,
-  form: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    formId: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default Content;

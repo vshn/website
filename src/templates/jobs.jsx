@@ -10,7 +10,6 @@ import MainLayout from 'layouts/main';
 const Jobs = ({
   data: {
     wpPage: data,
-    positions,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
@@ -30,16 +29,13 @@ const Jobs = ({
       />
       <Content
         content={data.content}
-        title={t[locale].job.openPositionsTitle}
-        positions={positions}
-        form={data.acf.jobForm}
       />
     </MainLayout>
   );
 };
 
 export const query = graphql`
-  query($id: String!, $locale: String!) {
+  query($id: String!) {
     wpPage(id: { eq: $id }) {
       title
       content
@@ -59,14 +55,6 @@ export const query = graphql`
         }
       }
       ...wpPageSeo
-    }
-    positions: allWpJob(
-      filter: { language: { slug: { eq: $locale } } },
-      sort: {order: ASC, fields: title}) {
-      items: nodes {
-        url: uri
-        title
-      }
     }
   }
 `;
