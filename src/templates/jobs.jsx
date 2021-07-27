@@ -29,6 +29,8 @@ const Jobs = ({
       />
       <Content
         content={data.content}
+        ratingCards={data.acf.ratingCards}
+        ratingCards2={data.acf.ratingCards2}
       />
     </MainLayout>
   );
@@ -49,9 +51,39 @@ export const query = graphql`
             }
           }
         }
-        jobForm {
+        ratingCards {
           title
-          formId
+          description
+          items {
+            description
+            image {
+              localFile {
+                publicURL
+              }
+            }
+            link {
+              url
+              target
+              title
+            }
+          }
+        }
+        ratingCards2 {
+          title
+          description
+          items {
+            description
+            image {
+              localFile {
+                publicURL
+              }
+            }
+            link {
+              url
+              target
+              title
+            }
+          }
         }
       }
       ...wpPageSeo
