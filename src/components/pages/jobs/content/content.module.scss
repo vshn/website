@@ -43,10 +43,12 @@
       font-family: $font-family-primary !important;
     }
 
-    h2,
-    h3,
-    h5 {
-      color: $color-accent-primary !important;
+    .content {
+      h2,
+      h3,
+      h5 {
+        color: $color-accent-primary;
+      }
     }
 
     .btn.btn-primary {
@@ -61,12 +63,6 @@
       }
     }
 
-    .search-form-select {
-      &:focus {
-        border-color: $color-accent-primary !important;
-      }
-    }
-
     #freshteam-careers {
       &.content {
         width: 100%;
@@ -74,10 +70,21 @@
 
       .page-title {
         display: flex;
+        font-size: 36px;
+        font-weight: 900;
+        color: $color-primary;
 
         span:first-child {
           margin-right: 10px;
           margin-left: auto;
+        }
+      }
+
+      .search-form-select {
+        font-weight: 500;
+
+        &:focus {
+          border-color: $color-accent-primary;
         }
       }
 
