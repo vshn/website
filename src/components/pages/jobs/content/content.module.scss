@@ -74,6 +74,10 @@
         font-weight: 900;
         color: $color-primary;
 
+        @include md-down {
+          display: block;
+        }
+
         span:first-child {
           margin-right: 10px;
           margin-left: auto;
