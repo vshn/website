@@ -15,9 +15,11 @@ const Hero = ({ breadcrumbs, title, image }) => (
     <div className={cx('container', 'inner')}>
       {breadcrumbs?.length > 0 && <Breadcrumbs currentPageTitle={title} crumbs={breadcrumbs} />}
       <Heading className={cx('title')} tag="h1" size="xl">{title}</Heading>
+      {image?.localFile && (
       <div className={cx('image-wrapper')}>
         <GatsbyImage className={cx('image')} fluid={image.localFile.childImageSharp.fluid} />
       </div>
+      )}
     </div>
   </section>
 );
