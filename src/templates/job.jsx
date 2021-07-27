@@ -12,7 +12,6 @@ const Job = ({
   data: {
     wpJob: data,
     positions,
-    allWpPage,
   },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
@@ -36,7 +35,6 @@ const Job = ({
         content={data.content}
         title={t[locale].job.openPositionsTitle}
         positions={positions}
-        form={allWpPage.nodes[0].acf.jobForm}
       />
     </MainLayout>
   );
@@ -55,16 +53,6 @@ export const query = graphql`
       items: nodes {
         url: uri
         title
-      }
-    }
-    allWpPage(filter: { template: { templateName: { eq: "Jobs" } }, language: { slug: { eq: $locale } }  }) {
-      nodes {
-        acf {
-          jobForm {
-            title
-            formId
-          }
-        }
       }
     }
   }

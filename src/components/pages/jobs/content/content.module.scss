@@ -31,3 +31,11 @@
 .content {
   @include content;
 }
+
+:global {
+  .widgetloading#freshteam-widget {
+    .content {
+      margin-bottom: 45px;
+    }
+  }
+}
