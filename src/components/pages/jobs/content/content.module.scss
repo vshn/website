@@ -30,9 +30,94 @@
 }
 
 :global {
-  .widgetloading#freshteam-widget {
+  #freshteam-widget {
+    margin-bottom: 45px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    > * {
+      font-family: $font-family-primary !important;
+    }
+
     .content {
-      margin-bottom: 45px;
+      h2,
+      h3,
+      h5 {
+        color: $color-accent-primary;
+      }
+    }
+
+    .btn.btn-primary {
+      color: $color-primary;
+      background-color: $color-accent-secondary;
+      border-color: $color-accent-secondary;
+
+      &:hover {
+        color: $color-primary;
+        background-color: lighten($color-accent-secondary, 5.5%);
+        border-color: lighten($color-accent-secondary, 5.5%);
+      }
+    }
+
+    #freshteam-careers {
+      &.content {
+        width: 100%;
+      }
+
+      .page-title {
+        display: flex;
+        font-size: 36px;
+        font-weight: 900;
+        color: $color-primary;
+
+        span:first-child {
+          margin-right: 10px;
+          margin-left: auto;
+        }
+      }
+
+      .search-form-select {
+        font-weight: 500;
+
+        &:focus {
+          border-color: $color-accent-primary;
+        }
+      }
+
+      .icon-arrow-right {
+        path {
+          fill: $color-accent-primary;
+        }
+      }
+    }
+
+    #job-desc-tmpl {
+      a {
+        color: $color-accent-primary;
+      }
+
+      .job-details {
+        .job-details-header {
+          background-color: $color-primary;
+        }
+      }
+
+      .job-details-content {
+        width: 100%;
+      }
+
+      .link-back {
+        color: $color-tertiary;
+      }
+
+      .btn.btn-primary {
+        font-weight: 600;
+        color: $color-primary;
+      }
     }
   }
 }
