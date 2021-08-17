@@ -351,6 +351,11 @@
 
       .gatsby-image-wrapper {
         margin-bottom: 15px;
+        line-height: 0;
+
+        img {
+          object-fit: contain !important;
+        }
 
         @include md-down {
           margin-bottom: 10px;
@@ -366,6 +371,26 @@
         @include md-down {
           font-size: $font-size-xs;
           line-height: $line-height-sm;
+        }
+      }
+    }
+
+    .wp-block-table {
+      @include md-down {
+        overflow-x: auto;
+      }
+
+      table {
+        border-collapse: collapse;
+
+        td,
+        th {
+          padding: 10px;
+          border: 2px solid $color-primary;
+        }
+
+        td {
+          text-align: center;
         }
       }
     }
