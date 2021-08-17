@@ -376,6 +376,10 @@
     }
 
     .wp-block-table {
+      @include md-down {
+        overflow-x: auto;
+      }
+
       table {
         border-collapse: collapse;
 
