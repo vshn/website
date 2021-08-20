@@ -36,15 +36,15 @@ steps:
       bucket: vshn-website
       region: eu-west-1
       path_style: true
-      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package-lock.json" }}'
+      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package.json" }}'
       mount:
-        - 'node_modules'
-        - '.cache'
-        - 'public'
+        - "node_modules"
+        - ".cache"
+        - "public"
     environment:
       AWS_ACCESS_KEY_ID:
         from_secret: minio_access_key
-      AWS_SECRET_ACCESS_KEY: 
+      AWS_SECRET_ACCESS_KEY:
         from_secret: minio_secret_key
     depends_on:
       - initial_notification
@@ -74,15 +74,15 @@ steps:
       bucket: vshn-website
       region: eu-west-1
       path_style: true
-      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package-lock.json" }}'
+      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package.json" }}'
       mount:
-        - 'node_modules'
-        - '.cache'
-        - 'public'
+        - "node_modules"
+        - ".cache"
+        - "public"
     environment:
       AWS_ACCESS_KEY_ID:
         from_secret: minio_access_key
-      AWS_SECRET_ACCESS_KEY: 
+      AWS_SECRET_ACCESS_KEY:
         from_secret: minio_secret_key
     depends_on:
       - build
@@ -277,4 +277,3 @@ trigger:
   event:
     - push
     - custom
-

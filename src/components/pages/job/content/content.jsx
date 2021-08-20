@@ -2,20 +2,17 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Form from 'components/shared/form';
-
 import styles from './content.module.scss';
 import OpenPositions from './open-positions';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, title, positions, form }) => (
+const Content = ({ content, title, positions }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <OpenPositions className={cx('open-positions')} title={title} {...positions} />
     </div>
-    <Form {...form} />
   </section>
 );
 
@@ -27,10 +24,6 @@ Content.propTypes = {
       url: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     })).isRequired,
-  }).isRequired,
-  form: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    formId: PropTypes.string.isRequired,
   }).isRequired,
 };
 

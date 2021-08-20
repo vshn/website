@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import EventsList from 'components/pages/events/events-list';
@@ -23,15 +22,19 @@ const Events = ({
   },
 }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
-  const events = eventsGroupedByYears[pageYear];
+  const [pastEvents, setPastEvents] = useState([]);
+  const shouldShowUpcoming = pageYear === availableYears[0];
 
   useEffect(() => {
     setUpcomingEvents(
       eventsGroupedByYears[availableYears[0]]
-        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) > new Date())
-        .slice(0, 3),
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()).reverse(),
     );
-  }, [eventsGroupedByYears, availableYears]);
+    setPastEvents(
+      eventsGroupedByYears[pageYear]
+        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()),
+    );
+  }, [eventsGroupedByYears, availableYears, pageYear]);
 
   const breadcrumbs = [t[locale].breadcrumbs.learn];
 
@@ -49,7 +52,7 @@ const Events = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      {upcomingEvents.length === 3 && (
+      {shouldShowUpcoming && upcomingEvents.length > 0 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
           upcomingEvents={upcomingEvents}
@@ -57,9 +60,9 @@ const Events = ({
       )}
       <EventsList
         years={availableYears}
-        activeYear={2020}
-        events={events}
+        events={pastEvents}
         rootPath={data.uri}
+        pageYear={pageYear}
       />
       <Contact locale={locale} />
     </MainLayout>
