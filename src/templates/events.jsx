@@ -23,18 +23,30 @@ const Events = ({
 }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [pastEvents, setPastEvents] = useState([]);
-  const shouldShowUpcoming = pageYear === availableYears[0];
+  const currentYear = new Date().getFullYear();
+  const shouldShowUpcoming = pageYear >= currentYear;
 
   useEffect(() => {
-    setUpcomingEvents(
-      eventsGroupedByYears[availableYears[0]]
-        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()).reverse(),
-    );
+    const upcomingYears = Object.keys(eventsGroupedByYears)
+      .filter((key) => parseInt(key, 10) >= currentYear);
+    let upcomingEvents = [];
+
+    // For each upcoming year
+    upcomingYears.forEach((year) => {
+      let events = eventsGroupedByYears[year];
+      if (parseInt(year, 10) === currentYear) {
+        events = events
+          .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()).reverse();
+      }
+      upcomingEvents = upcomingEvents.concat(events);
+    });
+
+    setUpcomingEvents(upcomingEvents);
     setPastEvents(
       eventsGroupedByYears[pageYear]
         .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()),
     );
-  }, [eventsGroupedByYears, availableYears, pageYear]);
+  }, [currentYear, eventsGroupedByYears, pageYear]);
 
   const breadcrumbs = [t[locale].breadcrumbs.learn];
 
