@@ -56,19 +56,21 @@ module.exports = {
               description: edge.node.excerpt,
               url: site.siteMetadata.siteUrl + edge.node.uri,
               guid: site.siteMetadata.siteUrl + edge.node.uri,
-              // relDir: edge.relativeDirectory,
-              // custom_elements: [{ 'content:encoded': edge.node.excerpt }],
+              relDir: edge.relativeDirectory,
+              custom_elements: [{ 'content:encoded': edge.node.content }],
             })),
             query: `
               {
                 allWpPost(
                   sort: { fields: date, order: DESC }
+                  limit: 10
                 )  {
                   edges {
                     node {
                       excerpt
                       title
                       uri
+                      content
                     }
                   }
                 }
