@@ -340,7 +340,12 @@
     .wp-block-image {
       margin-top: 30px;
       margin-bottom: 30px;
+      line-height: 1;
       text-align: center;
+
+      img {
+        object-fit: contain !important;
+      }
 
       @include md-down {
         margin-top: 25px;

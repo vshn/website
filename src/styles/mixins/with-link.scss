@@ -1,7 +1,8 @@
 @mixin link-secondary {
   color: $color-primary;
   text-decoration: none;
-  transition: color $transition-base;
+  transition-duration: $transition-base;
+  transition-property: color;
 
   @include hover {
     color: $color-accent-primary;
@@ -12,7 +13,8 @@
   color: $color-accent-primary;
   text-decoration: none;
   word-break: break-word;
-  transition: color $transition-base;
+  transition-duration: $transition-base;
+  transition-property: color;
 
   @include hover {
     color: $color-quaternary;
