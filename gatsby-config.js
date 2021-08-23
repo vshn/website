@@ -85,6 +85,43 @@ module.exports = {
             output: '/rss.xml',
             title: 'VSHN - Blog',
           },
+          {
+            serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
+              title: edge.node.title,
+              description: edge.node.excerpt,
+              url: site.siteMetadata.siteUrl + edge.node.uri,
+              guid: site.siteMetadata.siteUrl + edge.node.uri,
+              categories: edge.node.categories.nodes.map(({ name }) => name),
+              relDir: edge.relativeDirectory,
+              custom_elements: [{ 'content:encoded': edge.node.content }],
+            })),
+            query: `
+              {
+                allWpPost(
+                filter: {categories: {nodes: {elemMatch: {slug: {eq: "vshn-timer"}}}}}
+                  sort: { fields: date, order: DESC }
+                  limit: 10
+                )  {
+                  edges {
+                    node {
+                      excerpt
+                      title
+                      uri
+                      content
+                      categories {
+                        nodes {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/vshn-timer-rss.xml',
+            match: '^/blog/',
+            title: 'VSHN.timer - Blog',
+          },
         ],
       },
     },
