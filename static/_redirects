@@ -91,6 +91,7 @@
 /success-stories/ /partner/success-stories/
 /success-stories/sobrado/ /success-stories/sobrado-vshn/
 /success-stories/acrevis-bank-vshn /success-stories/acrevis
+/en/success-stories/acrevis-bank/   /en/success-stories/acrevis/
 /syn/ /produkte/open-source/project-syn/
 /team/*/ /team/
 /tech-talks/                        /events/
@@ -98,6 +99,8 @@
 /vshn/events/                       /events/
 /webinar-docker-kubernetes-der-weg-zu-cloud-native-computing/ https://www.youtube.com/watch?v=SCMA5XHv9uc
 /webinare/ /events/
+
+/en/about/news-press/   /en/blog/press-en/
 
 # old landing pages
 /agb                                        https://legal.docs.vshn.ch/legal/agb_de.html
@@ -120,12 +123,13 @@
 
 # blog/event structures
 /blog/author/*                      /blog/
-/blog/events/                       /blog/event
+/blog/events/*                       /blog/event/:splat
 /blog/page/*                        /blog/:splat
 /categories/:cat/                   /blog/:cat
 /categories/:cat/page/:page/        /blog/:cat/:page
 /en/blog/author/*                   /en/blog/
 /en/blog/page/*                     /en/blog/:splat
+/en/blog/event/*                     /en/blog/events/:splat
 /en/categories/:cat/                /en/blog/:cat
 /en/categories/:cat/page/:page/     /en/blog/:cat/:page
 /en/event/eurodog/                  /en/events/
@@ -187,6 +191,18 @@
 /en/jobs/devops-engineering/              /en/jobs/
 /en/jobs/why-vshn/                      /en/about/employee-benefits/
 /en/jobs/kubernetes-platform-engineering/   /en/jobs/
+/en/jobs/gitlab-pipeline-development/      /en/jobs/
+/en/jobs/agile-coach/                       /en/jobs/
+/en/jobs/golang-devops-engineering/            /en/jobs/
+/en/jobs/senior-linux-engineering/             /en/jobs/
+/en/jobs/sales-back-office/                    /en/jobs/
+/en/jobs/rancher-engineering/                  /en/jobs/
+/en/jobs/openshift-engineering/                /en/jobs/
+/en/jobs/linux-engineering/                    /en/jobs/
+/en/jobs/sales-back-office/                    /en/jobs/
+/en/jobs/site-reliability-engineering/         /en/jobs/
+/en/jobs/python-devops-engineering/            /en/jobs/
+
 /jobs/ansible/                          /jobs/linux-engineering/
 /jobs/business-development/             /jobs/
 /jobs/customer-success-management/      /jobs/
@@ -217,6 +233,19 @@
 /jobs/reliability-engineering/          /jobs/
 /jobs/devops-engineering/               /jobs/
 /jobs/kubernetes-platform-engineering/  /jobs/
+/jobs/gitlab-pipeline-development/      /jobs/
+/jobs/ansible-devops-engineering/       /jobs/
+/jobs/agile-coach/                      /jobs/
+/jobs/java-devops-engineering/          /jobs/
+/jobs/golang-devops-engineering/            /jobs/
+/jobs/senior-linux-engineering/             /jobs/
+/jobs/sales-back-office/                    /jobs/
+/jobs/rancher-engineering/                  /jobs/
+/jobs/openshift-engineering/                /jobs/
+/jobs/linux-engineering/                    /jobs/
+/jobs/sales-back-office/                    /jobs/
+/jobs/site-reliability-engineering/         /jobs/
+/jobs/python-devops-engineering/            /jobs/
 
 #partner
 /en/partner/                        /en/partners/
