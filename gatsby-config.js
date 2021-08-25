@@ -1,8 +1,27 @@
-require('dotenv')
-  .config();
+require('dotenv').config();
+// gatsby-plugin-feed doesn't support dynamic multiple feeds (https://github.com/gatsbyjs/gatsby/issues/12184)
+// so there is need to list all categories to generate rss feeds
+const BLOG_CATEGORIES_EN = [
+  { title: 'General', slug: 'general' },
+  { title: 'Coronavirus 2020', slug: 'coronavirus-2020' },
+  { title: 'Events', slug: 'events' },
+  { title: 'Press releases', slug: 'press-en' },
+  { title: 'Project Syn', slug: 'project-syn' },
+  { title: 'Technical', slug: 'tech-en' },
+  { title: 'VSHN.timer', slug: 'vshn-timer' },
+  { title: 'VSHNinternal', slug: 'interna-en' },
+];
 
-const BLOG_CATEGORIES_EN = ['general', 'coronavirus-2020', 'events', 'press-en', 'project-syn', 'tech-en', 'vshn-timer', 'interna-en'];
-const BLOG_CATEGORIES_DE = ['allgemein', 'coronavirus-2020', 'event', 'press', 'project-syn', 'tech', 'vshn-timer', 'interna'];
+const BLOG_CATEGORIES_DE = [
+  { title: 'Allgemein', slug: 'allgemein' },
+  { title: 'Coronavirus 2020', slug: 'coronavirus-2020' },
+  { title: 'Event', slug: 'event' },
+  { title: 'Pressemitteilungen', slug: 'press' },
+  { title: 'Project Syn', slug: 'project-syn' },
+  { title: 'Technisches', slug: 'tech' },
+  { title: 'VSHN.timer', slug: 'vshn-timer' },
+  { title: 'VSHNintern', slug: 'interna' },
+];
 const blogFeedConfig = {
   serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
     title: edge.node.title,
@@ -38,13 +57,12 @@ const blogFeedConfig = {
   title: 'VSHN - Blog',
 };
 const getCategoryFeedsConfig = (categories, locale) => (
-  categories.map((category) => ({
+  categories.map(({ title, slug }) => ({
     serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
       title: edge.node.title,
       description: edge.node.excerpt,
       url: site.siteMetadata.siteUrl + edge.node.uri,
       guid: site.siteMetadata.siteUrl + edge.node.uri,
-      language: locale,
       categories: edge.node.categories.nodes.map(({ name }) => name),
       relDir: edge.relativeDirectory,
       custom_elements: [{ 'content:encoded': edge.node.content }],
@@ -52,7 +70,7 @@ const getCategoryFeedsConfig = (categories, locale) => (
     query: `
       {
         allWpPost(
-          filter: {language: {slug: {eq: "${locale}"}}, categories: {nodes: {elemMatch: {slug: {eq: "${category}"}}}}}
+          filter: {language: {slug: {eq: "${locale}"}}, categories: {nodes: {elemMatch: {slug: {eq: "${slug}"}}}}}
           sort: { fields: date, order: DESC }
           limit: 10
         )  {
@@ -72,9 +90,8 @@ const getCategoryFeedsConfig = (categories, locale) => (
         }
       }
     `,
-    output: `/${category}-rss.xml`,
-    match: '^/blog/',
-    title: 'VSHN - Blog',
+    output: `/${slug}-rss.xml`,
+    title: `VSHN ${title} - Blog`,
   }))
 );
 const enCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_EN, 'en');
