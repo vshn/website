@@ -30,7 +30,7 @@ const blogFeedConfig = {
     guid: site.siteMetadata.siteUrl + edge.node.uri,
     categories: edge.node.categories.nodes.map(({ name }) => name),
     relDir: edge.relativeDirectory,
-    // custom_elements: [{ 'content:encoded': edge.node.excerpt }],
+    custom_elements: [{ 'content:encoded': edge.node.content }],
   })),
   query: `
    {
