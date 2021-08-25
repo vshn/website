@@ -42,6 +42,11 @@ const blogFeedConfig = {
            excerpt
            title
            uri
+           categories {
+             nodes {
+               name
+             }
+           }
          }
        }
      }
