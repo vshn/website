@@ -1,4 +1,87 @@
-require('dotenv').config();
+require('dotenv')
+  .config();
+
+const BLOG_CATEGORIES_EN = ['general', 'coronavirus-2020', 'events', 'press-en', 'project-syn', 'tech-en', 'vshn-timer', 'interna-en'];
+const BLOG_CATEGORIES_DE = ['allgemein', 'coronavirus-2020', 'event', 'press', 'project-syn', 'tech', 'vshn-timer', 'interna'];
+const blogFeedConfig = {
+  serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
+    title: edge.node.title,
+    description: edge.node.excerpt,
+    url: site.siteMetadata.siteUrl + edge.node.uri,
+    guid: site.siteMetadata.siteUrl + edge.node.uri,
+    categories: edge.node.categories.nodes.map(({ name }) => name),
+    relDir: edge.relativeDirectory,
+    // custom_elements: [{ 'content:encoded': edge.node.excerpt }],
+  })),
+  query: `
+   {
+     allWpPost(
+       sort: { fields: date, order: DESC }
+     )  {
+       edges {
+         node {
+           excerpt
+           title
+           uri
+           content
+           categories {
+             nodes {
+               name
+             }
+           }
+         }
+       }
+     }
+   }
+ `,
+  output: '/rss.xml',
+  title: 'VSHN - Blog',
+};
+const getCategoryFeedsConfig = (categories, locale) => (
+  categories.map((category) => ({
+    serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
+      title: edge.node.title,
+      description: edge.node.excerpt,
+      url: site.siteMetadata.siteUrl + edge.node.uri,
+      guid: site.siteMetadata.siteUrl + edge.node.uri,
+      language: locale,
+      categories: edge.node.categories.nodes.map(({ name }) => name),
+      relDir: edge.relativeDirectory,
+      custom_elements: [{ 'content:encoded': edge.node.content }],
+    })),
+    query: `
+      {
+        allWpPost(
+          filter: {language: {slug: {eq: "${locale}"}}, categories: {nodes: {elemMatch: {slug: {eq: "${category}"}}}}}
+          sort: { fields: date, order: DESC }
+          limit: 10
+        )  {
+          edges {
+            node {
+              excerpt
+              title
+              uri
+              content
+              categories {
+                nodes {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    output: `/${category}-rss.xml`,
+    match: '^/blog/',
+    title: 'VSHN - Blog',
+  }))
+);
+const enCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_EN, 'en');
+const deCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_DE, 'de');
+const feedsConfig = [];
+feedsConfig.push(blogFeedConfig);
+const rssFeedsConfig = feedsConfig.concat(enCategoryFeed, deCategoryFeed);
 
 module.exports = {
   siteMetadata: {
@@ -49,80 +132,7 @@ module.exports = {
             }
           }
         `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
-              title: edge.node.title,
-              description: edge.node.excerpt,
-              url: site.siteMetadata.siteUrl + edge.node.uri,
-              guid: site.siteMetadata.siteUrl + edge.node.uri,
-              categories: edge.node.categories.nodes.map(({ name }) => name),
-              relDir: edge.relativeDirectory,
-              custom_elements: [{ 'content:encoded': edge.node.content }],
-            })),
-            query: `
-              {
-                allWpPost(
-                  sort: { fields: date, order: DESC }
-                  limit: 10
-                )  {
-                  edges {
-                    node {
-                      excerpt
-                      title
-                      uri
-                      content
-                      categories {
-                        nodes {
-                          name
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: 'VSHN - Blog',
-          },
-          {
-            serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
-              title: edge.node.title,
-              description: edge.node.excerpt,
-              url: site.siteMetadata.siteUrl + edge.node.uri,
-              guid: site.siteMetadata.siteUrl + edge.node.uri,
-              categories: edge.node.categories.nodes.map(({ name }) => name),
-              relDir: edge.relativeDirectory,
-              custom_elements: [{ 'content:encoded': edge.node.content }],
-            })),
-            query: `
-              {
-                allWpPost(
-                filter: {categories: {nodes: {elemMatch: {slug: {eq: "vshn-timer"}}}}}
-                  sort: { fields: date, order: DESC }
-                  limit: 10
-                )  {
-                  edges {
-                    node {
-                      excerpt
-                      title
-                      uri
-                      content
-                      categories {
-                        nodes {
-                          name
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/vshn-timer-rss.xml',
-            match: '^/blog/',
-            title: 'VSHN.timer - Blog',
-          },
-        ],
+        feeds: rssFeedsConfig,
       },
     },
     {
