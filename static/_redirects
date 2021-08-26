@@ -108,6 +108,8 @@
 /en/vshn/newsletter/    /en/newsletter/
 /vshn/newsletter/       /newsletter/
 
+/sitemap.xml            /sitemap/sitemap-index.xml
+
 # old landing pages
 /agb                                        https://legal.docs.vshn.ch/legal/agb_de.html
 /allgemeine-geschaeftsbedingungen           https://legal.docs.vshn.ch/legal/agb_de.html
