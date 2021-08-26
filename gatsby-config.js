@@ -1,4 +1,108 @@
 require('dotenv').config();
+// gatsby-plugin-feed doesn't support dynamic multiple feeds (https://github.com/gatsbyjs/gatsby/issues/12184)
+// so there is need to list all categories to generate rss feeds
+const BLOG_CATEGORIES_EN = [
+  { title: 'General', slug: 'general' },
+  { title: 'Coronavirus 2020', slug: 'coronavirus-2020' },
+  { title: 'Events', slug: 'events' },
+  { title: 'Press releases', slug: 'press-en' },
+  { title: 'Project Syn', slug: 'project-syn' },
+  { title: 'Technical', slug: 'tech-en' },
+  { title: 'VSHN.timer', slug: 'vshn-timer' },
+  { title: 'VSHNinternal', slug: 'interna-en' },
+];
+
+const BLOG_CATEGORIES_DE = [
+  { title: 'Allgemein', slug: 'allgemein' },
+  { title: 'Coronavirus 2020', slug: 'coronavirus-2020' },
+  { title: 'Event', slug: 'event' },
+  { title: 'Pressemitteilungen', slug: 'press' },
+  { title: 'Project Syn', slug: 'project-syn' },
+  { title: 'Technisches', slug: 'tech' },
+  { title: 'VSHN.timer', slug: 'vshn-timer' },
+  { title: 'VSHNintern', slug: 'interna' },
+];
+const getBlogFeedConfig = (locale) => ({
+  serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
+    title: edge.node.title,
+    description: edge.node.excerpt,
+    url: site.siteMetadata.siteUrl + edge.node.uri,
+    guid: site.siteMetadata.siteUrl + edge.node.uri,
+    categories: edge.node.categories.nodes.map(({ name }) => name),
+    relDir: edge.relativeDirectory,
+    custom_elements: [{ 'content:encoded': edge.node.content }],
+  })),
+  query: `
+   {
+     allWpPost(
+      filter: {language: {slug: {eq: "${locale}"}}} 
+      sort: { fields: date, order: DESC }
+      limit: 20
+     )  {
+       edges {
+         node {
+           excerpt
+           title
+           uri
+           content
+           categories {
+             nodes {
+               name
+             }
+           }
+         }
+       }
+     }
+   }
+ `,
+  output: `/${locale === 'de' ? '' : 'en-'}rss.xml`,
+  title: 'VSHN - Blog',
+});
+const getCategoryFeedsConfig = (categories, locale) => (
+  categories.map(({ title, slug }) => ({
+    serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
+      title: edge.node.title,
+      description: edge.node.excerpt,
+      url: site.siteMetadata.siteUrl + edge.node.uri,
+      guid: site.siteMetadata.siteUrl + edge.node.uri,
+      categories: edge.node.categories.nodes.map(({ name }) => name),
+      relDir: edge.relativeDirectory,
+      custom_elements: [{ 'content:encoded': edge.node.content }],
+    })),
+    query: `
+      {
+        allWpPost(
+          filter: {language: {slug: {eq: "${locale}"}}, categories: {nodes: {elemMatch: {slug: {eq: "${slug}"}}}}}
+          sort: { fields: date, order: DESC }
+          limit: 10
+        )  {
+          edges {
+            node {
+              excerpt
+              title
+              uri
+              content
+              categories {
+                nodes {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    output: `/${slug}-rss.xml`,
+    title: `VSHN ${title} - Blog`,
+  }))
+);
+
+const enBlogFeed = getBlogFeedConfig('en');
+const deBlogFeed = getBlogFeedConfig('de');
+const enCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_EN, 'en');
+const deCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_DE, 'de');
+const feedsConfig = [];
+const rssFeedsConfig = feedsConfig.concat(enBlogFeed, deBlogFeed, enCategoryFeed, deCategoryFeed);
 
 module.exports = {
   siteMetadata: {
@@ -49,35 +153,7 @@ module.exports = {
             }
           }
         `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
-              title: edge.node.title,
-              description: edge.node.excerpt,
-              url: site.siteMetadata.siteUrl + edge.node.uri,
-              guid: site.siteMetadata.siteUrl + edge.node.uri,
-              // relDir: edge.relativeDirectory,
-              // custom_elements: [{ 'content:encoded': edge.node.excerpt }],
-            })),
-            query: `
-              {
-                allWpPost(
-                  sort: { fields: date, order: DESC }
-                )  {
-                  edges {
-                    node {
-                      excerpt
-                      title
-                      uri
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/rss.xml',
-            title: 'VSHN - Blog',
-          },
-        ],
+        feeds: rssFeedsConfig,
       },
     },
     {
