@@ -22,7 +22,7 @@ const BLOG_CATEGORIES_DE = [
   { title: 'VSHN.timer', slug: 'vshn-timer' },
   { title: 'VSHNintern', slug: 'interna' },
 ];
-const blogFeedConfig = {
+const getBlogFeedConfig = (locale) => ({
   serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
     title: edge.node.title,
     description: edge.node.excerpt,
@@ -30,18 +30,21 @@ const blogFeedConfig = {
     guid: site.siteMetadata.siteUrl + edge.node.uri,
     categories: edge.node.categories.nodes.map(({ name }) => name),
     relDir: edge.relativeDirectory,
-    // custom_elements: [{ 'content:encoded': edge.node.content }],
+    custom_elements: [{ 'content:encoded': edge.node.content }],
   })),
   query: `
    {
      allWpPost(
-       sort: { fields: date, order: DESC }
+      filter: {language: {slug: {eq: "${locale}"}}} 
+      sort: { fields: date, order: DESC }
+      limit: 20
      )  {
        edges {
          node {
            excerpt
            title
            uri
+           content
            categories {
              nodes {
                name
@@ -52,9 +55,9 @@ const blogFeedConfig = {
      }
    }
  `,
-  output: '/rss.xml',
+  output: `/${locale === 'de' ? '' : 'en-'}rss.xml`,
   title: 'VSHN - Blog',
-};
+});
 const getCategoryFeedsConfig = (categories, locale) => (
   categories.map(({ title, slug }) => ({
     serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
@@ -93,11 +96,13 @@ const getCategoryFeedsConfig = (categories, locale) => (
     title: `VSHN ${title} - Blog`,
   }))
 );
+
+const enBlogFeed = getBlogFeedConfig('en');
+const deBlogFeed = getBlogFeedConfig('de');
 const enCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_EN, 'en');
 const deCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_DE, 'de');
 const feedsConfig = [];
-feedsConfig.push(blogFeedConfig);
-const rssFeedsConfig = feedsConfig.concat(enCategoryFeed, deCategoryFeed);
+const rssFeedsConfig = feedsConfig.concat(enBlogFeed, deBlogFeed, enCategoryFeed, deCategoryFeed);
 
 module.exports = {
   siteMetadata: {
