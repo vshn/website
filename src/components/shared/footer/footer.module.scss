@@ -38,6 +38,8 @@
 
 .logo {
   display: block;
+  width: 138px;
+  height: 30px;
   margin-bottom: 45px;
 
   @include md-down {
