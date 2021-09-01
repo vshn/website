@@ -10,19 +10,31 @@ import styles from './upcoming-events.module.scss';
 
 const cx = classNames.bind(styles);
 
-const UpcomingEvents = ({ title, upcomingEvents }) => (
+const UpcomingEvents = ({ title, featuredUpcomingEvents, upcomingEventsByYear }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <Heading className={cx('title')}>{title}</Heading>
       <ul className={cx('items-wrapper')}>
         <div className={cx('cards-wrapper')}>
-          {upcomingEvents.slice(0, 3).map((upcomingEvent, index) => (
+          {featuredUpcomingEvents.map((upcomingEvent, index) => (
             <CardItem key={index} {...upcomingEvent} />
           ))}
         </div>
-        {upcomingEvents.slice(3).map((upcomingEvent, index) => (
-          <Item key={index} {...upcomingEvent} />
-        ))}
+        {upcomingEventsByYear && (
+        <div className={cx('events-wrapper')}>
+          {Object.keys(upcomingEventsByYear).map((year, index) => {
+            const events = Object.values(upcomingEventsByYear)[index];
+            return (
+              <div className={cx('events-group')} key={index}>
+                <Heading className={cx('year-title')} size="lg" tag="h4">{year}</Heading>
+                {events.map((upcomingEvent, index) => (
+                  <Item key={index} {...upcomingEvent} />
+                ))}
+              </div>
+            );
+          })}
+        </div>
+        )}
       </ul>
     </div>
   </section>
@@ -30,7 +42,7 @@ const UpcomingEvents = ({ title, upcomingEvents }) => (
 
 UpcomingEvents.propTypes = {
   title: PropTypes.string.isRequired,
-  upcomingEvents: PropTypes.arrayOf(PropTypes.shape({
+  featuredUpcomingEvents: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     acf: PropTypes.shape({
       logo: PropTypes.shape({
@@ -44,6 +56,11 @@ UpcomingEvents.propTypes = {
       }),
     }).isRequired,
   })).isRequired,
+  upcomingEventsByYear: PropTypes.objectOf(PropTypes.any),
+};
+
+UpcomingEvents.defaultProps = {
+  upcomingEventsByYear: null,
 };
 
 export default UpcomingEvents;

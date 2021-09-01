@@ -21,7 +21,8 @@ const Events = ({
     pageYear,
   },
 }) => {
-  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [featuredUpcomingEvents, setFeaturedUpcomingEvents] = useState([]);
+  const [upcomingEventsByYear, setUpcomingEventsByYear] = useState({});
   const [pastEvents, setPastEvents] = useState([]);
   const currentYear = new Date().getFullYear();
   const shouldShowUpcoming = pageYear >= currentYear;
@@ -29,19 +30,37 @@ const Events = ({
   useEffect(() => {
     const upcomingYears = Object.keys(eventsGroupedByYears)
       .filter((key) => parseInt(key, 10) >= currentYear);
-    let upcomingEvents = [];
 
-    // For each upcoming year
-    upcomingYears.forEach((year) => {
+    const getUpcomingEvents = (year) => {
       let events = eventsGroupedByYears[year];
       if (parseInt(year, 10) === currentYear) {
         events = events
-          .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()).reverse();
+          .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date());
       }
+      return events;
+    };
+
+    // Get featured events
+    let upcomingEvents = [];
+    upcomingYears.forEach((year) => {
+      const events = getUpcomingEvents(year);
+      events.reverse();
       upcomingEvents = upcomingEvents.concat(events);
     });
+    const featuredUpcomingEvents = upcomingEvents.slice(0, 3);
+    setFeaturedUpcomingEvents(featuredUpcomingEvents);
 
-    setUpcomingEvents(upcomingEvents);
+    // Get the rest of events, excluding the featured events
+    const upcomingEventsByYear = {};
+    upcomingYears.forEach((year) => {
+      let events = getUpcomingEvents(year);
+      events.reverse();
+      events = events.filter((cEvent, i) => cEvent !== featuredUpcomingEvents[i]);
+      upcomingEventsByYear[year] = events;
+    });
+    setUpcomingEventsByYear(upcomingEventsByYear);
+
+    // Get the past events
     setPastEvents(
       eventsGroupedByYears[pageYear]
         .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()),
@@ -64,10 +83,11 @@ const Events = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      {shouldShowUpcoming && upcomingEvents.length > 0 && (
+      {shouldShowUpcoming && featuredUpcomingEvents.length > 0 && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
-          upcomingEvents={upcomingEvents}
+          featuredUpcomingEvents={featuredUpcomingEvents}
+          upcomingEventsByYear={upcomingEventsByYear}
         />
       )}
       <EventsList
