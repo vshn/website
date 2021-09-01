@@ -37,14 +37,14 @@ const Events = ({
         events = events
           .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date());
       }
-      return events;
+      const upcomingEvents = [...events].reverse();
+      return upcomingEvents;
     };
 
     // Get featured events
     let upcomingEvents = [];
     upcomingYears.forEach((year) => {
       const events = getUpcomingEvents(year);
-      events.reverse();
       upcomingEvents = upcomingEvents.concat(events);
     });
     const featuredUpcomingEvents = upcomingEvents.slice(0, 3);
@@ -54,7 +54,6 @@ const Events = ({
     const upcomingEventsByYear = {};
     upcomingYears.forEach((year) => {
       let events = getUpcomingEvents(year);
-      events.reverse();
       events = events.filter((cEvent, i) => cEvent !== featuredUpcomingEvents[i]);
       upcomingEventsByYear[year] = events;
     });
