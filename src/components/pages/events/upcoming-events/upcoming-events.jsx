@@ -20,19 +20,16 @@ const UpcomingEvents = ({ title, featuredUpcomingEvents, upcomingEventsByYear })
             <CardItem key={index} {...upcomingEvent} />
           ))}
         </div>
-        {upcomingEventsByYear && (
+        {Object.keys(upcomingEventsByYear).length && (
         <div className={cx('events-wrapper')}>
-          {Object.keys(upcomingEventsByYear).map((year, index) => {
-            const events = Object.values(upcomingEventsByYear)[index];
-            return (
-              <div className={cx('events-group')} key={index}>
-                <Heading className={cx('year-title')} size="lg" tag="h4">{year}</Heading>
-                {events.map((upcomingEvent, index) => (
-                  <Item key={index} {...upcomingEvent} />
-                ))}
-              </div>
-            );
-          })}
+          {Object.entries(upcomingEventsByYear).map(([year, events], index) => (
+            <div className={cx('events-group')} key={index}>
+              <Heading className={cx('year-title')} size="lg" tag="h4">{year}</Heading>
+              {events.map((upcomingEvent, index) => (
+                <Item key={index} {...upcomingEvent} />
+              ))}
+            </div>
+          ))}
         </div>
         )}
       </ul>

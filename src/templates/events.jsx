@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import EventsList from 'components/pages/events/events-list';
 import backgroundImage from 'components/pages/events/hero/images/background-image.svg';
@@ -8,6 +8,16 @@ import Contact from 'components/shared/contact';
 import Hero from 'components/shared/hero';
 import t from 'i18n';
 import MainLayout from 'layouts/main';
+
+const getUpcomingEvents = (eventsGroupedByYears, year, currentYear) => {
+  let events = eventsGroupedByYears[year];
+  if (parseInt(year, 10) === currentYear) {
+    events = events
+      .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date());
+  }
+  const upcomingEvents = [...events].reverse();
+  return upcomingEvents;
+};
 
 const Events = ({
   pageContext: {
@@ -25,35 +35,24 @@ const Events = ({
   const [upcomingEventsByYear, setUpcomingEventsByYear] = useState({});
   const [pastEvents, setPastEvents] = useState([]);
   const currentYear = new Date().getFullYear();
+
   const shouldShowUpcoming = pageYear >= currentYear;
 
+  const upcomingYears = useMemo(() => Object.keys(eventsGroupedByYears)
+    .filter((key) => parseInt(key, 10) >= currentYear), [eventsGroupedByYears, currentYear]);
+
   useEffect(() => {
-    const upcomingYears = Object.keys(eventsGroupedByYears)
-      .filter((key) => parseInt(key, 10) >= currentYear);
-
-    const getUpcomingEvents = (year) => {
-      let events = eventsGroupedByYears[year];
-      if (parseInt(year, 10) === currentYear) {
-        events = events
-          .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date());
-      }
-      const upcomingEvents = [...events].reverse();
-      return upcomingEvents;
-    };
-
     // Get featured events
-    let upcomingEvents = [];
-    upcomingYears.forEach((year) => {
-      const events = getUpcomingEvents(year);
-      upcomingEvents = upcomingEvents.concat(events);
-    });
+    const upcomingEvents = upcomingYears
+      .map((year) => getUpcomingEvents(eventsGroupedByYears, year, currentYear))
+      .flatMap((event) => event);
     const featuredUpcomingEvents = upcomingEvents.slice(0, 3);
     setFeaturedUpcomingEvents(featuredUpcomingEvents);
 
     // Get the rest of events, excluding the featured events
     const upcomingEventsByYear = {};
     upcomingYears.forEach((year) => {
-      let events = getUpcomingEvents(year);
+      let events = getUpcomingEvents(eventsGroupedByYears, year, currentYear);
       events = events.filter((cEvent, i) => cEvent !== featuredUpcomingEvents[i]);
       upcomingEventsByYear[year] = events;
     });
@@ -64,7 +63,7 @@ const Events = ({
       eventsGroupedByYears[pageYear]
         .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()),
     );
-  }, [currentYear, eventsGroupedByYears, pageYear]);
+  }, [eventsGroupedByYears, pageYear, upcomingYears, currentYear]);
 
   const breadcrumbs = [t[locale].breadcrumbs.learn];
 
@@ -82,7 +81,7 @@ const Events = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      {shouldShowUpcoming && featuredUpcomingEvents.length > 0 && (
+      {shouldShowUpcoming && featuredUpcomingEvents.length && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
           featuredUpcomingEvents={featuredUpcomingEvents}
