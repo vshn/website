@@ -35,3 +35,18 @@
     row-gap: 20px;
   }
 }
+
+.events-wrapper {
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.events-group {
+  margin-bottom: 60px;
+}
+
+.year-title {
+  margin-bottom: 30px;
+  color: $color-quaternary;
+}

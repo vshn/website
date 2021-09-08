@@ -811,6 +811,7 @@ const createEventPages = async ({
 
   eventsPages.forEach((eventsPage) => {
     const eventsGroupedByYears = {};
+    const currentYear = new Date().getFullYear();
     events
       .filter((event) => event.language.locale === eventsPage.language.locale)
       .forEach((event) => {
@@ -821,7 +822,8 @@ const createEventPages = async ({
         eventsGroupedByYears[year] = eventsByYear;
       });
     // Create "events/{year}" pages
-    const availableYears = Object.keys(eventsGroupedByYears).reverse();
+    const availableYears = Object.keys(eventsGroupedByYears)
+      .filter((key) => parseInt(key, 10) <= currentYear).reverse();
     availableYears.forEach((year, index) => {
       const path = index === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}/`;
 
