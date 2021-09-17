@@ -79,6 +79,9 @@
     "login": {
       "title": "Login",
       "url": "/en/login/"
+    },
+    "upcomingEvents": {
+      "title": "Upcoming events"
     }
   },
   "de": {
@@ -161,6 +164,9 @@
     "login": {
       "title": "Login",
       "url": "/login/"
+    },
+    "upcomingEvents": {
+      "title": "Nächste events"
     }
   }
 }

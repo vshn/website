@@ -10,8 +10,8 @@ import styles from './upcoming-events.module.scss';
 
 const cx = classNames.bind(styles);
 
-const UpcomingEvents = ({ title, featuredUpcomingEvents, upcomingEventsByYear }) => (
-  <section className={cx('wrapper')}>
+const UpcomingEvents = ({ title, featuredUpcomingEvents, upcomingEventsByYear, className }) => (
+  <section className={cx('wrapper', className)}>
     <div className="container">
       <Heading className={cx('title')}>{title}</Heading>
       <ul className={cx('items-wrapper')}>
@@ -20,7 +20,7 @@ const UpcomingEvents = ({ title, featuredUpcomingEvents, upcomingEventsByYear })
             <CardItem key={index} {...upcomingEvent} />
           ))}
         </div>
-        {Object.keys(upcomingEventsByYear).length && (
+        {upcomingEventsByYear && Object.keys(upcomingEventsByYear).length && (
         <div className={cx('events-wrapper')}>
           {Object.entries(upcomingEventsByYear).map(([year, events], index) => (
             <div className={cx('events-group')} key={index}>
@@ -54,10 +54,12 @@ UpcomingEvents.propTypes = {
     }).isRequired,
   })).isRequired,
   upcomingEventsByYear: PropTypes.objectOf(PropTypes.any),
+  className: PropTypes.string,
 };
 
 UpcomingEvents.defaultProps = {
   upcomingEventsByYear: null,
+  className: null,
 };
 
 export default UpcomingEvents;

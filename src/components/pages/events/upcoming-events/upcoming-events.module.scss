@@ -2,6 +2,21 @@
   margin-bottom: 120px;
 
   @include section-paddings;
+
+  &.home {
+    .title {
+      font-size: $font-size-xl;
+      line-height: $line-height-xl;
+
+      @include lg-down {
+        font-size: 40px;
+      }
+
+      @include md-down {
+        font-size: 36px;
+      }
+    }
+  }
 }
 
 .title {
