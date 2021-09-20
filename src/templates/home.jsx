@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { graphql } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 
 import UpcomingEvents from 'components/pages/events/upcoming-events';
 import Advantages from 'components/pages/home/advantages';
@@ -23,14 +23,13 @@ const Home = ({
   },
   pageContext: { locale, pageUrls, menus, globalFields, upcomingEvents },
 }) => {
-  const [featuredUpcomingEvents, setFeaturedUpcomingEvents] = useState([]);
-  useEffect(() => {
-    if (!upcomingEvents) return;
-    const events = upcomingEvents.reverse().slice(0, 3);
-    setFeaturedUpcomingEvents(events);
-  }, [upcomingEvents]);
-  const shouldShowUpcomingEvents = featuredUpcomingEvents.length > 0;
-
+  const featuredUpcomingEvents = useMemo(
+    () => {
+      const events = [...upcomingEvents].reverse();
+      return events.slice(0, 3);
+    }, [upcomingEvents],
+  );
+  const shouldShowUpcomingEvents = featuredUpcomingEvents.length;
   return (
     <MainLayout
       locale={locale}
@@ -47,6 +46,7 @@ const Home = ({
       <UpcomingEvents
         className="home"
         title={translations[locale].upcomingEvents.title}
+        itemFooterText={translations[locale].upcomingEvents.itemFooterText}
         featuredUpcomingEvents={featuredUpcomingEvents}
       />
       )}
