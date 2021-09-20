@@ -28,7 +28,7 @@ const getBlogFeedConfig = (locale) => ({
     description: edge.node.excerpt,
     url: site.siteMetadata.siteUrl + edge.node.uri,
     guid: site.siteMetadata.siteUrl + edge.node.uri,
-    date: edge.node.date,
+    date: edge.node.dateGmt,
     categories: edge.node.categories.nodes.map(({ name }) => name),
     relDir: edge.relativeDirectory,
     custom_elements: [{ 'content:encoded': edge.node.content }],
@@ -42,7 +42,7 @@ const getBlogFeedConfig = (locale) => ({
      )  {
        edges {
          node {
-           date
+           dateGmt
            excerpt
            title
            uri
@@ -67,7 +67,7 @@ const getCategoryFeedsConfig = (categories, locale) => (
       description: edge.node.excerpt,
       url: site.siteMetadata.siteUrl + edge.node.uri,
       guid: site.siteMetadata.siteUrl + edge.node.uri,
-      date: edge.node.date,
+      date: edge.node.dateGmt,
       categories: edge.node.categories.nodes.map(({ name }) => name),
       relDir: edge.relativeDirectory,
       custom_elements: [{ 'content:encoded': edge.node.content }],
@@ -81,7 +81,7 @@ const getCategoryFeedsConfig = (categories, locale) => (
         )  {
           edges {
             node {
-              date
+              dateGmt
               excerpt
               title
               uri
