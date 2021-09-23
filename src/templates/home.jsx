@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useMemo } from 'react';
 
+import UpcomingEvents from 'components/pages/events/upcoming-events';
 import Advantages from 'components/pages/home/advantages';
 import Awards from 'components/pages/home/awards';
 import Hero from 'components/pages/home/hero';
@@ -20,27 +21,44 @@ const Home = ({
     wpPage: { seo, acf: data },
     allWpPost,
   },
-  pageContext: { locale, pageUrls, menus, globalFields },
-}) => (
-  <MainLayout
-    locale={locale}
-    seo={seo}
-    pageUrls={pageUrls}
-    menus={menus}
-    globalFields={globalFields}
-  >
-    <Hero {...data.hero} />
-    <Advantages {...data.advantages} />
-    <SolutionsProducts {...data.solutionsProducts} />
-    <News {...data.news} {...allWpPost} readMoreText={translations[locale].blog.postCtaButton} />
-    <Technologies {...data.technologies} />
-    <Partners {...data.partners} />
-    <Jobs {...data.jobs} />
-    <Report {...data.report} />
-    <Awards {...data.awards} />
-    <Contact locale={locale} />
-  </MainLayout>
-);
+  pageContext: { locale, pageUrls, menus, globalFields, upcomingEvents },
+}) => {
+  const featuredUpcomingEvents = useMemo(
+    () => {
+      const events = [...upcomingEvents].reverse();
+      return events.slice(0, 3);
+    }, [upcomingEvents],
+  );
+  const shouldShowUpcomingEvents = featuredUpcomingEvents.length;
+  return (
+    <MainLayout
+      locale={locale}
+      seo={seo}
+      pageUrls={pageUrls}
+      menus={menus}
+      globalFields={globalFields}
+    >
+      <Hero {...data.hero} />
+      <Advantages {...data.advantages} />
+      <SolutionsProducts {...data.solutionsProducts} />
+      <News {...data.news} {...allWpPost} readMoreText={translations[locale].blog.postCtaButton} />
+      {shouldShowUpcomingEvents && (
+      <UpcomingEvents
+        className="home"
+        title={translations[locale].upcomingEvents.title}
+        itemFooterText={translations[locale].upcomingEvents.itemFooterText}
+        featuredUpcomingEvents={featuredUpcomingEvents}
+      />
+      )}
+      <Technologies {...data.technologies} />
+      <Partners {...data.partners} />
+      <Jobs {...data.jobs} />
+      <Report {...data.report} />
+      <Awards {...data.awards} />
+      <Contact locale={locale} />
+    </MainLayout>
+  );
+};
 
 export const query = graphql`
   query($id: String!, $locale: String!) {

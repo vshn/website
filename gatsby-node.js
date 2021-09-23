@@ -280,7 +280,7 @@ async function createPages({
   const result = await graphql(`
     {
       allWpPage(filter: { template: { templateName: { ne: "Blog" } } }) {
-        nodes {
+        pages: nodes {
           id
           uri
           language {
@@ -297,14 +297,39 @@ async function createPages({
           }
         }
       }
+      allWpEvent(sort: { order: DESC, fields: acf___schedule___startDate }) {
+        events: nodes {
+          id
+          url: uri
+          language {
+            locale: slug
+          }
+          title
+          acf {
+            link
+            logo {
+              localFile {
+                publicURL
+              }
+            }
+            description
+            schedule {
+              startDate
+              time
+              endDate
+            }
+          }
+        }
+      }
     }
   `);
 
   if (result.errors) {
     throw new Error(result.errors);
   }
-
-  const pages = result.data.allWpPage.nodes;
+  const {
+    data: { allWpPage: { pages }, allWpEvent: { events } },
+  } = result;
 
   pages.forEach(
     ({
@@ -320,12 +345,18 @@ async function createPages({
       const templatePath = path.resolve(
         `./src/templates/${isDefaultTemplate ? 'content-page' : templateNamePath}.jsx`,
       );
+
+      const filteredEventsByLocale = events.filter((event) => event.language.locale === locale);
+      const upcomingEvents = filteredEventsByLocale
+        .filter((event) => new Date(event.acf.schedule.startDate) >= new Date());
+
       const context = {
         id,
         locale,
         menus: getMenus(locale),
         globalFields,
         pageUrls: getUrlsForLocales(locale, uri, translations),
+        upcomingEvents,
       };
 
       if (fs.existsSync(templatePath)) {

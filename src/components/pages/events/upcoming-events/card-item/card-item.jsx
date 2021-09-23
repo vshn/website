@@ -18,6 +18,7 @@ const CardItem = (
       logo,
       schedule: { startDate },
     },
+    itemFooterText,
   },
 ) => {
   const { day, month } = getLocaleDateNames(startDate);
@@ -36,7 +37,7 @@ const CardItem = (
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h3" size="lg">{title}</Heading>
           <span className={cx('learn-more')}>
-            Learn more
+            {itemFooterText}
           </span>
         </div>
       </Link>
@@ -58,6 +59,7 @@ CardItem.propTypes = {
       startDate: PropTypes.string.isRequired,
     }),
   }).isRequired,
+  itemFooterText: PropTypes.string.isRequired,
 };
 
 export default CardItem;

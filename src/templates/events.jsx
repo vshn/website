@@ -84,6 +84,7 @@ const Events = ({
       {shouldShowUpcoming && featuredUpcomingEvents.length && (
         <UpcomingEvents
           title={data.acf.upcomingEvents.title}
+          itemFooterText={t[locale].upcomingEvents.itemFooterText}
           featuredUpcomingEvents={featuredUpcomingEvents}
           upcomingEventsByYear={upcomingEventsByYear}
         />

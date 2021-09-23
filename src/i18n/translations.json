@@ -79,6 +79,10 @@
     "login": {
       "title": "Login",
       "url": "/en/login/"
+    },
+    "upcomingEvents": {
+      "title": "Upcoming events",
+      "itemFooterText": "Learn more"
     }
   },
   "de": {
@@ -161,6 +165,10 @@
     "login": {
       "title": "Login",
       "url": "/login/"
+    },
+    "upcomingEvents": {
+      "title": "Nächste events",
+      "itemFooterText": "Mehr Infos"
     }
   }
 }
