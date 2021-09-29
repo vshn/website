@@ -4,8 +4,8 @@ import React from 'react';
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/swiper.scss';
-import 'swiper/components/a11y/a11y.scss';
+import 'swiper/scss';
+import 'swiper/scss/a11y';
 
 import Heading from 'components/shared/heading';
 import Arrow from 'icons/arrow.inline.svg';
@@ -62,7 +62,7 @@ const BlogPostsCarousel = ({ className, title, items, readMoreText }) => (
           },
         }}
         loop
-        watchSlidesVisibility
+        watchSlidesProgress
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
