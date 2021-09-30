@@ -46,7 +46,11 @@
       }
     }
 
-    .hs-input {
+    .hs-input[type="text"],
+    .hs-input[type="email"],
+    .hs-input[type="number"],
+    .hs-input[type="tel"],
+    textarea {
       width: 100%;
       padding-top: 17px;
       padding-right: 20px;
@@ -103,6 +107,71 @@
       margin-bottom: 30px;
       font-size: $font-size-sm;
       line-height: $line-height-sm;
+
+      .inputs-list {
+        padding-left: 0;
+        list-style-type: none;
+      }
+
+      .hs-fieldtype-booleancheckbox {
+        margin-bottom: 0;
+      }
+    }
+
+    .hs-form-booleancheckbox-display {
+      display: flex;
+      align-items: baseline;
+
+      .hs-input[type="checkbox"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      > span {
+        position: relative;
+        padding-left: 35px;
+        margin-left: 0 !important;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          display: block;
+          width: 22px;
+          height: 22px;
+          content: '';
+          background-color: $color-tertiary;
+          border: 2px solid $color-additional-2;
+          border-radius: 4px;
+          box-shadow: 0 0 5px rgba($color-primary, 0.05);
+          transition: background-color $transition-base;
+          transform: translateY(-50%);
+        }
+      }
+
+      .hs-input[type="checkbox"]:checked ~ span {
+        &::before {
+          background-color: $color-accent-primary;
+          background-image: url('icons/check-without-background.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 11px 9px;
+          border: 1px solid $color-accent-primary;
+        }
+      }
+
+      p {
+        display: inline;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
 
     .hs-submit {
