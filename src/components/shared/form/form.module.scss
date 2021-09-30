@@ -134,10 +134,10 @@
         border-width: 0;
       }
 
-      span {
+      > span {
         position: relative;
         padding-left: 35px;
-        margin-left: 0;
+        margin-left: 0 !important;
 
         &::before {
           position: absolute;
@@ -148,7 +148,9 @@
           height: 22px;
           content: '';
           background-color: $color-tertiary;
-          border: 1px solid $color-quaternary;
+          border: 2px solid $color-additional-2;
+          border-radius: 4px;
+          box-shadow: 0 0 5px rgba($color-primary, 0.05);
           transition: background-color $transition-base;
           transform: translateY(-50%);
         }
