@@ -112,6 +112,10 @@
         padding-left: 0;
         list-style-type: none;
       }
+
+      .hs-fieldtype-booleancheckbox {
+        margin-bottom: 0;
+      }
     }
 
     .hs-form-booleancheckbox-display {
@@ -133,6 +137,7 @@
       span {
         position: relative;
         padding-left: 35px;
+        margin-left: 0;
 
         &::before {
           position: absolute;
@@ -144,6 +149,7 @@
           content: '';
           background-color: $color-tertiary;
           border: 1px solid $color-quaternary;
+          transition: background-color $transition-base;
           transform: translateY(-50%);
         }
       }
