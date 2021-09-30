@@ -60,4 +60,16 @@
 
 .image {
   max-height: 490px;
+
+  @include lg-down {
+    max-height: 350px;
+  }
+
+  @include md-down {
+    max-height: 265px;
+  }
+
+  @include xs-down {
+    max-height: 150px;
+  }
 }
