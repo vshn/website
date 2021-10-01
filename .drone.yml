@@ -1,17 +1,17 @@
 kind: pipeline
 name: default
 steps:
-  - name: initial_notification
-    image: plugins/slack
-    settings:
-      webhook:
-        from_secret: slack_webhook
-      template: >
-        There is a new deploy in process for *{{repo.name}}* 
+  # - name: initial_notification
+  #   image: plugins/slack
+  #   settings:
+  #     webhook:
+  #       from_secret: slack_webhook
+  #     template: >
+  #       There is a new deploy in process for *{{repo.name}}* 
 
-        Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
+  #       Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
 
-        Logs: {{build.link}}
+  #       Logs: {{build.link}}
 
   - name: initial_notification_vshn
     image: mike1pol/drone-rocket
