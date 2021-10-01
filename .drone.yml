@@ -46,8 +46,8 @@ steps:
         from_secret: minio_access_key
       AWS_SECRET_ACCESS_KEY:
         from_secret: minio_secret_key
-    depends_on:
-      - initial_notification
+    # depends_on:
+    #   - initial_notification
 
   - name: build
     image: node:14.13.1-slim
