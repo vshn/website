@@ -17,7 +17,7 @@ const Hero = ({ breadcrumbs, title, image }) => (
       <Heading className={cx('title')} tag="h1" size="xl">{title}</Heading>
       {image?.localFile && (
       <div className={cx('image-wrapper')}>
-        <GatsbyImage className={cx('image')} fluid={image.localFile.childImageSharp.fluid} />
+        <GatsbyImage className={cx('image')} imgStyle={{ objectFit: 'contain' }} fluid={image.localFile.childImageSharp.fluid} />
       </div>
       )}
     </div>

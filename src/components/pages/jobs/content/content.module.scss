@@ -64,8 +64,15 @@
     }
 
     #freshteam-careers {
-      &.content {
-        width: 100%;
+      .advanced-search {
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+
+      .content {
+        @include md-down {
+          width: 100%;
+        }
       }
 
       .page-title {
@@ -76,6 +83,10 @@
 
         @include md-down {
           display: block;
+        }
+
+        @include xs-down {
+          text-align: center;
         }
 
         span:first-child {
@@ -95,6 +106,18 @@
       .icon-arrow-right {
         path {
           fill: $color-accent-primary;
+        }
+      }
+
+      .role-title {
+        @include sm-down {
+          margin-bottom: 15px;
+        }
+      }
+
+      .col-xs-8 {
+        @include xs-down {
+          width: 100%;
         }
       }
     }
