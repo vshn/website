@@ -44,7 +44,7 @@ const MainLayout = (props) => {
   }, [isMobileMenuOpen]);
   return (
     <>
-      {seo && <SEO {...seo} />}
+      {seo && <SEO {...seo} locale={locale} />}
       <Header
         pageUrls={pageUrls}
         locale={locale}

@@ -8,6 +8,7 @@ import unescapeHTML from 'utils/unescape-html-entities';
 
 const SEO = (props) => {
   const {
+    locale,
     title,
     metaDesc,
     metaKeywords,
@@ -21,19 +22,12 @@ const SEO = (props) => {
     twitterImage,
     canonical,
   } = props;
-
   const {
-    wp: { generalSettings: settings },
     site: {
       siteMetadata: { siteUrl },
     },
   } = useStaticQuery(graphql`
     query {
-      wp {
-        generalSettings {
-          language
-        }
-      }
       site {
         siteMetadata {
           siteUrl
@@ -48,7 +42,7 @@ const SEO = (props) => {
     <Helmet
       title={unescapedTitle}
       htmlAttributes={{
-        lang: settings.language,
+        lang: locale,
         prefix: 'og: http://ogp.me/ns#',
       }}
     >

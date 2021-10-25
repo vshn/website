@@ -25,7 +25,7 @@ const Hero = ({ title, categories, date }) => {
           {categories.nodes.map(({ name }, index) => <span className={cx('category')} key={index}>{name}</span>)}
         </div>
 
-        <Heading className={cx('title')} tag="h2" size="xl" color="primary">{unescapeHTML(title)}</Heading>
+        <Heading className={cx('title')} tag="h1" size="xl" color="primary">{unescapeHTML(title)}</Heading>
         <div className={cx('date')}>
           {day}
           .
