@@ -434,6 +434,7 @@ const createBlogPages = async ({
       ) {
         nodes {
           id
+          uri
           slug
           name
           language {
@@ -541,7 +542,12 @@ const createBlogPages = async ({
               pageCount,
               currentPageIndex: i,
               categoryId: category.id,
-              pageUrls: buildUrlsForLocales(makePath(i)),
+              currentCategory: category.slug,
+              pageUrls: getUrlsForLocales(
+                category.language.locale,
+                category.uri,
+                category.translations,
+              ),
             },
           });
         });
