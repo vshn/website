@@ -65,7 +65,11 @@ Pagination.propTypes = {
   pageCount: PropTypes.number.isRequired,
   currentPageIndex: PropTypes.number.isRequired,
   rootPath: PropTypes.string.isRequired,
-  currentCategory: PropTypes.string.isRequired,
+  currentCategory: PropTypes.string,
+};
+
+Pagination.defaultProps = {
+  currentCategory: null,
 };
 
 export default Pagination;
