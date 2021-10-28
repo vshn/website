@@ -12,10 +12,13 @@ import styles from './pagination.module.scss';
 const cx = classNames.bind(styles);
 
 const Pagination = (
-  { locale, pageCount, currentPageIndex, rootPath },
+  { locale, pageCount, currentPageIndex, rootPath, currentCategory },
 ) => {
+  const category = currentCategory ? `${currentCategory}/` : '';
   const handlePageChange = ({ selected }) => {
-    const navigatePath = selected === 0 ? rootPath : rootPath + (selected + 1);
+    const navigatePath = selected === 0
+      ? `${rootPath}${category}`
+      : `${rootPath}${category}${(selected + 1)}`;
     navigate(navigatePath);
   };
 
@@ -62,6 +65,11 @@ Pagination.propTypes = {
   pageCount: PropTypes.number.isRequired,
   currentPageIndex: PropTypes.number.isRequired,
   rootPath: PropTypes.string.isRequired,
+  currentCategory: PropTypes.string,
+};
+
+Pagination.defaultProps = {
+  currentCategory: null,
 };
 
 export default Pagination;

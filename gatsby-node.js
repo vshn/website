@@ -186,18 +186,18 @@ const getAllMenusByLocale = async (graphql) => {
 // and return an object with locales of type { en: String, de: String}
 // getUrlsForLocales(locale: String, url: String,
 // translations: Object[{language: {locale: oneOf(SUPPORTED_LOCALES)}}]) -> Object
-function getUrlsForLocales(locale, url, translations) {
+function getUrlsForLocales(locale, url, translations, index = null) {
   const urls = {};
-  urls[locale] = url;
+  const isActiveIndex = index && index >= 1;
+  urls[locale] = `${url}${isActiveIndex ? index + 1 : ''}`;
 
   const remainingLocales = SUPPORTED_LOCALES.filter((item) => item !== locale);
-
   remainingLocales.forEach((remainingLocale) => {
     const matchedTranslation = translations.find(
       (translation) => translation.language.locale === remainingLocale,
     );
     if (matchedTranslation) {
-      urls[remainingLocale] = matchedTranslation.uri;
+      urls[remainingLocale] = `${matchedTranslation.uri}${isActiveIndex ? index + 1 : ''}`;
     } else {
       urls[remainingLocale] = remainingLocale === DEFAULT_LOCALE ? '/' : `/${remainingLocale}`;
     }
@@ -434,6 +434,7 @@ const createBlogPages = async ({
       ) {
         nodes {
           id
+          uri
           slug
           name
           language {
@@ -541,7 +542,13 @@ const createBlogPages = async ({
               pageCount,
               currentPageIndex: i,
               categoryId: category.id,
-              pageUrls: buildUrlsForLocales(makePath(i)),
+              currentCategory: category.slug,
+              pageUrls: getUrlsForLocales(
+                category.language.locale,
+                category.uri,
+                category.translations,
+                i,
+              ),
             },
           });
         });

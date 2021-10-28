@@ -3,7 +3,6 @@ import { navigate } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Link from 'components/shared/link';
 import translations from 'i18n';
 
 import styles from './categories.module.scss';
@@ -26,7 +25,12 @@ const Categories = ({ locale, rootPath, categories, activeCategoryId }) => {
             {translations[locale].blog.allPostsCategoryName}
           </a>
           {categories.map(({ name, slug, id }) => (
-            <a className={cx('item', { active: activeCategoryId === id })} href={`${rootPath}${slug}`} key={id} onClick={(event) => { handleClick(event); }}>
+            <a
+              className={cx('item', { active: activeCategoryId === id })}
+              href={`${rootPath}${slug}/`}
+              key={id}
+              onClick={(event) => { handleClick(event); }}
+            >
               {name}
             </a>
           ))}

@@ -24,6 +24,7 @@ const Blog = ({
     menus,
     globalFields,
     categories,
+    currentCategory,
     pageCount,
     currentPageIndex,
     categoryId,
@@ -49,6 +50,7 @@ const Blog = ({
       pageCount={pageCount}
       currentPageIndex={currentPageIndex}
       rootPath={pageRootUri}
+      currentCategory={currentCategory}
     />
     <Contact locale={locale} />
   </MainLayout>
@@ -85,6 +87,7 @@ export const query = graphql`
       }
       ...wpPageSeo
     }
+    
     posts: allWpPost(
       filter: {
         id: { ne: $featuredPostId }
