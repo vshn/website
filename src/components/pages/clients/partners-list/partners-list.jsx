@@ -14,13 +14,13 @@ const getFlattenTaxonomies = (taxonomies) => taxonomies.nodes.map((taxonomy) => 
 
 const PartnersList = ({ filters, partners, locale }) => {
   const [activeFilters, setActiveFilters] = useState(
-    () => Object.fromEntries(Object.keys(filters).map((filterKey) => [filterKey, null])),
+    () => Object.fromEntries(Object.keys(filters)
+      .map((filterKey) => [filterKey.toLocaleLowerCase(), null])),
   );
-
   const filterSelectHandler = (filterKey, filterValue) => {
     setActiveFilters((prev) => ({
       ...prev,
-      [filterKey]: filterValue,
+      [filterKey]: filterValue && filterValue.toLocaleLowerCase(),
     }));
   };
 
@@ -36,12 +36,10 @@ const PartnersList = ({ filters, partners, locale }) => {
           infrastructures: flattenInfrastructures,
           technologies: flattenTechnologies,
         })
-        .map(([key, value]) => activeFilters[key] === null
-         || value.includes(activeFilters[key]))
-        .every((res) => res);
+        .every(([key, value]) => activeFilters[key] === null
+        || value.includes(activeFilters[key]));
       return shouldBeShown;
     });
-
     return filteredPartners
       .sort((a, b) => (a.title.toLocaleLowerCase() > b.title.toLocaleLowerCase() ? 1 : -1))
       .map(({
