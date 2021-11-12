@@ -111,7 +111,7 @@ export const query = graphql`
       opengraphImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1200, height: 630) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -123,7 +123,7 @@ export const query = graphql`
       twitterImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1024, height: 512) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -142,7 +142,7 @@ export const query = graphql`
       opengraphImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1200, height: 630) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -154,7 +154,7 @@ export const query = graphql`
       twitterImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1024, height: 512) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -173,7 +173,7 @@ export const query = graphql`
       opengraphImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1200, height: 630) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -185,7 +185,7 @@ export const query = graphql`
       twitterImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1024, height: 512) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -204,7 +204,7 @@ export const query = graphql`
       opengraphImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1200, height: 630) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -216,7 +216,7 @@ export const query = graphql`
       twitterImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1024, height: 512) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -235,7 +235,7 @@ export const query = graphql`
       opengraphImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1200, height: 630) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
@@ -247,7 +247,7 @@ export const query = graphql`
       twitterImage {
         localFile {
           childImageSharp {
-            fixed(toFormat: JPG, width: 1024, height: 512) {
+            resize(jpegQuality: 90, toFormat: JPG, width: 1200, height: 630) {
               src
             }
           }
