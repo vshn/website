@@ -591,7 +591,7 @@ async function createPosts({
   }
   const posts = result.data.allWpPost.nodes;
 
-  posts.forEach(({ id, content, uri, language: { locale }, translations }) => {
+  posts.forEach(({ id, content, uri, language: { locale }, translations }, index) => {
     const templatePath = path.resolve('./src/templates/blog-post.jsx');
 
     const context = {
@@ -611,6 +611,7 @@ async function createPosts({
         path: uri,
         component: slash(templatePath),
         context,
+        defer: index + 1 > 100,
       });
     } else {
       reporter.error('Template Blog Post was not found');
@@ -957,7 +958,7 @@ exports.createPages = async (args) => {
   await createNotFound(params);
 };
 
-// workaround, which allows to ignore the css files order
+// workaround, which allows to ignore the conflict of css files order
 // https://github.com/gatsbyjs/gatsby/discussions/30169
 exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
   const config = getConfig();
