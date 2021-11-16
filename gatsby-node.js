@@ -611,7 +611,6 @@ async function createPosts({
         path: uri,
         component: slash(templatePath),
         context,
-        defer: index + 1 > 100,
       });
     } else {
       reporter.error('Template Blog Post was not found');
