@@ -66,12 +66,8 @@
 }
 
 .title {
-  display: -webkit-box;
-  max-width: 525px;
+  max-width: 600px;
   margin-bottom: -5px;
-  overflow: hidden;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
 
   @include md-down {
     max-width: initial;

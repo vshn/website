@@ -13,7 +13,7 @@ const PartnerInfo = (props) => {
   const { logoBackgroundColor, logoImage, items, partnerLink: { url, title, target } } = props;
   return (
     <div className={cx('wrapper')}>
-      <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor}` }}>
+      <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor || '#f6f7f9'}` }}>
         {logoImage && (
           <GatsbyImage
             className={cx('logo')}
@@ -31,9 +31,11 @@ const PartnerInfo = (props) => {
           </li>
         ))}
       </ul>
+      {url && title && (
       <div className={cx('link-wrapper')}>
         <Link className={cx('link')} to={url} target={target}>{title}</Link>
       </div>
+      )}
     </div>
   );
 };
@@ -62,16 +64,17 @@ PartnerInfo.propTypes = {
     url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     target: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
 
 PartnerInfo.defaultProps = {
   logoImage: null,
-  logoBackgroundColor: '#000000',
+  logoBackgroundColor: null,
   items: {
     value: null,
     text: null,
   },
+  partnerLink: null,
 };
 
 export default PartnerInfo;
