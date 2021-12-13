@@ -11,12 +11,16 @@ import 'components/lazy-blocks/personal-card/personal-card.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, partnerPost: { acf: { logo, partnerInfo } }, facts }) => (
+const Content = ({ content, partnerInfo, facts }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
-        <PartnerInfo {...logo} {...partnerInfo} />
+        {partnerInfo?.partnerLink && partnerInfo?.logoImage && (
+        <PartnerInfo
+          {...partnerInfo}
+        />
+        )}
         <Facts {...facts} />
       </div>
     </div>
@@ -25,44 +29,20 @@ const Content = ({ content, partnerPost: { acf: { logo, partnerInfo } }, facts }
 
 Content.propTypes = {
   content: PropTypes.string.isRequired,
-  partnerPost: PropTypes.shape({
-    acf: PropTypes.shape({
-      logo: PropTypes.shape({
-        logoBackgroundColor: PropTypes.string.isRequired,
-        logoImage: PropTypes.shape({
-          localFile: PropTypes.shape({
-            childImageSharp: PropTypes.shape({
-              fluid: PropTypes.shape({
-                aspectRatio: PropTypes.number.isRequired,
-                src: PropTypes.string.isRequired,
-                srcSet: PropTypes.string.isRequired,
-                sizes: PropTypes.string.isRequired,
-              }),
-            }),
-          }),
-        }),
-      }),
-      partnerInfo: PropTypes.shape({
-        items: PropTypes.arrayOf(
-          PropTypes.shape({
-            value: PropTypes.string,
-            text: PropTypes.string,
-          }),
-        ),
-        partnerLink: PropTypes.shape({
-          url: PropTypes.string.isRequired,
-          title: PropTypes.string.isRequired,
-          target: PropTypes.string.isRequired,
-        }).isRequired,
-      }),
-    }),
-  }).isRequired,
+  partnerInfo: PropTypes.shape({
+    logoImage: PropTypes.shape({}),
+    partnerLink: PropTypes.shape({}),
+  }),
   facts: PropTypes.shape({
     title: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       item: PropTypes.string.isRequired,
     })).isRequired,
   }).isRequired,
+};
+
+Content.defaultProps = {
+  partnerInfo: null,
 };
 
 export default Content;

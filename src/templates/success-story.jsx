@@ -26,7 +26,7 @@ const SuccessStory = ({
     />
     <Content
       content={data.content}
-      partnerPost={data.acf.partnerPost}
+      partnerInfo={data.acf.partnerInfo}
       facts={data.acf.facts}
     />
     <Contact locale={locale} />
@@ -40,33 +40,26 @@ export const query = graphql`
       title
       content
       acf {
-        partnerPost {
-          ... on WpPartner {
-            acf {
-              logo {
-                logoBackgroundColor
-                logoImage {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxHeight: 30) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                      }
-                    }
-                  }
+        partnerInfo {
+          logoBackgroundColor
+          logoImage: logoInCard {
+            localFile {
+              childImageSharp {
+                fluid(maxHeight: 135) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
-              partnerInfo {
-                items {
-                  value
-                  text
-                }
-                partnerLink {
-                  url
-                  title
-                  target
-                }
-              }
+              publicURL
             }
+          }
+          items {
+            text
+            value
+          }
+          partnerLink {
+            url
+            title
+            target
           }
         }
         facts {
