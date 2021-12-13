@@ -22,16 +22,17 @@ const UpcomingEvents = (props) => {
               <CardItem key={index} {...upcomingEvent} itemFooterText={itemFooterText} />
             ))}
           </div>
-          {upcomingEventsByYear && Object.keys(upcomingEventsByYear).length && (
+          {upcomingEventsByYear && Object.values(upcomingEventsByYear).length > 0 && (
           <div className={cx('events-wrapper')}>
-            {Object.entries(upcomingEventsByYear).map(([year, events], index) => (
+            {Object.entries(upcomingEventsByYear)
+              .map(([year, events], index) => !!events.length && (
               <div className={cx('events-group')} key={index}>
                 <Heading className={cx('year-title')} size="lg" tag="h4">{year}</Heading>
                 {events.map((upcomingEvent, index) => (
                   <Item key={index} {...upcomingEvent} />
                 ))}
               </div>
-            ))}
+              ))}
           </div>
           )}
         </ul>
