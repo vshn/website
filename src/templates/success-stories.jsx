@@ -61,6 +61,7 @@ export const query = graphql`
                   ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
+              publicURL
             }
           }
         }
