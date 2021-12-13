@@ -11,15 +11,13 @@ import 'components/lazy-blocks/personal-card/personal-card.scss';
 
 const cx = classNames.bind(styles);
 
-const Content = ({ content, logo, partnerInfo, logoBackgroundColor, facts }) => (
+const Content = ({ content, partnerInfo, facts }) => (
   <section className={cx('wrapper')}>
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
-        {partnerInfo && (
+        {partnerInfo?.partnerLink && partnerInfo?.logoImage && (
         <PartnerInfo
-          logoImage={logo}
-          logoBackgroundColor={logoBackgroundColor}
           {...partnerInfo}
         />
         )}
@@ -31,9 +29,10 @@ const Content = ({ content, logo, partnerInfo, logoBackgroundColor, facts }) => 
 
 Content.propTypes = {
   content: PropTypes.string.isRequired,
-  logoBackgroundColor: PropTypes.string,
-  logo: PropTypes.shape({}),
-  partnerInfo: PropTypes.shape({}),
+  partnerInfo: PropTypes.shape({
+    logoImage: PropTypes.shape({}),
+    partnerLink: PropTypes.shape({}),
+  }),
   facts: PropTypes.shape({
     title: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
@@ -43,9 +42,7 @@ Content.propTypes = {
 };
 
 Content.defaultProps = {
-  logo: null,
   partnerInfo: null,
-  logoBackgroundColor: null,
 };
 
 export default Content;

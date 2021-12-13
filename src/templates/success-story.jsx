@@ -26,9 +26,7 @@ const SuccessStory = ({
     />
     <Content
       content={data.content}
-      logo={data.acf.logo}
       partnerInfo={data.acf.partnerInfo}
-      logoBackgroundColor={data.acf.logoBackgroundColor}
       facts={data.acf.facts}
     />
     <Contact locale={locale} />
@@ -42,18 +40,18 @@ export const query = graphql`
       title
       content
       acf {
-        logo: logoInCard {
-          localFile {
-            childImageSharp {
-              fluid(maxHeight: 135) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
-              }
-            }
-            publicURL
-          }
-        }
-        logoBackgroundColor
         partnerInfo {
+          logoBackgroundColor
+          logoImage: logoInCard {
+            localFile {
+              childImageSharp {
+                fluid(maxHeight: 135) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+              publicURL
+            }
+          }
           items {
             text
             value
