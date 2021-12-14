@@ -16,7 +16,7 @@ const Content = ({ content, partnerInfo, facts }) => (
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
-        {partnerInfo?.partnerLink && partnerInfo?.logoImage && (
+        {partnerInfo?.partnerLink && partnerInfo?.logoBackgroundColor && (
         <PartnerInfo
           {...partnerInfo}
         />
@@ -30,7 +30,7 @@ const Content = ({ content, partnerInfo, facts }) => (
 Content.propTypes = {
   content: PropTypes.string.isRequired,
   partnerInfo: PropTypes.shape({
-    logoImage: PropTypes.shape({}),
+    logoBackgroundColor: PropTypes.shape({}),
     partnerLink: PropTypes.shape({}),
   }),
   facts: PropTypes.shape({

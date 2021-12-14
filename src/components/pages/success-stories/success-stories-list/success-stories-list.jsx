@@ -13,32 +13,34 @@ const SuccessStoriesList = ({ itemFooterText, successStories }) => (
   <section className={cx('wrapper')}>
     <div className="container">
       <ul className={cx('items-wrapper')}>
-        {successStories.map(({ uri: url, title, acf: { logo: { localFile } } }, index) => (
-          <li className={cx('item')} key={index}>
+        {successStories
+          .sort((a, b) => (a.title.toLocaleLowerCase() > b.title.toLocaleLowerCase() ? 1 : -1))
+          .map(({ uri: url, title, acf: { logo: { localFile } } }, index) => (
+            <li className={cx('item')} key={index}>
 
-            <Link className={cx('link')} to={url}>
-              <div className={cx('logo-wrapper')}>
-                {localFile?.childImageSharp?.fluid ? (
-                  <GatsbyImage
-                    className={cx('logo')}
-                    style={{ maxHeight: '80px' }}
-                    imgStyle={{ objectFit: 'contain' }}
-                    fluid={localFile.childImageSharp.fluid}
-                    alt={`${title} logo`}
-                  />
-                ) : (
-                  <img
-                    className={cx('logo')}
-                    style={{ maxHeight: '80px' }}
-                    src={localFile.publicURL}
-                    alt={`${title} logo`}
-                  />
-                )}
-              </div>
-              <span className={cx('footer-text')}>{itemFooterText}</span>
-            </Link>
-          </li>
-        ))}
+              <Link className={cx('link')} to={url}>
+                <div className={cx('logo-wrapper')}>
+                  {localFile?.childImageSharp?.fluid ? (
+                    <GatsbyImage
+                      className={cx('logo')}
+                      style={{ maxHeight: '80px' }}
+                      imgStyle={{ objectFit: 'contain' }}
+                      fluid={localFile.childImageSharp.fluid}
+                      alt={`${title} logo`}
+                    />
+                  ) : (
+                    <img
+                      className={cx('logo')}
+                      style={{ maxHeight: '80px' }}
+                      src={localFile.publicURL}
+                      alt={`${title} logo`}
+                    />
+                  )}
+                </div>
+                <span className={cx('footer-text')}>{itemFooterText}</span>
+              </Link>
+            </li>
+          ))}
       </ul>
     </div>
   </section>
