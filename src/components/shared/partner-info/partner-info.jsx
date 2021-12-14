@@ -20,7 +20,7 @@ const Logo = ({ logoImage }) => {
       />
     );
   } if (logoImage?.localFile?.publicURL) {
-    return <img src={logoImage.localFile.publicURL} alt="" />;
+    return <img className={cx('logo')} src={logoImage.localFile.publicURL} alt="" />;
   }
   return null;
 };

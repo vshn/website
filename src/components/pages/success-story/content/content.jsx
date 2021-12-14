@@ -16,7 +16,7 @@ const Content = ({ content, partnerInfo, facts }) => (
     <div className={cx('container', 'inner')}>
       <div className={cx('content')} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={cx('info-wrapper')}>
-        {partnerInfo?.partnerLink && partnerInfo?.logoBackgroundColor && (
+        {partnerInfo?.partnerLink && (
         <PartnerInfo
           {...partnerInfo}
         />
