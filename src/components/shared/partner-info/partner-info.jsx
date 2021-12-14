@@ -11,16 +11,16 @@ import styles from './partner-info.module.scss';
 const cx = classNames.bind(styles);
 
 const Logo = ({ logoImage }) => {
-  if (logoImage?.childImageSharp) {
+  if (logoImage?.localFile?.childImageSharp) {
     return (
       <GatsbyImage
         className={cx('logo')}
-        fluid={logoImage.childImageSharp.fluid}
+        fluid={logoImage.localFile.childImageSharp.fluid}
         alt=""
       />
     );
-  } if (logoImage?.publicURL) {
-    return <img src={logoImage.publicURL} alt="" />;
+  } if (logoImage?.localFile?.publicURL) {
+    return <img src={logoImage.localFile.publicURL} alt="" />;
   }
   return null;
 };
@@ -35,7 +35,7 @@ const PartnerInfo = (props) => {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor || '#f6f7f9'}` }}>
-        <Logo logoImage={logoImage.localFile} />
+        <Logo logoImage={logoImage} />
       </div>
       <ul className={cx('items-wrapper')}>
         {items?.map(({ value, text }, index) => (
