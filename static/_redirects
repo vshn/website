@@ -2,6 +2,8 @@
 # https://docs.netlify.com/routing/redirects/redirect-options/
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/
 
+https://vshn.netlify.app/* https://www.vshn.ch/:splat 301!
+http://vshn.netlify.app/*  https://www.vshn.ch/:splat 301!
 /about/ /en/about/
 /blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/ /blog/devsecops-sicherheit-fuer-entwicklung-und-it-betrieb/
 /blog/einfuehrung-in-operatoren-operatoren-framework-und-operatoren-sdk/ /blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/
