@@ -7,9 +7,9 @@ steps:
   #     webhook:
   #       from_secret: slack_webhook
   #     template: >
-  #       There is a new deploy in process for *{{repo.name}}* 
+  #       There is a new deploy in process for *{{repo.name}}*
 
-  #       Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
+  #       Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*.
 
   #       Logs: {{build.link}}
 
@@ -88,7 +88,7 @@ steps:
       - build
 
   - name: netlify-deploy-preview
-    image: williamjackson/netlify-cli
+    image: williamjackson/netlify-cli:8.6.0
     environment:
       NETLIFY_SITE_ID: cbeefaa7-9e70-4cf1-b568-accbfb877fba
       NETLIFY_AUTH_TOKEN:
@@ -141,7 +141,7 @@ steps:
       - netlify-deploy-preview
 
   - name: netlify-deploy
-    image: williamjackson/netlify-cli
+    image: williamjackson/netlify-cli:8.6.0
     environment:
       NETLIFY_SITE_ID: cbeefaa7-9e70-4cf1-b568-accbfb877fba
       NETLIFY_AUTH_TOKEN:
