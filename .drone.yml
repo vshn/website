@@ -148,7 +148,7 @@ steps:
   - name: build-gatsby-preview-docker
     image: plugins/docker
     settings:
-      repo: registry.pixelpoint.io/vshn-website
+      repo: registry.pixelpoint.io/vshn-preview
       registry: registry.pixelpoint.io
       dockerfile: Dockerfile.preview
       username:
@@ -168,10 +168,10 @@ steps:
     image: peloton/drone-k8s-deployment
     settings:
       insecure: false
-      deployment_names: vshn-website
-      container_names: vshn-website
+      deployment_names: vshn-preview
+      container_names: vshn-preview
       namespaces: websites
-      docker_image: registry.pixelpoint.io/vshn-website:latest
+      docker_image: registry.pixelpoint.io/vshn-preview:latest
       date_label: deployment.drone.io/date-deployed
       url:
         from_secret: kubernetes_url
