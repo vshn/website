@@ -1,38 +1,39 @@
-require('dotenv').config();
+require("dotenv").config();
 // gatsby-plugin-feed doesn't support dynamic multiple feeds (https://github.com/gatsbyjs/gatsby/issues/12184)
 // so there is need to list all categories to generate rss feeds
 const BLOG_CATEGORIES_EN = [
-  { title: 'General', slug: 'general' },
-  { title: 'Coronavirus 2020', slug: 'coronavirus-2020' },
-  { title: 'Events', slug: 'events' },
-  { title: 'Press releases', slug: 'press-en' },
-  { title: 'Project Syn', slug: 'project-syn' },
-  { title: 'Technical', slug: 'tech-en' },
-  { title: 'VSHN.timer', slug: 'vshn-timer' },
-  { title: 'VSHNinternal', slug: 'interna-en' },
+  { title: "General", slug: "general" },
+  { title: "Coronavirus 2020", slug: "coronavirus-2020" },
+  { title: "Events", slug: "events" },
+  { title: "Press releases", slug: "press-en" },
+  { title: "Project Syn", slug: "project-syn" },
+  { title: "Technical", slug: "tech-en" },
+  { title: "VSHN.timer", slug: "vshn-timer" },
+  { title: "VSHNinternal", slug: "interna-en" },
 ];
 
 const BLOG_CATEGORIES_DE = [
-  { title: 'Allgemein', slug: 'allgemein' },
-  { title: 'Coronavirus 2020', slug: 'coronavirus-2020' },
-  { title: 'Event', slug: 'event' },
-  { title: 'Pressemitteilungen', slug: 'press' },
-  { title: 'Project Syn', slug: 'project-syn' },
-  { title: 'Technisches', slug: 'tech' },
-  { title: 'VSHN.timer', slug: 'vshn-timer' },
-  { title: 'VSHNintern', slug: 'interna' },
+  { title: "Allgemein", slug: "allgemein" },
+  { title: "Coronavirus 2020", slug: "coronavirus-2020" },
+  { title: "Event", slug: "event" },
+  { title: "Pressemitteilungen", slug: "press" },
+  { title: "Project Syn", slug: "project-syn" },
+  { title: "Technisches", slug: "tech" },
+  { title: "VSHN.timer", slug: "vshn-timer" },
+  { title: "VSHNintern", slug: "interna" },
 ];
 const getBlogFeedConfig = (locale) => ({
-  serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
-    title: edge.node.title,
-    description: edge.node.excerpt,
-    url: site.siteMetadata.siteUrl + edge.node.uri,
-    guid: site.siteMetadata.siteUrl + edge.node.uri,
-    date: edge.node.dateGmt,
-    categories: edge.node.categories.nodes.map(({ name }) => name),
-    relDir: edge.relativeDirectory,
-    custom_elements: [{ 'content:encoded': edge.node.content }],
-  })),
+  serialize: ({ query: { site, allWpPost } }) =>
+    allWpPost.edges.map((edge) => ({
+      title: edge.node.title,
+      description: edge.node.excerpt,
+      url: site.siteMetadata.siteUrl + edge.node.uri,
+      guid: site.siteMetadata.siteUrl + edge.node.uri,
+      date: edge.node.dateGmt,
+      categories: edge.node.categories.nodes.map(({ name }) => name),
+      relDir: edge.relativeDirectory,
+      custom_elements: [{ "content:encoded": edge.node.content }],
+    })),
   query: `
    {
      allWpPost(
@@ -57,21 +58,22 @@ const getBlogFeedConfig = (locale) => ({
      }
    }
  `,
-  output: `/${locale === 'de' ? '' : 'en-'}rss.xml`,
-  title: 'VSHN - Blog',
+  output: `/${locale === "de" ? "" : "en-"}rss.xml`,
+  title: "VSHN - Blog",
 });
-const getCategoryFeedsConfig = (categories, locale) => (
+const getCategoryFeedsConfig = (categories, locale) =>
   categories.map(({ title, slug }) => ({
-    serialize: ({ query: { site, allWpPost } }) => allWpPost.edges.map((edge) => ({
-      title: edge.node.title,
-      description: edge.node.excerpt,
-      url: site.siteMetadata.siteUrl + edge.node.uri,
-      guid: site.siteMetadata.siteUrl + edge.node.uri,
-      date: edge.node.dateGmt,
-      categories: edge.node.categories.nodes.map(({ name }) => name),
-      relDir: edge.relativeDirectory,
-      custom_elements: [{ 'content:encoded': edge.node.content }],
-    })),
+    serialize: ({ query: { site, allWpPost } }) =>
+      allWpPost.edges.map((edge) => ({
+        title: edge.node.title,
+        description: edge.node.excerpt,
+        url: site.siteMetadata.siteUrl + edge.node.uri,
+        guid: site.siteMetadata.siteUrl + edge.node.uri,
+        date: edge.node.dateGmt,
+        categories: edge.node.categories.nodes.map(({ name }) => name),
+        relDir: edge.relativeDirectory,
+        custom_elements: [{ "content:encoded": edge.node.content }],
+      })),
     query: `
       {
         allWpPost(
@@ -98,53 +100,57 @@ const getCategoryFeedsConfig = (categories, locale) => (
     `,
     output: `/${slug}-rss.xml`,
     title: `VSHN ${title} - Blog`,
-  }))
-);
+  }));
 
-const enBlogFeed = getBlogFeedConfig('en');
-const deBlogFeed = getBlogFeedConfig('de');
-const enCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_EN, 'en');
-const deCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_DE, 'de');
+const enBlogFeed = getBlogFeedConfig("en");
+const deBlogFeed = getBlogFeedConfig("de");
+const enCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_EN, "en");
+const deCategoryFeed = getCategoryFeedsConfig(BLOG_CATEGORIES_DE, "de");
 const feedsConfig = [];
-const rssFeedsConfig = feedsConfig.concat(enBlogFeed, deBlogFeed, enCategoryFeed, deCategoryFeed);
+const rssFeedsConfig = feedsConfig.concat(
+  enBlogFeed,
+  deBlogFeed,
+  enCategoryFeed,
+  deCategoryFeed
+);
 
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-netlify',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-netlify",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-plugin-image',
-    'gatsby-transformer-sharp',
+    "gatsby-plugin-image",
+    "gatsby-transformer-sharp",
     {
-      resolve: 'gatsby-plugin-sharp',
+      resolve: "gatsby-plugin-sharp",
       options: {
         defaultQuality: 85,
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: 'VSHN AG',
-        short_name: 'VSHN AG',
-        start_url: '/',
-        background_color: '#4cc3ff',
-        theme_color: '#4cc3ff',
-        display: 'minimal-ui',
-        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+        name: "VSHN AG",
+        short_name: "VSHN AG",
+        start_url: "/",
+        background_color: "#4cc3ff",
+        theme_color: "#4cc3ff",
+        display: "minimal-ui",
+        icon: "src/images/favicon.png", // This path is relative to the root of the site.
       },
     },
     {
-      resolve: 'gatsby-plugin-feed',
+      resolve: "gatsby-plugin-feed",
       options: {
         query: `
           {
@@ -162,7 +168,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-svgr-svgo',
+      resolve: "gatsby-plugin-svgr-svgo",
       options: {
         inlineSvgOptions: [
           {
@@ -170,8 +176,14 @@ module.exports = {
             svgoConfig: {
               plugins: [
                 {
-                  removeViewBox: false,
+                  name: "preset-default",
+                  params: {
+                    overrides: {
+                      removeViewBox: false,
+                    },
+                  },
                 },
+                "prefixIds",
               ],
             },
           },
@@ -182,8 +194,14 @@ module.exports = {
             svgoConfig: {
               plugins: [
                 {
-                  removeViewBox: false,
+                  name: "preset-default",
+                  params: {
+                    overrides: {
+                      removeViewBox: false,
+                    },
+                  },
                 },
+                "prefixIds",
               ],
             },
             urlLoaderOptions: {
@@ -193,22 +211,22 @@ module.exports = {
         ],
       },
     },
-    'gatsby-alias-imports',
+    "gatsby-alias-imports",
     {
-      resolve: 'gatsby-plugin-sass',
+      resolve: "gatsby-plugin-sass",
       options: {
         additionalData:
           '@import "./src/styles/variables.scss" , "./src/styles/mixins.scss";',
         cssLoaderOptions: {
           modules: {
             namedExport: false,
-            exportLocalsConvention: 'camelCase',
+            exportLocalsConvention: "camelCase",
           },
         },
       },
     },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: "gatsby-source-wordpress",
       options: {
         schema: {
           timeout: 60000,
@@ -227,7 +245,7 @@ module.exports = {
         type: {
           Post: {
             limit:
-              process.env.NODE_ENV === 'development'
+              process.env.NODE_ENV === "development"
                 ? Number(process.env.WP_POSTS_LIMIT)
                 : undefined,
           },
@@ -241,15 +259,15 @@ module.exports = {
         },
         develop: {
           nodeUpdateInterval: process.env.WP_NODE_UPDATE_INTERVAL || 5000,
-          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
-          hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
+          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === "true",
+          hardCacheData: process.env.WP_HARD_CACHE_DATA === "true",
         },
       },
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: 'GTM-5FC2LLB',
+        id: "GTM-5FC2LLB",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
