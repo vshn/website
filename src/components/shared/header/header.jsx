@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Link from 'components/shared/link';
-import Logo from 'images/logo.inline.svg';
+import logo from 'images/logo.svg';
 
 import styles from './header.module.scss';
 import DeutschIcon from './images/deutsch.inline.svg';
@@ -90,7 +90,7 @@ const Header = (props) => {
         </div>
         <div className={cx('section')}>
           <Link to={getIndexURL(locale)}>
-            <Logo className={cx('logo')} />
+            <img className={cx('logo')} src={logo} alt="Logo" />
           </Link>
 
           <nav className={cx('nav')}>
