@@ -10,7 +10,7 @@ import Instagram from 'icons/instagram.inline.svg';
 import LinkedIn from 'icons/linkedin.inline.svg';
 import Twitter from 'icons/twitter.inline.svg';
 import YouTube from 'icons/youtube.inline.svg';
-import Logo from 'images/logo.inline.svg';
+import logo from 'images/logo.svg';
 
 import styles from './footer.module.scss';
 
@@ -44,6 +44,7 @@ const Footer = (props) => {
               className={cx('social-menu-link', `social-menu-link_${company}`)}
               href={value}
               target="_blank"
+              rel="noreferrer"
             >
               <Icon />
             </a>
@@ -59,7 +60,7 @@ const Footer = (props) => {
         <div className={cx('top-section')}>
           <div className={cx('other-links')}>
             <Link to="/">
-              <Logo className={cx('logo')} />
+              <img className={cx('logo')} src={logo} alt="Logo" />
             </Link>
             <SocialMenu className={cx('md-hidden')} />
           </div>
