@@ -228,6 +228,9 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
+        html: {
+          generateWebpImages: true,
+        },
         schema: {
           timeout: 60000,
         },
