@@ -239,6 +239,7 @@ module.exports = {
           },
         },
         html: {
+          generateWebpImages: true,
           fallbackImageMaxWidth: 1920,
           imageQuality: 80,
         },
