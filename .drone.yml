@@ -45,7 +45,7 @@ steps:
       WP_HTACCESS_PASSWORD:
         from_secret: wp_htaccess_password
     commands:
-      - npm ci --prefer-offline --no-audit
+      - npm install --prefer-offline --no-audit --loglevel verbose
       - |
         [ -n "$CACHE_CLEAN" ] && npm run clean
       - npm run build
