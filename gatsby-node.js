@@ -1,21 +1,21 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const slash = require('slash');
+const slash = require("slash");
 
-const filterNonRootItems = require('./src/utils/filter-non-root-items');
+const filterNonRootItems = require("./src/utils/filter-non-root-items");
 
 /* Constants */
-const DEFAULT_LOCALE = 'de';
-const SUPPORTED_LOCALES = ['en', 'de'];
-const SUPPORTED_MENU_TYPES = ['main', 'top', 'mobile', 'footer'];
+const DEFAULT_LOCALE = "de";
+const SUPPORTED_LOCALES = ["en", "de"];
+const SUPPORTED_MENU_TYPES = ["main", "top", "mobile", "footer"];
 const POSTS_PER_PAGE = 20;
 
 /* Local helper fns */
 
 // removes all the spaces from a string
 // stripSpaces(string: String) -> String
-const stripSpaces = (string) => string.replace(/\s+/g, ' ');
+const stripSpaces = (string) => string.replace(/\s+/g, " ");
 
 // fetches global fields
 // getGlobalFields() -> Object: {socialLinks, footerMeta}
@@ -189,17 +189,20 @@ const getAllMenusByLocale = async (graphql) => {
 function getUrlsForLocales(locale, url, translations, index = null) {
   const urls = {};
   const isActiveIndex = index && index >= 1;
-  urls[locale] = `${url}${isActiveIndex ? index + 1 : ''}`;
+  urls[locale] = `${url}${isActiveIndex ? index + 1 : ""}`;
 
   const remainingLocales = SUPPORTED_LOCALES.filter((item) => item !== locale);
   remainingLocales.forEach((remainingLocale) => {
     const matchedTranslation = translations.find(
-      (translation) => translation.language.locale === remainingLocale,
+      (translation) => translation.language.locale === remainingLocale
     );
     if (matchedTranslation) {
-      urls[remainingLocale] = `${matchedTranslation.uri}${isActiveIndex ? index + 1 : ''}`;
+      urls[remainingLocale] = `${matchedTranslation.uri}${
+        isActiveIndex ? index + 1 : ""
+      }`;
     } else {
-      urls[remainingLocale] = remainingLocale === DEFAULT_LOCALE ? '/' : `/${remainingLocale}`;
+      urls[remainingLocale] =
+        remainingLocale === DEFAULT_LOCALE ? "/" : `/${remainingLocale}`;
     }
   });
   return urls;
@@ -214,9 +217,9 @@ const buildUrlsForLocales = (url) => {
   const urls = {};
   // get default url
   const stripLocaleRegex = new RegExp(
-    `^/?(${SUPPORTED_LOCALES.join('|')})?(/.*?)$`,
+    `^/?(${SUPPORTED_LOCALES.join("|")})?(/.*?)$`
   );
-  const defaultUrl = url.replace(stripLocaleRegex, '$2');
+  const defaultUrl = url.replace(stripLocaleRegex, "$2");
   // assign default url to default locale
   urls[DEFAULT_LOCALE] = defaultUrl;
 
@@ -224,7 +227,7 @@ const buildUrlsForLocales = (url) => {
   SUPPORTED_LOCALES.filter((item) => item !== DEFAULT_LOCALE).forEach(
     (remainingLocale) => {
       urls[remainingLocale] = `/${remainingLocale}${defaultUrl}`;
-    },
+    }
   );
   return urls;
 };
@@ -256,7 +259,8 @@ async function createRedirects({ graphql, actions }) {
   // Add slash at the beginning of the string if not present to adjust it for Netlify's format
   // eg. blog/the-ultimate-guide-to-buying-intercom-systems-for-offices -> /blog/the-ultimate-guide-to-buying-intercom-systems-for-offices
 
-  const formatPath = (path) => (/^\/|^http|^https|^www/.test(path) ? path : `/${path}`);
+  const formatPath = (path) =>
+    /^\/|^http|^https|^www/.test(path) ? path : `/${path}`;
   redirects.forEach(({ origin, target, type }) => {
     createRedirect({
       fromPath: formatPath(origin),
@@ -328,7 +332,10 @@ async function createPages({
     throw new Error(result.errors);
   }
   const {
-    data: { allWpPage: { pages }, allWpEvent: { events } },
+    data: {
+      allWpPage: { pages },
+      allWpEvent: { events },
+    },
   } = result;
 
   pages.forEach(
@@ -339,16 +346,21 @@ async function createPages({
       translations,
       template: { templateName },
     }) => {
-      const templateNamePath = templateName.toLowerCase().replace(/\s/g, '-');
-      const isDefaultTemplate = templateName === 'Default';
+      const templateNamePath = templateName.toLowerCase().replace(/\s/g, "-");
+      const isDefaultTemplate = templateName === "Default";
 
       const templatePath = path.resolve(
-        `./src/templates/${isDefaultTemplate ? 'content-page' : templateNamePath}.jsx`,
+        `./src/templates/${
+          isDefaultTemplate ? "content-page" : templateNamePath
+        }.jsx`
       );
 
-      const filteredEventsByLocale = events.filter((event) => event.language.locale === locale);
-      const upcomingEvents = filteredEventsByLocale
-        .filter((event) => new Date(event.acf.schedule.startDate) >= new Date());
+      const filteredEventsByLocale = events.filter(
+        (event) => event.language.locale === locale
+      );
+      const upcomingEvents = filteredEventsByLocale.filter(
+        (event) => new Date(event.acf.schedule.startDate) >= new Date()
+      );
 
       const context = {
         id,
@@ -368,7 +380,7 @@ async function createPages({
       } else {
         reporter.error(`Template "${templateName}" was not found`);
       }
-    },
+    }
   );
 }
 
@@ -466,7 +478,7 @@ const createBlogPages = async ({
   // make sure category list includes no duplicates
   const postCategories = categories.nodes;
 
-  const template = path.resolve('./src/templates/blog.jsx');
+  const template = path.resolve("./src/templates/blog.jsx");
 
   blogPages.forEach((blogPage) => {
     const context = {
@@ -476,7 +488,7 @@ const createBlogPages = async ({
       globalFields,
       locale: blogPage.language.locale,
       categories: postCategories.filter(
-        ({ language: { locale } }) => locale === blogPage.language.locale,
+        ({ language: { locale } }) => locale === blogPage.language.locale
       ),
     };
 
@@ -485,15 +497,17 @@ const createBlogPages = async ({
       .filter((post) => post.node.id !== blogPage.acf.featuredPost.post.id)
       // omit posts whose locale doesn't match current blogPage's one
       .filter(
-        (post) => post.node.categories.nodes[0].language.locale
-          === blogPage.language.locale,
+        (post) =>
+          post.node.categories.nodes[0].language.locale ===
+          blogPage.language.locale
       );
 
     const pageCount = Math.ceil(
-      localizedPostsWithoutFeaturedPost.length / POSTS_PER_PAGE,
+      localizedPostsWithoutFeaturedPost.length / POSTS_PER_PAGE
     );
 
-    const makePath = (i) => (i === 0 ? blogPage.uri : `${blogPage.uri}${i + 1}`);
+    const makePath = (i) =>
+      i === 0 ? blogPage.uri : `${blogPage.uri}${i + 1}`;
 
     Array.from({ length: pageCount }).forEach((_, i) => {
       createPage({
@@ -513,7 +527,7 @@ const createBlogPages = async ({
     postCategories
       // filter categories based on blogPage locale
       .filter(
-        (category) => category.language.locale === blogPage.language.locale,
+        (category) => category.language.locale === blogPage.language.locale
       )
       .forEach((category) => {
         // then count posts based on category id
@@ -521,14 +535,15 @@ const createBlogPages = async ({
           (post) => {
             const postCategoryId = post.node.categories.nodes[0].id;
             return postCategoryId === category.id;
-          },
+          }
         );
 
         const pageCount = Math.ceil(postsForCategory.length / POSTS_PER_PAGE);
 
-        const makePath = (i) => (i === 0
-          ? `${blogPage.uri}${category.slug}`
-          : `${blogPage.uri}${category.slug}/${i + 1}`);
+        const makePath = (i) =>
+          i === 0
+            ? `${blogPage.uri}${category.slug}`
+            : `${blogPage.uri}${category.slug}/${i + 1}`;
 
         // create paginated blog pages
         Array.from({ length: pageCount || 1 }).forEach((_, i) => {
@@ -547,7 +562,7 @@ const createBlogPages = async ({
                 category.language.locale,
                 category.uri,
                 category.translations,
-                i,
+                i
               ),
             },
           });
@@ -592,7 +607,7 @@ async function createPosts({
   const posts = result.data.allWpPost.nodes;
 
   posts.forEach(({ id, content, uri, language: { locale }, translations }) => {
-    const templatePath = path.resolve('./src/templates/blog-post.jsx');
+    const templatePath = path.resolve("./src/templates/blog-post.jsx");
 
     const context = {
       id,
@@ -613,7 +628,7 @@ async function createPosts({
         context,
       });
     } else {
-      reporter.error('Template Blog Post was not found');
+      reporter.error("Template Blog Post was not found");
     }
   });
 }
@@ -655,7 +670,7 @@ async function createPartners({
 
   partners.forEach(
     ({ id, content, uri, language: { locale }, translations }) => {
-      const templatePath = path.resolve('./src/templates/partner.jsx');
+      const templatePath = path.resolve("./src/templates/partner.jsx");
 
       const context = {
         id,
@@ -676,9 +691,9 @@ async function createPartners({
           context,
         });
       } else {
-        reporter.error('Template Partner was not found');
+        reporter.error("Template Partner was not found");
       }
-    },
+    }
   );
 }
 
@@ -719,7 +734,7 @@ async function createSuccessStories({
 
   successStories.forEach(
     ({ id, content, uri, language: { locale }, translations }) => {
-      const templatePath = path.resolve('./src/templates/success-story.jsx');
+      const templatePath = path.resolve("./src/templates/success-story.jsx");
 
       const context = {
         id,
@@ -740,9 +755,9 @@ async function createSuccessStories({
           context,
         });
       } else {
-        reporter.error('Template Success Story was not found');
+        reporter.error("Template Success Story was not found");
       }
-    },
+    }
   );
 }
 
@@ -845,7 +860,7 @@ const createEventPages = async ({
     },
   } = result;
 
-  const template = path.resolve('./src/templates/events.jsx');
+  const template = path.resolve("./src/templates/events.jsx");
 
   eventsPages.forEach((eventsPage) => {
     const eventsGroupedByYears = {};
@@ -861,9 +876,11 @@ const createEventPages = async ({
       });
     // Create "events/{year}" pages
     const availableYears = Object.keys(eventsGroupedByYears)
-      .filter((key) => parseInt(key, 10) <= currentYear).reverse();
+      .filter((key) => parseInt(key, 10) <= currentYear)
+      .reverse();
     availableYears.forEach((year, index) => {
-      const path = index === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}/`;
+      const path =
+        index === 0 ? `${eventsPage.uri}` : `${eventsPage.uri}${year}/`;
 
       const context = {
         id: eventsPage.id,
@@ -896,16 +913,16 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
   const { createPage } = actions;
 
   createPage({
-    path: '/404',
-    component: slash(path.resolve('./src/templates/404.jsx')),
+    path: "/404",
+    component: slash(path.resolve("./src/templates/404.jsx")),
     context: {
-      menus: getMenus('de'),
-      locale: 'de',
+      menus: getMenus("de"),
+      locale: "de",
       globalFields,
-      pageUrls: getUrlsForLocales('de', '/404', [
+      pageUrls: getUrlsForLocales("de", "/404", [
         {
-          language: { locale: 'de' },
-          uri: '/404',
+          language: { locale: "de" },
+          uri: "/404",
         },
       ]),
     },
@@ -931,7 +948,8 @@ exports.createPages = async (args) => {
 
     SUPPORTED_MENU_TYPES.forEach((type) => {
       const items = allMenus[menuLocale][`${type}Menu`].menuItems.nodes;
-      menus[`${type}MenuItems`] = type === 'main' ? filterNonRootItems(items) : items;
+      menus[`${type}MenuItems`] =
+        type === "main" ? filterNonRootItems(items) : items;
     });
     // filter non top level links if type of menu is main
     return menus;
@@ -962,7 +980,7 @@ exports.createPages = async (args) => {
 exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
   const config = getConfig();
   const miniCssExtractPluginIndex = config.plugins.findIndex(
-    (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin',
+    (plugin) => plugin.constructor.name === "MiniCssExtractPlugin"
   );
 
   if (miniCssExtractPluginIndex > -1) {
@@ -970,18 +988,22 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig, plugins }) => {
     config.plugins.splice(miniCssExtractPluginIndex, 1);
 
     // re-add mini-css-extract-plugin
-    if (stage === 'build-javascript') {
-      config.plugins.push(plugins.extractText({
-        filename: '[name].[contenthash].css',
-        chunkFilename: '[name].[contenthash].css',
-        ignoreOrder: true,
-      }));
+    if (stage === "build-javascript") {
+      config.plugins.push(
+        plugins.extractText({
+          filename: "[name].[contenthash].css",
+          chunkFilename: "[name].[contenthash].css",
+          ignoreOrder: true,
+        })
+      );
     } else {
-      config.plugins.push(plugins.extractText({
-        filename: '[name].css',
-        chunkFilename: '[id].css',
-        ignoreOrder: true,
-      }));
+      config.plugins.push(
+        plugins.extractText({
+          filename: "[name].css",
+          chunkFilename: "[id].css",
+          ignoreOrder: true,
+        })
+      );
     }
   }
   actions.replaceWebpackConfig(config);

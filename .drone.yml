@@ -1,20 +1,20 @@
 kind: pipeline
 name: default
 steps:
-#   - name: initial_notification_vshn
-#     image: mike1pol/drone-rocket
-#     settings:
-#       url:
-#         from_secret: rocket_url
-#       user_id:
-#         from_secret: rocket_user
-#       token:
-#         from_secret: rocket_token
-#       channel:
-#         from_secret: rocket_channel
-#       message: >
-#         There is a new deploy in process for *{{repo.name}}* 
-#         Logs: {{build.link}}
+  #   - name: initial_notification_vshn
+  #     image: mike1pol/drone-rocket
+  #     settings:
+  #       url:
+  #         from_secret: rocket_url
+  #       user_id:
+  #         from_secret: rocket_user
+  #       token:
+  #         from_secret: rocket_token
+  #       channel:
+  #         from_secret: rocket_channel
+  #       message: >
+  #         There is a new deploy in process for *{{repo.name}}*
+  #         Logs: {{build.link}}
 
   - name: get-cache
     image: meltwater/drone-cache:dev
@@ -36,7 +36,7 @@ steps:
         from_secret: minio_secret_key
 
   - name: build
-    image: node:16.13.0-slim
+    image: node:16.14.0-slim
     environment:
       WP_GRAPHQL_URL: https://vshn.cyon.site/graphql
       GATSBY_DEFAULT_SITE_URL: https://www.vshn.ch/
@@ -88,27 +88,27 @@ steps:
         exclude:
           - master
 
-#   - name: netlify-success-notification-vshn
-#     image: mike1pol/drone-rocket
-#     settings:
-#       url:
-#         from_secret: rocket_url
-#       user_id:
-#         from_secret: rocket_user
-#       token:
-#         from_secret: rocket_token
-#       channel:
-#         from_secret: rocket_channel
-#       message: >
-#         Successful deploy of {{repo.name}}
+  #   - name: netlify-success-notification-vshn
+  #     image: mike1pol/drone-rocket
+  #     settings:
+  #       url:
+  #         from_secret: rocket_url
+  #       user_id:
+  #         from_secret: rocket_user
+  #       token:
+  #         from_secret: rocket_token
+  #       channel:
+  #         from_secret: rocket_channel
+  #       message: >
+  #         Successful deploy of {{repo.name}}
 
-#         Deploy preview URL: https://{{build.branch}}--vshn.netlify.app
-#     when:
-#       branch:
-#         exclude:
-#           - master
-#     depends_on:
-#       - netlify-deploy-preview
+  #         Deploy preview URL: https://{{build.branch}}--vshn.netlify.app
+  #     when:
+  #       branch:
+  #         exclude:
+  #           - master
+  #     depends_on:
+  #       - netlify-deploy-preview
 
   - name: netlify-deploy
     image: williamjackson/netlify-cli:8.6.0
@@ -124,26 +124,26 @@ steps:
       branch:
         - master
 
-#   - name: netlify-success-notification-prod-vshn
-#     image: mike1pol/drone-rocket
-#     settings:
-#       url:
-#         from_secret: rocket_url
-#       user_id:
-#         from_secret: rocket_user
-#       token:
-#         from_secret: rocket_token
-#       channel:
-#         from_secret: rocket_channel
-#       message: >
-#         Successful deploy of {{repo.name}}
+  #   - name: netlify-success-notification-prod-vshn
+  #     image: mike1pol/drone-rocket
+  #     settings:
+  #       url:
+  #         from_secret: rocket_url
+  #       user_id:
+  #         from_secret: rocket_user
+  #       token:
+  #         from_secret: rocket_token
+  #       channel:
+  #         from_secret: rocket_channel
+  #       message: >
+  #         Successful deploy of {{repo.name}}
 
-#         Deploy URL: https://vshn.netlify.app
-#     when:
-#       branch:
-#         - master
-#     depends_on:
-#       - netlify-deploy
+  #         Deploy URL: https://vshn.netlify.app
+  #     when:
+  #       branch:
+  #         - master
+  #     depends_on:
+  #       - netlify-deploy
 
   - name: build-gatsby-preview-docker
     image: plugins/docker
@@ -198,9 +198,9 @@ steps:
 #       channel:
 #         from_secret: rocket_channel
 #       message: >
-#         Deploy did not complete for *{{repo.name}}*. 
+#         Deploy did not complete for *{{repo.name}}*.
 
-#         Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*. 
+#         Author: *{{build.author}}*. Branch: *{{build.branch}}*. Event: *{{build.event}}*.
 
 #         Logs: {{build.link}}
 #     depends_on:
