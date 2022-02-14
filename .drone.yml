@@ -16,24 +16,24 @@ steps:
   #         There is a new deploy in process for *{{repo.name}}*
   #         Logs: {{build.link}}
 
-  - name: get-cache
-    image: meltwater/drone-cache:dev
-    settings:
-      restore: true
-      endpoint: minio-api.main:9000
-      bucket: vshn-website
-      region: eu-west-1
-      path_style: true
-      cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package.json" }}'
-      mount:
-        - "node_modules"
-        - ".cache"
-        - "public"
-    environment:
-      AWS_ACCESS_KEY_ID:
-        from_secret: minio_access_key
-      AWS_SECRET_ACCESS_KEY:
-        from_secret: minio_secret_key
+  # - name: get-cache
+  #   image: meltwater/drone-cache:dev
+  #   settings:
+  #     restore: true
+  #     endpoint: minio-api.main:9000
+  #     bucket: vshn-website
+  #     region: eu-west-1
+  #     path_style: true
+  #     cache_key: '{{.Repo.Name}}-{{ .Commit.Branch }}-{{ checksum "package.json" }}'
+  #     mount:
+  #       - "node_modules"
+  #       - ".cache"
+  #       - "public"
+  #   environment:
+  #     AWS_ACCESS_KEY_ID:
+  #       from_secret: minio_access_key
+  #     AWS_SECRET_ACCESS_KEY:
+  #       from_secret: minio_secret_key
 
   - name: build
     image: node:16.14.0-slim
@@ -45,12 +45,10 @@ steps:
       WP_HTACCESS_PASSWORD:
         from_secret: wp_htaccess_password
     commands:
-      - npm install --prefer-offline --no-audit
+      - npm ci --prefer-offline --no-audit
       - |
         [ -n "$CACHE_CLEAN" ] && npm run clean
       - npm run build
-    depends_on:
-      - get-cache
 
   - name: update-cache
     image: meltwater/drone-cache:dev

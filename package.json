@@ -8,7 +8,7 @@
     "develop:website": "gatsby develop  -H 0.0.0.0",
     "develop:storybook": "start-storybook -p 8001 -s static",
     "build": "npm run build:website",
-    "build:website": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
+    "build:website": "gatsby build",
     "build:storybook": "build-storybook -o ./public/storybook -s static",
     "serve": "gatsby serve",
     "serve:storybook": "npx http-server ./public/storybook -p 8001",
