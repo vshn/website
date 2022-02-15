@@ -36,7 +36,7 @@ steps:
   #       from_secret: minio_secret_key
 
   - name: build
-    image: node:16.14.0-slim
+    image: lnikell/node-gatsby:16.14.0-alpine
     environment:
       WP_GRAPHQL_URL: https://vshn.cyon.site/graphql
       GATSBY_DEFAULT_SITE_URL: https://www.vshn.ch/
@@ -45,7 +45,7 @@ steps:
       WP_HTACCESS_PASSWORD:
         from_secret: wp_htaccess_password
     commands:
-      - npm install --build-from-source --prefer-offline --no-audit --loglevel verbose
+      - npm install --prefer-offline --no-audit
       - |
         [ -n "$CACHE_CLEAN" ] && npm run clean
       - npm run build
@@ -142,47 +142,6 @@ steps:
   #         - master
   #     depends_on:
   #       - netlify-deploy
-
-  - name: build-gatsby-preview-docker
-    image: plugins/docker
-    settings:
-      repo: registry.pixelpoint.io/vshn-preview
-      registry: registry.pixelpoint.io
-      dockerfile: Dockerfile.preview
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-    when:
-      branch:
-        - master
-      event:
-        exclude:
-          - custom
-    depends_on:
-      - build
-
-  - name: deploy-gatsby-preview-server
-    image: peloton/drone-k8s-deployment
-    settings:
-      insecure: false
-      deployment_names: vshn-preview
-      container_names: vshn-preview
-      namespaces: websites
-      docker_image: registry.pixelpoint.io/vshn-preview:latest
-      date_label: deployment.drone.io/date-deployed
-      url:
-        from_secret: kubernetes_url
-      token:
-        from_secret: kubernetes_token
-    when:
-      branch:
-        - master
-      event:
-        exclude:
-          - custom
-    depends_on:
-      - build-gatsby-preview-docker
 
 #   - name: failed_status_notification_vshn
 #     image: mike1pol/drone-rocket
