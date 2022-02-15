@@ -36,7 +36,7 @@ steps:
   #       from_secret: minio_secret_key
 
   - name: build
-    image: node:16-bullseye
+    image: lnikell/node-gatsby:16.14.1-alpine
     environment:
       WP_GRAPHQL_URL: https://vshn.cyon.site/graphql
       GATSBY_DEFAULT_SITE_URL: https://www.vshn.ch/
@@ -45,7 +45,7 @@ steps:
       WP_HTACCESS_PASSWORD:
         from_secret: wp_htaccess_password
     commands:
-      - npm install --prefer-offline --no-audit
+      - npm install --prefer-offline --no-audit --loglevel verbose
       - |
         [ -n "$CACHE_CLEAN" ] && npm run clean
       - npm run build
