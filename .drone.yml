@@ -45,10 +45,11 @@ steps:
       WP_HTACCESS_PASSWORD:
         from_secret: wp_htaccess_password
     commands:
-      - npm install --prefer-offline --no-audit --loglevel verbose
-      - |
-        [ -n "$CACHE_CLEAN" ] && npm run clean
-      - npm run build
+      - SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install --arch=x64 --platform=linux sharp
+      # - npm install --prefer-offline --no-audit --loglevel verbose
+      # - |
+      #   [ -n "$CACHE_CLEAN" ] && npm run clean
+      # - npm run build
 
   - name: update-cache
     image: meltwater/drone-cache:dev
