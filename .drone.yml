@@ -36,7 +36,7 @@ steps:
   #       from_secret: minio_secret_key
 
   - name: build
-    image: lnikell/node-gatsby:16.14.1-alpine
+    image: lnikell/node:16.14.0-slim
     environment:
       WP_GRAPHQL_URL: https://vshn.cyon.site/graphql
       GATSBY_DEFAULT_SITE_URL: https://www.vshn.ch/
