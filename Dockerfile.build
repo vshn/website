@@ -1,5 +1,5 @@
 # Check out https://hub.docker.com/r/pixelpointltd/gatsby-docker to select a new base image
-FROM node:16.14.0-alpine
+FROM --platform=linux/amd64 node:16.14.0-alpine
 
 RUN apk add --no-cache \
 # git: gatsby new command depends on git
