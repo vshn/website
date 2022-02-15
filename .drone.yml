@@ -45,6 +45,7 @@ steps:
       WP_HTACCESS_PASSWORD:
         from_secret: wp_htaccess_password
     commands:
+      - npm install --platform=linux --arch=x64 sharp
       - npm ci --ignore-scripts
       - |
         [ -n "$CACHE_CLEAN" ] && npm run clean
