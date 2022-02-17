@@ -1,20 +1,18 @@
 .wrapper {
   position: relative;
   text-align: center;
-  background-image:
-    linear-gradient(
-      234.34deg,
-      #f8fafc 0%,
-      $color-tertiary 100%
-    );
+  background-image: linear-gradient(
+    234.34deg,
+    #f8fafc 0%,
+    $color-tertiary 100%
+  );
   border-radius: 8px;
   box-shadow: 0 10px 20px 10px rgba($color-primary, 0.05);
   transition: background-image $transition-base, box-shadow $transition-base;
 
   @include hover {
     z-index: 1;
-    background-image:
-      linear-gradient(0deg, $color-tertiary, $color-tertiary),
+    background-image: linear-gradient(0deg, $color-tertiary, $color-tertiary),
       linear-gradient(234.34deg, #f8fafc 0%, $color-tertiary 100%);
     box-shadow: 0 30px 60px 10px rgba($color-primary, 0.25);
 
@@ -59,12 +57,13 @@
 .image-wrapper {
   display: flex;
   justify-self: center;
-  height: 135px;
+  width: 100%;
   min-height: 135px;
   margin-top: 15px;
   margin-bottom: 30px;
 
   img {
+    height: 135px;
     width: 100%;
     object-fit: contain;
   }
