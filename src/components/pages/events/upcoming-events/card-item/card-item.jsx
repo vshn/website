@@ -33,6 +33,7 @@ const CardItem = ({
               src={logo.localFile.publicURL}
               className={cx("image")}
               alt=""
+              loading="lazy"
             />
           )}
         </div>

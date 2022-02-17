@@ -1,9 +1,9 @@
-import classNames from 'classnames/bind';
-import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
-import React from 'react';
+import classNames from "classnames/bind";
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import React from "react";
 
-import styles from './item.module.scss';
+import styles from "./item.module.scss";
 
 const cx = classNames.bind(styles);
 
@@ -24,12 +24,17 @@ const animationVariants = {
 
 const Item = ({ name, logo }) => (
   <motion.li
-    className={cx('wrapper', `wrapper_${name.toLocaleLowerCase()}`)}
+    className={cx("wrapper", `wrapper_${name.toLocaleLowerCase()}`)}
     variants={animationVariants}
   >
-    <span className={cx('name')}>{name}</span>
-    <div className={cx('logo-wrapper')}>
-      <img className={cx('logo')} src={logo} alt={`${name} logo`} />
+    <span className={cx("name")}>{name}</span>
+    <div className={cx("logo-wrapper")}>
+      <img
+        className={cx("logo")}
+        src={logo}
+        alt={`${name} logo`}
+        loading="lazy"
+      />
     </div>
   </motion.li>
 );
