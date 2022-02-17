@@ -59,12 +59,12 @@
 .image-wrapper {
   display: flex;
   justify-self: center;
-  height: 135px;
-  min-height: 135px;
+  width: 100%;
   margin-top: 15px;
   margin-bottom: 30px;
 
   img {
+    height: 135px;
     width: 100%;
     object-fit: contain;
   }

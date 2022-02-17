@@ -58,21 +58,24 @@
 
 .image {
   margin-bottom: 30px;
+  width: 204px;
+  height: 245px;
 
   @include lg-down {
     width: 135px;
+    height: 162px;
   }
 
   @include md-down {
     flex-shrink: 0;
     width: 105px;
+    height: 126px;
     margin-top: -25px;
     margin-right: 45px;
     margin-bottom: 0;
   }
 
   @include sm-down {
-    width: 110px;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 25px;

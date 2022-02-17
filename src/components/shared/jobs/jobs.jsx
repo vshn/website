@@ -18,7 +18,7 @@ const Jobs = ({ title, description, buttonLink: { url: buttonUrl, title: buttonT
       <Button to={buttonUrl}>{buttonText}</Button>
 
     </div>
-    <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
+    <img className={cx('background-image')} src={backgroundImage} alt="" loading="lazy" aria-hidden />
   </section>
 );
 

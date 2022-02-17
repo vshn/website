@@ -31,7 +31,7 @@ const CardItem = (
         </div>
         <div className={cx('image-wrapper')}>
           {logo?.localFile?.publicURL && (
-          <img src={logo.localFile.publicURL} className={cx('image')} alt="" />
+          <img src={logo.localFile.publicURL} className={cx('image')} alt="" loading="lazy" />
           )}
         </div>
         <div className={cx('content')}>

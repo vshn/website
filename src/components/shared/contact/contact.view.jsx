@@ -19,7 +19,7 @@ const Contact = ({ title, description, buttonText, buttonUrl }) => (
       <Button to={buttonUrl}>{buttonText}</Button>
     </div>
 
-    <img className={cx('background-image')} src={backgroundImage} alt="" aria-hidden />
+    <img className={cx('background-image')} src={backgroundImage} alt="" loading="lazy" aria-hidden />
   </section>
 );
 

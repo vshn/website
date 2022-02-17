@@ -25,7 +25,7 @@ const Item = ({ imageName, title, description, link: { url }, itemFooterText, it
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <img className={cx('image')} src={image} alt="" aria-hidden />
+        <img className={cx('image')} src={image} alt="" loading="lazy" aria-hidden />
         <div className={cx('content')}>
           <Heading className={cx('title')} tag="h3" size="lg" color="tertiary">
             {title}
