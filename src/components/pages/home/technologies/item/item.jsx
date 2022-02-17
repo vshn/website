@@ -29,7 +29,7 @@ const Item = ({ name, logo }) => (
   >
     <span className={cx('name')}>{name}</span>
     <div className={cx('logo-wrapper')}>
-      <img className={cx('logo')} src={logo} alt={`${name} logo`} />
+      <img className={cx('logo')} src={logo} alt={`${name} logo`} loading="lazy" />
     </div>
   </motion.li>
 );
