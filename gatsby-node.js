@@ -3,6 +3,7 @@ const path = require("path");
 
 const slash = require("slash");
 
+const redirects = require("./redirects.json");
 const filterNonRootItems = require("./src/utils/filter-non-root-items");
 
 /* Constants */
@@ -234,42 +235,43 @@ const buildUrlsForLocales = (url) => {
 
 /* Main logic */
 
-// Create Redirects
-async function createRedirects({ graphql, actions }) {
-  const { createRedirect } = actions;
-  const result = await graphql(`
-    {
-      wp {
-        seo {
-          redirects {
-            origin
-            target
-            type
-          }
-        }
-      }
-    }
-  `);
+// // Create Redirects
+// async function createRedirects({ graphql, actions }) {
+//   const { createRedirect } = actions;
+//   const result = await graphql(`
+//     {
+//       wp {
+//         seo {
+//           redirects {
+//             origin
+//             target
+//             type
+//           }
+//         }
+//       }
+//     }
+//   `);
 
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
+//   if (result.errors) {
+//     throw new Error(result.errors);
+//   }
 
-  const { redirects } = result.data.wp.seo;
-  // Add slash at the beginning of the string if not present to adjust it for Netlify's format
-  // eg. blog/the-ultimate-guide-to-buying-intercom-systems-for-offices -> /blog/the-ultimate-guide-to-buying-intercom-systems-for-offices
+//   const { redirects } = result.data.wp.seo;
+//   // Add slash at the beginning of the string if not present to adjust it for Netlify's format
+//   // eg. blog/the-ultimate-guide-to-buying-intercom-systems-for-offices -> /blog/the-ultimate-guide-to-buying-intercom-systems-for-offices
 
-  const formatPath = (path) =>
-    /^\/|^http|^https|^www/.test(path) ? path : `/${path}`;
-  redirects.forEach(({ origin, target, type }) => {
-    createRedirect({
-      fromPath: formatPath(origin),
-      toPath: formatPath(target),
-      statusCode: parseInt(type, 10),
-      force: true,
-    });
-  });
-}
+//   const formatPath = (path) =>
+//     /^\/|^http|^https|^www/.test(path) ? path : `/${path}`;
+//   redirects.forEach(({ origin, target, type }) => {
+//     createRedirect({
+//       fromPath: formatPath(origin),
+//       toPath: formatPath(target),
+//       statusCode: parseInt(type, 10),
+//       force: true,
+//     });
+//   });
+// }
+
 
 // Create Pages
 async function createPages({
@@ -932,6 +934,7 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
 exports.createPages = async (args) => {
   // since all the pages have the exact same menu,
   // query it early and pass to page generators
+  const { createRedirect } = args.actions;
   const allMenus = await getAllMenusByLocale(args.graphql);
 
   // a little local helper to avoid copypasting chains
@@ -954,6 +957,13 @@ exports.createPages = async (args) => {
     // filter non top level links if type of menu is main
     return menus;
   };
+  
+  redirects.forEach(redirect => 
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+    })
+  );
 
   // fetch global fields data exactly once and pass it anywhere
   const globalFields = await getGlobalFields(args.graphql);
@@ -964,7 +974,6 @@ exports.createPages = async (args) => {
     globalFields,
   };
 
-  await createRedirects(params);
   await createPages(params);
   await createBlogPages(params);
   await createPosts(params);

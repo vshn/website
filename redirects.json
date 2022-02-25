@@ -1,0 +1,25 @@
+[
+  {"fromPath": "/about/", "toPath": "/en/about/"},
+  {"fromPath": "/blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/", "toPath": "/blog/devsecops-sicherheit-fuer-entwicklung-und-it-betrieb/"},
+  {"fromPath": "/blog/einfuehrung-in-operatoren-operatoren-framework-und-operatoren-sdk/", "toPath": "/blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/"},
+  {"fromPath": "/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud/", "toPath": "/en/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud-2/"},
+  {"fromPath": "/blog/vshnevents/", "toPath": "/blog/event"},
+  {"fromPath": "/blog/vshnevents/topsoft-fachmesse-2019/", "toPath": "/blog/vshn-devops-workshop-an-der-topsoft-2019/"},
+  {"fromPath": "/blog/was-ist-eine-kubernetes-distribution", "toPath": "/blog/was-ist-eine-kubernetes-distribution-und-was-sind-die-unterschiede-zu-openshift/"},
+  {"fromPath": "/de/", "toPath": "/"},
+  {"fromPath": "/devops/", "toPath": "/solutions/devops-enablement/"},
+  {"fromPath": "/en/appuio-swiss-container-platform/", "toPath": "/en/products/appuio-swiss-container-platform/"},
+  {"fromPath": "/en/blog/automated-b", "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"},
+  {"fromPath": "/en/blog/automated-build-pipelines-with-gitlab", "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"},
+  {"fromPath": "/en/blog/automated-build-pipelines-with-gitlab-ci", "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"},
+  {"fromPath": "/en/blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/", "toPath": "/en/blog/devsecops-security-for-development-and-it-operations/"},
+  {"fromPath": "/en/blog/die-vorteile-von-devops-in-der-praxis/", "toPath": "/en/blog/the-advantages-of-devops-in-practice/"},
+  {"fromPath": "/en/blog/docker-overlay-encryption/", "toPath": "/en/blog/docker-overlay-encryption-2/"},
+  {"fromPath": "/en/blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/", "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"},
+  {"fromPath": "/en/blog/go-operator/", "toPath": "/en/blog/go-operator-2/"},
+  {"fromPath": "/en/blog/herzlich-willkommen-adrian/", "toPath": "/en/blog/bienvenido-adrian/"},
+  {"fromPath": "/en/blog/introduction-to-operators-operator-framework-and-operators-sdk/", "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"},
+  {"fromPath": "/en/blog/kubernetes-operatoren-mit-dem-operatoren-sdk-framework-entwickeln/", "toPath": "/en/blog/how-to-leverage-kubernetes-operators-using-the-operator-sdk-framework/"},
+  {"fromPath": "/en/blog/my-experience-at-vshn/", "toPath": "/en/blog/suada-mirgadirova-my-experience-at-vshn/"}
+]
+
