@@ -257,13 +257,13 @@ module.exports = {
             limit:
               process.env.NODE_ENV === "development"
                 ? Number(process.env.WP_POSTS_LIMIT)
-                : 24,
+                : undefined,
           },
           MediaItem: {
             localFile: {
               requestConcurrency: process.env.WP_MEDIA_REQUEST_CONCURRENCY
                 ? Number(process.env.WP_MEDIA_REQUEST_CONCURRENCY)
-                : 50,
+                : 100,
             },
           },
         },
