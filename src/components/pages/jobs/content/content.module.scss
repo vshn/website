@@ -52,8 +52,8 @@
 
     .rt-list__offer-title {
       @include sm-down {
-        font-size: $font-size-md;
-        list-style: $line-height-md;
+        font-size: 18px;
+        line-height: $line-height-md;
       }
     }
 
@@ -62,10 +62,10 @@
       transform: translateX(0);
       color: $color-primary;
       font-size: $font-size-lg;
+      right: 0;
 
       @include md-down {
         font-size: $font-size-md;
-        right: 0;
       }
 
       @include sm-down {
