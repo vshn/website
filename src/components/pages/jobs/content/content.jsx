@@ -20,7 +20,7 @@ const Content = ({ content, ratingCards, ratingCards2 }) => {
       if (window.RTWidget) {
         const { RTWidget } = window;
         window.widget = new RTWidget({
-          companies: [],
+          companies: [74931],
           detailsMode: 'popup',
           language: 'en',
           departmentsFilter: [],
@@ -29,7 +29,7 @@ const Content = ({ content, ratingCards, ratingCards2 }) => {
             secondary: '#000',
             text: '#5c6f78',
             textDark: '#37474f',
-            fontFamily: '"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;',
+            fontFamily: '"Montserrat", sans-serif',
             baseFontSize: '16px',
           },
           flags: {

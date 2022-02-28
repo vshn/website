@@ -50,8 +50,11 @@
       font-weight: 600;
     }
 
-    .rt__text {
-      font-family: $font-family-primary;
+    .rt-list__offer-title {
+      @include sm-down {
+        font-size: $font-size-md;
+        list-style: $line-height-md;
+      }
     }
 
     .rt-list__offer-item .rt-icon-arrow-forward {
@@ -59,6 +62,15 @@
       transform: translateX(0);
       color: $color-primary;
       font-size: $font-size-lg;
+
+      @include md-down {
+        font-size: $font-size-md;
+        right: 0;
+      }
+
+      @include sm-down {
+        opacity: 0;
+      }
     }
   }
 
@@ -80,6 +92,10 @@
     .rt-details__header {
       .rt-details__header-title {
         font-weight: 600;
+
+        @include md-down {
+          font-size: $font-size-lg;
+        }
       }
     }
 
@@ -104,16 +120,13 @@
       }
     }
 
-    .rt-details__content--main.rt__text--base {
+    .rt-details__content--main.rt__text--base,
+    .rt-details__content--requirements.rt__text--base {
       @include with-link-primary;
     }
 
     .rt-theme-light .rt-details__content--form {
       .rt-form__group {
-        label {
-          font-family: $font-family-primary;
-        }
-
         input[type=text],
         input[type=email],
         input[type=tel],
@@ -122,6 +135,11 @@
           border: 1px solid $color-additional-2;
           box-shadow: 0px 0px 5px rgba(0, 13, 26, 0.05);
           border-radius: 4px;
+          transition: border 0.2s;
+
+          &:focus {
+            border: 1px solid $color-accent-primary;
+          } 
         }
       }
     } 
@@ -129,6 +147,9 @@
     .rt__button.rt__button--action {
       background-color: $color-accent-primary;
       transition: background-color 0.2s;
+      @include xs-down {
+        line-height: $line-height-lg;
+      }
 
       &:hover {
         box-shadow: none !important;
