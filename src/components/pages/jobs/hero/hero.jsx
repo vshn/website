@@ -12,15 +12,17 @@ const cx = classNames.bind(styles);
 
 const Hero = ({ breadcrumbs, title, image }) => (
   <section className={cx('wrapper')}>
-    <div className={cx('container', 'inner')}>
-      {breadcrumbs?.length > 0 && <Breadcrumbs currentPageTitle={title} crumbs={breadcrumbs} />}
-      <Heading className={cx('title')} tag="h1" size="xl">{title}</Heading>
-      {image?.localFile && (
-      <div className={cx('image-wrapper')}>
-        <GatsbyImage className={cx('image')} imgStyle={{ objectFit: 'contain' }} fluid={image.localFile.childImageSharp.fluid} />
+    <div className={cx('wrapper-inner')}>
+      <div className={cx('container', 'inner')}>
+        {breadcrumbs?.length > 0 && <Breadcrumbs currentPageTitle={title} crumbs={breadcrumbs} />}
+        <Heading className={cx('title')} tag="h1" size="xl">{title}</Heading>
       </div>
-      )}
     </div>
+    {image?.localFile && (
+    <div className={cx('image-wrapper')}>
+      <GatsbyImage className={cx('image')} imgStyle={{ objectFit: 'contain' }} fluid={image.localFile.childImageSharp.fluid} />
+    </div>
+    )}
   </section>
 );
 

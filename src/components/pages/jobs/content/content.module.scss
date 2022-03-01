@@ -29,121 +29,131 @@
   @include content;
 }
 
-:global {
-  #freshteam-widget {
-    margin-bottom: 45px;
+.title {
+  margin-bottom: 30px;
+  font-size: 36px;
+}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    > * {
-      font-family: $font-family-primary !important;
+:global {
+  #recruitee-careers.recruitee {
+    margin-bottom: 30px;
+
+    .rt-theme-light.rt-body {
+      box-shadow: none;
+      border: none;
+      padding-left: 0;
+      padding-right: 0;
     }
 
-    .content {
-      h2,
-      h3,
-      h5 {
-        color: $color-accent-primary;
+    .rt-list .rt-list__header-main .rt__text {
+      color: $color-accent-primary;
+      font-weight: 600;
+    }
+
+    .rt-list__offer-title {
+      @include sm-down {
+        font-size: 18px;
+        line-height: $line-height-md;
       }
     }
 
-    .btn.btn-primary {
+    .rt-list__offer-item .rt-icon-arrow-forward {
+      opacity: 1;
+      transform: translateX(0);
       color: $color-primary;
-      background-color: $color-accent-secondary;
-      border-color: $color-accent-secondary;
+      font-size: $font-size-lg;
+      right: 0;
+
+      @include md-down {
+        font-size: $font-size-md;
+      }
+
+      @include sm-down {
+        opacity: 0;
+      }
+    }
+  }
+
+  #recruitee-careers-details-container {
+    .rt-theme-light.rt-details__outer--popup.rt-details__outer .rt-details__backdrop {
+      background: none !important;
+      background-color: rgba(22,25,40,0.6) !important;
+    }
+    .rt-details__inner {
+      &.rt__text {
+        font-family: $font-family-primary;
+      }
+      .rt-theme-light .rt-details__footer {
+        background-color: $color-additional-1;
+        border-top: 1px solid $color-additional-2;
+      }
+    }
+
+    .rt-details__header {
+      .rt-details__header-title {
+        font-weight: 600;
+
+        @include md-down {
+          font-size: $font-size-lg;
+        }
+      }
+    }
+
+    .rt-details__content {
+      .rt__text--dark.rt__text-header {
+        color: $color-accent-primary;
+      }
+
+      .rt__text--base{
+        color: $color-primary;
+      }
+    } 
+
+    .rt-details__heading {
+      &.rt__text--dark {
+        background-color: $color-additional-1;
+        border-top: 1px solid $color-additional-2;
+        border-bottom: 1px solid $color-additional-2;
+      }
+      .rt-details__separator {
+        color: $color-secondary;
+      }
+    }
+
+    .rt-details__content--main.rt__text--base,
+    .rt-details__content--requirements.rt__text--base {
+      @include with-link-primary;
+    }
+
+    .rt-theme-light .rt-details__content--form {
+      .rt-form__group {
+        input[type=text],
+        input[type=email],
+        input[type=tel],
+        textarea {
+          background-color: $color-tertiary;
+          border: 1px solid $color-additional-2;
+          box-shadow: 0px 0px 5px rgba(0, 13, 26, 0.05);
+          border-radius: 4px;
+          transition: border 0.2s;
+
+          &:focus {
+            border: 1px solid $color-accent-primary;
+          } 
+        }
+      }
+    } 
+
+    .rt__button.rt__button--action {
+      background-color: $color-accent-primary;
+      transition: background-color 0.2s;
+      @include xs-down {
+        line-height: $line-height-lg;
+      }
 
       &:hover {
-        color: $color-primary;
-        background-color: lighten($color-accent-secondary, 5.5%);
-        border-color: lighten($color-accent-secondary, 5.5%);
-      }
-    }
-
-    #freshteam-careers {
-      .advanced-search {
-        padding-right: 15px;
-        padding-left: 15px;
-      }
-
-      .content {
-        @include md-down {
-          width: 100%;
-        }
-      }
-
-      .page-title {
-        display: flex;
-        font-size: 36px;
-        font-weight: 900;
-        color: $color-primary;
-
-        @include md-down {
-          display: block;
-        }
-
-        @include xs-down {
-          text-align: center;
-        }
-
-        span:first-child {
-          margin-right: 10px;
-          margin-left: auto;
-        }
-      }
-
-      .search-form-select {
-        font-weight: 500;
-
-        &:focus {
-          border-color: $color-accent-primary;
-        }
-      }
-
-      .icon-arrow-right {
-        path {
-          fill: $color-accent-primary;
-        }
-      }
-
-      .role-title {
-        @include sm-down {
-          margin-bottom: 15px;
-        }
-      }
-
-      .col-xs-8 {
-        @include xs-down {
-          width: 100%;
-        }
-      }
-    }
-
-    #job-desc-tmpl {
-      a {
-        color: $color-accent-primary;
-      }
-
-      .job-details {
-        .job-details-header {
-          background-color: $color-primary;
-        }
-      }
-
-      .job-details-content {
-        width: 100%;
-      }
-
-      .link-back {
-        color: $color-tertiary;
-      }
-
-      .btn.btn-primary {
-        font-weight: 600;
-        color: $color-primary;
+        box-shadow: none !important;
+        background-color: lighten($color-accent-primary, 5.5%);
       }
     }
   }
