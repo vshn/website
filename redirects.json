@@ -644,5 +644,15 @@
   {
     "fromPath": "/partner/puzzle-itc/",
     "toPath": "/partner/technologiepartner/"
+  },
+  {
+    "fromPath": "https://vshn.netlify.app/*",
+    "toPath": "https://www.vshn.ch/:splat",
+    "statusCode": 301
+  },
+  {
+    "fromPath": "http://vshn.netlify.app/*",
+    "toPath": "https://www.vshn.ch/:splat",
+    "statusCode": 301
   }
 ]

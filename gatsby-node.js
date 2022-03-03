@@ -962,18 +962,9 @@ exports.createPages = async (args) => {
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
+      statusCode: redirect.statusCode,
     })
   );
-
-  createRedirect({
-    fromPath: `https://vshn.netlify.app/*`,
-    toPath: `https://www.vshn.ch/:splat`, statusCode: 301 
-  });
-
-  createRedirect({
-    fromPath: `http://vshn.netlify.app/*`,
-    toPath: `https://www.vshn.ch/:splat`, statusCode: 301 
-  });
 
   // fetch global fields data exactly once and pass it anywhere
   const globalFields = await getGlobalFields(args.graphql);
