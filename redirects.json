@@ -1,25 +1,648 @@
 [
-  {"fromPath": "/about/", "toPath": "/en/about/"},
-  {"fromPath": "/blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/", "toPath": "/blog/devsecops-sicherheit-fuer-entwicklung-und-it-betrieb/"},
-  {"fromPath": "/blog/einfuehrung-in-operatoren-operatoren-framework-und-operatoren-sdk/", "toPath": "/blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/"},
-  {"fromPath": "/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud/", "toPath": "/en/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud-2/"},
-  {"fromPath": "/blog/vshnevents/", "toPath": "/blog/event"},
-  {"fromPath": "/blog/vshnevents/topsoft-fachmesse-2019/", "toPath": "/blog/vshn-devops-workshop-an-der-topsoft-2019/"},
-  {"fromPath": "/blog/was-ist-eine-kubernetes-distribution", "toPath": "/blog/was-ist-eine-kubernetes-distribution-und-was-sind-die-unterschiede-zu-openshift/"},
-  {"fromPath": "/de/", "toPath": "/"},
-  {"fromPath": "/devops/", "toPath": "/solutions/devops-enablement/"},
-  {"fromPath": "/en/appuio-swiss-container-platform/", "toPath": "/en/products/appuio-swiss-container-platform/"},
-  {"fromPath": "/en/blog/automated-b", "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"},
-  {"fromPath": "/en/blog/automated-build-pipelines-with-gitlab", "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"},
-  {"fromPath": "/en/blog/automated-build-pipelines-with-gitlab-ci", "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"},
-  {"fromPath": "/en/blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/", "toPath": "/en/blog/devsecops-security-for-development-and-it-operations/"},
-  {"fromPath": "/en/blog/die-vorteile-von-devops-in-der-praxis/", "toPath": "/en/blog/the-advantages-of-devops-in-practice/"},
-  {"fromPath": "/en/blog/docker-overlay-encryption/", "toPath": "/en/blog/docker-overlay-encryption-2/"},
-  {"fromPath": "/en/blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/", "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"},
-  {"fromPath": "/en/blog/go-operator/", "toPath": "/en/blog/go-operator-2/"},
-  {"fromPath": "/en/blog/herzlich-willkommen-adrian/", "toPath": "/en/blog/bienvenido-adrian/"},
-  {"fromPath": "/en/blog/introduction-to-operators-operator-framework-and-operators-sdk/", "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"},
-  {"fromPath": "/en/blog/kubernetes-operatoren-mit-dem-operatoren-sdk-framework-entwickeln/", "toPath": "/en/blog/how-to-leverage-kubernetes-operators-using-the-operator-sdk-framework/"},
-  {"fromPath": "/en/blog/my-experience-at-vshn/", "toPath": "/en/blog/suada-mirgadirova-my-experience-at-vshn/"}
+  { "fromPath": "/about/", "toPath": "/en/about/" },
+  {
+    "fromPath": "/blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/",
+    "toPath": "/blog/devsecops-sicherheit-fuer-entwicklung-und-it-betrieb/"
+  },
+  {
+    "fromPath": "/blog/einfuehrung-in-operatoren-operatoren-framework-und-operatoren-sdk/",
+    "toPath": "/blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/"
+  },
+  {
+    "fromPath": "/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud/",
+    "toPath": "/en/blog/release-your-applications-faster-and-easier-move-them-to-the-cloud-2/"
+  },
+  { "fromPath": "/blog/vshnevents/", "toPath": "/blog/event" },
+  {
+    "fromPath": "/blog/vshnevents/topsoft-fachmesse-2019/",
+    "toPath": "/blog/vshn-devops-workshop-an-der-topsoft-2019/"
+  },
+  {
+    "fromPath": "/blog/was-ist-eine-kubernetes-distribution",
+    "toPath": "/blog/was-ist-eine-kubernetes-distribution-und-was-sind-die-unterschiede-zu-openshift/"
+  },
+  { "fromPath": "/de/", "toPath": "/" },
+  { "fromPath": "/devops/", "toPath": "/solutions/devops-enablement/" },
+  {
+    "fromPath": "/en/appuio-swiss-container-platform/",
+    "toPath": "/en/products/appuio-swiss-container-platform/"
+  },
+  {
+    "fromPath": "/en/blog/automated-b",
+    "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"
+  },
+  {
+    "fromPath": "/en/blog/automated-build-pipelines-with-gitlab",
+    "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"
+  },
+  {
+    "fromPath": "/en/blog/automated-build-pipelines-with-gitlab-ci",
+    "toPath": "/en/blog/automated-build-pipelines-with-gitlab-ci-and-appuio/"
+  },
+  {
+    "fromPath": "/en/blog/devsecops-sicherheit-fuer-entwickler-und-it-betrieb/",
+    "toPath": "/en/blog/devsecops-security-for-development-and-it-operations/"
+  },
+  {
+    "fromPath": "/en/blog/die-vorteile-von-devops-in-der-praxis/",
+    "toPath": "/en/blog/the-advantages-of-devops-in-practice/"
+  },
+  {
+    "fromPath": "/en/blog/docker-overlay-encryption/",
+    "toPath": "/en/blog/docker-overlay-encryption-2/"
+  },
+  {
+    "fromPath": "/en/blog/einfuehrung-in-kubernetes-operatoren-operatoren-framework-und-operatoren-sdk/",
+    "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"
+  },
+  { "fromPath": "/en/blog/go-operator/", "toPath": "/en/blog/go-operator-2/" },
+  {
+    "fromPath": "/en/blog/herzlich-willkommen-adrian/",
+    "toPath": "/en/blog/bienvenido-adrian/"
+  },
+  {
+    "fromPath": "/en/blog/introduction-to-operators-operator-framework-and-operators-sdk/",
+    "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"
+  },
+  {
+    "fromPath": "/en/blog/kubernetes-operatoren-mit-dem-operatoren-sdk-framework-entwickeln/",
+    "toPath": "/en/blog/how-to-leverage-kubernetes-operators-using-the-operator-sdk-framework/"
+  },
+  {
+    "fromPath": "/en/blog/my-experience-at-vshn/",
+    "toPath": "/en/blog/suada-mirgadirova-my-experience-at-vshn/"
+  },
+  {
+    "fromPath": "/en/blog/introduction-to-operators-operator-framework-and-operators-sdk/",
+    "toPath": "/en/blog/introduction-to-kubernetes-operators-operator-framework-and-operators-sdk/"
+  },
+  {
+    "fromPath": "/en/blog/kubernetes-operatoren-mit-dem-operatoren-sdk-framework-entwickeln/",
+    "toPath": "/en/blog/how-to-leverage-kubernetes-operators-using-the-operator-sdk-framework/"
+  },
+  {
+    "fromPath": "/en/blog/my-experience-at-vshn/",
+    "toPath": "/en/blog/suada-mirgadirova-my-experience-at-vshn/"
+  },
+  {
+    "fromPath": "/en/blog/nosql-why-y",
+    "toPath": "/en/blog/nosql-why-you-should-use-mongodb-instead-of-a-relational-database/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-at-the-aws-summit-switzerland/",
+    "toPath": "/en/blog/visit-us-at-the-aws-summit-switzerland-at-the-vshn-booth/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-bei-der-preisverleihung-fuer-den-rising-star-award-cloud-transformation-operation-services-xaas-von-isg-in-berlin",
+    "toPath": "/en/blog/vshn-bei-der-preisverleihung-fuer-den-rising-star-award-cloud-transformation-operation-services-xaas-von-isg-in-berlin-2/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-celebrates-5th-birthday-🎂/",
+    "toPath": "/en/blog/vshn-celebrates-5th-birthday/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-celebrates-5th-birthday-🎂/feed/",
+    "toPath": "/en/blog/vshn-celebrates-5th-birthday/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-in-top-10-der-prozentual-am-schnellsten-wachsenden-schweizer-ict-firmen/",
+    "toPath": "/en/blog/vshn-in-top-10-of-the-fastest-growing-swiss-ict-companies/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-jahresrueckblick-2018/",
+    "toPath": "/en/blog/vshn-year-in-review-2018/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-jahresrueckblick-2018/feed/",
+    "toPath": "/en/blog/vshn-year-in-review-2018/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-sponsert-hacknlead-den-ersten-schweizer-hackathon-fuer-frauen/",
+    "toPath": "/en/blog/vshn-sponsors-hacknlead-the-first-swiss-hackathon-for-women/"
+  },
+  {
+    "fromPath": "/en/blog/vshn-will-run-the-openshift-platform-for-the-next-evolution-of-the-australian-gov",
+    "toPath": "/en/blog/vshn-will-run-the-openshift-platform-for-the-next-evolution-of-the-australian-govcms/"
+  },
+  { "fromPath": "/en/blog/vshn/", "toPath": "/en/blog/interna-en" },
+  {
+    "fromPath": "/en/blog/was-ist-eine-kubernetes-distribution-und-was-sind-die-unterschiede-zu-openshift/",
+    "toPath": "/en/blog/what-is-a-kubernetes-distribution-and-what-are-the-differences-to-openshift/"
+  },
+  {
+    "fromPath": "/en/blog/was-ist-eine-kubernetes-distribution/",
+    "toPath": "/en/blog/what-is-a-kubernetes-distribution-and-what-are-the-differences-to-openshift/"
+  },
+  {
+    "fromPath": "/en/blog/welcome-soufiane/",
+    "toPath": "/en/blog/benvenuto-soufiane/"
+  },
+  { "fromPath": "/en/devops/", "toPath": "/en/solutions/devops-enablement/" },
+  {
+    "fromPath": "/en/event/cnc-meetup-4-2019/",
+    "toPath": "/en/blog/cloud-native-computing-meetup-4-2019/"
+  },
+  {
+    "fromPath": "/en/event/red-hat-forum-switzerland-zuerich-2019/",
+    "toPath": "/en/events/"
+  },
+  {
+    "fromPath": "/en/event/red-hat-forum-switzerland-zuerich-2019/",
+    "toPath": "/en/blog/red-hat-forum-switzerland-2019-zurich/"
+  },
+  {
+    "fromPath": "/en/event/topsoft-2019/",
+    "toPath": "/en/blog/vshn-devops-workshop-at-topsoft-2019/"
+  },
+  {
+    "fromPath": "/en/free-webinar-moving-applications-to-the-cloud-with-docker-container-technology-using-devops-principles/",
+    "toPath": "/en/solutions/devops-enablement/"
+  },
+  {
+    "fromPath": "/en/free-whitepaper-5-steps-of-moving-your-applications-successfully-to-the-cloud/",
+    "toPath": "/en/solutions/devops-enablement/"
+  },
+  {
+    "fromPath": "/en/java-hosting/",
+    "toPath": "/en/solutions/managed-application-services/"
+  },
+  { "fromPath": "/en/k8up", "toPath": "/en/products/open-source/k8up/" },
+  {
+    "fromPath": "/en/k8up-backup-operator-for-kubernetes/",
+    "toPath": "/en/products/open-source/k8up/"
+  },
+  {
+    "fromPath": "/products/open-source/k8up/",
+    "toPath": "/en/products/open-source/k8up/"
+  },
+  {
+    "fromPath": "/en/managed-container-platform/",
+    "toPath": "/en/solutions/managed-container-platforms/"
+  },
+  {
+    "fromPath": "/en/managed-docker/",
+    "toPath": "/en/solutions/managed-container-platforms/"
+  },
+  {
+    "fromPath": "/en/managed-kubernetes/",
+    "toPath": "/en/solutions/managed-container-platforms/managed-kubernetes/"
+  },
+  {
+    "fromPath": "/en/managed-openshift/",
+    "toPath": "/en/solutions/managed-container-platforms/managed-openshift/"
+  },
+  {
+    "fromPath": "/en/managed-services/",
+    "toPath": "/en/products/managed-services/"
+  },
+  {
+    "fromPath": "/en/managed-rancher/",
+    "toPath": "/en/solutions/managed-container-platforms/managed-rancher/"
+  },
+  {
+    "fromPath": "/en/solutions/devops-workshop/",
+    "toPath": "/en/solutions/devops-enablement/devops-workshop/"
+  },
+  { "fromPath": "/en/open-source/", "toPath": "/en/products/open-source/" },
+  { "fromPath": "/en/press/", "toPath": "/en/blog/press-en" },
+  {
+    "fromPath": "/en/success-stories/",
+    "toPath": "/en/partners/success-stories/"
+  },
+  { "fromPath": "/en/syn/", "toPath": "/en/products/open-source/project-syn/" },
+  { "fromPath": "/en/team/*/", "toPath": "/en/team/" },
+  { "fromPath": "/en/tech-talks/", "toPath": "/en/events/" },
+  { "fromPath": "/en/vshn/", "toPath": "/en/about/" },
+  { "fromPath": "/en/vshn/events/", "toPath": "/en/events/" },
+  {
+    "fromPath": "/en/webinar-docker-kubernetes-the-way-to-cloud-native-computing/",
+    "toPath": "https://www.youtube.com/watch?v=SCMA5XHv9uc"
+  },
+  { "fromPath": "/en/webinars/", "toPath": "/en/events/" },
+  {
+    "fromPath": "/en/what-others-say/  ",
+    "toPath": "/en/about/awards-certifications/"
+  },
+  { "fromPath": "/imprint", "toPath": "/en/imprint/" },
+  {
+    "fromPath": "/java-hosting/",
+    "toPath": "/en/solutions/managed-application-services/"
+  },
+  { "fromPath": "/k8up", "toPath": "/produkte/open-source/k8up/" },
+  {
+    "fromPath": "/k8up-backup-operator-for-kubernetes/",
+    "toPath": "/produkte/open-source/k8up/"
+  },
+  {
+    "fromPath": "/kostenloses-webinar-migration-von-applikationen-in-die-cloud-mit-docker-container-technologie-und-devops-prinzipien/",
+    "toPath": "/solutions/devops-enablement/"
+  },
+  { "fromPath": "/loesungen", "toPath": "/solutions" },
+  {
+    "fromPath": "/loesungen/devops-workshop/",
+    "toPath": "/solutions/devops-enablement/devops-workshop/"
+  },
+  {
+    "fromPath": "/managed-container-platform/",
+    "toPath": "/solutions/managed-container-platforms/"
+  },
+  {
+    "fromPath": "/managed-docker/",
+    "toPath": "/solutions/managed-container-platforms/"
+  },
+  {
+    "fromPath": "/managed-kubernetes/",
+    "toPath": "/solutions/managed-container-platforms/managed-kubernetes/"
+  },
+  {
+    "fromPath": "/managed-openshift/",
+    "toPath": "/solutions/managed-container-platforms/managed-openshift/"
+  },
+  { "fromPath": "/managed-services", "toPath": "/produkte/managed-services/" },
+  {
+    "fromPath": "/managed-rancher/",
+    "toPath": "/solutions/managed-container-platforms/managed-rancher/"
+  },
+  { "fromPath": "/open-source/", "toPath": "/produkte/open-source/" },
+  { "fromPath": "/presse/", "toPath": "/blog/press" },
+  {
+    "fromPath": "/produkte/appuio/",
+    "toPath": "/produkte/appuio-swiss-container-platform/"
+  },
+  { "fromPath": "/success-stories/", "toPath": "/partner/success-stories/" },
+  {
+    "fromPath": "/success-stories/acrevis-bank-vshn",
+    "toPath": "/success-stories/acrevis/"
+  },
+  {
+    "fromPath": "/success-stories/hrm-systems-vshn/",
+    "toPath": "/success-stories/hrm-systems/"
+  },
+  {
+    "fromPath": "/success-stories/sobrado-vshn/",
+    "toPath": "/success-stories/sobrado/"
+  },
+  {
+    "fromPath": "/success-stories/esurance-vshn/",
+    "toPath": "/success-stories/esurance/"
+  },
+  {
+    "fromPath": "/en/success-stories/acrevis-bank/",
+    "toPath": "/en/success-stories/acrevis/"
+  },
+  { "fromPath": "/syn/", "toPath": "/produkte/open-source/project-syn/" },
+  { "fromPath": "/team/*/", "toPath": "/team/" },
+  { "fromPath": "/tech-talks/", "toPath": "/events/" },
+  { "fromPath": "/vshn/", "toPath": "/ueber/" },
+  { "fromPath": "/vshn/events/", "toPath": "/events/" },
+  {
+    "fromPath": "/webinar-docker-kubernetes-der-weg-zu-cloud-native-computing/",
+    "toPath": "https://www.youtube.com/watch?v=SCMA5XHv9uc"
+  },
+  { "fromPath": "/webinare/", "toPath": "/events/" },
+  {
+    "fromPath": "/en/blog/2018-03-icinga2-security-2/",
+    "toPath": "/en/blog/2018-03-icinga2-security/"
+  },
+  { "fromPath": "/en/about/news-press/", "toPath": "/en/blog/press-en/" },
+  { "fromPath": "/en/vshn/newsletter/", "toPath": "/en/newsletter/" },
+  { "fromPath": "/vshn/newsletter/", "toPath": "/newsletter/" },
+  { "fromPath": "/sitemap.xml", "toPath": "/sitemap/sitemap-index.xml" },
+  {
+    "fromPath": "/agb",
+    "toPath": "https://legal.docs.vshn.ch/legal/agb_de.html"
+  },
+  {
+    "fromPath": "/allgemeine-geschaeftsbedingungen",
+    "toPath": "https://legal.docs.vshn.ch/legal/agb_de.html"
+  },
+  {
+    "fromPath": "/blog/20-rabatt-auf-kubecon-und-cloudnati",
+    "toPath": "/en/blog/kubecon-cloudnativecon-2019-barcelona-recap/"
+  },
+  {
+    "fromPath": "/concloud/",
+    "toPath": "/blog/rueckblick-appuio-an-den-cloud-conferences-bonn-hanau-hamburg-muenchen-2019/"
+  },
+  {
+    "fromPath": "/coronavirus/",
+    "toPath": "https://handbook.vshn.ch/hb/coronavirus.html"
+  },
+  { "fromPath": "/devops-report-2019/", "toPath": "/devops-report-2020/" },
+  { "fromPath": "/devops-studie/", "toPath": "/devops-report-2020/" },
+  {
+    "fromPath": "/dokumentation/",
+    "toPath": "https://kb.vshn.ch/kb/index.html#_documentation_index"
+  },
+  {
+    "fromPath": "/en/coronavirus/",
+    "toPath": "https://handbook.vshn.ch/hb/coronavirus.html"
+  },
+  {
+    "fromPath": "/en/enjoy-reading-the-devops-in-switzerland-2019-report/",
+    "toPath": "/devops-report-2020/"
+  },
+  {
+    "fromPath": "/en/kostenlos-an-die-cloud-conference-2019/",
+    "toPath": "/en/blog/looking-back-appuio-at-the-cloud-conferences-bonn-hanau-hamburg-munich-2019/"
+  },
+  {
+    "fromPath": "/en/kubecon ",
+    "toPath": "/en/blog/kubecon-cloudnativecon-2019-barcelona-recap/"
+  },
+  {
+    "fromPath": "/en/privacy-policy/",
+    "toPath": "https://legal.docs.vshn.ch/legal/privacy_policy_en.html"
+  },
+  {
+    "fromPath": "/en/terms-and-conditions",
+    "toPath": "https://legal.docs.vshn.ch/legal/gtc_en.html"
+  },
+  {
+    "fromPath": "/kostenlos-an-die-cloud-conference-2019/",
+    "toPath": "/blog/rueckblick-appuio-an-den-cloud-conferences-bonn-hanau-hamburg-muenchen-2019/"
+  },
+  {
+    "fromPath": "/kubecon",
+    "toPath": "/en/blog/kubecon-cloudnativecon-2019-barcelona-recap/"
+  },
+  {
+    "fromPath": "/terms-and-conditions",
+    "toPath": "https://legal.docs.vshn.ch/legal/gtc_en.html"
+  },
+  { "fromPath": "/blog/author/* ", "toPath": "/blog/" },
+  { "fromPath": "/blog/events/*", "toPath": "/blog/event/:splat" },
+  { "fromPath": "/blog/page/*", "toPath": "/blog/:splat" },
+  { "fromPath": "/categories/:cat/", "toPath": "/blog/:cat" },
+  { "fromPath": "/categories/:cat/page/:page/", "toPath": "/blog/:cat/:page" },
+  { "fromPath": "/en/blog/author/*  ", "toPath": "/en/blog/" },
+  { "fromPath": "/en/blog/page/*", "toPath": "/en/blog/:splat" },
+  { "fromPath": "/en/blog/event/*", "toPath": "/en/blog/events/:splat" },
+  { "fromPath": "/en/categories/:cat/", "toPath": "/en/blog/:cat" },
+  {
+    "fromPath": "/en/categories/:cat/page/:page/",
+    "toPath": "/en/blog/:cat/:page"
+  },
+  { "fromPath": "/en/event/eurodog/", "toPath": "/en/events/" },
+  { "fromPath": "/en/events/category*", "toPath": "/en/events/" },
+  { "fromPath": "/en/tags/*", "toPath": "/en/blog/" },
+  { "fromPath": "/tags/*", "toPath": "/blog/" },
+  { "fromPath": "/en/categories/timer-en/", "toPath": "/en/blog/vshn-timer/" },
+  {
+    "fromPath": "/en/events/virtual-rancher-rodeo-by-vshn/",
+    "toPath": "/en/events/webinar-k3s-a-practical-introduction/"
+  },
+  {
+    "fromPath": "/events/virtual-rancher-rodeo-by-vshn/",
+    "toPath": "/events/webinar-k3s-a-practical-introduction/"
+  },
+  {
+    "fromPath": "/2015/11/willkommen-beim-vshn-blog   ",
+    "toPath": "/blog/willkommen-beim-vshn-blog/"
+  },
+  {
+    "fromPath": "/2015/12/ein-herzliches-willkommen-fur-david-gubler",
+    "toPath": "/blog/ein-herzliches-willkommen-fuer-david-gubler/"
+  },
+  {
+    "fromPath": "/2016/02/ein-herzliches-willkommen-fur-marco-fretz",
+    "toPath": "/blog/ein-herzliches-willkommen-fuer-marco-fretz/"
+  },
+  {
+    "fromPath": "/2016/03/vshn-puzzleitc-lancieren-appuio",
+    "toPath": "/blog/puzzle-itc-und-vshn-lancieren-appuio-die-schweizer-enterprise-paas/"
+  },
+  {
+    "fromPath": "/2016/07/alternative-zu-git-submodulen-gws-git-workspace",
+    "toPath": "/blog/alternative-zu-git-submodulen-gws-git-workspace/"
+  },
+  {
+    "fromPath": "/2016/07/httpoxy-security-vulnerability",
+    "toPath": "/blog/httpoxy-eine-unauffaellige-http-kopfzeile-fuehrt-zur-sicherheitsluecke/"
+  },
+  {
+    "fromPath": "/2016/07/httpoxy-security-vulnerability-en",
+    "toPath": "/en/blog/httpoxy-or-how-an-innocent-http-header-leads-to-security-vulnerabilities/"
+  },
+  { "fromPath": "/2016/08/openshift*", "toPath": "/blog/openshift/" },
+  {
+    "fromPath": "/2016/09/appuio-geht-live",
+    "toPath": "/blog/appuio-geht-live/"
+  },
+  { "fromPath": "/2016/11/appuio", "toPath": "/blog/appuio-geht-live/" },
+  { "fromPath": "/2016/11/docker", "toPath": "/blog/docker" },
+  {
+    "fromPath": "/2017/02/we-are-looking-for-you-python-devops-engineer",
+    "toPath": "/en/jobs/"
+  },
+  {
+    "fromPath": "/2017/04/we-are-looking-for-you-dockerkubernetes-devops-engineer",
+    "toPath": "/en/jobs/kubernetes"
+  },
+  {
+    "fromPath": "/2017/04/we-are-looking-for-you-golang-devops-engineer",
+    "toPath": "/en/jobs/"
+  },
+  {
+    "fromPath": "/2017/04/we-are-looking-for-you-site-reliability-engineer",
+    "toPath": "/en/jobs/reliability-engineering/"
+  },
+  {
+    "fromPath": "/2017/04/wir-suchen-ansible-devops-engineer",
+    "toPath": "/jobs/linux"
+  },
+  {
+    "fromPath": "/2017/04/wir-suchen-golang-devops-engineer",
+    "toPath": "/jobs/"
+  },
+  {
+    "fromPath": "/2017/04/wir-suchen-site-reliability-engineer",
+    "toPath": "/jobs/reliability-engineering/"
+  },
+  {
+    "fromPath": "/2017/07/distributed-monitoring-mit-icinga2-und-puppet",
+    "toPath": "/blog/httpsblog-vshn-ch201707distributed-monitoring-mit-icinga2-und-puppet/"
+  },
+  {
+    "fromPath": "/2017/08/dkim-ein-baustein-im-kampf-gegen-spam-mit-gefalschten-absenderadressen",
+    "toPath": "/blog/dkim-ein-baustein-im-kampf-gegen-spam-mit-gefaelschten-absenderadressen/"
+  },
+  {
+    "fromPath": "/2017/08/introduction-to-openshift-on-exoscale",
+    "toPath": "/en/blog/introduction-to-openshift-on-exoscale/"
+  },
+  {
+    "fromPath": "/2017/09/willkommen-im-team-simon-ruegg",
+    "toPath": "/blog/willkommen-im-team-simon-rueegg/"
+  },
+  { "fromPath": "/en/jobs/business-development/", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/customer-success-management/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/devops-engineer/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/devops-project-management/", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/gitlab-pipeline-development/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/gitlab/ ", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/inside-sales/", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/kubernetes-operator-development/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/kubernetes/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/linux-junior/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/linux/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/Mehr", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/openshift/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/pipeline/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/rancher/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/sales-hero/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/site-reliability-engineer/", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/site-reliability-engineering/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/sre", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/kubernetes-platform-engineering/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/pipeline-development/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/corporate-it-lead/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/reliability-engineering/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/devops-engineering/", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/why-vshn/",
+    "toPath": "/en/about/employee-benefits/"
+  },
+  {
+    "fromPath": "/en/jobs/kubernetes-platform-engineering/",
+    "toPath": "/en/jobs/"
+  },
+  {
+    "fromPath": "/en/jobs/gitlab-pipeline-development/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/agile-coach/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/golang-devops-engineering/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/senior-linux-engineering/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/sales-back-office/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/rancher-engineering/ ", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/openshift-engineering/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/linux-engineering/", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/sales-back-office/", "toPath": "/en/jobs/" },
+  {
+    "fromPath": "/en/jobs/site-reliability-engineering/",
+    "toPath": "/en/jobs/"
+  },
+  { "fromPath": "/en/jobs/python-devops-engineering/", "toPath": "/en/jobs/" },
+  { "fromPath": "/jobs/ansible/", "toPath": "/jobs/linux-engineering/" },
+  { "fromPath": "/jobs/business-development/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/customer-success-management/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/devops-engineer/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/devops-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/devops-project-management/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/golang/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/inside-sales/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/kubernetes-operator-development/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/kubernetes/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/linux-junior/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/linux/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/office-manager/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/openshift/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/pipeline/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/python/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/rancher/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/sales-hacker/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/sales-hero/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/site-reliability-engineer/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/sre", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/wieso-vshn/ ", "toPath": "/ueber/employee-benefits/" },
+  { "fromPath": "/jobs/sales-back-office/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/linux-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/kubernetes-platform-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/pipeline-development/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/corporate-it-lead/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/reliability-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/devops-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/kubernetes-platform-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/gitlab-pipeline-development/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/ansible-devops-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/agile-coach/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/java-devops-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/golang-devops-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/senior-linux-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/sales-back-office/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/rancher-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/openshift-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/linux-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/sales-back-office/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/site-reliability-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/jobs/python-devops-engineering/", "toPath": "/jobs/" },
+  { "fromPath": "/en/partner/", "toPath": "/en/partners/" },
+  { "fromPath": "/en/partner/sobrado/", "toPath": "/en/partners/sobrado/" },
+  { "fromPath": "/en/partners/amazee-labs/", "toPath": "/en/partners/amazee/" },
+  {
+    "fromPath": "/en/partners/bespinian/",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  { "fromPath": "/en/partners/cinerent/", "toPath": "/en/partners/clients/" },
+  {
+    "fromPath": "/en/partners/cloudscale-ch/ ",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  {
+    "fromPath": "/en/partners/exoscale/ ",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  {
+    "fromPath": "/en/partners/internezzo/",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  {
+    "fromPath": "/en/partners/interxion/",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  {
+    "fromPath": "/en/partners/puzzle-itc/",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  {
+    "fromPath": "/en/technology-partners/",
+    "toPath": "/en/partners/technology-partners/"
+  },
+  { "fromPath": "/partner/amazee-labs/", "toPath": "/partner/amazee/" },
+  {
+    "fromPath": "/partner/avectris/",
+    "toPath": "/partner/technologiepartner/"
+  },
+  {
+    "fromPath": "/partner/bespinian/",
+    "toPath": "/partner/technologiepartner/"
+  },
+  { "fromPath": "/partner/cinerent/", "toPath": "/partner/kunden/" },
+  {
+    "fromPath": "/partner/cloudscale-ch/",
+    "toPath": "/partner/technologiepartner/"
+  },
+  {
+    "fromPath": "/partner/exoscale/",
+    "toPath": "/partners/technologiepartner/"
+  },
+  {
+    "fromPath": "/partner/internezzo/",
+    "toPath": "/partner/technologiepartner/"
+  },
+  {
+    "fromPath": "/partner/interxion/",
+    "toPath": "/en/partners/technologiepartner/"
+  },
+  { "fromPath": "/partner/Komed Health/", "toPath": "/partner/komed-health/" },
+  {
+    "fromPath": "/partner/puzzle-itc/",
+    "toPath": "/partner/technologiepartner/"
+  }
 ]
-

@@ -235,43 +235,43 @@ const buildUrlsForLocales = (url) => {
 
 /* Main logic */
 
-// // Create Redirects
-// async function createRedirects({ graphql, actions }) {
-//   const { createRedirect } = actions;
-//   const result = await graphql(`
-//     {
-//       wp {
-//         seo {
-//           redirects {
-//             origin
-//             target
-//             type
-//           }
-//         }
-//       }
-//     }
-//   `);
+// Create Redirects
+// this function is not working at the moment, it is here in case the redirects will be generated using Yoast SEO Pro plugin on wordpress
+async function createRedirects({ graphql, actions }) {
+  const { createRedirect } = actions;
+  const result = await graphql(`
+    {
+      wp {
+        seo {
+          redirects {
+            origin
+            target
+            type
+          }
+        }
+      }
+    }
+  `);
 
-//   if (result.errors) {
-//     throw new Error(result.errors);
-//   }
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
 
-//   const { redirects } = result.data.wp.seo;
-//   // Add slash at the beginning of the string if not present to adjust it for Netlify's format
-//   // eg. blog/the-ultimate-guide-to-buying-intercom-systems-for-offices -> /blog/the-ultimate-guide-to-buying-intercom-systems-for-offices
+  const { redirects } = result.data.wp.seo;
+  // Add slash at the beginning of the string if not present to adjust it for Netlify's format
+  // eg. blog/the-ultimate-guide-to-buying-intercom-systems-for-offices -> /blog/the-ultimate-guide-to-buying-intercom-systems-for-offices
 
-//   const formatPath = (path) =>
-//     /^\/|^http|^https|^www/.test(path) ? path : `/${path}`;
-//   redirects.forEach(({ origin, target, type }) => {
-//     createRedirect({
-//       fromPath: formatPath(origin),
-//       toPath: formatPath(target),
-//       statusCode: parseInt(type, 10),
-//       force: true,
-//     });
-//   });
-// }
-
+  const formatPath = (path) =>
+    /^\/|^http|^https|^www/.test(path) ? path : `/${path}`;
+  redirects.forEach(({ origin, target, type }) => {
+    createRedirect({
+      fromPath: formatPath(origin),
+      toPath: formatPath(target),
+      statusCode: parseInt(type, 10),
+      force: true,
+    });
+  });
+}
 
 // Create Pages
 async function createPages({
@@ -957,13 +957,23 @@ exports.createPages = async (args) => {
     // filter non top level links if type of menu is main
     return menus;
   };
-  
-  redirects.forEach(redirect => 
+
+  redirects.forEach((redirect) =>
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
     })
   );
+
+  createRedirect({
+    fromPath: `https://vshn.netlify.app/*`,
+    toPath: `https://www.vshn.ch/:splat`, statusCode: 301 
+  });
+
+  createRedirect({
+    fromPath: `http://vshn.netlify.app/*`,
+    toPath: `https://www.vshn.ch/:splat`, statusCode: 301 
+  });
 
   // fetch global fields data exactly once and pass it anywhere
   const globalFields = await getGlobalFields(args.graphql);
