@@ -121,7 +121,16 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-gatsby-cloud",
+      options: {
+        headers: {
+          "/.well-known/matrix/client": [
+            "Access-Control-Allow-Origin: *"
+          ],
+        },
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

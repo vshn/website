@@ -3,6 +3,7 @@ const path = require("path");
 
 const slash = require("slash");
 
+const redirects = require("./redirects.json");
 const filterNonRootItems = require("./src/utils/filter-non-root-items");
 
 /* Constants */
@@ -235,6 +236,7 @@ const buildUrlsForLocales = (url) => {
 /* Main logic */
 
 // Create Redirects
+// this function is not working at the moment, it is here in case the redirects will be generated using Yoast SEO Pro plugin on wordpress
 async function createRedirects({ graphql, actions }) {
   const { createRedirect } = actions;
   const result = await graphql(`
@@ -932,6 +934,7 @@ const createNotFound = ({ actions, getMenus, globalFields }) => {
 exports.createPages = async (args) => {
   // since all the pages have the exact same menu,
   // query it early and pass to page generators
+  const { createRedirect } = args.actions;
   const allMenus = await getAllMenusByLocale(args.graphql);
 
   // a little local helper to avoid copypasting chains
@@ -955,6 +958,14 @@ exports.createPages = async (args) => {
     return menus;
   };
 
+  redirects.forEach((redirect) =>
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+      statusCode: redirect.statusCode,
+    })
+  );
+
   // fetch global fields data exactly once and pass it anywhere
   const globalFields = await getGlobalFields(args.graphql);
 
@@ -964,7 +975,6 @@ exports.createPages = async (args) => {
     globalFields,
   };
 
-  await createRedirects(params);
   await createPages(params);
   await createBlogPages(params);
   await createPosts(params);
