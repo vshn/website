@@ -18,7 +18,7 @@ const Content = ({ title, description, buttonText }) => {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container', 'inner')}>
-        <img className={cx('image')} src={errorSvg} alt="" aria-hidden />
+        <img className={cx('image')} src={errorSvg} alt="" width={804} height={320} aria-hidden />
         <Heading className={cx('title')} size="xl">
           {title}
         </Heading>
