@@ -30,7 +30,7 @@
     "gatsby-plugin-feed": "^4.10.0",
     "gatsby-plugin-gatsby-cloud": "^4.10.0",
     "gatsby-plugin-image": "^2.10.0",
-    "gatsby-source-wordpress": "^6.10.0",
+    "gatsby-source-wordpress": "^6.8.0",
     "html-react-parser": "^1.4.2",
     "lottie-web": "5.8.1",
     "normalize.css": "^8.0.1",
