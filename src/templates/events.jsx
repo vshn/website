@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from "react";
 
-import EventsList from 'components/pages/events/events-list';
-import backgroundImage from 'components/pages/events/hero/images/background-image.svg';
-import UpcomingEvents from 'components/pages/events/upcoming-events';
-import Contact from 'components/shared/contact';
-import Hero from 'components/shared/hero';
-import t from 'i18n';
-import MainLayout from 'layouts/main';
+import EventsList from "components/pages/events/events-list";
+import backgroundImage from "components/pages/events/hero/images/background-image.svg";
+import UpcomingEvents from "components/pages/events/upcoming-events";
+import Contact from "components/shared/contact";
+import Hero from "components/shared/hero";
+import t from "i18n";
+import MainLayout from "layouts/main";
 
 const getUpcomingEvents = (eventsGroupedByYears, year, currentYear) => {
   let events = eventsGroupedByYears[year];
   if (parseInt(year, 10) === currentYear) {
-    events = events
-      .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date());
+    events = events.filter(
+      (cEvent) => new Date(cEvent.acf.schedule.startDate) >= new Date()
+    );
   }
   const upcomingEvents = [...events].reverse();
   return upcomingEvents;
@@ -38,8 +39,13 @@ const Events = ({
 
   const shouldShowUpcoming = pageYear >= currentYear;
 
-  const upcomingYears = useMemo(() => Object.keys(eventsGroupedByYears)
-    .filter((key) => parseInt(key, 10) >= currentYear), [eventsGroupedByYears, currentYear]);
+  const upcomingYears = useMemo(
+    () =>
+      Object.keys(eventsGroupedByYears).filter(
+        (key) => parseInt(key, 10) >= currentYear
+      ),
+    [eventsGroupedByYears, currentYear]
+  );
 
   useEffect(() => {
     // Get featured events
@@ -53,15 +59,18 @@ const Events = ({
     const upcomingEventsByYear = {};
     upcomingYears.forEach((year) => {
       let events = getUpcomingEvents(eventsGroupedByYears, year, currentYear);
-      events = events.filter((cEvent, i) => cEvent !== featuredUpcomingEvents[i]);
+      events = events.filter(
+        (cEvent, i) => cEvent !== featuredUpcomingEvents[i]
+      );
       upcomingEventsByYear[year] = events;
     });
     setUpcomingEventsByYear(upcomingEventsByYear);
 
     // Get the past events
     setPastEvents(
-      eventsGroupedByYears[pageYear]
-        .filter((cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()),
+      eventsGroupedByYears[pageYear].filter(
+        (cEvent) => new Date(cEvent.acf.schedule.startDate) < new Date()
+      )
     );
   }, [eventsGroupedByYears, pageYear, upcomingYears, currentYear]);
 

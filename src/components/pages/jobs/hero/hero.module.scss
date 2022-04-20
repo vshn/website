@@ -17,7 +17,8 @@
   display: flex;
   padding-top: 140px;
   padding-bottom: 300px;
-  background: url("./images/background-image.svg") no-repeat center $color-additional-1;
+  background: url("./images/background-image.svg") no-repeat center
+    $color-additional-1;
   background-size: cover;
 
   @include section-paddings;
@@ -54,7 +55,9 @@
   margin-top: -260px;
   padding-left: 15px;
   padding-right: 15px;
-  
+  justify-content: center;
+  display: flex;
+
   @include lg-down {
     margin-top: -15%;
   }

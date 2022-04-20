@@ -1,54 +1,59 @@
 /* eslint-disable react/prop-types */
-import classNames from 'classnames/bind';
-import GatsbyImage from 'gatsby-image';
-import PropTypes from 'prop-types';
-import React from 'react';
+import classNames from "classnames/bind";
+import { GatsbyImage } from "gatsby-plugin-image";
+import PropTypes from "prop-types";
+import React from "react";
 
-import Link from 'components/shared/link';
+import Link from "components/shared/link";
 
-import styles from './partner-info.module.scss';
+import styles from "./partner-info.module.scss";
 
 const cx = classNames.bind(styles);
 
 const Logo = ({ logoImage }) => {
-  if (logoImage?.localFile?.childImageSharp) {
+  if (logoImage?.gatsbyImage) {
     return (
       <GatsbyImage
-        className={cx('logo')}
-        fluid={logoImage.localFile.childImageSharp.fluid}
+        className={cx("logo")}
+        image={logoImage.gatsbyImage}
         alt=""
       />
     );
-  } if (logoImage?.localFile?.publicURL) {
-    return <img className={cx('logo')} src={logoImage.localFile.publicURL} alt="" />;
+  }
+  if (logoImage?.mediaItemUrl) {
+    return <img className={cx("logo")} src={logoImage.mediaItemUrl} alt="" />;
   }
   return null;
 };
 
 const PartnerInfo = (props) => {
-  const {
-    logoBackgroundColor,
-    logoImage,
-    items,
-    partnerLink,
-  } = props;
+  const { logoBackgroundColor, logoImage, items, partnerLink } = props;
   return (
-    <div className={cx('wrapper')}>
-      <div className={cx('logo-wrapper')} style={{ backgroundColor: `${logoBackgroundColor || '#f6f7f9'}` }}>
+    <div className={cx("wrapper")}>
+      <div
+        className={cx("logo-wrapper")}
+        style={{ backgroundColor: `${logoBackgroundColor || "#f6f7f9"}` }}
+      >
         <Logo logoImage={logoImage} />
       </div>
-      <ul className={cx('items-wrapper')}>
+      <ul className={cx("items-wrapper")}>
         {items?.map(({ value, text }, index) => (
-          <li className={cx('item')} key={index}>
+          <li className={cx("item")} key={index}>
             <strong>{value}</strong>
             <span>{text}</span>
           </li>
         ))}
       </ul>
       {partnerLink?.url && partnerLink?.title && (
-      <div className={cx('link-wrapper')}>
-        <Link className={cx('link')} to={partnerLink.url} target={partnerLink.target}>{partnerLink.title}</Link>
-      </div>
+        <div className={cx("link-wrapper")}>
+          <Link
+            className={cx("link")}
+            to={partnerLink.url}
+            target={partnerLink.target}
+          >
+            {partnerLink.title}
+          </Link>
+        </div>
       )}
     </div>
   );
@@ -56,24 +61,12 @@ const PartnerInfo = (props) => {
 
 PartnerInfo.propTypes = {
   logoBackgroundColor: PropTypes.string,
-  logoImage: PropTypes.shape({
-    localFile: PropTypes.shape({
-      publicURL: PropTypes.string,
-      childImageSharp: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number.isRequired,
-          src: PropTypes.string.isRequired,
-          srcSet: PropTypes.string.isRequired,
-          sizes: PropTypes.string.isRequired,
-        }),
-      }),
-    }),
-  }),
+  logoImage: PropTypes.objectOf(PropTypes.any),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
       text: PropTypes.string,
-    }),
+    })
   ),
   partnerLink: PropTypes.shape({
     url: PropTypes.string,

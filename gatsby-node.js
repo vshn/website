@@ -314,9 +314,8 @@ async function createPages({
           acf {
             link
             logo {
-              localFile {
-                publicURL
-              }
+              mediaItemUrl
+              gatsbyImage(width: 800)
             }
             description
             schedule {
@@ -835,9 +834,8 @@ const createEventPages = async ({
           acf {
             link
             logo {
-              localFile {
-                publicURL
-              }
+              mediaItemUrl
+              gatsbyImage(width: 800)
             }
             description
             schedule {

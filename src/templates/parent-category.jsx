@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql } from "gatsby";
+import React from "react";
 
-import Hero from 'components/pages/parent-category/hero';
-import SubPages from 'components/pages/parent-category/sub-pages';
-import Contact from 'components/shared/contact';
-import RelatedItems from 'components/shared/related-items';
-import MainLayout from 'layouts/main';
+import Hero from "components/pages/parent-category/hero";
+import SubPages from "components/pages/parent-category/sub-pages";
+import Contact from "components/shared/contact";
+import RelatedItems from "components/shared/related-items";
+import MainLayout from "layouts/main";
 
 const ParentCategory = ({
   data: {
@@ -29,7 +29,7 @@ const ParentCategory = ({
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     wpPage(id: { eq: $id }) {
       title
       acf {
@@ -37,9 +37,7 @@ export const query = graphql`
           description
           subtitle
           image {
-            localFile {
-              publicURL
-            }
+            mediaItemUrl
           }
         }
         subPages {
@@ -49,9 +47,7 @@ export const query = graphql`
               url
             }
             icon {
-              localFile {
-                publicURL
-              }
+              mediaItemUrl
             }
           }
           itemFooterText

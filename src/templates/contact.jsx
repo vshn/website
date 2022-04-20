@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql } from "gatsby";
+import React from "react";
 
-import Content from 'components/pages/contact/content';
-import Hero from 'components/pages/contact/hero';
-import MainLayout from 'layouts/main';
+import Content from "components/pages/contact/content";
+import Hero from "components/pages/contact/hero";
+import MainLayout from "layouts/main";
 
 const Contact = ({
   data: { wpPage: data },
@@ -26,7 +26,7 @@ const Contact = ({
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     wpPage(id: { eq: $id }) {
       title
       acf {
@@ -34,9 +34,7 @@ export const query = graphql`
         contactInfo {
           items {
             icon {
-              localFile {
-                publicURL
-              }
+              mediaItemUrl
             }
             title
             description

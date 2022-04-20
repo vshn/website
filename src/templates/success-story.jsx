@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql } from "gatsby";
+import React from "react";
 
-import Content from 'components/pages/success-story/content';
-import Hero from 'components/pages/success-story/hero';
-import Contact from 'components/shared/contact';
-import MainLayout from 'layouts/main';
+import Content from "components/pages/success-story/content";
+import Hero from "components/pages/success-story/hero";
+import Contact from "components/shared/contact";
+import MainLayout from "layouts/main";
 
 const SuccessStory = ({
-  data: {
-    wpSuccessStory: data,
-  },
+  data: { wpSuccessStory: data },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => (
   <MainLayout
@@ -20,10 +18,7 @@ const SuccessStory = ({
     menus={menus}
     globalFields={globalFields}
   >
-    <Hero
-      title={data.title}
-      locale={locale}
-    />
+    <Hero title={data.title} locale={locale} />
     <Content
       content={data.content}
       partnerInfo={data.acf.partnerInfo}
@@ -34,7 +29,7 @@ const SuccessStory = ({
 );
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     wpSuccessStory(id: { eq: $id }) {
       ...wpSuccessStorySeo
       title
@@ -43,14 +38,8 @@ export const query = graphql`
         partnerInfo {
           logoBackgroundColor
           logoImage: logoInCard {
-            localFile {
-              childImageSharp {
-                fluid(maxHeight: 135) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
-              }
-              publicURL
-            }
+            gatsbyImage(width: 700, placeholder: NONE)
+            mediaItemUrl
           }
           items {
             text

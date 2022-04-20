@@ -1,21 +1,17 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql } from "gatsby";
+import React from "react";
 
-import BlogPostsList from 'components/pages/blog/blog-posts-list';
-import Categories from 'components/pages/blog/categories';
-import FeaturedPost from 'components/pages/blog/featured-post';
-import Pagination from 'components/pages/blog/pagination';
-import Contact from 'components/shared/contact';
-import MainLayout from 'layouts/main';
+import BlogPostsList from "components/pages/blog/blog-posts-list";
+import Categories from "components/pages/blog/categories";
+import FeaturedPost from "components/pages/blog/featured-post";
+import Pagination from "components/pages/blog/pagination";
+import Contact from "components/shared/contact";
+import MainLayout from "layouts/main";
 
 const Blog = ({
   data: {
-    wpPage: {
-      seo,
-      uri: pageRootUri,
-      acf: data,
-    },
+    wpPage: { seo, uri: pageRootUri, acf: data },
     posts,
   },
   pageContext: {
@@ -57,19 +53,20 @@ const Blog = ({
 );
 
 export const query = graphql`
-  query($id: String!, $featuredPostId: String!, $categoryId: String, $skip: Int!, $limit: Int!, $locale: String!) {
+  query (
+    $id: String!
+    $featuredPostId: String!
+    $categoryId: String
+    $skip: Int!
+    $limit: Int!
+    $locale: String!
+  ) {
     wpPage(id: { eq: $id }) {
       uri
       acf {
         banner {
           bannerCover {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
-              }
-            }
+            gatsbyImage(width: 300, placeholder: NONE)
           }
           bannerTitle
           bannerLink
@@ -87,7 +84,7 @@ export const query = graphql`
       }
       ...wpPageSeo
     }
-    
+
     posts: allWpPost(
       filter: {
         id: { ne: $featuredPostId }

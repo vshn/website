@@ -1,18 +1,16 @@
 /* eslint-disable react/prop-types */
-import { graphql } from 'gatsby';
-import React from 'react';
+import { graphql } from "gatsby";
+import React from "react";
 
-import backgroundImage from 'components/pages/technology-partners/hero/images/background-image.svg';
-import TechnologyPartnersList from 'components/pages/technology-partners/technology-partners-list';
-import Contact from 'components/shared/contact';
-import Hero from 'components/shared/hero';
-import t from 'i18n';
-import MainLayout from 'layouts/main';
+import backgroundImage from "components/pages/technology-partners/hero/images/background-image.svg";
+import TechnologyPartnersList from "components/pages/technology-partners/technology-partners-list";
+import Contact from "components/shared/contact";
+import Hero from "components/shared/hero";
+import t from "i18n";
+import MainLayout from "layouts/main";
 
 const TechnologyPartners = ({
-  data: {
-    wpPage: data,
-  },
+  data: { wpPage: data },
   pageContext: { locale, pageUrls, menus, globalFields },
 }) => {
   const breadcrumbs = [t[locale].breadcrumbs.partners];
@@ -30,23 +28,23 @@ const TechnologyPartners = ({
         pageTitle={data.title}
         backgroundImage={backgroundImage}
       />
-      <TechnologyPartnersList technologyPartnersList={data.acf.technologyPartnersList} />
+      <TechnologyPartnersList
+        technologyPartnersList={data.acf.technologyPartnersList}
+      />
       <Contact locale={locale} />
     </MainLayout>
   );
 };
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     wpPage(id: { eq: $id }) {
       title
       acf {
         technologyPartnersList {
           url
           logo {
-            localFile {
-              publicURL
-            }
+            mediaItemUrl
           }
           name
         }
