@@ -315,7 +315,7 @@ async function createPages({
             link
             logo {
               mediaItemUrl
-              gatsbyImage(width: 800, height: 200, fit: CONTAIN)
+              gatsbyImage(width: 600)
             }
             description
             schedule {
@@ -835,7 +835,7 @@ const createEventPages = async ({
             link
             logo {
               mediaItemUrl
-              gatsbyImage(width: 800, height: 200, fit: CONTAIN)
+              gatsbyImage(width: 600)
             }
             description
             schedule {

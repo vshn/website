@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useEffect, useMemo, useState } from "react";
 
 import EventsList from "components/pages/events/events-list";
