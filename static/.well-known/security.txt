@@ -1,0 +1,5 @@
+Contact: https://kb.vshn.ch/kb/security_vulnerability_process.html#_security_communication_with_vshn
+Expires: 2023-12-31T22:59:00.000Z
+Encryption: https://kb.vshn.ch/kb/security_vulnerability_process.html#_security_communication_with_vshn
+Preferred-Languages: en, de
+Hiring: https://www.vshn.ch/en/jobs/
