@@ -220,7 +220,7 @@
   },
   { "fromPath": "/en/webinars/", "toPath": "/en/events/" },
   {
-    "fromPath": "/en/what-others-say/  ",
+    "fromPath": "/en/what-others-say/",
     "toPath": "/en/about/awards-certifications/"
   },
   { "fromPath": "/imprint", "toPath": "/en/imprint/" },
@@ -347,7 +347,7 @@
     "toPath": "/en/blog/looking-back-appuio-at-the-cloud-conferences-bonn-hanau-hamburg-munich-2019/"
   },
   {
-    "fromPath": "/en/kubecon ",
+    "fromPath": "/en/kubecon",
     "toPath": "/en/blog/kubecon-cloudnativecon-2019-barcelona-recap/"
   },
   {
@@ -370,12 +370,12 @@
     "fromPath": "/terms-and-conditions",
     "toPath": "https://legal.docs.vshn.ch/legal/gtc_en.html"
   },
-  { "fromPath": "/blog/author/* ", "toPath": "/blog/" },
+  { "fromPath": "/blog/author/*", "toPath": "/blog/" },
   { "fromPath": "/blog/events/*", "toPath": "/blog/event/:splat" },
   { "fromPath": "/blog/page/*", "toPath": "/blog/:splat" },
   { "fromPath": "/categories/:cat/", "toPath": "/blog/:cat" },
   { "fromPath": "/categories/:cat/page/:page/", "toPath": "/blog/:cat/:page" },
-  { "fromPath": "/en/blog/author/*  ", "toPath": "/en/blog/" },
+  { "fromPath": "/en/blog/author/*", "toPath": "/en/blog/" },
   { "fromPath": "/en/blog/page/*", "toPath": "/en/blog/:splat" },
   { "fromPath": "/en/blog/event/*", "toPath": "/en/blog/events/:splat" },
   { "fromPath": "/en/categories/:cat/", "toPath": "/en/blog/:cat" },
@@ -397,7 +397,7 @@
     "toPath": "/events/webinar-k3s-a-practical-introduction/"
   },
   {
-    "fromPath": "/2015/11/willkommen-beim-vshn-blog   ",
+    "fromPath": "/2015/11/willkommen-beim-vshn-blog",
     "toPath": "/blog/willkommen-beim-vshn-blog/"
   },
   {
@@ -486,7 +486,7 @@
     "fromPath": "/en/jobs/gitlab-pipeline-development/",
     "toPath": "/en/jobs/"
   },
-  { "fromPath": "/en/jobs/gitlab/ ", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/gitlab/", "toPath": "/en/jobs/" },
   { "fromPath": "/en/jobs/inside-sales/", "toPath": "/en/jobs/" },
   {
     "fromPath": "/en/jobs/kubernetes-operator-development/",
@@ -530,7 +530,7 @@
   { "fromPath": "/en/jobs/golang-devops-engineering/", "toPath": "/en/jobs/" },
   { "fromPath": "/en/jobs/senior-linux-engineering/", "toPath": "/en/jobs/" },
   { "fromPath": "/en/jobs/sales-back-office/", "toPath": "/en/jobs/" },
-  { "fromPath": "/en/jobs/rancher-engineering/ ", "toPath": "/en/jobs/" },
+  { "fromPath": "/en/jobs/rancher-engineering/", "toPath": "/en/jobs/" },
   { "fromPath": "/en/jobs/openshift-engineering/", "toPath": "/en/jobs/" },
   { "fromPath": "/en/jobs/linux-engineering/", "toPath": "/en/jobs/" },
   { "fromPath": "/en/jobs/sales-back-office/", "toPath": "/en/jobs/" },
@@ -560,7 +560,7 @@
   { "fromPath": "/jobs/sales-hero/", "toPath": "/jobs/" },
   { "fromPath": "/jobs/site-reliability-engineer/", "toPath": "/jobs/" },
   { "fromPath": "/jobs/sre", "toPath": "/jobs/" },
-  { "fromPath": "/jobs/wieso-vshn/ ", "toPath": "/ueber/employee-benefits/" },
+  { "fromPath": "/jobs/wieso-vshn/", "toPath": "/ueber/employee-benefits/" },
   { "fromPath": "/jobs/sales-back-office/", "toPath": "/jobs/" },
   { "fromPath": "/jobs/linux-engineering/", "toPath": "/jobs/" },
   { "fromPath": "/jobs/kubernetes-platform-engineering/", "toPath": "/jobs/" },
@@ -591,11 +591,11 @@
   },
   { "fromPath": "/en/partners/cinerent/", "toPath": "/en/partners/clients/" },
   {
-    "fromPath": "/en/partners/cloudscale-ch/ ",
+    "fromPath": "/en/partners/cloudscale-ch/",
     "toPath": "/en/partners/technology-partners/"
   },
   {
-    "fromPath": "/en/partners/exoscale/ ",
+    "fromPath": "/en/partners/exoscale/",
     "toPath": "/en/partners/technology-partners/"
   },
   {
@@ -644,6 +644,14 @@
   {
     "fromPath": "/partner/puzzle-itc/",
     "toPath": "/partner/technologiepartner/"
+  },
+  {
+    "fromPath": "/success-stories/creditgate24/",
+    "toPath": "/success-stories/cg24group/"
+  },
+  {
+    "fromPath": "/en/success-stories/creditgate24/",
+    "toPath": "/en/success-stories/cg24group/"
   },
   {
     "fromPath": "https://vshn.netlify.app/*",
