@@ -13,6 +13,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet"/>
+        <link href="https://vshn.social/@vshn" rel="me"/>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
