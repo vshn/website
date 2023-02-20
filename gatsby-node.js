@@ -32,6 +32,7 @@ const getGlobalFields = async (graphql) => {
       wp {
         globalFields {
           socialLinksAcf {
+            mastodonLink
             twitterLink
             linkedinLink
             githubLink
