@@ -9,6 +9,7 @@ import GitLab from 'icons/gitlab.inline.svg';
 import Instagram from 'icons/instagram.inline.svg';
 import LinkedIn from 'icons/linkedin.inline.svg';
 import Twitter from 'icons/twitter.inline.svg';
+import Mastodon from 'icons/mastodon.inline.svg';
 import YouTube from 'icons/youtube.inline.svg';
 import logo from 'images/logo.svg';
 
@@ -17,6 +18,7 @@ import styles from './footer.module.scss';
 const cx = classNames.bind(styles);
 
 const SOCIAL_ICONS = {
+  mastodon: Mastodon,
   twitter: Twitter,
   linkedin: LinkedIn,
   github: GitHub,

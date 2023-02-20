@@ -191,6 +191,20 @@
     }
   }
 
+  &_mastodon {
+    svg {
+      width: 20px;
+
+      @include lg-down {
+        width: 18px;
+      }
+
+      @include md-down {
+        width: 16px;
+      }
+    }
+  }
+
   &_youtube {
     svg {
       width: 20px;
