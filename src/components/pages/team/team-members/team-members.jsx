@@ -12,6 +12,7 @@ import Key from 'icons/lock.inline.svg';
 import Personal from 'icons/personal.inline.svg';
 import Twitter from 'icons/twitter.inline.svg';
 import Xing from 'icons/xing.inline.svg';
+import Mastodon from 'icons/mastodon.inline.svg';
 
 import Item from './item';
 import styles from './team-members.module.scss';
@@ -27,6 +28,7 @@ const SOCIAL_ICONS = {
   xing: Xing,
   github: Github,
   personal: Personal,
+  mastodon: Mastodon,
 };
 const TeamMembers = ({ filters, items, locale }) => {
   const [activeFilters, setActiveFilters] = useState(

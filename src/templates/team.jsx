@@ -90,6 +90,7 @@ export const query = graphql`
             xingLink
             githubLink
             personalLink
+            mastodonLink
           }
         }
         teams {
