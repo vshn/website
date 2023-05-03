@@ -13,4 +13,3 @@ jobs:
         with:
           url: ${{ secrets.WEBHOOK_URL }}
           headers: '{"x-gatsby-cache": "false"}'
-          body: ''
