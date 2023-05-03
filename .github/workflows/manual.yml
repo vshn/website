@@ -9,4 +9,4 @@ jobs:
 
     steps:
       - name: Webhook Action
-        run: curl -X POST ${{ secrets.WEBHOOK_URL }} --header "x-gatsby-cache: false"
+        run: 'curl -X POST ${{ secrets.WEBHOOK_URL }} --header "x-gatsby-cache: false"'
