@@ -1,12 +1,9 @@
 name: Clear gatsby cloud build cache
-
 on:
   workflow_dispatch:
-
 jobs:
   clear:
     runs-on: ubuntu-latest
-
     steps:
       - name: Webhook Action
         run: 'curl -X POST ${{ secrets.WEBHOOK_URL }} --header "x-gatsby-cache: false"'
