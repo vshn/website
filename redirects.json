@@ -654,6 +654,10 @@
     "toPath": "/en/success-stories/cg24group/"
   },
   {
+    "fromPath": "/en/solutions/industry-solutions-2/",
+    "toPath": "/en/solutions/industry-solutions/"
+  },
+  {
     "fromPath": "https://vshn.netlify.app/*",
     "toPath": "https://www.vshn.ch/:splat",
     "statusCode": 301
