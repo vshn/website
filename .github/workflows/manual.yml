@@ -1,6 +1,9 @@
 name: Clear gatsby cloud build cache
 on:
   workflow_dispatch:
+  schedule:
+  # hourly on weekdays
+  - cron: '0 7-23 * * 1-5'
 jobs:
   clear:
     runs-on: ubuntu-latest
