@@ -10,5 +10,3 @@ jobs:
     steps:
       - name: Webhook Action
         run: 'curl -X POST ${{ secrets.WEBHOOK_URL }} --header "x-gatsby-cache: false"'
-      - name: make a dummy commit every 50 days to prevent the cronjob to be disabled after 60 days of inactivity
-        uses: gautamkrishnar/keepalive-workflow@v1
