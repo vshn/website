@@ -2,7 +2,7 @@ name: generate dummy activity so cron jobs stay active
 on:
   workflow_dispatch:
   schedule:
-  - cron: '45 1 * * *'
+  - cron: '45 0 * * *'
 jobs:
   clear:
     runs-on: ubuntu-latest
