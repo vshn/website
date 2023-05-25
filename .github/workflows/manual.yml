@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
   # hourly on weekdays
-  - cron: '55 4-20 * * 1-5'
+  - cron: '55 3-20 * * 1-5'
 jobs:
   clear:
     runs-on: ubuntu-latest
