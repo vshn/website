@@ -21,7 +21,7 @@ const Content = ({ content, ratingCards, ratingCards2 }) => {
         const { RTWidget } = window;
         window.widget = new RTWidget({
           companies: [74931],
-          detailsMode: 'popup',
+          detailsMode: 'recruitee',
           language: 'en',
           departmentsFilter: [],
           themeVars: {
