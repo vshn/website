@@ -1,48 +1,80 @@
 # VSHN Website
 
-## Table of Contents
+This project contains the sources of the [VSHN website](https://vshn.ch/).
 
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-  - [Run the website](#run-the-website)
-  - [Run Storybook](#run-storybook)
-  - [Build the project](#build-the-project)
-  - [Build the website](#build-the-website)
-  - [Build Storybook](#build-storybook)
-  - [Run the built website](#run-the-built-website)
-  - [Run built Storybook](#run-built-storybook)
-  - [Clean Gatsby cache](#clean-gatsby-cache)
-- [Project Structure](#project-structure)
-- [Component Folder Structure](#component-folder-structure)
-  - [Each component includes](#each-component-includes)
-  - [Each component optionally may include](#each-component-optionally-may-include)
-  - [Example structure](#example-structure)
-- [Commits](#commits)
-- [VS Code](#vs-code)
-- [Storybook](#storybook)
-- [Style Variables](#style-variables)
+## Build Website
 
-## Getting Started
+This section contains information useful to build and run the website.
 
-1. **Clone this repository**
+### Manually
 
-    ```bash
-    git clone git@github.com:pixel-point/vshn-gatsby.git
-    ```
+1. Install [Node.js](https://nodejs.org/en) **version 16**
+    - This website will **not** build with versions other than 16.
+    - It is recommended to use the [Node Version Manager](https://github.com/nvm-sh/nvm) for this:
 
-1. **Install dependencies**
+```bash
+$ nvm install 16
+$ nvm use 16
+$ node --version
+v16.20.2
+```
 
-    ```bash
-    npm install
-    ```
+2. Clone the repository:
 
-1. **Copy .env.example and rename it into .env**
+```bash
+$ git clone https://github.com/vshn/website.git
+$ cd website
+```
 
-    ```bash
-    cp .env.example .env
-    ```
+3. Install dependencies:
 
-## Usage
+```bash
+$ npm install
+```
+
+4. Build website; set the proper values to the environment variables and run the `build:website` task:
+
+```bash
+$ export WP_GRAPHQL_URL=...
+$ export GATSBY_DEFAULT_SITE_URL=...
+$ export GATSBY_CONCURRENT_DOWNLOAD=15
+$ export WP_HTACCESS_USERNAME=...
+$ export WP_HTACCESS_PASSWORD=...
+$ npm run build:website
+```
+
+The build process can take around 20 minutes. At the end of the process, the `public` dir under this project will contain the HTML website ready to use.
+
+To view the website, it's not enough to open the `public/index.html` file on a browser; instead, you need a local webserver, for example using the PHP CLI for that:
+
+```bash
+$ cd public
+$ php -S localhost:8080
+```
+
+Browse to `http://localhost:8080` to see the website running.
+
+### Container
+
+Set the proper environment variables and use the following command to build the container locally, as defined in the `Dockerfile`:
+
+```bash
+$ podman build --env WP_GRAPHQL_URL=... \
+  --env GATSBY_DEFAULT_SITE_URL=... \
+  --env GATSBY_CONCURRENT_DOWNLOAD=15 \
+  --env WP_HTACCESS_USERNAME=... \
+  --env WP_HTACCESS_PASSWORD=... --tag website .
+```
+
+You can run the resulting container using the following command:
+
+```bash
+$ podman run --rm --publish 8080:8080 website
+```
+
+Browse to `http://localhost:8080` to see the website running. The final container is compatible with Red Hat OpenShift, using the [ghcr.io/vshn/nginx](https://github.com/vshn/nginx) as base image.
+
+## Development
 
 ### Run the website
 
