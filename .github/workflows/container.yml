@@ -27,16 +27,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+      # - name: Set up QEMU
+      #   uses: docker/setup-qemu-action@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v2
 
       - name: Log in to the Container registry
-        uses: docker/login-action@0a5a6d545fb45047924af7df26cac945aa69ad68
+        uses: docker/login-action@cf8514a65188af1d4f94f8c28a7a4153af1088ce
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -44,12 +44,12 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@35e9aff4f5d665b5aa8a8f2adffaf8a1b5f49cc0
+        uses: docker/metadata-action@0f8c876bafbf5dbce05c36682ec68e9a0274a48a
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@f05b754b571695bf93164b9b54cb8e2e96e22706
+        uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
         env:
           WP_GRAPHQL_URL: ${{ secrets.WP_GRAPHQL_URL }}
           GATSBY_DEFAULT_SITE_URL: ${{ secrets.GATSBY_DEFAULT_SITE_URL }}
@@ -59,6 +59,7 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/amd64,linux/arm64
+          # platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
