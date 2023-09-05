@@ -37,13 +37,13 @@ $ npm install
 ```bash
 $ export WP_GRAPHQL_URL=...
 $ export GATSBY_DEFAULT_SITE_URL=...
-$ export GATSBY_CONCURRENT_DOWNLOAD=15
+$ export GATSBY_CONCURRENT_DOWNLOAD=5
 $ export WP_HTACCESS_USERNAME=...
 $ export WP_HTACCESS_PASSWORD=...
 $ npm run build:website
 ```
 
-The build process can take around 20 minutes. At the end of the process, the `public` dir under this project will contain the HTML website ready to use.
+The build process can take up to 30 minutes. At the end of the process, the `public` dir under this project will contain the HTML website ready to use.
 
 To view the website, it's not enough to open the `public/index.html` file on a browser; instead, you need a local webserver, for example using the PHP CLI for that:
 
@@ -61,7 +61,7 @@ Set the proper environment variables and use the following command to build the 
 ```bash
 $ podman build --env WP_GRAPHQL_URL=... \
   --env GATSBY_DEFAULT_SITE_URL=... \
-  --env GATSBY_CONCURRENT_DOWNLOAD=15 \
+  --env GATSBY_CONCURRENT_DOWNLOAD=5 \
   --env WP_HTACCESS_USERNAME=... \
   --env WP_HTACCESS_PASSWORD=... --tag website .
 ```
