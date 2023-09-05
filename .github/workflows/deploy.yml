@@ -2,14 +2,10 @@ name: Deploy
 
 on:
   workflow_run:
-    workflows: [ Container ]
-      types:
-        - completed
+    workflows: ["Container"]
+    types:
+      - completed
   workflow_dispatch:
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   deploy:
