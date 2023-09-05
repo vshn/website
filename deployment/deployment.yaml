@@ -1,0 +1,18 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: vshn-website
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vshn-website
+    spec:
+      containers:
+      - image: ghcr.io/vshn/website:master
+        imagePullPolicy: Always
+        name: vshn-website
+        ports:
+        - containerPort: 8080
+          protocol: TCP
