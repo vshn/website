@@ -56,7 +56,6 @@ jobs:
           GATSBY_CONCURRENT_DOWNLOAD: ${{ secrets.GATSBY_CONCURRENT_DOWNLOAD }}
           WP_HTACCESS_USERNAME: ${{ secrets.WP_HTACCESS_USERNAME }}
           WP_HTACCESS_PASSWORD: ${{ secrets.WP_HTACCESS_PASSWORD }}
-        with:
           context: .
           push: true
           # platforms: linux/amd64,linux/arm64
