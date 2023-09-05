@@ -1,4 +1,4 @@
-name: generate dummy activity so cron jobs stay active
+name: Generate dummy activity so cron jobs stay active
 on:
   workflow_dispatch:
   schedule:
