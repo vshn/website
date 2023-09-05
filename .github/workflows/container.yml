@@ -50,12 +50,12 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@9311bf5263ae5b36f3ec67aff768790c6e2344ad
-        env:
-          WP_GRAPHQL_URL: ${{ secrets.WP_GRAPHQL_URL }}
-          GATSBY_DEFAULT_SITE_URL: ${{ secrets.GATSBY_DEFAULT_SITE_URL }}
-          GATSBY_CONCURRENT_DOWNLOAD: ${{ secrets.GATSBY_CONCURRENT_DOWNLOAD }}
-          WP_HTACCESS_USERNAME: ${{ secrets.WP_HTACCESS_USERNAME }}
-          WP_HTACCESS_PASSWORD: ${{ secrets.WP_HTACCESS_PASSWORD }}
+        secrets: |
+          "WP_GRAPHQL_URL: ${{ secrets.WP_GRAPHQL_URL }}"
+          "GATSBY_DEFAULT_SITE_URL: ${{ secrets.GATSBY_DEFAULT_SITE_URL }}"
+          "GATSBY_CONCURRENT_DOWNLOAD: ${{ secrets.GATSBY_CONCURRENT_DOWNLOAD }}"
+          "WP_HTACCESS_USERNAME: ${{ secrets.WP_HTACCESS_USERNAME }}"
+          "WP_HTACCESS_PASSWORD: ${{ secrets.WP_HTACCESS_PASSWORD }}"
         with:
           context: .
           push: true

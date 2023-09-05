@@ -59,11 +59,17 @@ Browse to `http://localhost:8080` to see the website running.
 Set the proper environment variables and use the following command to build the container locally, as defined in the `Dockerfile`:
 
 ```bash
-$ podman build --env WP_GRAPHQL_URL=... \
-  --env GATSBY_DEFAULT_SITE_URL=... \
-  --env GATSBY_CONCURRENT_DOWNLOAD=5 \
-  --env WP_HTACCESS_USERNAME=... \
-  --env WP_HTACCESS_PASSWORD=... --tag website .
+$ export WP_GRAPHQL_URL=...
+$ export GATSBY_DEFAULT_SITE_URL=...
+$ export GATSBY_CONCURRENT_DOWNLOAD=5
+$ export WP_HTACCESS_USERNAME=...
+$ export WP_HTACCESS_PASSWORD=...
+$ podman build --secret id=WP_GRAPHQL_URL,env=WP_GRAPHQL_URL \
+  --secret id=GATSBY_DEFAULT_SITE_URL,env=GATSBY_DEFAULT_SITE_URL \
+  --secret id=GATSBY_CONCURRENT_DOWNLOAD,env=GATSBY_CONCURRENT_DOWNLOAD \
+  --secret id=WP_HTACCESS_USERNAME,env=WP_HTACCESS_USERNAME \
+  --secret id=WP_HTACCESS_PASSWORD,env=WP_HTACCESS_PASSWORD \
+  --tag website .
 ```
 
 You can run the resulting container using the following command:
