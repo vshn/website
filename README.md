@@ -4,7 +4,7 @@ This project contains the sources of the [VSHN website](https://vshn.ch/).
 
 ## Build Website
 
-This section contains information useful to build and run the website.
+This section explains how to build and run the website.
 
 ### Manually
 
@@ -72,6 +72,8 @@ $ podman build --secret id=WP_GRAPHQL_URL,env=WP_GRAPHQL_URL \
   --tag website .
 ```
 
+**NOTE:** The container build process outputs the line `/bin/sh: lscpu: not found` every so often; this is a warning, and can be ignored.
+
 You can run the resulting container using the following command:
 
 ```bash
@@ -80,54 +82,58 @@ $ podman run --rm --publish 8080:8080 website
 
 Browse to `http://localhost:8080` to see the website running. The final container is compatible with Red Hat OpenShift, using the [ghcr.io/vshn/nginx](https://github.com/vshn/nginx) as base image.
 
+### GitHub Actions
+
+The build process can take up to 45 minutes. You can run the resulting container using the following command:
+
+```bash
+$ podman run --rm --publish 8080:8080 ghcr.io/vshn/website:master
+```
+
 ## Development
+
+This section provides information about the development process.
+
+### Clean build products
+
+```bash
+$ npm run clean
+```
 
 ### Run the website
 
 ```bash
-npm run start
+$ npm run start
 ```
 
 ### Run Storybook
 
 ```bash
-npm run storybook
-```
-
-### Build the project
-
-```bash
-npm run build
+$ npm run storybook
 ```
 
 ### Build the website
 
 ```bash
-npm run build:website
+$ npm run build:website
 ```
 
 ### Build Storybook
 
 ```bash
-npm run build:storybook
+$ npm run build:storybook
 ```
 
 ### Run the built website
 
 ```bash
-npm run serve:website
+$ npm run serve:website
 ```
 
 ### Run built Storybook
 
 ```bash
-npm run serve:storybook
-```
-
-### Clean Gatsby cache
-
-```bash
-npm run clean
+$ npm run serve:storybook
 ```
 
 ## Project Structure
@@ -185,12 +191,6 @@ component
 ├── component.module.scss
 └── index.js
 ```
-
-## Commits
-
-We use Conventional Commits for commit messages. You can read more about Conventional Commits [here](https://www.conventionalcommits.org/en/v1.0.0/). [Here](https://cheatography.com/albelop/cheat-sheets/conventional-commits/) you can find a useful Conventional Commits Cheat Sheet.
-
-We try to make our commits "atomic". [Here](https://www.freshconsulting.com/atomic-commits/) and [here](https://en.wikipedia.org/wiki/Atomic_commit) you can read more about Atomic commits.
 
 ## VS Code
 

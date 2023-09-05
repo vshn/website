@@ -1,5 +1,0 @@
-{
-  "*.{js,jsx}": "eslint --cache --fix",
-  "*.{css,sass,scss,md,html}": "stylelint --cache --fix --ignore-path .gitignore",
-  "*.{md}": "markdownlint --fix --ignore-path .gitignore"
-}
