@@ -6,6 +6,16 @@ metadata:
   name: vshn-website
 spec:
   rules:
+    - host: vshn.ch
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: vshn-website
+                port:
+                  number: 8080
     - host: www.vshn.ch
       http:
         paths:
@@ -18,5 +28,6 @@ spec:
                   number: 8080
   tls:
     - hosts:
+        - vshn.ch
         - www.vshn.ch
       secretName: vshn-cert
