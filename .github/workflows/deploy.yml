@@ -1,0 +1,30 @@
+name: Deploy on APPUiO Cloud
+
+on:
+  push:
+    branches: ['master']
+    tags: ['*']
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push-image
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to APPUiO Cloud Project
+        run: oc login --token=${{ secrets.OPENSHIFT_TOKEN }} --server=${{ secrets.OPENSHIFT_URL }}
+
+      - name: Select project
+        run: oc project ${{ secrets.OPENSHIFT_PROJECT }}
+
+      - name: Deploy application
+        run: oc apply --overwrite --filename deployment
+
+      - name: Rollout latest version
+        run: oc rollout latest dc/vshn-website
