@@ -1,8 +1,8 @@
-name: Deploy on APPUiO Cloud
+name: Deploy
 
 on:
   workflow_run:
-    workflows: [Build and publish container image]
+    workflows: [ Container ]
       types:
         - completed
   workflow_dispatch:
