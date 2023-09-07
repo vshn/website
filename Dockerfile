@@ -1,6 +1,6 @@
 # Step 1: Builder image
 FROM docker.io/library/node:16.20.2-alpine3.17 AS builder
-COPY ["redirects.json", "gatsby-browser.js", "gatsby-config.js", "gatsby-node.js", "gatsby-ssr.js", "package.json", "package-lock.json", "/build/"]
+COPY ["redirects.json", "gatsby-browser.js", "gatsby-config.js", "gatsby-node.js", "package.json", "package-lock.json", "/build/"]
 COPY src /build/src
 COPY static /build/static
 WORKDIR /build
