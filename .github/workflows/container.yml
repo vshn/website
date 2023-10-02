@@ -3,8 +3,8 @@ name: Container
 on:
   workflow_dispatch:
   schedule:
-  # run at quarter past 7, 11, 15, and 18 CET on weekdays
-  - cron: '15 6,10,14,18 * * 1-5'
+  # run at quarter past 7, 11, 15, and 18 CEST on weekdays
+  - cron: '15 6,10,13,14,18 * * 1-5'
   push:
     branches: ['master']
     tags: ['*']
