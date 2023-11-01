@@ -19,4 +19,8 @@ RUN --mount=type=secret,id=WP_GRAPHQL_URL \
 
 # Step 2: Runtime image
 FROM ghcr.io/vshn/nginx:1.25.1
+LABEL org.opencontainers.image.source=https://github.com/vshn/website
+
 COPY --from=builder /build/public /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
